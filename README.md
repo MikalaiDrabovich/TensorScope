@@ -1,6 +1,6 @@
 # TensorScope
 
-![Alt text](tensorscope_screenshot.png?raw=true "Screenshot")
+![Alt text](screenshot_tensorscope.png?raw=true "Screenshot")
 
 Sunburst-like charts for analysing dynamic graphs time and parameters in TensorFlow.
 Based on Krona tools:
