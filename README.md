@@ -10,6 +10,5 @@ https://github.com/marbl/Krona/wiki/KronaTools
 To start, copy 4 snippets from alexnet_benchmark.py and paste them into similar locations in your main training file (the one with iterations over batches and session.run() call)
 
 ## Contact
-nick.darbovich@amd.com
-
+Send PR or email to nick.drabovich@amd.com
 
