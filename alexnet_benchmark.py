@@ -44,16 +44,19 @@ import tensorflow as tf
 
 FLAGS = None
 
-# ========== Snippet to enable tracing 0/3 =================
-from tensorflow.python.client import timeline
-#from collections import defaultdict
-from tensorflow.python.framework import tensor_shape
+# ========== TensorScope Snippet 1 - paste right after imports =================
+#Optional imports:
 import numpy as np
-import csv
-import os
+#from collections import defaultdict
+
+
+# For creating results and launching browser from bash
 import subprocess
-  
-global_tracing_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
+import os
+
+import csv
+from tensorflow.python.client import timeline
+from tensorflow.python.framework import tensor_shape
 
 def accumulate_op_time(step_stats, map_op_time):
     '''Adds op time from current step to total time for op
