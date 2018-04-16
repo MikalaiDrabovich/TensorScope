@@ -116,7 +116,7 @@ def fill_maps_nodename_ionames(train_model_graph, map_nodename_inputnames, map_n
         map_nodename_outputnames[node.name] =  output_names
         
 
-def fill_map_nodename_result_shape(step_stats, map_nodename_resultshape):
+def tensorscope_map_node_to_output_shape(step_stats, tensorscope_output_dimension):
     acc = 0
     for dev_stats in step_stats.dev_stats:
         for node_stat in dev_stats.node_stats:
@@ -131,19 +131,19 @@ def fill_map_nodename_result_shape(step_stats, map_nodename_resultshape):
                 node_stat_shape = tensor_shape.TensorShape(
                     [d.size for d in node_stat_dims])
                 
-                shape_str = node_stat_shape.__str__()
-                output_shapes.append(shape_str)
+                tensorscope_shape_str = node_stat_shape.__str__()
+                output_shapes.append(tensorscope_shape_str)
             
-             # strip device placement num from name 
             ionodename = node_stat.node_name
             
+            # Strip device placement number from name.
+            # Disable to distinguish ops also by device number.
             ionodename_before = ionodename
-
             words_out = ionodename.split(":") 
             if len(words_out)>1:
                 ionodename = words_out[-2]
                 
-            map_nodename_resultshape[ionodename] = output_shapes
+            tensorscope_output_dimension[ionodename] = output_shapes
             
             
 def tensorscope_map_node_to_io_shapes(tensorscope_output_dimension, tensorscope_node_input, tensorscope_node_output, tensorscope_final_output_dimension):
