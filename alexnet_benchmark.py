@@ -146,41 +146,39 @@ def fill_map_nodename_result_shape(step_stats, map_nodename_resultshape):
             map_nodename_resultshape[ionodename] = output_shapes
             
             
-def fill_map_nodename_input_output_shapes(map_nodename_resultshape, map_nodename_inputnames, map_nodename_outputnames, final_map_shapes):
+def tensorscope_map_node_to_io_shapes(tensorscope_output_dimension, tensorscope_node_input, tensorscope_node_output, tensorscope_final_output_dimension):
      
-    for k,v in map_nodename_resultshape.items():
+    for k,v in tensorscope_output_dimension.items():
         final_io_shapes = []
         
-        #final_io_shapes.append("In:")
-        
-        if k in map_nodename_inputnames:
-            all_input_names = map_nodename_inputnames[k]
+        if k in tensorscope_node_input:
+            all_input_names = tensorscope_node_input[k]
             
             for inp in all_input_names:
-                if inp in map_nodename_resultshape:                
-                    final_io_shapes.extend(map_nodename_resultshape[inp])
+                if inp in tensorscope_output_dimension:                
+                    final_io_shapes.extend(tensorscope_output_dimension[inp])
                 else:
-                    final_io_shapes.extend(["(Scalar)"])
+                    final_io_shapes.extend(["()"])
         else:
-            final_io_shapes.extend(["(Scalar)"])
+            final_io_shapes.extend(["()"])
 
         final_io_shapes.extend(['->'])
         final_io_shapes.extend(v)
        
+        # alternative ways to conscisely format found i/o tensor shape 
         #final_io_shapes = [str1.replace('(,', '(1x') for str1 in  final_io_shapes]   
         #final_io_shapes = [str1.replace(',)', '(x1') for str1 in  final_io_shapes]   
-        
-        final_io_shapes = [str1.replace(',', 'x') for str1 in  final_io_shapes]        
-        final_io_shapes = [str1.replace('(', '') for str1 in  final_io_shapes]
-        final_io_shapes = [str1.replace(')', '') for str1 in  final_io_shapes]
-        final_io_shapes = [str1.replace(' ', '') for str1 in  final_io_shapes]
+        #final_io_shapes = [str1.replace(',', 'x') for str1 in  final_io_shapes]        
+        #final_io_shapes = [str1.replace('(', '') for str1 in  final_io_shapes]
+        #final_io_shapes = [str1.replace(')', '') for str1 in  final_io_shapes]
+        #final_io_shapes = [str1.replace(' ', '') for str1 in  final_io_shapes]
         #final_io_shapes = [str1.replace('()', '(Scalar)') for str1 in  final_io_shapes]
         #final_io_shapes = [str1.replace('x)', 'x1)') for str1 in  final_io_shapes] 
         #final_io_shapes = [str1.replace('(x', '(1x') for str1 in  final_io_shapes] 
          
-        final_map_shapes[k] = final_io_shapes
+        tensorscope_final_output_dimension[k] = final_io_shapes
         
-# ========== End of snippet to enable tracing 0/3 ========== 
+# ========== End of TensorScope Snippet 1 ========== 
 
 
 
