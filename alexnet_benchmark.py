@@ -81,8 +81,8 @@ def accumulate_op_time(step_stats, map_op_time):
                 map_op_time[node_stat.node_name] = [op_time, init_set]
                 
 
-def fill_maps_nodename_ionames(train_model_graph, map_nodename_inputnames, map_nodename_outputnames):
-    all_ops = train_model_graph.get_operations()
+def tensorscope_map_node_to_ionames(tensorscope_model_graph_for_names, tensorscope_node_input, tensorscope_node_output):
+    all_ops = tensorscope_model_graph_for_names.get_operations()
     print("Total number of operations in a graph: ", len(all_ops))
     for node in all_ops:
         input_names = []
@@ -90,10 +90,12 @@ def fill_maps_nodename_ionames(train_model_graph, map_nodename_inputnames, map_n
         
           
         for (i, inp) in enumerate(node.inputs):
-            # strip device placement num from name 
+            
             ionodename = inp.name
+            
+            # Strip device placement number from name.
+            # Disable to distinguish ops also by device number.
             ionodename_before = ionodename
-
             words_out = ionodename.split(":") 
             if len(words_out)>1:
                 ionodename = words_out[-2]
@@ -101,19 +103,19 @@ def fill_maps_nodename_ionames(train_model_graph, map_nodename_inputnames, map_n
             input_names.append(ionodename)
        
         for (i, outp) in enumerate(node.outputs):
-            # strip device placement num from name 
             ionodename = outp.name
              
+            # Strip device placement number from name.
+            # Disable to distinguish ops also by device number.
             ionodename_before = ionodename
-
             words_out = ionodename.split(":") 
             if len(words_out)>1:
                 ionodename = words_out[-2]
                            
             output_names.append(ionodename)
        
-        map_nodename_inputnames[node.name] =  input_names
-        map_nodename_outputnames[node.name] =  output_names
+        tensorscope_node_input[node.name] =  input_names
+        tensorscope_node_output[node.name] =  output_names
         
 
 def tensorscope_map_node_to_output_shape(step_stats, tensorscope_output_dimension):
