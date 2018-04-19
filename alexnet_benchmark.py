@@ -57,8 +57,8 @@ import os
 import csv
 from tensorflow.python.client import timeline
 from tensorflow.python.framework import tensor_shape
-
-def accumulate_op_time(step_stats, map_op_time):
+   
+def tensorscope_accumulate_time(step_stats, map_op_time):
     '''Adds op time from current step to total time for op
     Args:
         step_stats (RunMetadata): timings for current step
@@ -67,18 +67,12 @@ def accumulate_op_time(step_stats, map_op_time):
     for dev_stats in step_stats.dev_stats:
         for node_stat in dev_stats.node_stats:
             op_time = node_stat.op_end_rel_micros - node_stat.op_start_rel_micros
-            #map_op_time[node_stat.node_name] += op_time
             
             if node_stat.node_name in map_op_time:
-                set_ref = map_op_time[node_stat.node_name]
-                set_ref[0] += op_time
-                set_ref[1].add("Input size:")
-                #print(map_op_time[node_stat.node_name])
-                #exit(0)
+                map_op_time[node_stat.node_name][0] += op_time
+                map_op_time[node_stat.node_name][1] += 1
             else:
-                init_set = set()
-                init_set.add("Input size:")
-                map_op_time[node_stat.node_name] = [op_time, init_set]
+                map_op_time[node_stat.node_name] = [0, 0]
                 
 
 def tensorscope_map_node_to_ionames(tensorscope_model_graph_for_names, tensorscope_node_input, tensorscope_node_output):
