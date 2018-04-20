@@ -335,6 +335,10 @@ def time_tensorflow_run(session, target, info_string):
   tensorscope_tracing_graph_parsed = False
   tensorscope_timeline_saved = False
 
+  # Set to the max loop value of main loop below, typically a total number of batches
+  # for example, for alexnet_benchmark.py this will be FLAGS.num_batches + num_steps_burn_in
+  tensorscope_max_sessions =  REPLACE_THIS_WITH_MAX_LOOP_ITERATION # change to FLAGS.num_batches + num_steps_burn_in
+  
   # ========== End of TensorScope Snippet 2 ==================================    
 
   for i in xrange(FLAGS.num_batches + num_steps_burn_in):
