@@ -318,23 +318,24 @@ def time_tensorflow_run(session, target, info_string):
   total_duration_squared = 0.0
   
   
-  # ========== Snippet to enable tracing 1/3 =================
-  timing_map = dict()
-  map_nodename_inputnames = dict()
-  map_nodename_outputnames = dict()
-  map_nodename_resultshape = dict()
-  final_map_shapes = dict()
-
-   
-  total_time_all_sessions = 0
-  total_session_runs = 0
-  num_accumulated_sessions = 0
-  op_info_found = False
+  # ====== TensorScope Snippet 2 - paste right before main training loop ===== 
   
-  n_hidden = 12345
-  global_train_batch_size = FLAGS.batch_size
-  global_num_batches_total = FLAGS.num_batches
-  # ========== End of snippet to enable tracing 1/3 ==========     
+  # Set to True to quickly check for any side effects from pasted snippets
+  tensorscope_disable_all = True
+  
+  tensorscope_timing_map = dict()
+  tensorscope_node_input = dict()
+  tensorscope_node_output = dict()
+  tensorscope_output_dimension = dict()
+  tensorscope_final_output_dimension = dict()
+
+  tensorscope_current_session = 0
+  tensorscope_num_sessions_analysed = 0
+  tensorscope_total_time = 0
+  tensorscope_tracing_graph_parsed = False
+  tensorscope_timeline_saved = False
+
+  # ========== End of TensorScope Snippet 2 ==================================    
 
   for i in xrange(FLAGS.num_batches + num_steps_burn_in):
   
