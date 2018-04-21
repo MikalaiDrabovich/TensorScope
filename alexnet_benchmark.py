@@ -321,7 +321,7 @@ def time_tensorflow_run(session, target, info_string):
   # ====== TensorScope Snippet 2 - paste right before main training loop ===== 
   
   # Set to True to quickly check for any side effects from pasted snippets
-  tensorscope_disable_all = True
+  tensorscope_disable_all = False
   
   tensorscope_timing_map = dict()
   tensorscope_node_input = dict()
@@ -343,53 +343,48 @@ def time_tensorflow_run(session, target, info_string):
 
   for i in xrange(FLAGS.num_batches + num_steps_burn_in):
   
-
     start_time = time.time()
+     
+    #==========  TensorScope Snippet 3 ======
+    # Paste this snippet to replace the line with session.run(). 
+    # Add two more arguments to new session.run()
     
-    
-    #_ = session.run(target)
-    
-    # ========== Snippet to enable tracing 2/3 =================
-   
-    total_session_runs = i
-    current_step = i
-    max_session_runs = FLAGS.num_batches + num_steps_burn_in
-    
-    session_start_time = time.time()
-    disable_tracing = False
-    
-    if disable_tracing:
-        _ = session.run(target)
-        current_session_time = time.time() - session_start_time
-        total_time_all_sessions = total_time_all_sessions + current_session_time
-        num_accumulated_sessions += 1
-               
+    if tensorscope_disable_all:
+      # original call
+      _ = session.run(target)
     else:
-        tracing_run_metadata = tf.RunMetadata()
-        _ = session.run(target, options=global_tracing_options, run_metadata=tracing_run_metadata)
-        current_session_time = time.time() - session_start_time
-         
-        if tracing_run_metadata is not None:
-            train_model_graph = tf.get_default_graph()
-            
-            if total_session_runs > 0 and current_step < (max_session_runs - 1): # skip first and last session runs for stats
+      tensorscope_current_session = REPLACE_THIS_TO_THE_LOOP_ITERATION # i, step etc. for alexnet_benchmark.py should be i
+      tensorscope_session_metadata = tf.RunMetadata()
+      tensorscope_session_start_time = time.time()
+          
+      # now with two more arguments:
+      _ = session.run(target,
+                      options=tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE),
+                      run_metadata=tensorscope_session_metadata)
+              
+      tensorscope_current_session_time = time.time() - tensorscope_session_start_time       
+      if tensorscope_session_metadata is not None:
+          tensorscope_model_graph = tf.get_default_graph()
+          
+          # skip two first and two last session runs
+          if tensorscope_current_session > 1 and tensorscope_current_session < (tensorscope_max_sessions - 1): 
+              tensorscope_total_time += tensorscope_current_session_time
+              tensorscope_accumulate_time(tensorscope_session_metadata.step_stats, tensorscope_timing_map)
+              tensorscope_num_sessions_analysed += 1
+              
+              if not tensorscope_tracing_graph_parsed:
+                  # If output shapes are intially unknown in a dynamic graph,
+                  # we need to parse both session metadata and graph to extract this info
+                  tensorscope_parsing_start_time = time.time()
+                  tensorscope_map_node_to_ionames(tensorscope_model_graph, tensorscope_node_input, tensorscope_node_output)
+                  tensorscope_map_node_to_output_shape(tensorscope_session_metadata.step_stats, tensorscope_output_dimension)
+                  tensorscope_map_node_to_io_shapes(tensorscope_output_dimension, tensorscope_node_input, tensorscope_node_output, tensorscope_final_output_dimension)
+                  tensorscope_parsing_end_time = time.time()
+                  tensorscope_tracing_graph_parsed = True
+                  print("Session graph and metadata parsed in %4.4f seconds" % (tensorscope_parsing_end_time - tensorscope_parsing_start_time))                    
 
-                total_time_all_sessions = total_time_all_sessions + current_session_time
-  
-                accumulate_op_time(tracing_run_metadata.step_stats, timing_map)
-                num_accumulated_sessions += 1
-                if not op_info_found:
-                    start_time_fillmap = time.time()
-                    fill_maps_nodename_ionames(train_model_graph, map_nodename_inputnames, map_nodename_outputnames)
-                    fill_map_nodename_result_shape(tracing_run_metadata.step_stats, map_nodename_resultshape)
-                    fill_map_nodename_input_output_shapes(map_nodename_resultshape, map_nodename_inputnames, map_nodename_outputnames, final_map_shapes)
-                    
-                    end_time_fillmap = time.time()
-                    print("Graph parsed in %4.4f seconds" % (end_time_fillmap - start_time_fillmap))                    
-                    op_info_found = True
-        else:
-            print("Metadata is None")
-        
+      else:
+          print("Metadata was not collected, check calls to session.run()")
         
         #if current_step - last_stats_step >= steps_per_stats:    
         #fetched_timeline = timeline.Timeline(tracing_run_metadata.step_stats)
