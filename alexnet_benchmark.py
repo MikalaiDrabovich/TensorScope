@@ -386,19 +386,18 @@ def time_tensorflow_run(session, target, info_string):
       else:
           print("Metadata was not collected, check calls to session.run()")
         
-        #if current_step - last_stats_step >= steps_per_stats:    
-        #fetched_timeline = timeline.Timeline(tracing_run_metadata.step_stats)
-        #chrome_trace = fetched_timeline.generate_chrome_trace_format(show_memory=True)
-        #with open("timeline_deepspeech_hidden_%d_batch_%d_timesteps_%d_step_%d.json" % (n_hidden, global_train_batch_size, global_num_batches_total, current_step),'w') as traces_file:
-        #    traces_file.write(chrome_trace) 
-        #    print('Traces saved in', traces_file.name)
-        
+      if not tensorscope_timeline_saved:
+          tensorscope_timeline = timeline.Timeline(tensorscope_session_metadata.step_stats)
+          tensorscope_chrome_trace = tensorscope_timeline.generate_chrome_trace_format(show_memory=True)
+          with open("tensorflow_timeline_"+str(time.time())[:10]+".json",'w') as tensorscope_timeline_file:
+              tensorscope_timeline_file.write(tensorscope_chrome_trace) 
+              print('Timeline saved in', tensorscope_timeline_file.name)
+          tensorscope_timeline_saved = True
+      
+      if tensorscope_current_session % 100 == 0:
+          print("Step #%d/%d completed in %4.4f seconds" % (tensorscope_current_session, tensorscope_max_sessions, tensorscope_current_session_time))
 
-
-    print("Batch #%d completed in %4.4f seconds" % (current_step, current_session_time))
-    
-    total_session_runs +=1
-    # ========== End of snippet to enable tracing 2/3 ========== 
+      # ========== End of TensorScope snippet 3 ==================================
                         
     
     duration = time.time() - start_time
