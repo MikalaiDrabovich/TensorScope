@@ -399,7 +399,6 @@ def time_tensorflow_run(session, target, info_string):
 
       # ========== End of TensorScope snippet 3 ==================================
                         
-    
     duration = time.time() - start_time
     if i >= num_steps_burn_in:
       if not i % 10:
@@ -407,12 +406,6 @@ def time_tensorflow_run(session, target, info_string):
                (datetime.now(), i - num_steps_burn_in, duration))
       total_duration += duration
       total_duration_squared += duration * duration
-  print("Total experiment duration: %f sec." % total_duration)
-  mn = total_duration / FLAGS.num_batches
-  vr = total_duration_squared / FLAGS.num_batches - mn * mn
-  sd = math.sqrt(vr)
-  print ('%s: %s across %d steps, %.3f +/- %.3f sec / batch' %
-         (datetime.now(), info_string, FLAGS.num_batches, mn, sd))
          
   # ========== Snippet to enable tracing 3/3 =================
   
