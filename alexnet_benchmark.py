@@ -407,114 +407,84 @@ def time_tensorflow_run(session, target, info_string):
       total_duration += duration
       total_duration_squared += duration * duration
          
-  # ========== Snippet to enable tracing 3/3 =================
-  
-  sorted_times = ( (key, value) for key, value in sorted(timing_map.items(), key=lambda x: list(x[1])[0], reverse=True))
-  sorted_times = list(sorted_times)
-  total_ops_time = 0 
-
-  op_count = 0
-  tot_time_in_top_k_ops = 0
-  
-  # top k ops, k is equally spaced in log10
-  import numpy as np
-  k_values = np.round(np.power(10, np.linspace(0, np.log10(len(sorted_times)), num=10, endpoint=True)).astype(np.double))
-  top_k_time = np.zeros(len(k_values))
-  
-  bin_count = 0
-  for k1,v1 in sorted_times:
-      op_count = op_count + 1
-      op_time_total = v1[0]
-      total_ops_time = total_ops_time + op_time_total
+  # ====== TensorScope Snippet 4 - paste right after main training loop =====
+  if not tensorscope_disable_all:
+    if tensorscope_num_sessions_analysed < 5:
+        print('Training stats were not captured - more training steps required')
+        return -1
       
-      tot_time_in_top_k_ops = tot_time_in_top_k_ops + op_time_total
-      if op_count >= k_values[bin_count]:
-        top_k_time[bin_count] = tot_time_in_top_k_ops
-        bin_count = bin_count + 1
- 
-  num_train_steps = num_accumulated_sessions
-  if num_train_steps < 3:
-      print('Training stats were not captured - more training steps required (increase number of --epoch)')
-      return
+    tensorscope_sorted_times = ( (key, value) for key, value in sorted(tensorscope_timing_map.items(), key=lambda x: list(x[1])[0], reverse=True))
+    tensorscope_sorted_times = list(tensorscope_sorted_times)
+    tensorscope_total_ops_time = 0
 
-  file_name_tsv_all_info = "tensorscope_all_data.tsv"
-  file_name_tensorscope_input = "tensorscope_input_file.tsv"
-   
-  file_tsv_all_info = open(file_name_tsv_all_info,'w')
-  file_tensorscope_input = open(file_name_tensorscope_input,'w')
-
-  writer_file_tsv_all_info = csv.writer(file_tsv_all_info, delimiter='\t')#,quoting=csv.QUOTE_MINIMAL) quotechar='"', 
-  writer_file_tensorscope_input = csv.writer(file_tensorscope_input, delimiter='\t')#,quoting=csv.QUOTE_MINIMAL) quotechar='"', 
-
-  header_str_tsv = ['Time Rank', 'Time % total', 'Cumulative time %', 'Wall Time, ms', 'Op name', 'Input/output tensor shape']
-  header_str_tensorscope_input = ['Node','Time']
-
-  writer_file_tsv_all_info.writerow(header_str_tsv)
-  writer_file_tensorscope_input.writerow(header_str_tensorscope_input)
-
-  op_count = 0
-  cumul_time = 0.0
-  for k,v in sorted_times:
-    op_count = op_count + 1
-    op_time_total = v[0]
+    tensorscope_op_count = 0
+    tensorscope_top_k_ops_time = 0
     
-    shape_str = ""
-    if k in final_map_shapes:
-        #print('IO tensor dimensions: ', final_map_shapes[k])
-        shape_str = final_map_shapes[k]
-    else:
-        orig_k = k
-        ionodename = k
-        words_out = k.split(":") 
-        if len(words_out)>1:
-            ionodename = words_out[-2]
-        
-        if ionodename in final_map_shapes:
-            shape_str = final_map_shapes[ionodename]
-            #print('IO tensor dimensions: ', final_map_shapes[ionodename])
-        else:
-            shape_str = 'N/A'
-            #print('IO tensor dimensions not found for ', ionodename , " and ", orig_k)
+    # sort ops and create tsv files
+    tensorscope_tsv_file_name = "tensorscope_all_info_sorted_"+str(time.time())[:10]+".tsv"
+    tensorscope_tsv_file_name_for_chart = "tensorscope_data_for_chart_"+str(time.time())[:10]+".tsv"
     
-    cumul_time += 100.0*op_time_total/float(total_ops_time)
-    
-    current_row_output =  [op_count, "%3.2f" % (100.0*op_time_total/float(total_ops_time)), "%3.2f" % cumul_time, op_time_total/(1000.0*float(num_train_steps)), k, ' '.join(shape_str)]
-    current_row_output_for_chart_tsv = [op_time_total/float(num_train_steps)]
-    nodepaths = k.split('/')
-    
-    # remove duplicates in node name, e.g. MatMul:MatMul -> MatMul
-    doubled_names = nodepaths[-1].split(':')
-    if len(doubled_names)==2 and doubled_names[0]==doubled_names[1]:
-      nodepaths[-1] = doubled_names[0]
-    
-    current_row_output_for_chart_tsv.extend(nodepaths)
-    current_row_output_for_chart_tsv.append(''.join(shape_str))
-    
-    writer_file_tsv_all_info.writerow(current_row_output)
-    writer_file_tensorscope_input.writerow(current_row_output_for_chart_tsv)
+    tensorscope_tsv_file_obj = open(tensorscope_tsv_file_name,'w')
+    tensorscope_tsv_file_obj_for_chart = open(tensorscope_tsv_file_name_for_chart,'w')
 
-       
-  print("Total ops time: ", total_time_all_sessions)
-  print("Number of analysed session runs (skipping the first and the last): ", num_accumulated_sessions)
+    tensorscope_tsv_file_writer = csv.writer(tensorscope_tsv_file_obj, delimiter='\t')
+    tensorscope_tsv_file_writer_for_chart = csv.writer(tensorscope_tsv_file_obj_for_chart, delimiter='\t')
 
-  microsec_num = 1000000.0
-  mean_time_per_step = float(total_time_all_sessions)/num_train_steps
-  mean_allops_time_per_step = float(total_ops_time)/(num_train_steps*microsec_num)
-  denom_const = 0.01*microsec_num*num_train_steps*mean_allops_time_per_step
+    tensorscope_header_tsv = ['Time Rank', '% of total', 'Cumulative %', 'Wall time, ms', '# of calls', 'Op name', 'Input/output tensor shape']
+    tensorscope_header_tsv_for_chart = ['Node','Time']
 
-  print("Mean time for one batch, sec: %5.5f" % (mean_time_per_step))
-  for k_count in range(len(top_k_time)):
-    print("Top %d ops time: %5.5f sec out of %5.5f sec (%5.1f%%)" % (k_values[k_count], top_k_time[k_count]/(microsec_num*num_train_steps), mean_allops_time_per_step, top_k_time[k_count]/denom_const))
-  
-  # launch TensorScope
-  pwd_path = os.path.dirname(os.path.realpath(__file__))
-  tensorscope_dir = pwd_path + "/TensorScope/scripts/"
-  tensorscope_input_file = file_name_tensorscope_input
-  tensorscope_result_file = pwd_path + "/tensorscope_result.html"
-  cmd_run = 'cd %s && ./ImportText.pl %s/%s -o %s && google-chrome --no-sandbox %s l && cd -' % (tensorscope_dir, pwd_path, tensorscope_input_file, tensorscope_result_file, tensorscope_result_file)
-  subprocess.Popen(cmd_run,shell=True)
+    tensorscope_tsv_file_writer.writerow(tensorscope_header_tsv)
+    tensorscope_tsv_file_writer_for_chart.writerow(tensorscope_header_tsv_for_chart)
 
-  # ========== End of snippet to enable tracing 3/3 =================
+    tensorscope_op_count = 0
+    tensorscope_cumul_time = 0.0
+    for tensorscope_times_key, tensorscope_times_value in tensorscope_sorted_times:
+      tensorscope_op_count = tensorscope_op_count + 1
+      tensorscope_op_time_total = tensorscope_times_value[0]
+      
+      tensorscope_shape_str = ""
+      if tensorscope_times_key in tensorscope_final_output_dimension:
+          tensorscope_shape_str = tensorscope_final_output_dimension[tensorscope_times_key]
+      else:
+          tensorscope_current_node = tensorscope_times_key
+          words_out = tensorscope_times_key.split(":") 
+          if len(words_out)>1:
+              tensorscope_current_node = words_out[-2]
+          
+          if tensorscope_current_node in tensorscope_final_output_dimension:
+              tensorscope_shape_str = tensorscope_final_output_dimension[tensorscope_current_node]
+          else:
+              tensorscope_shape_str = 'N/A'
+      
+      tensorscope_cumul_time += 100.0*tensorscope_op_time_total/float(tensorscope_total_ops_time)
+      
+      tensorscope_current_row_output =  [tensorscope_op_count, 
+                                        "%3.2f" % (100.0*tensorscope_op_time_total/float(tensorscope_total_ops_time)), 
+                                        "%3.2f" % tensorscope_cumul_time, tensorscope_op_time_total/(1000.0*float(tensorscope_num_sessions_analysed)),
+                                        tensorscope_times_value[1],
+                                        tensorscope_times_key, 
+                                        ' '.join(tensorscope_shape_str)]
+                                        
+      tensorscope_current_row_output_for_chart_tsv = [tensorscope_op_time_total/float(tensorscope_num_sessions_analysed)]
+      tensorscope_nodepath = tensorscope_times_key.split('/')
+      
+      # remove duplicates in node name, e.g. MatMul:MatMul -> MatMul
+      tensorscope_double_name =  tensorscope_nodepath[-1].split(':')
+      if len(tensorscope_double_name)==2 and tensorscope_double_name[0]==tensorscope_double_name[1]:
+         tensorscope_nodepath[-1] = tensorscope_double_name[0]
+         print("Name redundancy removed: ", tensorscope_nodepath)
+      
+      tensorscope_current_row_output_for_chart_tsv.extend(tensorscope_nodepath)
+      tensorscope_current_row_output_for_chart_tsv.append(''.join(tensorscope_shape_str))
+      
+      tensorscope_tsv_file_writer.writerow(tensorscope_current_row_output)
+      tensorscope_tsv_file_writer_for_chart.writerow(tensorscope_current_row_output_for_chart_tsv)
+
+         
+    print("Total time for all ops: %.3f seconds" % tensorscope_total_time)
+    print("Number of analyzed session runs (skipping the first and the last): ", tensorscope_num_sessions_analysed)
+    
+    # ========== End of TensorScope snippet 4 =================
 
   mn = total_duration / FLAGS.num_batches
   vr = total_duration_squared / FLAGS.num_batches - mn * mn
