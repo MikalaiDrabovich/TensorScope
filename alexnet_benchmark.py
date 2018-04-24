@@ -516,6 +516,11 @@ def time_tensorflow_run(session, target, info_string):
 
   # ========== End of snippet to enable tracing 3/3 =================
 
+  mn = total_duration / FLAGS.num_batches
+  vr = total_duration_squared / FLAGS.num_batches - mn * mn
+  sd = math.sqrt(vr)
+  print ('%s: %s across %d steps, %.3f +/- %.3f sec / batch' %
+         (datetime.now(), info_string, FLAGS.num_batches, mn, sd))
 
 
 def run_benchmark():
