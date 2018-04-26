@@ -512,7 +512,15 @@ def time_tensorflow_run(session, target, info_string):
             tensorscope_top_k_time[tensorscope_k_count]/(tensorscope_microsec_num*tensorscope_num_sessions_analysed),
             tensorscope_mean_all_ops_time_per_step,
             tensorscope_top_k_time[tensorscope_k_count]/tensorscope_denom_const))
-            
+    
+    # launch TensorScope
+    tensorscope_pwd_path = os.path.dirname(os.path.realpath(__file__))
+    tensorscope_dir = tensorscope_pwd_path + "/TensorScope/scripts/"
+    tensorscope_input_file = tensorscope_tsv_file_name_for_chart
+    tensorscope_result_file = tensorscope_pwd_path + "/tensorscope_result_"+str(time.time())[:10]+".html"
+    tensorscope_cmd_run = 'cd %s && ./ImportText.pl %s/%s -o %s && google-chrome --no-sandbox %s l && cd -' % (tensorscope_dir, tensorscope_pwd_path, tensorscope_input_file, tensorscope_result_file, tensorscope_result_file)
+    subprocess.Popen(tensorscope_cmd_run, shell=True)
+        
     # ========== End of TensorScope snippet 4 =================
 
   mn = total_duration / FLAGS.num_batches
