@@ -501,6 +501,18 @@ def time_tensorflow_run(session, target, info_string):
     print("Total time for all ops: %.3f seconds" % tensorscope_total_time)
     print("Number of analyzed session runs (skipping the first and the last): ", tensorscope_num_sessions_analysed)
     
+    tensorscope_microsec_num = 1000000.0
+    tensorscope_mean_time_per_step = float(tensorscope_total_time)/tensorscope_num_sessions_analysed
+    tensorscope_mean_all_ops_time_per_step = float(tensorscope_total_ops_time)/(tensorscope_num_sessions_analysed*tensorscope_microsec_num)
+    tensorscope_denom_const = 0.01*tensorscope_microsec_num*tensorscope_num_sessions_analysed*tensorscope_mean_all_ops_time_per_step
+
+    print("Mean time for one batch: %.3f seconds" % (tensorscope_mean_time_per_step))
+    for tensorscope_k_count in range(len(tensorscope_top_k_time)):
+      print("Cumulative time for top %d ops: %5.5f sec out of %5.5f sec (%5.1f%%)" % (tensorscope_k_values[tensorscope_k_count],
+            tensorscope_top_k_time[tensorscope_k_count]/(tensorscope_microsec_num*tensorscope_num_sessions_analysed),
+            tensorscope_mean_all_ops_time_per_step,
+            tensorscope_top_k_time[tensorscope_k_count]/tensorscope_denom_const))
+            
     # ========== End of TensorScope snippet 4 =================
 
   mn = total_duration / FLAGS.num_batches
