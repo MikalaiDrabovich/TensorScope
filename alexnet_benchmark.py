@@ -562,14 +562,13 @@ def run_benchmark():
     # Run the forward benchmark.
     time_tensorflow_run(sess, pool5, "Forward")
 
-    """
     # Add a simple objective so we can calculate the backward pass.
     objective = tf.nn.l2_loss(pool5)
     # Compute the gradient with respect to all the parameters.
     grad = tf.gradients(objective, parameters)
     # Run the backward benchmark.
     time_tensorflow_run(sess, grad, "Forward-backward")
-    """
+    
 
 def main(_):
   run_benchmark()
