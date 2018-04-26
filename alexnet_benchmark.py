@@ -420,6 +420,23 @@ def time_tensorflow_run(session, target, info_string):
     tensorscope_op_count = 0
     tensorscope_top_k_ops_time = 0
     
+    # Distribution of time among top k ops - useful for large models with thousands of ops.
+    # This should get a rough idea of what needs to be optimised in the first place.
+    # Value of k is equally spaced in log10 to get a clearer picture of what's going on.
+    tensorscope_k_values = np.round(np.power(10, np.linspace(0, np.log10(len(tensorscope_sorted_times)), num=10, endpoint=True)).astype(np.double))
+    tensorscope_top_k_time = np.zeros(len(tensorscope_k_values))
+    
+    tensorscope_bin_count = 0
+    for tensorscope_op_name, tensorscope_op_time in tensorscope_sorted_times:
+      tensorscope_op_count = tensorscope_op_count + 1
+      tensorscope_op_time_total = tensorscope_op_time[0]
+      tensorscope_total_ops_time = tensorscope_total_ops_time + tensorscope_op_time_total
+      tensorscope_top_k_ops_time = tensorscope_top_k_ops_time + tensorscope_op_time_total
+      
+      if tensorscope_op_count >= tensorscope_k_values[tensorscope_bin_count]:
+        tensorscope_top_k_time[tensorscope_bin_count] = tensorscope_top_k_ops_time
+        tensorscope_bin_count = tensorscope_bin_count + 1
+        
     # sort ops and create tsv files
     tensorscope_tsv_file_name = "tensorscope_all_info_sorted_"+str(time.time())[:10]+".tsv"
     tensorscope_tsv_file_name_for_chart = "tensorscope_data_for_chart_"+str(time.time())[:10]+".tsv"
