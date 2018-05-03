@@ -337,7 +337,7 @@ def time_tensorflow_run(session, target, info_string):
 
   # Set to the max loop value of main loop below, typically a total number of batches
   # for example, for alexnet_benchmark.py this will be FLAGS.num_batches + num_steps_burn_in
-  tensorscope_max_sessions =  REPLACE_THIS_WITH_MAX_LOOP_ITERATION # change to FLAGS.num_batches + num_steps_burn_in
+  tensorscope_max_sessions =  FLAGS.num_batches + num_steps_burn_in #REPLACE_THIS_WITH_MAX_LOOP_ITERATION # change to FLAGS.num_batches + num_steps_burn_in
   
   # ========== End of TensorScope Snippet 2 ==================================    
 
@@ -353,7 +353,7 @@ def time_tensorflow_run(session, target, info_string):
       # original call
       _ = session.run(target)
     else:
-      tensorscope_current_session = REPLACE_THIS_TO_THE_LOOP_ITERATION # i, step etc. for alexnet_benchmark.py should be i
+      tensorscope_current_session = i #REPLACE_THIS_TO_THE_LOOP_ITERATION # i, step etc. for alexnet_benchmark.py should be i
       tensorscope_session_metadata = tf.RunMetadata()
       tensorscope_session_start_time = time.time()
           
@@ -518,7 +518,7 @@ def time_tensorflow_run(session, target, info_string):
     tensorscope_dir = tensorscope_pwd_path + "/TensorScope/scripts/"
     tensorscope_input_file = tensorscope_tsv_file_name_for_chart
     tensorscope_result_file = tensorscope_pwd_path + "/tensorscope_result_"+str(time.time())[:10]+".html"
-    tensorscope_cmd_run = 'cd %s && ./ImportText.pl %s/%s -o %s && google-chrome --no-sandbox %s l && cd -' % (tensorscope_dir, tensorscope_pwd_path, tensorscope_input_file, tensorscope_result_file, tensorscope_result_file)
+    tensorscope_cmd_run = 'cd %s && ./ImportText.pl %s/%s -o %s && google-chrome --no-sandbox %s && cd -' % (tensorscope_dir, tensorscope_pwd_path, tensorscope_input_file, tensorscope_result_file, tensorscope_result_file)
     subprocess.Popen(tensorscope_cmd_run, shell=True)
         
     # ========== End of TensorScope snippet 4 =================
