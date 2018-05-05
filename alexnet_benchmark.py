@@ -44,7 +44,7 @@ import tensorflow as tf
 
 FLAGS = None
 
-# ========== TensorScope Snippet 1 - paste right after imports =================
+
 #Optional imports:
 import numpy as np
 #from collections import defaultdict
@@ -57,127 +57,308 @@ import os
 import csv
 from tensorflow.python.client import timeline
 from tensorflow.python.framework import tensor_shape
-   
-def tensorscope_accumulate_time(step_stats, map_op_time):
-    '''Adds op time from current step to total time for op
-    Args:
-        step_stats (RunMetadata): timings for current step
-        map_op_time (dict): dictionary of op name and its total time for training session
-    '''
-    for dev_stats in step_stats.dev_stats:
-        for node_stat in dev_stats.node_stats:
-            op_time = node_stat.op_end_rel_micros - node_stat.op_start_rel_micros
-            
-            if node_stat.node_name in map_op_time:
-                map_op_time[node_stat.node_name][0] += op_time
-                map_op_time[node_stat.node_name][1] += 1
-            else:
-                map_op_time[node_stat.node_name] = [0, 0]
-                
 
-def tensorscope_map_node_to_ionames(tensorscope_model_graph_for_names, tensorscope_node_input, tensorscope_node_output):
-    all_ops = tensorscope_model_graph_for_names.get_operations()
-    print("Total number of operations in a graph: ", len(all_ops))
-    for node in all_ops:
-        input_names = []
-        output_names = []
-        
-          
-        for (i, inp) in enumerate(node.inputs):
-            
-            ionodename = inp.name
-            
-            # Strip device placement number from name.
-            # Disable to distinguish ops also by device number.
-            ionodename_before = ionodename
-            words_out = ionodename.split(":") 
-            if len(words_out)>1:
-                ionodename = words_out[-2]
-                
-            input_names.append(ionodename)
-       
-        for (i, outp) in enumerate(node.outputs):
-            ionodename = outp.name
-             
-            # Strip device placement number from name.
-            # Disable to distinguish ops also by device number.
-            ionodename_before = ionodename
-            words_out = ionodename.split(":") 
-            if len(words_out)>1:
-                ionodename = words_out[-2]
-                           
-            output_names.append(ionodename)
-       
-        tensorscope_node_input[node.name] =  input_names
-        tensorscope_node_output[node.name] =  output_names
-        
+class SessionCharacterized(tf.Session):
+    
+    # Set to True to quickly check for any side effects from pasted snippets
+    disable_all = False
+    
+    timing_map = dict()
+    node_input = dict()
+    node_output = dict()
+    output_dimension = dict()
+    final_output_dimension = dict()
 
-def tensorscope_map_node_to_output_shape(step_stats, tensorscope_output_dimension):
-    acc = 0
-    for dev_stats in step_stats.dev_stats:
-        for node_stat in dev_stats.node_stats:
-            
-            if not node_stat.output:
-                continue
+    current_session = 0
+    num_sessions_analyzed = 0
+    total_time = 0
+    tracing_graph_parsed = False
+    timeline_saved = False
 
-            output_shapes = []
-            for (i, node_stat_out) in enumerate(node_stat.output):
-            
-                node_stat_dims = node_stat_out.tensor_description.shape.dim
-                node_stat_shape = tensor_shape.TensorShape(
-                    [d.size for d in node_stat_dims])
+    # we'll skip 2 runs at start and 2 runs at the end 
+    total_num_sessions = 6 + 4
+    
+    def accumulate_time(self, step_stats, map_op_time):
+        '''Adds op time from current step to total time for op
+        Args:
+            step_stats (RunMetadata): timings for current step
+            map_op_time (dict): dictionary of op name and its total time for training session
+        '''
+        for dev_stats in step_stats.dev_stats:
+            for node_stat in dev_stats.node_stats:
+                op_time = node_stat.op_end_rel_micros - node_stat.op_start_rel_micros
                 
-                tensorscope_shape_str = node_stat_shape.__str__()
-                output_shapes.append(tensorscope_shape_str)
-            
-            ionodename = node_stat.node_name
-            
-            # Strip device placement number from name.
-            # Disable to distinguish ops also by device number.
-            ionodename_before = ionodename
-            words_out = ionodename.split(":") 
-            if len(words_out)>1:
-                ionodename = words_out[-2]
-                
-            tensorscope_output_dimension[ionodename] = output_shapes
-            
-            
-def tensorscope_map_node_to_io_shapes(tensorscope_output_dimension, tensorscope_node_input, tensorscope_node_output, tensorscope_final_output_dimension):
-     
-    for k,v in tensorscope_output_dimension.items():
-        final_io_shapes = []
-        
-        if k in tensorscope_node_input:
-            all_input_names = tensorscope_node_input[k]
-            
-            for inp in all_input_names:
-                if inp in tensorscope_output_dimension:                
-                    final_io_shapes.extend(tensorscope_output_dimension[inp])
+                if node_stat.node_name in map_op_time:
+                    map_op_time[node_stat.node_name][0] += op_time
+                    map_op_time[node_stat.node_name][1] += 1
                 else:
-                    final_io_shapes.extend(["()"])
-        else:
-            final_io_shapes.extend(["()"])
+                    map_op_time[node_stat.node_name] = [0, 0]
+                    
 
-        final_io_shapes.extend(['->'])
-        final_io_shapes.extend(v)
-       
-        # alternative ways to conscisely format found i/o tensor shape 
-        #final_io_shapes = [str1.replace('(,', '(1x') for str1 in  final_io_shapes]   
-        #final_io_shapes = [str1.replace(',)', '(x1') for str1 in  final_io_shapes]   
-        #final_io_shapes = [str1.replace(',', 'x') for str1 in  final_io_shapes]        
-        #final_io_shapes = [str1.replace('(', '') for str1 in  final_io_shapes]
-        #final_io_shapes = [str1.replace(')', '') for str1 in  final_io_shapes]
-        #final_io_shapes = [str1.replace(' ', '') for str1 in  final_io_shapes]
-        #final_io_shapes = [str1.replace('()', '(Scalar)') for str1 in  final_io_shapes]
-        #final_io_shapes = [str1.replace('x)', 'x1)') for str1 in  final_io_shapes] 
-        #final_io_shapes = [str1.replace('(x', '(1x') for str1 in  final_io_shapes] 
+    def map_node_to_ionames(self, tensorscope_model_graph_for_names, tensorscope_node_input, tensorscope_node_output):
+        all_ops = tensorscope_model_graph_for_names.get_operations()
+        print("Total number of operations in a graph: ", len(all_ops))
+        for node in all_ops:
+            input_names = []
+            output_names = []
+            
+              
+            for (i, inp) in enumerate(node.inputs):
+                
+                ionodename = inp.name
+                
+                # Strip device placement number from name.
+                # Disable to distinguish ops also by device number.
+                ionodename_before = ionodename
+                words_out = ionodename.split(":") 
+                if len(words_out)>1:
+                    ionodename = words_out[-2]
+                    
+                input_names.append(ionodename)
+           
+            for (i, outp) in enumerate(node.outputs):
+                ionodename = outp.name
+                 
+                # Strip device placement number from name.
+                # Disable to distinguish ops also by device number.
+                ionodename_before = ionodename
+                words_out = ionodename.split(":") 
+                if len(words_out)>1:
+                    ionodename = words_out[-2]
+                               
+                output_names.append(ionodename)
+           
+            tensorscope_node_input[node.name] =  input_names
+            tensorscope_node_output[node.name] =  output_names
+            
+
+    def map_node_to_output_shape(self, step_stats, tensorscope_output_dimension):
+        acc = 0
+        for dev_stats in step_stats.dev_stats:
+            for node_stat in dev_stats.node_stats:
+                
+                if not node_stat.output:
+                    continue
+
+                output_shapes = []
+                for (i, node_stat_out) in enumerate(node_stat.output):
+                
+                    node_stat_dims = node_stat_out.tensor_description.shape.dim
+                    node_stat_shape = tensor_shape.TensorShape(
+                        [d.size for d in node_stat_dims])
+                    
+                    tensorscope_shape_str = node_stat_shape.__str__()
+                    output_shapes.append(tensorscope_shape_str)
+                
+                ionodename = node_stat.node_name
+                
+                # Strip device placement number from name.
+                # Disable to distinguish ops also by device number.
+                ionodename_before = ionodename
+                words_out = ionodename.split(":") 
+                if len(words_out)>1:
+                    ionodename = words_out[-2]
+                    
+                tensorscope_output_dimension[ionodename] = output_shapes
+                
+                
+    def map_node_to_io_shapes(self, tensorscope_output_dimension, tensorscope_node_input, tensorscope_node_output, tensorscope_final_output_dimension):
          
-        tensorscope_final_output_dimension[k] = final_io_shapes
+        for k,v in tensorscope_output_dimension.items():
+            final_io_shapes = []
+            
+            if k in tensorscope_node_input:
+                all_input_names = tensorscope_node_input[k]
+                
+                for inp in all_input_names:
+                    if inp in tensorscope_output_dimension:                
+                        final_io_shapes.extend(tensorscope_output_dimension[inp])
+                    else:
+                        final_io_shapes.extend(["()"])
+            else:
+                final_io_shapes.extend(["()"])
+
+            final_io_shapes.extend(['->'])
+            final_io_shapes.extend(v)
+             
+            tensorscope_final_output_dimension[k] = final_io_shapes
+    
         
-# ========== End of TensorScope Snippet 1 ========== 
+    def characterize(self, *args, max_iter = 6):
+        # we'll skip 2 runs at start and 2 runs at the end 
+        self.total_num_sessions = max_iter + 4
+        
+        self.session_metadata = tf.RunMetadata()
+        self.options=tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
+         
+        # Paste this snippet to replace the line with session.run(). 
+        # Add two more arguments to new session.run()
+        
+        if self.disable_all:
+          # original call
+          _ = self.run( *args)
+        else:
+          self.current_session += 1
+          self.session_metadata = tf.RunMetadata()
+          self.session_start_time = time.time()
+              
+          # now with two more arguments:
+          _ = self.run( *args,
+                          options=self.options,
+                          run_metadata=self.session_metadata)
+                  
+          self.current_session_time = time.time() - self.session_start_time       
+          if self.session_metadata is not None:
+              self.model_graph = tf.get_default_graph()
+              
+              # skip two first and two last session runs
+              if self.current_session > 1 and self.current_session < (self.total_num_sessions - 2) : 
+                  self.total_time += self.current_session_time
+                  self.accumulate_time(self.session_metadata.step_stats, self.timing_map)
+                  self.num_sessions_analyzed += 1
+                  
+                  if not self.tracing_graph_parsed:
+                      # If output shapes are intially unknown in a dynamic graph,
+                      # we need to parse both session metadata and graph to extract this info
+                      parsing_start_time = time.time()
+                      self.map_node_to_ionames(self.model_graph, self.node_input, self.node_output)
+                      self.map_node_to_output_shape(self.session_metadata.step_stats, self.output_dimension)
+                      self.map_node_to_io_shapes(self.output_dimension, self.node_input, self.node_output, self.final_output_dimension)
+                      parsing_end_time = time.time()
+                      self.tracing_graph_parsed = True
+                      print("Session graph and metadata parsed in %4.4f seconds" % (parsing_end_time - parsing_start_time))                    
 
+          else:
+              print("Metadata was not collected, check calls to session.run()")
+            
+          if not self.timeline_saved:
+              _timeline = timeline.Timeline(self.session_metadata.step_stats)
+              _chrome_trace = _timeline.generate_chrome_trace_format(show_memory=True)
+              with open("tensorflow_timeline_"+str(time.time())[:10]+".json",'w') as _timeline_file:
+                  _timeline_file.write(_chrome_trace) 
+                  print('Timeline saved in', _timeline_file.name)
+              self.timeline_saved = True
+          
+          if self.current_session % 100 == 0:
+              print("Step #%d/%d completed in %4.4f seconds" % (self.current_session, self.total_num_sessions, self.current_session_time))
 
+          # create chart
+          if self.num_sessions_analyzed == max_iter:
+              if not self.disable_all:
+                if self.num_sessions_analyzed < max_iter:
+                    print('self.num_sessions_analyzed: ', self.num_sessions_analyzed)
+                    print('Training stats were not captured - more training steps required')
+                    return -1
+                  
+                sorted_times = ( (key, value) for key, value in sorted(self.timing_map.items(), key=lambda x: list(x[1])[0], reverse=True))
+                sorted_times = list(sorted_times)
+                total_ops_time = 0
 
+                op_count = 0
+                top_k_ops_time = 0
+                
+                # Distribution of time among top k ops - useful for large models with thousands of ops.
+                # This should get a rough idea of what needs to be optimised in the first place.
+                # Value of k is equally spaced in log10 to get a clearer picture of what's going on.
+                k_values = np.round(np.power(10, np.linspace(0, np.log10(len(sorted_times)), num=10, endpoint=True)).astype(np.double))
+                top_k_time = np.zeros(len(k_values))
+                
+                bin_count = 0
+                for op_name, op_time in sorted_times:
+                  op_count = op_count + 1
+                  op_time_total = op_time[0]
+                  total_ops_time = total_ops_time + op_time_total
+                  top_k_ops_time = top_k_ops_time + op_time_total
+                  
+                  if op_count >= k_values[bin_count]:
+                    top_k_time[bin_count] = top_k_ops_time
+                    bin_count = bin_count + 1
+                    
+                # sort ops and create tsv files
+                tsv_file_name = "all_info_sorted_"+str(time.time())[:10]+".tsv"
+                tsv_file_name_for_chart = "data_for_chart_"+str(time.time())[:10]+".tsv"
+                
+                tsv_file_obj = open(tsv_file_name,'w')
+                tsv_file_obj_for_chart = open(tsv_file_name_for_chart,'w')
+
+                tsv_file_writer = csv.writer(tsv_file_obj, delimiter='\t')
+                tsv_file_writer_for_chart = csv.writer(tsv_file_obj_for_chart, delimiter='\t')
+
+                header_tsv = ['Time Rank', '% of total', 'Cumulative %', 'Wall time, ms', '# of calls', 'Op name', 'Input/output tensor shape']
+                header_tsv_for_chart = ['Node','Time']
+
+                tsv_file_writer.writerow(header_tsv)
+                tsv_file_writer_for_chart.writerow(header_tsv_for_chart)
+
+                op_count = 0
+                cumul_time = 0.0
+                for times_key, times_value in sorted_times:
+                  op_count = op_count + 1
+                  op_time_total = times_value[0]
+                  
+                  shape_str = ""
+                  if times_key in self.final_output_dimension:
+                      shape_str = self.final_output_dimension[times_key]
+                  else:
+                      current_node = times_key
+                      words_out = times_key.split(":") 
+                      if len(words_out)>1:
+                          current_node = words_out[-2]
+                      
+                      if current_node in self.final_output_dimension:
+                          shape_str = self.final_output_dimension[current_node]
+                      else:
+                          shape_str = 'N/A'
+                  
+                  cumul_time += 100.0*op_time_total/float(total_ops_time)
+                  
+                  current_row_output =  [op_count, 
+                                                    "%3.2f" % (100.0*op_time_total/float(total_ops_time)), 
+                                                    "%3.2f" % cumul_time, op_time_total/(1000.0*float(self.num_sessions_analyzed)),
+                                                    times_value[1],
+                                                    times_key, 
+                                                    ' '.join(shape_str)]
+                                                    
+                  current_row_output_for_chart_tsv = [op_time_total/float(self.num_sessions_analyzed)]
+                  nodepath = times_key.split('/')
+                  
+                  # remove duplicates in node name, e.g. MatMul:MatMul -> MatMul
+                  double_name =  nodepath[-1].split(':')
+                  if len(double_name)==2 and double_name[0]==double_name[1]:
+                     nodepath[-1] = double_name[0]
+                     print("Removing redundancy in node name from ", double_name, " to ", [nodepath[-1]])
+                  
+                  current_row_output_for_chart_tsv.extend(nodepath)
+                  current_row_output_for_chart_tsv.append(''.join(shape_str))
+                  
+                  tsv_file_writer.writerow(current_row_output)
+                  tsv_file_writer_for_chart.writerow(current_row_output_for_chart_tsv)
+
+                     
+                print("Total time for all ops: %.3f seconds" % self.total_time)
+                print("Number of analyzed session runs (skipping the first and the last): ", self.num_sessions_analyzed)
+                
+                microsec_num = 1000000.0
+                mean_time_per_step = float(self.total_time)/self.num_sessions_analyzed
+                mean_all_ops_time_per_step = float(total_ops_time)/(self.num_sessions_analyzed*microsec_num)
+                denom_const = 0.01*microsec_num*self.num_sessions_analyzed*mean_all_ops_time_per_step
+
+                print("Mean time for one iteration: %.3f seconds" % (mean_time_per_step))
+                for k_count in range(len(top_k_time)):
+                  print("Cumulative time for top %d ops: %5.5f sec out of %5.5f sec (%5.1f%%)" % (k_values[k_count],
+                        top_k_time[k_count]/(microsec_num*self.num_sessions_analyzed),
+                        mean_all_ops_time_per_step,
+                        top_k_time[k_count]/denom_const))
+                
+                # launch TensorScope
+                pwd_path = os.path.dirname(os.path.realpath(__file__))
+                dir = pwd_path + "/TensorScope/scripts/"
+                input_file = tsv_file_name_for_chart
+                result_file = pwd_path + "/result_"+str(time.time())[:10]+".html"
+                cmd_run = 'cd %s && ./ImportText.pl %s/%s -o %s && google-chrome --no-sandbox %s && cd -' % (dir, pwd_path, input_file, result_file, result_file)
+                subprocess.Popen(cmd_run, shell=True)
+                #sys.exit()
+                    
 
 
 def print_activations(t):
@@ -317,88 +498,13 @@ def time_tensorflow_run(session, target, info_string):
   total_duration = 0.0
   total_duration_squared = 0.0
   
-  
-  # ====== TensorScope Snippet 2 - paste right before main training loop ===== 
-  
-  # Set to True to quickly check for any side effects from pasted snippets
-  tensorscope_disable_all = False
-  
-  tensorscope_timing_map = dict()
-  tensorscope_node_input = dict()
-  tensorscope_node_output = dict()
-  tensorscope_output_dimension = dict()
-  tensorscope_final_output_dimension = dict()
-
-  tensorscope_current_session = 0
-  tensorscope_num_sessions_analysed = 0
-  tensorscope_total_time = 0
-  tensorscope_tracing_graph_parsed = False
-  tensorscope_timeline_saved = False
-
-  # Set to the max loop value of main loop below, typically a total number of batches
-  # for example, for alexnet_benchmark.py this will be FLAGS.num_batches + num_steps_burn_in
-  tensorscope_max_sessions =  FLAGS.num_batches + num_steps_burn_in #REPLACE_THIS_WITH_MAX_LOOP_ITERATION # change to FLAGS.num_batches + num_steps_burn_in
-  
-  # ========== End of TensorScope Snippet 2 ==================================    
-
   for i in xrange(FLAGS.num_batches + num_steps_burn_in):
   
     start_time = time.time()
-     
-    #==========  TensorScope Snippet 3 ======
-    # Paste this snippet to replace the line with session.run(). 
-    # Add two more arguments to new session.run()
-    
-    if tensorscope_disable_all:
-      # original call
-      _ = session.run(target)
-    else:
-      tensorscope_current_session = i #REPLACE_THIS_TO_THE_LOOP_ITERATION # i, step etc. for alexnet_benchmark.py should be i
-      tensorscope_session_metadata = tf.RunMetadata()
-      tensorscope_session_start_time = time.time()
-          
-      # now with two more arguments:
-      _ = session.run(target,
-                      options=tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE),
-                      run_metadata=tensorscope_session_metadata)
-              
-      tensorscope_current_session_time = time.time() - tensorscope_session_start_time       
-      if tensorscope_session_metadata is not None:
-          tensorscope_model_graph = tf.get_default_graph()
-          
-          # skip two first and two last session runs
-          if tensorscope_current_session > 1 and tensorscope_current_session < (tensorscope_max_sessions - 1): 
-              tensorscope_total_time += tensorscope_current_session_time
-              tensorscope_accumulate_time(tensorscope_session_metadata.step_stats, tensorscope_timing_map)
-              tensorscope_num_sessions_analysed += 1
-              
-              if not tensorscope_tracing_graph_parsed:
-                  # If output shapes are intially unknown in a dynamic graph,
-                  # we need to parse both session metadata and graph to extract this info
-                  tensorscope_parsing_start_time = time.time()
-                  tensorscope_map_node_to_ionames(tensorscope_model_graph, tensorscope_node_input, tensorscope_node_output)
-                  tensorscope_map_node_to_output_shape(tensorscope_session_metadata.step_stats, tensorscope_output_dimension)
-                  tensorscope_map_node_to_io_shapes(tensorscope_output_dimension, tensorscope_node_input, tensorscope_node_output, tensorscope_final_output_dimension)
-                  tensorscope_parsing_end_time = time.time()
-                  tensorscope_tracing_graph_parsed = True
-                  print("Session graph and metadata parsed in %4.4f seconds" % (tensorscope_parsing_end_time - tensorscope_parsing_start_time))                    
 
-      else:
-          print("Metadata was not collected, check calls to session.run()")
-        
-      if not tensorscope_timeline_saved:
-          tensorscope_timeline = timeline.Timeline(tensorscope_session_metadata.step_stats)
-          tensorscope_chrome_trace = tensorscope_timeline.generate_chrome_trace_format(show_memory=True)
-          with open("tensorflow_timeline_"+str(time.time())[:10]+".json",'w') as tensorscope_timeline_file:
-              tensorscope_timeline_file.write(tensorscope_chrome_trace) 
-              print('Timeline saved in', tensorscope_timeline_file.name)
-          tensorscope_timeline_saved = True
+    #_ = session.run(target) 
+    _ = session.characterize(target, max_iter=42)
       
-      if tensorscope_current_session % 100 == 0:
-          print("Step #%d/%d completed in %4.4f seconds" % (tensorscope_current_session, tensorscope_max_sessions, tensorscope_current_session_time))
-
-      # ========== End of TensorScope snippet 3 ==================================
-                        
     duration = time.time() - start_time
     if i >= num_steps_burn_in:
       if not i % 10:
@@ -407,122 +513,7 @@ def time_tensorflow_run(session, target, info_string):
       total_duration += duration
       total_duration_squared += duration * duration
          
-  # ====== TensorScope Snippet 4 - paste right after main training loop =====
-  if not tensorscope_disable_all:
-    if tensorscope_num_sessions_analysed < 5:
-        print('Training stats were not captured - more training steps required')
-        return -1
-      
-    tensorscope_sorted_times = ( (key, value) for key, value in sorted(tensorscope_timing_map.items(), key=lambda x: list(x[1])[0], reverse=True))
-    tensorscope_sorted_times = list(tensorscope_sorted_times)
-    tensorscope_total_ops_time = 0
-
-    tensorscope_op_count = 0
-    tensorscope_top_k_ops_time = 0
-    
-    # Distribution of time among top k ops - useful for large models with thousands of ops.
-    # This should get a rough idea of what needs to be optimised in the first place.
-    # Value of k is equally spaced in log10 to get a clearer picture of what's going on.
-    tensorscope_k_values = np.round(np.power(10, np.linspace(0, np.log10(len(tensorscope_sorted_times)), num=10, endpoint=True)).astype(np.double))
-    tensorscope_top_k_time = np.zeros(len(tensorscope_k_values))
-    
-    tensorscope_bin_count = 0
-    for tensorscope_op_name, tensorscope_op_time in tensorscope_sorted_times:
-      tensorscope_op_count = tensorscope_op_count + 1
-      tensorscope_op_time_total = tensorscope_op_time[0]
-      tensorscope_total_ops_time = tensorscope_total_ops_time + tensorscope_op_time_total
-      tensorscope_top_k_ops_time = tensorscope_top_k_ops_time + tensorscope_op_time_total
-      
-      if tensorscope_op_count >= tensorscope_k_values[tensorscope_bin_count]:
-        tensorscope_top_k_time[tensorscope_bin_count] = tensorscope_top_k_ops_time
-        tensorscope_bin_count = tensorscope_bin_count + 1
-        
-    # sort ops and create tsv files
-    tensorscope_tsv_file_name = "tensorscope_all_info_sorted_"+str(time.time())[:10]+".tsv"
-    tensorscope_tsv_file_name_for_chart = "tensorscope_data_for_chart_"+str(time.time())[:10]+".tsv"
-    
-    tensorscope_tsv_file_obj = open(tensorscope_tsv_file_name,'w')
-    tensorscope_tsv_file_obj_for_chart = open(tensorscope_tsv_file_name_for_chart,'w')
-
-    tensorscope_tsv_file_writer = csv.writer(tensorscope_tsv_file_obj, delimiter='\t')
-    tensorscope_tsv_file_writer_for_chart = csv.writer(tensorscope_tsv_file_obj_for_chart, delimiter='\t')
-
-    tensorscope_header_tsv = ['Time Rank', '% of total', 'Cumulative %', 'Wall time, ms', '# of calls', 'Op name', 'Input/output tensor shape']
-    tensorscope_header_tsv_for_chart = ['Node','Time']
-
-    tensorscope_tsv_file_writer.writerow(tensorscope_header_tsv)
-    tensorscope_tsv_file_writer_for_chart.writerow(tensorscope_header_tsv_for_chart)
-
-    tensorscope_op_count = 0
-    tensorscope_cumul_time = 0.0
-    for tensorscope_times_key, tensorscope_times_value in tensorscope_sorted_times:
-      tensorscope_op_count = tensorscope_op_count + 1
-      tensorscope_op_time_total = tensorscope_times_value[0]
-      
-      tensorscope_shape_str = ""
-      if tensorscope_times_key in tensorscope_final_output_dimension:
-          tensorscope_shape_str = tensorscope_final_output_dimension[tensorscope_times_key]
-      else:
-          tensorscope_current_node = tensorscope_times_key
-          words_out = tensorscope_times_key.split(":") 
-          if len(words_out)>1:
-              tensorscope_current_node = words_out[-2]
-          
-          if tensorscope_current_node in tensorscope_final_output_dimension:
-              tensorscope_shape_str = tensorscope_final_output_dimension[tensorscope_current_node]
-          else:
-              tensorscope_shape_str = 'N/A'
-      
-      tensorscope_cumul_time += 100.0*tensorscope_op_time_total/float(tensorscope_total_ops_time)
-      
-      tensorscope_current_row_output =  [tensorscope_op_count, 
-                                        "%3.2f" % (100.0*tensorscope_op_time_total/float(tensorscope_total_ops_time)), 
-                                        "%3.2f" % tensorscope_cumul_time, tensorscope_op_time_total/(1000.0*float(tensorscope_num_sessions_analysed)),
-                                        tensorscope_times_value[1],
-                                        tensorscope_times_key, 
-                                        ' '.join(tensorscope_shape_str)]
-                                        
-      tensorscope_current_row_output_for_chart_tsv = [tensorscope_op_time_total/float(tensorscope_num_sessions_analysed)]
-      tensorscope_nodepath = tensorscope_times_key.split('/')
-      
-      # remove duplicates in node name, e.g. MatMul:MatMul -> MatMul
-      tensorscope_double_name =  tensorscope_nodepath[-1].split(':')
-      if len(tensorscope_double_name)==2 and tensorscope_double_name[0]==tensorscope_double_name[1]:
-         tensorscope_nodepath[-1] = tensorscope_double_name[0]
-         print("Name redundancy removed: ", tensorscope_nodepath)
-      
-      tensorscope_current_row_output_for_chart_tsv.extend(tensorscope_nodepath)
-      tensorscope_current_row_output_for_chart_tsv.append(''.join(tensorscope_shape_str))
-      
-      tensorscope_tsv_file_writer.writerow(tensorscope_current_row_output)
-      tensorscope_tsv_file_writer_for_chart.writerow(tensorscope_current_row_output_for_chart_tsv)
-
-         
-    print("Total time for all ops: %.3f seconds" % tensorscope_total_time)
-    print("Number of analyzed session runs (skipping the first and the last): ", tensorscope_num_sessions_analysed)
-    
-    tensorscope_microsec_num = 1000000.0
-    tensorscope_mean_time_per_step = float(tensorscope_total_time)/tensorscope_num_sessions_analysed
-    tensorscope_mean_all_ops_time_per_step = float(tensorscope_total_ops_time)/(tensorscope_num_sessions_analysed*tensorscope_microsec_num)
-    tensorscope_denom_const = 0.01*tensorscope_microsec_num*tensorscope_num_sessions_analysed*tensorscope_mean_all_ops_time_per_step
-
-    print("Mean time for one batch: %.3f seconds" % (tensorscope_mean_time_per_step))
-    for tensorscope_k_count in range(len(tensorscope_top_k_time)):
-      print("Cumulative time for top %d ops: %5.5f sec out of %5.5f sec (%5.1f%%)" % (tensorscope_k_values[tensorscope_k_count],
-            tensorscope_top_k_time[tensorscope_k_count]/(tensorscope_microsec_num*tensorscope_num_sessions_analysed),
-            tensorscope_mean_all_ops_time_per_step,
-            tensorscope_top_k_time[tensorscope_k_count]/tensorscope_denom_const))
-    
-    # launch TensorScope
-    tensorscope_pwd_path = os.path.dirname(os.path.realpath(__file__))
-    tensorscope_dir = tensorscope_pwd_path + "/TensorScope/scripts/"
-    tensorscope_input_file = tensorscope_tsv_file_name_for_chart
-    tensorscope_result_file = tensorscope_pwd_path + "/tensorscope_result_"+str(time.time())[:10]+".html"
-    tensorscope_cmd_run = 'cd %s && ./ImportText.pl %s/%s -o %s && google-chrome --no-sandbox %s && cd -' % (tensorscope_dir, tensorscope_pwd_path, tensorscope_input_file, tensorscope_result_file, tensorscope_result_file)
-    subprocess.Popen(tensorscope_cmd_run, shell=True)
-        
-    # ========== End of TensorScope snippet 4 =================
-
+ 
   mn = total_duration / FLAGS.num_batches
   vr = total_duration_squared / FLAGS.num_batches - mn * mn
   sd = math.sqrt(vr)
@@ -556,11 +547,12 @@ def run_benchmark():
     # Start running operations on the Graph.
     config = tf.ConfigProto()
     config.gpu_options.allocator_type = 'BFC'
-    sess = tf.Session(config=config)
+    sess = SessionCharacterized(config=config)
     sess.run(init)
 
     # Run the forward benchmark.
-    time_tensorflow_run(sess, pool5, "Forward")
+    # (MDR: commented out to run only for training)
+    # time_tensorflow_run(sess, pool5, "Forward")
 
     # Add a simple objective so we can calculate the backward pass.
     objective = tf.nn.l2_loss(pool5)
@@ -585,7 +577,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--num_batches',
       type=int,
-      default=100,
+      default=50,
       help='Number of batches to run.'
   )
   FLAGS, unparsed = parser.parse_known_args()
