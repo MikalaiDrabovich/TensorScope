@@ -1,0 +1,74 @@
+Node	Time
+21260.666666666668	gradients	lrn2	LRN_grad	LRNGrad	GPU#0	(128, 192, 27, 27)(128, 192, 27, 27)(128, 27, 27, 192)->(128, 27, 27, 192)
+20191.833333333332	lrn2	LRN	GPU#0	(128, 192, 27, 27)->(128, 27, 27, 192)
+17203.5	lrn1	LRN	GPU#0	(128, 64, 56, 56)->(128, 56, 56, 64)
+15721.333333333334	gradients	lrn1	LRN_grad	LRNGrad	GPU#0	(128, 64, 56, 56)(128, 64, 56, 56)(128, 56, 56, 64)->(128, 56, 56, 64)
+12708.333333333334	gradients	conv1	Conv2D_grad	Conv2DBackpropFilter	GPU#0	(128, 224, 224, 3)(4,)(128, 64, 56, 56)->(11, 11, 3, 64)
+8113.666666666667	conv1	Conv2D	GPU#0	(128, 224, 224, 3)(11, 11, 3, 64)->(128, 64, 56, 56)
+6656.333333333333	gradients	conv4	Conv2D_grad	Conv2DBackpropFilter	GPU#0	(128, 384, 13, 13)(4,)(128, 256, 13, 13)->(3, 3, 384, 256)
+6591.333333333333	gradients	conv3	Conv2D_grad	Conv2DBackpropFilter	GPU#0	(128, 192, 13, 13)(4,)(128, 384, 13, 13)->(3, 3, 192, 384)
+6156.666666666667	gradients	conv2	Conv2D_grad	Conv2DBackpropFilter	GPU#0	(128, 64, 27, 27)(4,)(128, 192, 27, 27)->(5, 5, 64, 192)
+5983.833333333333	gradients	conv4	Conv2D_grad	Conv2DBackpropInput	GPU#0	(CPU<->GPU)(3, 3, 384, 256)(128, 256, 13, 13)->(128, 384, 13, 13)
+5978.0	conv4	Conv2D	GPU#0	(128, 384, 13, 13)(3, 3, 384, 256)->(128, 256, 13, 13)
+4951.0	conv3	Conv2D	GPU#0	(128, 192, 13, 13)(3, 3, 192, 384)->(128, 384, 13, 13)
+4912.666666666667	gradients	conv3	Conv2D_grad	Conv2DBackpropInput	GPU#0	(CPU<->GPU)(3, 3, 192, 384)(128, 384, 13, 13)->(128, 192, 13, 13)
+4716.333333333333	gradients	conv5	Conv2D_grad	Conv2DBackpropFilter	GPU#0	(128, 256, 13, 13)(4,)(128, 256, 13, 13)->(3, 3, 256, 256)
+4693.666666666667	conv2	Conv2D	GPU#0	(128, 64, 27, 27)(5, 5, 64, 192)->(128, 192, 27, 27)
+4476.333333333333	gradients	conv2	Conv2D_grad	Conv2DBackpropInput	GPU#0	(CPU<->GPU)(5, 5, 64, 192)(128, 192, 27, 27)->(128, 64, 27, 27)
+4163.0	gradients	conv5	Conv2D_grad	Conv2DBackpropInput	GPU#0	(CPU<->GPU)(3, 3, 256, 256)(128, 256, 13, 13)->(128, 256, 13, 13)
+4104.166666666667	conv5	Conv2D	GPU#0	(128, 256, 13, 13)(3, 3, 256, 256)->(128, 256, 13, 13)
+2541.1666666666665	gradients	pool1_grad	MaxPoolGrad	GPU#0	(128, 56, 56, 64)(128, 64, 27, 27)(128, 64, 27, 27)->(128, 64, 56, 56)
+1662.1666666666667	gradients	conv1_grad	ReluGrad	GPU#0	(128, 56, 56, 64)(128, 64, 56, 56)->(128, 64, 56, 56)
+1485.6666666666667	conv1	Conv2D-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose	['()']
+1424.0	conv1	BiasAdd	GPU#0	(128, 64, 56, 56)(64,)->(128, 64, 56, 56)
+1220.6666666666667	gradients	conv1_grad	ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose	['()']
+1185.1666666666667	gradients	conv2_grad	ReluGrad	GPU#0	(128, 27, 27, 192)(128, 192, 27, 27)->(128, 192, 27, 27)
+1151.8333333333333	gradients	conv1	BiasAdd_grad	BiasAddGrad	GPU#0	(128, 64, 56, 56)->(64,)
+1139.8333333333333	gradients	pool1_grad	MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+1136.1666666666667	conv1-0-1-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+1134.1666666666667	pool1-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose	['()']
+1128.8333333333333	conv1:Relu	['()']
+1124.3333333333333	gradients	conv1_grad	ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+1058.8333333333333	gradients	pool2_grad	MaxPoolGrad	GPU#0	(128, 27, 27, 192)(128, 192, 13, 13)(128, 192, 13, 13)->(128, 192, 27, 27)
+1050.8333333333333	pool1:MaxPool	['()']
+993.1666666666666	gradients	conv2_grad	ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+963.0	conv2	BiasAdd	GPU#0	(128, 192, 27, 27)(192,)->(128, 192, 27, 27)
+799.8333333333334	gradients	conv2_grad	ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose	['()']
+792.6666666666666	conv2-2-1-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+791.6666666666666	pool2-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose	['()']
+787.8333333333334	gradients	pool2_grad	MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+787.1666666666666	conv2:Relu	['()']
+748.6666666666666	pool2:MaxPool	['()']
+714.0	gradients	conv2	BiasAdd_grad	BiasAddGrad	GPU#0	(128, 192, 27, 27)->(192,)
+653.5	gradients	pool5_grad	MaxPoolGrad	GPU#0	(128, 256, 13, 13)(128, 256, 6, 6)(128, 256, 6, 6)->(128, 256, 13, 13)
+604.3333333333334	gradients	conv3_grad	ReluGrad	GPU#0	(128, 384, 13, 13)(128, 384, 13, 13)->(128, 384, 13, 13)
+446.1666666666667	conv3	BiasAdd	GPU#0	(128, 384, 13, 13)(384,)->(128, 384, 13, 13)
+402.5	gradients	conv3_grad	ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+366.5	conv3-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+366.3333333333333	conv3:Relu	['()']
+365.0	gradients	conv5_grad	ReluGrad	GPU#0	(128, 256, 13, 13)(128, 256, 13, 13)->(128, 256, 13, 13)
+360.8333333333333	gradients	conv4_grad	ReluGrad	GPU#0	(128, 256, 13, 13)(128, 256, 13, 13)->(128, 256, 13, 13)
+310.1666666666667	gradients	conv3	BiasAdd_grad	BiasAddGrad	GPU#0	(128, 384, 13, 13)->(384,)
+299.1666666666667	conv4	BiasAdd	GPU#0	(128, 256, 13, 13)(256,)->(128, 256, 13, 13)
+298.5	conv5	BiasAdd	GPU#0	(128, 256, 13, 13)(256,)->(128, 256, 13, 13)
+267.3333333333333	pool1-2-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+250.0	gradients	conv4_grad	ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+249.5	conv4-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+246.83333333333334	gradients	conv5_grad	ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+242.66666666666666	conv5:Relu	['()']
+241.83333333333334	conv4:Relu	['()']
+232.83333333333334	pool5:MaxPool	['()']
+213.33333333333334	gradients	conv4	BiasAdd_grad	BiasAddGrad	GPU#0	(128, 256, 13, 13)->(256,)
+206.5	gradients	conv5	BiasAdd_grad	BiasAddGrad	GPU#0	(128, 256, 13, 13)->(256,)
+186.5	pool2-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose	['()']
+4.333333333333333	_retval_gradients	conv1	BiasAdd_grad	BiasAddGrad_0_0	['()']
+4.0	_SOURCE	['()']
+2.1666666666666665	_retval_gradients	conv5	BiasAdd_grad	BiasAddGrad_0_8	['()']
+1.5	_retval_gradients	conv2	BiasAdd_grad	BiasAddGrad_0_2	['()']
+1.3333333333333333	_retval_gradients	conv1	Conv2D_grad	Conv2DBackpropFilter_0_1	['()']
+1.3333333333333333	_retval_gradients	conv5	Conv2D_grad	Conv2DBackpropFilter_0_9	['()']
+1.1666666666666667	_retval_gradients	conv3	BiasAdd_grad	BiasAddGrad_0_4	['()']
+1.1666666666666667	_retval_gradients	conv4	Conv2D_grad	Conv2DBackpropFilter_0_7	['()']
+1.0	_retval_gradients	conv3	Conv2D_grad	Conv2DBackpropFilter_0_5	['()']
+1.0	_retval_gradients	conv2	Conv2D_grad	Conv2DBackpropFilter_0_3	['()']
+0.8333333333333334	_retval_gradients	conv4	BiasAdd_grad	BiasAddGrad_0_6	['()']
