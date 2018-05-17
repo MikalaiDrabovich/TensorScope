@@ -6631,710 +6631,821 @@ function zoomOut()
     <attribute display="Unassigned">magnitudeUnassigned</attribute>
    </attributes>
    <datasets>
-    <dataset>data_for_chart_1526076242</dataset>
+    <dataset>data_for_chart_1526536317</dataset>
    </datasets>
 <node name="all">
- <magnitude><val>191234.5</val></magnitude>
- <node name="pool2-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-  <magnitude><val>186.5</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>186.5</val></magnitude>
-  </node>
- </node>
- <node name="lrn2">
-  <magnitude><val>20191.8333333333</val></magnitude>
-  <node name="LRN">
-   <magnitude><val>20191.8333333333</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>20191.8333333333</val></magnitude>
-    <node name="(128, 192, 27, 27)->(128, 27, 27, 192)">
-     <magnitude><val>20191.8333333333</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="_retval_gradients">
-  <magnitude><val>15.8333333333333</val></magnitude>
-  <node name="conv4">
-   <magnitude><val>2</val></magnitude>
-   <node name="Conv2D_grad">
-    <magnitude><val>1.16666666666667</val></magnitude>
-    <node name="Conv2DBackpropFilter_0_7">
-     <magnitude><val>1.16666666666667</val></magnitude>
-     <node name="['()']">
-      <magnitude><val>1.16666666666667</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="BiasAdd_grad">
-    <magnitude><val>0.833333333333333</val></magnitude>
-    <node name="BiasAddGrad_0_6">
-     <magnitude><val>0.833333333333333</val></magnitude>
-     <node name="['()']">
-      <magnitude><val>0.833333333333333</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv1">
-   <magnitude><val>5.66666666666667</val></magnitude>
-   <node name="Conv2D_grad">
-    <magnitude><val>1.33333333333333</val></magnitude>
-    <node name="Conv2DBackpropFilter_0_1">
-     <magnitude><val>1.33333333333333</val></magnitude>
-     <node name="['()']">
-      <magnitude><val>1.33333333333333</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="BiasAdd_grad">
-    <magnitude><val>4.33333333333333</val></magnitude>
-    <node name="BiasAddGrad_0_0">
-     <magnitude><val>4.33333333333333</val></magnitude>
-     <node name="['()']">
-      <magnitude><val>4.33333333333333</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv5">
-   <magnitude><val>3.5</val></magnitude>
-   <node name="Conv2D_grad">
-    <magnitude><val>1.33333333333333</val></magnitude>
-    <node name="Conv2DBackpropFilter_0_9">
-     <magnitude><val>1.33333333333333</val></magnitude>
-     <node name="['()']">
-      <magnitude><val>1.33333333333333</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="BiasAdd_grad">
-    <magnitude><val>2.16666666666667</val></magnitude>
-    <node name="BiasAddGrad_0_8">
-     <magnitude><val>2.16666666666667</val></magnitude>
-     <node name="['()']">
-      <magnitude><val>2.16666666666667</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv3">
-   <magnitude><val>2.16666666666667</val></magnitude>
-   <node name="BiasAdd_grad">
-    <magnitude><val>1.16666666666667</val></magnitude>
-    <node name="BiasAddGrad_0_4">
-     <magnitude><val>1.16666666666667</val></magnitude>
-     <node name="['()']">
-      <magnitude><val>1.16666666666667</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="Conv2D_grad">
-    <magnitude><val>1</val></magnitude>
-    <node name="Conv2DBackpropFilter_0_5">
-     <magnitude><val>1</val></magnitude>
-     <node name="['()']">
-      <magnitude><val>1</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv2">
-   <magnitude><val>2.5</val></magnitude>
-   <node name="BiasAdd_grad">
-    <magnitude><val>1.5</val></magnitude>
-    <node name="BiasAddGrad_0_2">
-     <magnitude><val>1.5</val></magnitude>
-     <node name="['()']">
-      <magnitude><val>1.5</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="Conv2D_grad">
-    <magnitude><val>1</val></magnitude>
-    <node name="Conv2DBackpropFilter_0_3">
-     <magnitude><val>1</val></magnitude>
-     <node name="['()']">
-      <magnitude><val>1</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="conv3">
-  <magnitude><val>5397.16666666667</val></magnitude>
-  <node name="Conv2D">
-   <magnitude><val>4951</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>4951</val></magnitude>
-    <node name="(128, 192, 13, 13)(3, 3, 192, 384)->(128, 384, 13, 13)">
-     <magnitude><val>4951</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="BiasAdd">
-   <magnitude><val>446.166666666667</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>446.166666666667</val></magnitude>
-    <node name="(128, 384, 13, 13)(384,)->(128, 384, 13, 13)">
-     <magnitude><val>446.166666666667</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="conv2">
-  <magnitude><val>5656.66666666667</val></magnitude>
-  <node name="BiasAdd">
-   <magnitude><val>963</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>963</val></magnitude>
-    <node name="(128, 192, 27, 27)(192,)->(128, 192, 27, 27)">
-     <magnitude><val>963</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="Conv2D">
-   <magnitude><val>4693.66666666667</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>4693.66666666667</val></magnitude>
-    <node name="(128, 64, 27, 27)(5, 5, 64, 192)->(128, 192, 27, 27)">
-     <magnitude><val>4693.66666666667</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="conv4">
-  <magnitude><val>6277.16666666667</val></magnitude>
-  <node name="Conv2D">
-   <magnitude><val>5978</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>5978</val></magnitude>
-    <node name="(128, 384, 13, 13)(3, 3, 384, 256)->(128, 256, 13, 13)">
-     <magnitude><val>5978</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="BiasAdd">
-   <magnitude><val>299.166666666667</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>299.166666666667</val></magnitude>
-    <node name="(128, 256, 13, 13)(256,)->(128, 256, 13, 13)">
-     <magnitude><val>299.166666666667</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="conv1:Relu">
-  <magnitude><val>1128.83333333333</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>1128.83333333333</val></magnitude>
-  </node>
- </node>
- <node name="conv3-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-  <magnitude><val>366.5</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>366.5</val></magnitude>
-  </node>
- </node>
- <node name="conv1">
-  <magnitude><val>11023.3333333333</val></magnitude>
-  <node name="Conv2D">
-   <magnitude><val>8113.66666666667</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>8113.66666666667</val></magnitude>
-    <node name="(128, 224, 224, 3)(11, 11, 3, 64)->(128, 64, 56, 56)">
-     <magnitude><val>8113.66666666667</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="BiasAdd">
-   <magnitude><val>1424</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>1424</val></magnitude>
-    <node name="(128, 64, 56, 56)(64,)->(128, 64, 56, 56)">
-     <magnitude><val>1424</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="Conv2D-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose">
-   <magnitude><val>1485.66666666667</val></magnitude>
-   <node name="['()']">
-    <magnitude><val>1485.66666666667</val></magnitude>
-   </node>
-  </node>
- </node>
- <node name="pool2-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose">
-  <magnitude><val>791.666666666667</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>791.666666666667</val></magnitude>
-  </node>
- </node>
- <node name="conv4:Relu">
-  <magnitude><val>241.833333333333</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>241.833333333333</val></magnitude>
-  </node>
- </node>
- <node name="conv2-2-1-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-  <magnitude><val>792.666666666667</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>792.666666666667</val></magnitude>
-  </node>
- </node>
- <node name="conv4-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-  <magnitude><val>249.5</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>249.5</val></magnitude>
-  </node>
- </node>
+ <magnitude><val>214.5497</val></magnitude>
  <node name="conv5">
-  <magnitude><val>4402.66666666667</val></magnitude>
-  <node name="Conv2D">
-   <magnitude><val>4104.16666666667</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>4104.16666666667</val></magnitude>
-    <node name="(128, 256, 13, 13)(3, 3, 256, 256)->(128, 256, 13, 13)">
-     <magnitude><val>4104.16666666667</val></magnitude>
-    </node>
-   </node>
-  </node>
+  <magnitude><val>4.53</val></magnitude>
   <node name="BiasAdd">
-   <magnitude><val>298.5</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>298.5</val></magnitude>
+   <magnitude><val>0.3606</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>0.3606</val></magnitude>
     <node name="(128, 256, 13, 13)(256,)->(128, 256, 13, 13)">
-     <magnitude><val>298.5</val></magnitude>
+     <magnitude><val>0.3606</val></magnitude>
     </node>
    </node>
   </node>
- </node>
- <node name="conv3:Relu">
-  <magnitude><val>366.333333333333</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>366.333333333333</val></magnitude>
-  </node>
- </node>
- <node name="gradients">
-  <magnitude><val>111338.666666667</val></magnitude>
-  <node name="conv3_grad">
-   <magnitude><val>1006.83333333333</val></magnitude>
-   <node name="ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-    <magnitude><val>402.5</val></magnitude>
-    <node name="['()']">
-     <magnitude><val>402.5</val></magnitude>
+  <node name="Conv2D">
+   <magnitude><val>4.1694</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>4.1694</val></magnitude>
+    <node name="(128, 256, 13, 13)(3, 3, 256, 256)->(128, 256, 13, 13)">
+     <magnitude><val>4.1694</val></magnitude>
     </node>
    </node>
-   <node name="ReluGrad">
-    <magnitude><val>604.333333333333</val></magnitude>
-    <node name="GPU#0">
-     <magnitude><val>604.333333333333</val></magnitude>
-     <node name="(128, 384, 13, 13)(128, 384, 13, 13)->(128, 384, 13, 13)">
-      <magnitude><val>604.333333333333</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv5_grad">
-   <magnitude><val>611.833333333333</val></magnitude>
-   <node name="ReluGrad">
-    <magnitude><val>365</val></magnitude>
-    <node name="GPU#0">
-     <magnitude><val>365</val></magnitude>
-     <node name="(128, 256, 13, 13)(128, 256, 13, 13)->(128, 256, 13, 13)">
-      <magnitude><val>365</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-    <magnitude><val>246.833333333333</val></magnitude>
-    <node name="['()']">
-     <magnitude><val>246.833333333333</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="lrn2">
-   <magnitude><val>21260.6666666667</val></magnitude>
-   <node name="LRN_grad">
-    <magnitude><val>21260.6666666667</val></magnitude>
-    <node name="LRNGrad">
-     <magnitude><val>21260.6666666667</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>21260.6666666667</val></magnitude>
-      <node name="(128, 192, 27, 27)(128, 192, 27, 27)(128, 27, 27, 192)->(128, 27, 27, 192)">
-       <magnitude><val>21260.6666666667</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="pool2_grad">
-   <magnitude><val>1846.66666666667</val></magnitude>
-   <node name="MaxPoolGrad">
-    <magnitude><val>1058.83333333333</val></magnitude>
-    <node name="GPU#0">
-     <magnitude><val>1058.83333333333</val></magnitude>
-     <node name="(128, 27, 27, 192)(128, 192, 13, 13)(128, 192, 13, 13)->(128, 192, 27, 27)">
-      <magnitude><val>1058.83333333333</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-    <magnitude><val>787.833333333333</val></magnitude>
-    <node name="['()']">
-     <magnitude><val>787.833333333333</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="lrn1">
-   <magnitude><val>15721.3333333333</val></magnitude>
-   <node name="LRN_grad">
-    <magnitude><val>15721.3333333333</val></magnitude>
-    <node name="LRNGrad">
-     <magnitude><val>15721.3333333333</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>15721.3333333333</val></magnitude>
-      <node name="(128, 64, 56, 56)(128, 64, 56, 56)(128, 56, 56, 64)->(128, 56, 56, 64)">
-       <magnitude><val>15721.3333333333</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv2">
-   <magnitude><val>11347</val></magnitude>
-   <node name="Conv2D_grad">
-    <magnitude><val>10633</val></magnitude>
-    <node name="Conv2DBackpropInput">
-     <magnitude><val>4476.33333333333</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>4476.33333333333</val></magnitude>
-      <node name="(CPU<->GPU)(5, 5, 64, 192)(128, 192, 27, 27)->(128, 64, 27, 27)">
-       <magnitude><val>4476.33333333333</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="Conv2DBackpropFilter">
-     <magnitude><val>6156.66666666667</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>6156.66666666667</val></magnitude>
-      <node name="(128, 64, 27, 27)(4,)(128, 192, 27, 27)->(5, 5, 64, 192)">
-       <magnitude><val>6156.66666666667</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="BiasAdd_grad">
-    <magnitude><val>714</val></magnitude>
-    <node name="BiasAddGrad">
-     <magnitude><val>714</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>714</val></magnitude>
-      <node name="(128, 192, 27, 27)->(192,)">
-       <magnitude><val>714</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv3">
-   <magnitude><val>11814.1666666667</val></magnitude>
-   <node name="BiasAdd_grad">
-    <magnitude><val>310.166666666667</val></magnitude>
-    <node name="BiasAddGrad">
-     <magnitude><val>310.166666666667</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>310.166666666667</val></magnitude>
-      <node name="(128, 384, 13, 13)->(384,)">
-       <magnitude><val>310.166666666667</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="Conv2D_grad">
-    <magnitude><val>11504</val></magnitude>
-    <node name="Conv2DBackpropInput">
-     <magnitude><val>4912.66666666667</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>4912.66666666667</val></magnitude>
-      <node name="(CPU<->GPU)(3, 3, 192, 384)(128, 384, 13, 13)->(128, 192, 13, 13)">
-       <magnitude><val>4912.66666666667</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="Conv2DBackpropFilter">
-     <magnitude><val>6591.33333333333</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>6591.33333333333</val></magnitude>
-      <node name="(128, 192, 13, 13)(4,)(128, 384, 13, 13)->(3, 3, 192, 384)">
-       <magnitude><val>6591.33333333333</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv4">
-   <magnitude><val>12853.5</val></magnitude>
-   <node name="Conv2D_grad">
-    <magnitude><val>12640.1666666667</val></magnitude>
-    <node name="Conv2DBackpropFilter">
-     <magnitude><val>6656.33333333333</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>6656.33333333333</val></magnitude>
-      <node name="(128, 384, 13, 13)(4,)(128, 256, 13, 13)->(3, 3, 384, 256)">
-       <magnitude><val>6656.33333333333</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="Conv2DBackpropInput">
-     <magnitude><val>5983.83333333333</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>5983.83333333333</val></magnitude>
-      <node name="(CPU<->GPU)(3, 3, 384, 256)(128, 256, 13, 13)->(128, 384, 13, 13)">
-       <magnitude><val>5983.83333333333</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="BiasAdd_grad">
-    <magnitude><val>213.333333333333</val></magnitude>
-    <node name="BiasAddGrad">
-     <magnitude><val>213.333333333333</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>213.333333333333</val></magnitude>
-      <node name="(128, 256, 13, 13)->(256,)">
-       <magnitude><val>213.333333333333</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv1">
-   <magnitude><val>13860.1666666667</val></magnitude>
-   <node name="BiasAdd_grad">
-    <magnitude><val>1151.83333333333</val></magnitude>
-    <node name="BiasAddGrad">
-     <magnitude><val>1151.83333333333</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>1151.83333333333</val></magnitude>
-      <node name="(128, 64, 56, 56)->(64,)">
-       <magnitude><val>1151.83333333333</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="Conv2D_grad">
-    <magnitude><val>12708.3333333333</val></magnitude>
-    <node name="Conv2DBackpropFilter">
-     <magnitude><val>12708.3333333333</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>12708.3333333333</val></magnitude>
-      <node name="(128, 224, 224, 3)(4,)(128, 64, 56, 56)->(11, 11, 3, 64)">
-       <magnitude><val>12708.3333333333</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="pool5_grad">
-   <magnitude><val>653.5</val></magnitude>
-   <node name="MaxPoolGrad">
-    <magnitude><val>653.5</val></magnitude>
-    <node name="GPU#0">
-     <magnitude><val>653.5</val></magnitude>
-     <node name="(128, 256, 13, 13)(128, 256, 6, 6)(128, 256, 6, 6)->(128, 256, 13, 13)">
-      <magnitude><val>653.5</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv2_grad">
-   <magnitude><val>2978.16666666667</val></magnitude>
-   <node name="ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose">
-    <magnitude><val>799.833333333333</val></magnitude>
-    <node name="['()']">
-     <magnitude><val>799.833333333333</val></magnitude>
-    </node>
-   </node>
-   <node name="ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-    <magnitude><val>993.166666666667</val></magnitude>
-    <node name="['()']">
-     <magnitude><val>993.166666666667</val></magnitude>
-    </node>
-   </node>
-   <node name="ReluGrad">
-    <magnitude><val>1185.16666666667</val></magnitude>
-    <node name="GPU#0">
-     <magnitude><val>1185.16666666667</val></magnitude>
-     <node name="(128, 27, 27, 192)(128, 192, 27, 27)->(128, 192, 27, 27)">
-      <magnitude><val>1185.16666666667</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="pool1_grad">
-   <magnitude><val>3681</val></magnitude>
-   <node name="MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-    <magnitude><val>1139.83333333333</val></magnitude>
-    <node name="['()']">
-     <magnitude><val>1139.83333333333</val></magnitude>
-    </node>
-   </node>
-   <node name="MaxPoolGrad">
-    <magnitude><val>2541.16666666667</val></magnitude>
-    <node name="GPU#0">
-     <magnitude><val>2541.16666666667</val></magnitude>
-     <node name="(128, 56, 56, 64)(128, 64, 27, 27)(128, 64, 27, 27)->(128, 64, 56, 56)">
-      <magnitude><val>2541.16666666667</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv1_grad">
-   <magnitude><val>4007.16666666667</val></magnitude>
-   <node name="ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose">
-    <magnitude><val>1220.66666666667</val></magnitude>
-    <node name="['()']">
-     <magnitude><val>1220.66666666667</val></magnitude>
-    </node>
-   </node>
-   <node name="ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-    <magnitude><val>1124.33333333333</val></magnitude>
-    <node name="['()']">
-     <magnitude><val>1124.33333333333</val></magnitude>
-    </node>
-   </node>
-   <node name="ReluGrad">
-    <magnitude><val>1662.16666666667</val></magnitude>
-    <node name="GPU#0">
-     <magnitude><val>1662.16666666667</val></magnitude>
-     <node name="(128, 56, 56, 64)(128, 64, 56, 56)->(128, 64, 56, 56)">
-      <magnitude><val>1662.16666666667</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="conv4_grad">
-   <magnitude><val>610.833333333333</val></magnitude>
-   <node name="ReluGrad">
-    <magnitude><val>360.833333333333</val></magnitude>
-    <node name="GPU#0">
-     <magnitude><val>360.833333333333</val></magnitude>
-     <node name="(128, 256, 13, 13)(128, 256, 13, 13)->(128, 256, 13, 13)">
-      <magnitude><val>360.833333333333</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-    <magnitude><val>250</val></magnitude>
-    <node name="['()']">
-     <magnitude><val>250</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="conv5">
-   <magnitude><val>9085.83333333333</val></magnitude>
-   <node name="BiasAdd_grad">
-    <magnitude><val>206.5</val></magnitude>
-    <node name="BiasAddGrad">
-     <magnitude><val>206.5</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>206.5</val></magnitude>
-      <node name="(128, 256, 13, 13)->(256,)">
-       <magnitude><val>206.5</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="Conv2D_grad">
-    <magnitude><val>8879.33333333333</val></magnitude>
-    <node name="Conv2DBackpropFilter">
-     <magnitude><val>4716.33333333333</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>4716.33333333333</val></magnitude>
-      <node name="(128, 256, 13, 13)(4,)(128, 256, 13, 13)->(3, 3, 256, 256)">
-       <magnitude><val>4716.33333333333</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="Conv2DBackpropInput">
-     <magnitude><val>4163</val></magnitude>
-     <node name="GPU#0">
-      <magnitude><val>4163</val></magnitude>
-      <node name="(CPU<->GPU)(3, 3, 256, 256)(128, 256, 13, 13)->(128, 256, 13, 13)">
-       <magnitude><val>4163</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="conv1-0-1-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-  <magnitude><val>1136.16666666667</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>1136.16666666667</val></magnitude>
-  </node>
- </node>
- <node name="conv2:Relu">
-  <magnitude><val>787.166666666667</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>787.166666666667</val></magnitude>
   </node>
  </node>
  <node name="_SOURCE">
-  <magnitude><val>4</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>4</val></magnitude>
-  </node>
- </node>
- <node name="lrn1">
-  <magnitude><val>17203.5</val></magnitude>
-  <node name="LRN">
-   <magnitude><val>17203.5</val></magnitude>
-   <node name="GPU#0">
-    <magnitude><val>17203.5</val></magnitude>
-    <node name="(128, 64, 56, 56)->(128, 56, 56, 64)">
-     <magnitude><val>17203.5</val></magnitude>
-    </node>
+  <magnitude><val>0.0013</val></magnitude>
+  <node name="GPU+CPU_0">
+   <magnitude><val>0.0013</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.0013</val></magnitude>
    </node>
   </node>
  </node>
- <node name="pool1:MaxPool">
-  <magnitude><val>1050.83333333333</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>1050.83333333333</val></magnitude>
-  </node>
- </node>
- <node name="pool5:MaxPool">
-  <magnitude><val>232.833333333333</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>232.833333333333</val></magnitude>
-  </node>
- </node>
- <node name="pool1-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose">
-  <magnitude><val>1134.16666666667</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>1134.16666666667</val></magnitude>
+ <node name="pool1-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+  <magnitude><val>0.32</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.32</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.32</val></magnitude>
+   </node>
   </node>
  </node>
  <node name="Time">
   <magnitude><val>0</val></magnitude>
  </node>
- <node name="pool2:MaxPool">
-  <magnitude><val>748.666666666667</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>748.666666666667</val></magnitude>
+ <node name="lrn1">
+  <magnitude><val>21.6091</val></magnitude>
+  <node name="LRN">
+   <magnitude><val>21.6091</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>21.6091</val></magnitude>
+    <node name="(128, 64, 56, 56)->(128, 56, 56, 64)">
+     <magnitude><val>21.6091</val></magnitude>
+    </node>
+   </node>
   </node>
  </node>
- <node name="pool1-2-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
-  <magnitude><val>267.333333333333</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>267.333333333333</val></magnitude>
+ <node name="lrn2">
+  <magnitude><val>24.1896</val></magnitude>
+  <node name="LRN">
+   <magnitude><val>24.1896</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>24.1896</val></magnitude>
+    <node name="(128, 192, 27, 27)->(128, 27, 27, 192)">
+     <magnitude><val>24.1896</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="conv3:Relu">
+  <magnitude><val>0.4349</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.4349</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.4349</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="pool1:MaxPool">
+  <magnitude><val>1.3037</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>1.3037</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>1.3037</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="pool2-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose">
+  <magnitude><val>0.9504</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.9504</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.9504</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="conv1">
+  <magnitude><val>12.2007</val></magnitude>
+  <node name="BiasAdd">
+   <magnitude><val>1.7917</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>1.7917</val></magnitude>
+    <node name="(128, 64, 56, 56)(64,)->(128, 64, 56, 56)">
+     <magnitude><val>1.7917</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="Conv2D-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose">
+   <magnitude><val>1.8588</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>1.8588</val></magnitude>
+    <node name="(no input)->(no output)">
+     <magnitude><val>1.8588</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="Conv2D">
+   <magnitude><val>8.5502</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>8.5502</val></magnitude>
+    <node name="(128, 224, 224, 3)(11, 11, 3, 64)->(128, 64, 56, 56)">
+     <magnitude><val>8.5502</val></magnitude>
+    </node>
+   </node>
   </node>
  </node>
  <node name="conv5:Relu">
-  <magnitude><val>242.666666666667</val></magnitude>
-  <node name="['()']">
-   <magnitude><val>242.666666666667</val></magnitude>
+  <magnitude><val>0.2903</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.2903</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.2903</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="conv1:Relu">
+  <magnitude><val>1.7716</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>1.7716</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>1.7716</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="conv2-1-1-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+  <magnitude><val>0.9505</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.9505</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.9505</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="pool1-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose">
+  <magnitude><val>1.3936</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>1.3936</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>1.3936</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="conv2:Relu">
+  <magnitude><val>0.9959</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.9959</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.9959</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="conv2">
+  <magnitude><val>5.9699</val></magnitude>
+  <node name="Conv2D">
+   <magnitude><val>4.7677</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>4.7677</val></magnitude>
+    <node name="(128, 64, 27, 27)(5, 5, 64, 192)->(128, 192, 27, 27)">
+     <magnitude><val>4.7677</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="BiasAdd">
+   <magnitude><val>1.2022</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>1.2022</val></magnitude>
+    <node name="(128, 192, 27, 27)(192,)->(128, 192, 27, 27)">
+     <magnitude><val>1.2022</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="conv3">
+  <magnitude><val>5.5593</val></magnitude>
+  <node name="Conv2D">
+   <magnitude><val>5.0177</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>5.0177</val></magnitude>
+    <node name="(128, 192, 13, 13)(3, 3, 192, 384)->(128, 384, 13, 13)">
+     <magnitude><val>5.0177</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="BiasAdd">
+   <magnitude><val>0.5416</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>0.5416</val></magnitude>
+    <node name="(128, 384, 13, 13)(384,)->(128, 384, 13, 13)">
+     <magnitude><val>0.5416</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="pool2:MaxPool">
+  <magnitude><val>0.9054</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.9054</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.9054</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="conv4:Relu">
+  <magnitude><val>0.2902</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.2902</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.2902</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="conv4">
+  <magnitude><val>6.4215</val></magnitude>
+  <node name="Conv2D">
+   <magnitude><val>6.0579</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>6.0579</val></magnitude>
+    <node name="(128, 384, 13, 13)(3, 3, 384, 256)->(128, 256, 13, 13)">
+     <magnitude><val>6.0579</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="BiasAdd">
+   <magnitude><val>0.3636</val></magnitude>
+   <node name="GPU_0">
+    <magnitude><val>0.3636</val></magnitude>
+    <node name="(128, 256, 13, 13)(256,)->(128, 256, 13, 13)">
+     <magnitude><val>0.3636</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="pool2-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+  <magnitude><val>0.2219</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.2219</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.2219</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="conv3-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+  <magnitude><val>0.4417</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.4417</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.4417</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="conv1-0-1-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+  <magnitude><val>1.3558</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>1.3558</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>1.3558</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="pool5:MaxPool">
+  <magnitude><val>0.2809</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.2809</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.2809</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="_retval_gradients">
+  <magnitude><val>0.0201</val></magnitude>
+  <node name="conv2">
+   <magnitude><val>0.0035</val></magnitude>
+   <node name="Conv2D_grad">
+    <magnitude><val>0.0015</val></magnitude>
+    <node name="Conv2DBackpropFilter_0_3">
+     <magnitude><val>0.0015</val></magnitude>
+     <node name="CPU_0">
+      <magnitude><val>0.0015</val></magnitude>
+      <node name="(no input)->(no output)">
+       <magnitude><val>0.0015</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+   <node name="BiasAdd_grad">
+    <magnitude><val>0.002</val></magnitude>
+    <node name="BiasAddGrad_0_2">
+     <magnitude><val>0.002</val></magnitude>
+     <node name="CPU_0">
+      <magnitude><val>0.002</val></magnitude>
+      <node name="(no input)->(no output)">
+       <magnitude><val>0.002</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv1">
+   <magnitude><val>0.0049</val></magnitude>
+   <node name="BiasAdd_grad">
+    <magnitude><val>0.0019</val></magnitude>
+    <node name="BiasAddGrad_0_0">
+     <magnitude><val>0.0019</val></magnitude>
+     <node name="CPU_0">
+      <magnitude><val>0.0019</val></magnitude>
+      <node name="(no input)->(no output)">
+       <magnitude><val>0.0019</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+   <node name="Conv2D_grad">
+    <magnitude><val>0.003</val></magnitude>
+    <node name="Conv2DBackpropFilter_0_1">
+     <magnitude><val>0.003</val></magnitude>
+     <node name="CPU_0">
+      <magnitude><val>0.003</val></magnitude>
+      <node name="(no input)->(no output)">
+       <magnitude><val>0.003</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv3">
+   <magnitude><val>0.003</val></magnitude>
+   <node name="BiasAdd_grad">
+    <magnitude><val>0.0013</val></magnitude>
+    <node name="BiasAddGrad_0_4">
+     <magnitude><val>0.0013</val></magnitude>
+     <node name="CPU_0">
+      <magnitude><val>0.0013</val></magnitude>
+      <node name="(no input)->(no output)">
+       <magnitude><val>0.0013</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+   <node name="Conv2D_grad">
+    <magnitude><val>0.0017</val></magnitude>
+    <node name="Conv2DBackpropFilter_0_5">
+     <magnitude><val>0.0017</val></magnitude>
+     <node name="CPU_0">
+      <magnitude><val>0.0017</val></magnitude>
+      <node name="(no input)->(no output)">
+       <magnitude><val>0.0017</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv5">
+   <magnitude><val>0.0054</val></magnitude>
+   <node name="Conv2D_grad">
+    <magnitude><val>0.0017</val></magnitude>
+    <node name="Conv2DBackpropFilter_0_9">
+     <magnitude><val>0.0017</val></magnitude>
+     <node name="CPU_0">
+      <magnitude><val>0.0017</val></magnitude>
+      <node name="(no input)->(no output)">
+       <magnitude><val>0.0017</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+   <node name="BiasAdd_grad">
+    <magnitude><val>0.0037</val></magnitude>
+    <node name="BiasAddGrad_0_8">
+     <magnitude><val>0.0037</val></magnitude>
+     <node name="CPU_0">
+      <magnitude><val>0.0037</val></magnitude>
+      <node name="(no input)->(no output)">
+       <magnitude><val>0.0037</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv4">
+   <magnitude><val>0.0033</val></magnitude>
+   <node name="Conv2D_grad">
+    <magnitude><val>0.0015</val></magnitude>
+    <node name="Conv2DBackpropFilter_0_7">
+     <magnitude><val>0.0015</val></magnitude>
+     <node name="CPU_0">
+      <magnitude><val>0.0015</val></magnitude>
+      <node name="(no input)->(no output)">
+       <magnitude><val>0.0015</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+   <node name="BiasAdd_grad">
+    <magnitude><val>0.0018</val></magnitude>
+    <node name="BiasAddGrad_0_6">
+     <magnitude><val>0.0018</val></magnitude>
+     <node name="CPU_0">
+      <magnitude><val>0.0018</val></magnitude>
+      <node name="(no input)->(no output)">
+       <magnitude><val>0.0018</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="conv4-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+  <magnitude><val>0.2952</val></magnitude>
+  <node name="GPU_0">
+   <magnitude><val>0.2952</val></magnitude>
+   <node name="(no input)->(no output)">
+    <magnitude><val>0.2952</val></magnitude>
+   </node>
+  </node>
+ </node>
+ <node name="gradients">
+  <magnitude><val>121.8462</val></magnitude>
+  <node name="conv2">
+   <magnitude><val>11.7385</val></magnitude>
+   <node name="BiasAdd_grad">
+    <magnitude><val>0.8709</val></magnitude>
+    <node name="BiasAddGrad">
+     <magnitude><val>0.8709</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>0.8709</val></magnitude>
+      <node name="(128, 192, 27, 27)->(192,)">
+       <magnitude><val>0.8709</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+   <node name="Conv2D_grad">
+    <magnitude><val>10.8676</val></magnitude>
+    <node name="Conv2DBackpropFilter">
+     <magnitude><val>6.3775</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>6.3775</val></magnitude>
+      <node name="(128, 64, 27, 27)(4,)(128, 192, 27, 27)->(5, 5, 64, 192)">
+       <magnitude><val>6.3775</val></magnitude>
+      </node>
+     </node>
+    </node>
+    <node name="Conv2DBackpropInput">
+     <magnitude><val>4.4901</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>4.4901</val></magnitude>
+      <node name="(const)(5, 5, 64, 192)(128, 192, 27, 27)->(128, 64, 27, 27)">
+       <magnitude><val>4.4901</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv3">
+   <magnitude><val>11.9705</val></magnitude>
+   <node name="Conv2D_grad">
+    <magnitude><val>11.5949</val></magnitude>
+    <node name="Conv2DBackpropInput">
+     <magnitude><val>5.1678</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>5.1678</val></magnitude>
+      <node name="(const)(3, 3, 192, 384)(128, 384, 13, 13)->(128, 192, 13, 13)">
+       <magnitude><val>5.1678</val></magnitude>
+      </node>
+     </node>
+    </node>
+    <node name="Conv2DBackpropFilter">
+     <magnitude><val>6.4271</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>6.4271</val></magnitude>
+      <node name="(128, 192, 13, 13)(4,)(128, 384, 13, 13)->(3, 3, 192, 384)">
+       <magnitude><val>6.4271</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+   <node name="BiasAdd_grad">
+    <magnitude><val>0.3756</val></magnitude>
+    <node name="BiasAddGrad">
+     <magnitude><val>0.3756</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>0.3756</val></magnitude>
+      <node name="(128, 384, 13, 13)->(384,)">
+       <magnitude><val>0.3756</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv4_grad">
+   <magnitude><val>0.7234</val></magnitude>
+   <node name="ReluGrad">
+    <magnitude><val>0.4291</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>0.4291</val></magnitude>
+     <node name="(128, 256, 13, 13)(128, 256, 13, 13)->(128, 256, 13, 13)">
+      <magnitude><val>0.4291</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+    <magnitude><val>0.2943</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>0.2943</val></magnitude>
+     <node name="(no input)->(no output)">
+      <magnitude><val>0.2943</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="pool1_grad">
+   <magnitude><val>4.3586</val></magnitude>
+   <node name="MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+    <magnitude><val>1.3525</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>1.3525</val></magnitude>
+     <node name="(no input)->(no output)">
+      <magnitude><val>1.3525</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="MaxPoolGrad">
+    <magnitude><val>3.0061</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>3.0061</val></magnitude>
+     <node name="(128, 56, 56, 64)(128, 64, 27, 27)(128, 64, 27, 27)->(128, 64, 56, 56)">
+      <magnitude><val>3.0061</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="pool5_grad">
+   <magnitude><val>0.7932</val></magnitude>
+   <node name="MaxPoolGrad">
+    <magnitude><val>0.7932</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>0.7932</val></magnitude>
+     <node name="(128, 256, 13, 13)(128, 256, 6, 6)(128, 256, 6, 6)->(128, 256, 13, 13)">
+      <magnitude><val>0.7932</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv1_grad">
+   <magnitude><val>4.7535</val></magnitude>
+   <node name="ReluGrad">
+    <magnitude><val>1.9831</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>1.9831</val></magnitude>
+     <node name="(128, 56, 56, 64)(128, 64, 56, 56)->(128, 64, 56, 56)">
+      <magnitude><val>1.9831</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+    <magnitude><val>1.3847</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>1.3847</val></magnitude>
+     <node name="(no input)->(no output)">
+      <magnitude><val>1.3847</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose">
+    <magnitude><val>1.3857</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>1.3857</val></magnitude>
+     <node name="(no input)->(no output)">
+      <magnitude><val>1.3857</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv5_grad">
+   <magnitude><val>0.7228</val></magnitude>
+   <node name="ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+    <magnitude><val>0.2947</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>0.2947</val></magnitude>
+     <node name="(no input)->(no output)">
+      <magnitude><val>0.2947</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="ReluGrad">
+    <magnitude><val>0.4281</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>0.4281</val></magnitude>
+     <node name="(128, 256, 13, 13)(128, 256, 13, 13)->(128, 256, 13, 13)">
+      <magnitude><val>0.4281</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="pool2_grad">
+   <magnitude><val>2.2256</val></magnitude>
+   <node name="MaxPoolGrad">
+    <magnitude><val>1.2815</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>1.2815</val></magnitude>
+     <node name="(128, 27, 27, 192)(128, 192, 13, 13)(128, 192, 13, 13)->(128, 192, 27, 27)">
+      <magnitude><val>1.2815</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+    <magnitude><val>0.9441</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>0.9441</val></magnitude>
+     <node name="(no input)->(no output)">
+      <magnitude><val>0.9441</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv1">
+   <magnitude><val>14.5491</val></magnitude>
+   <node name="BiasAdd_grad">
+    <magnitude><val>1.402</val></magnitude>
+    <node name="BiasAddGrad">
+     <magnitude><val>1.402</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>1.402</val></magnitude>
+      <node name="(128, 64, 56, 56)->(64,)">
+       <magnitude><val>1.402</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+   <node name="Conv2D_grad">
+    <magnitude><val>13.1471</val></magnitude>
+    <node name="Conv2DBackpropFilter">
+     <magnitude><val>13.1471</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>13.1471</val></magnitude>
+      <node name="(128, 224, 224, 3)(4,)(128, 64, 56, 56)->(11, 11, 3, 64)">
+       <magnitude><val>13.1471</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv3_grad">
+   <magnitude><val>1.098</val></magnitude>
+   <node name="ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+    <magnitude><val>0.441</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>0.441</val></magnitude>
+     <node name="(no input)->(no output)">
+      <magnitude><val>0.441</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="ReluGrad">
+    <magnitude><val>0.657</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>0.657</val></magnitude>
+     <node name="(128, 384, 13, 13)(128, 384, 13, 13)->(128, 384, 13, 13)">
+      <magnitude><val>0.657</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv2_grad">
+   <magnitude><val>3.2932</val></magnitude>
+   <node name="ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose">
+    <magnitude><val>0.9552</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>0.9552</val></magnitude>
+     <node name="(no input)->(no output)">
+      <magnitude><val>0.9552</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="ReluGrad">
+    <magnitude><val>1.3893</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>1.3893</val></magnitude>
+     <node name="(128, 27, 27, 192)(128, 192, 27, 27)->(128, 192, 27, 27)">
+      <magnitude><val>1.3893</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose">
+    <magnitude><val>0.9487</val></magnitude>
+    <node name="GPU_0">
+     <magnitude><val>0.9487</val></magnitude>
+     <node name="(no input)->(no output)">
+      <magnitude><val>0.9487</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv5">
+   <magnitude><val>9.0776</val></magnitude>
+   <node name="Conv2D_grad">
+    <magnitude><val>8.8269</val></magnitude>
+    <node name="Conv2DBackpropInput">
+     <magnitude><val>4.0357</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>4.0357</val></magnitude>
+      <node name="(const)(3, 3, 256, 256)(128, 256, 13, 13)->(128, 256, 13, 13)">
+       <magnitude><val>4.0357</val></magnitude>
+      </node>
+     </node>
+    </node>
+    <node name="Conv2DBackpropFilter">
+     <magnitude><val>4.7912</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>4.7912</val></magnitude>
+      <node name="(128, 256, 13, 13)(4,)(128, 256, 13, 13)->(3, 3, 256, 256)">
+       <magnitude><val>4.7912</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+   <node name="BiasAdd_grad">
+    <magnitude><val>0.2507</val></magnitude>
+    <node name="BiasAddGrad">
+     <magnitude><val>0.2507</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>0.2507</val></magnitude>
+      <node name="(128, 256, 13, 13)->(256,)">
+       <magnitude><val>0.2507</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="conv4">
+   <magnitude><val>12.9897</val></magnitude>
+   <node name="BiasAdd_grad">
+    <magnitude><val>0.2579</val></magnitude>
+    <node name="BiasAddGrad">
+     <magnitude><val>0.2579</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>0.2579</val></magnitude>
+      <node name="(128, 256, 13, 13)->(256,)">
+       <magnitude><val>0.2579</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+   <node name="Conv2D_grad">
+    <magnitude><val>12.7318</val></magnitude>
+    <node name="Conv2DBackpropFilter">
+     <magnitude><val>6.7109</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>6.7109</val></magnitude>
+      <node name="(128, 384, 13, 13)(4,)(128, 256, 13, 13)->(3, 3, 384, 256)">
+       <magnitude><val>6.7109</val></magnitude>
+      </node>
+     </node>
+    </node>
+    <node name="Conv2DBackpropInput">
+     <magnitude><val>6.0209</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>6.0209</val></magnitude>
+      <node name="(const)(3, 3, 384, 256)(128, 256, 13, 13)->(128, 384, 13, 13)">
+       <magnitude><val>6.0209</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="lrn1">
+   <magnitude><val>18.2782</val></magnitude>
+   <node name="LRN_grad">
+    <magnitude><val>18.2782</val></magnitude>
+    <node name="LRNGrad">
+     <magnitude><val>18.2782</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>18.2782</val></magnitude>
+      <node name="(128, 64, 56, 56)(128, 64, 56, 56)(128, 56, 56, 64)->(128, 56, 56, 64)">
+       <magnitude><val>18.2782</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="lrn2">
+   <magnitude><val>25.2743</val></magnitude>
+   <node name="LRN_grad">
+    <magnitude><val>25.2743</val></magnitude>
+    <node name="LRNGrad">
+     <magnitude><val>25.2743</val></magnitude>
+     <node name="GPU_0">
+      <magnitude><val>25.2743</val></magnitude>
+      <node name="(128, 192, 27, 27)(128, 192, 27, 27)(128, 27, 27, 192)->(128, 27, 27, 192)">
+       <magnitude><val>25.2743</val></magnitude>
+      </node>
+     </node>
+    </node>
+   </node>
   </node>
  </node>
 </node>

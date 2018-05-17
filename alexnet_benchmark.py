@@ -19,7 +19,7 @@ To run, use:
   bazel run -c opt --config=cuda \
       models/tutorials/image/alexnet:alexnet_benchmark
 
-Across 100 steps on batch size = 128.
+Across 100 steps on batch size = 128.s32
 
 Forward pass:
 Run on Tesla K40c: 145 +/- 1.5 ms / batch
@@ -59,9 +59,10 @@ from tensorflow.python.client import timeline
 from tensorflow.python.framework import tensor_shape
 
 # Finding op input and output tensor shapes.
-# Complications:
+# Complications/notes:
 # - models may not have info about outputs, only inputs;
-# - metadata may not have info about inputs, only outputs;
+# - metadata 'streams' may not have info about inputs. The output info may also be absent (for example, in 'stream:all')
+# 'stream:13', 'stream:15' may have only partial timings, we should use 'stream:all' to get op timings
 # - op names in model and metadata may be slightly different:
 # e.g. MatMul:MatMul vs. MatMul:0;
 # - for correct chart generation, op placement device and 
@@ -81,9 +82,9 @@ class SessionCharacterized(tf.Session):
     num_steps_analyzed = 0
     total_time_analyzed = 0
     total_num_sessions = 0
+    num_steps_to_analyze = 0        
     tracing_graph_parsed = False
-    timeline_saved = False
-    
+
     @staticmethod
     def convert_op_name_from_model(name_from_model):
         # Node name clean-up - removes ':0' at the end 
@@ -112,9 +113,7 @@ class SessionCharacterized(tf.Session):
             cnt+=1  
          
         common_name='/'.join(current_node_path_parts)
-        #if name_from_metadata != common_name:
-        #    print('convert_op_name_from_metadata before and after: ', name_from_metadata, " ", common_name)  
-            
+                    
         return common_name
                     
     def find_input_names_from_model(self, model_graph, input_names_from_model):
@@ -128,7 +127,7 @@ class SessionCharacterized(tf.Session):
             (out) input_names_from_model (dict): dictionary of node name and its inputs
         '''
         all_ops = model_graph.get_operations()
-        print("Total number of operations in a graph: ", len(all_ops))
+        print("Total number of ops in a model graph: ", len(all_ops))
         for node in all_ops:
             input_names = []
             for (i, inp) in enumerate(node.inputs):
@@ -144,6 +143,7 @@ class SessionCharacterized(tf.Session):
             (in)  step_stats (tensorflow.RunMetadata): run_metadata from session.run()
             (out) output_shape (dict): dictionary of node name and output tensor shape
         '''
+        num_nodes_total = 0
         for dev_stats in step_stats.dev_stats:
             # assume device naming is consistent
             device_path = dev_stats.device.split('/')
@@ -156,51 +156,71 @@ class SessionCharacterized(tf.Session):
                    device_type = dev_path_parts[1]
                    device_number = dev_path_parts[2]
             
-            # for each op find device type and number
-            # so we later group timings by op + parameters and device
+            print('New device info extracted from metadata:',  dev_stats.device, device_type, device_number)
+ 
+            #'stream:all' may not have info about output nodes, the other streams may have it,
+            # however, another streams may have only partial timings, go figure..
             for node_stat in dev_stats.node_stats:
-            
+                num_nodes_total+=1
                 output_shapes = []
-                if not node_stat.output:
-                    #output_shapes.append('')
-                    #output_shape_device[self.convert_op_name_from_metadata(node_stat.node_name)] = [output_shapes, device_type, device_number]
-                    continue
-
+                _device_type = ''
+                _device_number = ''
                 
-                for (i, node_stat_out) in enumerate(node_stat.output):
-                    node_stat_dims = node_stat_out.tensor_description.shape.dim
-                    node_stat_shape = tensor_shape.TensorShape([d.size for d in node_stat_dims])
-                    
-                    output_shapes.append(node_stat_shape.__str__())
-                    output_shape_device[self.convert_op_name_from_metadata(node_stat.node_name)] = [output_shapes, device_type, device_number]
+                if self.convert_op_name_from_metadata(node_stat.node_name) in output_shape_device:
+                    [output_shapes, _device_type, _device_number] = output_shape_device[self.convert_op_name_from_metadata(node_stat.node_name)]
+                
+                if node_stat.output:
+                    for (i, node_stat_out) in enumerate(node_stat.output):
+                        node_stat_dims = node_stat_out.tensor_description.shape.dim
+                        node_stat_shape = tensor_shape.TensorShape([d.size for d in node_stat_dims])
+                        if not node_stat_shape.__str__():
+                            print('Possibe data corruption: node_stat_shape.__str__() is None in ', node_stat_out)
+                            sys.exit(0)
+                        output_shapes.append(node_stat_shape.__str__())
+                        
+                new_device = device_type
+                if _device_type != '':
+                    if  new_device != _device_type:
+                        new_device = new_device + '+' + _device_type
+                
+                new_device_number = device_number
+                if _device_number != '':
+                    if  new_device_number != _device_number:
+                        new_device_number = new_device_number + '+' + _device_number
+                     
+                output_shape_device[self.convert_op_name_from_metadata(node_stat.node_name)] = [output_shapes, new_device , new_device_number]
+                            
+        print("Total number of nodes in a metadata graph: ", num_nodes_total)
 
-    def find_final_shapes(self, output_shape, input_names_from_model, io_shapes):
+
+    def find_final_shapes(self, node_output_shape, input_names_from_model, io_shapes):
         ''' 
         Find input tensor shapes using names from model and output shapes from 
         metadata graph. We need this because gathered metadata may not 
         contain information about input tensor shapes.
         
         Args:
-            (in)  output_shape (dict): dictionary of node name and output tensor shape
+            (in)  node_output_shape (dict): dictionary of node name and output tensor shape
             (in)  input_names_from_model (dict): dictionary of node name and its input names
             (out) io_shapes (dict): final result with op parameters
         '''         
         
-        for k, v in output_shape.items():
+        for k, v in node_output_shape.items():
             result_shapes = []
             if k in input_names_from_model:
                 all_input_names = input_names_from_model[k]
                 
                 for inp in all_input_names:
-                    if inp in output_shape:
-                        _tensor_shape, _device_type, _device_number = output_shape[inp]
-                        result_shapes.extend  (_tensor_shape)
+                    if inp in node_output_shape:
+                        _tensor_shape, _device_type, _device_number = node_output_shape[inp]
+                        if not _tensor_shape:
+                            print('_tensor_shape is None: ', node_output_shape[inp])
+                            _tensor_shape = ['()']   
+                        result_shapes.extend(_tensor_shape)
                     else:
-                        #result_shapes.extend(['no info in output_shapes from metedata graph for this node in model: ' + inp])
-                        result_shapes.append('(CPU<->GPU)')
+                        result_shapes.append('(const)')
             else:
-                #result_shapes.extend(['no info in input names from model for this node name from metadata: ' + k ])
-                result_shapes.append('()')
+                result_shapes.extend(['(no input)'])
 
             result_shapes.extend(['->'])
             result_shapes.extend(v)
@@ -244,13 +264,15 @@ class SessionCharacterized(tf.Session):
                         total_op_time[final_op_path][0] += op_time
                         total_op_time[final_op_path][1] += 1
                     else:
-                        total_op_time[final_op_path] = [0, 0]
+                        total_op_time[final_op_path] = [op_time, 1]
                         
                         
-    def characterize(self, *args, num_steps_to_analyze = 6):
-        
-        # we'll skip 2 runs at start and 2 runs at the end 
-        self.total_num_sessions = num_steps_to_analyze + 4
+    def characterize(self, *args, num_steps = 10):
+
+        # skip 2 runs at start and 2 runs at the end
+        self.total_num_sessions = num_steps + 4
+        self.num_steps_to_analyze = num_steps
+         
         self.session_metadata = tf.RunMetadata()
         self.options=tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
          
@@ -294,130 +316,137 @@ class SessionCharacterized(tf.Session):
 
           else:
               print("Metadata was not collected, check calls to session.run()")
-            
-          if self.current_session > 1 and not self.timeline_saved:
+          
+          # save timeline at a specific step
+          if self.current_session == 2:
               _timeline = timeline.Timeline(self.session_metadata.step_stats)
               _chrome_trace = _timeline.generate_chrome_trace_format(show_memory=True)
-              with open("tensorflow_timeline_"+str(time.time())[:10]+".json",'w') as _timeline_file:
+              _timeline_file_name = "timeline_step_%d_%s.json" % (self.current_session, str(time.time())[:10])              
+              with open(_timeline_file_name,'w') as _timeline_file:
                   _timeline_file.write(_chrome_trace) 
                   print('Timeline saved in', _timeline_file.name)
-              self.timeline_saved = True
           
-          if self.current_session % 100 == 0:
-              print("Step #%d/%d completed in %4.4f seconds" % (self.current_session, self.total_num_sessions, self.current_session_time))
+          print("Step %d/%d(%d) completed in %4.4f seconds." % 
+          (self.num_steps_analyzed, self.num_steps_to_analyze, self.total_num_sessions, self.current_session_time))
 
           # create chart
-          if self.num_steps_analyzed == num_steps_to_analyze:
-              if not self.disable_all:
-                if self.num_steps_analyzed < num_steps_to_analyze:
-                    print('self.num_steps_analyzed: ', self.num_steps_analyzed)
-                    print('Training stats were not captured - more training steps required')
-                    return -1
+          if self.num_steps_analyzed == self.num_steps_to_analyze:
                   
-                sorted_times = ( (key, value) for key, value in sorted(self.op_time_total.items(), key=lambda x: list(x[1])[0], reverse=True))
-                sorted_times = list(sorted_times)
-                
-                total_ops_time = 0
-                op_count = 0
+              sorted_times = ( (key, value) for key, value in sorted(self.op_time_total.items(), key=lambda x: list(x[1])[0], reverse=True))
+              sorted_times = list(sorted_times)
+              
+              total_ops_time = 0
+              op_count = 0
 
-                # Distribution of time among top k ops - useful for large models with thousands of ops.
-                # This should get a rough idea of what needs to be optimised in the first place.
-                # Value of k is equally spaced in log10 to get a clearer picture of what's going on.
+              # Distribution of time among top k ops - useful for large models with thousands of ops.
+              # This should get a rough idea of what needs to be optimised in the first place.
+              # Value of k is equally spaced in log10 to get a clearer picture of what's going on.
 
-                k_values = np.round(np.power(10, np.linspace(0, np.log10(len(sorted_times)), num=10, endpoint=True)).astype(np.double))
-                top_k_time = np.zeros(len(k_values))
+              num_unique_ops = len(sorted_times)
+              k_values = np.round(np.power(10, np.linspace(0, np.log10(num_unique_ops), num=10, endpoint=True)).astype(np.double))
+              top_k_time = np.zeros(len(k_values))
+              
+              bin_count = 0
+              for op_name, op_time in sorted_times:
+                op_count = op_count + 1
+                total_ops_time = total_ops_time + op_time[0]
                 
-                bin_count = 0
-                for op_name, op_time in sorted_times:
-                  op_count = op_count + 1
-                  total_ops_time = total_ops_time + op_time[0]
+                if op_count >= k_values[bin_count]:
+                  top_k_time[bin_count] = total_ops_time
+                  bin_count = bin_count + 1
                   
-                  if op_count >= k_values[bin_count]:
-                    top_k_time[bin_count] = total_ops_time
-                    bin_count = bin_count + 1
+              # sort ops and create tsv files
+              tsv_file_name = "results_"+str(time.time())[:10]+".tsv"
+              tsv_file_name_for_chart = "data_for_chart_"+str(time.time())[:10]+".tsv"
+              
+              tsv_file_obj = open(tsv_file_name,'w')
+              tsv_file_obj_for_chart = open(tsv_file_name_for_chart,'w')
+
+              tsv_file_writer = csv.writer(tsv_file_obj, delimiter='\t')
+              tsv_file_writer_for_chart = csv.writer(tsv_file_obj_for_chart, delimiter='\t')
+
+              header_tsv = ['Op rank by time', 'Time per 1 call', 'Num of calls per run', 'Total time per run', 'Total time %', 'Total cumulative time', 'Total cumulative time %', 'Op name', 'Device', 'Input/output tensor shape']
+              header_tsv_for_chart = ['Node','Time']
+
+              tsv_file_writer.writerow(header_tsv)
+              tsv_file_writer_for_chart.writerow(header_tsv_for_chart)
+
+              op_count = 0
+              cumul_time = 0.0
+
+              microsec_num = 1000
+              mean_time_per_step = float(self.total_time_analyzed)/self.num_steps_analyzed
+              mean_all_ops_time_per_step = float(total_ops_time)/(self.num_steps_analyzed*microsec_num)
+              denom_const = 0.01*microsec_num*self.num_steps_analyzed*mean_all_ops_time_per_step
+ 
+              print("\nTotal time for %d steps: %.3f sec., mean time:  %.1f ms., mean time from metadata: %.1f ms., unique ops: %d" % 
+                  (self.num_steps_analyzed, self.total_time_analyzed, microsec_num*mean_time_per_step, mean_all_ops_time_per_step, num_unique_ops))
+              
+              for times_key, times_value in sorted_times:
+
+                shape_str = ['N/A']
+                if times_key in self.final_io_shapes:
+                    shape_str = self.final_io_shapes[times_key]
+                    # reformat node path to get device info on a chart
+                    if len(shape_str) > 2:     
+                        if (not (shape_str[-3])):
+                            shape_str[-3] = '(no output)'
+                        else:
+                            if len(shape_str[-3])<1:
+                                shape_str[-3] = '(no output)'
+                            else:
+                                shape_str[-3] = shape_str[-3][0]
+                        shape_str = [shape_str[-2] + '_' + shape_str[-1], ''.join(shape_str[:-2])]
+                else:
+                    print('This node was not found in self.final_io_shapes, however it existed in metadata graph: ',  times_key)
                     
-                # sort ops and create tsv files
-                tsv_file_name = "all_info_sorted_"+str(time.time())[:10]+".tsv"
-                tsv_file_name_for_chart = "data_for_chart_"+str(time.time())[:10]+".tsv"
+                num_calls_all_runs =  times_value[1]
+                num_calls_per_run =  int(times_value[1]/self.num_steps_analyzed)
                 
-                tsv_file_obj = open(tsv_file_name,'w')
-                tsv_file_obj_for_chart = open(tsv_file_name_for_chart,'w')
-
-                tsv_file_writer = csv.writer(tsv_file_obj, delimiter='\t')
-                tsv_file_writer_for_chart = csv.writer(tsv_file_obj_for_chart, delimiter='\t')
-
-                header_tsv = ['Time Rank', '% of total', 'Cumulative %', 'Wall time, ms', '# of calls', 'Op name', 'Input/output tensor shape']
-                header_tsv_for_chart = ['Node','Time']
-
-                tsv_file_writer.writerow(header_tsv)
-                tsv_file_writer_for_chart.writerow(header_tsv_for_chart)
-
-                op_count = 0
-                cumul_time = 0.0
-
-                for times_key, times_value in sorted_times:
-                  op_count = op_count + 1
-                  op_time_spent = times_value[0]
-                  
-                  shape_str = ""
-                  if times_key in self.final_io_shapes:
-                      shape_str = self.final_io_shapes[times_key]
-                      if len(shape_str) > 2:
-                          shape_str[-3] = shape_str[-3][0]
-
-                  else:
-                      shape_str = ['()']
-                  
-                  cumul_time += 100.0*op_time_spent/float(total_ops_time)
-                  
-                  # GPU
-                  current_row_output =  [op_count, 
-                                          "%3.2f" % (100.0*op_time_spent/float(total_ops_time)), 
-                                          "%3.2f" % cumul_time, op_time_spent/(1000.0*float(self.num_steps_analyzed)),
-                                          times_value[1],
-                                          times_key, 
-                                          shape_str]
-                                                    
-                  current_row_output_for_chart_tsv = [op_time_spent/float(self.num_steps_analyzed)]
-                  nodepath = times_key.split('/')
-                  
-                  current_row_output_for_chart_tsv.extend(nodepath)
-
-                  if len(shape_str) > 2:
-                      shape_str_for_charts = [shape_str[-2] + '#' + shape_str[-1], ''.join(shape_str[:-2])]
-                      current_row_output_for_chart_tsv.extend(shape_str_for_charts)
-                  else:
-                      current_row_output_for_chart_tsv.append(shape_str)
-                  
-                  tsv_file_writer.writerow(current_row_output)
-                  tsv_file_writer_for_chart.writerow(current_row_output_for_chart_tsv)
-
-                tsv_file_obj.close()
-                tsv_file_obj_for_chart.close()
-
-                microsec_num = 1000000.0
-                mean_time_per_step = float(self.total_time_analyzed)/self.num_steps_analyzed
-                mean_all_ops_time_per_step = float(total_ops_time)/(self.num_steps_analyzed*microsec_num)
-                denom_const = 0.01*microsec_num*self.num_steps_analyzed*mean_all_ops_time_per_step
-   
-                print("Total time for analyzed %d steps: %.3f sec., mean time:  %.3f sec." % (self.num_steps_analyzed, self.total_time_analyzed, mean_time_per_step))
+                op_time_all_runs = times_value[0]
+                op_time_per_run_ms = op_time_all_runs/(microsec_num*float(self.num_steps_analyzed))
+                op_time_per_call_ms = op_time_per_run_ms/float(num_calls_per_run)
                 
-                for k_count in range(len(top_k_time)):
-                  print("Cumulative time for top %d ops: %5.5f sec out of %5.5f sec (%5.1f%%)" % (k_values[k_count],
-                        top_k_time[k_count]/(microsec_num*self.num_steps_analyzed),
-                        mean_all_ops_time_per_step,
-                        top_k_time[k_count]/denom_const))
-                
-               
-                # process results and launch browser to draw charts
-                pwd_path = os.path.dirname(os.path.realpath(__file__))
-                dir = pwd_path + "/TensorScope/scripts/"
-                input_file = tsv_file_name_for_chart
-                result_file = pwd_path + "/result_"+str(time.time())[:10]+".html"
-                cmd_run = 'cd %s && ./ImportText.pl %s/%s -o %s && sudo -H -u $SUDO_USER google-chrome %s && cd -' % (dir, pwd_path, input_file, result_file, result_file)
-                subprocess.Popen(cmd_run, shell=True)
-  
-                sys.exit()
+                cumul_time += op_time_per_run_ms
+                op_count = op_count + 1
+                         
+                current_row_output = [op_count, 
+                                      "%.3f ms" % op_time_per_call_ms,
+                                      "%d" % num_calls_per_run,
+                                      "%.3f ms" % (op_time_per_run_ms),
+                                      "%.3f %%" % (100*op_time_all_runs/float(total_ops_time)),
+                                      "%.3f ms" % (cumul_time),
+                                      "%.3f %%" % (100*cumul_time/mean_all_ops_time_per_step),
+                                      times_key]
+                                      
+                current_row_output.extend(shape_str)
+                                                  
+                current_row_output_for_chart_tsv = [op_time_per_run_ms]
+                current_row_output_for_chart_tsv.extend(times_key.split('/'))
+                current_row_output_for_chart_tsv.extend(shape_str)
+
+                tsv_file_writer.writerow(current_row_output)
+                tsv_file_writer_for_chart.writerow(current_row_output_for_chart_tsv)
+
+              tsv_file_obj.close()
+              tsv_file_obj_for_chart.close()
+
+
+              for k_count in range(len(top_k_time)):
+                print("Top-%d ops (%.1f%%)\t%.1f ms (%.1f%%)" % (k_values[k_count], 100*k_values[k_count]/float(num_unique_ops),
+                      top_k_time[k_count]/(microsec_num*self.num_steps_analyzed),
+                      top_k_time[k_count]/denom_const))
+              
+              # process results and launch browser to draw charts
+              pwd_path = os.path.dirname(os.path.realpath(__file__))
+              dir = pwd_path + "/TensorScope/scripts/"
+              input_file = tsv_file_name_for_chart
+              result_file = pwd_path + "/result_"+str(time.time())[:10]+".html"
+              cmd_run = 'cd %s && ./ImportText.pl %s/%s -o %s && sudo -H -u $SUDO_USER google-chrome %s && cd -' % (dir, pwd_path, input_file, result_file, result_file)
+              subprocess.Popen(cmd_run, shell=True)
+
+              print('\n*** Details saved in %s ***\n' % tsv_file_name)
+              sys.exit()
                     
 
 
@@ -637,7 +666,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--num_batches',
       type=int,
-      default=50,
+      default=200,
       help='Number of batches to run.'
   )
   FLAGS, unparsed = parser.parse_known_args()
