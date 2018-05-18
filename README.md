@@ -8,10 +8,9 @@ Find bottlenecks in any complex model within minutes, with exact parameters, eve
 - Chart generation is based on Krona tools: https://github.com/marbl/Krona/wiki/KronaTools
 
 ## Usage
-1. To start, copy 4 snippets from alexnet_benchmark.py and paste them into similar locations in your main training file (the one with iterations over batches and session.run() call). 
-2. Set correct values for `REPLACE_THIS_WITH_MAX_LOOP_ITERATION` and `REPLACE_THIS_TO_THE_LOOP_ITERATION`
-3. When Chrome is launched, decrease/increase "Max depth" to quickly navigate through hierarchy.
+1. To start, replace session.run() with session.characterize()
+2. When Chrome is launched, decrease/increase "Max depth" on  a chart to quickly navigate through ops hierarchy. 
+3. Additionally, see results in generated plain text tsv file.
 
 ## Contact
-Send PR or email to nick.drabovich@amd.com
-
+nick.drabovich@amd.com
