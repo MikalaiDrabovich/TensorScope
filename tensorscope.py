@@ -131,34 +131,36 @@ class Tensorscope(object):
         return camelCaseName+'_'+path_cstyle[-1] if has_unique_id else camelCaseName
         """
         return
+    
+    def are_op_part_names_equal(self, str1, str2):
+        paths1 = str1.split('_')        # ['strided', 'slice', '1']
+        op_stems1 = [p for p in paths1 if not p.isdigit()] # ['strided', 'slice']
+        variant1 =  (''.join(op_stems1  )).lower()  # stridedslice
         
+        paths2 = str2.split('_')        # ['strided', 'slice', '2']
+        op_stems2 = [p for p in paths2 if not p.isdigit()] # ['strided', 'slice']
+        variant2 =  (''.join(op_stems2)).lower()  # stridedslice
+      
+        return variant1 == variant2
+      
     def cleanup_op_path_from_metadata(self, name_from_metadata):
-        # transform input similar to 'strided_slice_1:StridedSlice' -> 'StridedSlice_1'
+        # transform input similar to 'strided_slice_1:strided_slice_1:StridedSlice' -> 'strided_slice_1'
         current_node_path_parts = name_from_metadata.split('/')
-        path_subparts = current_node_path_parts[-1].split(':')
-        
-        # remove possibly repeated and mangled op name after ':'
-        if len(path_subparts)>1:
-            paths = path_subparts[0].split('_')
-            path_sub_subparts_no_groups = [p for p in paths if not p.isdigit()]
-            has_unique_id = True if paths[-1].isdigit() else False
-            
-            if len(path_sub_subparts_no_groups) > 0: 
-                compacted_name = (path_subparts[-1]).lower()
-                cstylename = ('_'.join(path_sub_subparts_no_groups)).lower()
-                camelcase = (''.join([p[0].upper()+p[1:] for p in path_sub_subparts_no_groups])).lower()
-                camelCaseName = ''.join([p[0].upper()+p[1:] for p in path_sub_subparts_no_groups])
-                tensor_origin = path_subparts[-1].lower()
-                
-                # (TODO) add lookup in _kernel_label_map to add possible prefixes
-                naming_variants_1 = [cstylename, cstylename+'v0', cstylename+'v', cstylename+'v1', 
-                                     cstylename+'v2', cstylename+'v3', cstylename+'v4',cstylename+'v5']
-                                   
-                naming_variants_2 = [camelcase, camelcase+'v0', camelcase+'v', camelcase+'v1', 
-                                     camelcase+'v2', camelcase+'v3', camelcase+'v4', camelcase+'v5']
+        possible_duplicates = current_node_path_parts[-1].split(':')
+        duplicates_removed = []
+        if len(possible_duplicates) > 1:
+            unique_parts = [possible_duplicates[0]]
+            # assumption: StridedSlice goes after strided_slice_1
+            for i, dup_cand in enumerate(possible_duplicates):
+                #if dup_cand == 'MEMCPYDtoD':
+                #    import pdb
+                #    pdb.set_trace()
+                    
+                if not self.are_op_part_names_equal(dup_cand, unique_parts[-1]):
+                    unique_parts.append(dup_cand)
 
-                if (compacted_name in naming_variants_1 + naming_variants_2):
-                    current_node_path_parts[-1] =  path_subparts[0]#camelCaseName + '_' + paths[-1] if has_unique_id else camelCaseName
+            possible_duplicates = ':'.join(unique_parts)
+            current_node_path_parts[-1] = possible_duplicates
 
         return '/'.join(current_node_path_parts)
     
@@ -269,9 +271,10 @@ class Tensorscope(object):
                     for (i, node_stat_out) in enumerate(node_stat.output):
                         node_stat_dims = node_stat_out.tensor_description.shape.dim
 
-                        valid_tensor_shapes = [str(d.size) for d in node_stat_dims if d.size]
+                        valid_tensor_shapes = [str(d.size) for d in node_stat_dims if (d.size and str(d.size)!='')]
                         if len(valid_tensor_shapes) == 1:
                             valid_tensor_shapes.append('1')
+                        
                         tensor_shape_result = 'x'.join(valid_tensor_shapes)
                         if tensor_shape_result == 'x':
                             import pdb
@@ -364,7 +367,7 @@ class Tensorscope(object):
                                 if tensor_from_model.shape.dims is None:
                                     tensor_shape_result = '1x1'
                                 else:
-                                    valid_tensor_shapes = [d.__str__() for d in tensor_from_model.shape.dims]
+                                    valid_tensor_shapes = [d.__str__() for d in tensor_from_model.shape.dims if d.__str__() != '']
                                     if '?' in valid_tensor_shapes:
                                         cand1 =  inp.split(':')
                                         cand = cand1[:-1]
@@ -395,19 +398,25 @@ class Tensorscope(object):
                                 ops_not_in_metadata.add(inp)
                         
             else:
+            
                 cand1 =  k.split(':')
-                cand = cand1[:-1]
-                t1 = ':'.join(cand)
-                
-                if t1 in node_output_shape:
-                    _tensor_shape, _device_type, _device_number = node_output_shape[t1]
-                    if not _tensor_shape:
-                        _tensor_shape = ['(None)']   
-                    result_shapes.extend(_tensor_shape)
-                else:
-                    if cand1[-1] == 'MEMCPYDtoH' or cand1[-1] == 'MEMCPYHtoD' or  cand1[-1] == 'MEMCPYDtoD':
-                        result_shapes.append('(no input)')
+                if cand1[-1] == 'MEMCPYDtoH' or cand1[-1] == 'MEMCPYHtoD' or  cand1[-1] == 'MEMCPYDtoD':
+                    result_shapes.append('(no input)')
                     ops_not_in_model.add(k)
+                else:
+                    cand = cand1[:-1]
+                    t1 = ':'.join(cand)
+                    
+                    if t1 in node_output_shape:
+                        _tensor_shape, _device_type, _device_number = node_output_shape[t1]
+                        if not _tensor_shape:
+                            _tensor_shape = ['(None)']   
+                        result_shapes.extend(_tensor_shape)
+                    else:
+                        result_shapes.append('(no input)')
+                        ops_not_in_model.add(k)
+               
+
             if len(result_shapes) > 0:
                 if result_shapes[0] == 'MEMCPYDtoH' or  result_shapes[0] == 'MEMCPYHtoD' or result_shapes[0] == 'MEMCPYDtoD':
                     io_shapes[k] = '(no input)'
@@ -613,9 +622,19 @@ class Tensorscope(object):
         # finalize data for the chart
         for times_key, times_value in sorted_times:
 
-          # append tensor shape and device info for each op
-          # found in both model and metadata
-          shape_str = ['N/A']
+          # extract short op name,
+          # append tensor shape and device from 
+          # model and/or metadata
+          
+          oppath = times_key.split('/')[::-1]
+          opname_short = oppath[0]
+          
+          #if opname_short=='MEMCPYDtoD':
+          #    import pdb
+          #    pdb.set_trace()
+          
+          shape_str = ['N-A']
+          
           if times_key in self.final_io_shapes:
               shape_str = self.final_io_shapes[times_key]
              
@@ -646,6 +665,7 @@ class Tensorscope(object):
                               shape_str[-3] = shape_str[-3][0]
                   shape_str = [shape_str[-2] + '-' + shape_str[-1], ''.join(shape_str[:-2])]
           else:
+              shape_str = ['GPU-0', '(no input)->(no output)'] # quick fix for MEMCPYDtoD 
               print('This node was not found in self.final_io_shapes, however it existed in metadata graph: ',  times_key)
               
           num_calls_all_runs =  times_value[1]
@@ -658,9 +678,6 @@ class Tensorscope(object):
           cumul_time += op_time_per_run_microsec
           op_count = op_count + 1
                    
-          oppath = times_key.split('/')[::-1]
-          opname_short = oppath[0]
-          
           opname_short_parts = opname_short.split('_')
           opname_short_parts = [p for p in opname_short_parts if not p.isdigit()]
           if len(opname_short_parts) == 0:
@@ -680,21 +697,25 @@ class Tensorscope(object):
           
           if len(opname_short_cand1)>1:
               opname_short = opname_short_cand1[-1]
-          # hack for nmt 
+          
+          # quick fix for MEMCPYDtoD 
           if len(shape_str) == 0:
-              shape_str.append('unkn device')
-              shape_str.append('unkn shape')
+              shape_str.append('GPU-0')
+              shape_str.append('(no input)->(no output)')
           elif len(shape_str) == 1:
-              shape_str.append('some shape')
+              shape_str.append('(no input)->(no output)')
+              
           opname_for_summation = '/'.join([opname_short, shape_str[0], shape_str[1]]) # op, device, i/o shapes
           opname_for_summation = opname_for_summation[0].upper() + opname_for_summation[1:]
+           
+
               
           if opname_for_summation in results_for_op_device_shape:
               prev_val = results_for_op_device_shape[opname_for_summation] 
               results_for_op_device_shape[opname_for_summation] = [prev_val[0] + op_time_all_runs, prev_val[1] + num_calls_all_runs]
           else:
               results_for_op_device_shape[opname_for_summation] = [op_time_all_runs, num_calls_all_runs]
-                              
+
           current_row_output_for_chart_tsv = [op_time_per_run_microsec, shape_str[0], opname_short]
           current_row_output_for_chart_tsv.extend(oppath[1:])
           current_row_output_for_chart_tsv.append(shape_str[1])
@@ -742,7 +763,8 @@ class Tensorscope(object):
                                 "%9.1f" % (cumul_time),
                                 "%9.1f" % (100*cumul_time/mean_all_ops_time_per_step)]
                                 
-          nodepathparts = times_key.split('/')                                
+          nodepathparts = times_key.split('/')
+                                            
           current_row_output.extend(nodepathparts)
 
           tsv_file_writer.writerow(current_row_output)
@@ -766,24 +788,9 @@ class Tensorscope(object):
             assert self.session.graph is graph
             self.model_graph = graph
     
-        print('characterizing: ', self.current_session)
-        
-        
-        print('print(tf.get_default_graph().get_name_scope()):', tf.get_default_graph().get_name_scope())
-        print('print(graph.get_name_scope()):', self.model_graph.get_name_scope())
-         
         all_ops = self.model_graph.get_operations()
         print("Total number of ops in self.model_graph: ", len(all_ops))
         
-        print("self.model_graph.collections() ", self.model_graph.collections)
-        print("TensorFlow process to which this session connects:", self.session.sess_str)
-      
-        print("get_all_collection_keys() ", self.model_graph.get_all_collection_keys())
-        print("TensorFlow process to which this session connects:", self.session.sess_str)
-        
-        #sys.exit(0)
-    
-    
         if self.session_metadata is not None:
             
             # assuming that the default graph is the one of interest
