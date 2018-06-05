@@ -74,8 +74,18 @@ from tensorflow.python.framework import graph_io
 
 class Tensorscope(object):
     
-    def __init__(self, num_steps=10, output_dir="/tmp/tensorscope/"):
+    def __init__(self, num_steps=10, output_dir="/tmp/tensorscope/", session=tf.get_default_session()):
     
+        if not session:
+            print("session is None, exiting.")
+            sys.exit()
+        else:
+            #assert tf.get_default_session() is session
+            devices = session.list_devices()
+            for d in devices:
+                print(d.name)
+            self.session = session
+        
         # where to save the results, 
         # filenames will be unique for each experiment
         if output_dir[-1] != '/':
@@ -113,41 +123,44 @@ class Tensorscope(object):
 
 
     def cleanup_op_path_from_model(self, name_from_model):
+        """
+        # convert cstyle names to camelCase
+        path_cstyle = name_from_model.split('_')
+        has_unique_id = True if path_cstyle[-1].isdigit() else False
+        camelCaseName = ''.join([p[0].upper()+p[1:] for p in path_cstyle if not p.isdigit()])
+        return camelCaseName+'_'+path_cstyle[-1] if has_unique_id else camelCaseName
+        """
         return
         
     def cleanup_op_path_from_metadata(self, name_from_metadata):
+        # transform input similar to 'strided_slice_1:StridedSlice' -> 'StridedSlice_1'
         current_node_path_parts = name_from_metadata.split('/')
-        remrep = current_node_path_parts[-1]
-        remrep_repeated = False
+        path_subparts = current_node_path_parts[-1].split(':')
         
-        path_subparts = remrep.split(':')
-        subparts_without_output_number = path_subparts
-        # we should also transform MatMul_17:MatMul -> MatMul_17 , not just MatMul,
-        # to find correct inputs and outputs
-        if len(subparts_without_output_number)>1:
-            path1 = subparts_without_output_number[0].split('_')
-            path_sub_subparts_no_groups = [p for p in path1 if not p.isdigit()]
+        # remove possibly repeated and mangled op name after ':'
+        if len(path_subparts)>1:
+            paths = path_subparts[0].split('_')
+            path_sub_subparts_no_groups = [p for p in paths if not p.isdigit()]
+            has_unique_id = True if paths[-1].isdigit() else False
             
             if len(path_sub_subparts_no_groups) > 0: 
-                cand1 = '_'.join(path_sub_subparts_no_groups)
-                cstylename = ''.join(path_sub_subparts_no_groups) # for strided_slice_1:StridedSlice -> strided_slice_1
-                # (TODO) recheck for more models
-                if  (cand1 == subparts_without_output_number[-1] or 
-                    cand1.lower() == subparts_without_output_number[-1].lower() or 
-                    cand1.lower()+'v2' == subparts_without_output_number[-1].lower() or 
-                    cand1.lower()+'v1' == subparts_without_output_number[-1].lower() or 
-                    cand1.lower()+'v' == subparts_without_output_number[-1].lower() or 
-                    cstylename.lower() == subparts_without_output_number[-1].lower() or 
-                    cand1.lower() == 'shape'):
-               
-                    remrep_repeated = True
+                compacted_name = (path_subparts[-1]).lower()
+                cstylename = ('_'.join(path_sub_subparts_no_groups)).lower()
+                camelcase = (''.join([p[0].upper()+p[1:] for p in path_sub_subparts_no_groups])).lower()
+                camelCaseName = ''.join([p[0].upper()+p[1:] for p in path_sub_subparts_no_groups])
+                tensor_origin = path_subparts[-1].lower()
+                
+                # (TODO) add lookup in _kernel_label_map to add possible prefixes
+                naming_variants_1 = [cstylename, cstylename+'v0', cstylename+'v', cstylename+'v1', 
+                                     cstylename+'v2', cstylename+'v3', cstylename+'v4',cstylename+'v5']
+                                   
+                naming_variants_2 = [camelcase, camelcase+'v0', camelcase+'v', camelcase+'v1', 
+                                     camelcase+'v2', camelcase+'v3', camelcase+'v4', camelcase+'v5']
 
-        if remrep_repeated:
-            current_node_path_parts[-1] = path_subparts[0]
-            
-        common_name='/'.join(current_node_path_parts)
-            
-        return common_name
+                if (compacted_name in naming_variants_1 + naming_variants_2):
+                    current_node_path_parts[-1] =  path_subparts[0]#camelCaseName + '_' + paths[-1] if has_unique_id else camelCaseName
+
+        return '/'.join(current_node_path_parts)
     
                     
     def find_input_names_from_model(self, model_graph, input_names_from_model):
@@ -164,7 +177,7 @@ class Tensorscope(object):
         print("Total number of ops in a model graph: ", len(all_ops))
         
         # this file may be quite big
-        #tf.train.write_graph(model_graph, self.temp_path,'model_graph.json')
+        tf.train.write_graph(model_graph, self.temp_path,'model_graph.json')
         
         all_node_names = set()
         all_node_names_cleaned = set()
@@ -260,6 +273,10 @@ class Tensorscope(object):
                         if len(valid_tensor_shapes) == 1:
                             valid_tensor_shapes.append('1')
                         tensor_shape_result = 'x'.join(valid_tensor_shapes)
+                        if tensor_shape_result == 'x':
+                            import pdb
+                            pdb.set_trace()
+                            
                         if tensor_shape_result=='':
                             tensor_shape_result = '1x1'
                         # indicate data type only if it is not he usual DT_FLOAT = 1
@@ -280,7 +297,6 @@ class Tensorscope(object):
                         if result_shape_with_type=='': # if a scalar value
                             result_shape_with_type = '1x1'
                         output_shapes.append('('+result_shape_with_type+')')
-            
                         
                 new_device = device_type
                 if _device_type != '':
@@ -342,9 +358,7 @@ class Tensorscope(object):
                                 _tensor_shape = ['(None)']   
                             result_shapes.extend(_tensor_shape)
                         else:
-
-                            tensor_from_model = tf.get_default_graph().get_tensor_by_name(inp)
-                            
+                            tensor_from_model = self.model_graph.get_tensor_by_name(inp)
                             if tensor_from_model is not None:
                                 tensor_shape_result = '(not in metadata %s)' % inp.replace('/','|')
                                 if tensor_from_model.shape.dims is None:
@@ -352,11 +366,9 @@ class Tensorscope(object):
                                 else:
                                     valid_tensor_shapes = [d.__str__() for d in tensor_from_model.shape.dims]
                                     if '?' in valid_tensor_shapes:
-                                        
                                         cand1 =  inp.split(':')
                                         cand = cand1[:-1]
                                         t1 = ':'.join(cand)
-
                                         if t1 in node_output_shape:
                                             _tensor_shape, _device_type, _device_number = node_output_shape[t1]
                                             if not _tensor_shape:
@@ -368,13 +380,16 @@ class Tensorscope(object):
                                         if len(valid_tensor_shapes) == 1:
                                             valid_tensor_shapes.append('1')
                                     tensor_shape_result = 'x'.join(valid_tensor_shapes)
+                                    if tensor_shape_result == 'x':
+                                        import pdb
+                                        pdb.set_trace()
+                            
                                     if tensor_shape_result=='':
                                         tensor_shape_result='1x1'
                                 if not (tensor_shape_result[0] == '(' and tensor_shape_result[-1]==')'):
                                     result_shapes.append('('+tensor_shape_result+')')
                                 else:
-                                    result_shapes.append(tensor_shape_result)
-                                
+                                    result_shapes.append(tensor_shape_result)  
                             else:
                                 result_shapes.append('(not in metadata %s)' % inp.replace('/','|'))
                                 ops_not_in_metadata.add(inp)
@@ -390,11 +405,11 @@ class Tensorscope(object):
                         _tensor_shape = ['(None)']   
                     result_shapes.extend(_tensor_shape)
                 else:
-                    if cand1[-1] == 'MEMCPYDtoH' or cand1[-1] == 'MEMCPYHtoD':
+                    if cand1[-1] == 'MEMCPYDtoH' or cand1[-1] == 'MEMCPYHtoD' or  cand1[-1] == 'MEMCPYDtoD':
                         result_shapes.append('(no input)')
                     ops_not_in_model.add(k)
             if len(result_shapes) > 0:
-                if result_shapes[0] == 'MEMCPYDtoH' or  result_shapes[0] == 'MEMCPYHtoD':
+                if result_shapes[0] == 'MEMCPYDtoH' or  result_shapes[0] == 'MEMCPYHtoD' or result_shapes[0] == 'MEMCPYDtoD':
                     io_shapes[k] = '(no input)'
            
             result_shapes.extend(['->'])
@@ -421,7 +436,6 @@ class Tensorscope(object):
         sorted_times = ( (key, value) for key, value in sorted(io_shapes.items(), key=lambda x: x[0], reverse=True))
         sorted_times = list(sorted_times)
  
- 
         for opname in sorted_times:
             file_final_shapes.write(opname.__str__())
             file_final_shapes.write('\n')
@@ -429,9 +443,8 @@ class Tensorscope(object):
         file_ops_not_in_model.close()
         file_ops_not_in_metadata.close()
         file_final_shapes.close()
-                
-            
-            
+
+
     def update_op_total_time(self, step_stats, total_op_time):
 
         '''Adds op time from current step to total time for op
@@ -457,15 +470,16 @@ class Tensorscope(object):
             # so we can group timings by op + parameters and compare each device performance
             for node_stat in dev_stats.node_stats:
                 op_time = node_stat.op_end_rel_micros - node_stat.op_start_rel_micros
-                if (device_type == 'GPU' and device_path[-1] != 'stream:all') or device_type == 'CPU':   
+                # CPU/GPU/XLA_CPU/XLA_GPU
+                if (device_type[-3:] == 'GPU' and device_path[-1] != 'stream:all') or device_type[-3:] == 'CPU':   
                     final_op_path = self.cleanup_op_path_from_metadata(node_stat.node_name)
                     if final_op_path in total_op_time:
                         total_op_time[final_op_path][0] += op_time
                         total_op_time[final_op_path][1] += 1
                     else:
                         total_op_time[final_op_path] = [op_time, 1]
-                        
-                        
+
+
     def group_by_op_type_and_params1(self, op_timings):
         grouped_timings = {}
         for k,v in op_timings.items():
@@ -480,7 +494,8 @@ class Tensorscope(object):
             else:
                 grouped_timings[ops_with_params_without_group_num] = v
         return grouped_timings
-    
+
+
     def print_distribution_summary(self, sorted_times, denom_const):
         # Distribution of time among top k ops
         # Value of k is equally spaced in log10
@@ -540,10 +555,10 @@ class Tensorscope(object):
         print('\n*** Interactive pie chart with details is saved to %s\n' % result_file)
 
         # if training was launched with sudo for some reason, --no-sandbox option will be required here
-        # bash_cmd_launch_browser = 'google-chrome --no-sandbox "%s"' % (result_file)
+        bash_cmd_launch_browser = 'google-chrome --no-sandbox "%s"' % (result_file)
         
         # will this help to keep chrome's sandbox on, even if training was launched with sudo?
-        bash_cmd_launch_browser = 'sudo -H -u $SUDO_USER google-chrome "%s"' % (result_file)
+        #bash_cmd_launch_browser = 'sudo -H -u $SUDO_USER google-chrome "%s"' % (result_file)
         
         print('Launching the browser to show generated chart: %s' % bash_cmd_launch_browser)
         subprocess.Popen(bash_cmd_launch_browser, shell=True)
@@ -665,7 +680,14 @@ class Tensorscope(object):
           
           if len(opname_short_cand1)>1:
               opname_short = opname_short_cand1[-1]
+          # hack for nmt 
+          if len(shape_str) == 0:
+              shape_str.append('unkn device')
+              shape_str.append('unkn shape')
+          elif len(shape_str) == 1:
+              shape_str.append('some shape')
           opname_for_summation = '/'.join([opname_short, shape_str[0], shape_str[1]]) # op, device, i/o shapes
+          opname_for_summation = opname_for_summation[0].upper() + opname_for_summation[1:]
               
           if opname_for_summation in results_for_op_device_shape:
               prev_val = results_for_op_device_shape[opname_for_summation] 
@@ -735,12 +757,37 @@ class Tensorscope(object):
         self.show_results(tsv_file_name_for_chart)
         
             
-    def characterize_model(self):
+    def characterize_model(self, graph=tf.get_default_graph()):
+    
+        if not graph:
+            print("session is None, exiting.")
+            sys.exit()
+        else:
+            assert self.session.graph is graph
+            self.model_graph = graph
+    
+        print('characterizing: ', self.current_session)
         
+        
+        print('print(tf.get_default_graph().get_name_scope()):', tf.get_default_graph().get_name_scope())
+        print('print(graph.get_name_scope()):', self.model_graph.get_name_scope())
+         
+        all_ops = self.model_graph.get_operations()
+        print("Total number of ops in self.model_graph: ", len(all_ops))
+        
+        print("self.model_graph.collections() ", self.model_graph.collections)
+        print("TensorFlow process to which this session connects:", self.session.sess_str)
+      
+        print("get_all_collection_keys() ", self.model_graph.get_all_collection_keys())
+        print("TensorFlow process to which this session connects:", self.session.sess_str)
+        
+        #sys.exit(0)
+    
+    
         if self.session_metadata is not None:
             
             # assuming that the default graph is the one of interest
-            self.model_graph = tf.get_default_graph()
+            #self.model_graph = agraph#tf.get_default_graph()
             self.current_session_time = time.time() - self.session_start_time 
                     
             # skip two first and two last session runs
@@ -774,10 +821,21 @@ class Tensorscope(object):
         # after we captured required number of steps, 
         # start analysis and show results
         if self.num_steps_analyzed == self.num_steps_to_analyze:
+            self.session.close()
             self.generate_results()
             
 """
 Some things to account for later on
+
+add V2, V3 postfix candidates if _kernel_label_map defined:
+ def _kernel_label_map(self, op_to_kernel_label_map):
+    #EXPERIMENTAL: A context manager for setting kernel labels.
+    This context manager can be used to select particular
+    implementations of kernels within the scope of the context.
+    For example:
+        with ops.Graph().as_default() as g:
+          f_1 = Foo()  # Uses the default registered kernel for the Foo op.
+          with g.kernel_label_map({"Foo": "v_2"}):
 
 https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/config.proto
  // Metadata output (i.e., non-Tensor) for a single Run() call.
