@@ -43,6 +43,7 @@ from six.moves import xrange  # pylint: disable=redefined-builtin
 import tensorflow as tf
 
 from tensorscope import Tensorscope
+#from tensorscope_alt import Tensorscope
 
 FLAGS = None
 
@@ -195,7 +196,7 @@ def time_tensorflow_run(session, target, info_string):
   total_duration_squared = 0.0
   
   #1/3 Enable tensorscope - add this line before main loop
-  ts = Tensorscope(num_steps=10, output_dir='/tmp/tensorscope')
+  ts = Tensorscope(num_steps=10, output_dir='/tmp/tensorscope', session=session)
   
   for i in xrange(FLAGS.num_batches + num_steps_burn_in):
     start_time = time.time()
@@ -206,7 +207,7 @@ def time_tensorflow_run(session, target, info_string):
                     run_metadata=ts.metadata())  
     
     #3/3 Enable tensorscope - add after session.run()
-    ts.characterize_model() 
+    ts.characterize_model(graph=session.graph) 
 
     duration = time.time() - start_time
     if i >= num_steps_burn_in:
@@ -251,7 +252,10 @@ def run_benchmark():
     # Start running operations on the Graph.
     config = tf.ConfigProto()
     config.gpu_options.allocator_type = 'BFC'
-    sess = tf.Session(config=config) # Tensorscope change 2/3
+    #config = tf.ConfigProto(
+    #    device_count = {'GPU': 0}
+    #)
+    sess = tf.Session(config=config)
     sess.run(init)
 
 
