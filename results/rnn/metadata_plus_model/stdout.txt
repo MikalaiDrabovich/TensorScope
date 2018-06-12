@@ -1,0 +1,67 @@
+sudo python3 tensorscope_test_ptb_word_lm.py --data_path=$HOME/work_april/models/tutorials/rnn/ptb/simple-examples/data/ --model=small
+
+2018-06-12 11:38:37.815916: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-12 11:38:37.816268: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
+pciBusID: 0000:01:00.0
+totalMemory: 5.94GiB freeMemory: 4.85GiB
+2018-06-12 11:38:37.816310: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 11:38:37.994412: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 11:38:37.994457: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 11:38:37.994462: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 11:38:37.994632: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/device:GPU:0 with 4616 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-06-12 11:38:44.183417: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 11:38:44.183470: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 11:38:44.183478: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 11:38:44.183485: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 11:38:44.183567: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4616 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Epoch: 1 Learning rate: 1.000
+2018-06-12 11:38:44.836890: I tensorflow/stream_executor/dso_loader.cc:152] successfully opened CUDA library libcupti.so.9.1 locally
+Step 0/10(14) completed in 0.5211 seconds.
+Total number of ops in a model graph:  3774
+New device info extracted from metadata: /device:GPU:0/stream:15 GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:14 GPU 0
+New device info extracted from metadata: /job:localhost/replica:0/task:0/device:CPU:0 CPU 0
+New device info extracted from metadata: /device:GPU:0/memcpy GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:all GPU 0
+New device info extracted from metadata: /job:localhost/replica:0/task:0/device:GPU:0 GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:13 GPU 0
+Total number of nodes in a metadata graph:  4879
+Session graph and metadata parsed in 1.4102 seconds
+Step 1/10(14) completed in 0.0871 seconds.
+Timeline saved in /tmp/tensorscope/timeline_at_step_2_1528828726.json
+Step 2/10(14) completed in 0.0880 seconds.
+Step 3/10(14) completed in 0.1018 seconds.
+Step 4/10(14) completed in 0.0873 seconds.
+Step 5/10(14) completed in 0.0856 seconds.
+Step 6/10(14) completed in 0.0857 seconds.
+Step 7/10(14) completed in 0.0833 seconds.
+Step 8/10(14) completed in 0.1366 seconds.
+Step 9/10(14) completed in 0.0824 seconds.
+Step 10/10(14) completed in 0.0862 seconds.
+Session is closed
+
+Sanity check: total time for 10 steps: 0.924 sec., 1 step avg. time:  92397.7 microsec., 1 step avg. time captured in metadata: 88179.1 microsec., number of unique ops: 1724
+
+2 - Total time for 10 steps: 0.924 sec., 1 step avg. time:  92397.7 microsec., 1 step avg. time captured in metadata: 88179.1 microsec., number of unique ops: 156
+
+*** Brief summary of findings ***
+
+Top-1 ops (0.6%)	13.4 ms (15.2%)
+Top-2 ops (1.3%)	23.9 ms (27.1%)
+Top-3 ops (1.9%)	30.6 ms (34.8%)
+Top-5 ops (3.2%)	41.7 ms (47.3%)
+Top-9 ops (5.8%)	58.0 ms (65.7%)
+Top-17 ops (10.9%)	73.4 ms (83.2%)
+Top-29 ops (18.6%)	83.6 ms (94.9%)
+Top-51 ops (32.7%)	87.2 ms (98.9%)
+Top-89 ops (57.1%)	88.0 ms (99.8%)
+Top-156 ops (100.0%)	88.2 ms (100.0%)
+
+*** I/O tensor shapes for kernel optimizations (for this specific mo5 del and batch size) are saved to /tmp/tensorscope/data_1528828727.tsv ***
+
+Writing /tmp/tensorscope/chart_1528828727.html...
+
+*** Interactive pie chart with details is saved to /tmp/tensorscope/chart_1528828727.html
+
+

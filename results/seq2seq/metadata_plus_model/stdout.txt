@@ -1,0 +1,244 @@
+sudo ./run_seq2seq_training.sh
+/usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+# Job id 0
+# Set random seed to 1
+# Loading hparams from /home/ndr/work/tf/data/seq2seq/nmt_model/hparams
+  saving hparams to /home/ndr/work/tf/data/seq2seq/nmt_model/hparams
+  saving hparams to /home/ndr/work/tf/data/seq2seq/nmt_model/best_bleu/hparams
+  attention=
+  attention_architecture=standard
+  avg_ckpts=False
+  batch_size=128
+  beam_width=0
+  best_bleu=0
+  best_bleu_dir=/home/ndr/work/tf/data/seq2seq/nmt_model/best_bleu
+  check_special_token=True
+  colocate_gradients_with_ops=True
+  decay_scheme=
+  dev_prefix=/home/ndr/work/tf/data/seq2seq/nmt_data/tst2012
+  dropout=0.2
+  embed_prefix=None
+  encoder_type=uni
+  eos=</s>
+  epoch_step=0
+  forget_bias=1.0
+  infer_batch_size=32
+  init_op=uniform
+  init_weight=0.1
+  learning_rate=1.0
+  length_penalty_weight=0.0
+  log_device_placement=False
+  max_gradient_norm=5.0
+  max_train=0
+  metrics=['bleu']
+  num_buckets=5
+  num_decoder_layers=3
+  num_decoder_residual_layers=0
+  num_embeddings_partitions=0
+  num_encoder_layers=3
+  num_encoder_residual_layers=0
+  num_gpus=1
+  num_inter_threads=2
+  num_intra_threads=2
+  num_keep_ckpts=5
+  num_layers=3
+  num_train_steps=24000
+  num_translations_per_input=1
+  num_units=128
+  optimizer=sgd
+  out_dir=/home/ndr/work/tf/data/seq2seq/nmt_model
+  output_attention=True
+  override_loaded_hparams=False
+  pass_hidden_state=True
+  random_seed=1
+  residual=False
+  sampling_temperature=0.0
+  share_vocab=False
+  sos=<s>
+  src=vi
+  src_embed_file=
+  src_max_len=50
+  src_max_len_infer=None
+  src_vocab_file=/home/ndr/work/tf/data/seq2seq/nmt_data/vocab.vi
+  src_vocab_size=7709
+  steps_per_external_eval=None
+  steps_per_stats=100
+  subword_option=
+  test_prefix=/home/ndr/work/tf/data/seq2seq/nmt_data/tst2013
+  tgt=en
+  tgt_embed_file=
+  tgt_max_len=50
+  tgt_max_len_infer=None
+  tgt_vocab_file=/home/ndr/work/tf/data/seq2seq/nmt_data/vocab.en
+  tgt_vocab_size=17191
+  time_major=True
+  train_prefix=/home/ndr/work/tf/data/seq2seq/nmt_data/train
+  unit_type=lstm
+  vocab_prefix=/home/ndr/work/tf/data/seq2seq/nmt_data/vocab
+  warmup_scheme=t2t
+  warmup_steps=0
+# creating train graph ...
+  num_layers = 3, num_residual_layers=0
+  cell 0  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  cell 2  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  cell 0  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  cell 2  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  learning_rate=1, warmup_steps=0, warmup_scheme=t2t
+  decay_scheme=, start_decay_step=24000, decay_steps 0, decay_factor 1
+# Trainable variables
+  embeddings/encoder/embedding_encoder:0, (7709, 128), /device:GPU:0
+  embeddings/decoder/embedding_decoder:0, (17191, 128), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_2/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_2/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_2/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_2/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/output_projection/kernel:0, (128, 17191), 
+# creating eval graph ...
+  num_layers = 3, num_residual_layers=0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 2  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 2  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+# Trainable variables
+  embeddings/encoder/embedding_encoder:0, (7709, 128), /device:GPU:0
+  embeddings/decoder/embedding_decoder:0, (17191, 128), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_2/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_2/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_2/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_2/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/output_projection/kernel:0, (128, 17191), 
+# creating infer graph ...
+  num_layers = 3, num_residual_layers=0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 2  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 2  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+# Trainable variables
+  embeddings/encoder/embedding_encoder:0, (7709, 128), /device:GPU:0
+  embeddings/decoder/embedding_decoder:0, (17191, 128), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_2/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_2/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_2/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/multi_rnn_cell/cell_2/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/output_projection/kernel:0, (128, 17191), 
+# log_file=/home/ndr/work/tf/data/seq2seq/nmt_model/log_1528829049
+2018-06-12 11:44:09.917132: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-12 11:44:09.917462: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
+pciBusID: 0000:01:00.0
+totalMemory: 5.94GiB freeMemory: 4.76GiB
+2018-06-12 11:44:09.917475: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 11:44:10.094053: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 11:44:10.094101: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 11:44:10.094120: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 11:44:10.094319: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4523 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-06-12 11:44:10.095085: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 11:44:10.095120: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 11:44:10.095125: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 11:44:10.095130: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 11:44:10.095221: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4523 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-06-12 11:44:10.095527: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 11:44:10.095541: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 11:44:10.095559: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 11:44:10.095563: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 11:44:10.095650: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4523 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+  created train model with fresh parameters, time 0.21s
+  created infer model with fresh parameters, time 0.07s
+  # 275
+    src: yêu công nghệ , thích sáng tạo
+    ref: We love technology . We love creativity .
+    nmt: weeds weeds weeds sharing sharing Rockefeller Rockefeller Crick Crick scaled scaled shaped shaped juice
+  created eval model with fresh parameters, time 0.09s
+  eval dev: perplexity 17189.86, time 0s, Tue Jun 12 11:44:11 2018.
+  eval test: perplexity 17188.03, time 0s, Tue Jun 12 11:44:12 2018.
+2018-06-12 11:44:12.541501: I tensorflow/core/kernels/lookup_util.cc:372] Table trying to initialize from file /home/ndr/work/tf/data/seq2seq/nmt_data/vocab.vi is already initialized.
+2018-06-12 11:44:12.541501: I tensorflow/core/kernels/lookup_util.cc:372] Table trying to initialize from file /home/ndr/work/tf/data/seq2seq/nmt_data/vocab.en is already initialized.
+2018-06-12 11:44:12.541662: I tensorflow/core/kernels/lookup_util.cc:372] Table trying to initialize from file /home/ndr/work/tf/data/seq2seq/nmt_data/vocab.en is already initialized.
+  created infer model with fresh parameters, time 0.05s
+# Start step 0, lr 1, Tue Jun 12 11:44:12 2018
+# Init train iterator, skipping 0 elements
+305 ops no flops stats due to incomplete shapes.
+Parsing Inputs...
+2018-06-12 11:44:15.002573: I tensorflow/stream_executor/dso_loader.cc:152] successfully opened CUDA library libcupti.so.9.1 locally
+Step 0/10(14) completed in 5.2538 seconds.
+Total number of ops in a model graph:  2935
+New device info extracted from metadata: /device:GPU:0/stream:15 GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:14 GPU 0
+New device info extracted from metadata: /job:localhost/replica:0/task:0/device:CPU:0 CPU 0
+New device info extracted from metadata: /device:GPU:0/memcpy GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:all GPU 0
+New device info extracted from metadata: /job:localhost/replica:0/task:0/device:GPU:0 GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:13 GPU 0
+Total number of nodes in a metadata graph:  53047
+Session graph and metadata parsed in 10.1670 seconds
+Step 1/10(14) completed in 0.8250 seconds.
+Timeline saved in /tmp/tensorscope/timeline_at_step_2_1528829074.json
+Step 2/10(14) completed in 0.5236 seconds.
+Step 3/10(14) completed in 0.7503 seconds.
+Step 4/10(14) completed in 0.4329 seconds.
+Step 5/10(14) completed in 0.5731 seconds.
+Step 6/10(14) completed in 0.2864 seconds.
+Step 7/10(14) completed in 0.3478 seconds.
+Step 8/10(14) completed in 0.9381 seconds.
+Step 9/10(14) completed in 0.9479 seconds.
+Step 10/10(14) completed in 0.6137 seconds.
+Session is closed
+
+Sanity check: total time for 10 steps: 6.239 sec., 1 step avg. time:  623880.6 microsec., 1 step avg. time captured in metadata: 271078.3 microsec., number of unique ops: 2244
+This node was not found in self.final_io_shapes, however it existed in metadata graph:  gradients/dynamic_seq2seq/encoder/rnn/TensorArrayUnstack/TensorArrayScatter/TensorArrayScatterV3_grad/TensorArrayGatherV3:MEMCPYDtoD
+This node was not found in self.final_io_shapes, however it existed in metadata graph:  dynamic_seq2seq/decoder/decoder/TensorArrayStack/TensorArrayGatherV3:MEMCPYDtoD
+
+2 - Total time for 10 steps: 6.239 sec., 1 step avg. time:  623880.6 microsec., 1 step avg. time captured in metadata: 271078.3 microsec., number of unique ops: 364
+
+*** Brief summary of findings ***
+
+Top-1 ops (0.3%)	24.4 ms (9.0%)
+Top-2 ops (0.5%)	41.6 ms (15.4%)
+Top-4 ops (1.1%)	61.6 ms (22.7%)
+Top-7 ops (1.9%)	83.4 ms (30.7%)
+Top-14 ops (3.8%)	127.6 ms (47.1%)
+Top-26 ops (7.1%)	179.7 ms (66.3%)
+Top-51 ops (14.0%)	238.7 ms (88.1%)
+Top-98 ops (26.9%)	261.3 ms (96.4%)
+Top-189 ops (51.9%)	269.9 ms (99.6%)
+Top-364 ops (100.0%)	271.1 ms (100.0%)
+
+*** I/O tensor shapes for kernel optimizations (for this specific mo5 del and batch size) are saved to /tmp/tensorscope/data_1528829081.tsv ***
+
+Writing /tmp/tensorscope/chart_1528829081.html...
+
+*** Interactive pie chart with details is saved to /tmp/tensorscope/chart_1528829081.html
+
+Launching the browser to show generated chart: google-chrome --no-sandbox "/tmp/tensorscope/chart_1528829081.html"
+ma
