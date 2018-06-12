@@ -102,6 +102,7 @@ BASIC = "basic"
 CUDNN = "cudnn"
 BLOCK = "block"
 
+ts = None
 
 def data_type():
   return tf.float16 if FLAGS.use_fp16 else tf.float32
@@ -337,7 +338,7 @@ class SmallConfig(object):
   max_max_epoch = 13
   keep_prob = 1.0
   lr_decay = 0.5
-  batch_size = 70
+  batch_size = 200
   vocab_size = 10000
   rnn_mode = BASIC
 
@@ -354,7 +355,7 @@ class MediumConfig(object):
   max_max_epoch = 39
   keep_prob = 0.5
   lr_decay = 0.8
-  batch_size = 20
+  batch_size = 200
   vocab_size = 10000
   rnn_mode = BLOCK
 
@@ -407,18 +408,75 @@ def run_epoch(session, model, eval_op=None, verbose=False):
   if eval_op is not None:
     fetches["eval_op"] = eval_op
 
-  ts = Tensorscope(num_steps=10, output_dir='/tmp/tensorscope')
+  global ts
+  #1/3 Enable tensorscope - add this line before main loop
+  if ts is None:
+      ts = Tensorscope(num_steps=10, output_dir='/tmp/tensorscope', session=session)
+  
+  """
+  opts = (option_builder.ProfileOptionBuilder(tf.profiler.ProfileOptionBuilder.time_and_memory())
+          .with_max_depth(1000)
+          #.with_min_micros(1)
+          .account_displayed_op_only(False)
+          .select(['op_types', 'occurrence', 'micros', 'accelerator_micros','cpu_micros', 'device', 'input_shapes', 'params', 'float_ops'])
+          .order_by('micros')# order_by micros|accelerator_micros|cpu_micros float_ops occurren
+          .with_step(-1)
+          .with_file_output('/tmp/timeline_file123.txt')
+          #.with_timeline_output('/tmp/timeline_file123.json')
+          .build())
+  """
+  
+  #profiler = model_analyzer.Profiler(session.graph)
+  #profiler = None
+  
   
   for step in range(model.input.epoch_size):
     feed_dict = {}
     for i, (c, h) in enumerate(model.initial_state):
       feed_dict[c] = state[i].c
       feed_dict[h] = state[i].h
+    run_meta = ts.metadata()
+    #run_meta = tf.RunMetadata()
 
-    vals = session.run(fetches, feed_dict, options=ts.options,
-                          run_metadata=ts.metadata())
+    vals = session.run(fetches, feed_dict,
+                     options=ts.options,
+                     run_metadata=run_meta)
     
-    ts.characterize_model()
+    #if profiler is None:
+    #    profiler = tf.profiler.Profiler(session.graph)
+        
+    #vals = session.run(fetches, 
+    #                    feed_dict,
+    #                    options=tf.RunOptions(
+    #                    trace_level=tf.RunOptions.FULL_TRACE),
+    #                    run_metadata=run_meta)
+
+    
+    ts.characterize_model(graph=session.graph)
+    
+    """
+    if step >=2 : # skip first 2 steps for 'warm up'
+      profiler.add_step(step-2, run_meta)
+      print('added step for profiling: ', step)
+      print(step)
+      
+      if step == 12:
+        print('profiling all steps')
+        profiler.profile_operations(options=opts)
+        sess.close()
+        sys.exit(0)
+    """
+       
+    """
+    if step > 1 and step < 12:
+      profiler.add_step(step, run_meta)
+      print('PROFILED!')
+      print(step)
+    else:
+      if step == 12:
+        profiler.profile_operations(options=opts)
+        break 
+    """
     
     cost = vals["cost"]
     state = vals["final_state"]
