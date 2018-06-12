@@ -36,7 +36,7 @@ for model training/inference.
 How to:
 - import tensorscope to your file with the main training/inference loop
 - initialize Tensorscope object before main training loop
-  ts = Tensorscope(num_steps=10, output_dir='/tmp/tensorscope')
+  ts = Tensorscope(num_steps=10, output_dir='/tmp/tensorscope', session=session)
 
 - add two parameters to session.run() (only to the main training loop)
     _ = session.run(target,
@@ -44,7 +44,7 @@ How to:
                     run_metadata=ts.metadata())  
                     
 - add call right after sesion.run():
-    ts.characterize_model() 
+    ts.characterize_model(graph=session.graph) 
     
 - run training/inference as usual, it will stop after specified number of steps
 (10 by default) and launch Chrome brpwser to display interactive chart
