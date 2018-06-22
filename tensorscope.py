@@ -19,6 +19,61 @@ inference/training time of any Tensorflow model. Results are presented as
 interactive, hierarchical pie chart of GPU/CPU ops with concrete tensor shapes 
 and relative time contribution. 
 
+How to:
+- If training uses estimator API:
+  
+  1) Import TensorscopeRunHook to your main training file, for example like this:
+
+        import sys
+        # path to cloned git repo https://github.com/MikalaiDrabovich/TensorScope
+        path_to_tensorscope = '/home/ndr/TensorScope'
+
+        sys.path.append(path_to_tensorscope)
+        from tensorscope import TensorscopeRunHook
+
+  2) Add before main training loop:
+  
+        session_hook = TensorscopeRunHook(output_dir=path_to_ts_results,
+          save_steps=10, show_memory=True, show_dataflow=True)
+
+  3) In main training loop add/append session_hook to estimator.train() call:
+  
+        mnist_classifier.train(input_fn=train_input_fn, hooks=[session_hook])
+     
+
+- If training explicitly uses session API: 
+
+  1) Import Tensorscope to your main training file,
+     for example like this:
+
+        import sys
+        # path to cloned git repo https://github.com/MikalaiDrabovich/TensorScope
+        path_to_tensorscope = '/home/ndr/TensorScope'
+
+        sys.path.append(path_to_tensorscope)
+        from tensorscope import Tensorscope
+    
+  2) Initialize Tensorscope object before main training loop, for example: 
+ 
+        ts = Tensorscope(num_steps=10, output_dir='/tmp/tensorscope', session=session)
+
+  3) Add options and run_metadata parameters to session.run() (in the main training loop)
+ 
+        _ = session.run(target,
+                        options=ts.options,
+                        run_metadata=ts.metadata())  
+                        
+        # finally, add right after sesion.run():
+        ts.characterize_model(graph=session.graph) 
+        
+        
+Run training/inference as usual, it will stop after specified number of steps
+(10 by default) and launch Chrome brpwser to display interactive chart
+
+Take a look at brief summary in terminal. Details are saved to 
+data_*.tsv file in output_dir 
+
+
 Some of the addressed issues:
 - models may not provide tensor shapes of inputs or outputs;
 - some of collected metadata 'streams' may not have info about tensor inputs
@@ -32,25 +87,6 @@ inserted before tensor shapes in order to get meaningful hierarchy in a chart.
 
 The goal was to minimize any necessary code change to existing setup 
 for model training/inference.
-
-How to:
-- import tensorscope to your file with the main training/inference loop
-- initialize Tensorscope object before main training loop
-  ts = Tensorscope(num_steps=10, output_dir='/tmp/tensorscope', session=session)
-
-- add two parameters to session.run() (only to the main training loop)
-    _ = session.run(target,
-                    options=ts.options,
-                    run_metadata=ts.metadata())  
-                    
-- add call right after sesion.run():
-    ts.characterize_model(graph=session.graph) 
-    
-- run training/inference as usual, it will stop after specified number of steps
-(10 by default) and launch Chrome brpwser to display interactive chart
-
-- take a look at brief summary in terminal. Details are saved to 
-data_*.tsv file in output_dir 
 
 Mikalai Drabovich, nick.drabovich@amd.com
 
@@ -71,6 +107,67 @@ import tensorflow as tf
 from tensorflow.python.client import timeline
 from tensorflow.python.framework import tensor_shape
 from tensorflow.python.framework import graph_io
+
+from tensorflow.python.training import session_run_hook
+from tensorflow.python.training.summary_io import SummaryWriterCache
+from tensorflow.python.training import training_util
+from tensorflow.python.training.session_run_hook import SessionRunArgs
+
+from tensorflow.core.protobuf import config_pb2
+
+from enum import Enum
+
+# Find data type names for tensors from int value as defined in RunMetadata proto
+# based on https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/types.proto
+class TensorDataType(Enum):
+  invalid = 0
+  flt = 1 # float
+  double = 2
+  int32 = 3
+  uint8 = 4
+  int16 = 5
+  int8 = 6
+  string = 7
+  complex64 = 8  # single-precision complex
+  int64 = 9
+  boolean = 10 # bool
+  qint8 = 11     # quantized int8
+  quint8 = 12    # quantized uint8
+  qint32 = 13    # quantized int32
+  bfloat16 = 14  # float32 truncated to 16 bits.  only for cast ops.
+  qint16 = 15    # quantized int16
+  quint16 = 16   # quantized uint16
+  uint16 = 17
+  complex128 = 18  # double-precision complex
+  half = 19
+  tf_resource = 20
+  variant = 21  # arbitrary c++ data types
+  uint32 = 22
+  uint64 = 23
+  float_ref = 101
+  double_ref = 102
+  int32_ref = 103
+  uint8_ref = 104
+  int16_ref = 105
+  int8_ref = 106
+  string_ref = 107
+  complex64_ref = 108
+  int64_ref = 109
+  bool_ref = 110
+  qint8_ref = 111
+  quint8_ref = 112
+  qint32_ref = 113
+  bfloat16_ref = 114
+  qint16_ref = 115
+  quint16_ref = 116
+  uint16_ref = 117
+  complex128_ref = 118
+  half_ref = 119
+  tf_resource_ref = 120
+  variant_ref = 121
+  uint32_ref = 122
+  uint64_ref = 123
+
 
 class Tensorscope(object):
     
@@ -141,10 +238,6 @@ class Tensorscope(object):
             unique_parts = [possible_duplicates[0]]
             # assumption: StridedSlice goes after strided_slice_1
             for i, dup_cand in enumerate(possible_duplicates):
-                #if dup_cand == 'MEMCPYDtoD':
-                #    import pdb
-                #    pdb.set_trace()
-                    
                 if not self.are_op_part_names_equal(dup_cand, unique_parts[-1]):
                     unique_parts.append(dup_cand)
 
@@ -279,24 +372,19 @@ class Tensorscope(object):
                             pdb.set_trace()
                             
                         if tensor_shape_result=='':
-                            tensor_shape_result = '1x1'
-                        # indicate data type only if it is not he usual DT_FLOAT = 1
-                        if node_stat_out.tensor_description.dtype != 1: # todo find type number : str correspondence  
-                            # (TODO) add switch case from notes
-                            if node_stat_out.tensor_description.dtype == 3:
-                                result_shape_with_type = '(int32) '
-                            else:
-                                if node_stat_out.tensor_description.dtype == 9:
-                                    result_shape_with_type = '(int64) '
-                                else:
-                                    result_shape_with_type = '(type '+str(node_stat_out.tensor_description.dtype) + ') '
-                                
+                            tensor_shape_result = '1'
+                        # indicate data type only if it is not float as usual
+                        if node_stat_out.tensor_description.dtype != 1:
+                            # convert int description to data type name
+                            tensor_data_type = TensorDataType(node_stat_out.tensor_description.dtype)
+                            result_shape_with_type = tensor_data_type.name+' '
                             result_shape_with_type += tensor_shape_result
                         else:
                             result_shape_with_type = tensor_shape_result
-                        
+
                         if result_shape_with_type=='': # if a scalar value
-                            result_shape_with_type = '1x1'
+                            result_shape_with_type = '1'
+                            
                         output_shapes.append('('+result_shape_with_type+')')
                         
                 new_device = device_type
@@ -341,11 +429,8 @@ class Tensorscope(object):
         
         '''
         
-        #io_shapes = {}
-        
-         
-        tf.train.write_graph(step_stats, self.temp_path, 'metadata.txt')
-        tf.train.write_graph(self.model_graph, self.temp_path,'model_graph.txt')
+        tf.train.write_graph(step_stats, self.temp_path, 'metadata_'+str(time.time())[:10]+'.txt')
+        tf.train.write_graph(self.model_graph, self.temp_path,'model_graph_'+str(time.time())[:10]+'.txt')
     
         num_nodes_total = 0
         
@@ -395,7 +480,7 @@ class Tensorscope(object):
                         input_names_list.append('(no input)')
                     else: 
                         if lable_cand=='':
-                            input_names_list.append('(1x1 Const)')
+                            input_names_list.append('(1)')
                         else:
                             input_names_list.append(lable_cand)#node_stat.timeline_label.split('(')[-1][:-1]
                 else:
@@ -417,37 +502,29 @@ class Tensorscope(object):
                             pdb.set_trace()
                             
                         if tensor_shape_result=='':
-                            tensor_shape_result = '1x1'
-                        # indicate data type only if it is not he usual DT_FLOAT = 1
-                        if node_stat_out.tensor_description.dtype != 1: # todo find type number : str correspondence  
-                            # (TODO) add switch case from notes
-                            if node_stat_out.tensor_description.dtype == 3:
-                                result_shape_with_type = '(int32) '
-                            else:
-                                if node_stat_out.tensor_description.dtype == 9:
-                                    result_shape_with_type = '(int64) '
-                                else:
-                                    result_shape_with_type = '(type '+str(node_stat_out.tensor_description.dtype) + ') '
-                                
+                            tensor_shape_result = '1'
+
+                        # indicate data type only if it is not float as usual
+                        if node_stat_out.tensor_description.dtype != 1:
+                            # convert int description to data type name
+                            tensor_data_type = TensorDataType(node_stat_out.tensor_description.dtype)
+                            result_shape_with_type = tensor_data_type.name+' '
                             result_shape_with_type += tensor_shape_result
                         else:
                             result_shape_with_type = tensor_shape_result
                         
-                        if result_shape_with_type=='': # if a scalar value
-                            result_shape_with_type = '1x1'
-                            print('if result_shape_with_type==')
-                            import pdb
-                            pdb.set_trace()
-                            
+                        if result_shape_with_type=='':
+                            result_shape_with_type = '1'
+                        
                         output_shapes_list.append('('+result_shape_with_type+')')
                 else:
                     if lable_cand in ['Pinned to Device', 'Device to Pinned', 'Device to Device', 'Pageable to Device']:
                         if node_stat.timeline_label:
                             memsz = node_stat.timeline_label.split(' ')
                             memsz = memsz[1]
-                            output_shapes_list.append('transfer '+memsz+' bytes')
+                            output_shapes_list.append('(output '+memsz+' bytes)')
                         else:
-                            output_shapes_list.append('no info about transfer size')
+                            output_shapes_list.append('(no output)')
                     else:
                         output_shapes_list.append('(no output)')
                  
@@ -469,11 +546,13 @@ class Tensorscope(object):
             input_cand_names_list = io_info[0]
             input_cand_shapes_list = []
             
-            input_cand_names_list1 = input_cand_names_list[0].split(',')
-            input_cand_names_list1 = [p.strip(' ^$') for p in input_cand_names_list1]
-            #input_cand_names_list1 = [p.strip() for p in input_cand_names_list1]
+            input_cand_names_list = input_cand_names_list[0].split(',')
+            input_cand_names_list = [p.strip() for p in input_cand_names_list]
+	    
+	          #ignore op input if its name start with ^
+            input_cand_names_list = [p for p in input_cand_names_list if p[0]!='^']
            
-            for icand_name in input_cand_names_list1:
+            for icand_name in input_cand_names_list:
             
                 const_like_ops = icand_name.split('/')[-1]
                 const_like_ops = const_like_ops.split('_')
@@ -487,9 +566,10 @@ class Tensorscope(object):
                 else:
                 
                     const_like_ops = '_'.join(const_like_ops)
-                    c1 = const_like_ops.split(':')
-                    if len(c1) > 1:
-                        const_like_ops = ':'.join(c1[:-1])
+                    # remove duplicated op name if necessary (Node:MatMul:Matmul->Node:Matmul)
+                    const_like_ops_str = const_like_ops.split(':')
+                    if len(const_like_ops_str) > 1:
+                        const_like_ops = ':'.join(const_like_ops_str[:-1])
                     
                 if const_like_ops in ['ConcatOffset', 'Shape', 'axis', 'Const', 'Squeeze', 'ExpandDims', 'mod', 'range', 'Fill', 'reduction_indices', 'BroadcastGradientArgs']:
                     if const_like_ops == 'ConcatOffset':
@@ -504,10 +584,10 @@ class Tensorscope(object):
                             input_cand_shapes_list.extend(['(1|2|3x1)'])
                                         
                     if const_like_ops in ['axis', 'Const', 'Squeeze', 'mod', 'range', 'Fill', 'BroadcastGradientArgs']:
-                        input_cand_shapes_list.extend('(1x1)')
+                        input_cand_shapes_list.extend('(1)')
                   
                 else:                
-                    if icand_name not in ['(no input)', '(1x1 Const)']:
+                    if icand_name not in ['(no input)', '(1)']:
                         if icand_name in io_shapes:
                             input_cand_shapes_list.extend(io_shapes[icand_name][1][0])
                         else:
@@ -523,7 +603,7 @@ class Tensorscope(object):
                                 opns = opn.split('/')
                                 if len(opns)>1:
                                     if opn.split('/')[-2] == 'ToInt32':
-                                        input_cand_shapes_list.extend('(1x1)')
+                                        input_cand_shapes_list.extend('(1)')
                                       
                                     else:
                                         opn = icand_name + '_1'
@@ -555,7 +635,7 @@ class Tensorscope(object):
                                                             tensor_from_model = self.model_graph.get_tensor_by_name(icand_name)
                                                             if tensor_from_model is not None:
                                                                 if tensor_from_model.shape.dims is None:
-                                                                    tensor_shape_result = '1x1'
+                                                                    tensor_shape_result = '1'
                                                                 else:
                                                                     valid_tensor_shapes = [d.__str__() for d in tensor_from_model.shape.dims if d.__str__() != '']
                                                                     tensor_shape_result = 'x'.join(valid_tensor_shapes)
@@ -574,7 +654,7 @@ class Tensorscope(object):
                                                     tensor_from_model = self.model_graph.get_tensor_by_name(icand_name)
                                                     if tensor_from_model is not None:
                                                         if tensor_from_model.shape.dims is None:
-                                                            tensor_shape_result = '1x1'
+                                                            tensor_shape_result = '1'
                                                         else:
                                                             valid_tensor_shapes = [d.__str__() for d in tensor_from_model.shape.dims if d.__str__() != '']
                                                             tensor_shape_result = 'x'.join(valid_tensor_shapes)
@@ -591,7 +671,7 @@ class Tensorscope(object):
                                     tensor_from_model = self.model_graph.get_tensor_by_name(icand_name)
                                     if tensor_from_model is not None:
                                         if tensor_from_model.shape.dims is None:
-                                            tensor_shape_result = '1x1'
+                                            tensor_shape_result = '1'
                                         else:
                                             valid_tensor_shapes = [d.__str__() for d in tensor_from_model.shape.dims if d.__str__() != '']
                                             tensor_shape_result = 'x'.join(valid_tensor_shapes)
@@ -662,7 +742,7 @@ class Tensorscope(object):
                                 tensor_shape_result = '(not in metadata %s)' % inp.replace('/','|')
                                 correct_short_name_used = False
                                 if tensor_from_model.shape.dims is None:
-                                    tensor_shape_result = '1x1'
+                                    tensor_shape_result = '1'
                                 else:
                                     valid_tensor_shapes = [d.__str__() for d in tensor_from_model.shape.dims if d.__str__() != '']
                                     
@@ -681,7 +761,7 @@ class Tensorscope(object):
                                             valid_tensor_shapes = _tensor_shape
                                         else:   
                                             if t1.split('/')[-1] == 'BroadcastGradientArgs':
-                                                tensor_shape_result = '1x1'
+                                                tensor_shape_result = '1'
                                             else:
                                             
                                                 if t1 in self.cf_temp:
@@ -709,7 +789,7 @@ class Tensorscope(object):
                                         tensor_shape_result = ''.join(valid_tensor_shapes)
                             
                                     if tensor_shape_result=='':
-                                        tensor_shape_result='1x1'
+                                        tensor_shape_result='1'
                                         
                                 if not (tensor_shape_result[0] == '(' and tensor_shape_result[-1]==')'):
                                     result_shapes.append('('+tensor_shape_result+')')
@@ -934,7 +1014,7 @@ class Tensorscope(object):
         tsv_file_writer = csv.writer(tsv_file_obj, delimiter='\t')
         tsv_file_writer_for_chart = csv.writer(tsv_file_obj_for_chart, delimiter='\t')
 
-        header_tsv = ['Op rank by total time', 'Time of 1 call, microseconds', 'Number of calls in 1 run', 'Total time in 1 run', '% of total time', 'Cumulative time, microseconds', '% of total cumulative time', 'Op name', 'Device', 'Input/output tensor dimensions']
+        header_tsv = ['Op rank by total time', 'Time of 1 call, microseconds', 'Number of calls in 1 run', 'Total time in 1 run', '% of total time', 'Cumulative time, microseconds', '% of total cumulative time', 'Op name', 'Device', 'Input/output tensors']
         header_tsv_for_chart = ['Node','Time']
 
         tsv_file_writer.writerow(header_tsv)
@@ -1001,6 +1081,10 @@ class Tensorscope(object):
           num_calls_all_runs =  times_value[1]
           num_calls_per_run =  int(times_value[1]/self.num_steps_analyzed)
           
+          # rounding fix 99/100
+          if num_calls_per_run == 0:
+              num_calls_per_run = 1
+
           op_time_all_runs = times_value[0]
           op_time_per_run_microsec = op_time_all_runs/(float(self.num_steps_analyzed))
           op_time_per_call_microsec = op_time_per_run_microsec/float(num_calls_per_run)
@@ -1077,6 +1161,10 @@ class Tensorscope(object):
           num_calls_all_runs =  times_value[1]
           num_calls_per_run =  int(times_value[1]/self.num_steps_analyzed)
           
+          # rounding fix 99/100
+          if num_calls_per_run == 0:
+              num_calls_per_run = 1
+
           op_time_all_runs = times_value[0]
           op_time_per_run_microsec = op_time_all_runs/float(self.num_steps_analyzed)
           op_time_per_call_microsec = op_time_per_run_microsec/float(num_calls_per_run)
@@ -1165,113 +1253,53 @@ class Tensorscope(object):
             print('Session is closed')
                 
             self.generate_results()
-            
-"""
-Some things to account for later on
-
-add V2, V3 postfix candidates if _kernel_label_map defined:
- def _kernel_label_map(self, op_to_kernel_label_map):
-    #EXPERIMENTAL: A context manager for setting kernel labels.
-    This context manager can be used to select particular
-    implementations of kernels within the scope of the context.
-    For example:
-        with ops.Graph().as_default() as g:
-          f_1 = Foo()  # Uses the default registered kernel for the Foo op.
-          with g.kernel_label_map({"Foo": "v_2"}):
-
-https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/config.proto
- // Metadata output (i.e., non-Tensor) for a single Run() call.
-message RunMetadata {
-  // Statistics traced for this step. Populated if tracing is turned on via the
-  // "RunOptions" proto.
-  // EXPERIMENTAL: The format and set of events may change in future versions.
-  StepStats step_stats = 1;
-
-  // The cost graph for the computation defined by the run call.
-  CostGraphDef cost_graph = 2;
-
-  // Graphs of the partitions executed by executors.
-  repeated GraphDef partition_graphs = 3;
-}
-
-Main issues is that there is no info about input tensors, and no names of outputs
-https://github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/core/framework/step_stats.proto
-
-// Output sizes recorded for a single execution of a graph node.
-message NodeOutput {
-  int32 slot = 1;
-  TensorDescription tensor_description = 3;
-};
-
-// Time/size stats recorded for a single execution of a graph node.
-message NodeExecStats {
-  // TODO(tucker): Use some more compact form of node identity than
-  // the full string name.  Either all processes should agree on a
-  // global id (cost_id?) for each node, or we should use a hash of
-  // the name.
-
-https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/types.proto
-enum DataType {
-  // Not a legal value for DataType.  Used to indicate a DataType field
-  // has not been set.
-  DT_INVALID = 0;
-
-  // Data types that all computation devices are expected to be
-  // capable to support.
-  DT_FLOAT = 1;
-  DT_DOUBLE = 2;
-  DT_INT32 = 3;
-  DT_UINT8 = 4;
-  DT_INT16 = 5;
-  DT_INT8 = 6;
-  DT_STRING = 7;
-  DT_COMPLEX64 = 8;  // Single-precision complex
-  DT_INT64 = 9;
-  DT_BOOL = 10;
-  DT_QINT8 = 11;     // Quantized int8
-  DT_QUINT8 = 12;    // Quantized uint8
-  DT_QINT32 = 13;    // Quantized int32
-  DT_BFLOAT16 = 14;  // Float32 truncated to 16 bits.  Only for cast ops.
-  DT_QINT16 = 15;    // Quantized int16
-  DT_QUINT16 = 16;   // Quantized uint16
-  DT_UINT16 = 17;
-  DT_COMPLEX128 = 18;  // Double-precision complex
-  DT_HALF = 19;
-  DT_RESOURCE = 20;
-  DT_VARIANT = 21;  // Arbitrary C++ data types
-  DT_UINT32 = 22;
-  DT_UINT64 = 23;
-
-  // Do not use!  These are only for parameters.  Every enum above
-  // should have a corresponding value below (verified by types_test).
-  DT_FLOAT_REF = 101;
-  DT_DOUBLE_REF = 102;
-  DT_INT32_REF = 103;
-  DT_UINT8_REF = 104;
-  DT_INT16_REF = 105;
-  DT_INT8_REF = 106;
-  DT_STRING_REF = 107;
-  DT_COMPLEX64_REF = 108;
-  DT_INT64_REF = 109;
-  DT_BOOL_REF = 110;
-  DT_QINT8_REF = 111;
-  DT_QUINT8_REF = 112;
-  DT_QINT32_REF = 113;
-  DT_BFLOAT16_REF = 114;
-  DT_QINT16_REF = 115;
-  DT_QUINT16_REF = 116;
-  DT_UINT16_REF = 117;
-  DT_COMPLEX128_REF = 118;
-  DT_HALF_REF = 119;
-  DT_RESOURCE_REF = 120;
-  DT_VARIANT_REF = 121;
-  DT_UINT32_REF = 122;
-  DT_UINT64_REF = 123;
-}
-
-ptb 1 input to recheck:  Train/Model/sequence_loss/Sum
-input Tensor("Train/Model/sequence_loss/Reshape_3:0", shape=(?, ?), dtype=float32)
-input Tensor("Train/Model/sequence_loss/Sum/reduction_indices:0", shape=(1,), dtype=int32)
 
 
-"""
+class TensorscopeRunHook(session_run_hook.SessionRunHook):
+ 
+  def __init__(self,
+               save_steps=None,
+               save_secs=None,
+               output_dir='/tmp',
+               show_dataflow=True,
+               show_memory=False):
+
+    self._ts = None 
+    self._output_file = os.path.join(output_dir, "timeline-{}.json")
+    self._file_writer = SummaryWriterCache.get(output_dir)
+    self._output_dir = output_dir
+    self._show_dataflow = show_dataflow
+    self._show_memory = show_memory
+    self._timer = tf.train.SecondOrStepTimer(
+        every_secs=save_secs, every_steps=save_steps)
+
+  def begin(self):
+    self._next_step = None
+    self._global_step_tensor = training_util._get_or_create_global_step_read()  # pylint: disable=protected-access
+    if self._global_step_tensor is None:
+      raise RuntimeError("Global step should be created to use ProfilerHook.")
+
+  def before_run(self, run_context):
+    self._request_summary = (
+        self._next_step is None or
+        self._timer.should_trigger_for_step(self._next_step))
+    requests = {"global_step": self._global_step_tensor}
+    opts = (config_pb2.RunOptions(trace_level=config_pb2.RunOptions.FULL_TRACE)
+            if self._request_summary else None)
+    
+    if not self._ts:
+        self._ts = Tensorscope(num_steps=10, output_dir=self._output_dir, session=run_context.session)
+    
+    self._ts.session_start_time = time.time()
+    self._ts.current_session += 1
+          
+    return SessionRunArgs(requests, options=opts)
+
+  def after_run(self, run_context, run_values):
+    stale_global_step = run_values.results["global_step"]
+    global_step = stale_global_step + 1
+    
+    self._ts.session_metadata = run_values.run_metadata
+    self._ts.characterize_model(graph=run_context.session.graph) 
+    self._next_step = global_step + 1
+    
