@@ -1,8 +1,8 @@
 # TensorScope
 
-![Alt text](seq2seq_depth_2.png?raw=true "depth_2")
-![Alt text](seq2seq_depth_3.png?raw=true "depth_3")
-![Alt text](seq2seq_depth_max.png?raw=true "depth_max")
+![Alt text](img/seq2seq_depth_2.png?raw=true "depth_2")
+![Alt text](img/seq2seq_depth_3.png?raw=true "depth_3")
+![Alt text](img/seq2seq_depth_max.png?raw=true "depth_max")
 
 Find bottlenecks in any complex model within minutes, with exact parameters, even for dynamically instantiated graphs.
 - Produces interactive pie charts and allows easy navigation through complex hierarchy of ops.

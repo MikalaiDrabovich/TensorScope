@@ -78,8 +78,9 @@ Some of the addressed issues:
 - models may not provide tensor shapes of inputs or outputs;
 - some of collected metadata 'streams' may not have info about tensor inputs
 or outputs (for example, 'stream:all')
-- Some streams may have only partial timings, we rely on the sum of all except 
-'stream:all' to get op time.
+- Some streams may have only partial timings, we rely on the sum of all minus  
+'stream:all' and the ones similar to "/job:localhost/replica:0/task:0/device:GPU:0 Compute"
+to get correct total time.
 - op names in model and metadata may be slightly different:
 e.g. MatMul_17:MatMul  while exact name is necessary to keep to find correct inputs
 - chart data format for node path required info about op placement device to be 
@@ -290,7 +291,7 @@ class Tensorscope(object):
             input_names_from_model[node_name_cleaned] =  input_names
             
         # save op names for any additional inspection
-        filename_ops_model = self.temp_path + "node_names_model_original_"+str(time.time())[:10]+".txt"
+        filename_ops_model = self.temp_path + "node_names_model_original.txt"
         file_ops_model = open(filename_ops_model,'w')
         sorted_all_node_names = sorted(all_node_names)
         
@@ -298,7 +299,7 @@ class Tensorscope(object):
             file_ops_model.write(opname+'\n')
         file_ops_model.close()
         
-        filename_ops_model = self.temp_path + "node_names_model_cleaned_"+str(time.time())[:10]+".txt"
+        filename_ops_model = self.temp_path + "node_names_model_cleaned.txt"
         file_ops_model = open(filename_ops_model,'w')
         sorted_all_node_names_cleaned = sorted(all_node_names_cleaned)
         
@@ -401,14 +402,14 @@ class Tensorscope(object):
                             
         print("Total number of nodes in a metadata graph: ", num_nodes_total)
 
-        filename_ops_metadata = self.temp_path + "node_names_metadata_cleaned_"+str(time.time())[:10]+".txt"
+        filename_ops_metadata = self.temp_path + "node_names_metadata_cleaned.txt"
         file_ops_metadata = open(filename_ops_metadata,'w')
         sorted_all_node_names = sorted(all_node_names)
         for opname in sorted_all_node_names:
             file_ops_metadata.write(opname+'\n')
         file_ops_metadata.close()
         
-        filename_ops_metadata = self.temp_path + "node_names_metadata_original_"+str(time.time())[:10]+".txt"      
+        filename_ops_metadata = self.temp_path + "node_names_metadata_original.txt"      
         file_ops_metadata = open(filename_ops_metadata,'w')
         sorted_all_node_names_orig = sorted(all_node_names_orig)
         for opname in sorted_all_node_names_orig:
@@ -429,8 +430,8 @@ class Tensorscope(object):
         
         '''
         
-        tf.train.write_graph(step_stats, self.temp_path, 'metadata_'+str(time.time())[:10]+'.txt')
-        tf.train.write_graph(self.model_graph, self.temp_path,'model_graph_'+str(time.time())[:10]+'.txt')
+        tf.train.write_graph(step_stats, self.temp_path, 'metadata'+'.txt')
+        tf.train.write_graph(self.model_graph, self.temp_path,'model_graph'+'.txt')
     
         num_nodes_total = 0
         
@@ -686,21 +687,28 @@ class Tensorscope(object):
                
                 io_shapes[node_name] = [input_cand_shapes_list, io_shapes[node_name][1]]
         
-        filename_ops_metadata = self.temp_path + "io_shapes_"+str(time.time())[:10]+".txt"
+        filename_ops_metadata = self.temp_path + "node_names_from_metadata.txt"
         file_ops_metadata = open(filename_ops_metadata,'w')
         sorted_all_node_names = sorted(all_node_names)
         for opname in sorted_all_node_names:
             file_ops_metadata.write(opname+'\n')
         file_ops_metadata.close()
         
-        """
-        filename_ops_metadata = self.temp_path + "node_names_metadata_original_"+str(time.time())[:10]+".txt"      
+        filename_ops_metadata = self.temp_path + "node_io_from_metadata_raw.txt"      
         file_ops_metadata = open(filename_ops_metadata,'w')
-        sorted_all_node_names_orig = sorted(all_node_names_orig)
-        for opname in sorted_all_node_names_orig:
-            file_ops_metadata.write(opname+'\n')
+        sorted_times = ( (key, value) for key, value in sorted(io_shapes.items(), key=lambda x: x[0], reverse=False))
+        sorted_times = list(sorted_times)
+ 
+        for opname in sorted_times:
+            outp = opname.__str__()[1:-2]
+            outp = outp.replace('[','')
+            outp = outp.replace(']','')
+            outp = outp.replace('\'','')
+            
+            file_ops_metadata.write(outp)
+            file_ops_metadata.write('\n')
         file_ops_metadata.close()      
-        """
+      
  
  
     def find_final_shapes(self, node_output_shape, input_names_from_model, io_shapes):
@@ -828,9 +836,9 @@ class Tensorscope(object):
             io_shapes[k] = result_shapes
         
         # save data for additional verification
-        filename_ops_not_in_model = self.temp_path + "node_names_not_in_model_"+str(time.time())[:10]+".txt"
-        filename_ops_not_in_metadata = self.temp_path + "node_names_not_in_metadata_"+str(time.time())[:10]+".txt"
-        filename_final_shapes = self.temp_path + "node_final_shapes_"+str(time.time())[:10]+".txt"
+        filename_ops_not_in_model = self.temp_path + "node_names_not_in_model.txt"
+        filename_ops_not_in_metadata = self.temp_path + "node_names_not_in_metadata.txt"
+        filename_final_shapes = self.temp_path + "node_final_shapes.txt"
         
         file_ops_not_in_model = open(filename_ops_not_in_model,'w')
         file_ops_not_in_metadata = open(filename_ops_not_in_metadata,'w')
@@ -882,7 +890,8 @@ class Tensorscope(object):
             for node_stat in dev_stats.node_stats:
                 op_time = node_stat.op_end_rel_micros - node_stat.op_start_rel_micros
                 # CPU/GPU/XLA_CPU/XLA_GPU
-                if (device_type[-3:] == 'GPU' and device_path[-1] != 'stream:all') or device_type[-3:] == 'CPU':   
+                # exclude ones similar to /job:localhost/replica:0/task:0/device:GPU:0 Compute"
+                if (device_type[-3:] == 'GPU' and device_path[-1] != 'stream:all' and 'replica' not in dev_stats.device) or device_type[-3:] == 'CPU':   
                     final_op_path = self.cleanup_op_path_from_metadata(node_stat.node_name)
                     if final_op_path in total_op_time:
                         total_op_time[final_op_path][0] += op_time
@@ -946,7 +955,7 @@ class Tensorscope(object):
         _timeline = timeline.Timeline(self.session_metadata.step_stats)
         _chrome_trace = _timeline.generate_chrome_trace_format(show_memory=True)
 
-        _timeline_file_name = self.temp_path + "timeline_at_step_%d_%s.json" % (self.current_session, str(time.time())[:10])              
+        _timeline_file_name = self.temp_path + "timeline_at_step_%d.json" % (self.current_session) #str(time.time())[:10]      
         with open(_timeline_file_name,'w') as _timeline_file:
             _timeline_file.write(_chrome_trace) 
             print('Timeline saved in', _timeline_file.name)
@@ -1005,8 +1014,8 @@ class Tensorscope(object):
         cumul_time = 0.0
         
         # prepare files for saving results
-        tsv_file_name = self.temp_path + "data_"+str(time.time())[:10]+".tsv"
-        tsv_file_name_for_chart = self.temp_path + "data_krona_format_"+str(time.time())[:10]+".tsv"
+        tsv_file_name = self.temp_path + "data.tsv"
+        tsv_file_name_for_chart = self.temp_path + "data_for_pie_chart.tsv"
         
         tsv_file_obj = open(tsv_file_name,'w')
         tsv_file_obj_for_chart = open(tsv_file_name_for_chart,'w')
@@ -1186,9 +1195,9 @@ class Tensorscope(object):
 
         tsv_file_obj.close()
 
-        print('\n*** Brief summary of findings ***\n')
+        print('\n*** Brief summary ***\n')
         self.print_distribution_summary(sorted_times, denom_const)
-        print('\n*** I/O tensor shapes for kernel optimizations (for this specific mo5 del and batch size) are saved to %s ***\n' % tsv_file_name)
+        print('\n*** I/O tensor shapes are saved to %s ***\n' % tsv_file_name)
        
         self.show_results(tsv_file_name_for_chart)
         
