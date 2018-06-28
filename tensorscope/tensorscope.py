@@ -967,28 +967,7 @@ class Tensorscope(object):
    
    
     def show_results(self, tsv_file_name_for_chart):
-    
-        # *** Automate generation of data in krona format, launch Chrome to draw the final chart ***
-        chart_tools_path = os.path.dirname(os.path.realpath(__file__)) + "/chart_tools/scripts/"
-        result_file = self.temp_path + "chart_" + str(time.time())[:10] + ".html"
-       
-        bash_cmd_generate_chart_data = 'cd "%s" && ./ImportText.pl "%s" -o "%s"' % (chart_tools_path, tsv_file_name_for_chart, result_file)
-        
-        #subprocess.call(bash_cmd_generate_chart_data, shell=True)
-        os.system(bash_cmd_generate_chart_data)
-
-        print('\n*** Interactive pie chart with details is saved to %s\n' % result_file)
-
-        # if training was launched with sudo for some reason, --no-sandbox option will be required here
-        bash_cmd_launch_browser = 'google-chrome --no-sandbox "%s"' % (result_file)
-        
-        # will this help to keep chrome's sandbox on, even if training was launched with sudo?
-        #bash_cmd_launch_browser = 'sudo -H -u $SUDO_USER google-chrome "%s"' % (result_file)
-        
-        print('Launching the browser to show generated chart: %s' % bash_cmd_launch_browser)
-        subprocess.Popen(bash_cmd_launch_browser, shell=True)
-        #os.system(bash_cmd_launch_browser)
-        
+  
         # immediatly break outside loop of training/inference
         sys.exit(0)
          
