@@ -1,0 +1,6555 @@
+dev_stats {
+  device: "/device:GPU:0/stream:15"
+  node_stats {
+    node_name: "edge_203_gradients/conv5/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH"
+    all_start_micros: 1530924612419075
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 1024 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_205_gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH"
+    all_start_micros: 1530924612419078
+    op_end_rel_micros: 246
+    all_end_rel_micros: 246
+    timeline_label: "MEMCPYDtoH 2359296 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_201_gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH"
+    all_start_micros: 1530924612432148
+    op_end_rel_micros: 284
+    all_end_rel_micros: 284
+    timeline_label: "MEMCPYDtoH 3538944 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_199_gradients/conv4/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH"
+    all_start_micros: 1530924612432435
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 1024 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_195_gradients/conv3/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH"
+    all_start_micros: 1530924612441109
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 1536 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_197_gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH"
+    all_start_micros: 1530924612441113
+    op_end_rel_micros: 266
+    all_end_rel_micros: 266
+    timeline_label: "MEMCPYDtoH 2654208 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_191_gradients/conv2/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH"
+    all_start_micros: 1530924612487828
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 768 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_193_gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH"
+    all_start_micros: 1530924612487832
+    op_end_rel_micros: 97
+    all_end_rel_micros: 97
+    timeline_label: "MEMCPYDtoH 1228800 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_189_gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH"
+    all_start_micros: 1530924612526640
+    op_end_rel_micros: 7
+    all_end_rel_micros: 7
+    timeline_label: "MEMCPYDtoH 92928 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_187_gradients/conv1/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH"
+    all_start_micros: 1530924612526649
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 256 bytes (Device to Pinned)"
+  }
+}
+dev_stats {
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  node_stats {
+    node_name: "_SOURCE"
+    all_start_micros: 1530924612306898
+    op_start_rel_micros: 2
+    op_end_rel_micros: 3
+    all_end_rel_micros: 123
+    memory {
+      allocator_name: "cpu"
+    }
+    timeline_label: "_SOURCE = NoOp()"
+    scheduled_micros: 1530924612306849
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_gradients/conv5/BiasAdd_grad/BiasAddGrad_0_8"
+    all_start_micros: 1530924612419164
+    op_start_rel_micros: 2
+    op_end_rel_micros: 5
+    all_end_rel_micros: 7
+    memory {
+      allocator_name: "cpu"
+    }
+    timeline_label: "_retval_gradients/conv5/BiasAdd_grad/BiasAddGrad_0_8 = _Retval(gradients/conv5/BiasAdd_grad/BiasAddGrad/_17)"
+    scheduled_micros: 1530924612419151
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_gradients/conv5/Conv2D_grad/Conv2DBackpropFilter_0_9"
+    all_start_micros: 1530924612419457
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "cpu"
+    }
+    timeline_label: "_retval_gradients/conv5/Conv2D_grad/Conv2DBackpropFilter_0_9 = _Retval(gradients/conv5/Conv2D_grad/Conv2DBackpropFilter/_19)"
+    scheduled_micros: 1530924612419449
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_gradients/conv4/Conv2D_grad/Conv2DBackpropFilter_0_7"
+    all_start_micros: 1530924612432500
+    op_start_rel_micros: 1
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "cpu"
+    }
+    timeline_label: "_retval_gradients/conv4/Conv2D_grad/Conv2DBackpropFilter_0_7 = _Retval(gradients/conv4/Conv2D_grad/Conv2DBackpropFilter/_15)"
+    scheduled_micros: 1530924612432493
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_gradients/conv4/BiasAdd_grad/BiasAddGrad_0_6"
+    all_start_micros: 1530924612432504
+    op_start_rel_micros: 1
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "cpu"
+    }
+    timeline_label: "_retval_gradients/conv4/BiasAdd_grad/BiasAddGrad_0_6 = _Retval(gradients/conv4/BiasAdd_grad/BiasAddGrad/_13)"
+    scheduled_micros: 1530924612432503
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_gradients/conv3/BiasAdd_grad/BiasAddGrad_0_4"
+    all_start_micros: 1530924612441220
+    op_start_rel_micros: 1
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "cpu"
+    }
+    timeline_label: "_retval_gradients/conv3/BiasAdd_grad/BiasAddGrad_0_4 = _Retval(gradients/conv3/BiasAdd_grad/BiasAddGrad/_9)"
+    scheduled_micros: 1530924612441213
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_gradients/conv3/Conv2D_grad/Conv2DBackpropFilter_0_5"
+    all_start_micros: 1530924612441491
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    memory {
+      allocator_name: "cpu"
+    }
+    timeline_label: "_retval_gradients/conv3/Conv2D_grad/Conv2DBackpropFilter_0_5 = _Retval(gradients/conv3/Conv2D_grad/Conv2DBackpropFilter/_11)"
+    scheduled_micros: 1530924612441484
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_gradients/conv2/BiasAdd_grad/BiasAddGrad_0_2"
+    all_start_micros: 1530924612487872
+    op_start_rel_micros: 2
+    op_end_rel_micros: 4
+    all_end_rel_micros: 6
+    memory {
+      allocator_name: "cpu"
+    }
+    timeline_label: "_retval_gradients/conv2/BiasAdd_grad/BiasAddGrad_0_2 = _Retval(gradients/conv2/BiasAdd_grad/BiasAddGrad/_5)"
+    scheduled_micros: 1530924612487862
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_gradients/conv2/Conv2D_grad/Conv2DBackpropFilter_0_3"
+    all_start_micros: 1530924612488028
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "cpu"
+    }
+    timeline_label: "_retval_gradients/conv2/Conv2D_grad/Conv2DBackpropFilter_0_3 = _Retval(gradients/conv2/Conv2D_grad/Conv2DBackpropFilter/_7)"
+    scheduled_micros: 1530924612488022
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_gradients/conv1/BiasAdd_grad/BiasAddGrad_0_0"
+    all_start_micros: 1530924612526843
+    op_start_rel_micros: 1
+    op_end_rel_micros: 3
+    all_end_rel_micros: 5
+    memory {
+      allocator_name: "cpu"
+    }
+    timeline_label: "_retval_gradients/conv1/BiasAdd_grad/BiasAddGrad_0_0 = _Retval(gradients/conv1/BiasAdd_grad/BiasAddGrad/_1)"
+    scheduled_micros: 1530924612526785
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_gradients/conv1/Conv2D_grad/Conv2DBackpropFilter_0_1"
+    all_start_micros: 1530924612526842
+    op_start_rel_micros: 2
+    op_end_rel_micros: 4
+    all_end_rel_micros: 7
+    memory {
+      allocator_name: "cpu"
+    }
+    timeline_label: "_retval_gradients/conv1/Conv2D_grad/Conv2DBackpropFilter_0_1 = _Retval(gradients/conv1/Conv2D_grad/Conv2DBackpropFilter/_3)"
+    scheduled_micros: 1530924612526776
+    memory_stats {
+    }
+  }
+}
+dev_stats {
+  device: "/device:GPU:0/memcpy"
+  node_stats {
+    node_name: "gradients/L2Loss_grad/mul:Snapshot:MEMCPYDtoD"
+    all_start_micros: 1530924612400980
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoD 4718592 bytes (Device to Device)"
+  }
+  node_stats {
+    node_name: "edge_203_gradients/conv5/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH"
+    all_start_micros: 1530924612419075
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 1024 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_205_gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH"
+    all_start_micros: 1530924612419078
+    op_end_rel_micros: 246
+    all_end_rel_micros: 246
+    timeline_label: "MEMCPYDtoH 2359296 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_201_gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH"
+    all_start_micros: 1530924612432148
+    op_end_rel_micros: 284
+    all_end_rel_micros: 284
+    timeline_label: "MEMCPYDtoH 3538944 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_199_gradients/conv4/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH"
+    all_start_micros: 1530924612432435
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 1024 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_195_gradients/conv3/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH"
+    all_start_micros: 1530924612441109
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 1536 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_197_gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH"
+    all_start_micros: 1530924612441113
+    op_end_rel_micros: 266
+    all_end_rel_micros: 266
+    timeline_label: "MEMCPYDtoH 2654208 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_191_gradients/conv2/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH"
+    all_start_micros: 1530924612487828
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 768 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_193_gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH"
+    all_start_micros: 1530924612487832
+    op_end_rel_micros: 97
+    all_end_rel_micros: 97
+    timeline_label: "MEMCPYDtoH 1228800 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_189_gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH"
+    all_start_micros: 1530924612526640
+    op_end_rel_micros: 7
+    all_end_rel_micros: 7
+    timeline_label: "MEMCPYDtoH 92928 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_187_gradients/conv1/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH"
+    all_start_micros: 1530924612526649
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 256 bytes (Device to Pinned)"
+  }
+}
+dev_stats {
+  device: "/device:GPU:0/stream:all"
+  node_stats {
+    node_name: "conv1/Conv2D-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612307179
+    op_end_rel_micros: 1970
+    all_end_rel_micros: 1970
+  }
+  node_stats {
+    node_name: "conv1/Conv2D:Conv2D"
+    all_start_micros: 1530924612309153
+    op_end_rel_micros: 1940
+    all_end_rel_micros: 1940
+  }
+  node_stats {
+    node_name: "conv1/Conv2D:Conv2D"
+    all_start_micros: 1530924612311096
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "conv1/Conv2D:Conv2D"
+    all_start_micros: 1530924612311105
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "conv1/Conv2D:Conv2D"
+    all_start_micros: 1530924612311111
+    op_end_rel_micros: 7177
+    all_end_rel_micros: 7177
+  }
+  node_stats {
+    node_name: "conv1/BiasAdd:BiasAdd"
+    all_start_micros: 1530924612318293
+    op_end_rel_micros: 1767
+    all_end_rel_micros: 1767
+  }
+  node_stats {
+    node_name: "conv1:Relu"
+    all_start_micros: 1530924612320062
+    op_end_rel_micros: 1366
+    all_end_rel_micros: 1366
+  }
+  node_stats {
+    node_name: "conv1-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612321431
+    op_end_rel_micros: 1371
+    all_end_rel_micros: 1371
+  }
+  node_stats {
+    node_name: "lrn1/LRN:LRN"
+    all_start_micros: 1530924612322806
+    op_end_rel_micros: 20085
+    all_end_rel_micros: 20085
+  }
+  node_stats {
+    node_name: "pool1-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612342895
+    op_end_rel_micros: 1377
+    all_end_rel_micros: 1377
+  }
+  node_stats {
+    node_name: "pool1:MaxPool"
+    all_start_micros: 1530924612344276
+    op_end_rel_micros: 1312
+    all_end_rel_micros: 1312
+  }
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612345590
+    op_end_rel_micros: 37
+    all_end_rel_micros: 37
+  }
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612346046
+    op_end_rel_micros: 44
+    all_end_rel_micros: 44
+  }
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612346092
+    op_end_rel_micros: 515
+    all_end_rel_micros: 515
+  }
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612345629
+    op_end_rel_micros: 414
+    all_end_rel_micros: 414
+  }
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612346609
+    op_end_rel_micros: 2396
+    all_end_rel_micros: 2396
+  }
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612349008
+    op_end_rel_micros: 1481
+    all_end_rel_micros: 1481
+  }
+  node_stats {
+    node_name: "pool1-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612350493
+    op_end_rel_micros: 323
+    all_end_rel_micros: 323
+  }
+  node_stats {
+    node_name: "conv2/BiasAdd:BiasAdd"
+    all_start_micros: 1530924612350820
+    op_end_rel_micros: 1234
+    all_end_rel_micros: 1234
+  }
+  node_stats {
+    node_name: "conv2:Relu"
+    all_start_micros: 1530924612352057
+    op_end_rel_micros: 955
+    all_end_rel_micros: 955
+  }
+  node_stats {
+    node_name: "conv2-1-1-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612353016
+    op_end_rel_micros: 968
+    all_end_rel_micros: 968
+  }
+  node_stats {
+    node_name: "lrn2/LRN:LRN"
+    all_start_micros: 1530924612353988
+    op_end_rel_micros: 24178
+    all_end_rel_micros: 24178
+  }
+  node_stats {
+    node_name: "pool2-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612378169
+    op_end_rel_micros: 960
+    all_end_rel_micros: 960
+  }
+  node_stats {
+    node_name: "pool2:MaxPool"
+    all_start_micros: 1530924612379134
+    op_end_rel_micros: 951
+    all_end_rel_micros: 951
+  }
+  node_stats {
+    node_name: "conv3/Conv2D:Conv2D"
+    all_start_micros: 1530924612380088
+    op_end_rel_micros: 94
+    all_end_rel_micros: 94
+  }
+  node_stats {
+    node_name: "conv3/Conv2D:Conv2D"
+    all_start_micros: 1530924612380187
+    op_end_rel_micros: 533
+    all_end_rel_micros: 533
+  }
+  node_stats {
+    node_name: "conv3/Conv2D:Conv2D"
+    all_start_micros: 1530924612380723
+    op_end_rel_micros: 94
+    all_end_rel_micros: 94
+  }
+  node_stats {
+    node_name: "conv3/Conv2D:Conv2D"
+    all_start_micros: 1530924612380820
+    op_end_rel_micros: 3645
+    all_end_rel_micros: 3645
+  }
+  node_stats {
+    node_name: "conv3/Conv2D:Conv2D"
+    all_start_micros: 1530924612384469
+    op_end_rel_micros: 976
+    all_end_rel_micros: 976
+  }
+  node_stats {
+    node_name: "pool2-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612385448
+    op_end_rel_micros: 508
+    all_end_rel_micros: 508
+  }
+  node_stats {
+    node_name: "conv3/BiasAdd:BiasAdd"
+    all_start_micros: 1530924612385960
+    op_end_rel_micros: 573
+    all_end_rel_micros: 573
+  }
+  node_stats {
+    node_name: "conv3:Relu"
+    all_start_micros: 1530924612386536
+    op_end_rel_micros: 445
+    all_end_rel_micros: 445
+  }
+  node_stats {
+    node_name: "conv4/Conv2D:Conv2D"
+    all_start_micros: 1530924612386985
+    op_end_rel_micros: 119
+    all_end_rel_micros: 119
+  }
+  node_stats {
+    node_name: "conv4/Conv2D:Conv2D"
+    all_start_micros: 1530924612387107
+    op_end_rel_micros: 1458
+    all_end_rel_micros: 1458
+  }
+  node_stats {
+    node_name: "conv4/Conv2D:Conv2D"
+    all_start_micros: 1530924612388568
+    op_end_rel_micros: 124
+    all_end_rel_micros: 124
+  }
+  node_stats {
+    node_name: "conv4/Conv2D:Conv2D"
+    all_start_micros: 1530924612388696
+    op_end_rel_micros: 4526
+    all_end_rel_micros: 4526
+  }
+  node_stats {
+    node_name: "conv4/Conv2D:Conv2D"
+    all_start_micros: 1530924612393227
+    op_end_rel_micros: 632
+    all_end_rel_micros: 632
+  }
+  node_stats {
+    node_name: "conv3-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612393863
+    op_end_rel_micros: 445
+    all_end_rel_micros: 445
+  }
+  node_stats {
+    node_name: "conv4/BiasAdd:BiasAdd"
+    all_start_micros: 1530924612394311
+    op_end_rel_micros: 387
+    all_end_rel_micros: 387
+  }
+  node_stats {
+    node_name: "conv4:Relu"
+    all_start_micros: 1530924612394702
+    op_end_rel_micros: 295
+    all_end_rel_micros: 295
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612395000
+    op_end_rel_micros: 74
+    all_end_rel_micros: 74
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612395077
+    op_end_rel_micros: 220
+    all_end_rel_micros: 220
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612395739
+    op_end_rel_micros: 535
+    all_end_rel_micros: 535
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612395299
+    op_end_rel_micros: 439
+    all_end_rel_micros: 439
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612396277
+    op_end_rel_micros: 2930
+    all_end_rel_micros: 2930
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612399211
+    op_end_rel_micros: 476
+    all_end_rel_micros: 476
+  }
+  node_stats {
+    node_name: "conv4-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612399690
+    op_end_rel_micros: 299
+    all_end_rel_micros: 299
+  }
+  node_stats {
+    node_name: "conv5/BiasAdd:BiasAdd"
+    all_start_micros: 1530924612399994
+    op_end_rel_micros: 385
+    all_end_rel_micros: 385
+  }
+  node_stats {
+    node_name: "conv5:Relu"
+    all_start_micros: 1530924612400381
+    op_end_rel_micros: 297
+    all_end_rel_micros: 297
+  }
+  node_stats {
+    node_name: "pool5:MaxPool"
+    all_start_micros: 1530924612400681
+    op_end_rel_micros: 296
+    all_end_rel_micros: 296
+  }
+  node_stats {
+    node_name: "gradients/pool5_grad/MaxPoolGrad:MaxPoolGrad"
+    all_start_micros: 1530924612401048
+    op_end_rel_micros: 872
+    all_end_rel_micros: 872
+  }
+  node_stats {
+    node_name: "gradients/conv5_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1530924612401922
+    op_end_rel_micros: 436
+    all_end_rel_micros: 436
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612402362
+    op_end_rel_micros: 76
+    all_end_rel_micros: 76
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612402442
+    op_end_rel_micros: 702
+    all_end_rel_micros: 702
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612403148
+    op_end_rel_micros: 86
+    all_end_rel_micros: 86
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612403238
+    op_end_rel_micros: 3025
+    all_end_rel_micros: 3025
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612406265
+    op_end_rel_micros: 633
+    all_end_rel_micros: 633
+  }
+  node_stats {
+    node_name: "gradients/conv5_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612406901
+    op_end_rel_micros: 299
+    all_end_rel_micros: 299
+  }
+  node_stats {
+    node_name: "gradients/conv4_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1530924612407202
+    op_end_rel_micros: 429
+    all_end_rel_micros: 429
+  }
+  node_stats {
+    node_name: "gradients/conv5/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1530924612407645
+    op_end_rel_micros: 249
+    all_end_rel_micros: 249
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612407898
+    op_end_rel_micros: 294
+    all_end_rel_micros: 294
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612408196
+    op_end_rel_micros: 294
+    all_end_rel_micros: 294
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612408493
+    op_end_rel_micros: 664
+    all_end_rel_micros: 664
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612409161
+    op_end_rel_micros: 660
+    all_end_rel_micros: 660
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612409824
+    op_end_rel_micros: 2587
+    all_end_rel_micros: 2587
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612412413
+    op_end_rel_micros: 140
+    all_end_rel_micros: 140
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612412556
+    op_end_rel_micros: 163
+    all_end_rel_micros: 163
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612412723
+    op_end_rel_micros: 110
+    all_end_rel_micros: 110
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612412836
+    op_end_rel_micros: 710
+    all_end_rel_micros: 710
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612413551
+    op_end_rel_micros: 124
+    all_end_rel_micros: 124
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612413678
+    op_end_rel_micros: 4118
+    all_end_rel_micros: 4118
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612417800
+    op_end_rel_micros: 971
+    all_end_rel_micros: 971
+  }
+  node_stats {
+    node_name: "gradients/conv4_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612418774
+    op_end_rel_micros: 297
+    all_end_rel_micros: 297
+  }
+  node_stats {
+    node_name: "gradients/conv3_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1530924612419075
+    op_end_rel_micros: 662
+    all_end_rel_micros: 662
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612419740
+    op_end_rel_micros: 301
+    all_end_rel_micros: 301
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612420043
+    op_end_rel_micros: 445
+    all_end_rel_micros: 445
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612420493
+    op_end_rel_micros: 1024
+    all_end_rel_micros: 1024
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612421520
+    op_end_rel_micros: 661
+    all_end_rel_micros: 661
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612422185
+    op_end_rel_micros: 3771
+    all_end_rel_micros: 3771
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612425961
+    op_end_rel_micros: 194
+    all_end_rel_micros: 194
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612426158
+    op_end_rel_micros: 326
+    all_end_rel_micros: 326
+  }
+  node_stats {
+    node_name: "gradients/conv4/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1530924612426496
+    op_end_rel_micros: 257
+    all_end_rel_micros: 257
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612426755
+    op_end_rel_micros: 84
+    all_end_rel_micros: 84
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612426842
+    op_end_rel_micros: 844
+    all_end_rel_micros: 844
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612427687
+    op_end_rel_micros: 759
+    all_end_rel_micros: 759
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612428449
+    op_end_rel_micros: 2882
+    all_end_rel_micros: 2882
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612431334
+    op_end_rel_micros: 368
+    all_end_rel_micros: 368
+  }
+  node_stats {
+    node_name: "gradients/conv3_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612431706
+    op_end_rel_micros: 441
+    all_end_rel_micros: 441
+  }
+  node_stats {
+    node_name: "gradients/pool2_grad/MaxPoolGrad:MaxPoolGrad"
+    all_start_micros: 1530924612432149
+    op_end_rel_micros: 1266
+    all_end_rel_micros: 1266
+  }
+  node_stats {
+    node_name: "gradients/conv3/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1530924612433423
+    op_end_rel_micros: 372
+    all_end_rel_micros: 372
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612433799
+    op_end_rel_micros: 441
+    all_end_rel_micros: 441
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612434243
+    op_end_rel_micros: 224
+    all_end_rel_micros: 224
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612434471
+    op_end_rel_micros: 514
+    all_end_rel_micros: 514
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612434987
+    op_end_rel_micros: 1018
+    all_end_rel_micros: 1018
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612436007
+    op_end_rel_micros: 3765
+    all_end_rel_micros: 3765
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612439776
+    op_end_rel_micros: 157
+    all_end_rel_micros: 157
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612439937
+    op_end_rel_micros: 228
+    all_end_rel_micros: 228
+  }
+  node_stats {
+    node_name: "gradients/pool2_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612440168
+    op_end_rel_micros: 940
+    all_end_rel_micros: 940
+  }
+  node_stats {
+    node_name: "gradients/lrn2/LRN_grad/LRNGrad:LRNGrad"
+    all_start_micros: 1530924612441112
+    op_end_rel_micros: 25170
+    all_end_rel_micros: 25170
+  }
+  node_stats {
+    node_name: "gradients/conv2_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612466284
+    op_end_rel_micros: 953
+    all_end_rel_micros: 953
+  }
+  node_stats {
+    node_name: "gradients/conv2_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1530924612467240
+    op_end_rel_micros: 1668
+    all_end_rel_micros: 1668
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612468912
+    op_end_rel_micros: 36
+    all_end_rel_micros: 36
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612468951
+    op_end_rel_micros: 528
+    all_end_rel_micros: 528
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612469480
+    op_end_rel_micros: 1876
+    all_end_rel_micros: 1876
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612471362
+    op_end_rel_micros: 2080
+    all_end_rel_micros: 2080
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612473444
+    op_end_rel_micros: 398
+    all_end_rel_micros: 398
+  }
+  node_stats {
+    node_name: "gradients/conv2_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612473843
+    op_end_rel_micros: 943
+    all_end_rel_micros: 943
+  }
+  node_stats {
+    node_name: "gradients/pool1_grad/MaxPoolGrad:MaxPoolGrad"
+    all_start_micros: 1530924612474789
+    op_end_rel_micros: 3285
+    all_end_rel_micros: 3285
+  }
+  node_stats {
+    node_name: "gradients/conv2/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1530924612478227
+    op_end_rel_micros: 852
+    all_end_rel_micros: 852
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612479081
+    op_end_rel_micros: 944
+    all_end_rel_micros: 944
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612480028
+    op_end_rel_micros: 337
+    all_end_rel_micros: 337
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612480366
+    op_end_rel_micros: 967
+    all_end_rel_micros: 967
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612481334
+    op_end_rel_micros: 2418
+    all_end_rel_micros: 2418
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612483753
+    op_end_rel_micros: 2242
+    all_end_rel_micros: 2242
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612485998
+    op_end_rel_micros: 127
+    all_end_rel_micros: 127
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612486126
+    op_end_rel_micros: 38
+    all_end_rel_micros: 38
+  }
+  node_stats {
+    node_name: "gradients/pool1_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612486166
+    op_end_rel_micros: 1662
+    all_end_rel_micros: 1662
+  }
+  node_stats {
+    node_name: "gradients/lrn1/LRN_grad/LRNGrad:LRNGrad"
+    all_start_micros: 1530924612487831
+    op_end_rel_micros: 19603
+    all_end_rel_micros: 19603
+  }
+  node_stats {
+    node_name: "gradients/conv1_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612507436
+    op_end_rel_micros: 1356
+    all_end_rel_micros: 1356
+  }
+  node_stats {
+    node_name: "gradients/conv1_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1530924612508794
+    op_end_rel_micros: 1982
+    all_end_rel_micros: 1982
+  }
+  node_stats {
+    node_name: "gradients/conv1_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612510777
+    op_end_rel_micros: 1344
+    all_end_rel_micros: 1344
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612512123
+    op_end_rel_micros: 1846
+    all_end_rel_micros: 1846
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612513971
+    op_end_rel_micros: 1362
+    all_end_rel_micros: 1362
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612515335
+    op_end_rel_micros: 1899
+    all_end_rel_micros: 1899
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612517247
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612517251
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612517254
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612517258
+    op_end_rel_micros: 7965
+    all_end_rel_micros: 7965
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612525225
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "gradients/conv1/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1530924612525239
+    op_end_rel_micros: 1398
+    all_end_rel_micros: 1398
+  }
+}
+dev_stats {
+  device: "/device:GPU:0/stream:18"
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612345629
+    op_end_rel_micros: 414
+    all_end_rel_micros: 414
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612395299
+    op_end_rel_micros: 439
+    all_end_rel_micros: 439
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612427687
+    op_end_rel_micros: 759
+    all_end_rel_micros: 759
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612469480
+    op_end_rel_micros: 1876
+    all_end_rel_micros: 1876
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612471362
+    op_end_rel_micros: 2080
+    all_end_rel_micros: 2080
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612473444
+    op_end_rel_micros: 398
+    all_end_rel_micros: 398
+  }
+}
+dev_stats {
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  node_stats {
+    node_name: "_SOURCE"
+    all_start_micros: 1530924612306906
+    op_start_rel_micros: 2
+    op_end_rel_micros: 11
+    all_end_rel_micros: 35
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    timeline_label: "_SOURCE = NoOp()"
+    scheduled_micros: 1530924612306845
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Const_1"
+    all_start_micros: 1530924612306946
+    op_end_rel_micros: 2
+    all_end_rel_micros: 6
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 12
+          ptr: 140419931309568
+        }
+      }
+    }
+    timeline_label: "gradients/conv1/Conv2D_grad/Const_1 = Const()"
+    scheduled_micros: 1530924612306941
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Const_1"
+    all_start_micros: 1530924612306953
+    op_end_rel_micros: 1
+    all_end_rel_micros: 15
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 13
+          ptr: 140419931309824
+        }
+      }
+    }
+    timeline_label: "gradients/conv2/Conv2D_grad/Const_1 = Const()"
+    scheduled_micros: 1530924612306952
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Const_1"
+    all_start_micros: 1530924612306969
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 14
+          ptr: 140419931310080
+        }
+      }
+    }
+    timeline_label: "gradients/conv3/Conv2D_grad/Const_1 = Const()"
+    scheduled_micros: 1530924612306968
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Const_1"
+    all_start_micros: 1530924612306971
+    op_start_rel_micros: 1
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 15
+          ptr: 140419931310336
+        }
+      }
+    }
+    timeline_label: "gradients/conv4/Conv2D_grad/Const_1 = Const()"
+    scheduled_micros: 1530924612306971
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Const_1"
+    all_start_micros: 1530924612306974
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 16
+          ptr: 140419931310592
+        }
+      }
+    }
+    timeline_label: "gradients/conv5/Conv2D_grad/Const_1 = Const()"
+    scheduled_micros: 1530924612306973
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Variable"
+    all_start_micros: 1530924612306977
+    op_start_rel_micros: 18
+    op_end_rel_micros: 23
+    all_end_rel_micros: 24
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 224
+          }
+          dim {
+            size: 224
+          }
+          dim {
+            size: 3
+          }
+        }
+        allocation_description {
+          requested_bytes: 77070336
+          allocated_bytes: 77070336
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 18
+          has_single_reference: true
+          ptr: 140413512896768
+        }
+      }
+    }
+    timeline_label: "Variable = VariableV2()"
+    scheduled_micros: 1530924612306976
+    memory_stats {
+      persistent_memory_size: 77070336
+    }
+  }
+  node_stats {
+    node_name: "conv1/weights"
+    all_start_micros: 1530924612307002
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 11
+          }
+          dim {
+            size: 11
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 92928
+          allocated_bytes: 92928
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 19
+          has_single_reference: true
+          ptr: 140413425947648
+        }
+      }
+    }
+    timeline_label: "conv1/weights = VariableV2()"
+    scheduled_micros: 1530924612307001
+    memory_stats {
+      persistent_memory_size: 92928
+    }
+  }
+  node_stats {
+    node_name: "conv1/biases"
+    all_start_micros: 1530924612307005
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 256
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 10
+          has_single_reference: true
+          ptr: 140413505470208
+        }
+      }
+    }
+    timeline_label: "conv1/biases = VariableV2()"
+    scheduled_micros: 1530924612307005
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "conv2/weights"
+    all_start_micros: 1530924612307009
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 5
+          }
+          dim {
+            size: 5
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 1228800
+          allocated_bytes: 1228800
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 21
+          has_single_reference: true
+          ptr: 140413428399872
+        }
+      }
+    }
+    timeline_label: "conv2/weights = VariableV2()"
+    scheduled_micros: 1530924612307008
+    memory_stats {
+      persistent_memory_size: 1228800
+    }
+  }
+  node_stats {
+    node_name: "conv2/biases"
+    all_start_micros: 1530924612307012
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 768
+          allocated_bytes: 768
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 12
+          has_single_reference: true
+          ptr: 140413506699264
+        }
+      }
+    }
+    timeline_label: "conv2/biases = VariableV2()"
+    scheduled_micros: 1530924612307011
+    memory_stats {
+      persistent_memory_size: 768
+    }
+  }
+  node_stats {
+    node_name: "conv3/weights"
+    all_start_micros: 1530924612307015
+    op_end_rel_micros: 2
+    all_end_rel_micros: 5
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 384
+          }
+        }
+        allocation_description {
+          requested_bytes: 2654208
+          allocated_bytes: 2654208
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 22
+          has_single_reference: true
+          ptr: 140413429628672
+        }
+      }
+    }
+    timeline_label: "conv3/weights = VariableV2()"
+    scheduled_micros: 1530924612307014
+    memory_stats {
+      persistent_memory_size: 2654208
+    }
+  }
+  node_stats {
+    node_name: "conv3/biases"
+    all_start_micros: 1530924612307020
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 384
+          }
+        }
+        allocation_description {
+          requested_bytes: 1536
+          allocated_bytes: 1536
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 14
+          has_single_reference: true
+          ptr: 140413509354240
+        }
+      }
+    }
+    timeline_label: "conv3/biases = VariableV2()"
+    scheduled_micros: 1530924612307020
+    memory_stats {
+      persistent_memory_size: 1536
+    }
+  }
+  node_stats {
+    node_name: "conv4/weights"
+    all_start_micros: 1530924612307023
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 384
+          }
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 3538944
+          allocated_bytes: 3538944
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 23
+          has_single_reference: true
+          ptr: 140413432282880
+        }
+      }
+    }
+    timeline_label: "conv4/weights = VariableV2()"
+    scheduled_micros: 1530924612307023
+    memory_stats {
+      persistent_memory_size: 3538944
+    }
+  }
+  node_stats {
+    node_name: "conv4/biases"
+    all_start_micros: 1530924612307027
+    op_end_rel_micros: 1
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 1024
+          allocated_bytes: 1024
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 17
+          has_single_reference: true
+          ptr: 140413512895744
+        }
+      }
+    }
+    timeline_label: "conv4/biases = VariableV2()"
+    scheduled_micros: 1530924612307026
+    memory_stats {
+      persistent_memory_size: 1024
+    }
+  }
+  node_stats {
+    node_name: "conv5/weights"
+    all_start_micros: 1530924612307031
+    op_end_rel_micros: 2
+    all_end_rel_micros: 21
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 2359296
+          allocated_bytes: 2359296
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 20
+          has_single_reference: true
+          ptr: 140413426040576
+        }
+      }
+    }
+    timeline_label: "conv5/weights = VariableV2()"
+    scheduled_micros: 1530924612307030
+    memory_stats {
+      persistent_memory_size: 2359296
+    }
+  }
+  node_stats {
+    node_name: "conv5/biases"
+    all_start_micros: 1530924612307053
+    op_end_rel_micros: 2
+    all_end_rel_micros: 4
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 1024
+          allocated_bytes: 1024
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 16
+          has_single_reference: true
+          ptr: 140413512894720
+        }
+      }
+    }
+    timeline_label: "conv5/biases = VariableV2()"
+    scheduled_micros: 1530924612307052
+    memory_stats {
+      persistent_memory_size: 1024
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer"
+    all_start_micros: 1530924612307062
+    op_start_rel_micros: 1
+    op_end_rel_micros: 6
+    all_end_rel_micros: 8
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 17
+          ptr: 140419931310848
+        }
+      }
+    }
+    timeline_label: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer = Const()"
+    scheduled_micros: 1530924612307057
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer"
+    all_start_micros: 1530924612307071
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 18
+          ptr: 140419931311104
+        }
+      }
+    }
+    timeline_label: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer = Const()"
+    scheduled_micros: 1530924612307070
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer"
+    all_start_micros: 1530924612307073
+    op_end_rel_micros: 1
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 19
+          ptr: 140419931311360
+        }
+      }
+    }
+    timeline_label: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer = Const()"
+    scheduled_micros: 1530924612307073
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer"
+    all_start_micros: 1530924612307077
+    op_start_rel_micros: 1
+    op_end_rel_micros: 3
+    all_end_rel_micros: 4
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 20
+          ptr: 140419931311616
+        }
+      }
+    }
+    timeline_label: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer = Const()"
+    scheduled_micros: 1530924612307076
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "PermConstNHWCToNCHW-LayoutOptimizer"
+    all_start_micros: 1530924612307082
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 21
+          ptr: 140419931311872
+        }
+      }
+    }
+    timeline_label: "PermConstNHWCToNCHW-LayoutOptimizer = Const()"
+    scheduled_micros: 1530924612307081
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "PermConstNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612307086
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 22
+          ptr: 140419931312128
+        }
+      }
+    }
+    timeline_label: "PermConstNCHWToNHWC-LayoutOptimizer = Const()"
+    scheduled_micros: 1530924612307085
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Variable/read"
+    all_start_micros: 1530924612307090
+    op_start_rel_micros: 2
+    op_end_rel_micros: 2
+    all_end_rel_micros: 4
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 224
+          }
+          dim {
+            size: 224
+          }
+          dim {
+            size: 3
+          }
+        }
+        allocation_description {
+          requested_bytes: 77070336
+          allocated_bytes: 77070336
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 18
+          ptr: 140413512896768
+        }
+      }
+    }
+    timeline_label: "Variable/read = Identity(Variable)"
+    scheduled_micros: 1530924612307089
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv1/weights/read"
+    all_start_micros: 1530924612307095
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 11
+          }
+          dim {
+            size: 11
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 92928
+          allocated_bytes: 92928
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 19
+          ptr: 140413425947648
+        }
+      }
+    }
+    timeline_label: "conv1/weights/read = Identity(conv1/weights)"
+    scheduled_micros: 1530924612307093
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv1/biases/read"
+    all_start_micros: 1530924612307097
+    op_start_rel_micros: 1
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 256
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 10
+          ptr: 140413505470208
+        }
+      }
+    }
+    timeline_label: "conv1/biases/read = Identity(conv1/biases)"
+    scheduled_micros: 1530924612307097
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2/weights/read"
+    all_start_micros: 1530924612307101
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 5
+          }
+          dim {
+            size: 5
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 1228800
+          allocated_bytes: 1228800
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 21
+          ptr: 140413428399872
+        }
+      }
+    }
+    timeline_label: "conv2/weights/read = Identity(conv2/weights)"
+    scheduled_micros: 1530924612307099
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2/biases/read"
+    all_start_micros: 1530924612307103
+    op_start_rel_micros: 1
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 768
+          allocated_bytes: 768
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 12
+          ptr: 140413506699264
+        }
+      }
+    }
+    timeline_label: "conv2/biases/read = Identity(conv2/biases)"
+    scheduled_micros: 1530924612307103
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv3/weights/read"
+    all_start_micros: 1530924612307119
+    op_end_rel_micros: 1
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 384
+          }
+        }
+        allocation_description {
+          requested_bytes: 2654208
+          allocated_bytes: 2654208
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 22
+          ptr: 140413429628672
+        }
+      }
+    }
+    timeline_label: "conv3/weights/read = Identity(conv3/weights)"
+    scheduled_micros: 1530924612307105
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv3/biases/read"
+    all_start_micros: 1530924612307123
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 384
+          }
+        }
+        allocation_description {
+          requested_bytes: 1536
+          allocated_bytes: 1536
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 14
+          ptr: 140413509354240
+        }
+      }
+    }
+    timeline_label: "conv3/biases/read = Identity(conv3/biases)"
+    scheduled_micros: 1530924612307122
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv4/weights/read"
+    all_start_micros: 1530924612307125
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 384
+          }
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 3538944
+          allocated_bytes: 3538944
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 23
+          ptr: 140413432282880
+        }
+      }
+    }
+    timeline_label: "conv4/weights/read = Identity(conv4/weights)"
+    scheduled_micros: 1530924612307124
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv4/biases/read"
+    all_start_micros: 1530924612307127
+    op_start_rel_micros: 1
+    op_end_rel_micros: 1
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 1024
+          allocated_bytes: 1024
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 17
+          ptr: 140413512895744
+        }
+      }
+    }
+    timeline_label: "conv4/biases/read = Identity(conv4/biases)"
+    scheduled_micros: 1530924612307127
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv5/weights/read"
+    all_start_micros: 1530924612307131
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 2359296
+          allocated_bytes: 2359296
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 20
+          ptr: 140413426040576
+        }
+      }
+    }
+    timeline_label: "conv5/weights/read = Identity(conv5/weights)"
+    scheduled_micros: 1530924612307130
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv5/biases/read"
+    all_start_micros: 1530924612307134
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 86954240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 1024
+          allocated_bytes: 1024
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 16
+          ptr: 140413512894720
+        }
+      }
+    }
+    timeline_label: "conv5/biases/read = Identity(conv5/biases)"
+    scheduled_micros: 1530924612307133
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv1/Conv2D-0-TransposeNHWCToNCHW-LayoutOptimizer"
+    all_start_micros: 1530924612307136
+    op_start_rel_micros: 2
+    op_end_rel_micros: 56
+    all_end_rel_micros: 59
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 77070336
+      peak_bytes: 77070336
+      live_bytes: 77070336
+      allocator_bytes_in_use: 164024576
+      allocation_records {
+        alloc_micros: 1530924612307143
+        alloc_bytes: 77070336
+      }
+      allocation_records {
+        alloc_micros: 1530924612307330
+        alloc_bytes: -77070336
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 224
+          }
+          dim {
+            size: 224
+          }
+        }
+        allocation_description {
+          requested_bytes: 77070336
+          allocated_bytes: 77070336
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 179
+          has_single_reference: true
+          ptr: 140413589967104
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 73.5MB 73.5MB] conv1/Conv2D-0-TransposeNHWCToNCHW-LayoutOptimizer = Transpose(Variable/read, PermConstNHWCToNCHW-LayoutOptimizer)"
+    scheduled_micros: 1530924612307136
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv1/Conv2D"
+    all_start_micros: 1530924612307200
+    op_start_rel_micros: 1
+    op_end_rel_micros: 127
+    all_end_rel_micros: 131
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 283392768
+      peak_bytes: 283392768
+      live_bytes: 102760448
+      allocator_bytes_in_use: 266785024
+      allocation_records {
+        alloc_micros: 1530924612307206
+        alloc_bytes: 102760448
+      }
+      allocation_records {
+        alloc_micros: 1530924612307207
+        alloc_bytes: 77760000
+      }
+      allocation_records {
+        alloc_micros: 1530924612307237
+        alloc_bytes: 92928
+      }
+      allocation_records {
+        alloc_micros: 1530924612307246
+        alloc_bytes: 102760448
+      }
+      allocation_records {
+        alloc_micros: 1530924612307269
+        alloc_bytes: 18944
+      }
+      allocation_records {
+        alloc_micros: 1530924612307321
+        alloc_bytes: -102760448
+      }
+      allocation_records {
+        alloc_micros: 1530924612307322
+        alloc_bytes: -18944
+      }
+      allocation_records {
+        alloc_micros: 1530924612307323
+        alloc_bytes: -92928
+      }
+      allocation_records {
+        alloc_micros: 1530924612307324
+        alloc_bytes: -77760000
+      }
+      allocation_records {
+        alloc_micros: 1530924612312997
+        alloc_bytes: -102760448
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 102760448
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 183
+          has_single_reference: true
+          ptr: 140413847557888
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 270.3MB 270.3MB] conv1/Conv2D = Conv2D(conv1/Conv2D-0-TransposeNHWCToNCHW-LayoutOptimizer, conv1/weights/read)"
+    scheduled_micros: 1530924612307194
+    memory_stats {
+      temp_memory_size: 180632320
+    }
+  }
+  node_stats {
+    node_name: "conv1/BiasAdd"
+    all_start_micros: 1530924612307335
+    op_start_rel_micros: 1
+    op_end_rel_micros: 14
+    all_end_rel_micros: 16
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 189714688
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 102760448
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 183
+          ptr: 140413847557888
+        }
+      }
+    }
+    timeline_label: "conv1/BiasAdd = BiasAdd(conv1/Conv2D, conv1/biases/read)"
+    scheduled_micros: 1530924612307331
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv1"
+    all_start_micros: 1530924612307352
+    op_start_rel_micros: 1
+    op_end_rel_micros: 11
+    all_end_rel_micros: 13
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 189714688
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 102760448
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 183
+          ptr: 140413847557888
+        }
+      }
+    }
+    timeline_label: "conv1 = Relu(conv1/BiasAdd)"
+    scheduled_micros: 1530924612307351
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv1-0-0-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612307366
+    op_start_rel_micros: 2
+    op_end_rel_micros: 13
+    all_end_rel_micros: 15
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 102760448
+      peak_bytes: 102760448
+      live_bytes: 102760448
+      allocator_bytes_in_use: 292475136
+      allocation_records {
+        alloc_micros: 1530924612307370
+        alloc_bytes: 102760448
+      }
+      allocation_records {
+        alloc_micros: 1530924612312960
+        alloc_bytes: -102760448
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 102760448
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 185
+          has_single_reference: true
+          ptr: 140413589967104
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 98.0MB 98.0MB] conv1-0-0-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(conv1, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612307365
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "lrn1/LRN"
+    all_start_micros: 1530924612307384
+    op_end_rel_micros: 18
+    all_end_rel_micros: 20
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 154830336
+      peak_bytes: 154830336
+      live_bytes: 154830336
+      allocator_bytes_in_use: 447305472
+      allocation_records {
+        alloc_micros: 1530924612307386
+        alloc_bytes: 154830336
+      }
+      allocation_records {
+        alloc_micros: 1530924612312961
+        alloc_bytes: -154830336
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 154830336
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 186
+          has_single_reference: true
+          ptr: 140413692727552
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 147.7MB 147.7MB] lrn1/LRN = LRN(conv1-0-0-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612307381
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "pool1-0-TransposeNHWCToNCHW-LayoutOptimizer"
+    all_start_micros: 1530924612307407
+    op_end_rel_micros: 12
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 102760448
+      peak_bytes: 102760448
+      live_bytes: 102760448
+      allocator_bytes_in_use: 550065920
+      allocation_records {
+        alloc_micros: 1530924612307409
+        alloc_bytes: 102760448
+      }
+      allocation_records {
+        alloc_micros: 1530924612312756
+        alloc_bytes: -102760448
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 102760448
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 187
+          has_single_reference: true
+          ptr: 140413950318336
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 98.0MB 98.0MB] pool1-0-TransposeNHWCToNCHW-LayoutOptimizer = Transpose(lrn1/LRN, PermConstNHWCToNCHW-LayoutOptimizer)"
+    scheduled_micros: 1530924612307404
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "pool1"
+    all_start_micros: 1530924612307424
+    op_end_rel_micros: 22
+    all_end_rel_micros: 24
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 23887872
+      peak_bytes: 23887872
+      live_bytes: 23887872
+      allocator_bytes_in_use: 573953792
+      allocation_records {
+        alloc_micros: 1530924612307427
+        alloc_bytes: 23887872
+      }
+      allocation_records {
+        alloc_micros: 1530924612312757
+        alloc_bytes: -23887872
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+        }
+        allocation_description {
+          requested_bytes: 23887872
+          allocated_bytes: 23887872
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 188
+          has_single_reference: true
+          ptr: 140413435821824
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 22.8MB 22.8MB] pool1 = MaxPool(pool1-0-TransposeNHWCToNCHW-LayoutOptimizer)"
+    scheduled_micros: 1530924612307421
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2/Conv2D"
+    all_start_micros: 1530924612307451
+    op_end_rel_micros: 79
+    all_end_rel_micros: 82
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 359694336
+      peak_bytes: 359694336
+      live_bytes: 71663616
+      allocator_bytes_in_use: 645617408
+      allocation_records {
+        alloc_micros: 1530924612307453
+        alloc_bytes: 71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612307455
+        alloc_bytes: 1228800
+      }
+      allocation_records {
+        alloc_micros: 1530924612307465
+        alloc_bytes: 71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612307474
+        alloc_bytes: 215138304
+      }
+      allocation_records {
+        alloc_micros: 1530924612307528
+        alloc_bytes: -71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612307529
+        alloc_bytes: -215138304
+      }
+      allocation_records {
+        alloc_micros: 1530924612307529
+        alloc_bytes: -1228800
+      }
+      allocation_records {
+        alloc_micros: 1530924612312594
+        alloc_bytes: -71663616
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 71663616
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 191
+          has_single_reference: true
+          ptr: 140414124742400
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 343.0MB 343.0MB] conv2/Conv2D = Conv2D(pool1, conv2/weights/read)"
+    scheduled_micros: 1530924612307448
+    memory_stats {
+      temp_memory_size: 288030720
+    }
+  }
+  node_stats {
+    node_name: "pool1-1-0-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612307536
+    op_start_rel_micros: 1
+    op_end_rel_micros: 12
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 45760512
+      peak_bytes: 45760512
+      live_bytes: 45760512
+      allocator_bytes_in_use: 691377920
+      allocation_records {
+        alloc_micros: 1530924612307539
+        alloc_bytes: 45760512
+      }
+      allocation_records {
+        alloc_micros: 1530924612312864
+        alloc_bytes: -45760512
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 23887872
+          allocated_bytes: 45760512
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 193
+          has_single_reference: true
+          ptr: 140413459709696
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 43.6MB 43.6MB] pool1-1-0-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(pool1, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612307533
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2/BiasAdd"
+    all_start_micros: 1530924612307553
+    op_end_rel_micros: 9
+    all_end_rel_micros: 13
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 691377920
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 71663616
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 191
+          ptr: 140414124742400
+        }
+      }
+    }
+    timeline_label: "conv2/BiasAdd = BiasAdd(conv2/Conv2D, conv2/biases/read)"
+    scheduled_micros: 1530924612307550
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2"
+    all_start_micros: 1530924612307567
+    op_end_rel_micros: 9
+    all_end_rel_micros: 11
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 691377920
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 71663616
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 191
+          ptr: 140414124742400
+        }
+      }
+    }
+    timeline_label: "conv2 = Relu(conv2/BiasAdd)"
+    scheduled_micros: 1530924612307566
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2-1-1-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612307579
+    op_end_rel_micros: 9
+    all_end_rel_micros: 10
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 71663616
+      peak_bytes: 71663616
+      live_bytes: 71663616
+      allocator_bytes_in_use: 763041536
+      allocation_records {
+        alloc_micros: 1530924612307581
+        alloc_bytes: 71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612312549
+        alloc_bytes: -71663616
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 71663616
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 194
+          has_single_reference: true
+          ptr: 140414053078784
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 68.3MB 68.3MB] conv2-1-1-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(conv2, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612307578
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "lrn2/LRN"
+    all_start_micros: 1530924612307593
+    op_start_rel_micros: 1
+    op_end_rel_micros: 14
+    all_end_rel_micros: 16
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 71663616
+      peak_bytes: 71663616
+      live_bytes: 71663616
+      allocator_bytes_in_use: 834705152
+      allocation_records {
+        alloc_micros: 1530924612307595
+        alloc_bytes: 71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612312550
+        alloc_bytes: -71663616
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 71663616
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 195
+          has_single_reference: true
+          ptr: 140414196406016
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 68.3MB 68.3MB] lrn2/LRN = LRN(conv2-2-0-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612307589
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "pool2-0-TransposeNHWCToNCHW-LayoutOptimizer"
+    all_start_micros: 1530924612307612
+    op_end_rel_micros: 10
+    all_end_rel_micros: 12
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 71663616
+      peak_bytes: 71663616
+      live_bytes: 71663616
+      allocator_bytes_in_use: 906368768
+      allocation_records {
+        alloc_micros: 1530924612307614
+        alloc_bytes: 71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612312291
+        alloc_bytes: -71663616
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 71663616
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 196
+          has_single_reference: true
+          ptr: 140414268069632
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 68.3MB 68.3MB] pool2-0-TransposeNHWCToNCHW-LayoutOptimizer = Transpose(lrn2/LRN, PermConstNHWCToNCHW-LayoutOptimizer)"
+    scheduled_micros: 1530924612307609
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "pool2"
+    all_start_micros: 1530924612307626
+    op_start_rel_micros: 1
+    op_end_rel_micros: 20
+    all_end_rel_micros: 21
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 16613376
+      peak_bytes: 16613376
+      live_bytes: 16613376
+      allocator_bytes_in_use: 922982144
+      allocation_records {
+        alloc_micros: 1530924612307629
+        alloc_bytes: 16613376
+      }
+      allocation_records {
+        alloc_micros: 1530924612312292
+        alloc_bytes: -16613376
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 16613376
+          allocated_bytes: 16613376
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 197
+          has_single_reference: true
+          ptr: 140414339733248
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 15.8MB 15.8MB] pool2 = MaxPool(pool2-0-TransposeNHWCToNCHW-LayoutOptimizer)"
+    scheduled_micros: 1530924612307624
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv3/Conv2D"
+    all_start_micros: 1530924612307650
+    op_end_rel_micros: 60
+    all_end_rel_micros: 62
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 249593856
+      peak_bytes: 249593856
+      live_bytes: 33226752
+      allocator_bytes_in_use: 956208896
+      allocation_records {
+        alloc_micros: 1530924612307653
+        alloc_bytes: 33226752
+      }
+      allocation_records {
+        alloc_micros: 1530924612307654
+        alloc_bytes: 2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612307664
+        alloc_bytes: 33226752
+      }
+      allocation_records {
+        alloc_micros: 1530924612307671
+        alloc_bytes: 180486144
+      }
+      allocation_records {
+        alloc_micros: 1530924612307708
+        alloc_bytes: -33226752
+      }
+      allocation_records {
+        alloc_micros: 1530924612307708
+        alloc_bytes: -180486144
+      }
+      allocation_records {
+        alloc_micros: 1530924612307709
+        alloc_bytes: -2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612308439
+        alloc_bytes: -33226752
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 384
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 33226752
+          allocated_bytes: 33226752
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 200
+          has_single_reference: true
+          ptr: 140414389573376
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 238.0MB 238.0MB] conv3/Conv2D = Conv2D(pool2, conv3/weights/read)"
+    scheduled_micros: 1530924612307647
+    memory_stats {
+      temp_memory_size: 216367104
+    }
+  }
+  node_stats {
+    node_name: "pool2-1-0-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612307716
+    op_start_rel_micros: 2
+    op_end_rel_micros: 13
+    all_end_rel_micros: 15
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 16613376
+      peak_bytes: 16613376
+      live_bytes: 16613376
+      allocator_bytes_in_use: 972822272
+      allocation_records {
+        alloc_micros: 1530924612307720
+        alloc_bytes: 16613376
+      }
+      allocation_records {
+        alloc_micros: 1530924612312447
+        alloc_bytes: -16613376
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 16613376
+          allocated_bytes: 16613376
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 202
+          has_single_reference: true
+          ptr: 140414356346624
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 15.8MB 15.8MB] pool2-1-0-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(pool2, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612307712
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv3/BiasAdd"
+    all_start_micros: 1530924612307733
+    op_start_rel_micros: 1
+    op_end_rel_micros: 10
+    all_end_rel_micros: 11
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 972822272
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 384
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 33226752
+          allocated_bytes: 33226752
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 200
+          ptr: 140414389573376
+        }
+      }
+    }
+    timeline_label: "conv3/BiasAdd = BiasAdd(conv3/Conv2D, conv3/biases/read)"
+    scheduled_micros: 1530924612307731
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv3"
+    all_start_micros: 1530924612307746
+    op_end_rel_micros: 8
+    all_end_rel_micros: 11
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 972822272
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 384
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 33226752
+          allocated_bytes: 33226752
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 200
+          ptr: 140414389573376
+        }
+      }
+    }
+    timeline_label: "conv3 = Relu(conv3/BiasAdd)"
+    scheduled_micros: 1530924612307744
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv4/Conv2D"
+    all_start_micros: 1530924612307758
+    op_end_rel_micros: 48
+    all_end_rel_micros: 51
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 250740736
+      peak_bytes: 250740736
+      live_bytes: 22151168
+      allocator_bytes_in_use: 994973440
+      allocation_records {
+        alloc_micros: 1530924612307760
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612307762
+        alloc_bytes: 3538944
+      }
+      allocation_records {
+        alloc_micros: 1530924612307771
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612307778
+        alloc_bytes: 202899456
+      }
+      allocation_records {
+        alloc_micros: 1530924612307804
+        alloc_bytes: -22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612307805
+        alloc_bytes: -202899456
+      }
+      allocation_records {
+        alloc_micros: 1530924612307805
+        alloc_bytes: -3538944
+      }
+      allocation_records {
+        alloc_micros: 1530924612308157
+        alloc_bytes: -22151168
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 205
+          has_single_reference: true
+          ptr: 140414444951296
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 239.1MB 239.1MB] conv4/Conv2D = Conv2D(conv3, conv4/weights/read)"
+    scheduled_micros: 1530924612307757
+    memory_stats {
+      temp_memory_size: 228589568
+    }
+  }
+  node_stats {
+    node_name: "conv3-1-0-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612307812
+    op_end_rel_micros: 11
+    all_end_rel_micros: 15
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 33226752
+      peak_bytes: 33226752
+      live_bytes: 33226752
+      allocator_bytes_in_use: 1028200192
+      allocation_records {
+        alloc_micros: 1530924612307814
+        alloc_bytes: 33226752
+      }
+      allocation_records {
+        alloc_micros: 1530924612308516
+        alloc_bytes: -33226752
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 384
+          }
+        }
+        allocation_description {
+          requested_bytes: 33226752
+          allocated_bytes: 33226752
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 207
+          has_single_reference: true
+          ptr: 140414467102464
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 31.7MB 31.7MB] conv3-1-0-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(conv3, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612307809
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv4/BiasAdd"
+    all_start_micros: 1530924612307829
+    op_end_rel_micros: 10
+    all_end_rel_micros: 11
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 1028200192
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 205
+          ptr: 140414444951296
+        }
+      }
+    }
+    timeline_label: "conv4/BiasAdd = BiasAdd(conv4/Conv2D, conv4/biases/read)"
+    scheduled_micros: 1530924612307826
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv4"
+    all_start_micros: 1530924612307841
+    op_start_rel_micros: 1
+    op_end_rel_micros: 9
+    all_end_rel_micros: 10
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 1028200192
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 205
+          ptr: 140414444951296
+        }
+      }
+    }
+    timeline_label: "conv4 = Relu(conv4/BiasAdd)"
+    scheduled_micros: 1530924612307840
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv5/Conv2D"
+    all_start_micros: 1530924612307852
+    op_start_rel_micros: 3
+    op_end_rel_micros: 67
+    all_end_rel_micros: 70
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 275808256
+      peak_bytes: 275808256
+      live_bytes: 22151168
+      allocator_bytes_in_use: 1050351360
+      allocation_records {
+        alloc_micros: 1530924612307857
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612307858
+        alloc_bytes: 2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612307867
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612307874
+        alloc_bytes: 228851712
+      }
+      allocation_records {
+        alloc_micros: 1530924612307917
+        alloc_bytes: -22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612307918
+        alloc_bytes: -228851712
+      }
+      allocation_records {
+        alloc_micros: 1530924612307918
+        alloc_bytes: -2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612308060
+        alloc_bytes: -22151168
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 210
+          has_single_reference: true
+          ptr: 140414500329216
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 263.0MB 263.0MB] conv5/Conv2D = Conv2D(conv4, conv5/weights/read)"
+    scheduled_micros: 1530924612307851
+    memory_stats {
+      temp_memory_size: 253657088
+    }
+  }
+  node_stats {
+    node_name: "conv4-0-0-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612307925
+    op_end_rel_micros: 11
+    all_end_rel_micros: 13
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 22151168
+      peak_bytes: 22151168
+      live_bytes: 22151168
+      allocator_bytes_in_use: 1072502528
+      allocation_records {
+        alloc_micros: 1530924612307927
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308259
+        alloc_bytes: -22151168
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 212
+          has_single_reference: true
+          ptr: 140414422800128
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 21.1MB 21.1MB] conv4-0-0-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(conv4, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612307921
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv5/BiasAdd"
+    all_start_micros: 1530924612307942
+    op_start_rel_micros: 1
+    op_end_rel_micros: 10
+    all_end_rel_micros: 12
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 1072502528
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 210
+          ptr: 140414500329216
+        }
+      }
+    }
+    timeline_label: "conv5/BiasAdd = BiasAdd(conv5/Conv2D, conv5/biases/read)"
+    scheduled_micros: 1530924612307938
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv5"
+    all_start_micros: 1530924612307955
+    op_end_rel_micros: 7
+    all_end_rel_micros: 9
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 1072502528
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 210
+          ptr: 140414500329216
+        }
+      }
+    }
+    timeline_label: "conv5 = Relu(conv5/BiasAdd)"
+    scheduled_micros: 1530924612307954
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "pool5"
+    all_start_micros: 1530924612307965
+    op_end_rel_micros: 20
+    all_end_rel_micros: 21
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 4718592
+      peak_bytes: 4718592
+      live_bytes: 4718592
+      allocator_bytes_in_use: 1077221120
+      allocation_records {
+        alloc_micros: 1530924612307968
+        alloc_bytes: 4718592
+      }
+      allocation_records {
+        alloc_micros: 1530924612308040
+        alloc_bytes: -4718592
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 6
+          }
+          dim {
+            size: 6
+          }
+        }
+        allocation_description {
+          requested_bytes: 4718592
+          allocated_bytes: 4718592
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 213
+          has_single_reference: true
+          ptr: 140414372960000
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 4.5MB 4.5MB] pool5 = MaxPool(conv5)"
+    scheduled_micros: 1530924612307964
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/L2Loss_grad/mul"
+    all_start_micros: 1530924612307989
+    op_end_rel_micros: 20
+    all_end_rel_micros: 22
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 4718592
+      peak_bytes: 4718592
+      live_bytes: 4718592
+      allocator_bytes_in_use: 1081939712
+      allocation_records {
+        alloc_micros: 1530924612307991
+        alloc_bytes: 4718592
+      }
+      allocation_records {
+        alloc_micros: 1530924612308041
+        alloc_bytes: -4718592
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 6
+          }
+          dim {
+            size: 6
+          }
+        }
+        allocation_description {
+          requested_bytes: 4718592
+          allocated_bytes: 4718592
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 214
+          has_single_reference: true
+          ptr: 140414377678592
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 4.5MB 4.5MB] gradients/L2Loss_grad/mul = Snapshot(pool5)"
+    scheduled_micros: 1530924612307986
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/pool5_grad/MaxPoolGrad"
+    all_start_micros: 1530924612308013
+    op_end_rel_micros: 24
+    all_end_rel_micros: 29
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 22151168
+      peak_bytes: 22151168
+      live_bytes: 22151168
+      allocator_bytes_in_use: 1104090880
+      allocation_records {
+        alloc_micros: 1530924612308015
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308141
+        alloc_bytes: -22151168
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 215
+          has_single_reference: true
+          ptr: 140414522480384
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 21.1MB 21.1MB] gradients/pool5_grad/MaxPoolGrad = MaxPoolGrad(conv5, pool5, gradients/L2Loss_grad/mul)"
+    scheduled_micros: 1530924612308011
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv5_grad/ReluGrad"
+    all_start_micros: 1530924612308045
+    op_start_rel_micros: 1
+    op_end_rel_micros: 13
+    all_end_rel_micros: 15
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 1094653696
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 215
+          ptr: 140414522480384
+        }
+      }
+    }
+    timeline_label: "gradients/conv5_grad/ReluGrad = ReluGrad(gradients/pool5_grad/MaxPoolGrad, conv5)"
+    scheduled_micros: 1530924612308041
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput"
+    all_start_micros: 1530924612308062
+    op_end_rel_micros: 59
+    all_end_rel_micros: 61
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 207388672
+      peak_bytes: 207388672
+      live_bytes: 22151168
+      allocator_bytes_in_use: 1094653696
+      allocation_records {
+        alloc_micros: 1530924612308065
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308068
+        alloc_bytes: 2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612308079
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308089
+        alloc_bytes: 160432128
+      }
+      allocation_records {
+        alloc_micros: 1530924612308119
+        alloc_bytes: -22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308119
+        alloc_bytes: -160432128
+      }
+      allocation_records {
+        alloc_micros: 1530924612308120
+        alloc_bytes: -2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612308341
+        alloc_bytes: -22151168
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 218
+          has_single_reference: true
+          ptr: 140414544631552
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 197.8MB 197.8MB] gradients/conv5/Conv2D_grad/Conv2DBackpropInput = Conv2DBackpropInput(gradients/conv5/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, conv5/weights/read, gradients/conv5_grad/ReluGrad)"
+    scheduled_micros: 1530924612308060
+    memory_stats {
+      temp_memory_size: 185237504
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv5_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612308127
+    op_start_rel_micros: 1
+    op_end_rel_micros: 12
+    all_end_rel_micros: 15
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 22151168
+      peak_bytes: 22151168
+      live_bytes: 22151168
+      allocator_bytes_in_use: 1116804864
+      allocation_records {
+        alloc_micros: 1530924612308130
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308259
+        alloc_bytes: -22151168
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 220
+          has_single_reference: true
+          ptr: 140414500329216
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 21.1MB 21.1MB] gradients/conv5_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(gradients/conv5_grad/ReluGrad, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612308123
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv4_grad/ReluGrad"
+    all_start_micros: 1530924612308144
+    op_start_rel_micros: 1
+    op_end_rel_micros: 10
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 1094653696
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 218
+          ptr: 140414544631552
+        }
+      }
+    }
+    timeline_label: "gradients/conv4_grad/ReluGrad = ReluGrad(gradients/conv5/Conv2D_grad/Conv2DBackpropInput, conv4)"
+    scheduled_micros: 1530924612308142
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv5/BiasAdd_grad/BiasAddGrad"
+    all_start_micros: 1530924612308159
+    op_end_rel_micros: 19
+    all_end_rel_micros: 21
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 1024
+      peak_bytes: 1024
+      live_bytes: 1024
+      allocator_bytes_in_use: 1072503552
+      allocation_records {
+        alloc_micros: 1530924612308161
+        alloc_bytes: 1024
+      }
+      allocation_records {
+        alloc_micros: 1530924612419128
+        alloc_bytes: -1024
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 1024
+          allocated_bytes: 1024
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 221
+          has_single_reference: true
+          ptr: 140413505470464
+        }
+      }
+    }
+    timeline_label: "gradients/conv5/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/conv5_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612308158
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter"
+    all_start_micros: 1530924612308181
+    op_end_rel_micros: 76
+    all_end_rel_micros: 79
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 210927616
+      peak_bytes: 210927616
+      live_bytes: 2654208
+      allocator_bytes_in_use: 1075157760
+      allocation_records {
+        alloc_micros: 1530924612308184
+        alloc_bytes: 2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612308188
+        alloc_bytes: 3538944
+      }
+      allocation_records {
+        alloc_micros: 1530924612308188
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308198
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308214
+        alloc_bytes: 160432128
+      }
+      allocation_records {
+        alloc_micros: 1530924612308254
+        alloc_bytes: -160432128
+      }
+      allocation_records {
+        alloc_micros: 1530924612308255
+        alloc_bytes: -22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308255
+        alloc_bytes: -22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308255
+        alloc_bytes: -3538944
+      }
+      allocation_records {
+        alloc_micros: 1530924612419436
+        alloc_bytes: -2654208
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 256
+          }
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 2359296
+          allocated_bytes: 2654208
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 222
+          has_single_reference: true
+          ptr: 140413506700032
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 201.2MB 201.2MB] gradients/conv5/Conv2D_grad/Conv2DBackpropFilter = Conv2DBackpropFilter(conv4-0-0-TransposeNCHWToNHWC-LayoutOptimizer, gradients/conv5/Conv2D_grad/Const_1, gradients/conv5_grad/ReluGrad-1-2-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612308180
+    memory_stats {
+      temp_memory_size: 208273408
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput"
+    all_start_micros: 1530924612308264
+    op_start_rel_micros: 1
+    op_end_rel_micros: 50
+    all_end_rel_micros: 53
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 295043072
+      peak_bytes: 295043072
+      live_bytes: 44302336
+      allocator_bytes_in_use: 1075157760
+      allocation_records {
+        alloc_micros: 1530924612308267
+        alloc_bytes: 44302336
+      }
+      allocation_records {
+        alloc_micros: 1530924612308269
+        alloc_bytes: 3538944
+      }
+      allocation_records {
+        alloc_micros: 1530924612308278
+        alloc_bytes: 44302336
+      }
+      allocation_records {
+        alloc_micros: 1530924612308285
+        alloc_bytes: 202899456
+      }
+      allocation_records {
+        alloc_micros: 1530924612308312
+        alloc_bytes: -44302336
+      }
+      allocation_records {
+        alloc_micros: 1530924612308313
+        alloc_bytes: -202899456
+      }
+      allocation_records {
+        alloc_micros: 1530924612308313
+        alloc_bytes: -3538944
+      }
+      allocation_records {
+        alloc_micros: 1530924612308637
+        alloc_bytes: -44302336
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 384
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 33226752
+          allocated_bytes: 44302336
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 229
+          has_single_reference: true
+          ptr: 140414500329216
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 281.4MB 281.4MB] gradients/conv4/Conv2D_grad/Conv2DBackpropInput = Conv2DBackpropInput(gradients/conv4/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, conv4/weights/read, gradients/conv4_grad/ReluGrad)"
+    scheduled_micros: 1530924612308260
+    memory_stats {
+      temp_memory_size: 250740736
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv4_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612308326
+    op_end_rel_micros: 13
+    all_end_rel_micros: 16
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 22151168
+      peak_bytes: 22151168
+      live_bytes: 22151168
+      allocator_bytes_in_use: 1097308928
+      allocation_records {
+        alloc_micros: 1530924612308329
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308545
+        alloc_bytes: -22151168
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 22151168
+          allocated_bytes: 22151168
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 231
+          has_single_reference: true
+          ptr: 140414422800128
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 21.1MB 21.1MB] gradients/conv4_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(gradients/conv4_grad/ReluGrad, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612308317
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv3_grad/ReluGrad"
+    all_start_micros: 1530924612308423
+    op_start_rel_micros: 1
+    op_end_rel_micros: 13
+    all_end_rel_micros: 17
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 1075157760
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 384
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 33226752
+          allocated_bytes: 44302336
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 229
+          ptr: 140414500329216
+        }
+      }
+    }
+    timeline_label: "gradients/conv3_grad/ReluGrad = ReluGrad(gradients/conv4/Conv2D_grad/Conv2DBackpropInput, conv3)"
+    scheduled_micros: 1530924612308421
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter"
+    all_start_micros: 1530924612308441
+    op_start_rel_micros: 1
+    op_end_rel_micros: 72
+    all_end_rel_micros: 75
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 265355264
+      peak_bytes: 265355264
+      live_bytes: 3538944
+      allocator_bytes_in_use: 1045469952
+      allocation_records {
+        alloc_micros: 1530924612308444
+        alloc_bytes: 3538944
+      }
+      allocation_records {
+        alloc_micros: 1530924612308447
+        alloc_bytes: 3538944
+      }
+      allocation_records {
+        alloc_micros: 1530924612308448
+        alloc_bytes: 22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308458
+        alloc_bytes: 33226752
+      }
+      allocation_records {
+        alloc_micros: 1530924612308473
+        alloc_bytes: 202899456
+      }
+      allocation_records {
+        alloc_micros: 1530924612308510
+        alloc_bytes: -202899456
+      }
+      allocation_records {
+        alloc_micros: 1530924612308511
+        alloc_bytes: -33226752
+      }
+      allocation_records {
+        alloc_micros: 1530924612308511
+        alloc_bytes: -22151168
+      }
+      allocation_records {
+        alloc_micros: 1530924612308511
+        alloc_bytes: -3538944
+      }
+      allocation_records {
+        alloc_micros: 1530924612432481
+        alloc_bytes: -3538944
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 384
+          }
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 3538944
+          allocated_bytes: 3538944
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 232
+          has_single_reference: true
+          ptr: 140413509355776
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 253.1MB 253.1MB] gradients/conv4/Conv2D_grad/Conv2DBackpropFilter = Conv2DBackpropFilter(conv3-1-0-TransposeNCHWToNHWC-LayoutOptimizer, gradients/conv4/Conv2D_grad/Const_1, gradients/conv4_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612308440
+    memory_stats {
+      temp_memory_size: 261816320
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv4/BiasAdd_grad/BiasAddGrad"
+    all_start_micros: 1530924612308524
+    op_start_rel_micros: 1
+    op_end_rel_micros: 18
+    all_end_rel_micros: 21
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 1024
+      peak_bytes: 1024
+      live_bytes: 1024
+      allocator_bytes_in_use: 1012244224
+      allocation_records {
+        alloc_micros: 1530924612308527
+        alloc_bytes: 1024
+      }
+      allocation_records {
+        alloc_micros: 1530924612432498
+        alloc_bytes: -1024
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 256
+          }
+        }
+        allocation_description {
+          requested_bytes: 1024
+          allocated_bytes: 1024
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 237
+          has_single_reference: true
+          ptr: 140413505471488
+        }
+      }
+    }
+    timeline_label: "gradients/conv4/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/conv4_grad/ReluGrad-1-0-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612308516
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput"
+    all_start_micros: 1530924612308547
+    op_end_rel_micros: 66
+    all_end_rel_micros: 69
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 321650688
+      peak_bytes: 321650688
+      live_bytes: 16613376
+      allocator_bytes_in_use: 1006706432
+      allocation_records {
+        alloc_micros: 1530924612308549
+        alloc_bytes: 16613376
+      }
+      allocation_records {
+        alloc_micros: 1530924612308552
+        alloc_bytes: 2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612308562
+        alloc_bytes: 16613376
+      }
+      allocation_records {
+        alloc_micros: 1530924612308570
+        alloc_bytes: 285769728
+      }
+      allocation_records {
+        alloc_micros: 1530924612308611
+        alloc_bytes: -16613376
+      }
+      allocation_records {
+        alloc_micros: 1530924612308612
+        alloc_bytes: -285769728
+      }
+      allocation_records {
+        alloc_micros: 1530924612308613
+        alloc_bytes: -2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612312294
+        alloc_bytes: -16613376
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+        }
+        allocation_description {
+          requested_bytes: 16613376
+          allocated_bytes: 16613376
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 240
+          has_single_reference: true
+          ptr: 140414392227584
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 306.8MB 306.8MB] gradients/conv3/Conv2D_grad/Conv2DBackpropInput = Conv2DBackpropInput(gradients/conv3/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, conv3/weights/read, gradients/conv3_grad/ReluGrad)"
+    scheduled_micros: 1530924612308545
+    memory_stats {
+      temp_memory_size: 305037312
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv3_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612308621
+    op_end_rel_micros: 14
+    all_end_rel_micros: 16
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 33226752
+      peak_bytes: 33226752
+      live_bytes: 33226752
+      allocator_bytes_in_use: 1039933184
+      allocation_records {
+        alloc_micros: 1530924612308624
+        alloc_bytes: 33226752
+      }
+      allocation_records {
+        alloc_micros: 1530924612312448
+        alloc_bytes: -33226752
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 13
+          }
+          dim {
+            size: 384
+          }
+        }
+        allocation_description {
+          requested_bytes: 33226752
+          allocated_bytes: 33226752
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 242
+          has_single_reference: true
+          ptr: 140414408840960
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 31.7MB 31.7MB] gradients/conv3_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(gradients/conv3_grad/ReluGrad, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612308616
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/pool2_grad/MaxPoolGrad"
+    all_start_micros: 1530924612312231
+    op_start_rel_micros: 1
+    op_end_rel_micros: 54
+    all_end_rel_micros: 63
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 71663616
+      peak_bytes: 71663616
+      live_bytes: 71663616
+      allocator_bytes_in_use: 1067294464
+      allocation_records {
+        alloc_micros: 1530924612312236
+        alloc_bytes: 71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612312472
+        alloc_bytes: -71663616
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 71663616
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 243
+          has_single_reference: true
+          ptr: 140414442067712
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 68.3MB 68.3MB] gradients/pool2_grad/MaxPoolGrad = MaxPoolGrad(gradients/pool2_grad/MaxPoolGrad-0-TransposeNHWCToNCHW-LayoutOptimizer, pool2, gradients/conv3/Conv2D_grad/Conv2DBackpropInput)"
+    scheduled_micros: 1530924612312228
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv3/BiasAdd_grad/BiasAddGrad"
+    all_start_micros: 1530924612312303
+    op_end_rel_micros: 28
+    all_end_rel_micros: 30
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 1536
+      peak_bytes: 1536
+      live_bytes: 1536
+      allocator_bytes_in_use: 962405632
+      allocation_records {
+        alloc_micros: 1530924612312306
+        alloc_bytes: 1536
+      }
+      allocation_records {
+        alloc_micros: 1530924612441201
+        alloc_bytes: -1536
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 384
+          }
+        }
+        allocation_description {
+          requested_bytes: 1536
+          allocated_bytes: 1536
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 244
+          has_single_reference: true
+          ptr: 140413505472512
+        }
+      }
+    }
+    timeline_label: "gradients/conv3/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/conv3_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612312294
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter"
+    all_start_micros: 1530924612312335
+    op_start_rel_micros: 1
+    op_end_rel_micros: 109
+    all_end_rel_micros: 113
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 249593856
+      peak_bytes: 249593856
+      live_bytes: 2654208
+      allocator_bytes_in_use: 965059840
+      allocation_records {
+        alloc_micros: 1530924612312340
+        alloc_bytes: 2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612312347
+        alloc_bytes: 2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612312352
+        alloc_bytes: 33226752
+      }
+      allocation_records {
+        alloc_micros: 1530924612312367
+        alloc_bytes: 30572544
+      }
+      allocation_records {
+        alloc_micros: 1530924612312388
+        alloc_bytes: 180486144
+      }
+      allocation_records {
+        alloc_micros: 1530924612312440
+        alloc_bytes: -180486144
+      }
+      allocation_records {
+        alloc_micros: 1530924612312442
+        alloc_bytes: -30572544
+      }
+      allocation_records {
+        alloc_micros: 1530924612312442
+        alloc_bytes: -33226752
+      }
+      allocation_records {
+        alloc_micros: 1530924612312442
+        alloc_bytes: -2654208
+      }
+      allocation_records {
+        alloc_micros: 1530924612441471
+        alloc_bytes: -2654208
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 384
+          }
+        }
+        allocation_description {
+          requested_bytes: 2654208
+          allocated_bytes: 2654208
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 245
+          has_single_reference: true
+          ptr: 140414372960000
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 238.0MB 238.0MB] gradients/conv3/Conv2D_grad/Conv2DBackpropFilter = Conv2DBackpropFilter(pool2-1-0-TransposeNCHWToNHWC-LayoutOptimizer, gradients/conv3/Conv2D_grad/Const_1, gradients/conv3_grad/ReluGrad-1-2-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612312333
+    memory_stats {
+      temp_memory_size: 246939648
+    }
+  }
+  node_stats {
+    node_name: "gradients/pool2_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612312453
+    op_start_rel_micros: 1
+    op_end_rel_micros: 17
+    all_end_rel_micros: 20
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 104890368
+      peak_bytes: 104890368
+      live_bytes: 104890368
+      allocator_bytes_in_use: 1020110080
+      allocation_records {
+        alloc_micros: 1530924612312457
+        alloc_bytes: 104890368
+      }
+      allocation_records {
+        alloc_micros: 1530924612312548
+        alloc_bytes: -104890368
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 104890368
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 250
+          has_single_reference: true
+          ptr: 140414268069632
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 100.0MB 100.0MB] gradients/pool2_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(gradients/pool2_grad/MaxPoolGrad, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612312448
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/lrn2/LRN_grad/LRNGrad"
+    all_start_micros: 1530924612312524
+    op_start_rel_micros: 1
+    op_end_rel_micros: 21
+    all_end_rel_micros: 26
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 71663616
+      peak_bytes: 71663616
+      live_bytes: 71663616
+      allocator_bytes_in_use: 1020110080
+      allocation_records {
+        alloc_micros: 1530924612312527
+        alloc_bytes: 71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612312574
+        alloc_bytes: -71663616
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 71663616
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 251
+          has_single_reference: true
+          ptr: 140414375614208
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 68.3MB 68.3MB] gradients/lrn2/LRN_grad/LRNGrad = LRNGrad(gradients/pool2_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer, conv2-1-1-TransposeNCHWToNHWC-LayoutOptimizer, lrn2/LRN)"
+    scheduled_micros: 1530924612312522
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv2_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer"
+    all_start_micros: 1530924612312558
+    op_start_rel_micros: 1
+    op_end_rel_micros: 14
+    all_end_rel_micros: 17
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 71663616
+      peak_bytes: 71663616
+      live_bytes: 71663616
+      allocator_bytes_in_use: 843556096
+      allocation_records {
+        alloc_micros: 1530924612312561
+        alloc_bytes: 71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612312726
+        alloc_bytes: -71663616
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 71663616
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 252
+          has_single_reference: true
+          ptr: 140414053078784
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 68.3MB 68.3MB] gradients/conv2_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer = Transpose(gradients/lrn2/LRN_grad/LRNGrad, PermConstNHWCToNCHW-LayoutOptimizer)"
+    scheduled_micros: 1530924612312550
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv2_grad/ReluGrad"
+    all_start_micros: 1530924612312578
+    op_end_rel_micros: 14
+    all_end_rel_micros: 17
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 771892480
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 192
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 71663616
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 252
+          ptr: 140414053078784
+        }
+      }
+    }
+    timeline_label: "gradients/conv2_grad/ReluGrad = ReluGrad(gradients/conv2_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer, conv2)"
+    scheduled_micros: 1530924612312575
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput"
+    all_start_micros: 1530924612312597
+    op_start_rel_micros: 3
+    op_end_rel_micros: 101
+    all_end_rel_micros: 104
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 248217600
+      peak_bytes: 248217600
+      live_bytes: 23887872
+      allocator_bytes_in_use: 724116736
+      allocation_records {
+        alloc_micros: 1530924612312602
+        alloc_bytes: 23887872
+      }
+      allocation_records {
+        alloc_micros: 1530924612312606
+        alloc_bytes: 1228800
+      }
+      allocation_records {
+        alloc_micros: 1530924612312617
+        alloc_bytes: 23887872
+      }
+      allocation_records {
+        alloc_micros: 1530924612312627
+        alloc_bytes: 199213056
+      }
+      allocation_records {
+        alloc_micros: 1530924612312696
+        alloc_bytes: -23887872
+      }
+      allocation_records {
+        alloc_micros: 1530924612312697
+        alloc_bytes: -199213056
+      }
+      allocation_records {
+        alloc_micros: 1530924612312697
+        alloc_bytes: -1228800
+      }
+      allocation_records {
+        alloc_micros: 1530924612312757
+        alloc_bytes: -23887872
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+        }
+        allocation_description {
+          requested_bytes: 23887872
+          allocated_bytes: 23887872
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 255
+          has_single_reference: true
+          ptr: 140414149859072
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 236.7MB 236.7MB] gradients/conv2/Conv2D_grad/Conv2DBackpropInput = Conv2DBackpropInput(gradients/conv2/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, conv2/weights/read, gradients/conv2_grad/ReluGrad)"
+    scheduled_micros: 1530924612312595
+    memory_stats {
+      temp_memory_size: 224329728
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv2_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612312705
+    op_start_rel_micros: 1
+    op_end_rel_micros: 15
+    all_end_rel_micros: 22
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 71663616
+      peak_bytes: 71663616
+      live_bytes: 71663616
+      allocator_bytes_in_use: 795780352
+      allocation_records {
+        alloc_micros: 1530924612312709
+        alloc_bytes: 71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612312864
+        alloc_bytes: -71663616
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 27
+          }
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 71663616
+          allocated_bytes: 71663616
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 257
+          has_single_reference: true
+          ptr: 140414173746944
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 68.3MB 68.3MB] gradients/conv2_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(gradients/conv2_grad/ReluGrad, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612312701
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/pool1_grad/MaxPoolGrad"
+    all_start_micros: 1530924612312730
+    op_start_rel_micros: 1
+    op_end_rel_micros: 23
+    all_end_rel_micros: 27
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 127549440
+      peak_bytes: 127549440
+      live_bytes: 127549440
+      allocator_bytes_in_use: 851666176
+      allocation_records {
+        alloc_micros: 1530924612312732
+        alloc_bytes: 127549440
+      }
+      allocation_records {
+        alloc_micros: 1530924612312888
+        alloc_bytes: -127549440
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 127549440
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 258
+          has_single_reference: true
+          ptr: 140414245410560
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 121.6MB 121.6MB] gradients/pool1_grad/MaxPoolGrad = MaxPoolGrad(gradients/pool1_grad/MaxPoolGrad-0-TransposeNHWCToNCHW-LayoutOptimizer, pool1, gradients/conv2/Conv2D_grad/Conv2DBackpropInput)"
+    scheduled_micros: 1530924612312727
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv2/BiasAdd_grad/BiasAddGrad"
+    all_start_micros: 1530924612312760
+    op_start_rel_micros: 1
+    op_end_rel_micros: 18
+    all_end_rel_micros: 20
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 768
+      peak_bytes: 768
+      live_bytes: 768
+      allocator_bytes_in_use: 701130752
+      allocation_records {
+        alloc_micros: 1530924612312763
+        alloc_bytes: 768
+      }
+      allocation_records {
+        alloc_micros: 1530924612487849
+        alloc_bytes: -768
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 768
+          allocated_bytes: 768
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 259
+          has_single_reference: true
+          ptr: 140413505474048
+        }
+      }
+    }
+    timeline_label: "gradients/conv2/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/conv2_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612312757
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter"
+    all_start_micros: 1530924612312785
+    op_end_rel_micros: 76
+    all_end_rel_micros: 80
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 305676288
+      peak_bytes: 305676288
+      live_bytes: 1228800
+      allocator_bytes_in_use: 702359552
+      allocation_records {
+        alloc_micros: 1530924612312788
+        alloc_bytes: 1228800
+      }
+      allocation_records {
+        alloc_micros: 1530924612312791
+        alloc_bytes: 1228800
+      }
+      allocation_records {
+        alloc_micros: 1530924612312792
+        alloc_bytes: 71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612312802
+        alloc_bytes: 23887872
+      }
+      allocation_records {
+        alloc_micros: 1530924612312817
+        alloc_bytes: 207667200
+      }
+      allocation_records {
+        alloc_micros: 1530924612312858
+        alloc_bytes: -207667200
+      }
+      allocation_records {
+        alloc_micros: 1530924612312859
+        alloc_bytes: -23887872
+      }
+      allocation_records {
+        alloc_micros: 1530924612312860
+        alloc_bytes: -71663616
+      }
+      allocation_records {
+        alloc_micros: 1530924612312860
+        alloc_bytes: -1228800
+      }
+      allocation_records {
+        alloc_micros: 1530924612488009
+        alloc_bytes: -1228800
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 5
+          }
+          dim {
+            size: 5
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 192
+          }
+        }
+        allocation_description {
+          requested_bytes: 1228800
+          allocated_bytes: 1228800
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 260
+          has_single_reference: true
+          ptr: 140413435821824
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 291.5MB 291.5MB] gradients/conv2/Conv2D_grad/Conv2DBackpropFilter = Conv2DBackpropFilter(pool1-1-0-TransposeNCHWToNHWC-LayoutOptimizer, gradients/conv2/Conv2D_grad/Const_1, gradients/conv2_grad/ReluGrad-1-2-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612312780
+    memory_stats {
+      temp_memory_size: 304447488
+    }
+  }
+  node_stats {
+    node_name: "gradients/pool1_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612312869
+    op_start_rel_micros: 4
+    op_end_rel_micros: 17
+    all_end_rel_micros: 20
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 102760448
+      peak_bytes: 102760448
+      live_bytes: 102760448
+      allocator_bytes_in_use: 687695872
+      allocation_records {
+        alloc_micros: 1530924612312876
+        alloc_bytes: 102760448
+      }
+      allocation_records {
+        alloc_micros: 1530924612312960
+        alloc_bytes: -102760448
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 102760448
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 265
+          has_single_reference: true
+          ptr: 140413950318336
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 98.0MB 98.0MB] gradients/pool1_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(gradients/pool1_grad/MaxPoolGrad, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612312865
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/lrn1/LRN_grad/LRNGrad"
+    all_start_micros: 1530924612312939
+    op_end_rel_micros: 18
+    all_end_rel_micros: 23
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 102760448
+      peak_bytes: 102760448
+      live_bytes: 102760448
+      allocator_bytes_in_use: 662906880
+      allocation_records {
+        alloc_micros: 1530924612312941
+        alloc_bytes: 102760448
+      }
+      allocation_records {
+        alloc_micros: 1530924612312980
+        alloc_bytes: -102760448
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 102760448
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 266
+          has_single_reference: true
+          ptr: 140414053078784
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 98.0MB 98.0MB] gradients/lrn1/LRN_grad/LRNGrad = LRNGrad(gradients/pool1_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer, conv1-2-1-TransposeNCHWToNHWC-LayoutOptimizer, lrn1/LRN)"
+    scheduled_micros: 1530924612312933
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv1_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer"
+    all_start_micros: 1530924612312966
+    op_end_rel_micros: 12
+    all_end_rel_micros: 15
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 102760448
+      peak_bytes: 102760448
+      live_bytes: 102760448
+      allocator_bytes_in_use: 405316096
+      allocation_records {
+        alloc_micros: 1530924612312968
+        alloc_bytes: 102760448
+      }
+      allocation_records {
+        alloc_micros: 1530924612313016
+        alloc_bytes: -102760448
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 102760448
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 267
+          has_single_reference: true
+          ptr: 140413950318336
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 98.0MB 98.0MB] gradients/conv1_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer = Transpose(gradients/lrn1/LRN_grad/LRNGrad, PermConstNHWCToNCHW-LayoutOptimizer)"
+    scheduled_micros: 1530924612312962
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv1_grad/ReluGrad"
+    all_start_micros: 1530924612312984
+    op_end_rel_micros: 11
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 302555648
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 102760448
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 267
+          ptr: 140413950318336
+        }
+      }
+    }
+    timeline_label: "gradients/conv1_grad/ReluGrad = ReluGrad(gradients/conv1_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer, conv1)"
+    scheduled_micros: 1530924612312981
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv1_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer"
+    all_start_micros: 1530924612313003
+    op_end_rel_micros: 11
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 102760448
+      peak_bytes: 102760448
+      live_bytes: 102760448
+      allocator_bytes_in_use: 302555648
+      allocation_records {
+        alloc_micros: 1530924612313005
+        alloc_bytes: 102760448
+      }
+      allocation_records {
+        alloc_micros: 1530924612313149
+        alloc_bytes: -102760448
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 56
+          }
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 102760448
+          allocated_bytes: 102760448
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 268
+          has_single_reference: true
+          ptr: 140414053078784
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 98.0MB 98.0MB] gradients/conv1_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer = Transpose(gradients/conv1_grad/ReluGrad, PermConstNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612312998
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter"
+    all_start_micros: 1530924612313020
+    op_end_rel_micros: 102
+    all_end_rel_micros: 105
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 295109888
+      peak_bytes: 295109888
+      live_bytes: 92928
+      allocator_bytes_in_use: 199888128
+      allocation_records {
+        alloc_micros: 1530924612313022
+        alloc_bytes: 92928
+      }
+      allocation_records {
+        alloc_micros: 1530924612313025
+        alloc_bytes: 77760000
+      }
+      allocation_records {
+        alloc_micros: 1530924612313037
+        alloc_bytes: 92928
+      }
+      allocation_records {
+        alloc_micros: 1530924612313038
+        alloc_bytes: 139360768
+      }
+      allocation_records {
+        alloc_micros: 1530924612313046
+        alloc_bytes: 77760000
+      }
+      allocation_records {
+        alloc_micros: 1530924612313067
+        alloc_bytes: 43264
+      }
+      allocation_records {
+        alloc_micros: 1530924612313119
+        alloc_bytes: -43264
+      }
+      allocation_records {
+        alloc_micros: 1530924612313120
+        alloc_bytes: -77760000
+      }
+      allocation_records {
+        alloc_micros: 1530924612313121
+        alloc_bytes: -139360768
+      }
+      allocation_records {
+        alloc_micros: 1530924612313121
+        alloc_bytes: -92928
+      }
+      allocation_records {
+        alloc_micros: 1530924612313122
+        alloc_bytes: -77760000
+      }
+      allocation_records {
+        alloc_micros: 1530924612526760
+        alloc_bytes: -92928
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 11
+          }
+          dim {
+            size: 11
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 92928
+          allocated_bytes: 92928
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 269
+          has_single_reference: true
+          ptr: 140413505474816
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 281.4MB 281.4MB] gradients/conv1/Conv2D_grad/Conv2DBackpropFilter = Conv2DBackpropFilter(Variable/read, gradients/conv1/Conv2D_grad/Const_1, gradients/conv1_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612313017
+    memory_stats {
+      temp_memory_size: 295016960
+    }
+  }
+  node_stats {
+    node_name: "gradients/conv1/BiasAdd_grad/BiasAddGrad"
+    all_start_micros: 1530924612313130
+    op_end_rel_micros: 17
+    all_end_rel_micros: 20
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 256
+      peak_bytes: 256
+      live_bytes: 256
+      allocator_bytes_in_use: 199888384
+      allocation_records {
+        alloc_micros: 1530924612313133
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1530924612526781
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 256
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 275
+          has_single_reference: true
+          ptr: 140413505567744
+        }
+      }
+    }
+    timeline_label: "gradients/conv1/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/conv1_grad/ReluGrad-1-0-TransposeNCHWToNHWC-LayoutOptimizer)"
+    scheduled_micros: 1530924612313125
+    memory_stats {
+    }
+  }
+}
+dev_stats {
+  device: "/device:GPU:0/stream:13"
+  node_stats {
+    node_name: "conv1/Conv2D-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612307179
+    op_end_rel_micros: 1970
+    all_end_rel_micros: 1970
+  }
+  node_stats {
+    node_name: "conv1/Conv2D:Conv2D"
+    all_start_micros: 1530924612309153
+    op_end_rel_micros: 1940
+    all_end_rel_micros: 1940
+  }
+  node_stats {
+    node_name: "conv1/Conv2D:Conv2D"
+    all_start_micros: 1530924612311096
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "conv1/Conv2D:Conv2D"
+    all_start_micros: 1530924612311105
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "conv1/Conv2D:Conv2D"
+    all_start_micros: 1530924612311111
+    op_end_rel_micros: 7177
+    all_end_rel_micros: 7177
+  }
+  node_stats {
+    node_name: "conv1/BiasAdd:BiasAdd"
+    all_start_micros: 1530924612318293
+    op_end_rel_micros: 1767
+    all_end_rel_micros: 1767
+  }
+  node_stats {
+    node_name: "conv1:Relu"
+    all_start_micros: 1530924612320062
+    op_end_rel_micros: 1366
+    all_end_rel_micros: 1366
+  }
+  node_stats {
+    node_name: "conv1-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612321431
+    op_end_rel_micros: 1371
+    all_end_rel_micros: 1371
+  }
+  node_stats {
+    node_name: "lrn1/LRN:LRN"
+    all_start_micros: 1530924612322806
+    op_end_rel_micros: 20085
+    all_end_rel_micros: 20085
+  }
+  node_stats {
+    node_name: "pool1-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612342895
+    op_end_rel_micros: 1377
+    all_end_rel_micros: 1377
+  }
+  node_stats {
+    node_name: "pool1:MaxPool"
+    all_start_micros: 1530924612344276
+    op_end_rel_micros: 1312
+    all_end_rel_micros: 1312
+  }
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612345590
+    op_end_rel_micros: 37
+    all_end_rel_micros: 37
+  }
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612346046
+    op_end_rel_micros: 44
+    all_end_rel_micros: 44
+  }
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612346092
+    op_end_rel_micros: 515
+    all_end_rel_micros: 515
+  }
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612346609
+    op_end_rel_micros: 2396
+    all_end_rel_micros: 2396
+  }
+  node_stats {
+    node_name: "conv2/Conv2D:Conv2D"
+    all_start_micros: 1530924612349008
+    op_end_rel_micros: 1481
+    all_end_rel_micros: 1481
+  }
+  node_stats {
+    node_name: "pool1-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612350493
+    op_end_rel_micros: 323
+    all_end_rel_micros: 323
+  }
+  node_stats {
+    node_name: "conv2/BiasAdd:BiasAdd"
+    all_start_micros: 1530924612350820
+    op_end_rel_micros: 1234
+    all_end_rel_micros: 1234
+  }
+  node_stats {
+    node_name: "conv2:Relu"
+    all_start_micros: 1530924612352057
+    op_end_rel_micros: 955
+    all_end_rel_micros: 955
+  }
+  node_stats {
+    node_name: "conv2-1-1-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612353016
+    op_end_rel_micros: 968
+    all_end_rel_micros: 968
+  }
+  node_stats {
+    node_name: "lrn2/LRN:LRN"
+    all_start_micros: 1530924612353988
+    op_end_rel_micros: 24178
+    all_end_rel_micros: 24178
+  }
+  node_stats {
+    node_name: "pool2-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612378169
+    op_end_rel_micros: 960
+    all_end_rel_micros: 960
+  }
+  node_stats {
+    node_name: "pool2:MaxPool"
+    all_start_micros: 1530924612379134
+    op_end_rel_micros: 951
+    all_end_rel_micros: 951
+  }
+  node_stats {
+    node_name: "conv3/Conv2D:Conv2D"
+    all_start_micros: 1530924612380088
+    op_end_rel_micros: 94
+    all_end_rel_micros: 94
+  }
+  node_stats {
+    node_name: "conv3/Conv2D:Conv2D"
+    all_start_micros: 1530924612380187
+    op_end_rel_micros: 533
+    all_end_rel_micros: 533
+  }
+  node_stats {
+    node_name: "conv3/Conv2D:Conv2D"
+    all_start_micros: 1530924612380723
+    op_end_rel_micros: 94
+    all_end_rel_micros: 94
+  }
+  node_stats {
+    node_name: "conv3/Conv2D:Conv2D"
+    all_start_micros: 1530924612380820
+    op_end_rel_micros: 3645
+    all_end_rel_micros: 3645
+  }
+  node_stats {
+    node_name: "conv3/Conv2D:Conv2D"
+    all_start_micros: 1530924612384469
+    op_end_rel_micros: 976
+    all_end_rel_micros: 976
+  }
+  node_stats {
+    node_name: "pool2-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612385448
+    op_end_rel_micros: 508
+    all_end_rel_micros: 508
+  }
+  node_stats {
+    node_name: "conv3/BiasAdd:BiasAdd"
+    all_start_micros: 1530924612385960
+    op_end_rel_micros: 573
+    all_end_rel_micros: 573
+  }
+  node_stats {
+    node_name: "conv3:Relu"
+    all_start_micros: 1530924612386536
+    op_end_rel_micros: 445
+    all_end_rel_micros: 445
+  }
+  node_stats {
+    node_name: "conv4/Conv2D:Conv2D"
+    all_start_micros: 1530924612386985
+    op_end_rel_micros: 119
+    all_end_rel_micros: 119
+  }
+  node_stats {
+    node_name: "conv4/Conv2D:Conv2D"
+    all_start_micros: 1530924612387107
+    op_end_rel_micros: 1458
+    all_end_rel_micros: 1458
+  }
+  node_stats {
+    node_name: "conv4/Conv2D:Conv2D"
+    all_start_micros: 1530924612388568
+    op_end_rel_micros: 124
+    all_end_rel_micros: 124
+  }
+  node_stats {
+    node_name: "conv4/Conv2D:Conv2D"
+    all_start_micros: 1530924612388696
+    op_end_rel_micros: 4526
+    all_end_rel_micros: 4526
+  }
+  node_stats {
+    node_name: "conv4/Conv2D:Conv2D"
+    all_start_micros: 1530924612393227
+    op_end_rel_micros: 632
+    all_end_rel_micros: 632
+  }
+  node_stats {
+    node_name: "conv3-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612393863
+    op_end_rel_micros: 445
+    all_end_rel_micros: 445
+  }
+  node_stats {
+    node_name: "conv4/BiasAdd:BiasAdd"
+    all_start_micros: 1530924612394311
+    op_end_rel_micros: 387
+    all_end_rel_micros: 387
+  }
+  node_stats {
+    node_name: "conv4:Relu"
+    all_start_micros: 1530924612394702
+    op_end_rel_micros: 295
+    all_end_rel_micros: 295
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612395000
+    op_end_rel_micros: 74
+    all_end_rel_micros: 74
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612395077
+    op_end_rel_micros: 220
+    all_end_rel_micros: 220
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612395739
+    op_end_rel_micros: 535
+    all_end_rel_micros: 535
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612396277
+    op_end_rel_micros: 2930
+    all_end_rel_micros: 2930
+  }
+  node_stats {
+    node_name: "conv5/Conv2D:Conv2D"
+    all_start_micros: 1530924612399211
+    op_end_rel_micros: 476
+    all_end_rel_micros: 476
+  }
+  node_stats {
+    node_name: "conv4-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612399690
+    op_end_rel_micros: 299
+    all_end_rel_micros: 299
+  }
+  node_stats {
+    node_name: "conv5/BiasAdd:BiasAdd"
+    all_start_micros: 1530924612399994
+    op_end_rel_micros: 385
+    all_end_rel_micros: 385
+  }
+  node_stats {
+    node_name: "conv5:Relu"
+    all_start_micros: 1530924612400381
+    op_end_rel_micros: 297
+    all_end_rel_micros: 297
+  }
+  node_stats {
+    node_name: "pool5:MaxPool"
+    all_start_micros: 1530924612400681
+    op_end_rel_micros: 296
+    all_end_rel_micros: 296
+  }
+  node_stats {
+    node_name: "gradients/pool5_grad/MaxPoolGrad:MaxPoolGrad"
+    all_start_micros: 1530924612401048
+    op_end_rel_micros: 872
+    all_end_rel_micros: 872
+  }
+  node_stats {
+    node_name: "gradients/conv5_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1530924612401922
+    op_end_rel_micros: 436
+    all_end_rel_micros: 436
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612402362
+    op_end_rel_micros: 76
+    all_end_rel_micros: 76
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612402442
+    op_end_rel_micros: 702
+    all_end_rel_micros: 702
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612403148
+    op_end_rel_micros: 86
+    all_end_rel_micros: 86
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612403238
+    op_end_rel_micros: 3025
+    all_end_rel_micros: 3025
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612406265
+    op_end_rel_micros: 633
+    all_end_rel_micros: 633
+  }
+  node_stats {
+    node_name: "gradients/conv5_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612406901
+    op_end_rel_micros: 299
+    all_end_rel_micros: 299
+  }
+  node_stats {
+    node_name: "gradients/conv4_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1530924612407202
+    op_end_rel_micros: 429
+    all_end_rel_micros: 429
+  }
+  node_stats {
+    node_name: "gradients/conv5/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1530924612407645
+    op_end_rel_micros: 249
+    all_end_rel_micros: 249
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612407898
+    op_end_rel_micros: 294
+    all_end_rel_micros: 294
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612408196
+    op_end_rel_micros: 294
+    all_end_rel_micros: 294
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612408493
+    op_end_rel_micros: 664
+    all_end_rel_micros: 664
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612409161
+    op_end_rel_micros: 660
+    all_end_rel_micros: 660
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612409824
+    op_end_rel_micros: 2587
+    all_end_rel_micros: 2587
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612412413
+    op_end_rel_micros: 140
+    all_end_rel_micros: 140
+  }
+  node_stats {
+    node_name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612412556
+    op_end_rel_micros: 163
+    all_end_rel_micros: 163
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612412723
+    op_end_rel_micros: 110
+    all_end_rel_micros: 110
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612412836
+    op_end_rel_micros: 710
+    all_end_rel_micros: 710
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612413551
+    op_end_rel_micros: 124
+    all_end_rel_micros: 124
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612413678
+    op_end_rel_micros: 4118
+    all_end_rel_micros: 4118
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612417800
+    op_end_rel_micros: 971
+    all_end_rel_micros: 971
+  }
+  node_stats {
+    node_name: "gradients/conv4_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612418774
+    op_end_rel_micros: 297
+    all_end_rel_micros: 297
+  }
+  node_stats {
+    node_name: "gradients/conv3_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1530924612419075
+    op_end_rel_micros: 662
+    all_end_rel_micros: 662
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612419740
+    op_end_rel_micros: 301
+    all_end_rel_micros: 301
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612420043
+    op_end_rel_micros: 445
+    all_end_rel_micros: 445
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612420493
+    op_end_rel_micros: 1024
+    all_end_rel_micros: 1024
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612421520
+    op_end_rel_micros: 661
+    all_end_rel_micros: 661
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612422185
+    op_end_rel_micros: 3771
+    all_end_rel_micros: 3771
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612425961
+    op_end_rel_micros: 194
+    all_end_rel_micros: 194
+  }
+  node_stats {
+    node_name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612426158
+    op_end_rel_micros: 326
+    all_end_rel_micros: 326
+  }
+  node_stats {
+    node_name: "gradients/conv4/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1530924612426496
+    op_end_rel_micros: 257
+    all_end_rel_micros: 257
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612426755
+    op_end_rel_micros: 84
+    all_end_rel_micros: 84
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612426842
+    op_end_rel_micros: 844
+    all_end_rel_micros: 844
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612428449
+    op_end_rel_micros: 2882
+    all_end_rel_micros: 2882
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612431334
+    op_end_rel_micros: 368
+    all_end_rel_micros: 368
+  }
+  node_stats {
+    node_name: "gradients/conv3_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612431706
+    op_end_rel_micros: 441
+    all_end_rel_micros: 441
+  }
+  node_stats {
+    node_name: "gradients/pool2_grad/MaxPoolGrad:MaxPoolGrad"
+    all_start_micros: 1530924612432149
+    op_end_rel_micros: 1266
+    all_end_rel_micros: 1266
+  }
+  node_stats {
+    node_name: "gradients/conv3/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1530924612433423
+    op_end_rel_micros: 372
+    all_end_rel_micros: 372
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612433799
+    op_end_rel_micros: 441
+    all_end_rel_micros: 441
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612434243
+    op_end_rel_micros: 224
+    all_end_rel_micros: 224
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612434471
+    op_end_rel_micros: 514
+    all_end_rel_micros: 514
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612434987
+    op_end_rel_micros: 1018
+    all_end_rel_micros: 1018
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612436007
+    op_end_rel_micros: 3765
+    all_end_rel_micros: 3765
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612439776
+    op_end_rel_micros: 157
+    all_end_rel_micros: 157
+  }
+  node_stats {
+    node_name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612439937
+    op_end_rel_micros: 228
+    all_end_rel_micros: 228
+  }
+  node_stats {
+    node_name: "gradients/pool2_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612440168
+    op_end_rel_micros: 940
+    all_end_rel_micros: 940
+  }
+  node_stats {
+    node_name: "gradients/lrn2/LRN_grad/LRNGrad:LRNGrad"
+    all_start_micros: 1530924612441112
+    op_end_rel_micros: 25170
+    all_end_rel_micros: 25170
+  }
+  node_stats {
+    node_name: "gradients/conv2_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612466284
+    op_end_rel_micros: 953
+    all_end_rel_micros: 953
+  }
+  node_stats {
+    node_name: "gradients/conv2_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1530924612467240
+    op_end_rel_micros: 1668
+    all_end_rel_micros: 1668
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612468912
+    op_end_rel_micros: 36
+    all_end_rel_micros: 36
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1530924612468951
+    op_end_rel_micros: 528
+    all_end_rel_micros: 528
+  }
+  node_stats {
+    node_name: "gradients/conv2_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612473843
+    op_end_rel_micros: 943
+    all_end_rel_micros: 943
+  }
+  node_stats {
+    node_name: "gradients/pool1_grad/MaxPoolGrad:MaxPoolGrad"
+    all_start_micros: 1530924612474789
+    op_end_rel_micros: 3285
+    all_end_rel_micros: 3285
+  }
+  node_stats {
+    node_name: "gradients/conv2/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1530924612478227
+    op_end_rel_micros: 852
+    all_end_rel_micros: 852
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612479081
+    op_end_rel_micros: 944
+    all_end_rel_micros: 944
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612480028
+    op_end_rel_micros: 337
+    all_end_rel_micros: 337
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612480366
+    op_end_rel_micros: 967
+    all_end_rel_micros: 967
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612481334
+    op_end_rel_micros: 2418
+    all_end_rel_micros: 2418
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612483753
+    op_end_rel_micros: 2242
+    all_end_rel_micros: 2242
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612485998
+    op_end_rel_micros: 127
+    all_end_rel_micros: 127
+  }
+  node_stats {
+    node_name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612486126
+    op_end_rel_micros: 38
+    all_end_rel_micros: 38
+  }
+  node_stats {
+    node_name: "gradients/pool1_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612486166
+    op_end_rel_micros: 1662
+    all_end_rel_micros: 1662
+  }
+  node_stats {
+    node_name: "gradients/lrn1/LRN_grad/LRNGrad:LRNGrad"
+    all_start_micros: 1530924612487831
+    op_end_rel_micros: 19603
+    all_end_rel_micros: 19603
+  }
+  node_stats {
+    node_name: "gradients/conv1_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612507436
+    op_end_rel_micros: 1356
+    all_end_rel_micros: 1356
+  }
+  node_stats {
+    node_name: "gradients/conv1_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1530924612508794
+    op_end_rel_micros: 1982
+    all_end_rel_micros: 1982
+  }
+  node_stats {
+    node_name: "gradients/conv1_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer:Transpose"
+    all_start_micros: 1530924612510777
+    op_end_rel_micros: 1344
+    all_end_rel_micros: 1344
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612512123
+    op_end_rel_micros: 1846
+    all_end_rel_micros: 1846
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612513971
+    op_end_rel_micros: 1362
+    all_end_rel_micros: 1362
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612515335
+    op_end_rel_micros: 1899
+    all_end_rel_micros: 1899
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612517247
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612517251
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612517254
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612517258
+    op_end_rel_micros: 7965
+    all_end_rel_micros: 7965
+  }
+  node_stats {
+    node_name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1530924612525225
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "gradients/conv1/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1530924612525239
+    op_end_rel_micros: 1398
+    all_end_rel_micros: 1398
+  }
+  node_stats {
+    node_name: "gradients/L2Loss_grad/mul:Snapshot:MEMCPYDtoD"
+    all_start_micros: 1530924612400980
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoD 4718592 bytes (Device to Device)"
+  }
+}
