@@ -24,6 +24,27 @@ from absl import app as absl_app
 from absl import flags
 import tensorflow as tf  # pylint: disable=g-bad-import-order
 
+# setup all necessary paths
+
+import sys
+path_to_cifar10_dataset = os.path.abspath(os.path.join(__file__, '..', '..', '..', '..','common_datasets/cifar10'))
+print(path_to_cifar10_dataset)
+
+# path to existing directory for saving Tensorscope results
+path_to_ts_results = os.path.abspath(os.path.join(__file__, '..', '..', '..', '..', '..','results/resnet'))
+
+# path to existing directory for saving/restoring trained model
+path_to_resnet_model = os.path.abspath(os.path.join(__file__, '..','..', '..','resnet_model'))
+
+# path to cloned git repo https://github.com/tensorflow/models
+#path_to_tf_models = os.path.abspath(os.path.join(__file__, '/official'))
+
+path_to_tensorscope1 = os.path.abspath(os.path.join(__file__, '..', '..', '..',  '..', '..', 'reproduce_results/resnet'))
+sys.path.insert(0,path_to_tensorscope1)
+print(sys.path)
+
+
+
 from official.utils.flags import core as flags_core
 from official.utils.logs import logger
 from official.resnet import resnet_model
