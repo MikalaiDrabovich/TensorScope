@@ -1,0 +1,93 @@
+2018-07-06 17:49:51.269219: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-07-06 17:49:51.269638: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
+pciBusID: 0000:01:00.0
+totalMemory: 5.94GiB freeMemory: 5.46GiB
+2018-07-06 17:49:51.269651: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-07-06 17:49:51.444426: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-07-06 17:49:51.444455: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-07-06 17:49:51.444460: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-07-06 17:49:51.444682: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/device:GPU:0 with 5242 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+/usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+I0706 17:49:53.299896 139875743999744 tf_logging.py:116] Using config: {'_task_id': 0, '_keep_checkpoint_max': 5, '_tf_random_seed': None, '_keep_checkpoint_every_n_hours': 10000, '_model_dir': '/home/ndr/work_july/golden_git/temp_git/reproduce_results/resnet/resnet_model', '_service': None, '_save_summary_steps': 100, '_distribute': None, '_global_id_in_cluster': 0, '_evaluation_master': '', '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f355659a320>, '_master': '', '_log_step_count_steps': 100, '_session_config': allow_soft_placement: true
+, '_save_checkpoints_steps': None, '_is_chief': True, '_task_type': 'worker', '_num_ps_replicas': 0, '_save_checkpoints_secs': 600, '_num_worker_replicas': 1}
+W0706 17:49:53.300731 139875743999744 tf_logging.py:121] 'cpuinfo' not imported. CPU info will not be logged.
+2018-07-06 17:49:53.300922: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-07-06 17:49:53.300962: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-07-06 17:49:53.300987: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-07-06 17:49:53.300992: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-07-06 17:49:53.301117: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/device:GPU:0 with 5242 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+I0706 17:49:53.304264 139875743999744 tf_logging.py:116] Benchmark run: {'model_name': 'resnet', 'machine_config': {'memory_total': 16698224640, 'memory_available': 14683000832, 'gpu_info': {'count': 1, 'model': 'GeForce GTX 1060'}}, 'tensorflow_environment_variables': [{'value': '1', 'name': 'TF_ENABLE_WINOGRAD_NONFUSED'}], 'test_id': None, 'dataset': {'name': 'CIFAR-10'}, 'tensorflow_version': {'git_hash': 'v1.7.0-1118-gc1c819b', 'version': '1.7.0'}, 'run_date': '2018-07-07T00:49:53.300369Z', 'run_parameters': [{'long_value': 128, 'name': 'batch_size'}, {'string_value': "<dtype: 'float32'>", 'name': 'dtype'}, {'string_value': '32', 'name': 'resnet_size'}, {'string_value': '2', 'name': 'resnet_version'}, {'bool_value': 'False', 'name': 'synthetic_data'}, {'long_value': 250, 'name': 'train_epochs'}]}
+I0706 17:49:53.304436 139875743999744 tf_logging.py:116] Starting a training cycle: 0/25
+I0706 17:49:53.357280 139875743999744 tf_logging.py:116] Calling model_fn.
+I0706 17:49:55.179506 139875743999744 tf_logging.py:116] Done calling model_fn.
+I0706 17:49:55.180263 139875743999744 tf_logging.py:116] Create CheckpointSaverHook.
+I0706 17:49:55.917195 139875743999744 tf_logging.py:116] Graph was finalized.
+2018-07-06 17:49:55.917469: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-07-06 17:49:55.917493: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-07-06 17:49:55.917500: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-07-06 17:49:55.917505: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-07-06 17:49:55.917620: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5242 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+I0706 17:49:56.472840 139875743999744 tf_logging.py:116] Running local_init_op.
+I0706 17:49:56.493367 139875743999744 tf_logging.py:116] Done running local_init_op.
+2018-07-06 17:49:58.896708: I tensorflow/stream_executor/dso_loader.cc:152] successfully opened CUDA library libcupti.so.9.1 locally
+I0706 17:49:59.880136 139875743999744 tf_logging.py:116] Saving checkpoints for 1 into /home/ndr/work_july/golden_git/temp_git/reproduce_results/resnet/resnet_model/model.ckpt.
+I0706 17:50:00.209681 139875743999744 tf_logging.py:116] step = 0, loss = 2.6160164
+/home/ndr/work_july/golden_git/temp_git/reproduce_results/common_datasets/cifar10
+['/home/ndr/work_july/golden_git/temp_git/reproduce_results/resnet', '/home/ndr/work_july/golden_git/temp_git/reproduce_results/resnet/official/resnet', '/usr/lib/python35.zip', '/usr/lib/python3.5', '/usr/lib/python3.5/plat-x86_64-linux-gnu', '/usr/lib/python3.5/lib-dynload', '/home/ndr/.local/lib/python3.5/site-packages', '/home/ndr/.local/lib/python3.5/site-packages/pyrfr-0.4.0-py3.5-linux-x86_64.egg', '/usr/local/lib/python3.5/dist-packages', '/usr/local/lib/python3.5/dist-packages/openml-0.3.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/xmltodict-0.11.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/mock-2.0.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/pbr-3.1.1-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/loky-1.1.0.dev0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/auto_sklearn-0.2.0-py3.5-linux-x86_64.egg', '/usr/local/lib/python3.5/dist-packages/mlxtend-0.7.1.dev0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/virtualenv-15.1.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/PySide-1.2.4-py3.5-linux-x86_64.egg', '/usr/lib/python3/dist-packages', '/usr/lib/python3.5/dist-packages']
+data_dir:  /home/ndr/work_july/golden_git/temp_git/reproduce_results/common_datasets/cifar10/cifar-10-batches-bin
+Step 0/10(14) completed in 2.0574 seconds.
+New device info extracted from metadata: /device:GPU:0/stream:15 GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:14 GPU 0
+New device info extracted from metadata: /job:localhost/replica:0/task:0/device:CPU:0 CPU 0
+New device info extracted from metadata: /device:GPU:0/memcpy GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:all GPU 0
+New device info extracted from metadata: /job:localhost/replica:0/task:0/device:GPU:0 GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:13 GPU 0
+icand_name:  gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Shape
+icand_name:  gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape
+icand_name:  gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Shape
+icand_name:  gradients/resnet_model/Mean_grad/Shape/_1677
+icand_name:  sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape
+icand_name:  gradients/resnet_model/Mean_grad/Shape/_1677
+icand_name:  gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims
+icand_name:  gradients/resnet_model/Pad_2_grad/Shape
+icand_name:  gradients/resnet_model/Pad_grad/Shape
+icand_name:  gradients/resnet_model/Reshape_grad/Shape/_1673
+icand_name:  gradients/resnet_model/Pad_2_grad/Shape
+icand_name:  gradients/resnet_model/Mean_grad/Shape
+icand_name:  gradients/resnet_model/Pad_grad/Shape
+Session graph and metadata parsed in 1.0995 seconds
+Step 1/10(14) completed in 0.7275 seconds.
+Timeline saved in /home/ndr/work_july/golden_git/temp_git/results/resnet/timeline_at_step_2.json
+Step 2/10(14) completed in 0.0798 seconds.
+Step 3/10(14) completed in 0.0755 seconds.
+Step 4/10(14) completed in 0.0774 seconds.
+Step 5/10(14) completed in 0.0740 seconds.
+Step 6/10(14) completed in 0.0739 seconds.
+Step 7/10(14) completed in 0.0739 seconds.
+Step 8/10(14) completed in 0.0726 seconds.
+Step 9/10(14) completed in 0.0721 seconds.
+Step 10/10(14) completed in 0.0728 seconds.
+Session is closed
+
+Sanity check: total time for 10 steps: 1.400 sec., 1 step avg. time:  139964.1 microsec., 1 step avg. time captured in metadata: 52201.9 microsec., number of unique ops: 900
+
+2 - Total time for 10 steps: 1.400 sec., 1 step avg. time:  139964.1 microsec., 1 step avg. time captured in metadata: 52201.9 microsec., number of unique ops: 167
+
+*** Brief summary ***
+
+Top-1 ops (0.6%)	5.9 ms (11.3%)
+Top-2 ops (1.2%)	9.8 ms (18.9%)
+Top-3 ops (1.8%)	13.7 ms (26.2%)
+Top-6 ops (3.6%)	21.0 ms (40.3%)
+Top-10 ops (6.0%)	27.9 ms (53.5%)
+Top-17 ops (10.2%)	36.5 ms (69.9%)
+Top-30 ops (18.0%)	44.8 ms (85.8%)
+Top-54 ops (32.3%)	49.9 ms (95.5%)
+Top-95 ops (56.9%)	51.9 ms (99.5%)
+Top-167 ops (100.0%)	52.2 ms (100.0%)
+
+*** I/O tensor shapes are saved to /home/ndr/work_july/golden_git/temp_git/results/resnet/data.tsv ***
+
