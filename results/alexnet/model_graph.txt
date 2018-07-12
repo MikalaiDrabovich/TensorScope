@@ -2413,16 +2413,16 @@ node {
   name: "init"
   op: "NoOp"
   input: "^Variable/Assign"
-  input: "^conv1/weights/Assign"
   input: "^conv1/biases/Assign"
-  input: "^conv2/weights/Assign"
+  input: "^conv1/weights/Assign"
   input: "^conv2/biases/Assign"
-  input: "^conv3/weights/Assign"
+  input: "^conv2/weights/Assign"
   input: "^conv3/biases/Assign"
-  input: "^conv4/weights/Assign"
+  input: "^conv3/weights/Assign"
   input: "^conv4/biases/Assign"
-  input: "^conv5/weights/Assign"
+  input: "^conv4/weights/Assign"
   input: "^conv5/biases/Assign"
+  input: "^conv5/weights/Assign"
 }
 node {
   name: "L2Loss"
@@ -2609,57 +2609,9 @@ node {
   }
 }
 node {
-  name: "gradients/conv5/Conv2D_grad/Const"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\200\000\000\000\r\000\000\000\r\000\000\000\000\001\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "gradients/conv5/Conv2D_grad/Const_1"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\003\000\000\000\003\000\000\000\000\001\000\000\000\001\000\000"
-      }
-    }
-  }
-}
-node {
   name: "gradients/conv5/Conv2D_grad/Conv2DBackpropInput"
   op: "Conv2DBackpropInput"
-  input: "gradients/conv5/Conv2D_grad/Const"
+  input: "gradients/conv5/Conv2D_grad/ShapeN"
   input: "conv5/weights/read"
   input: "gradients/conv5_grad/ReluGrad"
   attr {
@@ -2713,7 +2665,7 @@ node {
   name: "gradients/conv5/Conv2D_grad/Conv2DBackpropFilter"
   op: "Conv2DBackpropFilter"
   input: "conv4"
-  input: "gradients/conv5/Conv2D_grad/Const_1"
+  input: "gradients/conv5/Conv2D_grad/ShapeN:1"
   input: "gradients/conv5_grad/ReluGrad"
   attr {
     key: "T"
@@ -2816,57 +2768,9 @@ node {
   }
 }
 node {
-  name: "gradients/conv4/Conv2D_grad/Const"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\200\000\000\000\r\000\000\000\r\000\000\000\200\001\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "gradients/conv4/Conv2D_grad/Const_1"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\003\000\000\000\003\000\000\000\200\001\000\000\000\001\000\000"
-      }
-    }
-  }
-}
-node {
   name: "gradients/conv4/Conv2D_grad/Conv2DBackpropInput"
   op: "Conv2DBackpropInput"
-  input: "gradients/conv4/Conv2D_grad/Const"
+  input: "gradients/conv4/Conv2D_grad/ShapeN"
   input: "conv4/weights/read"
   input: "gradients/conv4_grad/ReluGrad"
   attr {
@@ -2920,7 +2824,7 @@ node {
   name: "gradients/conv4/Conv2D_grad/Conv2DBackpropFilter"
   op: "Conv2DBackpropFilter"
   input: "conv3"
-  input: "gradients/conv4/Conv2D_grad/Const_1"
+  input: "gradients/conv4/Conv2D_grad/ShapeN:1"
   input: "gradients/conv4_grad/ReluGrad"
   attr {
     key: "T"
@@ -3023,57 +2927,9 @@ node {
   }
 }
 node {
-  name: "gradients/conv3/Conv2D_grad/Const"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\200\000\000\000\r\000\000\000\r\000\000\000\300\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "gradients/conv3/Conv2D_grad/Const_1"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\003\000\000\000\003\000\000\000\300\000\000\000\200\001\000\000"
-      }
-    }
-  }
-}
-node {
   name: "gradients/conv3/Conv2D_grad/Conv2DBackpropInput"
   op: "Conv2DBackpropInput"
-  input: "gradients/conv3/Conv2D_grad/Const"
+  input: "gradients/conv3/Conv2D_grad/ShapeN"
   input: "conv3/weights/read"
   input: "gradients/conv3_grad/ReluGrad"
   attr {
@@ -3127,7 +2983,7 @@ node {
   name: "gradients/conv3/Conv2D_grad/Conv2DBackpropFilter"
   op: "Conv2DBackpropFilter"
   input: "pool2"
-  input: "gradients/conv3/Conv2D_grad/Const_1"
+  input: "gradients/conv3/Conv2D_grad/ShapeN:1"
   input: "gradients/conv3_grad/ReluGrad"
   attr {
     key: "T"
@@ -3314,57 +3170,9 @@ node {
   }
 }
 node {
-  name: "gradients/conv2/Conv2D_grad/Const"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\200\000\000\000\033\000\000\000\033\000\000\000@\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "gradients/conv2/Conv2D_grad/Const_1"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\005\000\000\000\005\000\000\000@\000\000\000\300\000\000\000"
-      }
-    }
-  }
-}
-node {
   name: "gradients/conv2/Conv2D_grad/Conv2DBackpropInput"
   op: "Conv2DBackpropInput"
-  input: "gradients/conv2/Conv2D_grad/Const"
+  input: "gradients/conv2/Conv2D_grad/ShapeN"
   input: "conv2/weights/read"
   input: "gradients/conv2_grad/ReluGrad"
   attr {
@@ -3418,7 +3226,7 @@ node {
   name: "gradients/conv2/Conv2D_grad/Conv2DBackpropFilter"
   op: "Conv2DBackpropFilter"
   input: "pool1"
-  input: "gradients/conv2/Conv2D_grad/Const_1"
+  input: "gradients/conv2/Conv2D_grad/ShapeN:1"
   input: "gradients/conv2_grad/ReluGrad"
   attr {
     key: "T"
@@ -3605,57 +3413,9 @@ node {
   }
 }
 node {
-  name: "gradients/conv1/Conv2D_grad/Const"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\200\000\000\000\340\000\000\000\340\000\000\000\003\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "gradients/conv1/Conv2D_grad/Const_1"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\013\000\000\000\013\000\000\000\003\000\000\000@\000\000\000"
-      }
-    }
-  }
-}
-node {
   name: "gradients/conv1/Conv2D_grad/Conv2DBackpropInput"
   op: "Conv2DBackpropInput"
-  input: "gradients/conv1/Conv2D_grad/Const"
+  input: "gradients/conv1/Conv2D_grad/ShapeN"
   input: "conv1/weights/read"
   input: "gradients/conv1_grad/ReluGrad"
   attr {
@@ -3709,7 +3469,7 @@ node {
   name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter"
   op: "Conv2DBackpropFilter"
   input: "Variable/read"
-  input: "gradients/conv1/Conv2D_grad/Const_1"
+  input: "gradients/conv1/Conv2D_grad/ShapeN:1"
   input: "gradients/conv1_grad/ReluGrad"
   attr {
     key: "T"

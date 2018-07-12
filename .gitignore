@@ -1,0 +1,8 @@
+[Tt]humbs.db
+*.DS_Store
+*.[Oo]bj
+~$*
+*.*~
+**/__pycache__/
+
+

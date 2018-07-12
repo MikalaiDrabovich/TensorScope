@@ -2,8 +2,42 @@ AddN, (1), (1), (1), (1), (1), (1), (1), (1), (1), (1), (1), (1), (1), (1), (1),
 AddN:AddN, (no input), (no output), GPU, 0
 Cast_100, (int64 1), (int32 1), GPU, 0
 Cast_100:Cast, (no input), (no output), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d/Conv2D_grad/ShapeN-matshapes-1, ^resnet_model/conv2d/kernel/read, ^resnet_model/transpose, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_1/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_1/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_10/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_10/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_11/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_11/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_12/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_12/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_13/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_13/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_14/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_14/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_15/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_15/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_16/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_16/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_17/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_17/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_18/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_18/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_19/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_19/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_2/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_2/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_20/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_20/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_21/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_21/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_22/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_22/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_23/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_23/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_24/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_24/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_25/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_25/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_26/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_26/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_27/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_27/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_28/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_28/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_29/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_29/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_3/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_3/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_30/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_30/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_31/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_31/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_32/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_32/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_33/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_33/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_4/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_4/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_5/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_5/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_6/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_6/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_7/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_7/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_8/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_8/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
+ConstantFolding/gradients/resnet_model/conv2d_9/Conv2D_grad/ShapeN-matshapes-1, ^gradients/resnet_model/conv2d_9/Conv2D_grad/ShapeN, (int32 4x1), GPU, 0
 ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1, (1), (int32 1), GPU, 0
-ConstantFoldingCtrl/PiecewiseConstant/case/Assert/AssertGuard/Switch_1, (boolean 1), (boolean 1), GPU, 0
+ConstantFoldingCtrl/PiecewiseConstant/case/Assert/AssertGuard/Switch_1, (?), (boolean 1), GPU, 0
 Iterator, (1), (tf_resource 1), CPU, 0
 IteratorGetNext, (tf_resource 1), (128x32x32x3), (int32 128x1), CPU, 0
 L2Loss, (3x3x3x16), (1), GPU, 0
@@ -400,7 +434,7 @@ Momentum/update_resnet_model/dense/bias/ApplyMomentum, (10x1), (10x1), (1), (int
 Momentum/update_resnet_model/dense/bias/ApplyMomentum:ApplyMomentum, (no input), (no output), GPU, 0
 Momentum/update_resnet_model/dense/kernel/ApplyMomentum, (64x10), (64x10), (1), (int32 1), (64x10), (1), (64x10), GPU, 0
 Momentum/update_resnet_model/dense/kernel/ApplyMomentum:ApplyMomentum, (no input), (no output), GPU, 0
-Momentum/value, ^Momentum/update_resnet_model/dense/bias/ApplyMomentum, ^Momentum/update_resnet_model/conv2d/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_1/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_2/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_1/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_1/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_3/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_2/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_2/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_4/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_3/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_3/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_5/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_4/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_4/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_6/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_5/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_5/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_7/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_6/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_6/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_8/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_7/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_7/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_9/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_8/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_8/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_10/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_9/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_9/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_11/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_10/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_10/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_12/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_13/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_11/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_11/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_14/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_12/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_12/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_15/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_13/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_13/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_16/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_14/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_14/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_17/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_15/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_15/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_18/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_16/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_16/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_19/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_17/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_17/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_20/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_18/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_18/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_21/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_19/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_19/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_22/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_20/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_20/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_23/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_24/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_21/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_21/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_25/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_22/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_22/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_26/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_23/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_23/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_27/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_24/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_24/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_28/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_25/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_25/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_29/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_26/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_26/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_30/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_27/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_27/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_31/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_28/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_28/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_32/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_29/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_29/beta/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_33/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_30/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_30/beta/ApplyMomentum, ^Momentum/update_resnet_model/dense/kernel/ApplyMomentum, (int64 1), GPU, 0
+Momentum/value, ^Momentum/update_resnet_model/dense/kernel/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_1/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_1/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_10/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_10/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_11/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_11/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_12/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_12/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_13/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_13/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_14/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_14/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_15/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_15/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_16/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_16/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_17/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_17/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_18/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_18/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_19/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_19/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_2/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_2/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_20/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_20/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_21/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_21/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_22/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_22/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_23/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_23/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_24/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_24/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_25/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_25/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_26/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_26/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_27/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_27/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_28/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_28/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_29/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_29/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_3/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_3/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_30/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_30/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_4/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_4/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_5/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_5/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_6/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_6/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_7/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_7/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_8/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_8/gamma/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_9/beta/ApplyMomentum, ^Momentum/update_resnet_model/batch_normalization_9/gamma/ApplyMomentum, ^Momentum/update_resnet_model/conv2d/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_1/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_10/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_11/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_12/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_13/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_14/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_15/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_16/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_17/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_18/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_19/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_2/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_20/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_21/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_22/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_23/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_24/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_25/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_26/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_27/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_28/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_29/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_3/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_30/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_31/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_32/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_33/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_4/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_5/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_6/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_7/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_8/kernel/ApplyMomentum, ^Momentum/update_resnet_model/conv2d_9/kernel/ApplyMomentum, ^Momentum/update_resnet_model/dense/bias/ApplyMomentum, (int64 1), GPU, 0
 Momentum:AssignAdd, (no input), (no output), GPU, 0
 PiecewiseConstant/Const, (1), (int32 1), GPU, 0
 PiecewiseConstant/Const_1, (1), (int32 1), GPU, 0
@@ -422,7 +456,6 @@ PiecewiseConstant/and_1:LogicalAnd, (no input), (no output), GPU, 0
 PiecewiseConstant/case/Assert/AssertGuard/Assert/Switch, (boolean 1), (boolean 1), (boolean 1), GPU, 0
 PiecewiseConstant/case/Assert/AssertGuard/Assert/Switch_1, (boolean 4x1), (boolean 1), (boolean 4x1), GPU, 0
 PiecewiseConstant/case/Assert/AssertGuard/Merge, (boolean 1), (boolean 1), (boolean 1), (int32 1), GPU, 0
-PiecewiseConstant/case/Assert/AssertGuard/Switch, (boolean 1), (boolean 1), (boolean 1), GPU, 0
 PiecewiseConstant/case/Assert/AssertGuard/control_dependency, ^ConstantFoldingCtrl/PiecewiseConstant/case/Assert/AssertGuard/Switch_1, (boolean 1), GPU, 0
 PiecewiseConstant/case/Cast, (boolean 4x1), (int32 4x1), GPU, 0
 PiecewiseConstant/case/Cast:Cast, (no input), (no output), GPU, 0
@@ -444,28 +477,25 @@ _retval_add_0_0, (1), (no output), CPU, 0
 _retval_global_step/add_0_1, (int64 1), (no output), CPU, 0
 add, (1), (1), (1), GPU, 0
 add:Add, (no input), (no output), GPU, 0
-edge_1000_gradients/resnet_model/Reshape_grad/Shape:MEMCPYHtoD, (no input), (output 16 bytes), GPU, 0
-edge_1002_gradients/resnet_model/Mean_grad/Prod_1:MEMCPYDtoH, (no input), (output 4 bytes), GPU, 0
-edge_1005_gradients/resnet_model/Mean_grad/Shape:MEMCPYHtoD, (no input), (output 16 bytes), GPU, 0
-edge_1007_gradients/resnet_model/Mean_grad/Prod:MEMCPYDtoH, (no input), (output 4 bytes), GPU, 0
-edge_1009_gradients/resnet_model/Mean_grad/floordiv_1:MEMCPYHtoD, (no input), (output 4 bytes), GPU, 0
-edge_1013_gradients/resnet_model/Mean_grad/Fill:MEMCPYHtoD, (no input), (output 8 bytes), GPU, 0
-edge_1014_gradients/resnet_model/Mean_grad/DynamicStitch:MEMCPYDtoH, (no input), (output 16 bytes), GPU, 0
-edge_115_IteratorGetNext:MEMCPYHtoD, (no input), (output 1572864 bytes), GPU, 0
-edge_279_Cast_100:MEMCPYDtoH, (no input), (output 4 bytes), GPU, 0
-edge_288_PiecewiseConstant/Greater_2:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
-edge_289_PiecewiseConstant/LessEqual_2:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
-edge_294_PiecewiseConstant/Greater_1:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
-edge_295_PiecewiseConstant/LessEqual_1:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
-edge_298_PiecewiseConstant/LessEqual:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
-edge_299_PiecewiseConstant/Greater:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
-edge_305_PiecewiseConstant/case/Cast:MEMCPYDtoH, (no input), (output 16 bytes), GPU, 0
-edge_315_PiecewiseConstant/case/preds_c:MEMCPYDtoH, (no input), (output 4 bytes), GPU, 0
-edge_3163_add:MEMCPYDtoH, (no input), (output 4 bytes), GPU, 0
-edge_3165_global_step/add:MEMCPYDtoH, (no input), (output 8 bytes), GPU, 0
-edge_335_PiecewiseConstant/and:MEMCPYDtoH, (no input), (output 1 bytes), GPU, 0
-edge_347_PiecewiseConstant/and_1:MEMCPYDtoH, (no input), (output 1 bytes), GPU, 0
-edge_964_IteratorGetNext:MEMCPYHtoD, (no input), (output 512 bytes), GPU, 0
+edge_1429_gradients/resnet_model/Mean_grad/Shape:MEMCPYHtoD, (no input), (output 16 bytes), GPU, 0
+edge_1430_gradients/resnet_model/Mean_grad/Fill:MEMCPYHtoD, (no input), (output 8 bytes), GPU, 0
+edge_1440_gradients/resnet_model/Mean_grad/DynamicStitch:MEMCPYDtoH, (no input), (output 16 bytes), GPU, 0
+edge_1452_gradients/resnet_model/Mean_grad/floordiv_1:MEMCPYHtoD, (no input), (output 4 bytes), GPU, 0
+edge_1454_IteratorGetNext:MEMCPYHtoD, (no input), (output 512 bytes), GPU, 0
+edge_259_IteratorGetNext:MEMCPYHtoD, (no input), (output 1572864 bytes), GPU, 0
+edge_272_Cast_100:MEMCPYDtoH, (no input), (output 4 bytes), GPU, 0
+edge_3181_add:MEMCPYDtoH, (no input), (output 4 bytes), GPU, 0
+edge_3183_global_step/add:MEMCPYDtoH, (no input), (output 8 bytes), GPU, 0
+edge_387_PiecewiseConstant/Greater_1:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
+edge_388_PiecewiseConstant/LessEqual_1:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
+edge_389_PiecewiseConstant/Greater_2:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
+edge_390_PiecewiseConstant/LessEqual_2:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
+edge_399_PiecewiseConstant/LessEqual:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
+edge_400_PiecewiseConstant/Greater:MEMCPYHtoD, (no input), (output 1 bytes), GPU, 0
+edge_617_PiecewiseConstant/case/Cast:MEMCPYDtoH, (no input), (output 16 bytes), GPU, 0
+edge_639_PiecewiseConstant/case/preds_c:MEMCPYDtoH, (no input), (output 4 bytes), GPU, 0
+edge_705_PiecewiseConstant/and_1:MEMCPYDtoH, (no input), (output 1 bytes), GPU, 0
+edge_709_PiecewiseConstant/and:MEMCPYDtoH, (no input), (output 1 bytes), GPU, 0
 global_step, (1), (int64 1), GPU, 0
 global_step/Initializer/zeros, (1), (int64 1), GPU, 0
 global_step/IsVariableInitialized, (int64 1), (boolean 1), GPU, 0
@@ -701,7 +731,7 @@ gradients/AddN_98:AddN, (no input), (no output), GPU, 0
 gradients/AddN_99, (16x1), (128x16x32x32), (16x1), (16x1), (1), (1), (16x1), GPU, 0
 gradients/AddN_99:AddN, (no input), (no output), GPU, 0
 gradients/AddN_9:AddN, (no input), (no output), GPU, 0
-gradients/AddN_grad/tuple/control_dependency, ^AddN, (1), GPU, 0
+gradients/AddN_grad/tuple/control_dependency_2, ^AddN, (1), GPU, 0
 gradients/L2Loss_10_grad/mul, (3x3x16x16), (1), (3x3x16x16), GPU, 0
 gradients/L2Loss_10_grad/mul:Mul, (no input), (no output), GPU, 0
 gradients/L2Loss_11_grad/mul, (16x1), (1), (16x1), GPU, 0
@@ -898,6 +928,7 @@ gradients/L2Loss_9_grad/mul, (16x1), (1), (16x1), GPU, 0
 gradients/L2Loss_9_grad/mul:Mul, (no input), (no output), GPU, 0
 gradients/L2Loss_grad/mul, (3x3x3x16), (1), (3x3x3x16), GPU, 0
 gradients/L2Loss_grad/mul:Mul, (no input), (no output), GPU, 0
+gradients/add_grad/tuple/control_dependency_1, (1), (1), GPU, 0
 gradients/resnet_model/Mean_grad/Cast, (int32 1), (1), GPU, 0
 gradients/resnet_model/Mean_grad/Cast:Cast, (no input), (no output), GPU, 0
 gradients/resnet_model/Mean_grad/Const, (1), (int32 1x1), GPU, 0
@@ -908,10 +939,8 @@ gradients/resnet_model/Mean_grad/Maximum, (int32 4x1), (int32 1), (int32 4x1), G
 gradients/resnet_model/Mean_grad/Maximum/y, (1), (int32 1), GPU, 0
 gradients/resnet_model/Mean_grad/Maximum_1, (int32 1), (int32 1), (int32 1), GPU, 0
 gradients/resnet_model/Mean_grad/Maximum_1/y, (1), (int32 1), GPU, 0
-gradients/resnet_model/Mean_grad/Prod, (1|2|3x1), (, 1, ), (int32 1), GPU, 0
-gradients/resnet_model/Mean_grad/Prod:Prod, (no input), (no output), GPU, 0
-gradients/resnet_model/Mean_grad/Prod_1, (1|2|3x1), (, 1, ), (int32 1), GPU, 0
-gradients/resnet_model/Mean_grad/Prod_1:Prod, (no input), (no output), GPU, 0
+gradients/resnet_model/Mean_grad/Prod, (128x64x8x8), (int32 1), GPU, 0
+gradients/resnet_model/Mean_grad/Prod_1, (128x64x1x1), (int32 1), GPU, 0
 gradients/resnet_model/Mean_grad/Reshape, (128x64), (int32 4x1), (128x64x1x1), GPU, 0
 gradients/resnet_model/Mean_grad/Shape, (128x64x8x8), (int32 4x1), GPU, 0
 gradients/resnet_model/Mean_grad/Tile, (128x64x1x1), (int32 4x1), (128x64x8x8), GPU, 0
@@ -922,11 +951,11 @@ gradients/resnet_model/Mean_grad/mod, (1), (int32 2x1), GPU, 0
 gradients/resnet_model/Mean_grad/range, (1), (int32 4x1), GPU, 0
 gradients/resnet_model/Mean_grad/truediv, (128x64x8x8), (1), (128x64x8x8), GPU, 0
 gradients/resnet_model/Mean_grad/truediv:RealDiv, (no input), (no output), GPU, 0
-gradients/resnet_model/Pad_1_grad/Reshape, (1), (int32 4x1), GPU, 0
 gradients/resnet_model/Pad_1_grad/Slice_1, (128x16x34x34), (int32 4x1), (1|2|3x1), (128x16x32x32), GPU, 0
 gradients/resnet_model/Pad_1_grad/Slice_1:Slice, (no input), (no output), GPU, 0
 gradients/resnet_model/Pad_2_grad/Shape, (128x32x16x16), (int32 4x1), GPU, 0
 gradients/resnet_model/Pad_2_grad/Slice_1, (128x32x16x16), (int32 4x1), (1|2|3x1), (128x32x16x16), GPU, 0
+gradients/resnet_model/Pad_3_grad/Reshape, (1), (int32 4x1), GPU, 0
 gradients/resnet_model/Pad_3_grad/Slice_1, (128x32x18x18), (int32 4x1), (1|2|3x1), (128x32x16x16), GPU, 0
 gradients/resnet_model/Pad_3_grad/Slice_1:Slice, (no input), (no output), GPU, 0
 gradients/resnet_model/Pad_grad/Reshape, (1), (int32 4x1), GPU, 0
@@ -994,7 +1023,6 @@ gradients/resnet_model/Relu_9_grad/ReluGrad, (128x16x32x32), (128x16x32x32), (12
 gradients/resnet_model/Relu_9_grad/ReluGrad:ReluGrad, (no input), (no output), GPU, 0
 gradients/resnet_model/Relu_grad/ReluGrad, (128x16x32x32), (128x16x32x32), (128x16x32x32), GPU, 0
 gradients/resnet_model/Relu_grad/ReluGrad:ReluGrad, (no input), (no output), GPU, 0
-gradients/resnet_model/Reshape_grad/Shape, (128x64x1x1), (int32 4x1), GPU, 0
 gradients/resnet_model/batch_normalization/FusedBatchNorm_grad/FusedBatchNormGrad, (128x16x32x32), (128x16x32x32), (16x1), (128x16x32x32), (16x1), (16x1), (16x1), (16x1), (128x16x32x32), (16x1), (16x1), (16x1), (16x1), (128x16x32x32), (16x1), (16x1), (1), (1), GPU, 0
 gradients/resnet_model/batch_normalization/FusedBatchNorm_grad/FusedBatchNormGrad:FusedBatchNormGrad, (no input), (no output), GPU, 0
 gradients/resnet_model/batch_normalization_1/FusedBatchNorm_grad/FusedBatchNormGrad, (128x16x32x32), (128x16x32x32), (16x1), (128x16x32x32), (16x1), (16x1), (16x1), (16x1), (128x16x32x32), (16x1), (16x1), (16x1), (16x1), (128x16x32x32), (16x1), (16x1), (1), (1), GPU, 0
@@ -1057,178 +1085,169 @@ gradients/resnet_model/batch_normalization_8/FusedBatchNorm_grad/FusedBatchNormG
 gradients/resnet_model/batch_normalization_8/FusedBatchNorm_grad/FusedBatchNormGrad:FusedBatchNormGrad, (no input), (no output), GPU, 0
 gradients/resnet_model/batch_normalization_9/FusedBatchNorm_grad/FusedBatchNormGrad, (128x16x32x32), (128x16x32x32), (16x1), (128x16x32x32), (16x1), (16x1), (16x1), (16x1), (128x16x32x32), (16x1), (16x1), (16x1), (16x1), (128x16x32x32), (16x1), (16x1), (1), (1), GPU, 0
 gradients/resnet_model/batch_normalization_9/FusedBatchNorm_grad/FusedBatchNormGrad:FusedBatchNormGrad, (no input), (no output), GPU, 0
-gradients/resnet_model/conv2d/Conv2D_grad/Const, (1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d/Conv2D_grad/Conv2DBackpropFilter, (128x3x32x32), (, 1, ), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x3x16), GPU, 0
+gradients/resnet_model/conv2d/Conv2D_grad/Conv2DBackpropFilter, (128x3x32x32), (int32 4x1), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x3x16), GPU, 0
 gradients/resnet_model/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
-gradients/resnet_model/conv2d_1/Conv2D_grad/Const, (1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_1/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x16x32x32), (1x1x16x16), GPU, 0
+gradients/resnet_model/conv2d_1/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x16x32x32), (1x1x16x16), GPU, 0
 gradients/resnet_model/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_1/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (1x1x16x16), (128x16x32x32), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_1/Conv2D_grad/ShapeN, (128x16x32x32), (1x1x16x16), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_10/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
+gradients/resnet_model/conv2d_10/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
 gradients/resnet_model/conv2d_10/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_10/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x16x16), (128x16x32x32), (16x1), (16x1), (1), (1), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_10/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_10/Conv2D_grad/ShapeN, (128x16x32x32), (3x3x16x16), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_11/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
+gradients/resnet_model/conv2d_11/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
 gradients/resnet_model/conv2d_11/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_11/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x16x16), (128x16x32x32), (16x1), (16x1), (1), (1), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_11/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_11/Conv2D_grad/ShapeN, (128x16x32x32), (3x3x16x16), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_12/Conv2D_grad/Const, (1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_12/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x32x16x16), (1x1x16x32), GPU, 0
+gradients/resnet_model/conv2d_12/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x32x16x16), (1x1x16x32), GPU, 0
 gradients/resnet_model/conv2d_12/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_12/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (1x1x16x32), (128x32x16x16), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_12/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_12/Conv2D_grad/ShapeN, (128x16x32x32), (1x1x16x32), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_13/Conv2D_grad/Const, (1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_13/Conv2D_grad/Conv2DBackpropFilter, (128x16x34x34), (, 1, ), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x16x32), GPU, 0
+gradients/resnet_model/conv2d_13/Conv2D_grad/Conv2DBackpropFilter, (128x16x34x34), (int32 4x1), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x16x32), GPU, 0
 gradients/resnet_model/conv2d_13/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_13/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x16x32), (128x32x16x16), (32x1), (32x1), (1), (1), (128x16x34x34), GPU, 0
 gradients/resnet_model/conv2d_13/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_13/Conv2D_grad/ShapeN, (128x16x34x34), (3x3x16x32), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_14/Conv2D_grad/Const, (1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_14/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (, 1, ), (128x32x16x16), (3x3x32x32), GPU, 0
+gradients/resnet_model/conv2d_14/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (int32 4x1), (128x32x16x16), (3x3x32x32), GPU, 0
 gradients/resnet_model/conv2d_14/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_14/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x32x32), (128x32x16x16), (128x32x16x16), GPU, 0
 gradients/resnet_model/conv2d_14/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_14/Conv2D_grad/ShapeN, (128x32x16x16), (3x3x32x32), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_15/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (, 1, ), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x32x32), GPU, 0
+gradients/resnet_model/conv2d_15/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (int32 4x1), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x32x32), GPU, 0
 gradients/resnet_model/conv2d_15/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_15/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x32x32), (128x32x16x16), (32x1), (32x1), (1), (1), (128x32x16x16), GPU, 0
 gradients/resnet_model/conv2d_15/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_15/Conv2D_grad/ShapeN, (128x32x16x16), (3x3x32x32), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_16/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (, 1, ), (128x32x16x16), (3x3x32x32), GPU, 0
+gradients/resnet_model/conv2d_16/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (int32 4x1), (128x32x16x16), (3x3x32x32), GPU, 0
 gradients/resnet_model/conv2d_16/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_16/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x32x32), (128x32x16x16), (128x32x16x16), GPU, 0
 gradients/resnet_model/conv2d_16/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_16/Conv2D_grad/ShapeN, (128x32x16x16), (3x3x32x32), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_17/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (, 1, ), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x32x32), GPU, 0
+gradients/resnet_model/conv2d_17/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (int32 4x1), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x32x32), GPU, 0
 gradients/resnet_model/conv2d_17/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_17/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x32x32), (128x32x16x16), (32x1), (32x1), (1), (1), (128x32x16x16), GPU, 0
 gradients/resnet_model/conv2d_17/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_17/Conv2D_grad/ShapeN, (128x32x16x16), (3x3x32x32), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_18/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (, 1, ), (128x32x16x16), (3x3x32x32), GPU, 0
+gradients/resnet_model/conv2d_18/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (int32 4x1), (128x32x16x16), (3x3x32x32), GPU, 0
 gradients/resnet_model/conv2d_18/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_18/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x32x32), (128x32x16x16), (128x32x16x16), GPU, 0
 gradients/resnet_model/conv2d_18/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_18/Conv2D_grad/ShapeN, (128x32x16x16), (3x3x32x32), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_19/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (, 1, ), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x32x32), GPU, 0
+gradients/resnet_model/conv2d_19/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (int32 4x1), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x32x32), GPU, 0
 gradients/resnet_model/conv2d_19/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_19/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x32x32), (128x32x16x16), (32x1), (32x1), (1), (1), (128x32x16x16), GPU, 0
 gradients/resnet_model/conv2d_19/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_19/Conv2D_grad/ShapeN, (128x32x16x16), (3x3x32x32), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_2/Conv2D_grad/Const, (1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_2/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
+gradients/resnet_model/conv2d_2/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
 gradients/resnet_model/conv2d_2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_2/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x16x16), (128x16x32x32), (16x1), (16x1), (1), (1), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_2/Conv2D_grad/ShapeN, (128x16x32x32), (3x3x16x16), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_20/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (, 1, ), (128x32x16x16), (3x3x32x32), GPU, 0
+gradients/resnet_model/conv2d_20/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (int32 4x1), (128x32x16x16), (3x3x32x32), GPU, 0
 gradients/resnet_model/conv2d_20/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_20/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x32x32), (128x32x16x16), (128x32x16x16), GPU, 0
 gradients/resnet_model/conv2d_20/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_20/Conv2D_grad/ShapeN, (128x32x16x16), (3x3x32x32), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_21/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (, 1, ), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x32x32), GPU, 0
+gradients/resnet_model/conv2d_21/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (int32 4x1), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x32x32), GPU, 0
 gradients/resnet_model/conv2d_21/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_21/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x32x32), (128x32x16x16), (32x1), (32x1), (1), (1), (128x32x16x16), GPU, 0
 gradients/resnet_model/conv2d_21/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_21/Conv2D_grad/ShapeN, (128x32x16x16), (3x3x32x32), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_22/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (, 1, ), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x32x32), GPU, 0
+gradients/resnet_model/conv2d_22/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (int32 4x1), (128x32x16x16), (32x1), (32x1), (1), (1), (3x3x32x32), GPU, 0
 gradients/resnet_model/conv2d_22/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_22/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x32x32), (128x32x16x16), (32x1), (32x1), (1), (1), (128x32x16x16), GPU, 0
 gradients/resnet_model/conv2d_22/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_22/Conv2D_grad/ShapeN, (128x32x16x16), (3x3x32x32), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_23/Conv2D_grad/Const, (1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_23/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (, 1, ), (128x64x8x8), (1x1x32x64), GPU, 0
+gradients/resnet_model/conv2d_23/Conv2D_grad/Conv2DBackpropFilter, (128x32x16x16), (int32 4x1), (128x64x8x8), (1x1x32x64), GPU, 0
 gradients/resnet_model/conv2d_23/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_23/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (1x1x32x64), (128x64x8x8), (128x32x16x16), GPU, 0
 gradients/resnet_model/conv2d_23/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_23/Conv2D_grad/ShapeN, (128x32x16x16), (1x1x32x64), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_24/Conv2D_grad/Const, (1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_24/Conv2D_grad/Conv2DBackpropFilter, (128x32x18x18), (, 1, ), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x32x64), GPU, 0
+gradients/resnet_model/conv2d_24/Conv2D_grad/Conv2DBackpropFilter, (128x32x18x18), (int32 4x1), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x32x64), GPU, 0
 gradients/resnet_model/conv2d_24/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_24/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x32x64), (128x64x8x8), (64x1), (64x1), (1), (1), (128x32x18x18), GPU, 0
 gradients/resnet_model/conv2d_24/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_24/Conv2D_grad/ShapeN, (128x32x18x18), (3x3x32x64), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_25/Conv2D_grad/Const, (1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_25/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (, 1, ), (128x64x8x8), (3x3x64x64), GPU, 0
+gradients/resnet_model/conv2d_25/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (int32 4x1), (128x64x8x8), (3x3x64x64), GPU, 0
 gradients/resnet_model/conv2d_25/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_25/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x64x64), (128x64x8x8), (128x64x8x8), GPU, 0
 gradients/resnet_model/conv2d_25/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_25/Conv2D_grad/ShapeN, (128x64x8x8), (3x3x64x64), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_26/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (, 1, ), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x64x64), GPU, 0
+gradients/resnet_model/conv2d_26/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (int32 4x1), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x64x64), GPU, 0
 gradients/resnet_model/conv2d_26/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_26/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x64x64), (128x64x8x8), (64x1), (64x1), (1), (1), (128x64x8x8), GPU, 0
 gradients/resnet_model/conv2d_26/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_26/Conv2D_grad/ShapeN, (128x64x8x8), (3x3x64x64), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_27/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (, 1, ), (128x64x8x8), (3x3x64x64), GPU, 0
+gradients/resnet_model/conv2d_27/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (int32 4x1), (128x64x8x8), (3x3x64x64), GPU, 0
 gradients/resnet_model/conv2d_27/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_27/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x64x64), (128x64x8x8), (128x64x8x8), GPU, 0
 gradients/resnet_model/conv2d_27/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_27/Conv2D_grad/ShapeN, (128x64x8x8), (3x3x64x64), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_28/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (, 1, ), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x64x64), GPU, 0
+gradients/resnet_model/conv2d_28/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (int32 4x1), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x64x64), GPU, 0
 gradients/resnet_model/conv2d_28/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_28/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x64x64), (128x64x8x8), (64x1), (64x1), (1), (1), (128x64x8x8), GPU, 0
 gradients/resnet_model/conv2d_28/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_28/Conv2D_grad/ShapeN, (128x64x8x8), (3x3x64x64), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_29/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (, 1, ), (128x64x8x8), (3x3x64x64), GPU, 0
+gradients/resnet_model/conv2d_29/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (int32 4x1), (128x64x8x8), (3x3x64x64), GPU, 0
 gradients/resnet_model/conv2d_29/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_29/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x64x64), (128x64x8x8), (128x64x8x8), GPU, 0
 gradients/resnet_model/conv2d_29/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_29/Conv2D_grad/ShapeN, (128x64x8x8), (3x3x64x64), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_3/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x16x32x32), (3x3x16x16), GPU, 0
+gradients/resnet_model/conv2d_3/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x16x32x32), (3x3x16x16), GPU, 0
 gradients/resnet_model/conv2d_3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_3/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x16x16), (128x16x32x32), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_3/Conv2D_grad/ShapeN, (128x16x32x32), (3x3x16x16), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_30/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (, 1, ), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x64x64), GPU, 0
+gradients/resnet_model/conv2d_30/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (int32 4x1), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x64x64), GPU, 0
 gradients/resnet_model/conv2d_30/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_30/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x64x64), (128x64x8x8), (64x1), (64x1), (1), (1), (128x64x8x8), GPU, 0
 gradients/resnet_model/conv2d_30/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_30/Conv2D_grad/ShapeN, (128x64x8x8), (3x3x64x64), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_31/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (, 1, ), (128x64x8x8), (3x3x64x64), GPU, 0
+gradients/resnet_model/conv2d_31/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (int32 4x1), (128x64x8x8), (3x3x64x64), GPU, 0
 gradients/resnet_model/conv2d_31/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_31/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x64x64), (128x64x8x8), (128x64x8x8), GPU, 0
 gradients/resnet_model/conv2d_31/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_31/Conv2D_grad/ShapeN, (128x64x8x8), (3x3x64x64), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_32/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (, 1, ), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x64x64), GPU, 0
+gradients/resnet_model/conv2d_32/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (int32 4x1), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x64x64), GPU, 0
 gradients/resnet_model/conv2d_32/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_32/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x64x64), (128x64x8x8), (64x1), (64x1), (1), (1), (128x64x8x8), GPU, 0
 gradients/resnet_model/conv2d_32/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_32/Conv2D_grad/ShapeN, (128x64x8x8), (3x3x64x64), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_33/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (, 1, ), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x64x64), GPU, 0
+gradients/resnet_model/conv2d_33/Conv2D_grad/Conv2DBackpropFilter, (128x64x8x8), (int32 4x1), (128x64x8x8), (64x1), (64x1), (1), (1), (3x3x64x64), GPU, 0
 gradients/resnet_model/conv2d_33/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_33/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x64x64), (128x64x8x8), (64x1), (64x1), (1), (1), (128x64x8x8), GPU, 0
 gradients/resnet_model/conv2d_33/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_33/Conv2D_grad/ShapeN, (128x64x8x8), (3x3x64x64), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_4/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
+gradients/resnet_model/conv2d_4/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
 gradients/resnet_model/conv2d_4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_4/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x16x16), (128x16x32x32), (16x1), (16x1), (1), (1), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_4/Conv2D_grad/ShapeN, (128x16x32x32), (3x3x16x16), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_5/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x16x32x32), (3x3x16x16), GPU, 0
+gradients/resnet_model/conv2d_5/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x16x32x32), (3x3x16x16), GPU, 0
 gradients/resnet_model/conv2d_5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_5/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x16x16), (128x16x32x32), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_5/Conv2D_grad/ShapeN, (128x16x32x32), (3x3x16x16), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_6/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
+gradients/resnet_model/conv2d_6/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
 gradients/resnet_model/conv2d_6/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_6/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x16x16), (128x16x32x32), (16x1), (16x1), (1), (1), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_6/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_6/Conv2D_grad/ShapeN, (128x16x32x32), (3x3x16x16), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_7/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x16x32x32), (3x3x16x16), GPU, 0
+gradients/resnet_model/conv2d_7/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x16x32x32), (3x3x16x16), GPU, 0
 gradients/resnet_model/conv2d_7/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_7/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x16x16), (128x16x32x32), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_7/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_7/Conv2D_grad/ShapeN, (128x16x32x32), (3x3x16x16), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_8/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
+gradients/resnet_model/conv2d_8/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x16x32x32), (16x1), (16x1), (1), (1), (3x3x16x16), GPU, 0
 gradients/resnet_model/conv2d_8/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_8/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x16x16), (128x16x32x32), (16x1), (16x1), (1), (1), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_8/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_8/Conv2D_grad/ShapeN, (128x16x32x32), (3x3x16x16), (int32 4x1), (int32 4x1), GPU, 0
-gradients/resnet_model/conv2d_9/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (, 1, ), (128x16x32x32), (3x3x16x16), GPU, 0
+gradients/resnet_model/conv2d_9/Conv2D_grad/Conv2DBackpropFilter, (128x16x32x32), (int32 4x1), (128x16x32x32), (3x3x16x16), GPU, 0
 gradients/resnet_model/conv2d_9/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/resnet_model/conv2d_9/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (int32 4x1), (3x3x16x16), (128x16x32x32), (128x16x32x32), GPU, 0
 gradients/resnet_model/conv2d_9/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
@@ -1250,14 +1269,14 @@ gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile, (1x1), (1|2|3x1), (12
 gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile:Tile, (no input), (no output), GPU, 0
 gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv, (1), (1), (1), GPU, 0
 gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv:RealDiv, (no input), (no output), GPU, 0
-gradients/sparse_softmax_cross_entropy_loss/value_grad/Select, (boolean 1), (?), (1), (1), GPU, 0
+gradients/sparse_softmax_cross_entropy_loss/value_grad/Select, (boolean 1), (1), (1), (1), GPU, 0
 gradients/sparse_softmax_cross_entropy_loss/value_grad/Select:Select, (no input), (no output), GPU, 0
 gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like, (1), (1), GPU, 0
 gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims, (128x1), (int32 1), (128x1), GPU, 0
 gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim, (1), (int32 1), GPU, 0
 gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul, (1|2|3x1), (128x1), (128x10), (128x10), GPU, 0
 gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul:Mul, (no input), (no output), GPU, 0
-group_deps, ^Momentum, ^resnet_model/batch_normalization/AssignMovingAvg, ^resnet_model/batch_normalization/AssignMovingAvg_1, ^resnet_model/batch_normalization_1/AssignMovingAvg, ^resnet_model/batch_normalization_1/AssignMovingAvg_1, ^resnet_model/batch_normalization_2/AssignMovingAvg, ^resnet_model/batch_normalization_2/AssignMovingAvg_1, ^resnet_model/batch_normalization_3/AssignMovingAvg, ^resnet_model/batch_normalization_3/AssignMovingAvg_1, ^resnet_model/batch_normalization_4/AssignMovingAvg, ^resnet_model/batch_normalization_4/AssignMovingAvg_1, ^resnet_model/batch_normalization_5/AssignMovingAvg, ^resnet_model/batch_normalization_5/AssignMovingAvg_1, ^resnet_model/batch_normalization_6/AssignMovingAvg, ^resnet_model/batch_normalization_6/AssignMovingAvg_1, ^resnet_model/batch_normalization_7/AssignMovingAvg, ^resnet_model/batch_normalization_7/AssignMovingAvg_1, ^resnet_model/batch_normalization_8/AssignMovingAvg, ^resnet_model/batch_normalization_8/AssignMovingAvg_1, ^resnet_model/batch_normalization_9/AssignMovingAvg, ^resnet_model/batch_normalization_9/AssignMovingAvg_1, ^resnet_model/batch_normalization_10/AssignMovingAvg, ^resnet_model/batch_normalization_10/AssignMovingAvg_1, ^resnet_model/batch_normalization_11/AssignMovingAvg, ^resnet_model/batch_normalization_11/AssignMovingAvg_1, ^resnet_model/batch_normalization_12/AssignMovingAvg, ^resnet_model/batch_normalization_12/AssignMovingAvg_1, ^resnet_model/batch_normalization_13/AssignMovingAvg, ^resnet_model/batch_normalization_13/AssignMovingAvg_1, ^resnet_model/batch_normalization_14/AssignMovingAvg, ^resnet_model/batch_normalization_14/AssignMovingAvg_1, ^resnet_model/batch_normalization_15/AssignMovingAvg, ^resnet_model/batch_normalization_15/AssignMovingAvg_1, ^resnet_model/batch_normalization_16/AssignMovingAvg, ^resnet_model/batch_normalization_16/AssignMovingAvg_1, ^resnet_model/batch_normalization_17/AssignMovingAvg, ^resnet_model/batch_normalization_17/AssignMovingAvg_1, ^resnet_model/batch_normalization_18/AssignMovingAvg, ^resnet_model/batch_normalization_18/AssignMovingAvg_1, ^resnet_model/batch_normalization_19/AssignMovingAvg, ^resnet_model/batch_normalization_19/AssignMovingAvg_1, ^resnet_model/batch_normalization_20/AssignMovingAvg, ^resnet_model/batch_normalization_20/AssignMovingAvg_1, ^resnet_model/batch_normalization_21/AssignMovingAvg, ^resnet_model/batch_normalization_21/AssignMovingAvg_1, ^resnet_model/batch_normalization_22/AssignMovingAvg, ^resnet_model/batch_normalization_22/AssignMovingAvg_1, ^resnet_model/batch_normalization_23/AssignMovingAvg, ^resnet_model/batch_normalization_23/AssignMovingAvg_1, ^resnet_model/batch_normalization_24/AssignMovingAvg, ^resnet_model/batch_normalization_24/AssignMovingAvg_1, ^resnet_model/batch_normalization_25/AssignMovingAvg, ^resnet_model/batch_normalization_25/AssignMovingAvg_1, ^resnet_model/batch_normalization_26/AssignMovingAvg, ^resnet_model/batch_normalization_26/AssignMovingAvg_1, ^resnet_model/batch_normalization_27/AssignMovingAvg, ^resnet_model/batch_normalization_27/AssignMovingAvg_1, ^resnet_model/batch_normalization_28/AssignMovingAvg, ^resnet_model/batch_normalization_28/AssignMovingAvg_1, ^resnet_model/batch_normalization_29/AssignMovingAvg, ^resnet_model/batch_normalization_29/AssignMovingAvg_1, ^resnet_model/batch_normalization_30/AssignMovingAvg, ^resnet_model/batch_normalization_30/AssignMovingAvg_1, (no output), GPU, 0
+group_deps, ^Momentum, ^resnet_model/batch_normalization/AssignMovingAvg, ^resnet_model/batch_normalization/AssignMovingAvg_1, ^resnet_model/batch_normalization_1/AssignMovingAvg, ^resnet_model/batch_normalization_1/AssignMovingAvg_1, ^resnet_model/batch_normalization_10/AssignMovingAvg, ^resnet_model/batch_normalization_10/AssignMovingAvg_1, ^resnet_model/batch_normalization_11/AssignMovingAvg, ^resnet_model/batch_normalization_11/AssignMovingAvg_1, ^resnet_model/batch_normalization_12/AssignMovingAvg, ^resnet_model/batch_normalization_12/AssignMovingAvg_1, ^resnet_model/batch_normalization_13/AssignMovingAvg, ^resnet_model/batch_normalization_13/AssignMovingAvg_1, ^resnet_model/batch_normalization_14/AssignMovingAvg, ^resnet_model/batch_normalization_14/AssignMovingAvg_1, ^resnet_model/batch_normalization_15/AssignMovingAvg, ^resnet_model/batch_normalization_15/AssignMovingAvg_1, ^resnet_model/batch_normalization_16/AssignMovingAvg, ^resnet_model/batch_normalization_16/AssignMovingAvg_1, ^resnet_model/batch_normalization_17/AssignMovingAvg, ^resnet_model/batch_normalization_17/AssignMovingAvg_1, ^resnet_model/batch_normalization_18/AssignMovingAvg, ^resnet_model/batch_normalization_18/AssignMovingAvg_1, ^resnet_model/batch_normalization_19/AssignMovingAvg, ^resnet_model/batch_normalization_19/AssignMovingAvg_1, ^resnet_model/batch_normalization_2/AssignMovingAvg, ^resnet_model/batch_normalization_2/AssignMovingAvg_1, ^resnet_model/batch_normalization_20/AssignMovingAvg, ^resnet_model/batch_normalization_20/AssignMovingAvg_1, ^resnet_model/batch_normalization_21/AssignMovingAvg, ^resnet_model/batch_normalization_21/AssignMovingAvg_1, ^resnet_model/batch_normalization_22/AssignMovingAvg, ^resnet_model/batch_normalization_22/AssignMovingAvg_1, ^resnet_model/batch_normalization_23/AssignMovingAvg, ^resnet_model/batch_normalization_23/AssignMovingAvg_1, ^resnet_model/batch_normalization_24/AssignMovingAvg, ^resnet_model/batch_normalization_24/AssignMovingAvg_1, ^resnet_model/batch_normalization_25/AssignMovingAvg, ^resnet_model/batch_normalization_25/AssignMovingAvg_1, ^resnet_model/batch_normalization_26/AssignMovingAvg, ^resnet_model/batch_normalization_26/AssignMovingAvg_1, ^resnet_model/batch_normalization_27/AssignMovingAvg, ^resnet_model/batch_normalization_27/AssignMovingAvg_1, ^resnet_model/batch_normalization_28/AssignMovingAvg, ^resnet_model/batch_normalization_28/AssignMovingAvg_1, ^resnet_model/batch_normalization_29/AssignMovingAvg, ^resnet_model/batch_normalization_29/AssignMovingAvg_1, ^resnet_model/batch_normalization_3/AssignMovingAvg, ^resnet_model/batch_normalization_3/AssignMovingAvg_1, ^resnet_model/batch_normalization_30/AssignMovingAvg, ^resnet_model/batch_normalization_30/AssignMovingAvg_1, ^resnet_model/batch_normalization_4/AssignMovingAvg, ^resnet_model/batch_normalization_4/AssignMovingAvg_1, ^resnet_model/batch_normalization_5/AssignMovingAvg, ^resnet_model/batch_normalization_5/AssignMovingAvg_1, ^resnet_model/batch_normalization_6/AssignMovingAvg, ^resnet_model/batch_normalization_6/AssignMovingAvg_1, ^resnet_model/batch_normalization_7/AssignMovingAvg, ^resnet_model/batch_normalization_7/AssignMovingAvg_1, ^resnet_model/batch_normalization_8/AssignMovingAvg, ^resnet_model/batch_normalization_8/AssignMovingAvg_1, ^resnet_model/batch_normalization_9/AssignMovingAvg, ^resnet_model/batch_normalization_9/AssignMovingAvg_1, (no output), GPU, 0
 mul, (1), (1), (1), GPU, 0
 mul/x, (1), (1), GPU, 0
 mul:Mul, (no input), (no output), GPU, 0
@@ -2294,7 +2313,6 @@ resnet_model/transpose:Transpose, (no input), (no output), GPU, 0
 sparse_softmax_cross_entropy_loss/Equal, (1), (1), (boolean 1), GPU, 0
 sparse_softmax_cross_entropy_loss/Equal:Equal, (no input), (no output), GPU, 0
 sparse_softmax_cross_entropy_loss/Greater, (1), (1), (boolean 1), GPU, 0
-sparse_softmax_cross_entropy_loss/Greater/y, (1), (1), GPU, 0
 sparse_softmax_cross_entropy_loss/Greater:Greater, (no input), (no output), GPU, 0
 sparse_softmax_cross_entropy_loss/Mul, (128x1), (128x10), (128x1), GPU, 0
 sparse_softmax_cross_entropy_loss/Select, (boolean 1), (1), (1), (1), GPU, 0
@@ -2305,13 +2323,11 @@ sparse_softmax_cross_entropy_loss/div, (1), (1), (1), GPU, 0
 sparse_softmax_cross_entropy_loss/div:RealDiv, (no input), (no output), GPU, 0
 sparse_softmax_cross_entropy_loss/num_present, (128x1), (, 1, ), (1), GPU, 0
 sparse_softmax_cross_entropy_loss/num_present/broadcast_weights, (128x1), (128x1), GPU, 0
-sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like, (1|2|3x1), (, 1, ), (128x1), GPU, 0
-sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Const, (1), (1), GPU, 0
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like, (1|2|3x1), (1), (128x1), GPU, 0
 sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape, (128x1), (128x10), (int32 1x1), GPU, 0
 sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like:Fill, (no input), (no output), GPU, 0
 sparse_softmax_cross_entropy_loss/num_present:Sum, (no input), (no output), GPU, 0
-sparse_softmax_cross_entropy_loss/ones_like, (1), (1), GPU, 0
-sparse_softmax_cross_entropy_loss/value, (boolean 1), (1), (?), (1), GPU, 0
+sparse_softmax_cross_entropy_loss/value, (boolean 1), (1), (1), (1), GPU, 0
 sparse_softmax_cross_entropy_loss/value:Select, (no input), (no output), GPU, 0
 sparse_softmax_cross_entropy_loss/xentropy/xentropy, (128x10), (128x32x32x3), (int32 128x1), (128x1), (128x10), GPU, 0
 sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits, (no input), (no output), GPU, 0

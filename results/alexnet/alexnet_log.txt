@@ -1,14 +1,15 @@
-2018-07-06 17:50:10.355150: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-07-06 17:50:10.355626: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+2018-07-12 12:06:34.922083: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-07-12 12:06:34.922606: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
 name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
 pciBusID: 0000:01:00.0
-totalMemory: 5.94GiB freeMemory: 5.46GiB
-2018-07-06 17:50:10.355655: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
-2018-07-06 17:50:10.528792: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-07-06 17:50:10.528839: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
-2018-07-06 17:50:10.528844: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
-2018-07-06 17:50:10.529063: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5240 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-2018-07-06 17:50:10.656207: I tensorflow/stream_executor/dso_loader.cc:152] successfully opened CUDA library libcupti.so.9.1 locally
+totalMemory: 5.94GiB freeMemory: 5.61GiB
+2018-07-12 12:06:34.922618: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-07-12 12:06:35.109928: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-07-12 12:06:35.109975: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-07-12 12:06:35.109981: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-07-12 12:06:35.110189: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5383 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-07-12 12:06:35.110435: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
+2018-07-12 12:06:35.279454: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
 /usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
 conv1   [128, 56, 56, 64]
@@ -19,7 +20,7 @@ conv3   [128, 13, 13, 384]
 conv4   [128, 13, 13, 256]
 conv5   [128, 13, 13, 256]
 pool5   [128, 6, 6, 256]
-Step 0/10(14) completed in 1.6803 seconds.
+Step 0/10(14) completed in 1.9325 seconds.
 New device info extracted from metadata: /device:GPU:0/stream:15 GPU 0
 New device info extracted from metadata: /job:localhost/replica:0/task:0/device:CPU:0 CPU 0
 New device info extracted from metadata: /device:GPU:0/memcpy GPU 0
@@ -27,36 +28,36 @@ New device info extracted from metadata: /device:GPU:0/stream:all GPU 0
 New device info extracted from metadata: /device:GPU:0/stream:18 GPU 0
 New device info extracted from metadata: /job:localhost/replica:0/task:0/device:GPU:0 GPU 0
 New device info extracted from metadata: /device:GPU:0/stream:13 GPU 0
-Session graph and metadata parsed in 0.0501 seconds
-Step 1/10(14) completed in 0.2217 seconds.
-Timeline saved in /home/ndr/work_july/golden_git/temp_git/results/alexnet/timeline_at_step_2.json
-Step 2/10(14) completed in 0.2221 seconds.
-Step 3/10(14) completed in 0.2214 seconds.
-Step 4/10(14) completed in 0.2199 seconds.
-Step 5/10(14) completed in 0.2201 seconds.
-Step 6/10(14) completed in 0.2218 seconds.
-Step 7/10(14) completed in 0.2204 seconds.
-Step 8/10(14) completed in 0.2177 seconds.
-Step 9/10(14) completed in 0.2196 seconds.
-Step 10/10(14) completed in 0.2199 seconds.
+Session graph and metadata parsed in 0.0439 seconds
+Step 1/10(14) completed in 0.2603 seconds.
+Timeline saved in /home/ndr/work/TensorScope/results/alexnet/timeline_at_step_2.json
+Step 2/10(14) completed in 0.2230 seconds.
+Step 3/10(14) completed in 0.2271 seconds.
+Step 4/10(14) completed in 0.2232 seconds.
+Step 5/10(14) completed in 0.2243 seconds.
+Step 6/10(14) completed in 0.2265 seconds.
+Step 7/10(14) completed in 0.2237 seconds.
+Step 8/10(14) completed in 0.2242 seconds.
+Step 9/10(14) completed in 0.2261 seconds.
+Step 10/10(14) completed in 0.2242 seconds.
 Session is closed
 
-Sanity check: total time for 10 steps: 2.205 sec., 1 step avg. time:  220461.2 microsec., 1 step avg. time captured in metadata: 219486.6 microsec., number of unique ops: 84
+Sanity check: total time for 10 steps: 2.283 sec., 1 step avg. time:  228260.2 microsec., 1 step avg. time captured in metadata: 227578.7 microsec., number of unique ops: 83
 
-2 - Total time for 10 steps: 2.205 sec., 1 step avg. time:  220461.2 microsec., 1 step avg. time captured in metadata: 219486.6 microsec., number of unique ops: 57
+2 - Total time for 10 steps: 2.283 sec., 1 step avg. time:  228260.2 microsec., 1 step avg. time captured in metadata: 227578.7 microsec., number of unique ops: 55
 
 *** Brief summary ***
 
-Top-1 ops (1.8%)	25.7 ms (11.7%)
-Top-2 ops (3.5%)	50.3 ms (22.9%)
-Top-2 ops (3.5%)	70.9 ms (32.3%)
-Top-4 ops (7.0%)	89.9 ms (41.0%)
-Top-6 ops (10.5%)	119.4 ms (54.4%)
-Top-9 ops (15.8%)	141.5 ms (64.5%)
-Top-15 ops (26.3%)	176.0 ms (80.2%)
-Top-23 ops (40.4%)	205.1 ms (93.4%)
-Top-36 ops (63.2%)	217.8 ms (99.2%)
-Top-57 ops (100.0%)	219.5 ms (100.0%)
+Top-1 ops (1.8%)	30.9 ms (13.6%)
+Top-2 ops (3.6%)	55.2 ms (24.3%)
+Top-2 ops (3.6%)	78.9 ms (34.7%)
+Top-4 ops (7.3%)	100.0 ms (43.9%)
+Top-6 ops (10.9%)	128.7 ms (56.6%)
+Top-9 ops (16.4%)	153.6 ms (67.5%)
+Top-14 ops (25.5%)	182.2 ms (80.0%)
+Top-23 ops (41.8%)	214.7 ms (94.3%)
+Top-35 ops (63.6%)	225.7 ms (99.2%)
+Top-55 ops (100.0%)	227.6 ms (100.0%)
 
-*** I/O tensor shapes are saved to /home/ndr/work_july/golden_git/temp_git/results/alexnet/data.tsv ***
+*** I/O tensor shapes are saved to /home/ndr/work/TensorScope/results/alexnet/data.tsv ***
 

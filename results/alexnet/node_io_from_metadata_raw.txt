@@ -1,3 +1,8 @@
+ConstantFolding/gradients/conv1/Conv2D_grad/ShapeN-matshapes-1, ^conv1/weights/read, ^Variable/read, (int32 4x1), GPU, 0
+ConstantFolding/gradients/conv2/Conv2D_grad/ShapeN-matshapes-1, ^conv2/weights/read, ^pool1, (int32 4x1), GPU, 0
+ConstantFolding/gradients/conv3/Conv2D_grad/ShapeN-matshapes-1, ^conv3/weights/read, ^pool2, (int32 4x1), GPU, 0
+ConstantFolding/gradients/conv4/Conv2D_grad/ShapeN-matshapes-1, ^conv4/weights/read, ^conv3, (int32 4x1), GPU, 0
+ConstantFolding/gradients/conv5/Conv2D_grad/ShapeN-matshapes-1, ^conv5/weights/read, ^conv4, (int32 4x1), GPU, 0
 PermConstNCHWToNHWC-LayoutOptimizer, (1), (int32 4x1), GPU, 0
 PermConstNHWCToNCHW-LayoutOptimizer, (1), (int32 4x1), GPU, 0
 Variable, (1), (128x224x224x3), GPU, 0
@@ -14,8 +19,8 @@ _retval_gradients/conv4/Conv2D_grad/Conv2DBackpropFilter_0_7, (3x3x384x256), (no
 _retval_gradients/conv5/BiasAdd_grad/BiasAddGrad_0_8, (256x1), (no output), CPU, 0
 _retval_gradients/conv5/Conv2D_grad/Conv2DBackpropFilter_0_9, (3x3x256x256), (no output), CPU, 0
 conv1, (128x64x56x56), (128x64x56x56), GPU, 0
-conv1-0-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x64x56x56), (int32 4x1), (128x56x56x64), GPU, 0
-conv1-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
+conv1-2-1-TransposeNCHWToNHWC-LayoutOptimizer, (128x64x56x56), (int32 4x1), (128x56x56x64), GPU, 0
+conv1-2-1-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
 conv1/BiasAdd, (128x64x56x56), (64x1), (128x64x56x56), GPU, 0
 conv1/BiasAdd:BiasAdd, (no input), (no output), GPU, 0
 conv1/Conv2D, (128x3x224x224), (11x11x3x64), (128x64x56x56), GPU, 0
@@ -40,8 +45,8 @@ conv2/weights, (1), (5x5x64x192), GPU, 0
 conv2/weights/read, (5x5x64x192), (5x5x64x192), GPU, 0
 conv2:Relu, (no input), (no output), GPU, 0
 conv3, (128x384x13x13), (128x384x13x13), GPU, 0
-conv3-1-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x384x13x13), (int32 4x1), (128x13x13x384), GPU, 0
-conv3-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
+conv3-2-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x384x13x13), (int32 4x1), (128x13x13x384), GPU, 0
+conv3-2-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
 conv3/BiasAdd, (128x384x13x13), (384x1), (128x384x13x13), GPU, 0
 conv3/BiasAdd:BiasAdd, (no input), (no output), GPU, 0
 conv3/Conv2D, (128x192x13x13), (3x3x192x384), (128x384x13x13), GPU, 0
@@ -73,36 +78,32 @@ conv5/biases/read, (256x1), (256x1), GPU, 0
 conv5/weights, (1), (3x3x256x256), GPU, 0
 conv5/weights/read, (3x3x256x256), (3x3x256x256), GPU, 0
 conv5:Relu, (no input), (no output), GPU, 0
-edge_187_gradients/conv1/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH, (no input), (output 256 bytes), GPU, 0
-edge_189_gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH, (no input), (output 92928 bytes), GPU, 0
-edge_191_gradients/conv2/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH, (no input), (output 768 bytes), GPU, 0
-edge_193_gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH, (no input), (output 1228800 bytes), GPU, 0
-edge_195_gradients/conv3/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH, (no input), (output 1536 bytes), GPU, 0
-edge_197_gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH, (no input), (output 2654208 bytes), GPU, 0
-edge_199_gradients/conv4/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH, (no input), (output 1024 bytes), GPU, 0
-edge_201_gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH, (no input), (output 3538944 bytes), GPU, 0
-edge_203_gradients/conv5/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH, (no input), (output 1024 bytes), GPU, 0
-edge_205_gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH, (no input), (output 2359296 bytes), GPU, 0
-gradients/L2Loss_grad/mul, (128x256x6x6), (128x256x6x6), GPU, 0
-gradients/L2Loss_grad/mul:Snapshot:MEMCPYDtoD, (no input), (output 4718592 bytes), GPU, 0
-gradients/conv1/BiasAdd_grad/BiasAddGrad, (?), (64x1), GPU, 0
+edge_177_gradients/conv1/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH, (no input), (output 256 bytes), GPU, 0
+edge_179_gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH, (no input), (output 92928 bytes), GPU, 0
+edge_181_gradients/conv2/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH, (no input), (output 768 bytes), GPU, 0
+edge_183_gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH, (no input), (output 1228800 bytes), GPU, 0
+edge_185_gradients/conv3/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH, (no input), (output 1536 bytes), GPU, 0
+edge_187_gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH, (no input), (output 2654208 bytes), GPU, 0
+edge_189_gradients/conv4/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH, (no input), (output 1024 bytes), GPU, 0
+edge_191_gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH, (no input), (output 3538944 bytes), GPU, 0
+edge_193_gradients/conv5/BiasAdd_grad/BiasAddGrad:MEMCPYDtoH, (no input), (output 1024 bytes), GPU, 0
+edge_195_gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:MEMCPYDtoH, (no input), (output 2359296 bytes), GPU, 0
+gradients/conv1/BiasAdd_grad/BiasAddGrad, (128x56x56x64), (64x1), GPU, 0
 gradients/conv1/BiasAdd_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
-gradients/conv1/Conv2D_grad/Const_1, (1), (int32 4x1), GPU, 0
-gradients/conv1/Conv2D_grad/Conv2DBackpropFilter, (128x224x224x3), (, 1, ), (128x56x56x64), (11x11x3x64), GPU, 0
+gradients/conv1/Conv2D_grad/Conv2DBackpropFilter, (128x224x224x3), (int32 4x1), (128x56x56x64), (11x11x3x64), GPU, 0
 gradients/conv1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/conv1_grad/ReluGrad, (128x64x56x56), (128x64x56x56), (128x64x56x56), GPU, 0
-gradients/conv1_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer, (128x64x56x56), (int32 4x1), (128x56x56x64), GPU, 0
-gradients/conv1_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
+gradients/conv1_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x64x56x56), (int32 4x1), (128x56x56x64), GPU, 0
+gradients/conv1_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
 gradients/conv1_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer, (128x56x56x64), (int32 4x1), (128x64x56x56), GPU, 0
 gradients/conv1_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
 gradients/conv1_grad/ReluGrad:ReluGrad, (no input), (no output), GPU, 0
 gradients/conv2/BiasAdd_grad/BiasAddGrad, (128x27x27x192), (192x1), GPU, 0
 gradients/conv2/BiasAdd_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
-gradients/conv2/Conv2D_grad/Const_1, (1), (int32 4x1), GPU, 0
-gradients/conv2/Conv2D_grad/Conv2DBackpropFilter, (128x27x27x64), (, 1, ), (?), (5x5x64x192), GPU, 0
+gradients/conv2/Conv2D_grad/Conv2DBackpropFilter, (128x27x27x64), (int32 4x1), (128x27x27x192), (5x5x64x192), GPU, 0
 gradients/conv2/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/conv2/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (5x5x64x192), (128x192x27x27), (128x64x27x27), GPU, 0
-gradients/conv2/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, (1), (int32 4x1), GPU, 0
+gradients/conv2/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, ^conv2/weights/read, ^pool1, (int32 4x1), GPU, 0
 gradients/conv2/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/conv2_grad/ReluGrad, (128x192x27x27), (128x192x27x27), (128x192x27x27), GPU, 0
 gradients/conv2_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x192x27x27), (int32 4x1), (128x27x27x192), GPU, 0
@@ -112,69 +113,66 @@ gradients/conv2_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose, (
 gradients/conv2_grad/ReluGrad:ReluGrad, (no input), (no output), GPU, 0
 gradients/conv3/BiasAdd_grad/BiasAddGrad, (128x13x13x384), (384x1), GPU, 0
 gradients/conv3/BiasAdd_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
-gradients/conv3/Conv2D_grad/Const_1, (1), (int32 4x1), GPU, 0
-gradients/conv3/Conv2D_grad/Conv2DBackpropFilter, (128x13x13x192), (, 1, ), (?), (3x3x192x384), GPU, 0
+gradients/conv3/Conv2D_grad/Conv2DBackpropFilter, (128x13x13x192), (int32 4x1), (128x13x13x384), (3x3x192x384), GPU, 0
 gradients/conv3/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/conv3/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (3x3x192x384), (128x384x13x13), (128x192x13x13), GPU, 0
-gradients/conv3/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, (1), (int32 4x1), GPU, 0
+gradients/conv3/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, ^conv3/weights/read, ^pool2, (int32 4x1), GPU, 0
 gradients/conv3/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/conv3_grad/ReluGrad, (128x384x13x13), (128x384x13x13), (128x384x13x13), GPU, 0
 gradients/conv3_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x384x13x13), (int32 4x1), (128x13x13x384), GPU, 0
 gradients/conv3_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
 gradients/conv3_grad/ReluGrad:ReluGrad, (no input), (no output), GPU, 0
-gradients/conv4/BiasAdd_grad/BiasAddGrad, (?), (256x1), GPU, 0
+gradients/conv4/BiasAdd_grad/BiasAddGrad, (128x13x13x256), (256x1), GPU, 0
 gradients/conv4/BiasAdd_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
-gradients/conv4/Conv2D_grad/Const_1, (1), (int32 4x1), GPU, 0
-gradients/conv4/Conv2D_grad/Conv2DBackpropFilter, (128x13x13x384), (, 1, ), (128x13x13x256), (3x3x384x256), GPU, 0
+gradients/conv4/Conv2D_grad/Conv2DBackpropFilter, (128x13x13x384), (int32 4x1), (128x13x13x256), (3x3x384x256), GPU, 0
 gradients/conv4/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/conv4/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (3x3x384x256), (128x256x13x13), (128x384x13x13), GPU, 0
-gradients/conv4/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, (1), (int32 4x1), GPU, 0
+gradients/conv4/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, ^conv4/weights/read, ^conv3, (int32 4x1), GPU, 0
 gradients/conv4/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/conv4_grad/ReluGrad, (128x256x13x13), (128x256x13x13), (128x256x13x13), GPU, 0
-gradients/conv4_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer, (128x256x13x13), (int32 4x1), (128x13x13x256), GPU, 0
-gradients/conv4_grad/ReluGrad-0-2-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
+gradients/conv4_grad/ReluGrad-1-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x256x13x13), (int32 4x1), (128x13x13x256), GPU, 0
+gradients/conv4_grad/ReluGrad-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
 gradients/conv4_grad/ReluGrad:ReluGrad, (no input), (no output), GPU, 0
 gradients/conv5/BiasAdd_grad/BiasAddGrad, (128x13x13x256), (256x1), GPU, 0
 gradients/conv5/BiasAdd_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
-gradients/conv5/Conv2D_grad/Const_1, (1), (int32 4x1), GPU, 0
-gradients/conv5/Conv2D_grad/Conv2DBackpropFilter, (128x13x13x256), (, 1, ), (?), (3x3x256x256), GPU, 0
+gradients/conv5/Conv2D_grad/Conv2DBackpropFilter, (128x13x13x256), (int32 4x1), (128x13x13x256), (3x3x256x256), GPU, 0
 gradients/conv5/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter, (no input), (no output), GPU, 0
 gradients/conv5/Conv2D_grad/Conv2DBackpropInput, (int32 4x1), (3x3x256x256), (128x256x13x13), (128x256x13x13), GPU, 0
-gradients/conv5/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, (1), (int32 4x1), GPU, 0
+gradients/conv5/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer, ^conv5/weights/read, ^conv4, (int32 4x1), GPU, 0
 gradients/conv5/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput, (no input), (no output), GPU, 0
 gradients/conv5_grad/ReluGrad, (128x256x13x13), (128x256x13x13), (128x256x13x13), GPU, 0
-gradients/conv5_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x256x13x13), (int32 4x1), (128x13x13x256), GPU, 0
-gradients/conv5_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
+gradients/conv5_grad/ReluGrad-1-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x256x13x13), (int32 4x1), (128x13x13x256), GPU, 0
+gradients/conv5_grad/ReluGrad-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
 gradients/conv5_grad/ReluGrad:ReluGrad, (no input), (no output), GPU, 0
-gradients/lrn1/LRN_grad/LRNGrad, (128x56x56x64), (?), (128x56x56x64), (128x56x56x64), GPU, 0
+gradients/lrn1/LRN_grad/LRNGrad, (128x56x56x64), (128x56x56x64), (128x56x56x64), (128x56x56x64), GPU, 0
 gradients/lrn1/LRN_grad/LRNGrad:LRNGrad, (no input), (no output), GPU, 0
 gradients/lrn2/LRN_grad/LRNGrad, (128x27x27x192), (128x27x27x192), (128x27x27x192), (128x27x27x192), GPU, 0
 gradients/lrn2/LRN_grad/LRNGrad:LRNGrad, (no input), (no output), GPU, 0
-gradients/pool1_grad/MaxPoolGrad, (?), (128x64x27x27), (128x64x27x27), (128x64x56x56), GPU, 0
+gradients/pool1_grad/MaxPoolGrad, (128x64x56x56), (128x64x27x27), (128x64x27x27), (128x64x56x56), GPU, 0
 gradients/pool1_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x64x56x56), (int32 4x1), (128x56x56x64), GPU, 0
 gradients/pool1_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
+gradients/pool1_grad/MaxPoolGrad-0-TransposeNHWCToNCHW-LayoutOptimizer, (128x56x56x64), (int32 4x1), (128x64x56x56), GPU, 0
+gradients/pool1_grad/MaxPoolGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
 gradients/pool1_grad/MaxPoolGrad:MaxPoolGrad, (no input), (no output), GPU, 0
-gradients/pool2_grad/MaxPoolGrad, (?), (128x192x13x13), (128x192x13x13), (128x192x27x27), GPU, 0
+gradients/pool2_grad/MaxPoolGrad, (128x192x27x27), (128x192x13x13), (128x192x13x13), (128x192x27x27), GPU, 0
 gradients/pool2_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x192x27x27), (int32 4x1), (128x27x27x192), GPU, 0
 gradients/pool2_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
+gradients/pool2_grad/MaxPoolGrad-0-TransposeNHWCToNCHW-LayoutOptimizer, (128x27x27x192), (int32 4x1), (128x192x27x27), GPU, 0
+gradients/pool2_grad/MaxPoolGrad-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
 gradients/pool2_grad/MaxPoolGrad:MaxPoolGrad, (no input), (no output), GPU, 0
 gradients/pool5_grad/MaxPoolGrad, (128x256x13x13), (128x256x6x6), (128x256x6x6), (128x256x13x13), GPU, 0
 gradients/pool5_grad/MaxPoolGrad:MaxPoolGrad, (no input), (no output), GPU, 0
 lrn1/LRN, (128x56x56x64), (128x56x56x64), GPU, 0
 lrn1/LRN:LRN, (no input), (no output), GPU, 0
-lrn2/LRN, (?), (128x27x27x192), GPU, 0
+lrn2/LRN, (128x27x27x192), (128x27x27x192), GPU, 0
 lrn2/LRN:LRN, (no input), (no output), GPU, 0
 pool1, (128x64x56x56), (128x64x27x27), GPU, 0
-pool1-0-TransposeNHWCToNCHW-LayoutOptimizer, (128x56x56x64), (int32 4x1), (128x64x56x56), GPU, 0
-pool1-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
-pool1-1-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x64x27x27), (int32 4x1), (128x27x27x64), GPU, 0
-pool1-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
+pool1-2-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x64x27x27), (int32 4x1), (128x27x27x64), GPU, 0
+pool1-2-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
 pool1:MaxPool, (no input), (no output), GPU, 0
 pool2, (128x192x27x27), (128x192x13x13), GPU, 0
-pool2-0-TransposeNHWCToNCHW-LayoutOptimizer, (128x27x27x192), (int32 4x1), (128x192x27x27), GPU, 0
-pool2-0-TransposeNHWCToNCHW-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
-pool2-1-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x192x13x13), (int32 4x1), (128x13x13x192), GPU, 0
-pool2-1-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
+pool2-3-0-TransposeNCHWToNHWC-LayoutOptimizer, (128x192x13x13), (int32 4x1), (128x13x13x192), GPU, 0
+pool2-3-0-TransposeNCHWToNHWC-LayoutOptimizer:Transpose, (no input), (no output), GPU, 0
 pool2:MaxPool, (no input), (no output), GPU, 0
 pool5, (128x256x13x13), (128x256x6x6), GPU, 0
 pool5:MaxPool, (no input), (no output), GPU, 0

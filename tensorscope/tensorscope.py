@@ -577,7 +577,6 @@ class Tensorscope(object):
                         input_cand_shapes_list.extend('(2x1)')
                    
                     if const_like_ops in ['Shape', 'ExpandDims', 'reduction_indices']:
-                        print('icand_name: ', icand_name)
                         strided_slice_name = icand_name.split('/')
                         if len(strided_slice_name) > 1:
                           strided_slice_name = strided_slice_name[-2]
