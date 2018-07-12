@@ -1,0 +1,87 @@
+2018-07-12 12:07:48.263039: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-07-12 12:07:48.263474: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
+name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
+pciBusID: 0000:01:00.0
+totalMemory: 5.94GiB freeMemory: 5.61GiB
+2018-07-12 12:07:48.263485: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-07-12 12:07:48.455561: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-07-12 12:07:48.455608: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-07-12 12:07:48.455614: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-07-12 12:07:48.455823: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5384 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-07-12 12:07:48.456063: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
+/usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+INFO:tensorflow:Using default config.
+I0712 12:07:48.508651 139699704391424 tf_logging.py:115] Using default config.
+INFO:tensorflow:Using config: {'_is_chief': True, '_save_checkpoints_secs': 600, '_device_fn': None, '_keep_checkpoint_every_n_hours': 10000, '_task_id': 0, '_num_worker_replicas': 1, '_num_ps_replicas': 0, '_session_config': None, '_service': None, '_global_id_in_cluster': 0, '_save_checkpoints_steps': None, '_evaluation_master': '', '_log_step_count_steps': 100, '_model_dir': '/home/ndr/work/TensorScope/reproduce_results/mnist/mnist_model', '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f0df6f91a58>, '_tf_random_seed': None, '_keep_checkpoint_max': 5, '_train_distribute': None, '_master': '', '_save_summary_steps': 100, '_task_type': 'worker'}
+I0712 12:07:48.509032 139699704391424 tf_logging.py:115] Using config: {'_is_chief': True, '_save_checkpoints_secs': 600, '_device_fn': None, '_keep_checkpoint_every_n_hours': 10000, '_task_id': 0, '_num_worker_replicas': 1, '_num_ps_replicas': 0, '_session_config': None, '_service': None, '_global_id_in_cluster': 0, '_save_checkpoints_steps': None, '_evaluation_master': '', '_log_step_count_steps': 100, '_model_dir': '/home/ndr/work/TensorScope/reproduce_results/mnist/mnist_model', '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f0df6f91a58>, '_tf_random_seed': None, '_keep_checkpoint_max': 5, '_train_distribute': None, '_master': '', '_save_summary_steps': 100, '_task_type': 'worker'}
+INFO:tensorflow:Calling model_fn.
+I0712 12:07:54.262703 139699704391424 tf_logging.py:115] Calling model_fn.
+INFO:tensorflow:Done calling model_fn.
+I0712 12:07:54.557656 139699704391424 tf_logging.py:115] Done calling model_fn.
+INFO:tensorflow:Create CheckpointSaverHook.
+I0712 12:07:54.558793 139699704391424 tf_logging.py:115] Create CheckpointSaverHook.
+INFO:tensorflow:Graph was finalized.
+I0712 12:07:54.693444 139699704391424 tf_logging.py:115] Graph was finalized.
+2018-07-12 12:07:54.693812: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-07-12 12:07:54.693852: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-07-12 12:07:54.693875: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-07-12 12:07:54.693879: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-07-12 12:07:54.694005: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5384 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+INFO:tensorflow:Running local_init_op.
+I0712 12:07:54.848078 139699704391424 tf_logging.py:115] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0712 12:07:54.854243 139699704391424 tf_logging.py:115] Done running local_init_op.
+INFO:tensorflow:Saving checkpoints for 0 into /home/ndr/work/TensorScope/reproduce_results/mnist/mnist_model/model.ckpt.
+I0712 12:07:55.063328 139699704391424 tf_logging.py:115] Saving checkpoints for 0 into /home/ndr/work/TensorScope/reproduce_results/mnist/mnist_model/model.ckpt.
+2018-07-12 12:07:55.319630: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
+INFO:tensorflow:cross_entropy = 2.305574, learning_rate = 1e-04, train_accuracy = 0.08
+I0712 12:07:57.696707 139699704391424 tf_logging.py:115] cross_entropy = 2.305574, learning_rate = 1e-04, train_accuracy = 0.08
+INFO:tensorflow:loss = 2.305574, step = 0
+I0712 12:07:57.697057 139699704391424 tf_logging.py:115] loss = 2.305574, step = 0
+Downloading https://storage.googleapis.com/cvdf-datasets/mnist/train-images-idx3-ubyte.gz to /tmp/tmp3ea5jsg6.gz
+Downloading https://storage.googleapis.com/cvdf-datasets/mnist/train-labels-idx1-ubyte.gz to /tmp/tmpgo64jen7.gz
+Step 0/10(14) completed in 2.5380 seconds.
+New device info extracted from metadata: /device:GPU:0/stream:14 GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:15 GPU 0
+New device info extracted from metadata: /job:localhost/replica:0/task:0/device:CPU:0 CPU 0
+New device info extracted from metadata: /device:GPU:0/memcpy GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:all GPU 0
+New device info extracted from metadata: /job:localhost/replica:0/task:0/device:GPU:0 GPU 0
+New device info extracted from metadata: /device:GPU:0/stream:13 GPU 0
+Session graph and metadata parsed in 0.1228 seconds
+Step 1/10(14) completed in 0.0653 seconds.
+Timeline saved in /home/ndr/work/TensorScope/results/mnist/timeline_at_step_2.json
+Step 2/10(14) completed in 0.0129 seconds.
+Step 3/10(14) completed in 0.0121 seconds.
+Step 4/10(14) completed in 0.0117 seconds.
+Step 5/10(14) completed in 0.0117 seconds.
+Step 6/10(14) completed in 0.0120 seconds.
+Step 7/10(14) completed in 0.0124 seconds.
+Step 8/10(14) completed in 0.0118 seconds.
+Step 9/10(14) completed in 0.0123 seconds.
+Step 10/10(14) completed in 0.0116 seconds.
+Session is closed
+
+Sanity check: total time for 10 steps: 0.174 sec., 1 step avg. time:  17378.5 microsec., 1 step avg. time captured in metadata: 9762.7 microsec., number of unique ops: 73
+This node was not found in self.final_io_shapes, however it existed in metadata graph:  Adam/Assign_1:MEMCPYDtoD
+This node was not found in self.final_io_shapes, however it existed in metadata graph:  Adam/Assign:MEMCPYDtoD
+
+2 - Total time for 10 steps: 0.174 sec., 1 step avg. time:  17378.5 microsec., 1 step avg. time captured in metadata: 9762.7 microsec., number of unique ops: 70
+
+*** Brief summary ***
+
+Top-1 ops (1.4%)	3.8 ms (38.7%)
+Top-2 ops (2.9%)	4.6 ms (47.3%)
+Top-3 ops (4.3%)	5.4 ms (55.8%)
+Top-4 ops (5.7%)	6.3 ms (64.3%)
+Top-7 ops (10.0%)	7.5 ms (76.8%)
+Top-11 ops (15.7%)	8.3 ms (85.5%)
+Top-17 ops (24.3%)	9.1 ms (93.3%)
+Top-27 ops (38.6%)	9.6 ms (98.1%)
+Top-44 ops (62.9%)	9.7 ms (99.4%)
+Top-70 ops (100.0%)	9.8 ms (100.0%)
+
+*** I/O tensor shapes are saved to /home/ndr/work/TensorScope/results/mnist/data.tsv ***
+
+2018-07-12 12:07:58.030742: E tensorflow/core/kernels/data/cache_dataset_ops.cc:593] The calling iterator did not fully read the dataset we were attempting to cache. In order to avoid unexpected truncation of the sequence, the current [partially cached] sequence will be dropped. This can occur if you have a sequence similar to `dataset.cache().take(k).repeat()`. Instead, swap the order (i.e. `dataset.take(k).cache().repeat()`)

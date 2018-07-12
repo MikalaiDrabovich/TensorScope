@@ -1,0 +1,6808 @@
+dev_stats {
+  device: "/device:GPU:0/stream:14"
+  node_stats {
+    node_name: "edge_81_IteratorGetNext:MEMCPYHtoD"
+    all_start_micros: 1531422477754541
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYHtoD 400 bytes (Pageable to Device)"
+  }
+  node_stats {
+    node_name: "edge_30_IteratorGetNext:MEMCPYHtoD"
+    all_start_micros: 1531422477754573
+    op_end_rel_micros: 25
+    all_end_rel_micros: 25
+    timeline_label: "MEMCPYHtoD 313600 bytes (Pageable to Device)"
+  }
+}
+dev_stats {
+  device: "/device:GPU:0/stream:15"
+  node_stats {
+    node_name: "edge_340_global_step/add:MEMCPYDtoH"
+    all_start_micros: 1531422477751125
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 8 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_342_sparse_softmax_cross_entropy_loss/value:MEMCPYDtoH"
+    all_start_micros: 1531422477756644
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 4 bytes (Device to Pinned)"
+  }
+}
+dev_stats {
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  node_stats {
+    node_name: "_SOURCE"
+    all_start_micros: 1531422477750595
+    op_start_rel_micros: 2
+    op_end_rel_micros: 2
+    all_end_rel_micros: 5
+    timeline_label: "_SOURCE = NoOp()"
+    scheduled_micros: 1531422477750570
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Iterator"
+    all_start_micros: 1531422477750641
+    op_end_rel_micros: 15
+    all_end_rel_micros: 19
+    memory {
+      allocator_name: "cpu"
+      total_bytes: 136
+      peak_bytes: 136
+      live_bytes: 136
+      allocation_records {
+        alloc_micros: 1531422477750654
+        alloc_bytes: 136
+      }
+      allocation_records {
+        alloc_micros: 1531422477754503
+        alloc_bytes: -136
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocated_bytes: 136
+          allocator_name: "cpu"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139688905740672
+        }
+      }
+    }
+    timeline_label: "Iterator = Iterator()"
+    scheduled_micros: 1531422477750603
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_global_step/add_0_0"
+    all_start_micros: 1531422477751150
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    timeline_label: "_retval_global_step/add_0_0 = _Retval(global_step/add/_203)"
+    scheduled_micros: 1531422477751148
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "IteratorGetNext"
+    all_start_micros: 1531422477750676
+    op_end_rel_micros: 3822
+    all_end_rel_micros: 3827
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 784
+          }
+        }
+        allocation_description {
+          requested_bytes: 313600
+          allocator_name: "cpu"
+          ptr: 139689661318016
+        }
+      }
+    }
+    output {
+      slot: 1
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 100
+          }
+        }
+        allocation_description {
+          requested_bytes: 400
+          allocator_name: "cpu"
+          ptr: 139689661631744
+        }
+      }
+    }
+    timeline_label: "IteratorGetNext = IteratorGetNext(Iterator)"
+    scheduled_micros: 1531422477750660
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/reshape/Shape"
+    all_start_micros: 1531422477754512
+    op_start_rel_micros: 1
+    op_end_rel_micros: 5
+    all_end_rel_micros: 8
+    memory {
+      allocator_name: "cuda_host_bfc"
+      total_bytes: 256
+      peak_bytes: 256
+      live_bytes: 256
+      allocator_bytes_in_use: 5120
+      allocation_records {
+        alloc_micros: 1531422477754516
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477754550
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 2
+          }
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 113
+          has_single_reference: true
+          ptr: 139696269169408
+        }
+      }
+    }
+    timeline_label: "sequential/reshape/Shape = Shape(IteratorGetNext)"
+    scheduled_micros: 1531422477754505
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "_retval_sparse_softmax_cross_entropy_loss/value_0_1"
+    all_start_micros: 1531422477756710
+    op_start_rel_micros: 1
+    op_end_rel_micros: 1
+    all_end_rel_micros: 3
+    timeline_label: "_retval_sparse_softmax_cross_entropy_loss/value_0_1 = _Retval(sparse_softmax_cross_entropy_loss/value/_205)"
+    scheduled_micros: 1531422477756705
+    memory_stats {
+    }
+  }
+}
+dev_stats {
+  device: "/device:GPU:0/memcpy"
+  node_stats {
+    node_name: "global_step/add:Snapshot:MEMCPYDtoD"
+    all_start_micros: 1531422477751093
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoD 8 bytes (Device to Device)"
+  }
+  node_stats {
+    node_name: "edge_340_global_step/add:MEMCPYDtoH"
+    all_start_micros: 1531422477751125
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 8 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "edge_81_IteratorGetNext:MEMCPYHtoD"
+    all_start_micros: 1531422477754541
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYHtoD 400 bytes (Pageable to Device)"
+  }
+  node_stats {
+    node_name: "edge_30_IteratorGetNext:MEMCPYHtoD"
+    all_start_micros: 1531422477754573
+    op_end_rel_micros: 25
+    all_end_rel_micros: 25
+    timeline_label: "MEMCPYHtoD 313600 bytes (Pageable to Device)"
+  }
+  node_stats {
+    node_name: "edge_342_sparse_softmax_cross_entropy_loss/value:MEMCPYDtoH"
+    all_start_micros: 1531422477756644
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoH 4 bytes (Device to Pinned)"
+  }
+  node_stats {
+    node_name: "Adam/Assign:Assign:MEMCPYDtoD"
+    all_start_micros: 1531422477760910
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoD 4 bytes (Device to Device)"
+  }
+  node_stats {
+    node_name: "Adam/Assign_1:Assign:MEMCPYDtoD"
+    all_start_micros: 1531422477760913
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoD 4 bytes (Device to Device)"
+  }
+}
+dev_stats {
+  device: "/device:GPU:0/stream:all"
+  node_stats {
+    node_name: "sequential/conv2d/Conv2D:Conv2D"
+    all_start_micros: 1531422477754740
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/conv2d/Conv2D:Conv2D"
+    all_start_micros: 1531422477754781
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/conv2d/Conv2D:Conv2D"
+    all_start_micros: 1531422477754796
+    op_end_rel_micros: 119
+    all_end_rel_micros: 119
+  }
+  node_stats {
+    node_name: "sequential/conv2d/BiasAdd:BiasAdd"
+    all_start_micros: 1531422477754918
+    op_end_rel_micros: 167
+    all_end_rel_micros: 167
+  }
+  node_stats {
+    node_name: "sequential/conv2d/Relu:Relu"
+    all_start_micros: 1531422477755087
+    op_end_rel_micros: 134
+    all_end_rel_micros: 134
+  }
+  node_stats {
+    node_name: "sequential/max_pooling2d/MaxPool:MaxPool"
+    all_start_micros: 1531422477755222
+    op_end_rel_micros: 107
+    all_end_rel_micros: 107
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/Conv2D:Conv2D"
+    all_start_micros: 1531422477755330
+    op_end_rel_micros: 7
+    all_end_rel_micros: 7
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/Conv2D:Conv2D"
+    all_start_micros: 1531422477755339
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/Conv2D:Conv2D"
+    all_start_micros: 1531422477755343
+    op_end_rel_micros: 661
+    all_end_rel_micros: 661
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/BiasAdd:BiasAdd"
+    all_start_micros: 1531422477756005
+    op_end_rel_micros: 87
+    all_end_rel_micros: 87
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/Relu:Relu"
+    all_start_micros: 1531422477756093
+    op_end_rel_micros: 68
+    all_end_rel_micros: 68
+  }
+  node_stats {
+    node_name: "sequential/max_pooling2d_1/MaxPool:MaxPool"
+    all_start_micros: 1531422477756163
+    op_end_rel_micros: 59
+    all_end_rel_micros: 59
+  }
+  node_stats {
+    node_name: "sequential/dense/MatMul:MatMul"
+    all_start_micros: 1531422477756236
+    op_end_rel_micros: 269
+    all_end_rel_micros: 269
+  }
+  node_stats {
+    node_name: "sequential/dense/BiasAdd:BiasAdd"
+    all_start_micros: 1531422477756508
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "sequential/dense/Relu:Relu"
+    all_start_micros: 1531422477756514
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/div:Mul"
+    all_start_micros: 1531422477756518
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/random_uniform/RandomUniform:RandomUniform"
+    all_start_micros: 1531422477756523
+    op_end_rel_micros: 9
+    all_end_rel_micros: 9
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/add:Add"
+    all_start_micros: 1531422477756534
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/Floor:Floor"
+    all_start_micros: 1531422477756540
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/mul:Mul"
+    all_start_micros: 1531422477756544
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "sequential/dense_1/MatMul:MatMul"
+    all_start_micros: 1531422477756549
+    op_end_rel_micros: 18
+    all_end_rel_micros: 18
+  }
+  node_stats {
+    node_name: "sequential/dense_1/BiasAdd:BiasAdd"
+    all_start_micros: 1531422477756568
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756572
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756578
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756582
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756589
+    op_end_rel_micros: 9
+    all_end_rel_micros: 9
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756599
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756603
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like:Fill"
+    all_start_micros: 1531422477756607
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Sum:Sum"
+    all_start_micros: 1531422477756610
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/num_present:Sum"
+    all_start_micros: 1531422477756614
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Greater:Greater"
+    all_start_micros: 1531422477756617
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Equal:Equal"
+    all_start_micros: 1531422477756621
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/value_grad/Select:Select"
+    all_start_micros: 1531422477756624
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Select:Select"
+    all_start_micros: 1531422477756628
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/div:RealDiv"
+    all_start_micros: 1531422477756631
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv:RealDiv"
+    all_start_micros: 1531422477756635
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/value:Select"
+    all_start_micros: 1531422477756638
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile:Tile"
+    all_start_micros: 1531422477756641
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul:Mul"
+    all_start_micros: 1531422477756646
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477756655
+    op_end_rel_micros: 8
+    all_end_rel_micros: 8
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756666
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756670
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756674
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense_1/MatMul_grad/MatMul:MatMul"
+    all_start_micros: 1531422477756680
+    op_end_rel_micros: 15
+    all_end_rel_micros: 15
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense_1/MatMul_grad/MatMul_1:MatMul"
+    all_start_micros: 1531422477756697
+    op_end_rel_micros: 12
+    all_end_rel_micros: 12
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756711
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756715
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756719
+    op_end_rel_micros: 6
+    all_end_rel_micros: 6
+  }
+  node_stats {
+    node_name: "gradients/sequential/dropout/dropout/mul_grad/Mul:Mul"
+    all_start_micros: 1531422477756726
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "gradients/sequential/dropout/dropout/div_grad/RealDiv:Mul"
+    all_start_micros: 1531422477756731
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/Relu_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1531422477756736
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477756752
+    op_end_rel_micros: 6
+    all_end_rel_micros: 6
+  }
+  node_stats {
+    node_name: "Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756759
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756763
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756766
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/MatMul_grad/MatMul:MatMul"
+    all_start_micros: 1531422477756772
+    op_end_rel_micros: 280
+    all_end_rel_micros: 280
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/MatMul_grad/MatMul_1:MatMul"
+    all_start_micros: 1531422477757054
+    op_end_rel_micros: 212
+    all_end_rel_micros: 212
+  }
+  node_stats {
+    node_name: "Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477757268
+    op_end_rel_micros: 248
+    all_end_rel_micros: 248
+  }
+  node_stats {
+    node_name: "Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477757517
+    op_end_rel_micros: 247
+    all_end_rel_micros: 247
+  }
+  node_stats {
+    node_name: "Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477757766
+    op_end_rel_micros: 337
+    all_end_rel_micros: 337
+  }
+  node_stats {
+    node_name: "gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad:MaxPoolGrad"
+    all_start_micros: 1531422477758105
+    op_end_rel_micros: 135
+    all_end_rel_micros: 135
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Relu_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1531422477758242
+    op_end_rel_micros: 97
+    all_end_rel_micros: 97
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477758349
+    op_end_rel_micros: 39
+    all_end_rel_micros: 39
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477758390
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477758395
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477758399
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477758403
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477758407
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477758415
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477758418
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477758422
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477758427
+    op_end_rel_micros: 823
+    all_end_rel_micros: 823
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477759251
+    op_end_rel_micros: 7
+    all_end_rel_micros: 7
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1531422477759259
+    op_end_rel_micros: 6
+    all_end_rel_micros: 6
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1531422477759267
+    op_end_rel_micros: 345
+    all_end_rel_micros: 345
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1531422477759614
+    op_end_rel_micros: 17
+    all_end_rel_micros: 17
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1531422477759633
+    op_end_rel_micros: 280
+    all_end_rel_micros: 280
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1531422477759914
+    op_end_rel_micros: 182
+    all_end_rel_micros: 182
+  }
+  node_stats {
+    node_name: "gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad:MaxPoolGrad"
+    all_start_micros: 1531422477760098
+    op_end_rel_micros: 173
+    all_end_rel_micros: 173
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760272
+    op_end_rel_micros: 6
+    all_end_rel_micros: 6
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760280
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760286
+    op_end_rel_micros: 7
+    all_end_rel_micros: 7
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/Relu_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1531422477760294
+    op_end_rel_micros: 196
+    all_end_rel_micros: 196
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477760505
+    op_end_rel_micros: 69
+    all_end_rel_micros: 69
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477760576
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477760581
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760585
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760589
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760593
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477760614
+    op_end_rel_micros: 270
+    all_end_rel_micros: 270
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477760886
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760890
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760894
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760898
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "Adam/mul:Mul"
+    all_start_micros: 1531422477760903
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "Adam/mul_1:Mul"
+    all_start_micros: 1531422477760907
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+  }
+  node_stats {
+    node_name: "Adam:AssignAdd"
+    all_start_micros: 1531422477760915
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+}
+dev_stats {
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  node_stats {
+    node_name: "_SOURCE"
+    all_start_micros: 1531422477750604
+    op_start_rel_micros: 2
+    op_end_rel_micros: 6
+    all_end_rel_micros: 71
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    timeline_label: "_SOURCE = NoOp()"
+    scheduled_micros: 1531422477750564
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1"
+    all_start_micros: 1531422477750688
+    op_end_rel_micros: 2
+    all_end_rel_micros: 5
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+          }
+        }
+      }
+    }
+    timeline_label: "ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1 = Const()"
+    scheduled_micros: 1531422477750675
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d/bias/Adam"
+    all_start_micros: 1531422477750695
+    op_start_rel_micros: 1
+    op_end_rel_micros: 15
+    all_end_rel_micros: 17
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583448768
+        }
+      }
+    }
+    timeline_label: "conv2d/bias/Adam = VarHandleOp()"
+    scheduled_micros: 1531422477750693
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d/bias/Adam_1"
+    all_start_micros: 1531422477750713
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583449152
+        }
+      }
+    }
+    timeline_label: "conv2d/bias/Adam_1 = VarHandleOp()"
+    scheduled_micros: 1531422477750712
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d/kernel/Adam"
+    all_start_micros: 1531422477750717
+    op_end_rel_micros: 1
+    all_end_rel_micros: 23
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583449920
+        }
+      }
+    }
+    timeline_label: "conv2d/kernel/Adam = VarHandleOp()"
+    scheduled_micros: 1531422477750716
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d/kernel/Adam_1"
+    all_start_micros: 1531422477750741
+    op_end_rel_micros: 1
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583450432
+        }
+      }
+    }
+    timeline_label: "conv2d/kernel/Adam_1 = VarHandleOp()"
+    scheduled_micros: 1531422477750740
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d_1/bias/Adam"
+    all_start_micros: 1531422477750745
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583451136
+        }
+      }
+    }
+    timeline_label: "conv2d_1/bias/Adam = VarHandleOp()"
+    scheduled_micros: 1531422477750743
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d_1/bias/Adam_1"
+    all_start_micros: 1531422477750748
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583451584
+        }
+      }
+    }
+    timeline_label: "conv2d_1/bias/Adam_1 = VarHandleOp()"
+    scheduled_micros: 1531422477750747
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d_1/kernel/Adam"
+    all_start_micros: 1531422477750752
+    op_end_rel_micros: 1
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583452352
+        }
+      }
+    }
+    timeline_label: "conv2d_1/kernel/Adam = VarHandleOp()"
+    scheduled_micros: 1531422477750751
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d_1/kernel/Adam_1"
+    all_start_micros: 1531422477750755
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583452864
+        }
+      }
+    }
+    timeline_label: "conv2d_1/kernel/Adam_1 = VarHandleOp()"
+    scheduled_micros: 1531422477750754
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "dense/bias/Adam"
+    all_start_micros: 1531422477750759
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583457600
+        }
+      }
+    }
+    timeline_label: "dense/bias/Adam = VarHandleOp()"
+    scheduled_micros: 1531422477750758
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "dense/bias/Adam_1"
+    all_start_micros: 1531422477750763
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583457856
+        }
+      }
+    }
+    timeline_label: "dense/bias/Adam_1 = VarHandleOp()"
+    scheduled_micros: 1531422477750762
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "dense/kernel/Adam"
+    all_start_micros: 1531422477750765
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583458688
+        }
+      }
+    }
+    timeline_label: "dense/kernel/Adam = VarHandleOp()"
+    scheduled_micros: 1531422477750765
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "dense/kernel/Adam_1"
+    all_start_micros: 1531422477750767
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583459136
+        }
+      }
+    }
+    timeline_label: "dense/kernel/Adam_1 = VarHandleOp()"
+    scheduled_micros: 1531422477750767
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "dense_1/bias/Adam"
+    all_start_micros: 1531422477750770
+    op_start_rel_micros: 1
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583459904
+        }
+      }
+    }
+    timeline_label: "dense_1/bias/Adam = VarHandleOp()"
+    scheduled_micros: 1531422477750770
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "dense_1/bias/Adam_1"
+    all_start_micros: 1531422477750773
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583460416
+        }
+      }
+    }
+    timeline_label: "dense_1/bias/Adam_1 = VarHandleOp()"
+    scheduled_micros: 1531422477750772
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "dense_1/kernel/Adam"
+    all_start_micros: 1531422477750775
+    op_end_rel_micros: 14
+    all_end_rel_micros: 15
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583461184
+        }
+      }
+    }
+    timeline_label: "dense_1/kernel/Adam = VarHandleOp()"
+    scheduled_micros: 1531422477750775
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "dense_1/kernel/Adam_1"
+    all_start_micros: 1531422477750791
+    all_end_rel_micros: 1
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583461632
+        }
+      }
+    }
+    timeline_label: "dense_1/kernel/Adam_1 = VarHandleOp()"
+    scheduled_micros: 1531422477750790
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "beta1_power"
+    all_start_micros: 1531422477750793
+    op_end_rel_micros: 17
+    all_end_rel_micros: 18
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 29
+          has_single_reference: true
+          ptr: 139690636739328
+        }
+      }
+    }
+    timeline_label: "beta1_power = VariableV2()"
+    scheduled_micros: 1531422477750792
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "beta2_power"
+    all_start_micros: 1531422477750812
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 30
+          has_single_reference: true
+          ptr: 139690636739584
+        }
+      }
+    }
+    timeline_label: "beta2_power = VariableV2()"
+    scheduled_micros: 1531422477750811
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "Adam/learning_rate"
+    all_start_micros: 1531422477750815
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 163
+          ptr: 139690676041472
+        }
+      }
+    }
+    timeline_label: "Adam/learning_rate = Const()"
+    scheduled_micros: 1531422477750814
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "Adam/beta1"
+    all_start_micros: 1531422477750818
+    op_end_rel_micros: 19
+    all_end_rel_micros: 20
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 164
+          ptr: 139690676041728
+        }
+      }
+    }
+    timeline_label: "Adam/beta1 = Const()"
+    scheduled_micros: 1531422477750817
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "Adam/beta2"
+    all_start_micros: 1531422477750839
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 165
+          ptr: 139690676041984
+        }
+      }
+    }
+    timeline_label: "Adam/beta2 = Const()"
+    scheduled_micros: 1531422477750838
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "Adam/epsilon"
+    all_start_micros: 1531422477750841
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 166
+          ptr: 139690676042240
+        }
+      }
+    }
+    timeline_label: "Adam/epsilon = Const()"
+    scheduled_micros: 1531422477750841
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like"
+    all_start_micros: 1531422477750844
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 167
+          ptr: 139690676042496
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like = Const()"
+    scheduled_micros: 1531422477750843
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "gradients/Fill"
+    all_start_micros: 1531422477750846
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 168
+          ptr: 139690676042752
+        }
+      }
+    }
+    timeline_label: "gradients/Fill = Const()"
+    scheduled_micros: 1531422477750846
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape"
+    all_start_micros: 1531422477750849
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 1
+          }
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 100
+          ptr: 139696269167360
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape = Const()"
+    scheduled_micros: 1531422477750848
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim"
+    all_start_micros: 1531422477750852
+    all_end_rel_micros: 1
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 101
+          ptr: 139696269167616
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim = Const()"
+    scheduled_micros: 1531422477750851
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "global_step/Initializer/zeros"
+    all_start_micros: 1531422477750854
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT64
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 169
+          ptr: 139690676043008
+        }
+      }
+    }
+    timeline_label: "global_step/Initializer/zeros = Const()"
+    scheduled_micros: 1531422477750853
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "global_step"
+    all_start_micros: 1531422477750856
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT64
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 55
+          has_single_reference: true
+          ptr: 139690676036864
+        }
+      }
+    }
+    timeline_label: "global_step = VariableV2()"
+    scheduled_micros: 1531422477750856
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/keep_prob"
+    all_start_micros: 1531422477750860
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 170
+          ptr: 139690676043264
+        }
+      }
+    }
+    timeline_label: "sequential/dropout/dropout/keep_prob = Const()"
+    scheduled_micros: 1531422477750859
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "sequential/reshape/strided_slice/stack"
+    all_start_micros: 1531422477750862
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 1
+          }
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 104
+          ptr: 139696269167872
+        }
+      }
+    }
+    timeline_label: "sequential/reshape/strided_slice/stack = Const()"
+    scheduled_micros: 1531422477750861
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/reshape/Reshape/shape/1"
+    all_start_micros: 1531422477750864
+    op_start_rel_micros: 1
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 105
+          ptr: 139696269168128
+        }
+      }
+    }
+    timeline_label: "sequential/reshape/Reshape/shape/1 = Const()"
+    scheduled_micros: 1531422477750864
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/reshape/Reshape/shape/2"
+    all_start_micros: 1531422477750867
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 106
+          ptr: 139696269168384
+        }
+      }
+    }
+    timeline_label: "sequential/reshape/Reshape/shape/2 = Const()"
+    scheduled_micros: 1531422477750866
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d/kernel"
+    all_start_micros: 1531422477750869
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583450816
+        }
+      }
+    }
+    timeline_label: "conv2d/kernel = VarHandleOp()"
+    scheduled_micros: 1531422477750869
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d/bias"
+    all_start_micros: 1531422477750872
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583449600
+        }
+      }
+    }
+    timeline_label: "conv2d/bias = VarHandleOp()"
+    scheduled_micros: 1531422477750871
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d_1/kernel"
+    all_start_micros: 1531422477750874
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583457344
+        }
+      }
+    }
+    timeline_label: "conv2d_1/kernel = VarHandleOp()"
+    scheduled_micros: 1531422477750874
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "conv2d_1/bias"
+    all_start_micros: 1531422477750876
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583452032
+        }
+      }
+    }
+    timeline_label: "conv2d_1/bias = VarHandleOp()"
+    scheduled_micros: 1531422477750876
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip"
+    all_start_micros: 1531422477750878
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 171
+          ptr: 139690676043520
+        }
+      }
+    }
+    timeline_label: "ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip = Const()"
+    scheduled_micros: 1531422477750878
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "dense/kernel"
+    all_start_micros: 1531422477750881
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583459584
+        }
+      }
+    }
+    timeline_label: "dense/kernel = VarHandleOp()"
+    scheduled_micros: 1531422477750880
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "dense/bias"
+    all_start_micros: 1531422477750883
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583458368
+        }
+      }
+    }
+    timeline_label: "dense/bias = VarHandleOp()"
+    scheduled_micros: 1531422477750883
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "dense_1/kernel"
+    all_start_micros: 1531422477750885
+    op_start_rel_micros: 1
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583462080
+        }
+      }
+    }
+    timeline_label: "dense_1/kernel = VarHandleOp()"
+    scheduled_micros: 1531422477750885
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "dense_1/bias"
+    all_start_micros: 1531422477750888
+    all_end_rel_micros: 1
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_RESOURCE
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 136
+          allocator_name: "cpu_pool"
+          ptr: 139689583460864
+        }
+      }
+    }
+    timeline_label: "dense_1/bias = VarHandleOp()"
+    scheduled_micros: 1531422477750887
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Const"
+    all_start_micros: 1531422477750890
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 172
+          ptr: 139690676043776
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Const = Const()"
+    scheduled_micros: 1531422477750889
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "beta1_power/read"
+    all_start_micros: 1531422477750893
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 29
+          ptr: 139690636739328
+        }
+      }
+    }
+    timeline_label: "beta1_power/read = Identity(beta1_power)"
+    scheduled_micros: 1531422477750892
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "beta2_power/read"
+    all_start_micros: 1531422477750896
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 30
+          ptr: 139690636739584
+        }
+      }
+    }
+    timeline_label: "beta2_power/read = Identity(beta2_power)"
+    scheduled_micros: 1531422477750895
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "global_step/IsVariableInitialized"
+    all_start_micros: 1531422477750898
+    op_end_rel_micros: 18
+    all_end_rel_micros: 20
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 1
+      peak_bytes: 1
+      live_bytes: 1
+      allocation_records {
+        alloc_micros: 1531422477750915
+        alloc_bytes: 1
+      }
+      allocation_records {
+        alloc_micros: 1531422477751001
+        alloc_bytes: -1
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_BOOL
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 1
+          allocated_bytes: 1
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139689784778368
+        }
+      }
+    }
+    timeline_label: "global_step/IsVariableInitialized = IsVariableInitialized(global_step)"
+    scheduled_micros: 1531422477750898
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/conv2d/Conv2D/ReadVariableOp"
+    all_start_micros: 1531422477750919
+    op_end_rel_micros: 23
+    all_end_rel_micros: 25
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 5
+          }
+          dim {
+            size: 5
+          }
+          dim {
+            size: 1
+          }
+          dim {
+            size: 32
+          }
+        }
+        allocation_description {
+          requested_bytes: 3200
+          allocated_bytes: 3328
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 36
+          ptr: 139690636747264
+        }
+      }
+    }
+    timeline_label: "sequential/conv2d/Conv2D/ReadVariableOp = ReadVariableOp(conv2d/kernel)"
+    scheduled_micros: 1531422477750917
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/conv2d/BiasAdd/ReadVariableOp"
+    all_start_micros: 1531422477750945
+    op_end_rel_micros: 2
+    all_end_rel_micros: 4
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 32
+          }
+        }
+        allocation_description {
+          requested_bytes: 128
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 33
+          ptr: 139690636740352
+        }
+      }
+    }
+    timeline_label: "sequential/conv2d/BiasAdd/ReadVariableOp = ReadVariableOp(conv2d/bias)"
+    scheduled_micros: 1531422477750944
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/Conv2D/ReadVariableOp"
+    all_start_micros: 1531422477750950
+    op_start_rel_micros: 1
+    op_end_rel_micros: 21
+    all_end_rel_micros: 22
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 5
+          }
+          dim {
+            size: 5
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 204800
+          allocated_bytes: 204800
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 42
+          ptr: 139690637160960
+        }
+      }
+    }
+    timeline_label: "sequential/conv2d_1/Conv2D/ReadVariableOp = ReadVariableOp(conv2d_1/kernel)"
+    scheduled_micros: 1531422477750949
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/BiasAdd/ReadVariableOp"
+    all_start_micros: 1531422477750973
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 256
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 39
+          ptr: 139690636751104
+        }
+      }
+    }
+    timeline_label: "sequential/conv2d_1/BiasAdd/ReadVariableOp = ReadVariableOp(conv2d_1/bias)"
+    scheduled_micros: 1531422477750972
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dense/MatMul/ReadVariableOp"
+    all_start_micros: 1531422477750976
+    op_end_rel_micros: 1
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 3136
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 12845056
+          allocated_bytes: 12845056
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 48
+          ptr: 139690663068160
+        }
+      }
+    }
+    timeline_label: "sequential/dense/MatMul/ReadVariableOp = ReadVariableOp(dense/kernel)"
+    scheduled_micros: 1531422477750975
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dense/BiasAdd/ReadVariableOp"
+    all_start_micros: 1531422477750979
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 4096
+          allocated_bytes: 4096
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 45
+          ptr: 139690637373952
+        }
+      }
+    }
+    timeline_label: "sequential/dense/BiasAdd/ReadVariableOp = ReadVariableOp(dense/bias)"
+    scheduled_micros: 1531422477750979
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dense_1/MatMul/ReadVariableOp"
+    all_start_micros: 1531422477750983
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 1024
+          }
+          dim {
+            size: 10
+          }
+        }
+        allocation_description {
+          requested_bytes: 40960
+          allocated_bytes: 40960
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 54
+          ptr: 139690675995904
+        }
+      }
+    }
+    timeline_label: "sequential/dense_1/MatMul/ReadVariableOp = ReadVariableOp(dense_1/kernel)"
+    scheduled_micros: 1531422477750982
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dense_1/BiasAdd/ReadVariableOp"
+    all_start_micros: 1531422477750987
+    op_start_rel_micros: 1
+    op_end_rel_micros: 3
+    all_end_rel_micros: 4
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 10
+          }
+        }
+        allocation_description {
+          requested_bytes: 40
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 51
+          ptr: 139690675913728
+        }
+      }
+    }
+    timeline_label: "sequential/dense_1/BiasAdd/ReadVariableOp = ReadVariableOp(dense_1/bias)"
+    scheduled_micros: 1531422477750986
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "global_step/cond/Switch_1"
+    all_start_micros: 1531422477750992
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 4
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      slot: 1
+      tensor_description {
+        dtype: DT_INT64
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 169
+          ptr: 139690676043008
+        }
+      }
+    }
+    timeline_label: "global_step/cond/Switch_1 = Switch(global_step/Initializer/zeros, global_step/IsVariableInitialized)"
+    scheduled_micros: 1531422477750991
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "global_step/cond/read/Switch"
+    all_start_micros: 1531422477750998
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 5
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    output {
+      slot: 1
+      tensor_description {
+        dtype: DT_INT64
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 55
+          has_single_reference: true
+          ptr: 139690676036864
+        }
+      }
+    }
+    timeline_label: "global_step/cond/read/Switch = RefSwitch(global_step, global_step/IsVariableInitialized)"
+    scheduled_micros: 1531422477750996
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "global_step/cond/Merge"
+    all_start_micros: 1531422477751004
+    op_end_rel_micros: 2
+    all_end_rel_micros: 5
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52412928
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 4
+      peak_bytes: 4
+      live_bytes: 4
+      allocation_records {
+        alloc_micros: 1531422477751006
+        alloc_bytes: 4
+      }
+      allocation_records {
+        alloc_micros: 1531422477751009
+        alloc_bytes: -4
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT64
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 55
+          ptr: 139690676036864
+        }
+      }
+    }
+    output {
+      slot: 1
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 4
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139688905657024
+        }
+      }
+    }
+    timeline_label: "global_step/cond/Merge = Merge(global_step/cond/Switch_1, global_step/cond/read/Switch:1)"
+    scheduled_micros: 1531422477751003
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "global_step/add"
+    all_start_micros: 1531422477751011
+    op_end_rel_micros: 87
+    all_end_rel_micros: 90
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 256
+      peak_bytes: 256
+      live_bytes: 256
+      allocator_bytes_in_use: 52413184
+      allocation_records {
+        alloc_micros: 1531422477751026
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477751139
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT64
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 174
+          has_single_reference: true
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "global_step/add = Snapshot(global_step/cond/Merge)"
+    scheduled_micros: 1531422477751009
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/reshape/strided_slice"
+    all_start_micros: 1531422477754534
+    op_start_rel_micros: 1
+    op_end_rel_micros: 13
+    all_end_rel_micros: 18
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52727040
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 4
+      peak_bytes: 4
+      live_bytes: 4
+      allocation_records {
+        alloc_micros: 1531422477754544
+        alloc_bytes: 4
+      }
+      allocation_records {
+        alloc_micros: 1531422477754565
+        alloc_bytes: -4
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 4
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139689986108992
+        }
+      }
+    }
+    timeline_label: "sequential/reshape/strided_slice = StridedSlice(sequential/reshape/Shape/_197, sequential/reshape/strided_slice/stack, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape)"
+    scheduled_micros: 1531422477754528
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/reshape/Reshape/shape"
+    all_start_micros: 1531422477754555
+    op_start_rel_micros: 1
+    op_end_rel_micros: 8
+    all_end_rel_micros: 10
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52727040
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 16
+      peak_bytes: 16
+      live_bytes: 16
+      allocation_records {
+        alloc_micros: 1531422477754559
+        alloc_bytes: 16
+      }
+      allocation_records {
+        alloc_micros: 1531422477754704
+        alloc_bytes: -16
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 16
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139688905589952
+        }
+      }
+    }
+    timeline_label: "sequential/reshape/Reshape/shape = Pack(sequential/reshape/strided_slice, sequential/reshape/Reshape/shape/1, sequential/reshape/Reshape/shape/2, sequential/reshape/Reshape/shape/2)"
+    scheduled_micros: 1531422477754552
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/reshape/Reshape"
+    all_start_micros: 1531422477754696
+    op_start_rel_micros: 2
+    op_end_rel_micros: 5
+    all_end_rel_micros: 9
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52727040
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1
+          }
+          dim {
+            size: 28
+          }
+          dim {
+            size: 28
+          }
+        }
+        allocation_description {
+          requested_bytes: 313600
+          allocated_bytes: 313600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 176
+          ptr: 139690676044800
+        }
+      }
+    }
+    timeline_label: "sequential/reshape/Reshape = Reshape(IteratorGetNext/_199, sequential/reshape/Reshape/shape)"
+    scheduled_micros: 1531422477754691
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/conv2d/Conv2D"
+    all_start_micros: 1531422477754707
+    op_start_rel_micros: 1
+    op_end_rel_micros: 94
+    all_end_rel_micros: 97
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 20078592
+      peak_bytes: 20078592
+      live_bytes: 10035200
+      allocator_bytes_in_use: 62762240
+      allocation_records {
+        alloc_micros: 1531422477754712
+        alloc_bytes: 10035200
+      }
+      allocation_records {
+        alloc_micros: 1531422477754715
+        alloc_bytes: 3328
+      }
+      allocation_records {
+        alloc_micros: 1531422477754741
+        alloc_bytes: 10035200
+      }
+      allocation_records {
+        alloc_micros: 1531422477754758
+        alloc_bytes: 4864
+      }
+      allocation_records {
+        alloc_micros: 1531422477754797
+        alloc_bytes: -10035200
+      }
+      allocation_records {
+        alloc_micros: 1531422477754798
+        alloc_bytes: -4864
+      }
+      allocation_records {
+        alloc_micros: 1531422477754799
+        alloc_bytes: -3328
+      }
+      allocation_records {
+        alloc_micros: 1531422477756183
+        alloc_bytes: -10035200
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 28
+          }
+          dim {
+            size: 28
+          }
+        }
+        allocation_description {
+          requested_bytes: 10035200
+          allocated_bytes: 10035200
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 179
+          has_single_reference: true
+          ptr: 139690686396928
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 19.1MB 19.1MB] sequential/conv2d/Conv2D = Conv2D(sequential/reshape/Reshape, sequential/conv2d/Conv2D/ReadVariableOp)"
+    scheduled_micros: 1531422477754705
+    memory_stats {
+      temp_memory_size: 10043392
+    }
+  }
+  node_stats {
+    node_name: "ConstantFolding/gradients/sequential/conv2d/Conv2D_grad/ShapeN-matshapes-1"
+    all_start_micros: 1531422477754810
+    op_start_rel_micros: 1
+    op_end_rel_micros: 3
+    all_end_rel_micros: 4
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 62762240
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 109
+          ptr: 139696269168640
+        }
+      }
+    }
+    timeline_label: "ConstantFolding/gradients/sequential/conv2d/Conv2D_grad/ShapeN-matshapes-1 = Const(^sequential/conv2d/Conv2D/ReadVariableOp, ^sequential/reshape/Reshape)"
+    scheduled_micros: 1531422477754804
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/conv2d/BiasAdd"
+    all_start_micros: 1531422477754815
+    op_start_rel_micros: 1
+    op_end_rel_micros: 15
+    all_end_rel_micros: 17
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 62762240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 28
+          }
+          dim {
+            size: 28
+          }
+        }
+        allocation_description {
+          requested_bytes: 10035200
+          allocated_bytes: 10035200
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 179
+          ptr: 139690686396928
+        }
+      }
+    }
+    timeline_label: "sequential/conv2d/BiasAdd = BiasAdd(sequential/conv2d/Conv2D, sequential/conv2d/BiasAdd/ReadVariableOp)"
+    scheduled_micros: 1531422477754814
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/conv2d/Relu"
+    all_start_micros: 1531422477754834
+    op_start_rel_micros: 1
+    op_end_rel_micros: 12
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 62762240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 28
+          }
+          dim {
+            size: 28
+          }
+        }
+        allocation_description {
+          requested_bytes: 10035200
+          allocated_bytes: 10035200
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 179
+          ptr: 139690686396928
+        }
+      }
+    }
+    timeline_label: "sequential/conv2d/Relu = Relu(sequential/conv2d/BiasAdd)"
+    scheduled_micros: 1531422477754832
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/max_pooling2d/MaxPool"
+    all_start_micros: 1531422477754849
+    op_start_rel_micros: 1
+    op_end_rel_micros: 24
+    all_end_rel_micros: 27
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 2508800
+      peak_bytes: 2508800
+      live_bytes: 2508800
+      allocator_bytes_in_use: 65271040
+      allocation_records {
+        alloc_micros: 1531422477754853
+        alloc_bytes: 2508800
+      }
+      allocation_records {
+        alloc_micros: 1531422477756134
+        alloc_bytes: -2508800
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 14
+          }
+          dim {
+            size: 14
+          }
+        }
+        allocation_description {
+          requested_bytes: 2508800
+          allocated_bytes: 2508800
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 181
+          has_single_reference: true
+          ptr: 139690676358400
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 2.4MB 2.4MB] sequential/max_pooling2d/MaxPool = MaxPool(sequential/conv2d/Relu)"
+    scheduled_micros: 1531422477754848
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/ShapeN"
+    all_start_micros: 1531422477754878
+    op_start_rel_micros: 1
+    op_end_rel_micros: 5
+    all_end_rel_micros: 8
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 65271040
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 32
+      peak_bytes: 32
+      live_bytes: 32
+      allocation_records {
+        alloc_micros: 1531422477754881
+        alloc_bytes: 16
+      }
+      allocation_records {
+        alloc_micros: 1531422477754883
+        alloc_bytes: 16
+      }
+      allocation_records {
+        alloc_micros: 1531422477754885
+        alloc_bytes: -16
+      }
+      allocation_records {
+        alloc_micros: 1531422477756100
+        alloc_bytes: -16
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 16
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139689855322560
+        }
+      }
+    }
+    output {
+      slot: 1
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 16
+          allocator_name: "cpu_pool"
+          allocation_id: 2
+          has_single_reference: true
+          ptr: 139688905589952
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/conv2d_1/Conv2D_grad/ShapeN = ShapeN(sequential/max_pooling2d/MaxPool, sequential/conv2d_1/Conv2D/ReadVariableOp)"
+    scheduled_micros: 1531422477754876
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/Conv2D"
+    all_start_micros: 1531422477754887
+    op_end_rel_micros: 46
+    all_end_rel_micros: 49
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 12753408
+      peak_bytes: 12753408
+      live_bytes: 5017600
+      allocator_bytes_in_use: 70288640
+      allocation_records {
+        alloc_micros: 1531422477754890
+        alloc_bytes: 7529728
+      }
+      allocation_records {
+        alloc_micros: 1531422477754891
+        alloc_bytes: 204800
+      }
+      allocation_records {
+        alloc_micros: 1531422477754902
+        alloc_bytes: 5017600
+      }
+      allocation_records {
+        alloc_micros: 1531422477754910
+        alloc_bytes: 1280
+      }
+      allocation_records {
+        alloc_micros: 1531422477754930
+        alloc_bytes: -7529728
+      }
+      allocation_records {
+        alloc_micros: 1531422477754931
+        alloc_bytes: -1280
+      }
+      allocation_records {
+        alloc_micros: 1531422477754932
+        alloc_bytes: -204800
+      }
+      allocation_records {
+        alloc_micros: 1531422477755884
+        alloc_bytes: -5017600
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 14
+          }
+          dim {
+            size: 14
+          }
+        }
+        allocation_description {
+          requested_bytes: 5017600
+          allocated_bytes: 5017600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 184
+          has_single_reference: true
+          ptr: 139690696636928
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 12.2MB 12.2MB] sequential/conv2d_1/Conv2D = Conv2D(sequential/max_pooling2d/MaxPool, sequential/conv2d_1/Conv2D/ReadVariableOp)"
+    scheduled_micros: 1531422477754886
+    memory_stats {
+      temp_memory_size: 5223680
+    }
+  }
+  node_stats {
+    node_name: "ConstantFolding/gradients/sequential/conv2d_1/Conv2D_grad/ShapeN-matshapes-1"
+    all_start_micros: 1531422477754939
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 70288640
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 256
+          allocator_name: "cuda_host_bfc"
+          allocation_id: 110
+          ptr: 139696269168896
+        }
+      }
+    }
+    timeline_label: "ConstantFolding/gradients/sequential/conv2d_1/Conv2D_grad/ShapeN-matshapes-1 = Const(^gradients/sequential/conv2d_1/Conv2D_grad/ShapeN)"
+    scheduled_micros: 1531422477754935
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/BiasAdd"
+    all_start_micros: 1531422477754943
+    op_end_rel_micros: 11
+    all_end_rel_micros: 13
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 70288640
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 14
+          }
+          dim {
+            size: 14
+          }
+        }
+        allocation_description {
+          requested_bytes: 5017600
+          allocated_bytes: 5017600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 184
+          ptr: 139690696636928
+        }
+      }
+    }
+    timeline_label: "sequential/conv2d_1/BiasAdd = BiasAdd(sequential/conv2d_1/Conv2D, sequential/conv2d_1/BiasAdd/ReadVariableOp)"
+    scheduled_micros: 1531422477754942
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/Relu"
+    all_start_micros: 1531422477754957
+    op_end_rel_micros: 8
+    all_end_rel_micros: 11
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 70288640
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 14
+          }
+          dim {
+            size: 14
+          }
+        }
+        allocation_description {
+          requested_bytes: 5017600
+          allocated_bytes: 5017600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 184
+          ptr: 139690696636928
+        }
+      }
+    }
+    timeline_label: "sequential/conv2d_1/Relu = Relu(sequential/conv2d_1/BiasAdd)"
+    scheduled_micros: 1531422477754956
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/max_pooling2d_1/MaxPool"
+    all_start_micros: 1531422477754969
+    op_end_rel_micros: 17
+    all_end_rel_micros: 19
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 1254400
+      peak_bytes: 1254400
+      live_bytes: 1254400
+      allocator_bytes_in_use: 71543040
+      allocation_records {
+        alloc_micros: 1531422477754972
+        alloc_bytes: 1254400
+      }
+      allocation_records {
+        alloc_micros: 1531422477755866
+        alloc_bytes: -1254400
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 7
+          }
+          dim {
+            size: 7
+          }
+        }
+        allocation_description {
+          requested_bytes: 1254400
+          allocated_bytes: 1254400
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 186
+          has_single_reference: true
+          ptr: 139690678867200
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 1.2MB 1.2MB] sequential/max_pooling2d_1/MaxPool = MaxPool(sequential/conv2d_1/Relu)"
+    scheduled_micros: 1531422477754968
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/flatten/Reshape_grad/Shape"
+    all_start_micros: 1531422477754990
+    op_start_rel_micros: 1
+    op_end_rel_micros: 4
+    all_end_rel_micros: 5
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 71543040
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 16
+      peak_bytes: 16
+      live_bytes: 16
+      allocation_records {
+        alloc_micros: 1531422477754993
+        alloc_bytes: 16
+      }
+      allocation_records {
+        alloc_micros: 1531422477755798
+        alloc_bytes: -16
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 4
+          }
+        }
+        allocation_description {
+          requested_bytes: 16
+          allocated_bytes: 16
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139688905589952
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/flatten/Reshape_grad/Shape = Shape(sequential/max_pooling2d_1/MaxPool)"
+    scheduled_micros: 1531422477754988
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/flatten/strided_slice"
+    all_start_micros: 1531422477754996
+    op_start_rel_micros: 1
+    op_end_rel_micros: 5
+    all_end_rel_micros: 7
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 71543040
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 4
+      peak_bytes: 4
+      live_bytes: 4
+      allocation_records {
+        alloc_micros: 1531422477755000
+        alloc_bytes: 4
+      }
+      allocation_records {
+        alloc_micros: 1531422477755009
+        alloc_bytes: -4
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 4
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139688905657024
+        }
+      }
+    }
+    timeline_label: "sequential/flatten/strided_slice = StridedSlice(gradients/sequential/flatten/Reshape_grad/Shape, sequential/reshape/strided_slice/stack, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape)"
+    scheduled_micros: 1531422477754995
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/flatten/Reshape/shape"
+    all_start_micros: 1531422477755004
+    op_start_rel_micros: 1
+    op_end_rel_micros: 4
+    all_end_rel_micros: 6
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 71543040
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 8
+      peak_bytes: 8
+      live_bytes: 8
+      allocation_records {
+        alloc_micros: 1531422477755007
+        alloc_bytes: 8
+      }
+      allocation_records {
+        alloc_micros: 1531422477755014
+        alloc_bytes: -8
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 2
+          }
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 8
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139688905626112
+        }
+      }
+    }
+    timeline_label: "sequential/flatten/Reshape/shape = Pack(sequential/flatten/strided_slice, gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim)"
+    scheduled_micros: 1531422477755003
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/flatten/Reshape"
+    all_start_micros: 1531422477755011
+    op_end_rel_micros: 1
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 71543040
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 3136
+          }
+        }
+        allocation_description {
+          requested_bytes: 1254400
+          allocated_bytes: 1254400
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 186
+          ptr: 139690678867200
+        }
+      }
+    }
+    timeline_label: "sequential/flatten/Reshape = Reshape(sequential/max_pooling2d_1/MaxPool, sequential/flatten/Reshape/shape)"
+    scheduled_micros: 1531422477755010
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dense/MatMul"
+    all_start_micros: 1531422477755015
+    op_end_rel_micros: 40
+    all_end_rel_micros: 42
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 409600
+      peak_bytes: 409600
+      live_bytes: 409600
+      allocator_bytes_in_use: 71952640
+      allocation_records {
+        alloc_micros: 1531422477755017
+        alloc_bytes: 409600
+      }
+      allocation_records {
+        alloc_micros: 1531422477755708
+        alloc_bytes: -409600
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 187
+          has_single_reference: true
+          ptr: 139690680121600
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 0.4MB 0.4MB] sequential/dense/MatMul = MatMul(sequential/flatten/Reshape, sequential/dense/MatMul/ReadVariableOp)"
+    scheduled_micros: 1531422477755014
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dense/BiasAdd"
+    all_start_micros: 1531422477755061
+    op_end_rel_micros: 12
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 71952640
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 187
+          ptr: 139690680121600
+        }
+      }
+    }
+    timeline_label: "sequential/dense/BiasAdd = BiasAdd(sequential/dense/MatMul, sequential/dense/BiasAdd/ReadVariableOp)"
+    scheduled_micros: 1531422477755057
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dense/Relu"
+    all_start_micros: 1531422477755076
+    op_end_rel_micros: 8
+    all_end_rel_micros: 10
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 71952640
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 187
+          ptr: 139690680121600
+        }
+      }
+    }
+    timeline_label: "sequential/dense/Relu = Relu(sequential/dense/BiasAdd)"
+    scheduled_micros: 1531422477755074
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dropout/dropout/div_grad/Shape"
+    all_start_micros: 1531422477755087
+    op_start_rel_micros: 1
+    op_end_rel_micros: 3
+    all_end_rel_micros: 5
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 71952640
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 8
+      peak_bytes: 8
+      live_bytes: 8
+      allocation_records {
+        alloc_micros: 1531422477755090
+        alloc_bytes: 8
+      }
+      allocation_records {
+        alloc_micros: 1531422477755694
+        alloc_bytes: -8
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 2
+          }
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 8
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139688905607424
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/dropout/dropout/div_grad/Shape = Shape(sequential/dense/Relu)"
+    scheduled_micros: 1531422477755086
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/div"
+    all_start_micros: 1531422477755093
+    op_end_rel_micros: 14
+    all_end_rel_micros: 16
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 409600
+      peak_bytes: 409600
+      live_bytes: 409600
+      allocator_bytes_in_use: 72362240
+      allocation_records {
+        alloc_micros: 1531422477755096
+        alloc_bytes: 409600
+      }
+      allocation_records {
+        alloc_micros: 1531422477755628
+        alloc_bytes: -409600
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 188
+          has_single_reference: true
+          ptr: 139690680531200
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 0.4MB 0.4MB] sequential/dropout/dropout/div = Mul(sequential/dense/Relu, ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip)"
+    scheduled_micros: 1531422477755092
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dropout/dropout/div_grad/BroadcastGradientArgs"
+    all_start_micros: 1531422477755111
+    op_start_rel_micros: 1
+    op_end_rel_micros: 5
+    all_end_rel_micros: 7
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72362240
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 8
+      peak_bytes: 8
+      live_bytes: 8
+      allocation_records {
+        alloc_micros: 1531422477755115
+        alloc_bytes: 8
+      }
+      allocation_records {
+        alloc_micros: 1531422477755118
+        alloc_bytes: -8
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+          }
+        }
+      }
+    }
+    output {
+      slot: 1
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 2
+          }
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 8
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139688905626112
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/dropout/dropout/div_grad/BroadcastGradientArgs = BroadcastGradientArgs(gradients/sequential/dropout/dropout/div_grad/Shape, ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1)"
+    scheduled_micros: 1531422477755109
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/random_uniform/RandomUniform"
+    all_start_micros: 1531422477755120
+    op_end_rel_micros: 13
+    all_end_rel_micros: 15
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 409600
+      peak_bytes: 409600
+      live_bytes: 409600
+      allocator_bytes_in_use: 72771840
+      allocation_records {
+        alloc_micros: 1531422477755122
+        alloc_bytes: 409600
+      }
+      allocation_records {
+        alloc_micros: 1531422477755672
+        alloc_bytes: -409600
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 189
+          has_single_reference: true
+          ptr: 139690680940800
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 0.4MB 0.4MB] sequential/dropout/dropout/random_uniform/RandomUniform = RandomUniform(gradients/sequential/dropout/dropout/div_grad/Shape)"
+    scheduled_micros: 1531422477755118
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/random_uniform/mul"
+    all_start_micros: 1531422477755137
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72771840
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 189
+          ptr: 139690680940800
+        }
+      }
+    }
+    timeline_label: "sequential/dropout/dropout/random_uniform/mul = Snapshot(sequential/dropout/dropout/random_uniform/RandomUniform)"
+    scheduled_micros: 1531422477755135
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/random_uniform"
+    all_start_micros: 1531422477755141
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72771840
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 189
+          ptr: 139690680940800
+        }
+      }
+    }
+    timeline_label: "sequential/dropout/dropout/random_uniform = Snapshot(sequential/dropout/dropout/random_uniform/mul)"
+    scheduled_micros: 1531422477755140
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/add"
+    all_start_micros: 1531422477755144
+    op_end_rel_micros: 13
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72771840
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 189
+          ptr: 139690680940800
+        }
+      }
+    }
+    timeline_label: "sequential/dropout/dropout/add = Add(sequential/dropout/dropout/keep_prob, sequential/dropout/dropout/random_uniform)"
+    scheduled_micros: 1531422477755143
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/Floor"
+    all_start_micros: 1531422477755160
+    op_end_rel_micros: 10
+    all_end_rel_micros: 12
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72771840
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 189
+          ptr: 139690680940800
+        }
+      }
+    }
+    timeline_label: "sequential/dropout/dropout/Floor = Floor(sequential/dropout/dropout/add)"
+    scheduled_micros: 1531422477755158
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/mul"
+    all_start_micros: 1531422477755173
+    op_end_rel_micros: 10
+    all_end_rel_micros: 11
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72771840
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 188
+          ptr: 139690680531200
+        }
+      }
+    }
+    timeline_label: "sequential/dropout/dropout/mul = Mul(sequential/dropout/dropout/div, sequential/dropout/dropout/Floor)"
+    scheduled_micros: 1531422477755171
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dense_1/MatMul"
+    all_start_micros: 1531422477755185
+    op_start_rel_micros: 1
+    op_end_rel_micros: 15
+    all_end_rel_micros: 17
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 4096
+      peak_bytes: 4096
+      live_bytes: 4096
+      allocator_bytes_in_use: 72775936
+      allocation_records {
+        alloc_micros: 1531422477755187
+        alloc_bytes: 4096
+      }
+      allocation_records {
+        alloc_micros: 1531422477755629
+        alloc_bytes: -4096
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 10
+          }
+        }
+        allocation_description {
+          requested_bytes: 4000
+          allocated_bytes: 4096
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 190
+          has_single_reference: true
+          ptr: 139690696432128
+        }
+      }
+    }
+    timeline_label: "sequential/dense_1/MatMul = MatMul(sequential/dropout/dropout/mul, sequential/dense_1/MatMul/ReadVariableOp)"
+    scheduled_micros: 1531422477755184
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sequential/dense_1/BiasAdd"
+    all_start_micros: 1531422477755203
+    op_end_rel_micros: 8
+    all_end_rel_micros: 10
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72775936
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 10
+          }
+        }
+        allocation_description {
+          requested_bytes: 4000
+          allocated_bytes: 4096
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 190
+          ptr: 139690696432128
+        }
+      }
+    }
+    timeline_label: "sequential/dense_1/BiasAdd = BiasAdd(sequential/dense_1/MatMul, sequential/dense_1/BiasAdd/ReadVariableOp)"
+    scheduled_micros: 1531422477755202
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy"
+    all_start_micros: 1531422477755214
+    op_start_rel_micros: 1
+    op_end_rel_micros: 47
+    all_end_rel_micros: 50
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 1024
+      peak_bytes: 1024
+      live_bytes: 512
+      allocator_bytes_in_use: 72776448
+      allocation_records {
+        alloc_micros: 1531422477755216
+        alloc_bytes: 512
+      }
+      allocation_records {
+        alloc_micros: 1531422477755217
+        alloc_bytes: 512
+      }
+      allocation_records {
+        alloc_micros: 1531422477755261
+        alloc_bytes: -512
+      }
+      allocation_records {
+        alloc_micros: 1531422477755319
+        alloc_bytes: -512
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+        }
+        allocation_description {
+          requested_bytes: 400
+          allocated_bytes: 512
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 192
+          has_single_reference: true
+          ptr: 139690696436736
+        }
+      }
+    }
+    output {
+      slot: 1
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 10
+          }
+        }
+        allocation_description {
+          requested_bytes: 4000
+          allocated_bytes: 4096
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 190
+          ptr: 139690696432128
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/xentropy/xentropy = SparseSoftmaxCrossEntropyWithLogits(sequential/dense_1/BiasAdd, IteratorGetNext/_201)"
+    scheduled_micros: 1531422477755213
+    memory_stats {
+      temp_memory_size: 512
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape"
+    all_start_micros: 1531422477755266
+    op_start_rel_micros: 1
+    op_end_rel_micros: 3
+    all_end_rel_micros: 5
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72775936
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 4
+      peak_bytes: 4
+      live_bytes: 4
+      allocation_records {
+        alloc_micros: 1531422477755269
+        alloc_bytes: 4
+      }
+      allocation_records {
+        alloc_micros: 1531422477755506
+        alloc_bytes: -4
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 1
+          }
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 4
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139689986108992
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape = Shape(sparse_softmax_cross_entropy_loss/xentropy/xentropy)"
+    scheduled_micros: 1531422477755264
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Mul"
+    all_start_micros: 1531422477755272
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72775936
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+        }
+        allocation_description {
+          requested_bytes: 400
+          allocated_bytes: 512
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 192
+          ptr: 139690696436736
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/Mul = Snapshot(sparse_softmax_cross_entropy_loss/xentropy/xentropy)"
+    scheduled_micros: 1531422477755271
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like"
+    all_start_micros: 1531422477755275
+    op_end_rel_micros: 12
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 512
+      peak_bytes: 512
+      live_bytes: 512
+      allocator_bytes_in_use: 72776448
+      allocation_records {
+        alloc_micros: 1531422477755277
+        alloc_bytes: 512
+      }
+      allocation_records {
+        alloc_micros: 1531422477755337
+        alloc_bytes: -512
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+        }
+        allocation_description {
+          requested_bytes: 400
+          allocated_bytes: 512
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 193
+          has_single_reference: true
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like = Fill(sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape, sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Const)"
+    scheduled_micros: 1531422477755274
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/Mul_grad/BroadcastGradientArgs"
+    all_start_micros: 1531422477755290
+    op_start_rel_micros: 1
+    op_end_rel_micros: 4
+    all_end_rel_micros: 6
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776448
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 4
+      peak_bytes: 4
+      live_bytes: 4
+      allocation_records {
+        alloc_micros: 1531422477755294
+        alloc_bytes: 4
+      }
+      allocation_records {
+        alloc_micros: 1531422477755296
+        alloc_bytes: -4
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+          }
+        }
+      }
+    }
+    output {
+      slot: 1
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 1
+          }
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 4
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139688905657024
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/Mul_grad/BroadcastGradientArgs = BroadcastGradientArgs(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Shape, ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1)"
+    scheduled_micros: 1531422477755289
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape"
+    all_start_micros: 1531422477755298
+    op_end_rel_micros: 1
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776448
+    }
+    memory {
+      allocator_name: "cpu_pool"
+      total_bytes: 4
+      peak_bytes: 4
+      live_bytes: 4
+      allocation_records {
+        alloc_micros: 1531422477755299
+        alloc_bytes: 4
+      }
+      allocation_records {
+        alloc_micros: 1531422477755493
+        alloc_bytes: -4
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT32
+        shape {
+          dim {
+            size: 1
+          }
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 4
+          allocator_name: "cpu_pool"
+          allocation_id: 1
+          has_single_reference: true
+          ptr: 139688905657024
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape = Shape(sparse_softmax_cross_entropy_loss/Mul)"
+    scheduled_micros: 1531422477755296
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Sum"
+    all_start_micros: 1531422477755301
+    op_start_rel_micros: 1
+    op_end_rel_micros: 16
+    all_end_rel_micros: 19
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 256
+      peak_bytes: 256
+      live_bytes: 256
+      allocator_bytes_in_use: 72776704
+      allocation_records {
+        alloc_micros: 1531422477755304
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477756700
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 194
+          has_single_reference: true
+          ptr: 139690696436224
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/Sum = Sum(sparse_softmax_cross_entropy_loss/Mul, sparse_softmax_cross_entropy_loss/Const_1)"
+    scheduled_micros: 1531422477755301
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/num_present/broadcast_weights"
+    all_start_micros: 1531422477755321
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776192
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+        }
+        allocation_description {
+          requested_bytes: 400
+          allocated_bytes: 512
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 193
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/num_present/broadcast_weights = Snapshot(sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like)"
+    scheduled_micros: 1531422477755320
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/num_present"
+    all_start_micros: 1531422477755325
+    op_end_rel_micros: 10
+    all_end_rel_micros: 12
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 256
+      peak_bytes: 256
+      live_bytes: 256
+      allocator_bytes_in_use: 72776448
+      allocation_records {
+        alloc_micros: 1531422477755327
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477755424
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 195
+          has_single_reference: true
+          ptr: 139690696436480
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/num_present = Sum(sparse_softmax_cross_entropy_loss/num_present/broadcast_weights, sparse_softmax_cross_entropy_loss/Const_1)"
+    scheduled_micros: 1531422477755324
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Greater"
+    all_start_micros: 1531422477755339
+    op_end_rel_micros: 14
+    all_end_rel_micros: 15
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 256
+      peak_bytes: 256
+      live_bytes: 256
+      allocator_bytes_in_use: 72776192
+      allocation_records {
+        alloc_micros: 1531422477755341
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477755436
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_BOOL
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 1
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 196
+          has_single_reference: true
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/Greater = Greater(sparse_softmax_cross_entropy_loss/num_present, sparse_softmax_cross_entropy_loss/Greater/y)"
+    scheduled_micros: 1531422477755337
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Equal"
+    all_start_micros: 1531422477755356
+    op_end_rel_micros: 12
+    all_end_rel_micros: 13
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 256
+      peak_bytes: 256
+      live_bytes: 256
+      allocator_bytes_in_use: 72776448
+      allocation_records {
+        alloc_micros: 1531422477755358
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477755398
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_BOOL
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 1
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 197
+          has_single_reference: true
+          ptr: 139690676044544
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/Equal = Equal(sparse_softmax_cross_entropy_loss/num_present, sparse_softmax_cross_entropy_loss/Greater/y)"
+    scheduled_micros: 1531422477755354
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/value_grad/Select"
+    all_start_micros: 1531422477755370
+    op_start_rel_micros: 1
+    op_end_rel_micros: 14
+    all_end_rel_micros: 16
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 256
+      peak_bytes: 256
+      live_bytes: 256
+      allocator_bytes_in_use: 72776704
+      allocation_records {
+        alloc_micros: 1531422477755374
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477755492
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 198
+          has_single_reference: true
+          ptr: 139690696436736
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/value_grad/Select = Select(sparse_softmax_cross_entropy_loss/Greater, gradients/Fill, gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like)"
+    scheduled_micros: 1531422477755369
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Select"
+    all_start_micros: 1531422477755388
+    op_end_rel_micros: 8
+    all_end_rel_micros: 10
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776704
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 195
+          ptr: 139690696436480
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/Select = Select(sparse_softmax_cross_entropy_loss/Equal, sparse_softmax_cross_entropy_loss/ones_like, sparse_softmax_cross_entropy_loss/num_present)"
+    scheduled_micros: 1531422477755386
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/div"
+    all_start_micros: 1531422477755400
+    op_end_rel_micros: 12
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776448
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 194
+          ptr: 139690696436224
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/div = RealDiv(sparse_softmax_cross_entropy_loss/Sum, sparse_softmax_cross_entropy_loss/Select)"
+    scheduled_micros: 1531422477755398
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv"
+    all_start_micros: 1531422477755415
+    op_end_rel_micros: 8
+    all_end_rel_micros: 10
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776448
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 198
+          ptr: 139690696436736
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv = RealDiv(gradients/sparse_softmax_cross_entropy_loss/value_grad/Select, sparse_softmax_cross_entropy_loss/Select)"
+    scheduled_micros: 1531422477755413
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/value"
+    all_start_micros: 1531422477755426
+    op_start_rel_micros: 1
+    op_end_rel_micros: 9
+    all_end_rel_micros: 11
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776192
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 194
+          ptr: 139690696436224
+        }
+      }
+    }
+    timeline_label: "sparse_softmax_cross_entropy_loss/value = Select(sparse_softmax_cross_entropy_loss/Greater, sparse_softmax_cross_entropy_loss/div, sparse_softmax_cross_entropy_loss/Greater/y)"
+    scheduled_micros: 1531422477755425
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape"
+    all_start_micros: 1531422477755439
+    op_end_rel_micros: 1
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72775936
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 1
+          }
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 198
+          ptr: 139690696436736
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape = Reshape(gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape, ^sparse_softmax_cross_entropy_loss/Sum)"
+    scheduled_micros: 1531422477755437
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile"
+    all_start_micros: 1531422477755474
+    op_end_rel_micros: 16
+    all_end_rel_micros: 20
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 512
+      peak_bytes: 512
+      live_bytes: 512
+      allocator_bytes_in_use: 72776448
+      allocation_records {
+        alloc_micros: 1531422477755477
+        alloc_bytes: 512
+      }
+      allocation_records {
+        alloc_micros: 1531422477755527
+        alloc_bytes: -512
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+        }
+        allocation_description {
+          requested_bytes: 400
+          allocated_bytes: 512
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 199
+          has_single_reference: true
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile = Tile(gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape)"
+    scheduled_micros: 1531422477755470
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Mul"
+    all_start_micros: 1531422477755496
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776192
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+        }
+        allocation_description {
+          requested_bytes: 400
+          allocated_bytes: 512
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 199
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Mul = Snapshot(gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile)"
+    scheduled_micros: 1531422477755494
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Sum"
+    all_start_micros: 1531422477755500
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776192
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+        }
+        allocation_description {
+          requested_bytes: 400
+          allocated_bytes: 512
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 199
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Sum = Sum(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Mul, gradients/sparse_softmax_cross_entropy_loss/Mul_grad/BroadcastGradientArgs)"
+    scheduled_micros: 1531422477755499
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Reshape"
+    all_start_micros: 1531422477755504
+    op_end_rel_micros: 1
+    all_end_rel_micros: 2
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776192
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+        }
+        allocation_description {
+          requested_bytes: 400
+          allocated_bytes: 512
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 199
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Reshape = Reshape(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Sum, gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Shape)"
+    scheduled_micros: 1531422477755502
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims"
+    all_start_micros: 1531422477755508
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776192
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1
+          }
+        }
+        allocation_description {
+          requested_bytes: 400
+          allocated_bytes: 512
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 199
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims = ExpandDims(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Reshape, gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim)"
+    scheduled_micros: 1531422477755506
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul"
+    all_start_micros: 1531422477755512
+    op_end_rel_micros: 13
+    all_end_rel_micros: 16
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72776192
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 10
+          }
+        }
+        allocation_description {
+          requested_bytes: 4000
+          allocated_bytes: 4096
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 190
+          ptr: 139690696432128
+        }
+      }
+    }
+    timeline_label: "gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul = Mul(gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims, sparse_softmax_cross_entropy_loss/xentropy/xentropy:1)"
+    scheduled_micros: 1531422477755511
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad"
+    all_start_micros: 1531422477755529
+    op_start_rel_micros: 1
+    op_end_rel_micros: 20
+    all_end_rel_micros: 22
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 256
+      peak_bytes: 256
+      live_bytes: 256
+      allocator_bytes_in_use: 72775936
+      allocation_records {
+        alloc_micros: 1531422477755532
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477755587
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 10
+          }
+        }
+        allocation_description {
+          requested_bytes: 40
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 200
+          has_single_reference: true
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul)"
+    scheduled_micros: 1531422477755528
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/bias/ResourceApplyAdam"
+    all_start_micros: 1531422477755553
+    op_start_rel_micros: 1
+    op_end_rel_micros: 33
+    all_end_rel_micros: 35
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72775936
+    }
+    timeline_label: "Adam/update_dense_1/bias/ResourceApplyAdam = ResourceApplyAdam(dense_1/bias, dense_1/bias/Adam, dense_1/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad)"
+    scheduled_micros: 1531422477755551
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense_1/MatMul_grad/MatMul"
+    all_start_micros: 1531422477755590
+    op_start_rel_micros: 1
+    op_end_rel_micros: 17
+    all_end_rel_micros: 20
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 409600
+      peak_bytes: 409600
+      live_bytes: 409600
+      allocator_bytes_in_use: 73185280
+      allocation_records {
+        alloc_micros: 1531422477755593
+        alloc_bytes: 409600
+      }
+      allocation_records {
+        alloc_micros: 1531422477755790
+        alloc_bytes: -409600
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 201
+          has_single_reference: true
+          ptr: 139690681350400
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 0.4MB 0.4MB] gradients/sequential/dense_1/MatMul_grad/MatMul = MatMul(gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul, sequential/dense_1/MatMul/ReadVariableOp, ^gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad)"
+    scheduled_micros: 1531422477755588
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense_1/MatMul_grad/MatMul_1"
+    all_start_micros: 1531422477755613
+    op_start_rel_micros: 1
+    op_end_rel_micros: 13
+    all_end_rel_micros: 16
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 40960
+      peak_bytes: 40960
+      live_bytes: 40960
+      allocator_bytes_in_use: 73226240
+      allocation_records {
+        alloc_micros: 1531422477755615
+        alloc_bytes: 40960
+      }
+      allocation_records {
+        alloc_micros: 1531422477755657
+        alloc_bytes: -40960
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 1024
+          }
+          dim {
+            size: 10
+          }
+        }
+        allocation_description {
+          requested_bytes: 40960
+          allocated_bytes: 40960
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 202
+          has_single_reference: true
+          ptr: 139690696436480
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/dense_1/MatMul_grad/MatMul_1 = MatMul(sequential/dropout/dropout/mul, gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul, ^gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad)"
+    scheduled_micros: 1531422477755609
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/kernel/ResourceApplyAdam"
+    all_start_micros: 1531422477755631
+    op_start_rel_micros: 1
+    op_end_rel_micros: 24
+    all_end_rel_micros: 26
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72812544
+    }
+    timeline_label: "Adam/update_dense_1/kernel/ResourceApplyAdam = ResourceApplyAdam(dense_1/kernel, dense_1/kernel/Adam, dense_1/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense_1/MatMul_grad/MatMul_1, ^gradients/sequential/dense_1/MatMul_grad/MatMul)"
+    scheduled_micros: 1531422477755629
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dropout/dropout/mul_grad/Mul"
+    all_start_micros: 1531422477755660
+    op_end_rel_micros: 10
+    all_end_rel_micros: 12
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72771584
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 201
+          ptr: 139690681350400
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/dropout/dropout/mul_grad/Mul = Mul(gradients/sequential/dense_1/MatMul_grad/MatMul, sequential/dropout/dropout/Floor, ^gradients/sequential/dense_1/MatMul_grad/MatMul_1)"
+    scheduled_micros: 1531422477755657
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dropout/dropout/div_grad/RealDiv"
+    all_start_micros: 1531422477755674
+    op_end_rel_micros: 10
+    all_end_rel_micros: 12
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72361984
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 201
+          ptr: 139690681350400
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/dropout/dropout/div_grad/RealDiv = Mul(gradients/sequential/dropout/dropout/mul_grad/Mul, ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip)"
+    scheduled_micros: 1531422477755672
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dropout/dropout/div_grad/Sum"
+    all_start_micros: 1531422477755687
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72361984
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 201
+          ptr: 139690681350400
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/dropout/dropout/div_grad/Sum = Sum(gradients/sequential/dropout/dropout/div_grad/RealDiv, gradients/sequential/dropout/dropout/div_grad/BroadcastGradientArgs)"
+    scheduled_micros: 1531422477755686
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dropout/dropout/div_grad/Reshape"
+    all_start_micros: 1531422477755691
+    op_start_rel_micros: 1
+    op_end_rel_micros: 2
+    all_end_rel_micros: 4
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72361984
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 201
+          ptr: 139690681350400
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/dropout/dropout/div_grad/Reshape = Reshape(gradients/sequential/dropout/dropout/div_grad/Sum, gradients/sequential/dropout/dropout/div_grad/Shape)"
+    scheduled_micros: 1531422477755690
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/Relu_grad/ReluGrad"
+    all_start_micros: 1531422477755696
+    op_end_rel_micros: 10
+    all_end_rel_micros: 13
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72361984
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 409600
+          allocated_bytes: 409600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 201
+          ptr: 139690681350400
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/dense/Relu_grad/ReluGrad = ReluGrad(gradients/sequential/dropout/dropout/div_grad/Reshape, sequential/dense/Relu)"
+    scheduled_micros: 1531422477755694
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/BiasAdd_grad/BiasAddGrad"
+    all_start_micros: 1531422477755710
+    op_end_rel_micros: 16
+    all_end_rel_micros: 18
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 4096
+      peak_bytes: 4096
+      live_bytes: 4096
+      allocator_bytes_in_use: 71956480
+      allocation_records {
+        alloc_micros: 1531422477755712
+        alloc_bytes: 4096
+      }
+      allocation_records {
+        alloc_micros: 1531422477755754
+        alloc_bytes: -4096
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 4096
+          allocated_bytes: 4096
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 203
+          has_single_reference: true
+          ptr: 139690696432128
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/dense/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sequential/dense/Relu_grad/ReluGrad)"
+    scheduled_micros: 1531422477755709
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Adam/update_dense/bias/ResourceApplyAdam"
+    all_start_micros: 1531422477755729
+    op_start_rel_micros: 1
+    op_end_rel_micros: 24
+    all_end_rel_micros: 26
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 71956480
+    }
+    timeline_label: "Adam/update_dense/bias/ResourceApplyAdam = ResourceApplyAdam(dense/bias, dense/bias/Adam, dense/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense/BiasAdd_grad/BiasAddGrad)"
+    scheduled_micros: 1531422477755728
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/MatMul_grad/MatMul"
+    all_start_micros: 1531422477755757
+    op_end_rel_micros: 14
+    all_end_rel_micros: 16
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 1254400
+      peak_bytes: 1254400
+      live_bytes: 1254400
+      allocator_bytes_in_use: 73206784
+      allocation_records {
+        alloc_micros: 1531422477755759
+        alloc_bytes: 1254400
+      }
+      allocation_records {
+        alloc_micros: 1531422477755867
+        alloc_bytes: -1254400
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 3136
+          }
+        }
+        allocation_description {
+          requested_bytes: 1254400
+          allocated_bytes: 1254400
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 204
+          has_single_reference: true
+          ptr: 139690681760000
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 1.2MB 1.2MB] gradients/sequential/dense/MatMul_grad/MatMul = MatMul(gradients/sequential/dense/Relu_grad/ReluGrad, sequential/dense/MatMul/ReadVariableOp, ^gradients/sequential/dense/BiasAdd_grad/BiasAddGrad)"
+    scheduled_micros: 1531422477755755
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/MatMul_grad/MatMul_1"
+    all_start_micros: 1531422477755776
+    op_start_rel_micros: 1
+    op_end_rel_micros: 12
+    all_end_rel_micros: 15
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 12845056
+      peak_bytes: 12845056
+      live_bytes: 12845056
+      allocator_bytes_in_use: 86051840
+      allocation_records {
+        alloc_micros: 1531422477755778
+        alloc_bytes: 12845056
+      }
+      allocation_records {
+        alloc_micros: 1531422477755834
+        alloc_bytes: -12845056
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 3136
+          }
+          dim {
+            size: 1024
+          }
+        }
+        allocation_description {
+          requested_bytes: 12845056
+          allocated_bytes: 12845056
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 205
+          has_single_reference: true
+          ptr: 139690701654528
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 12.2MB 12.2MB] gradients/sequential/dense/MatMul_grad/MatMul_1 = MatMul(sequential/flatten/Reshape, gradients/sequential/dense/Relu_grad/ReluGrad, ^gradients/sequential/dense/BiasAdd_grad/BiasAddGrad)"
+    scheduled_micros: 1531422477755773
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/flatten/Reshape_grad/Reshape"
+    all_start_micros: 1531422477755795
+    op_end_rel_micros: 1
+    all_end_rel_micros: 4
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 85642240
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 7
+          }
+          dim {
+            size: 7
+          }
+        }
+        allocation_description {
+          requested_bytes: 1254400
+          allocated_bytes: 1254400
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 204
+          ptr: 139690681760000
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/flatten/Reshape_grad/Reshape = Reshape(gradients/sequential/dense/MatMul_grad/MatMul, gradients/sequential/flatten/Reshape_grad/Shape, ^gradients/sequential/dense/MatMul_grad/MatMul_1)"
+    scheduled_micros: 1531422477755791
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Adam/update_dense/kernel/ResourceApplyAdam"
+    all_start_micros: 1531422477755806
+    op_start_rel_micros: 1
+    op_end_rel_micros: 27
+    all_end_rel_micros: 29
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 85642240
+    }
+    timeline_label: "Adam/update_dense/kernel/ResourceApplyAdam = ResourceApplyAdam(dense/kernel, dense/kernel/Adam, dense/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense/MatMul_grad/MatMul_1, ^gradients/sequential/dense/MatMul_grad/MatMul)"
+    scheduled_micros: 1531422477755799
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad"
+    all_start_micros: 1531422477755838
+    op_start_rel_micros: 1
+    op_end_rel_micros: 25
+    all_end_rel_micros: 29
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 5017600
+      peak_bytes: 5017600
+      live_bytes: 5017600
+      allocator_bytes_in_use: 77814784
+      allocation_records {
+        alloc_micros: 1531422477755842
+        alloc_bytes: 5017600
+      }
+      allocation_records {
+        alloc_micros: 1531422477756101
+        alloc_bytes: -5017600
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 14
+          }
+          dim {
+            size: 14
+          }
+        }
+        allocation_description {
+          requested_bytes: 5017600
+          allocated_bytes: 5017600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 206
+          has_single_reference: true
+          ptr: 139690701654528
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 4.8MB 4.8MB] gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad = MaxPoolGrad(sequential/conv2d_1/Relu, sequential/max_pooling2d_1/MaxPool, gradients/sequential/flatten/Reshape_grad/Reshape)"
+    scheduled_micros: 1531422477755835
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Relu_grad/ReluGrad"
+    all_start_micros: 1531422477755871
+    op_end_rel_micros: 11
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 75305984
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 64
+          }
+          dim {
+            size: 14
+          }
+          dim {
+            size: 14
+          }
+        }
+        allocation_description {
+          requested_bytes: 5017600
+          allocated_bytes: 5017600
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 206
+          ptr: 139690701654528
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/conv2d_1/Relu_grad/ReluGrad = ReluGrad(gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad, sequential/conv2d_1/Relu)"
+    scheduled_micros: 1531422477755867
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad"
+    all_start_micros: 1531422477755886
+    op_start_rel_micros: 1
+    op_end_rel_micros: 37
+    all_end_rel_micros: 39
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 5219328
+      peak_bytes: 5219328
+      live_bytes: 256
+      allocator_bytes_in_use: 70288640
+      allocation_records {
+        alloc_micros: 1531422477755888
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477755895
+        alloc_bytes: 5218048
+      }
+      allocation_records {
+        alloc_micros: 1531422477755907
+        alloc_bytes: 1024
+      }
+      allocation_records {
+        alloc_micros: 1531422477755922
+        alloc_bytes: -1024
+      }
+      allocation_records {
+        alloc_micros: 1531422477755922
+        alloc_bytes: -5218048
+      }
+      allocation_records {
+        alloc_micros: 1531422477755954
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 256
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 207
+          has_single_reference: true
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 5.0MB 5.0MB] gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sequential/conv2d_1/Relu_grad/ReluGrad)"
+    scheduled_micros: 1531422477755885
+    memory_stats {
+      temp_memory_size: 5219072
+    }
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/bias/ResourceApplyAdam"
+    all_start_micros: 1531422477755928
+    op_start_rel_micros: 1
+    op_end_rel_micros: 25
+    all_end_rel_micros: 27
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 70288640
+    }
+    timeline_label: "Adam/update_conv2d_1/bias/ResourceApplyAdam = ResourceApplyAdam(conv2d_1/bias, conv2d_1/bias/Adam, conv2d_1/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad)"
+    scheduled_micros: 1531422477755925
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter"
+    all_start_micros: 1531422477755957
+    op_start_rel_micros: 1
+    op_end_rel_micros: 69
+    all_end_rel_micros: 72
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 414208
+      peak_bytes: 414208
+      live_bytes: 204800
+      allocator_bytes_in_use: 70493184
+      allocation_records {
+        alloc_micros: 1531422477755961
+        alloc_bytes: 204800
+      }
+      allocation_records {
+        alloc_micros: 1531422477755965
+        alloc_bytes: 204800
+      }
+      allocation_records {
+        alloc_micros: 1531422477755975
+        alloc_bytes: 4608
+      }
+      allocation_records {
+        alloc_micros: 1531422477756023
+        alloc_bytes: -4608
+      }
+      allocation_records {
+        alloc_micros: 1531422477756025
+        alloc_bytes: -204800
+      }
+      allocation_records {
+        alloc_micros: 1531422477756167
+        alloc_bytes: -204800
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 5
+          }
+          dim {
+            size: 5
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 64
+          }
+        }
+        allocation_description {
+          requested_bytes: 204800
+          allocated_bytes: 204800
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 210
+          has_single_reference: true
+          ptr: 139690696436480
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 0.4MB 0.4MB] gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter = Conv2DBackpropFilter(sequential/max_pooling2d/MaxPool, ConstantFolding/gradients/sequential/conv2d_1/Conv2D_grad/ShapeN-matshapes-1, gradients/sequential/conv2d_1/Relu_grad/ReluGrad, ^gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad)"
+    scheduled_micros: 1531422477755955
+    memory_stats {
+      temp_memory_size: 209408
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput"
+    all_start_micros: 1531422477756033
+    op_start_rel_micros: 1
+    op_end_rel_micros: 64
+    all_end_rel_micros: 68
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 38184704
+      peak_bytes: 38184704
+      live_bytes: 2508800
+      allocator_bytes_in_use: 73001984
+      allocation_records {
+        alloc_micros: 1531422477756036
+        alloc_bytes: 5013248
+      }
+      allocation_records {
+        alloc_micros: 1531422477756039
+        alloc_bytes: 204800
+      }
+      allocation_records {
+        alloc_micros: 1531422477756050
+        alloc_bytes: 2508800
+      }
+      allocation_records {
+        alloc_micros: 1531422477756059
+        alloc_bytes: 30457856
+      }
+      allocation_records {
+        alloc_micros: 1531422477756095
+        alloc_bytes: -5013248
+      }
+      allocation_records {
+        alloc_micros: 1531422477756096
+        alloc_bytes: -30457856
+      }
+      allocation_records {
+        alloc_micros: 1531422477756096
+        alloc_bytes: -204800
+      }
+      allocation_records {
+        alloc_micros: 1531422477756135
+        alloc_bytes: -2508800
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 14
+          }
+          dim {
+            size: 14
+          }
+        }
+        allocation_description {
+          requested_bytes: 2508800
+          allocated_bytes: 2508800
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 215
+          has_single_reference: true
+          ptr: 139690679072000
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 36.4MB 36.4MB] gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput = Conv2DBackpropInput(gradients/sequential/conv2d_1/Conv2D_grad/ShapeN, sequential/conv2d_1/Conv2D/ReadVariableOp, gradients/sequential/conv2d_1/Relu_grad/ReluGrad, ^gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad)"
+    scheduled_micros: 1531422477756029
+    memory_stats {
+      temp_memory_size: 33171456
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad"
+    all_start_micros: 1531422477756106
+    op_end_rel_micros: 25
+    all_end_rel_micros: 29
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 10035200
+      peak_bytes: 10035200
+      live_bytes: 10035200
+      allocator_bytes_in_use: 78019584
+      allocation_records {
+        alloc_micros: 1531422477756109
+        alloc_bytes: 10035200
+      }
+      allocation_records {
+        alloc_micros: 1531422477756312
+        alloc_bytes: -10035200
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 28
+          }
+          dim {
+            size: 28
+          }
+        }
+        allocation_description {
+          requested_bytes: 10035200
+          allocated_bytes: 10035200
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 217
+          has_single_reference: true
+          ptr: 139690696641280
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 9.6MB 9.6MB] gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad = MaxPoolGrad(sequential/conv2d/Relu, sequential/max_pooling2d/MaxPool, gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput, ^gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter)"
+    scheduled_micros: 1531422477756101
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/kernel/ResourceApplyAdam"
+    all_start_micros: 1531422477756139
+    op_start_rel_micros: 1
+    op_end_rel_micros: 27
+    all_end_rel_micros: 29
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 73001984
+    }
+    timeline_label: "Adam/update_conv2d_1/kernel/ResourceApplyAdam = ResourceApplyAdam(conv2d_1/kernel, conv2d_1/kernel/Adam, conv2d_1/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter, ^gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput)"
+    scheduled_micros: 1531422477756135
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/Relu_grad/ReluGrad"
+    all_start_micros: 1531422477756170
+    op_start_rel_micros: 1
+    op_end_rel_micros: 10
+    all_end_rel_micros: 13
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 72797184
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 100
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 28
+          }
+          dim {
+            size: 28
+          }
+        }
+        allocation_description {
+          requested_bytes: 10035200
+          allocated_bytes: 10035200
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 217
+          ptr: 139690696641280
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/conv2d/Relu_grad/ReluGrad = ReluGrad(gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad, sequential/conv2d/Relu)"
+    scheduled_micros: 1531422477756168
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad"
+    all_start_micros: 1531422477756185
+    op_end_rel_micros: 32
+    all_end_rel_micros: 34
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 10035968
+      peak_bytes: 10035968
+      live_bytes: 256
+      allocator_bytes_in_use: 62762240
+      allocation_records {
+        alloc_micros: 1531422477756188
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477756194
+        alloc_bytes: 10035200
+      }
+      allocation_records {
+        alloc_micros: 1531422477756204
+        alloc_bytes: 512
+      }
+      allocation_records {
+        alloc_micros: 1531422477756215
+        alloc_bytes: -512
+      }
+      allocation_records {
+        alloc_micros: 1531422477756216
+        alloc_bytes: -10035200
+      }
+      allocation_records {
+        alloc_micros: 1531422477756247
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 32
+          }
+        }
+        allocation_description {
+          requested_bytes: 128
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 218
+          has_single_reference: true
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "[GPU_0_bfc 9.6MB 9.6MB] gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sequential/conv2d/Relu_grad/ReluGrad)"
+    scheduled_micros: 1531422477756183
+    memory_stats {
+      temp_memory_size: 10035712
+    }
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/bias/ResourceApplyAdam"
+    all_start_micros: 1531422477756222
+    op_start_rel_micros: 1
+    op_end_rel_micros: 24
+    all_end_rel_micros: 26
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 62762240
+    }
+    timeline_label: "Adam/update_conv2d/bias/ResourceApplyAdam = ResourceApplyAdam(conv2d/bias, conv2d/bias/Adam, conv2d/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad)"
+    scheduled_micros: 1531422477756219
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter"
+    all_start_micros: 1531422477756250
+    op_start_rel_micros: 1
+    op_end_rel_micros: 59
+    all_end_rel_micros: 63
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 6656
+      peak_bytes: 6656
+      live_bytes: 3328
+      allocator_bytes_in_use: 62765312
+      allocation_records {
+        alloc_micros: 1531422477756254
+        alloc_bytes: 3328
+      }
+      allocation_records {
+        alloc_micros: 1531422477756257
+        alloc_bytes: 3328
+      }
+      allocation_records {
+        alloc_micros: 1531422477756308
+        alloc_bytes: -3328
+      }
+      allocation_records {
+        alloc_micros: 1531422477756342
+        alloc_bytes: -3328
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+          dim {
+            size: 5
+          }
+          dim {
+            size: 5
+          }
+          dim {
+            size: 1
+          }
+          dim {
+            size: 32
+          }
+        }
+        allocation_description {
+          requested_bytes: 3200
+          allocated_bytes: 3328
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 221
+          has_single_reference: true
+          ptr: 139690696436480
+        }
+      }
+    }
+    timeline_label: "gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter = Conv2DBackpropFilter(sequential/reshape/Reshape, ConstantFolding/gradients/sequential/conv2d/Conv2D_grad/ShapeN-matshapes-1, gradients/sequential/conv2d/Relu_grad/ReluGrad, ^gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad)"
+    scheduled_micros: 1531422477756248
+    memory_stats {
+      temp_memory_size: 3328
+    }
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/kernel/ResourceApplyAdam"
+    all_start_micros: 1531422477756315
+    op_start_rel_micros: 2
+    op_end_rel_micros: 26
+    all_end_rel_micros: 28
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52416512
+    }
+    timeline_label: "Adam/update_conv2d/kernel/ResourceApplyAdam = ResourceApplyAdam(conv2d/kernel, conv2d/kernel/Adam, conv2d/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter)"
+    scheduled_micros: 1531422477756313
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Adam/mul"
+    all_start_micros: 1531422477756346
+    op_end_rel_micros: 12
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 256
+      peak_bytes: 256
+      live_bytes: 256
+      allocator_bytes_in_use: 52413440
+      allocation_records {
+        alloc_micros: 1531422477756349
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477756395
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 223
+          has_single_reference: true
+          ptr: 139690676044288
+        }
+      }
+    }
+    timeline_label: "Adam/mul = Mul(beta1_power/read, Adam/beta1, ^Adam/update_conv2d/bias/ResourceApplyAdam, ^Adam/update_conv2d/kernel/ResourceApplyAdam, ^Adam/update_conv2d_1/bias/ResourceApplyAdam, ^Adam/update_conv2d_1/kernel/ResourceApplyAdam, ^Adam/update_dense/bias/ResourceApplyAdam, ^Adam/update_dense/kernel/ResourceApplyAdam, ^Adam/update_dense_1/bias/ResourceApplyAdam, ^Adam/update_dense_1/kernel/ResourceApplyAdam)"
+    scheduled_micros: 1531422477756343
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Adam/mul_1"
+    all_start_micros: 1531422477756362
+    op_start_rel_micros: 1
+    op_end_rel_micros: 10
+    all_end_rel_micros: 12
+    memory {
+      allocator_name: "GPU_0_bfc"
+      total_bytes: 256
+      peak_bytes: 256
+      live_bytes: 256
+      allocator_bytes_in_use: 52413696
+      allocation_records {
+        alloc_micros: 1531422477756364
+        alloc_bytes: 256
+      }
+      allocation_records {
+        alloc_micros: 1531422477756410
+        alloc_bytes: -256
+      }
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 224
+          has_single_reference: true
+          ptr: 139690676044544
+        }
+      }
+    }
+    timeline_label: "Adam/mul_1 = Mul(beta2_power/read, Adam/beta2, ^Adam/update_conv2d/bias/ResourceApplyAdam, ^Adam/update_conv2d/kernel/ResourceApplyAdam, ^Adam/update_conv2d_1/bias/ResourceApplyAdam, ^Adam/update_conv2d_1/kernel/ResourceApplyAdam, ^Adam/update_dense/bias/ResourceApplyAdam, ^Adam/update_dense/kernel/ResourceApplyAdam, ^Adam/update_dense_1/bias/ResourceApplyAdam, ^Adam/update_dense_1/kernel/ResourceApplyAdam)"
+    scheduled_micros: 1531422477756360
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Adam/Assign"
+    all_start_micros: 1531422477756376
+    op_start_rel_micros: 1
+    op_end_rel_micros: 17
+    all_end_rel_micros: 20
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52413696
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 29
+          has_single_reference: true
+          ptr: 139690636739328
+        }
+      }
+    }
+    timeline_label: "Adam/Assign = Assign(beta1_power, Adam/mul)"
+    scheduled_micros: 1531422477756374
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Adam/Assign_1"
+    all_start_micros: 1531422477756397
+    op_start_rel_micros: 1
+    op_end_rel_micros: 11
+    all_end_rel_micros: 13
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52413440
+    }
+    output {
+      tensor_description {
+        dtype: DT_FLOAT
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 4
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 30
+          has_single_reference: true
+          ptr: 139690636739584
+        }
+      }
+    }
+    timeline_label: "Adam/Assign_1 = Assign(beta2_power, Adam/mul_1)"
+    scheduled_micros: 1531422477756396
+    memory_stats {
+    }
+  }
+  node_stats {
+    node_name: "Adam/value"
+    all_start_micros: 1531422477756412
+    op_end_rel_micros: 2
+    all_end_rel_micros: 3
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52413184
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT64
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 173
+          ptr: 139690676044032
+        }
+      }
+    }
+    timeline_label: "Adam/value = Const(^Adam/Assign_1, ^Adam/Assign)"
+    scheduled_micros: 1531422477756410
+    memory_stats {
+      persistent_memory_size: 256
+    }
+  }
+  node_stats {
+    node_name: "Adam"
+    all_start_micros: 1531422477756416
+    op_start_rel_micros: 1
+    op_end_rel_micros: 12
+    all_end_rel_micros: 14
+    memory {
+      allocator_name: "GPU_0_bfc"
+      allocator_bytes_in_use: 52413184
+    }
+    output {
+      tensor_description {
+        dtype: DT_INT64
+        shape {
+        }
+        allocation_description {
+          requested_bytes: 8
+          allocated_bytes: 256
+          allocator_name: "GPU_0_bfc"
+          allocation_id: 55
+          has_single_reference: true
+          ptr: 139690676036864
+        }
+      }
+    }
+    timeline_label: "Adam = AssignAdd(global_step, Adam/value)"
+    scheduled_micros: 1531422477756415
+    memory_stats {
+    }
+  }
+}
+dev_stats {
+  device: "/device:GPU:0/stream:13"
+  node_stats {
+    node_name: "sequential/conv2d/Conv2D:Conv2D"
+    all_start_micros: 1531422477754740
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/conv2d/Conv2D:Conv2D"
+    all_start_micros: 1531422477754781
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/conv2d/Conv2D:Conv2D"
+    all_start_micros: 1531422477754796
+    op_end_rel_micros: 119
+    all_end_rel_micros: 119
+  }
+  node_stats {
+    node_name: "sequential/conv2d/BiasAdd:BiasAdd"
+    all_start_micros: 1531422477754918
+    op_end_rel_micros: 167
+    all_end_rel_micros: 167
+  }
+  node_stats {
+    node_name: "sequential/conv2d/Relu:Relu"
+    all_start_micros: 1531422477755087
+    op_end_rel_micros: 134
+    all_end_rel_micros: 134
+  }
+  node_stats {
+    node_name: "sequential/max_pooling2d/MaxPool:MaxPool"
+    all_start_micros: 1531422477755222
+    op_end_rel_micros: 107
+    all_end_rel_micros: 107
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/Conv2D:Conv2D"
+    all_start_micros: 1531422477755330
+    op_end_rel_micros: 7
+    all_end_rel_micros: 7
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/Conv2D:Conv2D"
+    all_start_micros: 1531422477755339
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/Conv2D:Conv2D"
+    all_start_micros: 1531422477755343
+    op_end_rel_micros: 661
+    all_end_rel_micros: 661
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/BiasAdd:BiasAdd"
+    all_start_micros: 1531422477756005
+    op_end_rel_micros: 87
+    all_end_rel_micros: 87
+  }
+  node_stats {
+    node_name: "sequential/conv2d_1/Relu:Relu"
+    all_start_micros: 1531422477756093
+    op_end_rel_micros: 68
+    all_end_rel_micros: 68
+  }
+  node_stats {
+    node_name: "sequential/max_pooling2d_1/MaxPool:MaxPool"
+    all_start_micros: 1531422477756163
+    op_end_rel_micros: 59
+    all_end_rel_micros: 59
+  }
+  node_stats {
+    node_name: "sequential/dense/MatMul:MatMul"
+    all_start_micros: 1531422477756236
+    op_end_rel_micros: 269
+    all_end_rel_micros: 269
+  }
+  node_stats {
+    node_name: "sequential/dense/BiasAdd:BiasAdd"
+    all_start_micros: 1531422477756508
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "sequential/dense/Relu:Relu"
+    all_start_micros: 1531422477756514
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/div:Mul"
+    all_start_micros: 1531422477756518
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/random_uniform/RandomUniform:RandomUniform"
+    all_start_micros: 1531422477756523
+    op_end_rel_micros: 9
+    all_end_rel_micros: 9
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/add:Add"
+    all_start_micros: 1531422477756534
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/Floor:Floor"
+    all_start_micros: 1531422477756540
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sequential/dropout/dropout/mul:Mul"
+    all_start_micros: 1531422477756544
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "sequential/dense_1/MatMul:MatMul"
+    all_start_micros: 1531422477756549
+    op_end_rel_micros: 18
+    all_end_rel_micros: 18
+  }
+  node_stats {
+    node_name: "sequential/dense_1/BiasAdd:BiasAdd"
+    all_start_micros: 1531422477756568
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756572
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756578
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756582
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756589
+    op_end_rel_micros: 9
+    all_end_rel_micros: 9
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756599
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits"
+    all_start_micros: 1531422477756603
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like:Fill"
+    all_start_micros: 1531422477756607
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Sum:Sum"
+    all_start_micros: 1531422477756610
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/num_present:Sum"
+    all_start_micros: 1531422477756614
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Greater:Greater"
+    all_start_micros: 1531422477756617
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Equal:Equal"
+    all_start_micros: 1531422477756621
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/value_grad/Select:Select"
+    all_start_micros: 1531422477756624
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/Select:Select"
+    all_start_micros: 1531422477756628
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/div:RealDiv"
+    all_start_micros: 1531422477756631
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv:RealDiv"
+    all_start_micros: 1531422477756635
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "sparse_softmax_cross_entropy_loss/value:Select"
+    all_start_micros: 1531422477756638
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile:Tile"
+    all_start_micros: 1531422477756641
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul:Mul"
+    all_start_micros: 1531422477756646
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477756655
+    op_end_rel_micros: 8
+    all_end_rel_micros: 8
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756666
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756670
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756674
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense_1/MatMul_grad/MatMul:MatMul"
+    all_start_micros: 1531422477756680
+    op_end_rel_micros: 15
+    all_end_rel_micros: 15
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense_1/MatMul_grad/MatMul_1:MatMul"
+    all_start_micros: 1531422477756697
+    op_end_rel_micros: 12
+    all_end_rel_micros: 12
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756711
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756715
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756719
+    op_end_rel_micros: 6
+    all_end_rel_micros: 6
+  }
+  node_stats {
+    node_name: "gradients/sequential/dropout/dropout/mul_grad/Mul:Mul"
+    all_start_micros: 1531422477756726
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "gradients/sequential/dropout/dropout/div_grad/RealDiv:Mul"
+    all_start_micros: 1531422477756731
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/Relu_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1531422477756736
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477756752
+    op_end_rel_micros: 6
+    all_end_rel_micros: 6
+  }
+  node_stats {
+    node_name: "Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756759
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756763
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477756766
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/MatMul_grad/MatMul:MatMul"
+    all_start_micros: 1531422477756772
+    op_end_rel_micros: 280
+    all_end_rel_micros: 280
+  }
+  node_stats {
+    node_name: "gradients/sequential/dense/MatMul_grad/MatMul_1:MatMul"
+    all_start_micros: 1531422477757054
+    op_end_rel_micros: 212
+    all_end_rel_micros: 212
+  }
+  node_stats {
+    node_name: "Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477757268
+    op_end_rel_micros: 248
+    all_end_rel_micros: 248
+  }
+  node_stats {
+    node_name: "Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477757517
+    op_end_rel_micros: 247
+    all_end_rel_micros: 247
+  }
+  node_stats {
+    node_name: "Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477757766
+    op_end_rel_micros: 337
+    all_end_rel_micros: 337
+  }
+  node_stats {
+    node_name: "gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad:MaxPoolGrad"
+    all_start_micros: 1531422477758105
+    op_end_rel_micros: 135
+    all_end_rel_micros: 135
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Relu_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1531422477758242
+    op_end_rel_micros: 97
+    all_end_rel_micros: 97
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477758349
+    op_end_rel_micros: 39
+    all_end_rel_micros: 39
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477758390
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477758395
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477758399
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477758403
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477758407
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477758415
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477758418
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477758422
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477758427
+    op_end_rel_micros: 823
+    all_end_rel_micros: 823
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477759251
+    op_end_rel_micros: 7
+    all_end_rel_micros: 7
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1531422477759259
+    op_end_rel_micros: 6
+    all_end_rel_micros: 6
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1531422477759267
+    op_end_rel_micros: 345
+    all_end_rel_micros: 345
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1531422477759614
+    op_end_rel_micros: 17
+    all_end_rel_micros: 17
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1531422477759633
+    op_end_rel_micros: 280
+    all_end_rel_micros: 280
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput"
+    all_start_micros: 1531422477759914
+    op_end_rel_micros: 182
+    all_end_rel_micros: 182
+  }
+  node_stats {
+    node_name: "gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad:MaxPoolGrad"
+    all_start_micros: 1531422477760098
+    op_end_rel_micros: 173
+    all_end_rel_micros: 173
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760272
+    op_end_rel_micros: 6
+    all_end_rel_micros: 6
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760280
+    op_end_rel_micros: 5
+    all_end_rel_micros: 5
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760286
+    op_end_rel_micros: 7
+    all_end_rel_micros: 7
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/Relu_grad/ReluGrad:ReluGrad"
+    all_start_micros: 1531422477760294
+    op_end_rel_micros: 196
+    all_end_rel_micros: 196
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477760505
+    op_end_rel_micros: 69
+    all_end_rel_micros: 69
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477760576
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad"
+    all_start_micros: 1531422477760581
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760585
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760589
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760593
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477760614
+    op_end_rel_micros: 270
+    all_end_rel_micros: 270
+  }
+  node_stats {
+    node_name: "gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter"
+    all_start_micros: 1531422477760886
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760890
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760894
+    op_end_rel_micros: 3
+    all_end_rel_micros: 3
+  }
+  node_stats {
+    node_name: "Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam"
+    all_start_micros: 1531422477760898
+    op_end_rel_micros: 4
+    all_end_rel_micros: 4
+  }
+  node_stats {
+    node_name: "Adam/mul:Mul"
+    all_start_micros: 1531422477760903
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "Adam/mul_1:Mul"
+    all_start_micros: 1531422477760907
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+  }
+  node_stats {
+    node_name: "Adam:AssignAdd"
+    all_start_micros: 1531422477760915
+    op_end_rel_micros: 2
+    all_end_rel_micros: 2
+  }
+  node_stats {
+    node_name: "global_step/add:Snapshot:MEMCPYDtoD"
+    all_start_micros: 1531422477751093
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoD 8 bytes (Device to Device)"
+  }
+  node_stats {
+    node_name: "Adam/Assign:Assign:MEMCPYDtoD"
+    all_start_micros: 1531422477760910
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoD 4 bytes (Device to Device)"
+  }
+  node_stats {
+    node_name: "Adam/Assign_1:Assign:MEMCPYDtoD"
+    all_start_micros: 1531422477760913
+    op_end_rel_micros: 1
+    all_end_rel_micros: 1
+    timeline_label: "MEMCPYDtoD 4 bytes (Device to Device)"
+  }
+}
