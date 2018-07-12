@@ -11,9 +11,9 @@ Find bottlenecks in any complex model within minutes, with exact parameters, eve
 - For examples of generated interactive pie charts (html5) see /results
 
 ## Usage
-1. See tensorscope.py
-2. When Chrome is launched, decrease/increase "Max depth" on  a chart to quickly navigate through ops hierarchy. 
-3. Additionally, see results in generated plain text tsv file in output_dir.
+1. Simply ./run_me.sh in reproduce_results/
+2. See results in pie_chart.html and data.tsv ./results_summary/
+3. To add to your existing training setup - see module comment section in tensorscope.py
 
 ## Contact
 nick.drabovich@amd.com
