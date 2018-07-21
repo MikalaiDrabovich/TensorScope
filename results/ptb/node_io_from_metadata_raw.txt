@@ -1,0 +1,1041 @@
+Model/RNN/multi_rnn_cell/cell_0/lstm_cell/bias, (1), (800x1), GPU, 0
+Model/RNN/multi_rnn_cell/cell_0/lstm_cell/bias/read, (800x1), (800x1), GPU, 0
+Model/RNN/multi_rnn_cell/cell_0/lstm_cell/kernel, (1), (400x800), GPU, 0
+Model/RNN/multi_rnn_cell/cell_0/lstm_cell/kernel/read, (400x800), (400x800), GPU, 0
+Model/RNN/multi_rnn_cell/cell_1/lstm_cell/bias, (1), (800x1), GPU, 0
+Model/RNN/multi_rnn_cell/cell_1/lstm_cell/bias/read, (800x1), (800x1), GPU, 0
+Model/RNN/multi_rnn_cell/cell_1/lstm_cell/kernel, (1), (400x800), GPU, 0
+Model/RNN/multi_rnn_cell/cell_1/lstm_cell/kernel/read, (400x800), (400x800), GPU, 0
+Model/embedding, (1), (10000x200), CPU, 0
+Model/embedding/read, (10000x200), (10000x200), CPU, 0
+Model/global_step, (1), (int64 1), GPU, 0
+Model/softmax_b, (1), (10000x1), GPU, 0
+Model/softmax_b/read, (10000x1), (10000x1), GPU, 0
+Model/softmax_w, (1), (200x10000), GPU, 0
+Model/softmax_w/read, (200x10000), (200x10000), GPU, 0
+Train/Model/GradientDescent, (int64 1), (int64 1), (int64 1), GPU, 0
+Train/Model/GradientDescent/update, ^Train/Model/GradientDescent/update/NoOp, ^Train/Model/GradientDescent/update/NoOp_1/_113, (no output), GPU, 0
+Train/Model/GradientDescent/update/NoOp, ^Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_0/lstm_cell/bias/ApplyGradientDescent, ^Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_0/lstm_cell/kernel/ApplyGradientDescent, ^Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_1/lstm_cell/bias/ApplyGradientDescent, ^Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_1/lstm_cell/kernel/ApplyGradientDescent, ^Train/Model/GradientDescent/update_Model/softmax_b/ApplyGradientDescent, ^Train/Model/GradientDescent/update_Model/softmax_w/ApplyGradientDescent, (no output), GPU, 0
+Train/Model/GradientDescent/update/NoOp_1, ^Train/Model/GradientDescent/update_Model/embedding/ScatterSub, (no output), CPU, 0
+Train/Model/GradientDescent/update/NoOp_1/_110, ^Train/Model/GradientDescent/update/NoOp_1, (1), CPU, 0
+Train/Model/GradientDescent/update/NoOp_1/_113, (no output), (1), GPU, 0
+Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_0/lstm_cell/bias/ApplyGradientDescent, (800x1), (1), (800x1), (800x1), GPU, 0
+Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_0/lstm_cell/bias/ApplyGradientDescent:ApplyGradientDescent, (no input), (no output), GPU, 0
+Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_0/lstm_cell/kernel/ApplyGradientDescent, (400x800), (1), (400x800), (400x800), GPU, 0
+Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_0/lstm_cell/kernel/ApplyGradientDescent:ApplyGradientDescent, (no input), (no output), GPU, 0
+Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_1/lstm_cell/bias/ApplyGradientDescent, (800x1), (1), (800x1), (800x1), GPU, 0
+Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_1/lstm_cell/bias/ApplyGradientDescent:ApplyGradientDescent, (no input), (no output), GPU, 0
+Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_1/lstm_cell/kernel/ApplyGradientDescent, (400x800), (1), (400x800), (400x800), GPU, 0
+Train/Model/GradientDescent/update_Model/RNN/multi_rnn_cell/cell_1/lstm_cell/kernel/ApplyGradientDescent:ApplyGradientDescent, (no input), (no output), GPU, 0
+Train/Model/GradientDescent/update_Model/embedding/ScatterSub, (10000x200), (int32 400x1), (400x200), (10000x200), CPU, 0
+Train/Model/GradientDescent/update_Model/embedding/mul, (400x200), (1), (400x200), CPU, 0
+Train/Model/GradientDescent/update_Model/softmax_b/ApplyGradientDescent, (10000x1), (1), (10000x1), (10000x1), GPU, 0
+Train/Model/GradientDescent/update_Model/softmax_b/ApplyGradientDescent:ApplyGradientDescent, (no input), (no output), GPU, 0
+Train/Model/GradientDescent/update_Model/softmax_w/ApplyGradientDescent, (200x10000), (1), (200x10000), (200x10000), GPU, 0
+Train/Model/GradientDescent/update_Model/softmax_w/ApplyGradientDescent:ApplyGradientDescent, (no input), (no output), GPU, 0
+Train/Model/GradientDescent/value, ^Train/Model/GradientDescent/update, (int64 1), GPU, 0
+Train/Model/GradientDescent:AssignAdd, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell, (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/zeros, (1), (200x1), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9:LSTMBlockCell, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice/stack, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice/stack_2, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_1, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_1/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_10, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_10/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_10:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_11, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_11/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_11:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_12, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_12/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_12:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_13, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_13/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_13:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_14, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_14/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_14:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_15, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_15/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_15:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_16, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_16/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_16:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_17, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_17/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_17:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_18, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_18/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_18:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_19, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_19/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_19:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_1:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_2, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_2/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_2:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_3, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_3/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_3:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_4, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_4/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_4:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_5, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_5/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_5:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_6, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_6/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_6:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_7, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_7/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_7:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_8, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_8/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_8:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/RNN/strided_slice_9, (20x20x200), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), GPU, 0
+Train/Model/RNN/strided_slice_9/stack_1, (1), (int32 3x1), GPU, 0
+Train/Model/RNN/strided_slice_9:StridedSlice, (no input), (no output), GPU, 0
+Train/Model/Reshape, (20x4000), (int32 2x1), (400x200), GPU, 0
+Train/Model/Reshape/shape, (1), (int32 2x1), GPU, 0
+Train/Model/Reshape_1, (400x10000), (int32 3x1), (20x20x10000), GPU, 0
+Train/Model/Reshape_1/shape, (1), (int32 3x1), GPU, 0
+Train/Model/Sum, (20x1), (, 1, ), (1), GPU, 0
+Train/Model/Sum:Sum, (no input), (no output), GPU, 0
+Train/Model/Variable, (1), (1), GPU, 0
+Train/Model/Variable/read, (1), (1), GPU, 0
+Train/Model/clip_by_global_norm/Minimum, (1), (1), (1), GPU, 0
+Train/Model/clip_by_global_norm/Minimum:Minimum, (no input), (no output), GPU, 0
+Train/Model/clip_by_global_norm/Train/Model/clip_by_global_norm/_0, (400x200), (400x200), GPU, 0
+Train/Model/clip_by_global_norm/Train/Model/clip_by_global_norm/_1, (400x800), (400x800), GPU, 0
+Train/Model/clip_by_global_norm/Train/Model/clip_by_global_norm/_2, (800x1), (800x1), GPU, 0
+Train/Model/clip_by_global_norm/Train/Model/clip_by_global_norm/_3, (400x800), (400x800), GPU, 0
+Train/Model/clip_by_global_norm/Train/Model/clip_by_global_norm/_4, (800x1), (800x1), GPU, 0
+Train/Model/clip_by_global_norm/Train/Model/clip_by_global_norm/_5, (200x10000), (200x10000), GPU, 0
+Train/Model/clip_by_global_norm/Train/Model/clip_by_global_norm/_6, (10000x1), (10000x1), GPU, 0
+Train/Model/clip_by_global_norm/mul, (1), (1), (1), GPU, 0
+Train/Model/clip_by_global_norm/mul/x, (1), (1), GPU, 0
+Train/Model/clip_by_global_norm/mul:Mul, (no input), (no output), GPU, 0
+Train/Model/clip_by_global_norm/mul_1, (400x200), (1), (400x200), GPU, 0
+Train/Model/clip_by_global_norm/mul_1:Mul, (no input), (no output), GPU, 0
+Train/Model/clip_by_global_norm/mul_2, (400x800), (1), (400x800), GPU, 0
+Train/Model/clip_by_global_norm/mul_2:Mul, (no input), (no output), GPU, 0
+Train/Model/clip_by_global_norm/mul_3, (800x1), (1), (800x1), GPU, 0
+Train/Model/clip_by_global_norm/mul_3:Mul, (no input), (no output), GPU, 0
+Train/Model/clip_by_global_norm/mul_4, (400x800), (1), (400x800), GPU, 0
+Train/Model/clip_by_global_norm/mul_4:Mul, (no input), (no output), GPU, 0
+Train/Model/clip_by_global_norm/mul_5, (800x1), (1), (800x1), GPU, 0
+Train/Model/clip_by_global_norm/mul_5:Mul, (no input), (no output), GPU, 0
+Train/Model/clip_by_global_norm/mul_6, (200x10000), (1), (200x10000), GPU, 0
+Train/Model/clip_by_global_norm/mul_6:Mul, (no input), (no output), GPU, 0
+Train/Model/clip_by_global_norm/mul_7, (10000x1), (1), (10000x1), GPU, 0
+Train/Model/clip_by_global_norm/mul_7:Mul, (no input), (no output), GPU, 0
+Train/Model/clip_by_global_norm/truediv, (1), (1), (1), GPU, 0
+Train/Model/clip_by_global_norm/truediv/x, (1), (1), GPU, 0
+Train/Model/clip_by_global_norm/truediv:RealDiv, (no input), (no output), GPU, 0
+Train/Model/clip_by_global_norm/truediv_1/_0__cf__0, (1), (1), GPU, 0
+Train/Model/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x4000), GPU, 0
+Train/Model/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/concat:ConcatV2:MEMCPYHtoD, (no input), (output 160 bytes), GPU, 0
+Train/Model/embedding_lookup, (10000x200), (int32 20x20), (, 1, ), (20x20x200), CPU, 0
+Train/Model/embedding_lookup/axis, (1), (int32 1), CPU, 0
+Train/Model/global_norm/Const_1, (1), (1), GPU, 0
+Train/Model/global_norm/L2Loss, (400x200), (1), GPU, 0
+Train/Model/global_norm/L2Loss:L2Loss, (no input), (no output), GPU, 0
+Train/Model/global_norm/L2Loss_1, (400x800), (1), GPU, 0
+Train/Model/global_norm/L2Loss_1:L2Loss, (no input), (no output), GPU, 0
+Train/Model/global_norm/L2Loss_2, (800x1), (1), GPU, 0
+Train/Model/global_norm/L2Loss_2:L2Loss, (no input), (no output), GPU, 0
+Train/Model/global_norm/L2Loss_3, (400x800), (1), GPU, 0
+Train/Model/global_norm/L2Loss_3:L2Loss, (no input), (no output), GPU, 0
+Train/Model/global_norm/L2Loss_4, (800x1), (1), GPU, 0
+Train/Model/global_norm/L2Loss_4:L2Loss, (no input), (no output), GPU, 0
+Train/Model/global_norm/L2Loss_5, (200x10000), (1), GPU, 0
+Train/Model/global_norm/L2Loss_5:L2Loss, (no input), (no output), GPU, 0
+Train/Model/global_norm/L2Loss_6, (10000x1), (1), GPU, 0
+Train/Model/global_norm/L2Loss_6:L2Loss, (no input), (no output), GPU, 0
+Train/Model/global_norm/Sum, (7x1), (, 1, ), (1), GPU, 0
+Train/Model/global_norm/Sum:Sum, (no input), (no output), GPU, 0
+Train/Model/global_norm/global_norm, (1), (1), GPU, 0
+Train/Model/global_norm/global_norm:Sqrt, (no input), (no output), GPU, 0
+Train/Model/global_norm/mul, (1), (, 1, ), (1), GPU, 0
+Train/Model/global_norm/mul:Mul, (no input), (no output), GPU, 0
+Train/Model/global_norm/stack, (1), (1), (1), (1), (1), (1), (1), (7x1), GPU, 0
+Train/Model/global_norm/stack:Pack:MEMCPYDtoD, (no input), (output 4 bytes), GPU, 0
+Train/Model/gradients/AddN, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_1, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_10, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_10:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_11, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_11:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_12, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_12:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_13, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_13:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_14, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_14:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_15, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_15:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_16, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_16:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_17, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_17:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_18, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_18:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_19, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_19:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_1:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_2, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_20, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_20:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_21, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_21:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_22, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_22:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_23, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_23:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_24, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_24:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_25, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_25:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_26, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_26:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_27, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_27:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_28, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_28:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_29, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_29:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_2:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_3, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_30, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_30:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_31, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_31:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_32, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_32:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_33, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_33:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_34, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_34:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_35, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_35:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_36, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_36:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_37, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_37:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_38, (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), GPU, 0
+Train/Model/gradients/AddN_38:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_39, (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), GPU, 0
+Train/Model/gradients/AddN_39:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_3:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_4, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_40, (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), (400x800), GPU, 0
+Train/Model/gradients/AddN_40:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_41, (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), (800x1), GPU, 0
+Train/Model/gradients/AddN_41:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_42, (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), (20x20x200), GPU, 0
+Train/Model/gradients/AddN_42:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_4:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_5, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_5:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_6, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_6:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_7, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_7:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_8, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_8:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/AddN_9, (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/AddN_9:AddN, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_10_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_11_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_12_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_13_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_14_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_15_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_16_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_17_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_18_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_1_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_2_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_3_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_4_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_5_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_6_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_7_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_8_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_9_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (400x800), (200x1), (200x1), (200x1), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/concat, (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_10_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_11_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_12_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_13_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_14_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_15_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_16_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_17_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_18_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/Slice, (20x400), (int32 2x1), (int32 2x1), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/Slice/begin, (1), (int32 2x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/Slice/size, (1), (int32 2x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/Slice_1, (20x400), (int32 2x1), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/Slice_1/begin, (1), (int32 2x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_1_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_2_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_3_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_4_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_5_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_6_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_7_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_8_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/Slice_1, (20x400), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/Slice_1:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_9_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/BiasAddGrad, (20x200), (20x800), (200x1), (200x1), (200x1), (800x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/LSTMBlockCellGrad, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (400x800), (?), (?), (?), (800x1), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), (20x200), (20x200), (20x800), (200x1), (200x1), (200x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/LSTMBlockCellGrad:LSTMBlockCellGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/MatMul, (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/MatMul_1, (20x400), (20x200), (20x800), (200x1), (200x1), (200x1), (400x800), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/Slice, (20x400), (?), (?), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/Slice:Slice, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/concat, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (, 1, ), (20x400), GPU, 0
+Train/Model/gradients/Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_grad/concat:ConcatV2, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_10_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_10_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_11_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_11_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_12_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_12_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_13_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_13_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_14_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_14_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_15_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_15_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_16_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_16_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_17_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_17_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_18_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_18_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_19_grad/Shape, (1), (int32 3x1), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_19_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_19_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_1_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_1_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_2_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_2_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_3_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_3_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_4_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_4_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_5_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_5_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_6_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_6_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_7_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_7_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_8_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_8_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_9_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_9_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_grad/StridedSliceGrad, (, 1, x, 3, ), (int32 3x1), (int32 3x1), (int32 3x1), (20x200), (20x20x200), GPU, 0
+Train/Model/gradients/Train/Model/RNN/strided_slice_grad/StridedSliceGrad:StridedSliceGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/Reshape_1_grad/Reshape, (20x20x10000), (1|2|3x1), (400x10000), GPU, 0
+Train/Model/gradients/Train/Model/Reshape_1_grad/Shape, (1), (int32 2x1), GPU, 0
+Train/Model/gradients/Train/Model/Reshape_grad/Reshape, (400x200), (1|2|3x1), (20x4000), GPU, 0
+Train/Model/gradients/Train/Model/Reshape_grad/Shape, (1), (int32 2x1), GPU, 0
+Train/Model/gradients/Train/Model/concat_grad/Squeeze/_1__cf__1, (1), (int32 20x1), GPU, 0
+Train/Model/gradients/Train/Model/concat_grad/split, (20x4000), (, 1, ), (, 1, ), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/Train/Model/concat_grad/split:SplitV, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/concat_grad/split:SplitV:MEMCPYHtoD, (no input), (output 84 bytes), GPU, 0
+Train/Model/gradients/Train/Model/embedding_lookup_grad/ExpandDims/_3__cf__3, (1), (int32 1x1), GPU, 0
+Train/Model/gradients/Train/Model/embedding_lookup_grad/Reshape, (20x20x200), (int32 2x1), (400x200), GPU, 0
+Train/Model/gradients/Train/Model/embedding_lookup_grad/Reshape_1, (int32 20x20), (1|2|3x1), (int32 400x1), GPU, 0
+Train/Model/gradients/Train/Model/embedding_lookup_grad/ToInt32/_0__cf__15, (1), (int32 2x1), CPU, 0
+Train/Model/gradients/Train/Model/embedding_lookup_grad/concat, (1|2|3x1), (int32 1x1), (, 1, ), (int32 2x1), GPU, 0
+Train/Model/gradients/Train/Model/embedding_lookup_grad/strided_slice, (, 1, ), (int32 1x1), (int32 1x1), (int32 1x1), (int32 1x1), GPU, 0
+Train/Model/gradients/Train/Model/embedding_lookup_grad/strided_slice/stack, (1), (int32 1x1), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/Reshape_3_grad/Reshape, (20x20), (1|2|3x1), (400x1), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/Reshape_grad/Reshape, (400x10000), (1|2|3x1), (20x20x10000), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/ExpandDims, (400x1), (int32 1), (400x1), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/ExpandDims/dim, (1), (int32 1), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/PreventGradient, (400x1), (400x10000), (400x10000), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/mul, (1|2|3x1), (400x10000), (400x10000), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/mul:Mul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/DynamicStitch, (, 1, ), (, 1, ), (1|2|3x1), (, 1, ), (int32 2x1), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/DynamicStitch:DynamicStitch, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/Maximum, (int32 2x1), (int32 1), (int32 2x1), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/Maximum/y, (1), (int32 1), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/Reshape, (1|2|3x1), (int32 2x1), (1x20), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/Tile, (1x20), (int32 2x1), (20x20), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/Tile:Tile, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/floordiv, (1|2|3x1), (int32 2x1), (int32 2x1), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/range/_6__cf__6, (1), (int32 2x1), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/mul_grad/Mul, (400x1), (400x10000), (400x1), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/mul_grad/Mul:Mul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/sequence_loss/truediv_grad/Reshape/_7__cf__7, (1), (20x1), GPU, 0
+Train/Model/gradients/Train/Model/xw_plus_b/MatMul_grad/MatMul, (400x10000), (200x10000), (400x200), GPU, 0
+Train/Model/gradients/Train/Model/xw_plus_b/MatMul_grad/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/xw_plus_b/MatMul_grad/MatMul_1, (400x200), (400x10000), (200x10000), GPU, 0
+Train/Model/gradients/Train/Model/xw_plus_b/MatMul_grad/MatMul_1:MatMul, (no input), (no output), GPU, 0
+Train/Model/gradients/Train/Model/xw_plus_b_grad/BiasAddGrad, (400x10000), (10000x1), GPU, 0
+Train/Model/gradients/Train/Model/xw_plus_b_grad/BiasAddGrad:BiasAddGrad, (no input), (no output), GPU, 0
+Train/Model/gradients/zeros_like_2, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/zeros_like_2:ZerosLike, (no input), (no output), GPU, 0
+Train/Model/gradients/zeros_like_8, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), GPU, 0
+Train/Model/gradients/zeros_like_8:ZerosLike, (no input), (no output), GPU, 0
+Train/Model/sequence_loss/Reshape, (20x20x10000), (1|2|3x1), (400x10000), GPU, 0
+Train/Model/sequence_loss/Reshape/shape/_8__cf__8, (1), (int32 2x1), GPU, 0
+Train/Model/sequence_loss/Reshape_1, (int32 20x20), (int32 1x1), (int32 400x1), GPU, 0
+Train/Model/sequence_loss/Reshape_1/shape, (1), (int32 1x1), GPU, 0
+Train/Model/sequence_loss/Reshape_2/_9__cf__9, (1), (400x1), GPU, 0
+Train/Model/sequence_loss/Reshape_3, (400x1), (400x10000), (20x20), GPU, 0
+Train/Model/sequence_loss/Reshape_3/shape/_10__cf__10, (1), (int32 2x1), GPU, 0
+Train/Model/sequence_loss/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits, (400x10000), (int32 400x1), (400x1), (400x10000), GPU, 0
+Train/Model/sequence_loss/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits:SparseSoftmaxCrossEntropyWithLogits, (no input), (no output), GPU, 0
+Train/Model/sequence_loss/Sum, (20x20), (1|2|3x1), (20x1), GPU, 0
+Train/Model/sequence_loss/Sum/reduction_indices, (1), (int32 1x1), GPU, 0
+Train/Model/sequence_loss/Sum:Sum, (no input), (no output), GPU, 0
+Train/Model/sequence_loss/add/_11__cf__11, (1), (20x1), GPU, 0
+Train/Model/sequence_loss/mul, (400x1), (400x10000), (400x10000), (400x1), GPU, 0
+Train/Model/sequence_loss/mul:Mul, (no input), (no output), GPU, 0
+Train/Model/sequence_loss/truediv, (20x1), (1|2|3x1), (20x1), GPU, 0
+Train/Model/sequence_loss/truediv:RealDiv, (no input), (no output), GPU, 0
+Train/Model/xw_plus_b, (400x10000), (10000x1), (400x10000), GPU, 0
+Train/Model/xw_plus_b/MatMul, (400x200), (200x10000), (400x10000), GPU, 0
+Train/Model/xw_plus_b/MatMul:MatMul, (no input), (no output), GPU, 0
+Train/Model/xw_plus_b:BiasAdd, (no input), (no output), GPU, 0
+Train/TrainInput/Reshape/_12__cf__12, (1), (int32 20x46479), GPU, 0
+Train/TrainInput/StridedSlice, (1|2|3x1), (int32 2x1), (int32 2x1), (1|2|3x1), (int32 20x20), GPU, 0
+Train/TrainInput/StridedSlice/begin, (int32 1), (int32 1), (int32 2x1), GPU, 0
+Train/TrainInput/StridedSlice/begin/0, (1), (int32 1), GPU, 0
+Train/TrainInput/StridedSlice/end, (?), (int32 1), (int32 2x1), GPU, 0
+Train/TrainInput/StridedSlice_1, (1|2|3x1), (int32 2x1), (int32 2x1), (1|2|3x1), (int32 20x20), GPU, 0
+Train/TrainInput/StridedSlice_1/begin, (int32 20x20), (int32 1), (int32 2x1), GPU, 0
+Train/TrainInput/StridedSlice_1/end, (int32 20x20), (int32 1), (int32 2x1), GPU, 0
+Train/TrainInput/add, (int32 1), (int32 1), (int32 1), GPU, 0
+Train/TrainInput/add/y, (1), (int32 1), GPU, 0
+Train/TrainInput/add_1, (int32 1), (int32 1), (int32 1), GPU, 0
+Train/TrainInput/add_3, (int32 1), (int32 1), (int32 1), GPU, 0
+Train/TrainInput/input_producer, (1), (tf_resource 1), CPU, 0
+Train/TrainInput/input_producer_Dequeue, (tf_resource 1), (int32 1), CPU, 0
+Train/TrainInput/mul_1, (int32 1), (int32 1), (int32 1), GPU, 0
+Train/TrainInput/mul_1/y, (1), (int32 1), GPU, 0
+Train/TrainInput/mul_2, (int32 1), (int32 1), (int32 1), GPU, 0
+Train/TrainInput/ones_like/_13__cf__13, (1), (int32 2x1), GPU, 0
+_SOURCE, (1), (no output), GPU, 0
+_arg_Train/Model/MultiRNNCellZeroState/LSTMBlockCellZeroState/zeros_0_0, (1), (20x200), CPU, 0
+_arg_Train/Model/MultiRNNCellZeroState/LSTMBlockCellZeroState/zeros_1_0_1, (1), (20x200), CPU, 0
+_arg_Train/Model/MultiRNNCellZeroState/LSTMBlockCellZeroState_1/zeros_0_2, (1), (20x200), CPU, 0
+_arg_Train/Model/MultiRNNCellZeroState/LSTMBlockCellZeroState_1/zeros_1_0_3, (1), (20x200), CPU, 0
+_retval_Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_1_0, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (no output), CPU, 0
+_retval_Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19_6_1, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (no output), CPU, 0
+_retval_Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_1_2, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (no output), CPU, 0
+_retval_Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19_6_3, (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (20x200), (no output), CPU, 0
+_retval_Train/Model/Sum_0_4, (1), (no output), CPU, 0
+edge_2140_Train/Model/clip_by_global_norm/Train/Model/clip_by_global_norm/_0:MEMCPYDtoH, (no input), (output 320000 bytes), GPU, 0
+edge_2141_Train/Model/Variable/read:MEMCPYDtoH, (no input), (output 4 bytes), GPU, 0
+edge_2604__arg_Train/Model/MultiRNNCellZeroState/LSTMBlockCellZeroState/zeros_0_0:MEMCPYHtoD, (no input), (output 16000 bytes), GPU, 0
+edge_2607__arg_Train/Model/MultiRNNCellZeroState/LSTMBlockCellZeroState/zeros_1_0_1:MEMCPYHtoD, (no input), (output 16000 bytes), GPU, 0
+edge_2611__arg_Train/Model/MultiRNNCellZeroState/LSTMBlockCellZeroState_1/zeros_0_2:MEMCPYHtoD, (no input), (output 16000 bytes), GPU, 0
+edge_2614__arg_Train/Model/MultiRNNCellZeroState/LSTMBlockCellZeroState_1/zeros_1_0_3:MEMCPYHtoD, (no input), (output 16000 bytes), GPU, 0
+edge_2617_Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19:MEMCPYDtoH, (no input), (output 16000 bytes), GPU, 0
+edge_2619_Train/Model/RNN/RNN/multi_rnn_cell/cell_0/lstm_cell/LSTMBlockCell_19:MEMCPYDtoH, (no input), (output 16000 bytes), GPU, 0
+edge_2621_Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19:MEMCPYDtoH, (no input), (output 16000 bytes), GPU, 0
+edge_2623_Train/Model/RNN/RNN/multi_rnn_cell/cell_1/lstm_cell/LSTMBlockCell_19:MEMCPYDtoH, (no input), (output 16000 bytes), GPU, 0
+edge_2625_Train/Model/Sum:MEMCPYDtoH, (no input), (output 4 bytes), GPU, 0
+edge_498_Train/Model/sequence_loss/Reshape_1:MEMCPYHtoD, (no input), (output 1600 bytes), GPU, 0
+edge_551_Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/Shape:MEMCPYHtoD, (no input), (output 8 bytes), GPU, 0
+edge_552_Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/Fill:MEMCPYHtoD, (no input), (output 4 bytes), GPU, 0
+edge_553_Train/Model/gradients/Train/Model/sequence_loss/Sum_grad/DynamicStitch:MEMCPYDtoH, (no input), (output 8 bytes), GPU, 0
+edge_56_Train/Model/embedding_lookup:MEMCPYHtoD, (no input), (output 320000 bytes), GPU, 0
