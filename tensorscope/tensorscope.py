@@ -86,9 +86,6 @@ e.g. MatMul_17:MatMul  while exact name is necessary to keep to find correct inp
 - chart data format for node path required info about op placement device to be 
 inserted before tensor shapes in order to get meaningful hierarchy in a chart.
 
-The goal was to minimize any necessary code change to existing setup 
-for model training/inference.
-
 Mikalai Drabovich, nick.drabovich@amd.com
 
 """
@@ -206,291 +203,489 @@ class Tensorscope(object):
         self.op_time_total = dict()
         self.cf_temp = dict()
         
+        self.node_dict = {}
+        self.current_node_dict = {}
+        self.sess_node_dict_out_raw = {}
+        
+        self.sess_node_dict_out = {}
+        self.profiling_result = None
+        
         self.current_session = 0
         self.num_steps_analyzed = 0
         self.total_time_analyzed = 0
         self.tracing_graph_parsed = False
 
-    
-    def are_op_part_names_equal(self, str1, str2):
-        paths1 = str1.split('_')        # ['strided', 'slice', '1']
-        op_stems1 = [p for p in paths1 if not p.isdigit()] # ['strided', 'slice']
-        variant1 =  (''.join(op_stems1  )).lower()  # stridedslice
+        self.session_results = []
         
-        paths2 = str2.split('_')        # ['strided', 'slice', '2']
-        op_stems2 = [p for p in paths2 if not p.isdigit()] # ['strided', 'slice']
-        variant2 =  (''.join(op_stems2)).lower()  # stridedslice
-      
-        return variant1 == variant2
-      
-    def cleanup_op_path_from_metadata(self, name_from_metadata):
-        # transform input similar to 'strided_slice_1:strided_slice_1:StridedSlice' -> 'strided_slice_1'
-        #name_from_metadata = name_from_metadata.lower()
         
+        # path, device str, duration, all duration, outpu str, timelabel_str
+        self.current_raw_nodes = []
+        self.current_nodes_generic = []
+        self.node_list_all_sessions = []
+        
+    def remove_tensor_position_from_node_name(self, name_from_metadata):
+        # LayoutOptimizer adds tensor position in i/o array to the node name,
+        # this may lead to difference between name in metadata and timeline_label
+        # see AddTransformToOutputs(), AddLayoutTransposeToInputs() and similar in 
+        # tensorflow/core/grappler/optimizers/layout_optimizer.cc , 
+        # search there for "-" (with quotes)
         current_node_path_parts = name_from_metadata.split('/')
-        possible_duplicates = current_node_path_parts[-1].split(':')
-        # fill actual __cf__ node names
-        cf_cand_num = current_node_path_parts[-1].split('_')
-        cf_cand = [cf for cf in cf_cand_num if not cf.isdigit()]
-        cf_cand = ''.join(cf_cand)
-        
-        duplicates_removed = []
-        if len(possible_duplicates) > 1:
-            unique_parts = [possible_duplicates[0]]
-            # assumption: StridedSlice goes after strided_slice_1
-            for i, dup_cand in enumerate(possible_duplicates):
-                if not self.are_op_part_names_equal(dup_cand, unique_parts[-1]):
-                    unique_parts.append(dup_cand)
+        for i, node in enumerate(current_node_path_parts):
+            node_loc = node.split('-')
+            if 'LayoutOptimizer' in node_loc:
+                node_loc = [n for n in node_loc if not n.isdigit()]
+                current_node_path_parts[i] = '-'.join(node_loc)
+                
+        return '/'.join(current_node_path_parts)
 
-            possible_duplicates = ':'.join(unique_parts)
-            current_node_path_parts[-1] = possible_duplicates
+    def make_generic_node_name(self, name_from_metadata):
 
-        cleaned_up_path = '/'.join(current_node_path_parts)
-        cleaned_up_path_no_cf = '/'.join(current_node_path_parts[:-1])
-        
-        if ''.join(cf_cand)=='cf':
-            self.cf_temp[cleaned_up_path_no_cf] = cleaned_up_path
-        
-        return cleaned_up_path
-      
-                    
-    def find_input_names_from_model(self, model_graph, input_names_from_model):
-        ''' 
-        Find names of input nodes from model graph,
-            The names then will be used to find input parameters 
-            from metadata graph, which sometimes doesn't have info about
-            input node parameters
-        Args:
-            (in)  model_graph (tensorflow.Graph): model of interest
-            (out) input_names_from_model (dict): dictionary of node name and its inputs
-        '''
-        all_ops = model_graph.get_operations()
-        print("Total number of ops in a model graph: ", len(all_ops))
-        
-        # this file may be quite big
-        tf.train.write_graph(model_graph, self.temp_path,'model_graph.json')
-        
-        all_node_names = set()
-        all_node_names_cleaned = set()
-        
-        for node in all_ops:
-            #if not "Variable" in node.op:
-            #    continue
-                
-            all_node_names.add(node.name)
-            node_name_cleaned = node.name
+        current_node_path_parts = name_from_metadata.split('/')
+        for i, node in enumerate(current_node_path_parts):
+            node_loc = node+''
+            node_loc = node_loc.split(':')
+            for j, nd in enumerate(node_loc):
+                nd = nd.split('_')  
+                nd = [n if not n.isdigit() else 'numberN'  for n in nd ]
+                node_loc[j] = '_'.join(nd)
+            node_loc = ':'.join(node_loc)
+            current_node_path_parts[i] = node_loc
             
-            #node_name_cleaned = node_name_cleaned.lower()
-            
-            all_node_names_cleaned.add(node_name_cleaned)
-            input_names = []
-                
-            for i, inp in enumerate(node.inputs):
-                input_names.append(inp.name)
-                
-            input_names_from_model[node_name_cleaned] =  input_names
-            
-        # save op names for any additional inspection
-        filename_ops_model = self.temp_path + "node_names_model_original.txt"
-        file_ops_model = open(filename_ops_model,'w')
-        sorted_all_node_names = sorted(all_node_names)
+        return '/'.join(current_node_path_parts)      
+
+    def get_common_shapes(self, device_id, in_node, sess_node_dict_out_raw):
+        fin_shape = '?'
         
-        for opname in sorted_all_node_names:
-            file_ops_model.write(opname+'\n')
-        file_ops_model.close()
-        
-        filename_ops_model = self.temp_path + "node_names_model_cleaned.txt"
-        file_ops_model = open(filename_ops_model,'w')
-        sorted_all_node_names_cleaned = sorted(all_node_names_cleaned)
-        
-        for opname in sorted(sorted_all_node_names_cleaned):
-            file_ops_model.write(opname+'\n')
-        file_ops_model.close()      
-            
-                        
-    def find_output_shape_from_metadata(self, step_stats, output_shape_device):
-        ''' 
-        Find node output parameters (tensor shapes)
-        Args:
-            (in)  step_stats (tensorflow.RunMetadata): run_metadata from session.run()
-            (out) output_shape (dict): dictionary of node name and output tensor shape
-            
-        Assumption is that all recorded streams have the same tensor shapes for identical ops,
-        steam:all doesn't have output tensor shapes info at all, so we have to use data from
-        other streams.
-        
-        '''
-        
-        tf.train.write_graph(step_stats, self.temp_path, 'metadata.json')
-      
-        num_nodes_total = 0
-        
-        all_node_names = set()
-        all_node_names_orig = set() 
-        
-        for dev_stats in step_stats.dev_stats:
-            # assume device naming is consistent
-            device_path = dev_stats.device.split('/')
-            device_type = ''
-            device_number = 0
-            
-            for dev_path in device_path:
-                dev_path_parts = dev_path.split(':')
-                if dev_path_parts[0] == 'device':
-                   device_type = dev_path_parts[1]
-                   device_number = dev_path_parts[2]
-            
-            print('New device info extracted from metadata:',  dev_stats.device, device_type, device_number)
+        in_node = in_node.split('/')
+        leaf_node_parts = in_node[-1].split('_')
+        leaf_node = [p for p in leaf_node_parts if not p.isdigit()]
+        leaf_node = '_'.join(leaf_node)
+        in_node[-1] = leaf_node
+        in_node = '/'.join(in_node)
+                                            
+        if in_node in sess_node_dict_out_raw:
+            loc_dev_dict = sess_node_dict_out_raw[in_node][1]
+            if device_id in loc_dev_dict: 
+                return loc_dev_dict[device_id][1]
+            else:
+                for devid, devval in loc_dev_dict.items():
+                    if 'replica' in devid:
+                        if in_node in loc_dev_dict[devid]:
+                            if loc_dev_dict[devid][1][0] != '(no output)':
+                                # what if there is also an exact output slot for the value?
+                                return loc_dev_dict[devid][1][0]
+         
  
-            #'stream:all' may not have info about output nodes, the other streams may have it,
-            # however, another streams may have only partial timings, go figure..
-            for node_stat in dev_stats.node_stats:
-                num_nodes_total+=1
-                output_shapes = []
-                _device_type = ''
-                _device_number = ''
-                
-                cleanedup_op_path = self.cleanup_op_path_from_metadata(node_stat.node_name)
-                
-                all_node_names.add(cleanedup_op_path)
-                all_node_names_orig.add(node_stat.node_name)
-                 
-                if cleanedup_op_path in output_shape_device:
-                    [output_shapes, _device_type, _device_number] = output_shape_device[cleanedup_op_path]
-                
-                 # iterate over all outputs, if there are any
-                if node_stat.output:
-                    for (i, node_stat_out) in enumerate(node_stat.output):
-                        node_stat_dims = node_stat_out.tensor_description.shape.dim
-
-                        valid_tensor_shapes = [str(d.size) for d in node_stat_dims if (d.size and str(d.size)!='')]
-                        if len(valid_tensor_shapes) == 1:
-                            valid_tensor_shapes.append('1')
-                        
-                        tensor_shape_result = 'x'.join(valid_tensor_shapes)
-                        if tensor_shape_result == 'x':
-                            import pdb
-                            pdb.set_trace()
-                            
-                        if tensor_shape_result=='':
-                            tensor_shape_result = '1'
-                        # indicate data type only if it is not float as usual
-                        if node_stat_out.tensor_description.dtype != 1:
-                            # convert int description to data type name
-                            tensor_data_type = TensorDataType(node_stat_out.tensor_description.dtype)
-                            result_shape_with_type = tensor_data_type.name+' '
-                            result_shape_with_type += tensor_shape_result
-                        else:
-                            result_shape_with_type = tensor_shape_result
-
-                        if result_shape_with_type=='': # if a scalar value
-                            result_shape_with_type = '1'
-                            
-                        output_shapes.append('('+result_shape_with_type+')')
-                        
-                new_device = device_type
-                if _device_type != '':
-                    if  new_device != _device_type:
-                        new_device = new_device + '+' + _device_type
-                
-                new_device_number = device_number
-                if _device_number != '':
-                    if  new_device_number != _device_number:
-                        new_device_number = new_device_number + '+' + _device_number
-                     
-                output_shape_device[cleanedup_op_path] = [output_shapes, new_device , new_device_number]
-                            
-        print("Total number of nodes in a metadata graph: ", num_nodes_total)
-
-        filename_ops_metadata = self.temp_path + "node_names_metadata_cleaned.txt"
-        file_ops_metadata = open(filename_ops_metadata,'w')
-        sorted_all_node_names = sorted(all_node_names)
-        for opname in sorted_all_node_names:
-            file_ops_metadata.write(opname+'\n')
-        file_ops_metadata.close()
         
-        filename_ops_metadata = self.temp_path + "node_names_metadata_original.txt"      
-        file_ops_metadata = open(filename_ops_metadata,'w')
-        sorted_all_node_names_orig = sorted(all_node_names_orig)
-        for opname in sorted_all_node_names_orig:
-            file_ops_metadata.write(opname+'\n')
-        file_ops_metadata.close()      
- 
- 
-    def find_input_names_output_shapes(self, step_stats, input_names, io_shapes):
-        ''' 
-        Find node output parameters (tensor shapes)
-        Args:
-            (in)  step_stats (tensorflow.RunMetadata): run_metadata from session.run()
-            (out) output_shape (dict): dictionary of node name and output tensor shape
-            
-        Assumption is that all recorded streams have the same tensor shapes for identical ops,
-        steam:all doesn't have output tensor shapes info at all, so we have to use data from
-        other streams.
-        
-        '''
-        
-        tf.train.write_graph(step_stats, self.temp_path, 'metadata'+'.txt')
-        tf.train.write_graph(self.model_graph, self.temp_path,'model_graph'+'.txt')
+        if leaf_node == 'ConcatOffset':
+            return '(2x1)'
+       
+        if leaf_node in ['Shape', 'shape', 'ExpandDims', 'reduction_indices']:
+            return '(1|2|3x1)'
+                            
+        if leaf_node in ['begin', 'Begin', 'Enter' , 'enter', 'end', 'End', 'size', 'Size', 'mul', 'alpha', 'beta', 'gamma', 'delta', 'concat_dim', 'ToInt32', 'ToInt64', 'axis', 'Const', 'const', 'Squeeze', 'mod', 'Identity', 'range', 'Fill', 'BroadcastGradientArgs', 'control_dependency', 'Merge', 'Switch']:
+            return '(1)'
     
-        num_nodes_total = 0
+        if leaf_node in ['add', 'Reshape', 'RealDiv',  'zeros', 'zeros_like', 'ones_like', 'ones', 'y', 'stack', 'ExponentialDecay']:
+            return '(1|2|3x1)'   
+          
+        return fin_shape
+
+    
+    def consolidate_node_data(self, sess_node_dict_out_raw):
+        result_dict = {}
+        for k,v in sess_node_dict_out_raw.items():
+            all_streams_dict = v[1]
+           
+            device_type = 'unknown'
+            device_number = -1
+ 
+            op_device_dict = {}
+            op_finalized_dict = {}
+                       
+            timings_saved = False
+            
+            op_start_replica = -1
+            op_end_replica = -1
+            all_end_replica = -1
+            replica_key = ''
+ 
+                   
+            for k1,v1 in all_streams_dict.items():
+                 
+                device_path = k1.split('/')
+                for dev_path in device_path:
+                    dev_path_parts = dev_path.split(':')
+                    if dev_path_parts[0] == 'device':
+                       device_type = dev_path_parts[1]
+                       device_number = dev_path_parts[2]
+                       break
+                
+                new_key = device_type + '-' + device_number
+                
+                if not new_key in op_finalized_dict:
+                     
+                    op_finalized_dict[new_key] = {'timings_saved':False, 'op_start_replica':-1, 'op_end_replica': -1, 'all_end_replica':-1, 'replica_key':''}
+                          
+                if ('stream:all' in k1): # this stream will have the highest priority in timing data, if it's not available - get time from memcpy or replica;
+                    if new_key not in op_device_dict:
+                        op_device_dict[new_key] = {'op_start':v1[2],'op_end':v1[3],'all_end':v1[4], 'io_shapes':''.join(v1[0])+'->'+''.join(v1[1]), 'num_calls_stream_all': 1, 'num_calls_replica': 0, 'num_calls_memcpy': 0}
+                    else:
+                     
+                        op_device_dict[new_key]['op_start'] = v1[2]
+                        op_device_dict[new_key]['op_end'] = v1[3]
+                        op_device_dict[new_key]['all_end'] = v1[4]
+                        op_device_dict[new_key]['num_calls_stream_all'] += 1
+                        
+                    op_finalized_dict[new_key]['timings_saved'] = True
+                        
+                        
+                if ('replica' in k1):
+                
+                    if new_key not in op_device_dict:
+                        op_device_dict[new_key] = {'io_shapes':''.join(v1[0])+'->'+''.join(v1[1]),  'num_calls_stream_all': 0, 'num_calls_replica': 1, 'num_calls_memcpy': 0}
+                    else:
+                        op_device_dict[new_key]['io_shapes'] = ''.join(v1[0])+'->'+''.join(v1[1])
+                        op_device_dict[new_key]['num_calls_replica'] += 1
+                    
+                    if not op_finalized_dict[new_key]['timings_saved']:
+              
+                        op_finalized_dict[new_key]['op_start_replica'] = v1[2]
+                        op_finalized_dict[new_key]['op_end_replica'] = v1[3]
+                        op_finalized_dict[new_key]['all_end_replica'] = v1[4]
+                    
+                        op_finalized_dict[new_key]['replica_key'] = new_key+'' 
+                        
+                
+                if  ('memcpy' in k1):
+                
+                    if new_key not in op_device_dict:
+                        op_device_dict[new_key] = {'io_shapes':''.join(v1[0])+'->'+''.join(v1[1]),  'num_calls_stream_all': 0, 'num_calls_replica': 0, 'num_calls_memcpy': 1}
+                    else:
+                        op_device_dict[new_key]['io_shapes'] = ''.join(v1[0])+'->'+''.join(v1[1])
+                        op_device_dict[new_key]['num_calls_memcpy'] +=1
+                        
+                    op_device_dict[new_key]['op_start'] = v1[2]
+                    op_device_dict[new_key]['op_end'] = v1[3]
+                    op_device_dict[new_key]['all_end'] = v1[4]
+                    
+                    op_finalized_dict[new_key]['timings_saved'] = True
+                                  
+            
+            for k2,v2 in op_finalized_dict.items():
+                if not v2['timings_saved']:
+                    op_device_dict[v2['replica_key']]['op_start'] = v2['op_start_replica']
+                    op_device_dict[v2['replica_key']]['op_end'] = v2['op_end_replica']
+                    op_device_dict[v2['replica_key']]['all_end'] = v2['all_end_replica']
+                    
+            for k1,v1 in op_device_dict.items():
+                new_key =  k + '@' + k1 + '@' + v1['io_shapes']
+                result_dict[new_key] = [k, v[0], k1, v1['op_start'], v1['op_end'], v1['all_end'], v1['io_shapes'], v1['num_calls_stream_all'], v1['num_calls_replica'], v1['num_calls_memcpy']]
+       
+        return result_dict
+    
+    def aggregate_session_by_node_path(self, sess_node_list_in):
+        total_lines = len(sess_node_list_in)
+        current_line = 0
+        sess_node_dict_out_raw = {}
+                
+        while current_line < total_lines:
+ 
+            current_key = sess_node_list_in[current_line][0]
+            current_key = current_key.split('/')
+            current_key_last = current_key[-1] + ''
+            current_key_last = current_key_last.split(':')
+            shortname = current_key_last[0]
+            current_key[-1] = shortname+ ''
+            current_key = '/'.join(current_key)
+            current_device = sess_node_list_in[current_line][1]
+            
+            if not current_key in sess_node_dict_out_raw:
+                device_dict = {}
+                device_dict[current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
+                sess_node_dict_out_raw[current_key] = [shortname, device_dict]
+            
+            if current_device not in  sess_node_dict_out_raw[current_key][1]:
+                sess_node_dict_out_raw[current_key][1][current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
+                
+                        
+            device_data = []
+                  
+            # we can get input names, short op name, output size, but not time, time will be from stream:all or sum of other streams minus stream:all and replica  
+            if 'replica' in current_device: 
+                timeline_string = sess_node_list_in[current_line][-1]
+                input_names = ''
+                if timeline_string != '':
+                    shortname = timeline_string.split('=')
+                    shortname = shortname[-1]
+                    shortname = shortname.split('(')
+                    shortname = shortname[0].strip()
+                    sess_node_dict_out_raw[current_key][0] = shortname + ''
+                   
+                    timeline_string = timeline_string.split('(')
+                    inputs_from_timeline_string = timeline_string[-1]
+                    if len(inputs_from_timeline_string)==1: # if just closing bracket, then no inputs
+                        input_names = ['(no input)']
+                        if inputs_from_timeline_string[0] != ')':
+                            sys.exit('timeline_label string didnt have closing bracket: ', sess_node_list_in[current_line][-1], timeline_string)
+                    else:
+                        inputs_from_timeline_string = inputs_from_timeline_string[:-1]
+                        timeline_input_names = inputs_from_timeline_string.split(',')
+                        input_names = [p.strip() for p in timeline_input_names]
+                
+                device_data = [input_names, sess_node_list_in[current_line][-2], sess_node_list_in[current_line][2], sess_node_list_in[current_line][3], sess_node_list_in[current_line][4]]
+            
+            if 'stream' in current_device: # we can get times from stream:all amd stream:0..n 
+                device_data = [['no inputs saved in stream'], ['no outputs saved in stream'], sess_node_list_in[current_line][2], sess_node_list_in[current_line][3], sess_node_list_in[current_line][4]]
+ 
+            if 'memcpy' in current_device:
+                mem_nodes = ['MEMCPYDtoH', 'MEMCPYHtoD', 'MEMCPYDtoD', 'MEMCPYHtoH']
+                mem_nodes_hcc  = ['hcMemcpyDeviceToHost', 'hcMemcpyHostToDevice', 'hcMemcpyDeviceToDevice', 'hcMemcpyHostToHost']    
+                mem_nodes.extend(mem_nodes_hcc)
         
-        all_node_names = set()
-        all_node_names_orig = set() 
+                timeline_string = sess_node_list_in[current_line][-1]
+                
+                lb = timeline_string
+                mem_cand = lb.split(' ')[0]
+                
+                output_shapes_list = []
+                if mem_cand in mem_nodes:
+                    memsz = timeline_string.split(' ')
+                    output_shapes_list.append('(' + memsz[1]+' bytes)')
+                else:
+                    output_shapes_list.append('(no output info)')
+                                   
+                device_data = [['(Transfer)'], output_shapes_list, sess_node_list_in[current_line][2], sess_node_list_in[current_line][3], sess_node_list_in[current_line][4]]
+
+            current_data = sess_node_dict_out_raw[current_key][1][current_device]            
+            sess_node_dict_out_raw[current_key][1][current_device] = [device_data[0], device_data[1], current_data[2], int(current_data[3]) + device_data[3] - device_data[2], int(current_data[4]) + device_data[4]]            
+            current_line +=1
+                     
+        
+        count = 0
+        #now replace names of inputs with actual sizes 
+        for key, val in sess_node_dict_out_raw.items():
+            device_dict = val[1]
+            for k,v in device_dict.items():
+                if 'replica' in k: # find input names to look for later
+                    input_names_from_stream = device_dict[k][0]
+                    if input_names_from_stream[0] != '(no input)':
+                        inp_with_shape = []
+                        for in_node in input_names_from_stream:
+                            if in_node[0] !='^': # skip control nodes
+                            
+                              
+                                if in_node in sess_node_dict_out_raw:  #for each input name candidate find shape if recorded
+                                    loc_dev_dict = sess_node_dict_out_raw[in_node][1]
+                                    if k in loc_dev_dict:
+                                        inp_with_shape.extend(loc_dev_dict[k][1])
+                                    else:
+                                    
+                                        leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
+                                                
+                                        if leaf_shape != '?':
+                                            inp_with_shape.extend(leaf_shape)
+                                        else:
+                                            inp_with_shape.extend(['1 - ? node '+in_node+' no data found for device ' + k])
+                                            print('1 ? - for node ', in_node, ' for device ', k)
+                                        
+                                else:
+                                     in_node = in_node.split('/')
+                                     leaf_node_parts = in_node[-1].split('_')
+                                     leaf_node = [p for p in leaf_node_parts if not p.isdigit()]
+                                     leaf_node = '_'.join(leaf_node)
+                                     
+                            
+                                     
+                                     if leaf_node == '': # if in_node ends in for example /_42
+                                         in_node = '/'.join(in_node[:-1])
+                                         if in_node in sess_node_dict_out_raw:  #for each input name candidate find shape if recorded
+                                            loc_dev_dict = sess_node_dict_out_raw[in_node][1]
+                                            if k in loc_dev_dict:
+                                                inp_with_shape.extend(loc_dev_dict[k][1])
+                                            else:
+                                                new_res = []
+                                                
+                                                k_alt = k.replace('CPU', 'GPU')
+                                                if k_alt in loc_dev_dict:
+                                                    new_res = loc_dev_dict[k_alt][1]
+                                                else:
+                                                    k_alt = k.replace('GPU', 'CPU')
+                                                    if k_alt in loc_dev_dict:
+                                                        new_res = loc_dev_dict[k_alt][1]
+                                                    """
+                                                    else:
+                                                        k_alt = k.replace('XLA_GPU', 'CPU')
+                                                        if k_alt in loc_dev_dict:
+                                                            new_res = loc_dev_dict[k_alt][1]
+                                                            # k_alt = k.replace('GPU', 'CPU') xla
+                                                    """
+         
+                                                if len(new_res) > 0:
+                                                    inp_with_shape.extend(new_res)
+                                                else:
+                                                
+                                                    leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
+                                            
+                                                    if leaf_shape != '?':
+                                                        inp_with_shape.extend(leaf_shape)
+                                                    else:                                        
+                                                        inp_with_shape.extend(['2 - ? node '+in_node+' no data found for device ' + k])
+                                                        print('2 ? - for node ', in_node, ' for device ', k)
+                                         else:
+                                         
+                                  
+                                            leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
+                                            
+                                            if leaf_shape != '?':
+                                                inp_with_shape.extend(leaf_shape)
+                                            else:
+                                                inp_with_shape.extend(['3 - ? node '+in_node+' was in not dict, device '+k])
+                                                print('3 ? - node not found in RunMetadata ', in_node, ' would be looking for info from device ', k)
+
+
+                                                   
+
+
+
+
+                                     else:
+                                        # try exact slot number 
+                                        
+                                        
+                                        leaf_node_parts = in_node[-1].split(':')
+                                        slot_number = 'not defined'
+                                        if leaf_node_parts[-1].isdigit():
+                                            slot_number = int(leaf_node_parts[-1])
+                                      
+                                        
+                                        if slot_number != 'not defined':
+                                            in_node[-1] = leaf_node_parts[0] 
+                                            in_node = '/'.join(in_node)
+                                            
+                                            
+                                            if in_node in sess_node_dict_out_raw:  #for each input name candidate find shape if recorded
+                                                loc_dev_dict = sess_node_dict_out_raw[in_node][1]
+                                                if k in loc_dev_dict:
+                                                
+                                                    outputs_maybe_with_slots = loc_dev_dict[k][1]
+                                                    
+                                                    for outp in outputs_maybe_with_slots:
+                                                        spl_outp = outp.split(' slot ')
+                                                        if len(spl_outp) > 1:
+                                                            sln = int(spl_outp[-2])
+                                                            if sln == slot_number:
+                                                                outputs_maybe_with_slots = [spl_outp[0] + ')']
+                                                                break
+                                                            
+                                                    inp_with_shape.extend(outputs_maybe_with_slots)
+                                                else:
+                                                    new_res = []
+                                                    
+                                                    k_alt = k.replace('CPU', 'GPU')
+                                                    if k_alt in loc_dev_dict:
+                                                        new_res = loc_dev_dict[k_alt][1][tensor_number_in_output]
+                                                    else:
+                                                        k_alt = k.replace('GPU', 'CPU')
+                                                        if k_alt in loc_dev_dict:
+                                                            new_res = loc_dev_dict[k_alt][1][tensor_number_in_output]
+                                                        """
+                                                        else:
+                                                            k_alt = k.replace('XLA_GPU', 'CPU')
+                                                            if k_alt in loc_dev_dict:
+                                                                new_res = loc_dev_dict[k_alt][1]
+                                                                # k_alt = k.replace('GPU', 'CPU') xla
+                                                        """
+                                                        
+                                                        
+                                                    if len(new_res) > 0:
+                                                        inp_with_shape.extend(new_res)
+                                                    else:
+                                                        leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
+                                                
+                                                        if leaf_shape != '?':
+                                                            inp_with_shape.extend(leaf_shape)
+                                                        else:
+                                                            inp_with_shape.extend(['4 - ? node '+ in_node +' no data found for device ' + k])
+                                                            print('4 ? - for node ', in_node, ' for device ', k)
+                                            else:
+                                            
+                                            
+                                                leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
+                                                
+                                                if leaf_shape != '?':
+                                                    inp_with_shape.extend(leaf_shape)
+                                                else:
+                                                    inp_with_shape.extend(['5 - ? node '+in_node+' was not in RunMetada, would be quering for device '+k])
+                                                    print('5 ? - node not found in RunMetadata ', in_node, ' would be looking for info from device ', k)
+
+
+
+
+                                        else:
+                                        
+                                            
+                                            in_node = '/'.join(in_node)
+                                            leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
+                                            
+                                            if leaf_shape != '?':
+                                                inp_with_shape.extend(leaf_shape)
+                                            else:
+                                                inp_with_shape.extend(['6 - ? node '+in_node+' was not in RunMetada, would be quering for device '+k])
+                                                print('6 ? - node not found in RunMetadata ', in_node, ' would be looking for info from device ', k)
+
+
+
+                                  
+                        if len(inp_with_shape) == 0: # if all inputs where control nodes
+                            device_dict[k][0] = ['(no input)']
+                        else:
+                            # replace names of inputs with shapes found
+                            device_dict[k][0] = inp_with_shape # ref correct??
+                 
+                    break # since other non replica will not have input names at all
+                    
+      
+        """
+        filename_ops_metadata = self.temp_path + "before consolidation"+str(time.time())+".tsv"
+        file_ops_metadata = open(filename_ops_metadata,'w')
+
+
+        for k,v in sess_node_dict_out_raw.items():
+            
+            op_per_device = []
+        
+            dev_dict = v[1]
+            for dev, op_data in dev_dict.items():
+                op_per_device.append(dev)
+                op_per_device.append(op_data)
+            line_out = [k, v[0], op_per_device]
+            file_ops_metadata.write('\t'.join([str(p) for p in line_out]))
+            file_ops_metadata.write('\n')
+            
+        file_ops_metadata.close()
+        """
+
+        result_dict = self.consolidate_node_data(sess_node_dict_out_raw)
+       
+        return result_dict
+            
+
+    def fill_raw_data(self, step_stats, current_raw_nodes):
+        tf.train.write_graph(step_stats, self.temp_path, 'metadata_'+str(time.time()) +'.txt')
+        all_current_raw_nodes = []
+        
+        mem_nodes = ['MEMCPYDtoH', 'MEMCPYHtoD', 'MEMCPYDtoD', 'MEMCPYHtoH']
+        mem_nodes_hcc  = ['hcMemcpyDeviceToHost', 'hcMemcpyHostToDevice', 'hcMemcpyDeviceToDevice', 'hcMemcpyHostToHost']    
+        mem_nodes.extend(mem_nodes_hcc)
         
         for dev_stats in step_stats.dev_stats:
-            # assume device naming is consistent
-            device_path = dev_stats.device.split('/')
-            device_type = ''
-            device_number = 0
-            
-            for dev_path in device_path:
-                dev_path_parts = dev_path.split(':')
-                if dev_path_parts[0] == 'device':
-                   device_type = dev_path_parts[1]
-                   device_number = dev_path_parts[2]
-            
-            print('New device info extracted from metadata:',  dev_stats.device, device_type, device_number)
- 
-            #'stream:all' may not have info about output nodes, the other streams may have it,
-            # however, another streams may have only partial timings, go figure..
             for node_stat in dev_stats.node_stats:
-                num_nodes_total+=1
-                
-                _device_type = ''
-                _device_number = ''
-                
-                cleanedup_op_path = node_stat.node_name#self.cleanup_op_path_from_metadata(node_stat.node_name)
-                
-                all_node_names.add(cleanedup_op_path)
-                all_node_names_orig.add(node_stat.node_name)
-                 
-                #if cleanedup_op_path in io_shapes:
-                #    [output_shapes_list, _device_type, _device_number] = io_shapes[cleanedup_op_path]
-
-                input_names_list = []
-                lable_cand = ''
-                # iterate over all outputs, if there are any
-                if node_stat.timeline_label:
-                    lb = node_stat.timeline_label
-                    lb1 = lb.split('(')
-                    lb2 = lb1[-1]
-                    lable_cand = lb2[:-1]
-                    
-                    if lable_cand in ['Pinned to Device', 'Device to Pinned', 'Device to Device', 'Pageable to Device']:
-                        input_names_list.append('(no input)')
-                    else: 
-                        if lable_cand=='':
-                            input_names_list.append('(1)')
-                        else:
-                            input_names_list.append(lable_cand)#node_stat.timeline_label.split('(')[-1][:-1]
-                else:
-                    input_names_list.append('(no input)')
-                          
-                # iterate over all outputs, if there are any
+            
                 output_shapes_list = []
                 if node_stat.output:
                     for (i, node_stat_out) in enumerate(node_stat.output):
+                        
                         node_stat_dims = node_stat_out.tensor_description.shape.dim
 
                         valid_tensor_shapes = [str(d.size) for d in node_stat_dims if (d.size and str(d.size)!='')]
@@ -498,428 +693,61 @@ class Tensorscope(object):
                             valid_tensor_shapes.append('1')
                         
                         tensor_shape_result = 'x'.join(valid_tensor_shapes)
-                        if tensor_shape_result == 'x':
-                            import pdb
-                            pdb.set_trace()
-                            
-                        if tensor_shape_result=='':
-                            tensor_shape_result = '1'
 
-                        # indicate data type only if it is not float as usual
+                        if tensor_shape_result=='':
+                            tensor_shape_result = '1x1'
+
+                        # prepend data type if it is not 32b float
                         if node_stat_out.tensor_description.dtype != 1:
                             # convert int description to data type name
                             tensor_data_type = TensorDataType(node_stat_out.tensor_description.dtype)
-                            result_shape_with_type = tensor_data_type.name+' '
-                            result_shape_with_type += tensor_shape_result
+                            result_shape_with_type = tensor_data_type.name + ' ' + tensor_shape_result
                         else:
                             result_shape_with_type = tensor_shape_result
                         
                         if result_shape_with_type=='':
-                            result_shape_with_type = '1'
+                            result_shape_with_type = '???fin'
                         
-                        output_shapes_list.append('('+result_shape_with_type+')')
-                else:
-                    if lable_cand in ['Pinned to Device', 'Device to Pinned', 'Device to Device', 'Pageable to Device']:
-                        if node_stat.timeline_label:
-                            memsz = node_stat.timeline_label.split(' ')
-                            memsz = memsz[1]
-                            output_shapes_list.append('(output '+memsz+' bytes)')
+                        if node_stat_out.slot:
+                            output_shapes_list.append('('+result_shape_with_type+' slot ' + str(node_stat_out.slot) + ' slot ' +')')
                         else:
-                            output_shapes_list.append('(no output)')
+                            output_shapes_list.append('('+result_shape_with_type+')')
+                else:
+                
+                    if node_stat.timeline_label:
+                    
+                        lb = node_stat.timeline_label
+                        mem_cand = lb.split(' ')[0]
+                        
+                        
+                        if mem_cand in mem_nodes:
+                            memsz = node_stat.timeline_label.split(' ')
+                            output_shapes_list.append('(' + memsz[1]+' bytes)')
+                        else:
+                            output_shapes_list.append('(no output info)')
                     else:
                         output_shapes_list.append('(no output)')
-                 
                         
-                new_device = device_type
-                if _device_type != '':
-                    if  new_device != _device_type:
-                        new_device = new_device + '+' + _device_type
-                
-                new_device_number = device_number
-                if _device_number != '':
-                    if  new_device_number != _device_number:
-                        new_device_number = new_device_number + '+' + _device_number
-                     
-                io_shapes[cleanedup_op_path] = [input_names_list,[output_shapes_list, new_device , new_device_number]]
-                 
-        for node_name, io_info in io_shapes.items():
-            # find inputs shapes from input names
-            input_cand_names_list = io_info[0]
-            input_cand_shapes_list = []
-            
-            input_cand_names_list = input_cand_names_list[0].split(',')
-            input_cand_names_list = [p.strip() for p in input_cand_names_list]
-	    
-	          #ignore op input if its name start with ^
-            input_cand_names_list = [p for p in input_cand_names_list if p[0]!='^']
-           
-            for icand_name in input_cand_names_list:
-            
-                const_like_ops = icand_name.split('/')[-1]
-                const_like_ops = const_like_ops.split('_')
-                const_like_ops = [p for p in const_like_ops if not p.isdigit()]
-               
-                if len(const_like_ops)==0:
-                    const_like_ops = icand_name.split('/')[-2]
-                    
-                if const_like_ops[0] == '':
-                    const_like_ops = icand_name.split('/')[-2]
-                else:
-                
-                    const_like_ops = '_'.join(const_like_ops)
-                    # remove duplicated op name if necessary (Node:MatMul:Matmul->Node:Matmul)
-                    const_like_ops_str = const_like_ops.split(':')
-                    if len(const_like_ops_str) > 1:
-                        const_like_ops = ':'.join(const_like_ops_str[:-1])
-                    
-                if const_like_ops in ['ConcatOffset', 'Shape', 'axis', 'Const', 'Squeeze', 'ExpandDims', 'mod', 'range', 'Fill', 'reduction_indices', 'BroadcastGradientArgs']:
-                    if const_like_ops == 'ConcatOffset':
-                        input_cand_shapes_list.extend('(2x1)')
-                   
-                    if const_like_ops in ['Shape', 'ExpandDims', 'reduction_indices']:
-                        strided_slice_name = icand_name.split('/')
-                        if len(strided_slice_name) > 1:
-                          strided_slice_name = strided_slice_name[-2]
-                        else:
-                          strided_slice_name = strided_slice_name[0]
-                        ssnc = strided_slice_name.split('_')
-                        if ssnc[0]=='strided' and ssnc[1]=='slice': 
-                            input_cand_shapes_list.extend('(1x3)')
-                        else:
-                            input_cand_shapes_list.extend(['(1|2|3x1)'])
-                                        
-                    if const_like_ops in ['axis', 'Const', 'Squeeze', 'mod', 'range', 'Fill', 'BroadcastGradientArgs']:
-                        input_cand_shapes_list.extend('(1)')
-                  
-                else:                
-                    if icand_name not in ['(no input)', '(1)']:
-                        if icand_name in io_shapes:
-                            input_cand_shapes_list.extend(io_shapes[icand_name][1][0])
-                        else:
-                            opn = icand_name.split(':')
-                            if len(opn)>1:
-                                opn = opn[:-1]
-                            opn = ':'.join(opn)
-                            
-                            if opn in io_shapes:
-                                input_cand_shapes_list.extend(io_shapes[opn][1][0])
-                            else:
-              
-                                opns = opn.split('/')
-                                if len(opns)>1:
-                                    if opn.split('/')[-2] == 'ToInt32':
-                                        input_cand_shapes_list.extend('(1)')
-                                      
-                                    else:
-                                        opn = icand_name + '_1'
-                                        if opn in io_shapes:
-                                            input_cand_shapes_list.extend(io_shapes[opn][1][0])
-                                        else:           
-                                            opn = icand_name.split('_')
-                                            if len(opn)>1:
-                                                opn = opn[:-1]
-                                                opn = '_'.join(opn)
-                                                if opn[-1] == '/':
-                                                    opn = opn[:-1]
-                                        
-                                                if opn in io_shapes:
-                                                    input_cand_shapes_list.extend(io_shapes[opn][1][0])
-                                                else:
-                                                    opn = opn + '_1'
-                    
-                                                    if opn in io_shapes:
-                                                        input_cand_shapes_list.extend(io_shapes[opn][1][0])
-                                                    else:
-                                                        if const_like_ops in ['add', 'Reshape', 'RealDiv', 'shape', 'ones_like','y', 'stack', 'ExponentialDecay']:
-                                                            input_cand_shapes_list.extend(['(1|2|3x1)'])
-                                                        else:
-                                                            input_cand_shapes_list.extend(['(?)'])
-                                                            #input_cand_shapes_list.extend(['UNKNOWN input for node: '+ node_name + ' input not found: ' + icand_name + ' also tried: ' + opn])
-                                                            
-                                                            """
-                                                            tensor_from_model = self.model_graph.get_tensor_by_name(icand_name)
-                                                            if tensor_from_model is not None:
-                                                                if tensor_from_model.shape.dims is None:
-                                                                    tensor_shape_result = '1'
-                                                                else:
-                                                                    valid_tensor_shapes = [d.__str__() for d in tensor_from_model.shape.dims if d.__str__() != '']
-                                                                    tensor_shape_result = 'x'.join(valid_tensor_shapes)
-                                                                input_cand_shapes_list.extend([tensor_shape_result])
-                                                            else:      
-                                                                input_cand_shapes_list.extend(['UNKNOWN input for node: '+ node_name + ' input not found: ' + icand_name + ' also tried: ' + opn])
-                                                            """                                           
-                                            
-                                            else:
-                                                if const_like_ops in ['add', 'Reshape', 'RealDiv', 'shape', 'ones_like','y','stack']:
-                                                    input_cand_shapes_list.extend(['(1|2|3x1)'])
-                                                else:
-                                                    input_cand_shapes_list.extend(['(?)'])
-                                                    #input_cand_shapes_list.extend(['UNKNOWN input for node: '+ node_name + ' input not found: ' + icand_name])
-                                                    """
-                                                    tensor_from_model = self.model_graph.get_tensor_by_name(icand_name)
-                                                    if tensor_from_model is not None:
-                                                        if tensor_from_model.shape.dims is None:
-                                                            tensor_shape_result = '1'
-                                                        else:
-                                                            valid_tensor_shapes = [d.__str__() for d in tensor_from_model.shape.dims if d.__str__() != '']
-                                                            tensor_shape_result = 'x'.join(valid_tensor_shapes)
-                                                        input_cand_shapes_list.extend([tensor_shape_result])
-                                                    else:      
-                                                        input_cand_shapes_list.extend(['UNKNOWN input for node: '+ node_name + ' input not found: ' + icand_name])
-                                                    """
-                                                    
-                                else:
-                                    input_cand_shapes_list.extend(['(?)'])
-                                    #input_cand_shapes_list.extend(['UNKNOWN input for node: '+ node_name + ' input not found: ' + icand_name])
-                                    
-                                    """
-                                    tensor_from_model = self.model_graph.get_tensor_by_name(icand_name)
-                                    if tensor_from_model is not None:
-                                        if tensor_from_model.shape.dims is None:
-                                            tensor_shape_result = '1'
-                                        else:
-                                            valid_tensor_shapes = [d.__str__() for d in tensor_from_model.shape.dims if d.__str__() != '']
-                                            tensor_shape_result = 'x'.join(valid_tensor_shapes)
-                                        input_cand_shapes_list.extend([tensor_shape_result])
-                                    else:      
-                                        input_cand_shapes_list.extend(['UNKNOWN input for node: '+ node_name + ' input not found: ' + icand_name])
-                                    """
-                        
-                    else:
-                        input_cand_shapes_list.extend([icand_name])
-                            
-               
-                io_shapes[node_name] = [input_cand_shapes_list, io_shapes[node_name][1]]
+                output_shapes = output_shapes_list#''.join(output_shapes_list) 
+                all_current_raw_nodes.append([node_stat.node_name, dev_stats.device, node_stat.op_start_rel_micros, node_stat.op_end_rel_micros, node_stat.all_end_rel_micros, output_shapes, node_stat.timeline_label])
         
-        filename_ops_metadata = self.temp_path + "node_names_from_metadata.txt"
+        
+        
+        self.current_raw_nodes = all_current_raw_nodes
+        
+        self.node_list_all_sessions.extend(all_current_raw_nodes)
+        
+        filename_ops_metadata = self.temp_path + "node_list_one_session_"+str(time.time())+".tsv"
         file_ops_metadata = open(filename_ops_metadata,'w')
-        sorted_all_node_names = sorted(all_node_names)
+        sorted_all_node_names = sorted(all_current_raw_nodes)
         for opname in sorted_all_node_names:
-            file_ops_metadata.write(opname+'\n')
+            file_ops_metadata.write('\t'.join([str(p) for p in opname]))
+            file_ops_metadata.write('\n')
+            
         file_ops_metadata.close()
         
-        filename_ops_metadata = self.temp_path + "node_io_from_metadata_raw.txt"      
-        file_ops_metadata = open(filename_ops_metadata,'w')
-        sorted_times = ( (key, value) for key, value in sorted(io_shapes.items(), key=lambda x: x[0], reverse=False))
-        sorted_times = list(sorted_times)
- 
-        for opname in sorted_times:
-            outp = opname.__str__()[1:-2]
-            outp = outp.replace('[','')
-            outp = outp.replace(']','')
-            outp = outp.replace('\'','')
-            
-            file_ops_metadata.write(outp)
-            file_ops_metadata.write('\n')
-        file_ops_metadata.close()      
-      
- 
- 
-    def find_final_shapes(self, node_output_shape, input_names_from_model, io_shapes):
-        ''' 
-        Find input tensor shapes using names from model and output shapes from 
-        metadata graph. We need this because gathered metadata may not 
-        contain information about input tensor shapes.
-        
-        Args:
-            (in)  node_output_shape (dict): dictionary of node name and output tensor shape
-            (in)  input_names_from_model (dict): dictionary of node name and its input names
-            (out) io_shapes (dict): final result with op parameters
-        '''         
-        
-        ops_not_in_model = set()
-        ops_not_in_metadata =  set()
-        
-        for k, v in node_output_shape.items():
-            result_shapes = []
-            
-            #if k == 'GradientDescent/update_embeddings/encoder/embedding_encoder/mul':
-            #    import pdb
-            #    pdb.set_trace()
-                            
-            if k in input_names_from_model:
-                all_input_names = input_names_from_model[k]
-                if not all_input_names:
-                    result_shapes.extend(['(no input)'])
-                else:
-                    for inp in all_input_names:
-                        if inp in node_output_shape:
-                            _tensor_shape, _device_type, _device_number = node_output_shape[inp]
-                            if not _tensor_shape:
-                                _tensor_shape = ['(None)']   
-                            result_shapes.extend(_tensor_shape)
-                        else:
-                            tensor_from_model = self.model_graph.get_tensor_by_name(inp)
-                            if tensor_from_model is not None:
-                                tensor_shape_result = '(not in metadata %s)' % inp.replace('/','|')
-                                correct_short_name_used = False
-                                if tensor_from_model.shape.dims is None:
-                                    tensor_shape_result = '1'
-                                else:
-                                    valid_tensor_shapes = [d.__str__() for d in tensor_from_model.shape.dims if d.__str__() != '']
-                                    
-                                    if '?' in valid_tensor_shapes:
-                                        cand1 =  inp.split(':')
-                                        cand = cand1[:-1]
-                                        t1 = ':'.join(cand)
-                                         
-                                        
-                                        if t1 in node_output_shape:
-                                            correct_short_name_used = True
-                                            _tensor_shape, _device_type, _device_number = node_output_shape[t1]
-                                            
-                                            if not _tensor_shape:
-                                                _tensor_shape = ['(None)']   
-                                            valid_tensor_shapes = _tensor_shape
-                                        else:   
-                                            if t1.split('/')[-1] == 'BroadcastGradientArgs':
-                                                tensor_shape_result = '1'
-                                            else:
-                                            
-                                                if t1 in self.cf_temp:
-                                                    cf_cand = self.cf_temp[t1]
-                                                    
-                                                    if cf_cand in node_output_shape:
-                                                      
-                                                        correct_short_name_used = True
-                                                        _tensor_shape, _device_type, _device_number = node_output_shape[cf_cand]
-                                                    
-                                                        if not _tensor_shape:
-                                                            _tensor_shape = ['(None)']   
-                                                        valid_tensor_shapes = _tensor_shape
-                                                    else:
-                                                        ops_not_in_metadata.add(t1)
-                                   
-                                                else:
-                                                    ops_not_in_metadata.add(t1)
-                                    else:     
-                                        if len(valid_tensor_shapes) == 1:
-                                            valid_tensor_shapes.append('1')
-                                    if not correct_short_name_used:
-                                        tensor_shape_result = 'x'.join(valid_tensor_shapes)
-                                    else:
-                                        tensor_shape_result = ''.join(valid_tensor_shapes)
-                            
-                                    if tensor_shape_result=='':
-                                        tensor_shape_result='1'
-                                        
-                                if not (tensor_shape_result[0] == '(' and tensor_shape_result[-1]==')'):
-                                    result_shapes.append('('+tensor_shape_result+')')
-                                else:
-                                    result_shapes.append(tensor_shape_result)  
-                            else:
-                                result_shapes.append('(not in metadata %s)' % inp.replace('/','|'))
-                                ops_not_in_metadata.add(inp)
-                           
-            else:
-                
-                cand1 =  k.split(':')
-                if cand1[-1] == 'MEMCPYDtoH' or cand1[-1] == 'MEMCPYHtoD' or  cand1[-1] == 'MEMCPYDtoD':
-                    result_shapes.append('(no input)')
-                    ops_not_in_model.add(k)
-                else:
-                    cand = cand1[:-1]
-                    t1 = ':'.join(cand)
-                    
-                    if t1 in node_output_shape:
-                        _tensor_shape, _device_type, _device_number = node_output_shape[t1]
-                        if not _tensor_shape:
-                            _tensor_shape = ['(None)']   
-                        result_shapes.extend(_tensor_shape)
-                    else:
-                        result_shapes.append('(no input)')
-                        ops_not_in_model.add(k)
-               
-
-            if len(result_shapes) > 0:
-                if result_shapes[0] == 'MEMCPYDtoH' or  result_shapes[0] == 'MEMCPYHtoD' or result_shapes[0] == 'MEMCPYDtoD':
-                    io_shapes[k] = '(no input)'
-            
-            result_shapes.extend(['->'])
-            result_shapes.extend(v)
-            io_shapes[k] = result_shapes
-        
-        # save data for additional verification
-        filename_ops_not_in_model = self.temp_path + "node_names_not_in_model.txt"
-        filename_ops_not_in_metadata = self.temp_path + "node_names_not_in_metadata.txt"
-        filename_final_shapes = self.temp_path + "node_final_shapes.txt"
-        
-        file_ops_not_in_model = open(filename_ops_not_in_model,'w')
-        file_ops_not_in_metadata = open(filename_ops_not_in_metadata,'w')
-        file_final_shapes = open(filename_final_shapes,'w')
-
-        sorted_ops_not_in_model = sorted(ops_not_in_model)
-        for opname in sorted_ops_not_in_model:
-            file_ops_not_in_model.write(opname+'\n')
        
-        sorted_ops_not_in_metadata = sorted(ops_not_in_metadata)
-        for opname in sorted_ops_not_in_metadata:
-            file_ops_not_in_metadata.write(opname+'\n')
-        
-        sorted_times = ( (key, value) for key, value in sorted(io_shapes.items(), key=lambda x: x[0], reverse=True))
-        sorted_times = list(sorted_times)
  
-        for opname in sorted_times:
-            file_final_shapes.write(opname.__str__())
-            file_final_shapes.write('\n')
-               
-        file_ops_not_in_model.close()
-        file_ops_not_in_metadata.close()
-        file_final_shapes.close()
-
-
-    def update_op_total_time(self, step_stats, total_op_time):
-
-        '''Adds op time from current step to total time for op
-        Args:
-            step_stats (RunMetadata): timings for current step
-            total_op_time (dict): dictionary of op name and its total time
-            for all measured sessions      
-        '''
-        
-        for dev_stats in step_stats.dev_stats:
-            # assume naming was consistent
-            device_path = dev_stats.device.split('/')
-            device_type = ''
-            device_number = 0
-            
-            for dev_path in device_path:
-                dev_path_parts = dev_path.split(':')
-                if dev_path_parts[0] == 'device':
-                   device_type = dev_path_parts[1]
-                   device_number = dev_path_parts[2]
-                
-            # for each op, add additional information about device type and number
-            # so we can group timings by op + parameters and compare each device performance
-            for node_stat in dev_stats.node_stats:
-                op_time = node_stat.op_end_rel_micros - node_stat.op_start_rel_micros
-                # CPU/GPU/XLA_CPU/XLA_GPU
-                # exclude ones similar to /job:localhost/replica:0/task:0/device:GPU:0 Compute"
-                if (device_type[-3:] == 'GPU' and device_path[-1] != 'stream:all' and 'replica' not in dev_stats.device) or device_type[-3:] == 'CPU':   
-                    final_op_path = self.cleanup_op_path_from_metadata(node_stat.node_name)
-                    if final_op_path in total_op_time:
-                        total_op_time[final_op_path][0] += op_time
-                        total_op_time[final_op_path][1] += 1
-                    else:
-                        total_op_time[final_op_path] = [op_time, 1]
-
-
-    def group_by_op_type_and_params1(self, op_timings):
-        grouped_timings = {}
-        for k,v in op_timings.items():
-            full_op_path = self.cleanup_op_path(k, group_by_type=True, invert=False)
-            full_op_path_parts = full_op_path.split('/')
-            # keep only device and i/o tensor shapes 
-            ops_with_params_without_group_num = full_op_path_parts[-2:]
-            ops_with_params_without_group_num = '/'.join(ops_with_params_without_group_num)
-            if ops_with_params_without_group_num in grouped_timings:
-                prev_values =  grouped_timings[ops_with_params_without_group_num]
-                grouped_timings[ops_with_params_without_group_num] = [sum(x) for x in zip(prev_values, v)]
-            else:
-                grouped_timings[ops_with_params_without_group_num] = v
-        return grouped_timings
-
-
     def print_distribution_summary(self, sorted_times, denom_const):
         # Distribution of time among top k ops
         # Value of k is equally spaced in log10
@@ -973,20 +801,29 @@ class Tensorscope(object):
     
     def generate_results(self):
        
-        sorted_times = ( (key, value) for key, value in sorted(self.op_time_total.items(), key=lambda x: list(x[1])[0], reverse=True))
+        # op_end timings
+        #sorted_times = ( (key, value) for key, value in sorted(self.profiling_result.items(), key=lambda x: list(x[1])[4], reverse=True))
+        
+        # all_end timings
+        sorted_times = ( (key, value) for key, value in sorted(self.profiling_result.items(), key=lambda x: list(x[1])[5], reverse=True))
+        
         sorted_times = list(sorted_times)
  
         total_ops_time = 0.0
         num_unique_ops = len(sorted_times)
         for op_name, op_time in sorted_times:
-          total_ops_time = total_ops_time + op_time[0]
+          # op_end timings
+          #total_ops_time = total_ops_time + op_time[4]
+          # all_end timings
+          total_ops_time = total_ops_time + op_time[5]
+          
             
         mean_time_per_step = float(self.total_time_analyzed)/self.num_steps_analyzed
         mean_all_ops_time_per_step = float(total_ops_time)/self.num_steps_analyzed
         denom_const = 0.01*self.num_steps_analyzed*mean_all_ops_time_per_step
 
-        print("\nSanity check: total time for %d steps: %.3f sec., 1 step avg. time:  %.1f microsec., 1 step avg. time captured in metadata: %.1f microsec., number of unique ops: %d" % 
-            (self.num_steps_analyzed, self.total_time_analyzed, 1000000.0*mean_time_per_step, mean_all_ops_time_per_step, num_unique_ops))
+        #print("\nSanity check: total time for %d steps: %.3f sec., 1 step avg. time:  %.1f microsec., 1 step avg. time captured in metadata: %.1f microsec., number of unique ops: %d" % 
+        #    (self.num_steps_analyzed, self.total_time_analyzed, 1000000.0*mean_time_per_step, mean_all_ops_time_per_step, num_unique_ops))
         
         # *** extract tensor shapes, create input file for chart generation ***
         
@@ -1015,104 +852,42 @@ class Tensorscope(object):
         
         # finalize data for the chart
         for times_key, times_value in sorted_times:
-
-          # extract short op name,
-          # append tensor shape and device from 
-          # model and/or metadata
+ 
+          # remove slot info from shapes
+          spl = times_value[6].split(' slot ')
+          if len(spl) > 1:
+              times_value[6] = spl[0]+')'
           
-          oppath = times_key.split('/')[::-1]
-          opname_short = oppath[0]
-          opname_short_bak = opname_short + ''
-          times_value_bak = times_value[:]
-          
-          shape_str = ['N-A']
-          if times_key in self.final_io_shapes:
-              shape_str = self.final_io_shapes[times_key]
-              shape_str = [shape_str[1][1] + '-' + shape_str[1][2], ''.join(shape_str[0]) + '->'  + ''.join(shape_str[1][0])]
-          else:
-            shape_str = ['GPU-0', '(no input)->(no output)']  
-            print('This node was not found in self.final_io_shapes, however it existed in metadata graph: ',  times_key)
+          opname_short = times_value[1]
+          shape_str = times_value[6]
+            
          
           
-            
-          """
-          if times_key in self.final_io_shapes:
-              shape_str = self.final_io_shapes[times_key]
-              shape_str_bak = shape_str[:]
-              # reformat node path to get device info on a chart before parameters
-              # (TODO) simplify
-              if len(shape_str) > 2:     
-                  if (not (shape_str[-3])):
-                        
-                      cand1 =  times_key.split(':')
-                      cand = cand1[:-1]
-                      t1 = ':'.join(cand)
-
-                      if t1 in self.final_io_shapes:
-                          shape_str = self.final_io_shapes[t1]   
-                          if len(shape_str[-3]) == 0:
-                              shape_str[-3] = '(no output)'
-                          else:
-                              shape_str_orig = shape_str[:]
-                              if type(shape_str[-3]) is list:
-                                  shape_str[-3] = shape_str[-3][0]
-                      else:
-                          shape_str[-3] = '(no output)' 
-                  else:
-                      if len(shape_str[-3]) == 0:
-                          shape_str[-3] = '(no output)'
-                      else:
-                          if type(shape_str[-3]) is list:
-                              shape_str[-3] = shape_str[-3][0]
-                  shape_str = [shape_str[-2] + '-' + shape_str[-1], ''.join(shape_str[:-2])]
-          else:
-              shape_str = ['GPU-0', '(no input)->(no output)'] # quick fix for MEMCPYDtoD 
-              print('This node was not found in self.final_io_shapes, however it existed in metadata graph: ',  times_key)
-          """
-            
-          num_calls_all_runs =  times_value[1]
-          num_calls_per_run =  int(times_value[1]/self.num_steps_analyzed)
+          num_calls_all_runs =  max(times_value[7],times_value[8],times_value[9])
+          num_calls_per_run =  (num_calls_all_runs/float(self.num_steps_analyzed))#int(times_value[1]/self.num_steps_analyzed)
           
           # rounding fix 99/100
           if num_calls_per_run == 0:
               num_calls_per_run = 1
 
-          op_time_all_runs = times_value[0]
+          op_time_all_runs = times_value[5]
+          
+          
+         
+          # keep in mind that same nodes will likely have different io shapes between session for models like nmt (seq2seq, lstm)
+          # alternatively, don't divide total time by number of session runs, to get actual time spent in each op
           op_time_per_run_microsec = op_time_all_runs/(float(self.num_steps_analyzed))
+          #op_time_per_run_microsec = op_time_all_runs 
+           
           op_time_per_call_microsec = op_time_per_run_microsec/float(num_calls_per_run)
           
           cumul_time += op_time_per_run_microsec
           op_count = op_count + 1
                    
-          opname_short_parts = opname_short.split('_')
-          opname_short_parts = [p for p in opname_short_parts if not p.isdigit()]
-          if len(opname_short_parts) == 0:
-              opname_short_parts = [oppath[1]]
-              
-          opname_short = '_'.join(opname_short_parts)
           
-          if opname_short=='':
-              opname_short = oppath[1]
-              opname_short_parts = opname_short.split('_')
-              opname_short_parts = [p for p in opname_short_parts if not p.isdigit()]
-              if len(opname_short_parts) == 0:
-                  opname_short_parts = oppath[1]
-              opname_short = '_'.join(opname_short_parts)
-                            
-          opname_short_cand1 = opname_short.split(':')
-          
-          if len(opname_short_cand1)>1:
-              opname_short = opname_short_cand1[-1]
-          
-          # quick fix for MEMCPYDtoD 
-          if len(shape_str) == 0:
-              shape_str.append('GPU-0')
-              shape_str.append('(no input)->(no output)')
-          elif len(shape_str) == 1:
-              shape_str.append('(no input)->(no output)')
           
 
-          opname_for_summation = '/'.join([opname_short, shape_str[0], shape_str[1]]) # op, device, i/o shapes
+          opname_for_summation = '/'.join([opname_short, times_value[2], times_value[6]]) # op, device, i/o shapes
           #opname_for_summation = opname_for_summation[0].upper() + opname_for_summation[1:]
            
           if opname_for_summation in results_for_op_device_shape:
@@ -1121,9 +896,10 @@ class Tensorscope(object):
           else:
               results_for_op_device_shape[opname_for_summation] = [op_time_all_runs, num_calls_all_runs]
 
-          current_row_output_for_chart_tsv = [op_time_per_run_microsec, shape_str[0], opname_short]
-          current_row_output_for_chart_tsv.extend(oppath[1:])
-          current_row_output_for_chart_tsv.append(shape_str[1])  
+          current_row_output_for_chart_tsv = [op_time_per_run_microsec, times_value[2], opname_short]#, times_value[0]]
+          chart_nodes = times_value[0].split('/')
+          current_row_output_for_chart_tsv.extend(chart_nodes[:-1])
+          current_row_output_for_chart_tsv.append(times_value[6])  
           tsv_file_writer_for_chart.writerow(current_row_output_for_chart_tsv)
           
         tsv_file_obj_for_chart.close()
@@ -1145,13 +921,13 @@ class Tensorscope(object):
         mean_all_ops_time_per_step = float(total_ops_time)/self.num_steps_analyzed  
         denom_const = 0.01*self.num_steps_analyzed*mean_all_ops_time_per_step
 
-        print("\n2 - Total time for %d steps: %.3f sec., 1 step avg. time:  %.1f microsec., 1 step avg. time captured in metadata: %.1f microsec., number of unique ops: %d" % 
+        print("\nSanity check: total time for %d steps: %.3f sec., 1 step avg. time:  %.1f microsec., 1 step avg. time captured in metadata: %.1f microsec., number of unique ops: %d" % 
             (self.num_steps_analyzed, self.total_time_analyzed, 1000000.0*mean_time_per_step, mean_all_ops_time_per_step, num_unique_ops))
 
         op_rank = 0
         for times_key, times_value in sorted_times:
           num_calls_all_runs =  times_value[1]
-          num_calls_per_run =  int(times_value[1]/self.num_steps_analyzed)
+          num_calls_per_run =  (times_value[1]/float(self.num_steps_analyzed)) #int
           
           # rounding fix 99/100
           if num_calls_per_run == 0:
@@ -1166,7 +942,7 @@ class Tensorscope(object):
                    
           current_row_output = [op_rank, 
                                 "%9.1f" % op_time_per_call_microsec,
-                                "%d" % num_calls_per_run,
+                                "%9.1f" % num_calls_per_run, #%d
                                 "%9.1f" % (op_time_per_run_microsec),
                                 "%9.1f" % (100*op_time_all_runs/float(total_ops_time)),
                                 "%9.1f" % (cumul_time),
@@ -1203,20 +979,50 @@ class Tensorscope(object):
             # skip two first and two last session runs
             if self.current_session > 1 and self.current_session < (self.total_num_sessions - 2) : 
                 self.total_time_analyzed += self.current_session_time
-                self.update_op_total_time(self.session_metadata.step_stats, self.op_time_total)
                 self.num_steps_analyzed += 1
                 
-                if not self.tracing_graph_parsed:
-                    # If output shapes are intially unknown in a dynamic graph,
-                    # we need to parse both session metadata and graph to extract this info
+                if True:
+
                     parsing_start_time = time.time()
-                    #self.find_input_names_from_model(self.model_graph, self.node_input_names)
-                    #self.find_output_shape_from_metadata(self.session_metadata.step_stats, self.node_output_shapes)
-                    #self.find_final_shapes(self.node_output_shapes, self.node_input_names, self.final_io_shapes)
                     
-                    self.find_input_names_output_shapes(self.session_metadata.step_stats, self.node_input_names, self.final_io_shapes)#input_names, output_shapes):
+                    self.fill_raw_data(self.session_metadata.step_stats, self.current_raw_nodes)#input_names, output_shapes):
+                    self.sess_node_dict_out = self.aggregate_session_by_node_path(self.current_raw_nodes)
                     
                     
+                    # save raw data
+                    filename_ops_metadata = self.temp_path + "final_session_"+str(time.time())+".tsv"
+                    file_ops_metadata = open(filename_ops_metadata,'w')
+
+                    
+                    for k,v in self.sess_node_dict_out.items():
+                        file_ops_metadata.write('\t'.join([str(p) for p in v]))
+                        file_ops_metadata.write('\n')
+                        
+                    file_ops_metadata.close()
+                    
+                    
+                    # aggregate by type + parameters + device
+                    if not self.profiling_result:
+                        self.profiling_result = self.sess_node_dict_out.copy()
+                    else:
+                        for k,v in self.sess_node_dict_out.items():
+                            if k in self.profiling_result:
+                                self.profiling_result[k][3] = self.profiling_result[k][3] + v[3]
+                                self.profiling_result[k][4] = self.profiling_result[k][4] + v[4]
+                                self.profiling_result[k][5] = self.profiling_result[k][5] + v[5]
+                                
+                                if v[6] != self.profiling_result[k][6]:
+                                    print('Warning: shape differ between sessions for node:', k, v[6], self.profiling_result[k][6])
+                                     
+                                self.profiling_result[k][7] = self.profiling_result[k][7] + v[7]
+                                self.profiling_result[k][8] = self.profiling_result[k][8]+ v[8]
+                                self.profiling_result[k][9] =  self.profiling_result[k][9] + v[9]
+                                
+                            else:
+                                self.profiling_result[k] = v
+                                
+        
+        
                     parsing_end_time = time.time()
                     self.tracing_graph_parsed = True
                     print("Session graph and metadata parsed in %4.4f seconds" % (parsing_end_time - parsing_start_time))                    
@@ -1227,6 +1033,8 @@ class Tensorscope(object):
 
         print("Step %d/%d(%d) completed in %4.4f seconds." % 
         (self.num_steps_analyzed, self.num_steps_to_analyze, self.total_num_sessions, self.current_session_time))
+        
+        
         
         # save timeline at a specific step (number 2 by default)
         if self.current_session == self.step_to_save_timeline_at:
@@ -1243,7 +1051,16 @@ class Tensorscope(object):
                 pass
                 
             print('Session is closed')
+            
+            filename_ops_metadata = self.temp_path + "all_sessions_merged_"+str(time.time())+".tsv"
+            file_ops_metadata = open(filename_ops_metadata,'w')
+ 
+            for k,v in self.profiling_result.items():
+                file_ops_metadata.write('\t'.join([str(p) for p in v]))
+                file_ops_metadata.write('\n')
                 
+            file_ops_metadata.close()
+                    
             self.generate_results()
 
 
