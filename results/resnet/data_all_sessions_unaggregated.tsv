@@ -1,0 +1,1465 @@
+PiecewiseConstant/case/Cast	Cast	GPU-0	0	19	19	(boolean 4x1)->(int32 4x1)	10	10	0
+global_step/Initializer/zeros	Const	GPU-0	0	22	36	(no input)->(int64 1x1)	0	10	0
+resnet_model/batch_normalization_23/AssignMovingAvg_1/mul	Mul	GPU-0	0	17	17	(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/batch_normalization_5/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	2881	2881	(128x16x32x32)(128x16x32x32)(16x1)(16x1)(16x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+PiecewiseConstant/Const_3	Const	GPU-0	0	20	34	(no input)->(1x1)	0	10	0
+resnet_model/batch_normalization_20/moving_mean/read	Identity	GPU-0	0	12	31	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_11/AssignMovingAvg/mul	Mul	GPU-0	0	20	20	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/conv2d_3/kernel/read	Identity	GPU-0	0	7	31	(3x3x16x16)->(3x3x16x16)	0	10	0
+L2Loss_66	L2Loss	GPU-0	0	49	49	(3x3x32x64)->(1x1)	10	10	0
+resnet_model/batch_normalization_30/AssignMovingAvg/mul	Mul	GPU-0	0	20	20	(64x1)(1x1)->(64x1)	10	10	0
+gradients/L2Loss_55_grad/mul	Mul	GPU-0	0	16	16	(32x1)(1x1)->(32x1)	10	10	0
+ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1	Const	GPU-0	0	10	23	(no input)->(int32 1x1)	0	10	0
+gradients/resnet_model/conv2d_16/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	1507	1507	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x32x32)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_14/AssignMovingAvg_1/mul	Mul	GPU-0	0	16	16	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_25/beta/read	Identity	GPU-0	0	10	25	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_30/gamma/Momentum	VariableV2	GPU-0	0	24	37	(no input)->(64x1)	0	10	0
+ConstantFolding/gradients/resnet_model/conv2d_24/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	10	27	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_17/moving_variance/read	Identity	GPU-0	0	11	29	(32x1)->(32x1)	0	10	0
+resnet_model/conv2d_20/kernel/Momentum	VariableV2	GPU-0	0	21	38	(no input)->(3x3x32x32)	0	10	0
+ConstantFolding/gradients/resnet_model/conv2d_8/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	10	27	(no input)->(int32 4x1)	0	10	0
+_SOURCE	NoOp	GPU-0	0	59	5322	(no input)->(no output info)	0	10	0
+resnet_model/batch_normalization_28/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_11/beta/Momentum	VariableV2	GPU-0	0	21	32	(no input)->(32x1)	0	10	0
+gradients/resnet_model/conv2d_15/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	3346	3346	(128x32x16x16)(int32 4x1)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_15/AssignMovingAvg_1	AssignSub	GPU-0	0	18	18	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_17/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_24/moving_variance	VariableV2	GPU-0	0	33	47	(no input)->(64x1)	0	10	0
+gradients/L2Loss_6_grad/mul	Mul	GPU-0	0	13	13	(16x1)(1x1)->(16x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_28/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	45	45	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+Momentum/update_resnet_model/conv2d_28/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	85	85	(3x3x64x64)(3x3x64x64)(1x1)(int32 1x1 slot 1 slot )(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+sparse_softmax_cross_entropy_loss/Sum	Sum	GPU-0	0	24	24	(128x1)(int32 1x1)->(1x1)	10	10	0
+L2Loss_80	L2Loss	GPU-0	0	18	18	(64x1)->(1x1)	10	10	0
+gradients/resnet_model/conv2d_9/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3749	3749	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x16x16)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_16/FusedBatchNorm	FusedBatchNorm	GPU-0	0	865	865	(128x32x16x16)(32x1)(32x1)(1x1)(1x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_29/moving_mean	VariableV2	GPU-0	0	24	39	(no input)->(64x1)	0	10	0
+edge_639_PiecewiseConstant/case/preds_c/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	10	10	(Transfer)->(4 bytes)	0	0	10
+resnet_model/batch_normalization_23/beta/read	Identity	GPU-0	0	9	27	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_7/moving_variance/read	Identity	GPU-0	0	8	27	(16x1)->(16x1)	0	10	0
+resnet_model/conv2d_19/Conv2D	Conv2D	GPU-0	0	1519	1519	(128x32x16x16)(3x3x32x32)->(128x32x16x16)	10	10	0
+gradients/L2Loss_90_grad/mul	Mul	GPU-0	0	35	35	(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+PiecewiseConstant/Const_4	Const	GPU-0	0	20	33	(no input)->(1x1)	0	10	0
+resnet_model/dense/kernel/Momentum	VariableV2	GPU-0	0	26	44	(no input)->(64x10)	0	10	0
+resnet_model/batch_normalization_16/moving_variance/read	Identity	GPU-0	0	14	36	(32x1)->(32x1)	0	10	0
+gradients/AddN_77	AddN	GPU-0	0	17	17	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_16/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/add_3	Add	GPU-0	0	1595	1595	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/conv2d_30/kernel/read	Identity	GPU-0	0	9	32	(3x3x64x64)->(3x3x64x64)	0	10	0
+resnet_model/conv2d_5/kernel/read	Identity	GPU-0	0	9	35	(3x3x16x16)->(3x3x16x16)	0	10	0
+ConstantFolding/gradients/resnet_model/conv2d_13/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	10	30	(no input)->(int32 4x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_24/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	47	47	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_26/gamma/read	Identity	GPU-0	0	10	48	(64x1)->(64x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_26/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	48	48	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+gradients/AddN_105	AddN	GPU-0	0	22	22	(1x1x16x16)(1x1x16x16)->(1x1x16x16)	10	10	0
+resnet_model/batch_normalization_14/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	20	20	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_13/gamma/read	Identity	GPU-0	0	12	28	(32x1)->(32x1)	0	10	0
+resnet_model/conv2d_3/kernel/Momentum	VariableV2	GPU-0	0	22	37	(no input)->(3x3x16x16)	0	10	0
+L2Loss_97	L2Loss	GPU-0	0	18	18	(10x1)->(1x1)	10	10	0
+gradients/resnet_model/conv2d_18/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	31	62	(128x32x16x16)(3x3x32x32)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+gradients/resnet_model/Relu_1_grad/ReluGrad	ReluGrad	GPU-0	0	1599	1599	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+mul/x	Const	GPU-0	0	22	33	(no input)->(1x1)	0	10	0
+resnet_model/conv2d_24/kernel/Momentum	VariableV2	GPU-0	0	24	39	(no input)->(3x3x32x64)	0	10	0
+Momentum/update_resnet_model/batch_normalization_20/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	39	39	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_16/gamma/read	Identity	GPU-0	0	8	27	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_5/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(16x1)(1x1)->(16x1)	10	10	0
+L2Loss_32	L2Loss	GPU-0	0	18	18	(16x1)->(1x1)	10	10	0
+gradients/AddN_4	AddN	GPU-0	0	35	35	(3x3x64x64)(3x3x64x64)->(3x3x64x64)	10	10	0
+gradients/resnet_model/Mean_grad/Fill	Const	GPU-0	0	12	27	(no input)->(int32 2x1)	0	10	0
+gradients/resnet_model/Relu_18_grad/ReluGrad	ReluGrad	GPU-0	0	773	773	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+gradients/L2Loss_61_grad/mul	Mul	GPU-0	0	16	16	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_20/beta/Momentum	VariableV2	GPU-0	0	18	31	(no input)->(32x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_14/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	47	47	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+gradients/resnet_model/Mean_grad/truediv	RealDiv	GPU-0	0	269	269	(128x64x8x8)(1x1)->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_14/gamma/read	Identity	GPU-0	0	14	32	(32x1)->(32x1)	0	10	0
+gradients/resnet_model/Relu_6_grad/ReluGrad	ReluGrad	GPU-0	0	1598	1598	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+gradients/AddN_31	AddN	GPU-0	0	22	22	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/dense/bias/read	Identity	GPU-0	0	10	32	(10x1)->(10x1)	0	10	0
+resnet_model/batch_normalization_26/moving_mean/read	Identity	GPU-0	0	9	29	(64x1)->(64x1)	0	10	0
+ConstantFolding/gradients/resnet_model/conv2d_33/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	9	24	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_29/moving_mean/read	Identity	GPU-0	0	11	31	(64x1)->(64x1)	0	10	0
+gradients/L2Loss_11_grad/mul	Mul	GPU-0	0	19	19	(16x1)(1x1)->(16x1)	10	10	0
+PiecewiseConstant/case/Assert/AssertGuard/Merge	Merge	GPU-0	0	29	71	(boolean 1x1)(boolean 1x1)->(boolean 1x1)(int32 1x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization/beta	VariableV2	GPU-0	0	24	39	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_7/moving_mean	VariableV2	GPU-0	0	21	36	(no input)->(16x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_18/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	39	39	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+L2Loss_87	L2Loss	GPU-0	0	50	50	(3x3x64x64)->(1x1)	10	10	0
+gradients/resnet_model/conv2d_7/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	9493	9493	(128x16x32x32)(int32 4x1)(128x16x32x32)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_26/moving_mean	VariableV2	GPU-0	0	21	37	(no input)->(64x1)	0	10	0
+gradients/resnet_model/conv2d_33/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	32	57	(128x64x8x8)(3x3x64x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+gradients/resnet_model/Mean_grad/Prod_1	Size	GPU-0	0	18	33	(128x64x1x1)->(int32 1x1)	0	10	0
+resnet_model/Relu_26	Relu	GPU-0	0	248	248	(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_17/FusedBatchNorm	FusedBatchNorm	GPU-0	0	876	876	(128x32x16x16)(32x1)(32x1)(1x1)(1x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )	10	10	0
+Momentum/update_resnet_model/batch_normalization/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	39	39	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/Relu_17	Relu	GPU-0	0	563	563	(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )->(128x32x16x16)	10	10	0
+gradients/L2Loss_17_grad/mul	Mul	GPU-0	0	10	10	(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/conv2d_1/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	1660	1660	(int32 4x1)(int32 4x1 slot 1 slot )(1x1x16x16)(128x16x32x32)->(128x16x32x32)	10	10	0
+gradients/resnet_model/Relu_21_grad/ReluGrad	ReluGrad	GPU-0	0	422	422	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+PiecewiseConstant/case/cond/cond/cond/cond/Switch/Switch	Switch	GPU-0	0	8	34	(boolean 1x1)(boolean 1x1)->(boolean 1x1 slot 1 slot )	0	10	0
+gradients/resnet_model/conv2d_31/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	2230	2230	(128x64x8x8)(int32 4x1)(128x64x8x8)->(3x3x64x64)	10	10	0
+resnet_model/batch_normalization_19/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	18	18	(32x1)(32x1)->(32x1)	10	10	0
+gradients/resnet_model/batch_normalization_14/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	1449	1449	(128x32x16x16)(128x32x16x16)(32x1)(32x1)(32x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_22/gamma	VariableV2	GPU-0	0	23	36	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_5/gamma/Momentum	VariableV2	GPU-0	0	19	33	(no input)->(16x1)	0	10	0
+resnet_model/conv2d/Conv2D	Conv2D	GPU-0	0	1842	1842	(128x3x32x32)(3x3x3x16)->(128x16x32x32)	10	10	0
+Momentum/update_resnet_model/batch_normalization_2/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	43	43	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/Pad_2_grad/Slice_1	Slice	GPU-0	0	27	40	(128x32x16x16)(int32 4x1)(int32 4x1)->(128x32x16x16)	0	10	0
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like	Fill	GPU-0	0	19	19	(int32 1x1)(1x1)->(128x1)	10	10	0
+gradients/resnet_model/batch_normalization_19/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	1461	1461	(128x32x16x16)(128x32x16x16)(32x1)(32x1)(32x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_29/AssignMovingAvg_1/mul	Mul	GPU-0	0	15	15	(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/Relu_19_grad/ReluGrad	ReluGrad	GPU-0	0	784	784	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_7/moving_mean/read	Identity	GPU-0	0	10	27	(16x1)->(16x1)	0	10	0
+gradients/L2Loss_37_grad/mul	Mul	GPU-0	0	17	17	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_20/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(32x1)(1x1)->(32x1)	10	10	0
+gradients/L2Loss_43_grad/mul	Mul	GPU-0	0	18	18	(32x1)(1x1)->(32x1)	10	10	0
+gradients/L2Loss_45_grad/mul	Mul	GPU-0	0	13	13	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/add_8	Add	GPU-0	0	819	819	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/transpose	Transpose	GPU-0	0	429	429	(128x32x32x3)(int32 128x1 slot 1 slot )(int32 4x1)->(128x3x32x32)	10	10	0
+resnet_model/batch_normalization_15/moving_mean/read	Identity	GPU-0	0	9	27	(32x1)->(32x1)	0	10	0
+edge_399_PiecewiseConstant/LessEqual/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	10	10	(Transfer)->(1 bytes)	0	0	10
+resnet_model/batch_normalization_17/moving_variance	VariableV2	GPU-0	0	22	41	(no input)->(32x1)	0	10	0
+resnet_model/batch_normalization_29/FusedBatchNorm	FusedBatchNorm	GPU-0	0	443	443	(128x64x8x8)(64x1)(64x1)(1x1)(1x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )	10	10	0
+gradients/AddN_92	AddN	GPU-0	0	20	20	(16x1)(16x1)->(16x1)	10	10	0
+gradients/L2Loss_95_grad/mul	Mul	GPU-0	0	16	16	(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_1/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	67	111	(128x16x32x32)(1x1x16x16)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/conv2d_23/kernel/read	Identity	GPU-0	0	9	32	(1x1x32x64)->(1x1x32x64)	0	10	0
+resnet_model/batch_normalization_16/moving_mean/read	Identity	GPU-0	0	12	28	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_9/beta	VariableV2	GPU-0	0	22	41	(no input)->(16x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_23/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	48	48	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_15/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	35	59	(128x32x16x16)(3x3x32x32)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/conv2d_31/kernel/read	Identity	GPU-0	0	9	30	(3x3x64x64)->(3x3x64x64)	0	10	0
+gradients/L2Loss_9_grad/mul	Mul	GPU-0	0	15	15	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/Pad_3	Pad	GPU-0	0	1180	1180	(128x32x16x16)(int32 4x2)->(128x32x18x18)	10	10	0
+resnet_model/conv2d_29/Conv2D	Conv2D	GPU-0	0	2228	2228	(128x64x8x8)(3x3x64x64)->(128x64x8x8)	10	10	0
+gradients/resnet_model/conv2d_13/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	6631	6631	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x16x32)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x16x34x34)	10	10	0
+resnet_model/batch_normalization_21/AssignMovingAvg/mul	Mul	GPU-0	0	22	22	(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/Relu_26_grad/ReluGrad	ReluGrad	GPU-0	0	426	426	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+gradients/sparse_softmax_cross_entropy_loss/value_grad/Select	Select	GPU-0	0	21	21	(boolean 1x1)(1x1)(1x1)->(1x1)	10	10	0
+L2Loss_46	L2Loss	GPU-0	0	17	17	(32x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_1/AssignMovingAvg/mul	Mul	GPU-0	0	20	20	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/conv2d_17/Conv2D	Conv2D	GPU-0	0	1506	1506	(128x32x16x16)(3x3x32x32)->(128x32x16x16)	10	10	0
+gradients/resnet_model/batch_normalization_16/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	1451	1451	(128x32x16x16)(128x32x16x16)(32x1)(32x1)(32x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+gradients/AddN_100	AddN	GPU-0	0	23	23	(3x3x16x16)(3x3x16x16)->(3x3x16x16)	10	10	0
+L2Loss_50	L2Loss	GPU-0	0	43	43	(3x3x32x32)->(1x1)	10	10	0
+resnet_model/Relu_2	Relu	GPU-0	0	1111	1111	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )->(128x16x32x32)	10	10	0
+L2Loss_67	L2Loss	GPU-0	0	17	17	(64x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_30/gamma/read	Identity	GPU-0	0	11	32	(64x1)->(64x1)	0	10	0
+gradients/resnet_model/conv2d_28/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	2225	2225	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x64x64)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_30/moving_variance	VariableV2	GPU-0	0	20	38	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_27/beta/read	Identity	GPU-0	0	11	28	(64x1)->(64x1)	0	10	0
+gradients/L2Loss_7_grad/mul	Mul	GPU-0	0	20	20	(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_15/moving_variance/read	Identity	GPU-0	0	10	27	(32x1)->(32x1)	0	10	0
+resnet_model/conv2d_10/kernel	VariableV2	GPU-0	0	23	41	(no input)->(3x3x16x16)	0	10	0
+resnet_model/add_12	Add	GPU-0	0	389	389	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+gradients/resnet_model/conv2d_11/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	9458	9458	(128x16x32x32)(int32 4x1)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x16x16)	10	10	0
+gradients/L2Loss_40_grad/mul	Mul	GPU-0	0	16	16	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/conv2d_30/kernel	VariableV2	GPU-0	0	27	43	(no input)->(3x3x64x64)	0	10	0
+resnet_model/batch_normalization_21/beta/Momentum	VariableV2	GPU-0	0	17	32	(no input)->(64x1)	0	10	0
+gradients/AddN_7	AddN	GPU-0	0	36	36	(3x3x64x64)(3x3x64x64)->(3x3x64x64)	10	10	0
+Momentum/update_resnet_model/batch_normalization_13/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	47	47	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_29/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	18	18	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/conv2d_13/Conv2D	Conv2D	GPU-0	0	1810	1810	(128x16x34x34)(3x3x16x32)->(128x32x16x16)	10	10	0
+resnet_model/add_2	Add	GPU-0	0	1591	1591	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+gradients/resnet_model/conv2d_12/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	35	59	(128x16x32x32)(1x1x16x32)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/Reshape	Reshape	GPU-0	0	20	39	(128x64x1x1)(int32 2x1)->(128x64)	0	10	0
+gradients/L2Loss_59_grad/mul	Mul	GPU-0	0	19	19	(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+resnet_model/conv2d_25/kernel/Momentum	VariableV2	GPU-0	0	23	38	(no input)->(3x3x64x64)	0	10	0
+gradients/AddN_63	AddN	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+gradients/resnet_model/batch_normalization_30/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	598	598	(128x64x8x8)(128x64x8x8)(64x1)(64x1)(64x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+global_step/cond/Merge	Merge	GPU-0	0	41	85	(int64 1x1 slot 1 slot )(int64 1x1)->(int64 1x1)(int32 1x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_1/beta/read	Identity	GPU-0	0	10	32	(16x1)->(16x1)	0	10	0
+gradients/resnet_model/Relu_14_grad/ReluGrad	ReluGrad	GPU-0	0	778	778	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_22/moving_mean/read	Identity	GPU-0	0	11	29	(64x1)->(64x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_24/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	38	38	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_30/beta	VariableV2	GPU-0	0	23	56	(no input)->(64x1)	0	10	0
+AddN	AddN	GPU-0	0	259	259	(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)->(1x1)	10	10	0
+resnet_model/conv2d_24/kernel/read	Identity	GPU-0	0	7	33	(3x3x32x64)->(3x3x32x64)	0	10	0
+resnet_model/conv2d_21/Conv2D	Conv2D	GPU-0	0	1513	1513	(128x32x16x16)(3x3x32x32)->(128x32x16x16)	10	10	0
+resnet_model/conv2d_5/kernel	VariableV2	GPU-0	0	27	42	(no input)->(3x3x16x16)	0	10	0
+gradients/L2Loss_24_grad/mul	Mul	GPU-0	0	15	15	(16x1)(1x1)->(16x1)	10	10	0
+edge_1430_gradients/resnet_model/Mean_grad/Fill/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	10	10	(Transfer)->(8 bytes)	0	0	10
+resnet_model/conv2d_33/kernel	VariableV2	GPU-0	0	26	45	(no input)->(3x3x64x64)	0	10	0
+resnet_model/batch_normalization_2/AssignMovingAvg_1	AssignSub	GPU-0	0	20	20	(16x1)(16x1)->(16x1)	10	10	0
+gradients/resnet_model/Mean_grad/Maximum_1	Maximum	GPU-0	0	54	68	(int32 1x1)(int32 1x1)->(int32 1x1)	0	10	0
+resnet_model/batch_normalization_8/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_6/gamma	VariableV2	GPU-0	0	19	35	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_18/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	17	17	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_4/moving_mean	VariableV2	GPU-0	0	23	37	(no input)->(16x1)	0	10	0
+resnet_model/conv2d_31/kernel	VariableV2	GPU-0	0	41	59	(no input)->(3x3x64x64)	0	10	0
+gradients/AddN_57	AddN	GPU-0	0	24	24	(3x3x32x32)(3x3x32x32)->(3x3x32x32)	10	10	0
+IteratorGetNext	IteratorGetNext	CPU-0	0	411	621	(tf_resource 1x1)->(128x32x32x3)(int32 128x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_21/beta/read	Identity	GPU-0	0	10	26	(64x1)->(64x1)	0	10	0
+gradients/resnet_model/batch_normalization_27/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	607	607	(128x64x8x8)(128x64x8x8)(64x1)(64x1)(64x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+gradients/AddN_70	AddN	GPU-0	0	17	17	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_20/AssignMovingAvg/sub_1	Sub	GPU-0	0	21	21	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_28/moving_mean/read	Identity	GPU-0	0	11	27	(64x1)->(64x1)	0	10	0
+Momentum/update_resnet_model/conv2d_31/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	93	93	(3x3x64x64)(3x3x64x64)(1x1)(int32 1x1 slot 1 slot )(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+resnet_model/batch_normalization_11/gamma/Momentum	VariableV2	GPU-0	0	19	34	(no input)->(32x1)	0	10	0
+L2Loss_58	L2Loss	GPU-0	0	19	19	(32x1)->(1x1)	10	10	0
+gradients/L2Loss_10_grad/mul	Mul	GPU-0	0	19	19	(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_8/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+gradients/resnet_model/batch_normalization_18/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	1457	1457	(128x32x16x16)(128x32x16x16)(32x1)(32x1)(32x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+Momentum/update_resnet_model/batch_normalization_19/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	41	41	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_23/AssignMovingAvg/mul	Mul	GPU-0	0	23	23	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_11/AssignMovingAvg/sub_1	Sub	GPU-0	0	20	20	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization/gamma/read	Identity	GPU-0	0	9	28	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_3/beta/Momentum	VariableV2	GPU-0	0	23	38	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_3/moving_variance/read	Identity	GPU-0	0	9	25	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_12/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+edge_388_PiecewiseConstant/LessEqual_1/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	10	10	(Transfer)->(1 bytes)	0	0	10
+resnet_model/batch_normalization_30/moving_variance/read	Identity	GPU-0	0	9	25	(64x1)->(64x1)	0	10	0
+gradients/resnet_model/Relu_22_grad/ReluGrad	ReluGrad	GPU-0	0	420	420	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization/AssignMovingAvg/mul	Mul	GPU-0	0	20	20	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_6/AssignMovingAvg	AssignSub	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_6/beta/Momentum	VariableV2	GPU-0	0	21	35	(no input)->(16x1)	0	10	0
+gradients/L2Loss_73_grad/mul	Mul	GPU-0	0	17	17	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_28/AssignMovingAvg_1	AssignSub	GPU-0	0	18	18	(64x1)(64x1)->(64x1)	10	10	0
+gradients/L2Loss_34_grad/mul	Mul	GPU-0	0	20	20	(1x1x16x32)(1x1)->(1x1x16x32)	10	10	0
+gradients/resnet_model/conv2d_24/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	29	57	(128x32x18x18)(3x3x32x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+ConstantFolding/gradients/resnet_model/conv2d_21/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	11	29	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_17/gamma/read	Identity	GPU-0	0	10	32	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_22/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_23/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	31	54	(128x32x16x16)(1x1x32x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+gradients/resnet_model/batch_normalization_20/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	1450	1450	(128x32x16x16)(128x32x16x16)(32x1)(32x1)(32x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_25/gamma	VariableV2	GPU-0	0	22	34	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_19/beta/read	Identity	GPU-0	0	8	29	(32x1)->(32x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_16/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	45	45	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+gradients/resnet_model/Relu_20_grad/ReluGrad	ReluGrad	GPU-0	0	816	816	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_1/moving_mean/read	Identity	GPU-0	0	12	31	(16x1)->(16x1)	0	10	0
+gradients/AddN_84	AddN	GPU-0	0	20	20	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/conv2d_15/kernel/read	Identity	GPU-0	0	10	35	(3x3x32x32)->(3x3x32x32)	0	10	0
+gradients/L2Loss_31_grad/mul	Mul	GPU-0	0	17	17	(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+gradients/AddN_88	AddN	GPU-0	0	17	17	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_18/beta/Momentum	VariableV2	GPU-0	0	18	32	(no input)->(32x1)	0	10	0
+gradients/AddN_99	AddN	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/conv2d_4/kernel/Momentum	VariableV2	GPU-0	0	20	39	(no input)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_13/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(32x1)(1x1)->(32x1)	10	10	0
+gradients/L2Loss_46_grad/mul	Mul	GPU-0	0	16	16	(32x1)(1x1)->(32x1)	10	10	0
+L2Loss_16	L2Loss	GPU-0	0	41	41	(3x3x16x16)->(1x1)	10	10	0
+resnet_model/batch_normalization_20/beta	VariableV2	GPU-0	0	22	38	(no input)->(32x1)	0	10	0
+L2Loss_30	L2Loss	GPU-0	0	19	19	(16x1)->(1x1)	10	10	0
+resnet_model/conv2d_19/kernel/read	Identity	GPU-0	0	10	33	(3x3x32x32)->(3x3x32x32)	0	10	0
+resnet_model/batch_normalization_30/AssignMovingAvg	AssignSub	GPU-0	0	20	20	(64x1)(64x1)->(64x1)	10	10	0
+edge_3183_global_step/add/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	10	10	(Transfer)->(8 bytes)	0	0	10
+L2Loss_37	L2Loss	GPU-0	0	19	19	(32x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_7/gamma/Momentum	VariableV2	GPU-0	0	21	33	(no input)->(16x1)	0	10	0
+PiecewiseConstant/Const	Const	GPU-0	0	11	31	(no input)->(int32 1x1)	0	10	0
+L2Loss_94	L2Loss	GPU-0	0	18	18	(64x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_17/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	17	17	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_21/moving_variance	VariableV2	GPU-0	0	19	51	(no input)->(64x1)	0	10	0
+resnet_model/conv2d_23/kernel	VariableV2	GPU-0	0	24	41	(no input)->(1x1x32x64)	0	10	0
+edge_387_PiecewiseConstant/Greater_1/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	10	10	(Transfer)->(1 bytes)	0	0	10
+resnet_model/batch_normalization_11/beta/read	Identity	GPU-0	0	9	28	(32x1)->(32x1)	0	10	0
+resnet_model/conv2d_32/kernel/read	Identity	GPU-0	0	9	32	(3x3x64x64)->(3x3x64x64)	0	10	0
+resnet_model/conv2d_11/Conv2D	Conv2D	GPU-0	0	3763	3763	(128x16x32x32)(3x3x16x16)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_9/FusedBatchNorm	FusedBatchNorm	GPU-0	0	1716	1716	(128x16x32x32)(16x1)(16x1)(1x1)(1x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_18/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	8	28	(no input)->(int32 4x1)	0	10	0
+sparse_softmax_cross_entropy_loss/div	RealDiv	GPU-0	0	22	22	(1x1)(1x1)->(1x1)	10	10	0
+gradients/resnet_model/conv2d_13/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	35	62	(128x16x34x34)(3x3x16x32)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+L2Loss_18	L2Loss	GPU-0	0	21	21	(16x1)->(1x1)	10	10	0
+edge_1454_IteratorGetNext/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	10	10	(Transfer)->(512 bytes)	0	0	10
+gradients/AddN_90	AddN	GPU-0	0	26	26	(3x3x16x16)(3x3x16x16)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_22/moving_variance/read	Identity	GPU-0	0	12	28	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_15/beta/read	Identity	GPU-0	0	9	47	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_6/AssignMovingAvg/sub_1	Sub	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims	ExpandDims	GPU-0	0	25	37	(128x1)(int32 1x1)->(128x1)	0	10	0
+resnet_model/batch_normalization_7/beta	VariableV2	GPU-0	0	20	33	(no input)->(16x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_17/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	39	39	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/conv2d_30/kernel/Momentum	VariableV2	GPU-0	0	22	39	(no input)->(3x3x64x64)	0	10	0
+Momentum/update_resnet_model/batch_normalization_18/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	46	46	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_11/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_7/AssignMovingAvg_1	AssignSub	GPU-0	0	17	17	(16x1)(16x1)->(16x1)	10	10	0
+gradients/resnet_model/conv2d_24/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	2086	2086	(128x32x18x18)(int32 4x1)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x32x64)	10	10	0
+Momentum/update_resnet_model/conv2d/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	39	39	(3x3x3x16)(3x3x3x16)(1x1)(int32 1x1 slot 1 slot )(3x3x3x16)(1x1)->(3x3x3x16)	10	10	0
+gradients/resnet_model/batch_normalization_6/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	2854	2854	(128x16x32x32)(128x16x32x32)(16x1)(16x1)(16x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_30/gamma	VariableV2	GPU-0	0	18	35	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_11/moving_mean/read	Identity	GPU-0	0	10	30	(32x1)->(32x1)	0	10	0
+gradients/L2Loss_36_grad/mul	Mul	GPU-0	0	15	15	(32x1)(1x1)->(32x1)	10	10	0
+L2Loss_20	L2Loss	GPU-0	0	19	19	(16x1)->(1x1)	10	10	0
+gradients/resnet_model/conv2d_29/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	33	63	(128x64x8x8)(3x3x64x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+PiecewiseConstant/case/preds_c	Pack	GPU-0	0	844	927	(boolean 1x1)(boolean 1x1)(boolean 1x1)(boolean 1x1)->(boolean 4x1)	0	10	0
+gradients/AddN_38	AddN	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_10/moving_variance/read	Identity	GPU-0	0	14	33	(16x1)->(16x1)	0	10	0
+Momentum/update_resnet_model/conv2d_23/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	58	58	(1x1x32x64)(1x1x32x64)(1x1)(int32 1x1 slot 1 slot )(1x1x32x64)(1x1)->(1x1x32x64)	10	10	0
+resnet_model/batch_normalization_27/moving_mean	VariableV2	GPU-0	0	21	39	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_12/beta/Momentum	VariableV2	GPU-0	0	21	37	(no input)->(32x1)	0	10	0
+resnet_model/batch_normalization_4/moving_variance	VariableV2	GPU-0	0	18	35	(no input)->(16x1)	0	10	0
+sparse_softmax_cross_entropy_loss/num_present	Sum	GPU-0	0	17	17	(128x1)(int32 1x1)->(1x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_25/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+L2Loss_83	L2Loss	GPU-0	0	20	20	(64x1)->(1x1)	10	10	0
+PiecewiseConstant/case/cond/Merge	Merge	GPU-0	0	20	129	(1)(1x1)->(1x1)(int32 1x1 slot 1 slot )	0	10	0
+resnet_model/Relu_29	Relu	GPU-0	0	248	248	(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )->(128x64x8x8)	10	10	0
+PiecewiseConstant/LessEqual_1	LessEqual	GPU-0	0	59	105	(int32 1x1)(int32 1x1)->(boolean 1x1)	0	10	0
+resnet_model/batch_normalization_15/beta/Momentum	VariableV2	GPU-0	0	19	32	(no input)->(32x1)	0	10	0
+resnet_model/batch_normalization_28/AssignMovingAvg/mul	Mul	GPU-0	0	23	23	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_6/beta/read	Identity	GPU-0	0	8	32	(16x1)->(16x1)	0	10	0
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape	Shape	GPU-0	0	19	47	(128x1)->(int32 1x1)	0	10	0
+resnet_model/batch_normalization_25/beta	VariableV2	GPU-0	0	37	53	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_3/gamma	VariableV2	GPU-0	0	22	42	(no input)->(16x1)	0	10	0
+gradients/resnet_model/Relu_30_grad/ReluGrad	ReluGrad	GPU-0	0	423	423	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+resnet_model/Relu_21	Relu	GPU-0	0	252	252	(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )->(128x64x8x8)	10	10	0
+gradients/AddN_71	AddN	GPU-0	0	21	21	(32x1)(32x1)->(32x1)	10	10	0
+PiecewiseConstant/Greater_1	Greater	GPU-0	0	58	115	(int32 1x1)(int32 1x1)->(boolean 1x1)	0	10	0
+resnet_model/batch_normalization/AssignMovingAvg/sub	Const	GPU-0	0	15	96	(no input)->(1x1)	0	10	0
+resnet_model/batch_normalization_7/moving_variance	VariableV2	GPU-0	0	25	40	(no input)->(16x1)	0	10	0
+gradients/resnet_model/batch_normalization_8/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	2859	2859	(128x16x32x32)(128x16x32x32)(16x1)(16x1)(16x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_5/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	14	36	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_9/moving_variance/read	Identity	GPU-0	0	10	27	(16x1)->(16x1)	0	10	0
+Momentum/update_resnet_model/conv2d_12/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	50	50	(1x1x16x32)(1x1x16x32)(1x1)(int32 1x1 slot 1 slot )(1x1x16x32)(1x1)->(1x1x16x32)	10	10	0
+resnet_model/batch_normalization_17/beta/read	Identity	GPU-0	0	9	26	(32x1)->(32x1)	0	10	0
+gradients/AddN_112	AddN	GPU-0	0	29	29	(3x3x3x16)(3x3x3x16)->(3x3x3x16)	10	10	0
+gradients/resnet_model/conv2d_17/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	35	65	(128x32x16x16)(3x3x32x32)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_4/beta/read	Identity	GPU-0	0	10	28	(16x1)->(16x1)	0	10	0
+L2Loss_52	L2Loss	GPU-0	0	17	17	(32x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_1/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+L2Loss_78	L2Loss	GPU-0	0	54	54	(3x3x64x64)->(1x1)	10	10	0
+gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like	Const	GPU-0	0	15	33	(no input)->(1x1)	0	10	0
+resnet_model/batch_normalization_28/moving_variance	VariableV2	GPU-0	0	20	39	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_14/FusedBatchNorm	FusedBatchNorm	GPU-0	0	873	873	(128x32x16x16)(32x1)(32x1)(1x1)(1x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_26/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	18	18	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_10/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(16x1)(1x1)->(16x1)	10	10	0
+L2Loss_70	L2Loss	GPU-0	0	19	19	(64x1)->(1x1)	10	10	0
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape	Reshape	GPU-0	0	14	33	(1x1)(int32 1x1)->(1x1)	0	10	0
+gradients/resnet_model/conv2d_32/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	2219	2219	(128x64x8x8)(int32 4x1)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x64x64)	10	10	0
+gradients/resnet_model/Pad_3_grad/Slice_1	Slice	GPU-0	0	617	617	(128x32x18x18)(int32 4x1)(int32 4x1)->(128x32x16x16)	10	10	0
+Momentum/update_resnet_model/conv2d_8/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	52	52	(3x3x16x16)(3x3x16x16)(1x1)(int32 1x1 slot 1 slot )(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_2/AssignMovingAvg	AssignSub	GPU-0	0	22	22	(16x1)(16x1)->(16x1)	10	10	0
+gradients/resnet_model/Mean_grad/Prod	Size	GPU-0	0	50	70	(128x64x8x8)->(int32 1x1)	0	10	0
+gradients/AddN_108	AddN	GPU-0	0	1595	1595	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_10/beta	VariableV2	GPU-0	0	26	40	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_19/moving_variance/read	Identity	GPU-0	0	11	28	(32x1)->(32x1)	0	10	0
+gradients/resnet_model/Relu_8_grad/ReluGrad	ReluGrad	GPU-0	0	1572	1572	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/conv2d_8/kernel/read	Identity	GPU-0	0	9	35	(3x3x16x16)->(3x3x16x16)	0	10	0
+gradients/L2Loss_19_grad/mul	Mul	GPU-0	0	18	18	(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+gradients/AddN_67	AddN	GPU-0	0	20	20	(32x1)(32x1)->(32x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_10/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	47	47	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_28/beta	VariableV2	GPU-0	0	18	33	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_29/AssignMovingAvg_1	AssignSub	GPU-0	0	18	18	(64x1)(64x1)->(64x1)	10	10	0
+gradients/AddN_103	AddN	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+gradients/AddN_40	AddN	GPU-0	0	25	25	(3x3x32x32)(3x3x32x32)->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_19/beta	VariableV2	GPU-0	0	20	36	(no input)->(32x1)	0	10	0
+gradients/L2Loss_22_grad/mul	Mul	GPU-0	0	20	20	(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+resnet_model/conv2d_2/Conv2D	Conv2D	GPU-0	0	3764	3764	(128x16x32x32)(3x3x16x16)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_19/gamma/read	Identity	GPU-0	0	9	26	(32x1)->(32x1)	0	10	0
+resnet_model/conv2d_28/kernel/read	Identity	GPU-0	0	8	30	(3x3x64x64)->(3x3x64x64)	0	10	0
+resnet_model/batch_normalization_26/AssignMovingAvg/sub_1	Sub	GPU-0	0	21	21	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_26/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_2/gamma	VariableV2	GPU-0	0	24	39	(no input)->(16x1)	0	10	0
+gradients/AddN_34	AddN	GPU-0	0	19	19	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_23/gamma/Momentum	VariableV2	GPU-0	0	17	33	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_8/beta/read	Identity	GPU-0	0	13	34	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization/AssignMovingAvg/sub_1	Sub	GPU-0	0	20	20	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_29/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/Pad_3/paddings	Const	GPU-0	0	17	41	(no input)->(int32 4x2)	0	10	0
+resnet_model/conv2d_21/kernel	VariableV2	GPU-0	0	27	44	(no input)->(3x3x32x32)	0	10	0
+gradients/resnet_model/batch_normalization/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	2866	2866	(128x16x32x32)(128x16x32x32)(16x1)(16x1)(16x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+L2Loss_34	L2Loss	GPU-0	0	22	22	(1x1x16x32)->(1x1)	10	10	0
+gradients/L2Loss_97_grad/mul	Mul	GPU-0	0	19	19	(10x1)(1x1)->(10x1)	10	10	0
+resnet_model/Relu_23	Relu	GPU-0	0	247	247	(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )->(128x64x8x8)	10	10	0
+gradients/AddN_13	AddN	GPU-0	0	20	20	(64x1)(64x1)->(64x1)	10	10	0
+gradients/resnet_model/Relu_7_grad/ReluGrad	ReluGrad	GPU-0	0	1602	1602	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_27/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_16/AssignMovingAvg	AssignSub	GPU-0	0	21	21	(32x1)(32x1)->(32x1)	10	10	0
+Momentum/update_resnet_model/conv2d_6/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	49	49	(3x3x16x16)(3x3x16x16)(1x1)(int32 1x1 slot 1 slot )(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+global_step/add/MEMCPYDtoD	MEMCPYDtoD	GPU-0	0	10	10	(Transfer)->(8 bytes)	0	0	10
+L2Loss_1	L2Loss	GPU-0	0	20	20	(16x1)->(1x1)	10	10	0
+Momentum/update_resnet_model/conv2d_29/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	89	89	(3x3x64x64)(3x3x64x64)(1x1)(int32 1x1 slot 1 slot )(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+resnet_model/batch_normalization_22/gamma/read	Identity	GPU-0	0	9	30	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization/beta/Momentum	VariableV2	GPU-0	0	22	36	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_14/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/Relu_12	Relu	GPU-0	0	564	564	(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )->(128x32x16x16)	10	10	0
+gradients/L2Loss_5_grad/mul	Mul	GPU-0	0	18	18	(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/batch_normalization_12/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	1452	1452	(128x32x16x16)(128x32x16x16)(32x1)(32x1)(32x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+gradients/resnet_model/Pad_2_grad/Shape	Shape	GPU-0	0	16	33	(128x32x16x16)->(int32 4x1)	0	10	0
+resnet_model/conv2d_27/kernel	VariableV2	GPU-0	0	21	39	(no input)->(3x3x64x64)	0	10	0
+resnet_model/batch_normalization_10/gamma/read	Identity	GPU-0	0	10	28	(16x1)->(16x1)	0	10	0
+Momentum/update_resnet_model/conv2d_5/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	50	50	(3x3x16x16)(3x3x16x16)(1x1)(int32 1x1 slot 1 slot )(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+Momentum/update_resnet_model/batch_normalization_15/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	48	48	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+L2Loss_88	L2Loss	GPU-0	0	24	24	(64x1)->(1x1)	10	10	0
+edge_3181_add/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	10	10	(Transfer)->(4 bytes)	0	0	10
+gradients/L2Loss_62_grad/mul	Mul	GPU-0	0	20	20	(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_19/AssignMovingAvg_1	AssignSub	GPU-0	0	17	17	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_8/beta/Momentum	VariableV2	GPU-0	0	18	30	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_2/beta	VariableV2	GPU-0	0	20	38	(no input)->(16x1)	0	10	0
+L2Loss_61	L2Loss	GPU-0	0	20	20	(32x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_12/moving_variance/read	Identity	GPU-0	0	11	30	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_1/AssignMovingAvg_1	AssignSub	GPU-0	0	18	18	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/Relu_6	Relu	GPU-0	0	1107	1107	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_6/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	18	18	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_25/moving_variance/read	Identity	GPU-0	0	11	27	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_17/beta/Momentum	VariableV2	GPU-0	0	23	35	(no input)->(32x1)	0	10	0
+resnet_model/add_6	Add	GPU-0	0	819	819	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_3/moving_variance	VariableV2	GPU-0	0	19	35	(no input)->(16x1)	0	10	0
+L2Loss_53	L2Loss	GPU-0	0	40	40	(3x3x32x32)->(1x1)	10	10	0
+resnet_model/batch_normalization_19/AssignMovingAvg	AssignSub	GPU-0	0	20	20	(32x1)(32x1)->(32x1)	10	10	0
+gradients/L2Loss_77_grad/mul	Mul	GPU-0	0	15	15	(64x1)(1x1)->(64x1)	10	10	0
+mul	Mul	GPU-0	0	23	23	(1x1)(1x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_21/gamma/Momentum	VariableV2	GPU-0	0	18	34	(no input)->(64x1)	0	10	0
+Momentum/update_resnet_model/conv2d_2/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	47	47	(3x3x16x16)(3x3x16x16)(1x1)(int32 1x1 slot 1 slot )(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+gradients/L2Loss_4_grad/mul	Mul	GPU-0	0	16	16	(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_25/AssignMovingAvg_1/mul	Mul	GPU-0	0	19	19	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_6/gamma/Momentum	VariableV2	GPU-0	0	19	35	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_7/AssignMovingAvg_1/mul	Mul	GPU-0	0	19	19	(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/conv2d_14/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	37	63	(128x32x16x16)(3x3x32x32)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+gradients/resnet_model/batch_normalization_29/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	606	606	(128x64x8x8)(128x64x8x8)(64x1)(64x1)(64x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+gradients/AddN_18	AddN	GPU-0	0	39	39	(3x3x64x64)(3x3x64x64)->(3x3x64x64)	10	10	0
+gradients/L2Loss_67_grad/mul	Mul	GPU-0	0	16	16	(64x1)(1x1)->(64x1)	10	10	0
+_SOURCE	NoOp	CPU-0	0	13	55	(no input)->(no output info)	0	10	0
+gradients/L2Loss_72_grad/mul	Mul	GPU-0	0	26	26	(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+Momentum/update_resnet_model/conv2d_24/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	68	68	(3x3x32x64)(3x3x32x64)(1x1)(int32 1x1 slot 1 slot )(3x3x32x64)(1x1)->(3x3x32x64)	10	10	0
+gradients/resnet_model/conv2d_32/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	34	61	(128x64x8x8)(3x3x64x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+Momentum/update_resnet_model/conv2d_15/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	60	60	(3x3x32x32)(3x3x32x32)(1x1)(int32 1x1 slot 1 slot )(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_27/AssignMovingAvg/mul	Mul	GPU-0	0	20	20	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_25/moving_mean/read	Identity	GPU-0	0	11	29	(64x1)->(64x1)	0	10	0
+ConstantFolding/gradients/resnet_model/conv2d_30/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	9	24	(no input)->(int32 4x1)	0	10	0
+gradients/resnet_model/conv2d_26/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	2224	2224	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x64x64)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/Relu_4	Relu	GPU-0	0	1107	1107	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )->(128x16x32x32)	10	10	0
+L2Loss_62	L2Loss	GPU-0	0	39	39	(3x3x32x32)->(1x1)	10	10	0
+resnet_model/batch_normalization_19/moving_variance	VariableV2	GPU-0	0	25	42	(no input)->(32x1)	0	10	0
+resnet_model/conv2d/kernel/read	Identity	GPU-0	0	9	31	(3x3x3x16)->(3x3x3x16)	0	10	0
+gradients/L2Loss_42_grad/mul	Mul	GPU-0	0	14	14	(32x1)(1x1)->(32x1)	10	10	0
+gradients/AddN_78	AddN	GPU-0	0	20	20	(16x1)(16x1)->(16x1)	10	10	0
+gradients/AddN_54	AddN	GPU-0	0	24	24	(3x3x32x32)(3x3x32x32)->(3x3x32x32)	10	10	0
+Momentum/update_resnet_model/conv2d_25/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	86	86	(3x3x64x64)(3x3x64x64)(1x1)(int32 1x1 slot 1 slot )(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+resnet_model/conv2d_20/kernel/read	Identity	GPU-0	0	10	31	(3x3x32x32)->(3x3x32x32)	0	10	0
+resnet_model/conv2d_2/kernel/Momentum	VariableV2	GPU-0	0	27	48	(no input)->(3x3x16x16)	0	10	0
+gradients/resnet_model/Mean_grad/mod	Const	GPU-0	0	10	27	(no input)->(int32 2x1)	0	10	0
+L2Loss_13	L2Loss	GPU-0	0	42	42	(3x3x16x16)->(1x1)	10	10	0
+gradients/AddN_41	AddN	GPU-0	0	18	18	(32x1)(32x1)->(32x1)	10	10	0
+gradients/AddN_87	AddN	GPU-0	0	1602	1602	(128x16x32x32)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x16x32x32)	10	10	0
+gradients/AddN_50	AddN	GPU-0	0	25	25	(3x3x32x32)(3x3x32x32)->(3x3x32x32)	10	10	0
+PiecewiseConstant/Const_1	Const	GPU-0	0	12	28	(no input)->(int32 1x1)	0	10	0
+resnet_model/batch_normalization_24/AssignMovingAvg_1	AssignSub	GPU-0	0	17	17	(64x1)(64x1)->(64x1)	10	10	0
+gradients/resnet_model/Relu_9_grad/ReluGrad	ReluGrad	GPU-0	0	1571	1571	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_15/FusedBatchNorm	FusedBatchNorm	GPU-0	0	875	875	(128x32x16x16)(32x1)(32x1)(1x1)(1x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_7/AssignMovingAvg/mul	Mul	GPU-0	0	20	20	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_26/gamma	VariableV2	GPU-0	0	19	37	(no input)->(64x1)	0	10	0
+resnet_model/conv2d_1/kernel	VariableV2	GPU-0	0	23	41	(no input)->(1x1x16x16)	0	10	0
+resnet_model/batch_normalization_18/gamma	VariableV2	GPU-0	0	23	40	(no input)->(32x1)	0	10	0
+gradients/AddN_22	AddN	GPU-0	0	401	401	(128x64x8x8)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/conv2d_14/kernel/Momentum	VariableV2	GPU-0	0	23	39	(no input)->(3x3x32x32)	0	10	0
+PiecewiseConstant/LessEqual	LessEqual	GPU-0	0	54	111	(int32 1x1)(int32 1x1)->(boolean 1x1)	0	10	0
+resnet_model/batch_normalization_8/beta	VariableV2	GPU-0	0	25	37	(no input)->(16x1)	0	10	0
+gradients/AddN_94	AddN	GPU-0	0	1602	1602	(128x16x32x32)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x16x32x32)	10	10	0
+gradients/resnet_model/conv2d_14/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	3318	3318	(128x32x16x16)(int32 4x1)(128x32x16x16)->(3x3x32x32)	10	10	0
+PiecewiseConstant/case/num_true_conds	Sum	GPU-0	0	72	119	(int32 4x1)(int32 1x1)->(int32 1x1)	0	10	0
+resnet_model/batch_normalization_28/moving_mean	VariableV2	GPU-0	0	22	38	(no input)->(64x1)	0	10	0
+gradients/AddN_25	AddN	GPU-0	0	32	32	(3x3x64x64)(3x3x64x64)->(3x3x64x64)	10	10	0
+Momentum/update_resnet_model/conv2d_7/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	51	51	(3x3x16x16)(3x3x16x16)(1x1)(int32 1x1 slot 1 slot )(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_10/moving_mean/read	Identity	GPU-0	0	13	30	(16x1)->(16x1)	0	10	0
+gradients/L2Loss_88_grad/mul	Mul	GPU-0	0	17	17	(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_3/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	51	97	(128x16x32x32)(3x3x16x16)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+gradients/resnet_model/conv2d_27/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	2221	2221	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x64x64)(128x64x8x8)->(128x64x8x8)	10	10	0
+resnet_model/conv2d_4/kernel/read	Identity	GPU-0	0	10	32	(3x3x16x16)->(3x3x16x16)	0	10	0
+resnet_model/conv2d_25/Conv2D	Conv2D	GPU-0	0	2217	2217	(128x64x8x8)(3x3x64x64)->(128x64x8x8)	10	10	0
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile	Tile	GPU-0	0	22	22	(1x1)(int32 1x1)->(128x1)	10	10	0
+resnet_model/batch_normalization_5/gamma	VariableV2	GPU-0	0	18	36	(no input)->(16x1)	0	10	0
+gradients/L2Loss_84_grad/mul	Mul	GPU-0	0	36	36	(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+edge_1452_gradients/resnet_model/Mean_grad/floordiv_1/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	10	10	(Transfer)->(4 bytes)	0	0	10
+gradients/L2Loss_1_grad/mul	Mul	GPU-0	0	15	15	(16x1)(1x1)->(16x1)	10	10	0
+gradients/AddN_32	AddN	GPU-0	0	32	32	(3x3x64x64)(3x3x64x64)->(3x3x64x64)	10	10	0
+gradients/AddN_16	AddN	GPU-0	0	18	18	(64x1)(64x1)->(64x1)	10	10	0
+gradients/L2Loss_83_grad/mul	Mul	GPU-0	0	16	16	(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_3/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3724	3724	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x16x16)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_21/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	16	16	(64x1)(64x1)->(64x1)	10	10	0
+PiecewiseConstant/Greater	Greater	GPU-0	0	58	134	(int32 1x1)(int32 1x1)->(boolean 1x1)	0	10	0
+resnet_model/batch_normalization_26/AssignMovingAvg	AssignSub	GPU-0	0	24	24	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_13/gamma	VariableV2	GPU-0	0	21	38	(no input)->(32x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_28/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	41	41	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_8/moving_variance	VariableV2	GPU-0	0	19	35	(no input)->(16x1)	0	10	0
+Momentum/update_resnet_model/conv2d_13/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	53	53	(3x3x16x32)(3x3x16x32)(1x1)(int32 1x1 slot 1 slot )(3x3x16x32)(1x1)->(3x3x16x32)	10	10	0
+resnet_model/conv2d_28/kernel	VariableV2	GPU-0	0	26	44	(no input)->(3x3x64x64)	0	10	0
+gradients/AddN_33	AddN	GPU-0	0	21	21	(1x1x32x64)(1x1x32x64)->(1x1x32x64)	10	10	0
+Momentum/value	Const	GPU-0	0	25	41	(no input)->(int64 1x1)	0	10	0
+resnet_model/conv2d_9/kernel	VariableV2	GPU-0	0	21	41	(no input)->(3x3x16x16)	0	10	0
+L2Loss_75	L2Loss	GPU-0	0	53	53	(3x3x64x64)->(1x1)	10	10	0
+gradients/AddN_91	AddN	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_24/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	15	15	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_24/moving_variance/read	Identity	GPU-0	0	13	26	(64x1)->(64x1)	0	10	0
+gradients/AddN_49	AddN	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_9/beta/Momentum	VariableV2	GPU-0	0	17	33	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_3/AssignMovingAvg/mul	Mul	GPU-0	0	24	24	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_17/gamma	VariableV2	GPU-0	0	19	35	(no input)->(32x1)	0	10	0
+resnet_model/batch_normalization_7/gamma/read	Identity	GPU-0	0	10	32	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_12/beta/read	Identity	GPU-0	0	10	29	(32x1)->(32x1)	0	10	0
+L2Loss_57	L2Loss	GPU-0	0	17	17	(32x1)->(1x1)	10	10	0
+gradients/AddN_96	AddN	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+gradients/L2Loss_82_grad/mul	Mul	GPU-0	0	17	17	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_8/moving_variance/read	Identity	GPU-0	0	15	35	(16x1)->(16x1)	0	10	0
+resnet_model/conv2d_25/kernel	VariableV2	GPU-0	0	22	44	(no input)->(3x3x64x64)	0	10	0
+gradients/resnet_model/conv2d_23/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	1119	1119	(int32 4x1)(int32 4x1 slot 1 slot )(1x1x32x64)(128x64x8x8)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_25/gamma/Momentum	VariableV2	GPU-0	0	16	34	(no input)->(64x1)	0	10	0
+gradients/L2Loss_81_grad/mul	Mul	GPU-0	0	33	33	(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+resnet_model/batch_normalization_5/FusedBatchNorm	FusedBatchNorm	GPU-0	0	1710	1710	(128x16x32x32)(16x1)(16x1)(1x1)(1x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_4/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_17/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	43	43	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_30/AssignMovingAvg_1	AssignSub	GPU-0	0	31	31	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_25/gamma/read	Identity	GPU-0	0	9	24	(64x1)->(64x1)	0	10	0
+resnet_model/conv2d_8/Conv2D	Conv2D	GPU-0	0	3764	3764	(128x16x32x32)(3x3x16x16)->(128x16x32x32)	10	10	0
+Momentum/update_resnet_model/batch_normalization_14/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/conv2d_3/Conv2D	Conv2D	GPU-0	0	3763	3763	(128x16x32x32)(3x3x16x16)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_3/moving_mean	VariableV2	GPU-0	0	24	37	(no input)->(16x1)	0	10	0
+resnet_model/conv2d_16/kernel/read	Identity	GPU-0	0	8	33	(3x3x32x32)->(3x3x32x32)	0	10	0
+resnet_model/batch_normalization_4/gamma/Momentum	VariableV2	GPU-0	0	19	36	(no input)->(16x1)	0	10	0
+resnet_model/Relu_22	Relu	GPU-0	0	247	247	(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )->(128x64x8x8)	10	10	0
+gradients/AddN_11	AddN	GPU-0	0	32	32	(3x3x64x64)(3x3x64x64)->(3x3x64x64)	10	10	0
+resnet_model/conv2d_15/Conv2D	Conv2D	GPU-0	0	1512	1512	(128x32x16x16)(3x3x32x32)->(128x32x16x16)	10	10	0
+gradients/AddN_12	AddN	GPU-0	0	18	18	(64x1)(64x1)->(64x1)	10	10	0
+L2Loss_59	L2Loss	GPU-0	0	43	43	(3x3x32x32)->(1x1)	10	10	0
+resnet_model/conv2d_24/kernel	VariableV2	GPU-0	0	23	43	(no input)->(3x3x32x64)	0	10	0
+gradients/resnet_model/batch_normalization_7/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	2879	2879	(128x16x32x32)(128x16x32x32)(16x1)(16x1)(16x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+Momentum/update_resnet_model/conv2d_3/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	54	54	(3x3x16x16)(3x3x16x16)(1x1)(int32 1x1 slot 1 slot )(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_28/gamma/Momentum	VariableV2	GPU-0	0	20	35	(no input)->(64x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_30/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+gradients/L2Loss_8_grad/mul	Mul	GPU-0	0	16	16	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_18/beta	VariableV2	GPU-0	0	20	37	(no input)->(32x1)	0	10	0
+resnet_model/Relu_24	Relu	GPU-0	0	245	245	(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )->(128x64x8x8)	10	10	0
+gradients/L2Loss_75_grad/mul	Mul	GPU-0	0	34	34	(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+edge_390_PiecewiseConstant/LessEqual_2/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	10	10	(Transfer)->(1 bytes)	0	0	10
+resnet_model/add	Add	GPU-0	0	1592	1592	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+gradients/AddN_82	AddN	GPU-0	0	22	22	(16x1)(16x1)->(16x1)	10	10	0
+gradients/AddN_56	AddN	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_1/gamma	VariableV2	GPU-0	0	22	40	(no input)->(16x1)	0	10	0
+Momentum/update_resnet_model/dense/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(64x10)(64x10)(1x1)(int32 1x1 slot 1 slot )(64x10)(1x1)->(64x10)	10	10	0
+resnet_model/batch_normalization_6/FusedBatchNorm	FusedBatchNorm	GPU-0	0	1731	1731	(128x16x32x32)(16x1)(16x1)(1x1)(1x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_24/moving_mean/read	Identity	GPU-0	0	11	28	(64x1)->(64x1)	0	10	0
+resnet_model/conv2d_10/Conv2D	Conv2D	GPU-0	0	3769	3769	(128x16x32x32)(3x3x16x16)->(128x16x32x32)	10	10	0
+Momentum/update_resnet_model/batch_normalization_11/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+gradients/resnet_model/conv2d_30/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	2224	2224	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x64x64)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_18/AssignMovingAvg_1/mul	Mul	GPU-0	0	18	18	(32x1)(1x1)->(32x1)	10	10	0
+gradients/resnet_model/conv2d_22/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	30	55	(128x32x16x16)(3x3x32x32)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_13/beta	VariableV2	GPU-0	0	19	35	(no input)->(32x1)	0	10	0
+resnet_model/conv2d_32/kernel	VariableV2	GPU-0	0	26	43	(no input)->(3x3x64x64)	0	10	0
+resnet_model/batch_normalization_1/beta	VariableV2	GPU-0	0	25	39	(no input)->(16x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_7/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	41	41	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/Relu_15_grad/ReluGrad	ReluGrad	GPU-0	0	776	776	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_9/gamma/read	Identity	GPU-0	0	9	30	(16x1)->(16x1)	0	10	0
+resnet_model/conv2d_16/kernel/Momentum	VariableV2	GPU-0	0	22	41	(no input)->(3x3x32x32)	0	10	0
+resnet_model/batch_normalization_18/AssignMovingAvg	AssignSub	GPU-0	0	21	21	(32x1)(32x1)->(32x1)	10	10	0
+gradients/resnet_model/conv2d_21/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	36	68	(128x32x16x16)(3x3x32x32)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_5/beta	VariableV2	GPU-0	0	20	36	(no input)->(16x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_9/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	46	46	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_9/beta/read	Identity	GPU-0	0	7	28	(16x1)->(16x1)	0	10	0
+gradients/resnet_model/conv2d_6/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3737	3737	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x16x16)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x16x32x32)	10	10	0
+L2Loss_56	L2Loss	GPU-0	0	41	41	(3x3x32x32)->(1x1)	10	10	0
+gradients/AddN_37	AddN	GPU-0	0	813	813	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/conv2d_12/kernel	VariableV2	GPU-0	0	22	51	(no input)->(1x1x16x32)	0	10	0
+resnet_model/batch_normalization_23/AssignMovingAvg	AssignSub	GPU-0	0	20	20	(64x1)(64x1)->(64x1)	10	10	0
+gradients/resnet_model/Relu_25_grad/ReluGrad	ReluGrad	GPU-0	0	424	424	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_12/FusedBatchNorm	FusedBatchNorm	GPU-0	0	866	866	(128x32x16x16)(32x1)(32x1)(1x1)(1x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )	10	10	0
+gradients/resnet_model/conv2d_29/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	2211	2211	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x64x64)(128x64x8x8)->(128x64x8x8)	10	10	0
+Momentum/update_resnet_model/conv2d_22/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	57	57	(3x3x32x32)(3x3x32x32)(1x1)(int32 1x1 slot 1 slot )(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+gradients/resnet_model/dense/BiasAdd_grad/BiasAddGrad	BiasAddGrad	GPU-0	0	83	83	(128x10)->(10x1)	10	10	0
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape	Const	GPU-0	0	14	32	(no input)->(int32 1x1)	0	10	0
+gradients/L2Loss_93_grad/mul	Mul	GPU-0	0	32	32	(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+L2Loss_42	L2Loss	GPU-0	0	17	17	(32x1)->(1x1)	10	10	0
+gradients/AddN_110	AddN	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+Momentum/update_resnet_model/conv2d_21/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	58	58	(3x3x32x32)(3x3x32x32)(1x1)(int32 1x1 slot 1 slot )(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+resnet_model/Relu_8	Relu	GPU-0	0	1107	1107	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )->(128x16x32x32)	10	10	0
+gradients/resnet_model/batch_normalization_24/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	600	600	(128x64x8x8)(128x64x8x8)(64x1)(64x1)(64x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+Momentum/update_resnet_model/batch_normalization_21/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	46	46	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_30/beta/Momentum	VariableV2	GPU-0	0	17	39	(no input)->(64x1)	0	10	0
+gradients/L2Loss_15_grad/mul	Mul	GPU-0	0	17	17	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/conv2d_23/Conv2D	Conv2D	GPU-0	0	467	467	(128x32x16x16)(1x1x32x64)->(128x64x8x8)	10	10	0
+PiecewiseConstant/and_1	LogicalAnd	GPU-0	0	19	19	(boolean 1x1)(boolean 1x1)->(boolean 1x1)	10	10	0
+resnet_model/batch_normalization_9/gamma/Momentum	VariableV2	GPU-0	0	18	44	(no input)->(16x1)	0	10	0
+L2Loss_76	L2Loss	GPU-0	0	19	19	(64x1)->(1x1)	10	10	0
+resnet_model/add_1	Add	GPU-0	0	1590	1590	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_4/FusedBatchNorm	FusedBatchNorm	GPU-0	0	1732	1732	(128x16x32x32)(16x1)(16x1)(1x1)(1x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_27/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_27/moving_mean/read	Identity	GPU-0	0	10	26	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_4/moving_mean/read	Identity	GPU-0	0	7	29	(16x1)->(16x1)	0	10	0
+gradients/AddN_89	AddN	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_28/AssignMovingAvg_1/mul	Mul	GPU-0	0	20	20	(64x1)(1x1)->(64x1)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_11/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	9	30	(no input)->(int32 4x1)	0	10	0
+gradients/resnet_model/conv2d_8/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	9496	9496	(128x16x32x32)(int32 4x1)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x16x16)	10	10	0
+Momentum/update_resnet_model/batch_normalization_12/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	37	37	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_4/gamma/read	Identity	GPU-0	0	10	32	(16x1)->(16x1)	0	10	0
+gradients/L2Loss_27_grad/mul	Mul	GPU-0	0	17	17	(16x1)(1x1)->(16x1)	10	10	0
+L2Loss_85	L2Loss	GPU-0	0	21	21	(64x1)->(1x1)	10	10	0
+resnet_model/conv2d_6/Conv2D	Conv2D	GPU-0	0	3761	3761	(128x16x32x32)(3x3x16x16)->(128x16x32x32)	10	10	0
+gradients/L2Loss_51_grad/mul	Mul	GPU-0	0	16	16	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_29/AssignMovingAvg/mul	Mul	GPU-0	0	22	22	(64x1)(1x1)->(64x1)	10	10	0
+PiecewiseConstant/case/cond/cond/cond/cond/Switch_5	Switch	GPU-0	0	10	32	(1x1)(boolean 1x1)->(1x1 slot 1 slot )	0	10	0
+PiecewiseConstant/Const_6	Const	GPU-0	0	21	31	(no input)->(1x1)	0	10	0
+resnet_model/Relu_16	Relu	GPU-0	0	564	564	(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )->(128x32x16x16)	10	10	0
+gradients/resnet_model/conv2d_6/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	60	100	(128x16x32x32)(3x3x16x16)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_15/gamma/Momentum	VariableV2	GPU-0	0	20	37	(no input)->(32x1)	0	10	0
+L2Loss_14	L2Loss	GPU-0	0	18	18	(16x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_8/AssignMovingAvg_1/mul	Mul	GPU-0	0	18	18	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_4/beta	VariableV2	GPU-0	0	20	32	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_26/AssignMovingAvg_1/mul	Mul	GPU-0	0	18	18	(64x1)(1x1)->(64x1)	10	10	0
+gradients/L2Loss_69_grad/mul	Mul	GPU-0	0	23	23	(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+gradients/resnet_model/Mean_grad/Cast	Cast	GPU-0	0	20	20	(int32 1x1)->(1x1)	10	10	0
+gradients/resnet_model/Relu_5_grad/ReluGrad	ReluGrad	GPU-0	0	1596	1596	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_16/AssignMovingAvg_1	AssignSub	GPU-0	0	18	18	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_13/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	17	17	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_20/AssignMovingAvg_1	AssignSub	GPU-0	0	17	17	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_16/moving_variance	VariableV2	GPU-0	0	122	167	(no input)->(32x1)	0	10	0
+gradients/resnet_model/conv2d_28/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	2224	2224	(128x64x8x8)(int32 4x1)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x64x64)	10	10	0
+gradients/resnet_model/conv2d_2/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	30	58	(128x16x32x32)(3x3x16x16)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_14/moving_mean	VariableV2	GPU-0	0	19	38	(no input)->(32x1)	0	10	0
+ConstantFolding/gradients/resnet_model/conv2d_15/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	11	27	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_2/beta/read	Identity	GPU-0	0	9	28	(16x1)->(16x1)	0	10	0
+resnet_model/conv2d_27/kernel/read	Identity	GPU-0	0	8	29	(3x3x64x64)->(3x3x64x64)	0	10	0
+resnet_model/add_11	Add	GPU-0	0	387	387	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Sum	Sum	GPU-0	0	18	27	(128x1)(int32 1x1)(int32 1x1 slot 1 slot )->(128x1)	0	10	0
+global_step	VariableV2	GPU-0	0	24	41	(no input)->(int64 1x1)	0	10	0
+resnet_model/batch_normalization_10/gamma	VariableV2	GPU-0	0	24	37	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_2/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+gradients/AddN_104	AddN	GPU-0	0	23	23	(3x3x16x16)(3x3x16x16)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_29/AssignMovingAvg	AssignSub	GPU-0	0	21	21	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_15/moving_variance	VariableV2	GPU-0	0	18	34	(no input)->(32x1)	0	10	0
+global_step/cond/Switch_1	Switch	GPU-0	0	17	39	(int64 1x1)(boolean 1x1)->(int64 1x1 slot 1 slot )	0	10	0
+gradients/L2Loss_12_grad/mul	Mul	GPU-0	0	15	15	(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/dense/MatMul_grad/MatMul_1	MatMul	GPU-0	0	89	89	(128x64)(128x10)->(64x10)	10	10	0
+resnet_model/batch_normalization_10/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+sparse_softmax_cross_entropy_loss/value	Select	GPU-0	0	17	17	(boolean 1x1)(1x1)(1x1)->(1x1)	10	10	0
+gradients/resnet_model/Pad_grad/Reshape	Const	GPU-0	0	13	33	(no input)->(int32 4x1)	0	10	0
+gradients/L2Loss_78_grad/mul	Mul	GPU-0	0	32	32	(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+gradients/resnet_model/conv2d_7/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	41	75	(128x16x32x32)(3x3x16x16)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_30/AssignMovingAvg/sub_1	Sub	GPU-0	0	24	24	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_5/beta/Momentum	VariableV2	GPU-0	0	21	37	(no input)->(16x1)	0	10	0
+L2Loss_10	L2Loss	GPU-0	0	41	41	(3x3x16x16)->(1x1)	10	10	0
+resnet_model/batch_normalization_12/AssignMovingAvg	AssignSub	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_31/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	10	29	(no input)->(int32 4x1)	0	10	0
+edge_400_PiecewiseConstant/Greater/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	10	10	(Transfer)->(1 bytes)	0	0	10
+ConstantFolding/gradients/resnet_model/conv2d_2/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	12	30	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_26/beta/read	Identity	GPU-0	0	9	29	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_3/AssignMovingAvg	AssignSub	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+gradients/L2Loss_66_grad/mul	Mul	GPU-0	0	19	19	(3x3x32x64)(1x1)->(3x3x32x64)	10	10	0
+resnet_model/batch_normalization_23/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/conv2d_1/kernel/read	Identity	GPU-0	0	8	34	(1x1x16x16)->(1x1x16x16)	0	10	0
+resnet_model/batch_normalization_1/moving_variance	VariableV2	GPU-0	0	16	31	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_26/beta	VariableV2	GPU-0	0	19	52	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_2/moving_mean	VariableV2	GPU-0	0	23	45	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_26/FusedBatchNorm	FusedBatchNorm	GPU-0	0	434	434	(128x64x8x8)(64x1)(64x1)(1x1)(1x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )	10	10	0
+Momentum/update_resnet_model/conv2d_27/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	91	91	(3x3x64x64)(3x3x64x64)(1x1)(int32 1x1 slot 1 slot )(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+resnet_model/conv2d_15/kernel	VariableV2	GPU-0	0	25	60	(no input)->(3x3x32x32)	0	10	0
+resnet_model/Relu_14	Relu	GPU-0	0	565	565	(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/conv2d_22/Conv2D	Conv2D	GPU-0	0	1521	1521	(128x32x16x16)(3x3x32x32)->(128x32x16x16)	10	10	0
+gradients/AddN_52	AddN	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_26/gamma/Momentum	VariableV2	GPU-0	0	19	32	(no input)->(64x1)	0	10	0
+gradients/AddN_35	AddN	GPU-0	0	22	22	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_22/moving_mean	VariableV2	GPU-0	0	23	38	(no input)->(64x1)	0	10	0
+ConstantFolding/gradients/resnet_model/conv2d_7/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	10	27	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_7/beta/Momentum	VariableV2	GPU-0	0	18	32	(no input)->(16x1)	0	10	0
+resnet_model/conv2d_18/kernel/read	Identity	GPU-0	0	9	34	(3x3x32x32)->(3x3x32x32)	0	10	0
+resnet_model/batch_normalization_25/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	17	17	(64x1)(64x1)->(64x1)	10	10	0
+gradients/AddN_43	AddN	GPU-0	0	24	24	(3x3x32x32)(3x3x32x32)->(3x3x32x32)	10	10	0
+Momentum/update_resnet_model/conv2d_30/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	87	87	(3x3x64x64)(3x3x64x64)(1x1)(int32 1x1 slot 1 slot )(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+gradients/L2Loss_35_grad/mul	Mul	GPU-0	0	19	19	(3x3x16x32)(1x1)->(3x3x16x32)	10	10	0
+gradients/L2Loss_14_grad/mul	Mul	GPU-0	0	17	17	(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/conv2d_5/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3713	3713	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x16x16)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_21/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_4/AssignMovingAvg/sub_1	Sub	GPU-0	0	23	23	(16x1)(16x1)->(16x1)	10	10	0
+L2Loss_3	L2Loss	GPU-0	0	18	18	(1x1x16x16)->(1x1)	10	10	0
+L2Loss_74	L2Loss	GPU-0	0	17	17	(64x1)->(1x1)	10	10	0
+global_step/read	Identity	GPU-0	0	11	29	(int64 1x1)->(int64 1x1)	0	10	0
+PiecewiseConstant/case/cond/cond/Switch/Switch	Switch	GPU-0	0	8	32	(boolean 1x1)(boolean 1x1)->(boolean 1x1 slot 1 slot )	0	10	0
+L2Loss_64	L2Loss	GPU-0	0	16	16	(32x1)->(1x1)	10	10	0
+resnet_model/conv2d_14/kernel	VariableV2	GPU-0	0	25	53	(no input)->(3x3x32x32)	0	10	0
+gradients/resnet_model/conv2d_33/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	2232	2232	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x64x64)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x64x8x8)	10	10	0
+L2Loss_21	L2Loss	GPU-0	0	17	17	(16x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_22/beta	VariableV2	GPU-0	0	21	35	(no input)->(64x1)	0	10	0
+Cast_100	Cast	GPU-0	0	19	19	(int64 1x1)->(int32 1x1)	10	10	0
+resnet_model/batch_normalization_6/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_21/gamma/read	Identity	GPU-0	0	8	28	(64x1)->(64x1)	0	10	0
+resnet_model/conv2d_10/kernel/read	Identity	GPU-0	0	9	29	(3x3x16x16)->(3x3x16x16)	0	10	0
+PiecewiseConstant/LessEqual_2	LessEqual	GPU-0	0	65	116	(int32 1x1)(int32 1x1)->(boolean 1x1)	0	10	0
+resnet_model/batch_normalization_11/AssignMovingAvg	AssignSub	GPU-0	0	21	21	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/conv2d_9/Conv2D	Conv2D	GPU-0	0	3762	3762	(128x16x32x32)(3x3x16x16)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_6/moving_variance	VariableV2	GPU-0	0	21	36	(no input)->(16x1)	0	10	0
+L2Loss_45	L2Loss	GPU-0	0	19	19	(32x1)->(1x1)	10	10	0
+L2Loss_9	L2Loss	GPU-0	0	19	19	(16x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_10/gamma/Momentum	VariableV2	GPU-0	0	21	35	(no input)->(16x1)	0	10	0
+gradients/resnet_model/batch_normalization_25/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	621	621	(128x64x8x8)(128x64x8x8)(64x1)(64x1)(64x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_29/gamma	VariableV2	GPU-0	0	21	35	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_28/beta/Momentum	VariableV2	GPU-0	0	20	35	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_10/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	17	17	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_2/moving_mean/read	Identity	GPU-0	0	10	29	(16x1)->(16x1)	0	10	0
+L2Loss_41	L2Loss	GPU-0	0	43	43	(3x3x32x32)->(1x1)	10	10	0
+resnet_model/batch_normalization_28/beta/read	Identity	GPU-0	0	10	26	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_16/moving_mean	VariableV2	GPU-0	0	18	33	(no input)->(32x1)	0	10	0
+resnet_model/batch_normalization_9/AssignMovingAvg_1/mul	Mul	GPU-0	0	22	22	(16x1)(1x1)->(16x1)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_23/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	11	30	(no input)->(int32 4x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_3/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	45	45	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_25/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(64x1)(1x1)->(64x1)	10	10	0
+edge_389_PiecewiseConstant/Greater_2/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	10	10	(Transfer)->(1 bytes)	0	0	10
+ConstantFolding/gradients/resnet_model/conv2d_4/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	13	31	(no input)->(int32 4x1)	0	10	0
+gradients/L2Loss_58_grad/mul	Mul	GPU-0	0	16	16	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_6/moving_mean	VariableV2	GPU-0	0	18	36	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_23/moving_mean/read	Identity	GPU-0	0	11	29	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_26/AssignMovingAvg/mul	Mul	GPU-0	0	22	22	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_16/gamma	VariableV2	GPU-0	0	21	39	(no input)->(32x1)	0	10	0
+gradients/resnet_model/Mean_grad/Shape	Shape	GPU-0	0	34	52	(128x64x8x8)->(int32 4x1)	0	10	0
+L2Loss_5	L2Loss	GPU-0	0	17	17	(16x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_1/moving_variance/read	Identity	GPU-0	0	9	28	(16x1)->(16x1)	0	10	0
+gradients/L2Loss_33_grad/mul	Mul	GPU-0	0	17	17	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_16/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+L2Loss_65	L2Loss	GPU-0	0	36	36	(1x1x32x64)->(1x1)	10	10	0
+Momentum/update_resnet_model/conv2d_17/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	59	59	(3x3x32x32)(3x3x32x32)(1x1)(int32 1x1 slot 1 slot )(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+L2Loss_26	L2Loss	GPU-0	0	17	17	(16x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_14/gamma/Momentum	VariableV2	GPU-0	0	18	33	(no input)->(32x1)	0	10	0
+gradients/resnet_model/conv2d_5/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	49	88	(128x16x32x32)(3x3x16x16)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_14/moving_variance/read	Identity	GPU-0	0	10	32	(32x1)->(32x1)	0	10	0
+gradients/resnet_model/conv2d_8/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	37	67	(128x16x32x32)(3x3x16x16)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_10/AssignMovingAvg	AssignSub	GPU-0	0	23	23	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/conv2d_25/kernel/read	Identity	GPU-0	0	9	31	(3x3x64x64)->(3x3x64x64)	0	10	0
+resnet_model/conv2d_31/kernel/Momentum	VariableV2	GPU-0	0	24	40	(no input)->(3x3x64x64)	0	10	0
+Momentum/update_resnet_model/batch_normalization_9/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	41	41	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/conv2d_12/kernel/read	Identity	GPU-0	0	9	32	(1x1x16x32)->(1x1x16x32)	0	10	0
+resnet_model/conv2d_20/Conv2D	Conv2D	GPU-0	0	1511	1511	(128x32x16x16)(3x3x32x32)->(128x32x16x16)	10	10	0
+gradients/resnet_model/conv2d_16/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	3331	3331	(128x32x16x16)(int32 4x1)(128x32x16x16)->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization/moving_mean/read	Identity	GPU-0	0	11	29	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization/beta/read	Identity	GPU-0	0	10	31	(16x1)->(16x1)	0	10	0
+gradients/resnet_model/batch_normalization_4/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	2849	2849	(128x16x32x32)(128x16x32x32)(16x1)(16x1)(16x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_3/beta/read	Identity	GPU-0	0	8	27	(16x1)->(16x1)	0	10	0
+gradients/AddN_95	AddN	GPU-0	0	16	16	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_11/FusedBatchNorm	FusedBatchNorm	GPU-0	0	872	872	(128x32x16x16)(32x1)(32x1)(1x1)(1x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )	10	10	0
+Momentum/update_resnet_model/conv2d_26/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	87	87	(3x3x64x64)(3x3x64x64)(1x1)(int32 1x1 slot 1 slot )(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+L2Loss_79	L2Loss	GPU-0	0	20	20	(64x1)->(1x1)	10	10	0
+gradients/L2Loss_53_grad/mul	Mul	GPU-0	0	21	21	(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+gradients/AddN_106	AddN	GPU-0	0	18	18	(16x1)(16x1)->(16x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	59	59	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+Momentum/update_resnet_model/conv2d_33/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	88	88	(3x3x64x64)(3x3x64x64)(1x1)(int32 1x1 slot 1 slot )(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+gradients/L2Loss_70_grad/mul	Mul	GPU-0	0	16	16	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/conv2d_18/kernel/Momentum	VariableV2	GPU-0	0	24	41	(no input)->(3x3x32x32)	0	10	0
+resnet_model/batch_normalization_20/moving_mean	VariableV2	GPU-0	0	38	61	(no input)->(32x1)	0	10	0
+L2Loss_27	L2Loss	GPU-0	0	19	19	(16x1)->(1x1)	10	10	0
+resnet_model/conv2d_32/kernel/Momentum	VariableV2	GPU-0	0	23	39	(no input)->(3x3x64x64)	0	10	0
+resnet_model/batch_normalization_27/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	19	19	(64x1)(64x1)->(64x1)	10	10	0
+gradients/resnet_model/Relu_29_grad/ReluGrad	ReluGrad	GPU-0	0	418	418	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+gradients/resnet_model/conv2d_8/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3726	3726	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x16x16)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x16x32x32)	10	10	0
+gradients/AddN_5	AddN	GPU-0	0	17	17	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_30/FusedBatchNorm	FusedBatchNorm	GPU-0	0	435	435	(128x64x8x8)(64x1)(64x1)(1x1)(1x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )	10	10	0
+gradients/resnet_model/conv2d_10/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3764	3764	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x16x16)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x16x32x32)	10	10	0
+resnet_model/conv2d_26/Conv2D	Conv2D	GPU-0	0	2226	2226	(128x64x8x8)(3x3x64x64)->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_15/AssignMovingAvg_1/mul	Mul	GPU-0	0	18	18	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/conv2d_11/kernel/Momentum	VariableV2	GPU-0	0	23	37	(no input)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_13/gamma/Momentum	VariableV2	GPU-0	0	18	35	(no input)->(32x1)	0	10	0
+gradients/resnet_model/Pad_grad/Slice_1	Slice	GPU-0	0	31	50	(128x16x32x32)(int32 4x1)(int32 4x1)->(128x16x32x32)	0	10	0
+Momentum/update_resnet_model/conv2d_11/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	48	48	(3x3x16x16)(3x3x16x16)(1x1)(int32 1x1 slot 1 slot )(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_1/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	14	40	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_30/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	19	19	(64x1)(64x1)->(64x1)	10	10	0
+Iterator	Iterator	CPU-0	0	270	349	(no input)->(tf_resource 1x1)	0	10	0
+resnet_model/batch_normalization_9/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	24	24	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_10/AssignMovingAvg/sub_1	Sub	GPU-0	0	28	28	(16x1)(16x1)->(16x1)	10	10	0
+gradients/AddN_17	AddN	GPU-0	0	21	21	(64x1)(64x1)->(64x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_8/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	36	36	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_14/AssignMovingAvg/sub_1	Sub	GPU-0	0	21	21	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_14/gamma	VariableV2	GPU-0	0	21	39	(no input)->(32x1)	0	10	0
+resnet_model/batch_normalization_21/moving_variance/read	Identity	GPU-0	0	25	41	(64x1)->(64x1)	0	10	0
+resnet_model/conv2d_27/Conv2D	Conv2D	GPU-0	0	2244	2244	(128x64x8x8)(3x3x64x64)->(128x64x8x8)	10	10	0
+resnet_model/conv2d_17/kernel	VariableV2	GPU-0	0	23	42	(no input)->(3x3x32x32)	0	10	0
+resnet_model/batch_normalization_23/FusedBatchNorm	FusedBatchNorm	GPU-0	0	438	438	(128x64x8x8)(64x1)(64x1)(1x1)(1x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )	10	10	0
+sparse_softmax_cross_entropy_loss/Select	Select	GPU-0	0	19	19	(boolean 1x1)(1x1)(1x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_4/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_13/beta/read	Identity	GPU-0	0	9	26	(32x1)->(32x1)	0	10	0
+L2Loss_48	L2Loss	GPU-0	0	14	14	(32x1)->(1x1)	10	10	0
+gradients/resnet_model/Mean_grad/Const	Const	GPU-0	0	11	33	(no input)->(int32 1x1)	0	10	0
+L2Loss_49	L2Loss	GPU-0	0	19	19	(32x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_8/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/Relu_7	Relu	GPU-0	0	1109	1109	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )->(128x16x32x32)	10	10	0
+PiecewiseConstant/case/cond/cond/cond/Switch_1	Switch	GPU-0	0	11	26	(1x1)(boolean 1x1)->(1x1 slot 1 slot )	0	10	0
+gradients/resnet_model/conv2d_28/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	33	65	(128x64x8x8)(3x3x64x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/conv2d_22/kernel/read	Identity	GPU-0	0	8	28	(3x3x32x32)->(3x3x32x32)	0	10	0
+gradients/resnet_model/Relu_27_grad/ReluGrad	ReluGrad	GPU-0	0	422	422	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_12/beta	VariableV2	GPU-0	0	31	45	(no input)->(32x1)	0	10	0
+PiecewiseConstant/Const_5	Const	GPU-0	0	19	39	(no input)->(1x1)	0	10	0
+resnet_model/batch_normalization_19/moving_mean/read	Identity	GPU-0	0	9	27	(32x1)->(32x1)	0	10	0
+gradients/resnet_model/conv2d_9/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	9497	9497	(128x16x32x32)(int32 4x1)(128x16x32x32)->(3x3x16x16)	10	10	0
+edge_705_PiecewiseConstant/and_1/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	10	10	(Transfer)->(1 bytes)	0	0	10
+resnet_model/batch_normalization_24/AssignMovingAvg_1/mul	Mul	GPU-0	0	19	19	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_16/AssignMovingAvg_1/mul	Mul	GPU-0	0	15	15	(32x1)(1x1)->(32x1)	10	10	0
+gradients/resnet_model/Mean_grad/DynamicStitch	DynamicStitch	GPU-0	0	48	48	(int32 4x1)(int32 2x1)(int32 4x1)(int32 2x1)->(int32 4x1)	10	10	0
+resnet_model/batch_normalization_17/moving_mean	VariableV2	GPU-0	0	26	49	(no input)->(32x1)	0	10	0
+resnet_model/batch_normalization_25/FusedBatchNorm	FusedBatchNorm	GPU-0	0	442	442	(128x64x8x8)(64x1)(64x1)(1x1)(1x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	17	17	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_24/gamma	VariableV2	GPU-0	0	22	37	(no input)->(64x1)	0	10	0
+resnet_model/conv2d_4/Conv2D	Conv2D	GPU-0	0	3761	3761	(128x16x32x32)(3x3x16x16)->(128x16x32x32)	10	10	0
+L2Loss_2	L2Loss	GPU-0	0	19	19	(16x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_4/beta/Momentum	VariableV2	GPU-0	0	19	33	(no input)->(16x1)	0	10	0
+resnet_model/conv2d_6/kernel	VariableV2	GPU-0	0	23	40	(no input)->(3x3x16x16)	0	10	0
+resnet_model/Relu_19	Relu	GPU-0	0	561	561	(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_10/beta/Momentum	VariableV2	GPU-0	0	23	37	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_3/gamma/Momentum	VariableV2	GPU-0	0	19	31	(no input)->(16x1)	0	10	0
+gradients/resnet_model/conv2d_14/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	1483	1483	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x32x32)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_24/FusedBatchNorm	FusedBatchNorm	GPU-0	0	439	439	(128x64x8x8)(64x1)(64x1)(1x1)(1x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	15	45	(no input)->(int32 4x1)	0	10	0
+gradients/resnet_model/Relu_23_grad/ReluGrad	ReluGrad	GPU-0	0	424	424	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+resnet_model/conv2d_5/Conv2D	Conv2D	GPU-0	0	3761	3761	(128x16x32x32)(3x3x16x16)->(128x16x32x32)	10	10	0
+resnet_model/Relu_13	Relu	GPU-0	0	565	565	(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/conv2d_13/kernel/Momentum	VariableV2	GPU-0	0	20	36	(no input)->(3x3x16x32)	0	10	0
+resnet_model/batch_normalization_19/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(32x1)(1x1)->(32x1)	10	10	0
+gradients/AddN_72	AddN	GPU-0	0	22	22	(3x3x16x32)(3x3x16x32)->(3x3x16x32)	10	10	0
+Momentum/update_resnet_model/batch_normalization_4/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/Relu_3	Relu	GPU-0	0	1107	1107	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )->(128x16x32x32)	10	10	0
+PiecewiseConstant/case/Assert/AssertGuard/Assert/Switch	Switch	GPU-0	0	11	32	(boolean 1x1)(boolean 1x1)->(boolean 1x1 slot 1 slot )	0	10	0
+gradients/resnet_model/Relu_16_grad/ReluGrad	ReluGrad	GPU-0	0	780	780	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_21/moving_mean/read	Identity	GPU-0	0	10	33	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_1/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/conv2d_20/kernel	VariableV2	GPU-0	0	21	38	(no input)->(3x3x32x32)	0	10	0
+gradients/AddN_109	AddN	GPU-0	0	22	22	(3x3x16x16)(3x3x16x16)->(3x3x16x16)	10	10	0
+Momentum/update_resnet_model/conv2d_10/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	48	48	(3x3x16x16)(3x3x16x16)(1x1)(int32 1x1 slot 1 slot )(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+gradients/resnet_model/batch_normalization_9/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	2845	2845	(128x16x32x32)(128x16x32x32)(16x1)(16x1)(16x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_28/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	19	19	(64x1)(64x1)->(64x1)	10	10	0
+sparse_softmax_cross_entropy_loss/Equal	Equal	GPU-0	0	18	18	(1x1)(1x1)->(boolean 1x1)	10	10	0
+resnet_model/batch_normalization_9/moving_mean/read	Identity	GPU-0	0	10	32	(16x1)->(16x1)	0	10	0
+gradients/AddN_10	AddN	GPU-0	0	21	21	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/conv2d_21/kernel/Momentum	VariableV2	GPU-0	0	20	43	(no input)->(3x3x32x32)	0	10	0
+gradients/resnet_model/conv2d_10/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	36	68	(128x16x32x32)(3x3x16x16)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+gradients/resnet_model/Mean_grad/Reshape	Reshape	GPU-0	0	26	71	(128x64)(int32 4x1)->(128x64x1x1)	0	10	0
+resnet_model/batch_normalization_20/AssignMovingAvg	AssignSub	GPU-0	0	20	20	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization/gamma	VariableV2	GPU-0	0	23	43	(no input)->(16x1)	0	10	0
+resnet_model/add_7	Add	GPU-0	0	1107	1107	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_27/beta/Momentum	VariableV2	GPU-0	0	38	52	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_19/AssignMovingAvg/sub_1	Sub	GPU-0	0	21	21	(32x1)(32x1)->(32x1)	10	10	0
+edge_1429_gradients/resnet_model/Mean_grad/Shape/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	10	10	(Transfer)->(16 bytes)	0	0	10
+resnet_model/batch_normalization_17/moving_mean/read	Identity	GPU-0	0	11	29	(32x1)->(32x1)	0	10	0
+L2Loss_22	L2Loss	GPU-0	0	42	42	(3x3x16x16)->(1x1)	10	10	0
+L2Loss_82	L2Loss	GPU-0	0	20	20	(64x1)->(1x1)	10	10	0
+gradients/AddN_2	AddN	GPU-0	0	18	18	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/add_10	Add	GPU-0	0	390	390	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_13/FusedBatchNorm	FusedBatchNorm	GPU-0	0	878	878	(128x32x16x16)(32x1)(32x1)(1x1)(1x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_21/gamma	VariableV2	GPU-0	0	19	34	(no input)->(64x1)	0	10	0
+gradients/AddN_81	AddN	GPU-0	0	18	18	(16x1)(16x1)->(16x1)	10	10	0
+_retval_add_0_0	_Retval	CPU-0	0	10	34	(1x1)->(no output info)	0	10	0
+resnet_model/batch_normalization_28/gamma	VariableV2	GPU-0	0	21	38	(no input)->(64x1)	0	10	0
+resnet_model/conv2d_31/Conv2D	Conv2D	GPU-0	0	2225	2225	(128x64x8x8)(3x3x64x64)->(128x64x8x8)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_28/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	10	31	(no input)->(int32 4x1)	0	10	0
+Momentum/update_resnet_model/dense/bias/ApplyMomentum	ApplyMomentum	GPU-0	0	48	48	(10x1)(10x1)(1x1)(int32 1x1 slot 1 slot )(10x1)(1x1)->(10x1)	10	10	0
+gradients/L2Loss_92_grad/mul	Mul	GPU-0	0	12	12	(64x1)(1x1)->(64x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_5/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	38	38	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/conv2d_25/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	2215	2215	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x64x64)(128x64x8x8)->(128x64x8x8)	10	10	0
+gradients/L2Loss_13_grad/mul	Mul	GPU-0	0	20	20	(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_22/AssignMovingAvg	AssignSub	GPU-0	0	22	22	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_5/gamma/read	Identity	GPU-0	0	10	32	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization/FusedBatchNorm	FusedBatchNorm	GPU-0	0	1730	1730	(128x16x32x32)(16x1)(16x1)(1x1)(1x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_12/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	10	25	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_1/moving_mean	VariableV2	GPU-0	0	17	34	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_27/moving_variance/read	Identity	GPU-0	0	10	29	(64x1)->(64x1)	0	10	0
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Reshape	Reshape	GPU-0	0	9	32	(128x1)(int32 1x1)->(128x1)	0	10	0
+resnet_model/batch_normalization_25/beta/Momentum	VariableV2	GPU-0	0	18	49	(no input)->(64x1)	0	10	0
+gradients/resnet_model/conv2d_27/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	2220	2220	(128x64x8x8)(int32 4x1)(128x64x8x8)->(3x3x64x64)	10	10	0
+resnet_model/add_5	Add	GPU-0	0	984	984	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+gradients/AddN_48	AddN	GPU-0	0	18	18	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/dense/kernel/read	Identity	GPU-0	0	14	31	(64x10)->(64x10)	0	10	0
+gradients/resnet_model/conv2d_25/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	2220	2220	(128x64x8x8)(int32 4x1)(128x64x8x8)->(3x3x64x64)	10	10	0
+gradients/L2Loss_65_grad/mul	Mul	GPU-0	0	16	16	(1x1x32x64)(1x1)->(1x1x32x64)	10	10	0
+Momentum/update_resnet_model/batch_normalization_10/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	47	47	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_19/FusedBatchNorm	FusedBatchNorm	GPU-0	0	879	879	(128x32x16x16)(32x1)(32x1)(1x1)(1x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_16/beta	VariableV2	GPU-0	0	21	36	(no input)->(32x1)	0	10	0
+sparse_softmax_cross_entropy_loss/xentropy/xentropy	SparseSoftmaxCrossEntropyWithLogits	GPU-0	0	275	275	(128x10)(128x32x32x3)(int32 128x1 slot 1 slot )->(128x1)(128x10 slot 1 slot )	10	10	0
+resnet_model/Relu_9	Relu	GPU-0	0	1108	1108	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )->(128x16x32x32)	10	10	0
+gradients/resnet_model/conv2d_19/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	36	63	(128x32x16x16)(3x3x32x32)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/Relu_30	Relu	GPU-0	0	247	247	(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_17/AssignMovingAvg/mul	Mul	GPU-0	0	22	22	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_15/gamma	VariableV2	GPU-0	0	23	39	(no input)->(32x1)	0	10	0
+resnet_model/batch_normalization_27/AssignMovingAvg_1/mul	Mul	GPU-0	0	18	18	(64x1)(1x1)->(64x1)	10	10	0
+PiecewiseConstant/case/Assert/AssertGuard/Assert/Switch_1	Switch	GPU-0	0	12	49	(boolean 4x1)(boolean 1x1)->(boolean 4x1 slot 1 slot )	0	10	0
+gradients/AddN_30	AddN	GPU-0	0	17	17	(64x1)(64x1)->(64x1)	10	10	0
+gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul	Mul	GPU-0	0	37	37	(128x1)(128x10)->(128x10)	10	10	0
+Momentum/update_resnet_model/batch_normalization_22/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	43	43	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_17/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	9	27	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_8/FusedBatchNorm	FusedBatchNorm	GPU-0	0	1731	1731	(128x16x32x32)(16x1)(16x1)(1x1)(1x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_16/beta/Momentum	VariableV2	GPU-0	0	20	33	(no input)->(32x1)	0	10	0
+gradients/AddN_101	AddN	GPU-0	0	1599	1599	(128x16x32x32)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_25/AssignMovingAvg_1	AssignSub	GPU-0	0	20	20	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_20/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	18	18	(32x1)(32x1)->(32x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_8/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	45	45	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/Relu_2_grad/ReluGrad	ReluGrad	GPU-0	0	1601	1601	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+gradients/resnet_model/conv2d_25/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	31	58	(128x64x8x8)(3x3x64x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+L2Loss_39	L2Loss	GPU-0	0	20	20	(32x1)->(1x1)	10	10	0
+gradients/resnet_model/conv2d_20/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	3348	3348	(128x32x16x16)(int32 4x1)(128x32x16x16)->(3x3x32x32)	10	10	0
+gradients/L2Loss_86_grad/mul	Mul	GPU-0	0	18	18	(64x1)(1x1)->(64x1)	10	10	0
+gradients/L2Loss_89_grad/mul	Mul	GPU-0	0	19	19	(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/batch_normalization_15/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	1448	1448	(128x32x16x16)(128x32x16x16)(32x1)(32x1)(32x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/add_4	Add	GPU-0	0	1594	1594	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/conv2d_5/kernel/Momentum	VariableV2	GPU-0	0	20	38	(no input)->(3x3x16x16)	0	10	0
+L2Loss_38	L2Loss	GPU-0	0	39	39	(3x3x32x32)->(1x1)	10	10	0
+gradients/L2Loss_grad/mul	Mul	GPU-0	0	18	18	(3x3x3x16)(1x1)->(3x3x3x16)	10	10	0
+Momentum/update_resnet_model/batch_normalization_15/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	36	36	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+L2Loss_68	L2Loss	GPU-0	0	19	19	(64x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_18/moving_variance/read	Identity	GPU-0	0	12	26	(32x1)->(32x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_21/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	39	39	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_11/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3756	3756	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x16x16)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x16x32x32)	10	10	0
+gradients/AddN_9	AddN	GPU-0	0	19	19	(64x1)(64x1)->(64x1)	10	10	0
+gradients/resnet_model/Relu_24_grad/ReluGrad	ReluGrad	GPU-0	0	422	422	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_27/gamma	VariableV2	GPU-0	0	36	50	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_2/AssignMovingAvg/sub_1	Sub	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+L2Loss_90	L2Loss	GPU-0	0	58	58	(3x3x64x64)->(1x1)	10	10	0
+resnet_model/batch_normalization_9/moving_variance	VariableV2	GPU-0	0	17	37	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_17/beta	VariableV2	GPU-0	0	18	32	(no input)->(32x1)	0	10	0
+resnet_model/Relu_5	Relu	GPU-0	0	1108	1108	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )->(128x16x32x32)	10	10	0
+Momentum/update_resnet_model/batch_normalization_6/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_3/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	13	38	(no input)->(int32 4x1)	0	10	0
+gradients/resnet_model/conv2d_27/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	33	59	(128x64x8x8)(3x3x64x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_24/moving_mean	VariableV2	GPU-0	0	21	38	(no input)->(64x1)	0	10	0
+gradients/L2Loss_54_grad/mul	Mul	GPU-0	0	16	16	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_19/gamma	VariableV2	GPU-0	0	26	48	(no input)->(32x1)	0	10	0
+gradients/resnet_model/batch_normalization_21/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	597	597	(128x64x8x8)(128x64x8x8)(64x1)(64x1)(64x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_11/gamma	VariableV2	GPU-0	0	25	38	(no input)->(32x1)	0	10	0
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape	Shape	GPU-0	0	36	57	(128x1)(128x10 slot 1 slot )->(int32 1x1)	0	10	0
+gradients/resnet_model/Mean_grad/Maximum	Maximum	GPU-0	0	60	108	(int32 4x1)(int32 1x1)->(int32 4x1)	0	10	0
+L2Loss_6	L2Loss	GPU-0	0	18	18	(16x1)->(1x1)	10	10	0
+resnet_model/conv2d_4/kernel	VariableV2	GPU-0	0	25	42	(no input)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_23/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/conv2d_11/kernel	VariableV2	GPU-0	0	26	42	(no input)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_18/beta/read	Identity	GPU-0	0	9	32	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization/gamma/Momentum	VariableV2	GPU-0	0	24	37	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_10/beta/read	Identity	GPU-0	0	7	23	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_7/AssignMovingAvg	AssignSub	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/conv2d_1/Conv2D	Conv2D	GPU-0	0	1616	1616	(128x16x32x32)(1x1x16x16)->(128x16x32x32)	10	10	0
+Momentum/update_resnet_model/batch_normalization_29/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	38	38	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/BroadcastGradientArgs	BroadcastGradientArgs	GPU-0	0	40	70	(int32 1x1)(int32 1x1)->(int32 1x1)(int32 1x1 slot 1 slot )	0	10	0
+gradients/resnet_model/Relu_13_grad/ReluGrad	ReluGrad	GPU-0	0	774	774	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+gradients/L2Loss_28_grad/mul	Mul	GPU-0	0	17	17	(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_13/moving_variance/read	Identity	GPU-0	0	11	28	(32x1)->(32x1)	0	10	0
+gradients/resnet_model/conv2d_11/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	33	63	(128x16x32x32)(3x3x16x16)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_23/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	17	17	(64x1)(64x1)->(64x1)	10	10	0
+L2Loss_51	L2Loss	GPU-0	0	19	19	(32x1)->(1x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_2/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	39	39	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+global_step/add	Snapshot	GPU-0	0	309	351	(int64 1x1)(int32 1x1 slot 1 slot )->(int64 1x1)	0	10	0
+gradients/resnet_model/batch_normalization_1/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	2859	2859	(128x16x32x32)(128x16x32x32)(16x1)(16x1)(16x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_28/FusedBatchNorm	FusedBatchNorm	GPU-0	0	435	435	(128x64x8x8)(64x1)(64x1)(1x1)(1x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )	10	10	0
+gradients/resnet_model/Relu_grad/ReluGrad	ReluGrad	GPU-0	0	1618	1618	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+gradients/resnet_model/Mean_grad/Maximum/y	Const	GPU-0	0	11	30	(no input)->(int32 1x1)	0	10	0
+resnet_model/batch_normalization_28/Const	Const	GPU-0	0	18	79	(no input)->(1x1)	0	10	0
+L2Loss_35	L2Loss	GPU-0	0	38	38	(3x3x16x32)->(1x1)	10	10	0
+gradients/AddN_58	AddN	GPU-0	0	806	806	(128x32x16x16)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_5/moving_mean	VariableV2	GPU-0	0	20	36	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_25/moving_mean	VariableV2	GPU-0	0	26	42	(no input)->(64x1)	0	10	0
+resnet_model/conv2d_16/Conv2D	Conv2D	GPU-0	0	1507	1507	(128x32x16x16)(3x3x32x32)->(128x32x16x16)	10	10	0
+resnet_model/add_13	Add	GPU-0	0	387	387	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_27/beta	VariableV2	GPU-0	0	21	36	(no input)->(64x1)	0	10	0
+resnet_model/Pad_1	Pad	GPU-0	0	1598	1598	(128x16x32x32)(int32 4x2)->(128x16x34x34)	10	10	0
+resnet_model/batch_normalization_22/moving_variance	VariableV2	GPU-0	0	22	35	(no input)->(64x1)	0	10	0
+gradients/resnet_model/conv2d_5/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	9445	9445	(128x16x32x32)(int32 4x1)(128x16x32x32)->(3x3x16x16)	10	10	0
+resnet_model/conv2d_8/kernel	VariableV2	GPU-0	0	28	44	(no input)->(3x3x16x16)	0	10	0
+resnet_model/conv2d_28/kernel/Momentum	VariableV2	GPU-0	0	25	38	(no input)->(3x3x64x64)	0	10	0
+Momentum/update_resnet_model/conv2d_14/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	56	56	(3x3x32x32)(3x3x32x32)(1x1)(int32 1x1 slot 1 slot )(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+resnet_model/conv2d_8/kernel/Momentum	VariableV2	GPU-0	0	20	36	(no input)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_18/moving_mean/read	Identity	GPU-0	0	11	34	(32x1)->(32x1)	0	10	0
+gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim	Const	GPU-0	0	12	29	(no input)->(int32 1x1)	0	10	0
+Momentum/update_resnet_model/conv2d_4/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	48	48	(3x3x16x16)(3x3x16x16)(1x1)(int32 1x1 slot 1 slot )(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_19/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	9	24	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_15/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	20	20	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/conv2d_29/kernel/Momentum	VariableV2	GPU-0	0	22	39	(no input)->(3x3x64x64)	0	10	0
+Momentum/update_resnet_model/batch_normalization_16/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	52	52	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/conv2d_27/kernel/Momentum	VariableV2	GPU-0	0	24	39	(no input)->(3x3x64x64)	0	10	0
+gradients/AddN_85	AddN	GPU-0	0	20	20	(16x1)(16x1)->(16x1)	10	10	0
+gradients/L2Loss_44_grad/mul	Mul	GPU-0	0	20	20	(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+L2Loss_89	L2Loss	GPU-0	0	20	20	(64x1)->(1x1)	10	10	0
+gradients/resnet_model/batch_normalization_2/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	2867	2867	(128x16x32x32)(128x16x32x32)(16x1)(16x1)(16x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+Momentum/update_resnet_model/batch_normalization_23/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	39	39	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_32/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	2223	2223	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x64x64)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_20/beta/read	Identity	GPU-0	0	9	27	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_8/AssignMovingAvg	AssignSub	GPU-0	0	20	20	(16x1)(16x1)->(16x1)	10	10	0
+gradients/resnet_model/conv2d_12/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3624	3624	(int32 4x1)(int32 4x1 slot 1 slot )(1x1x16x32)(128x32x16x16)->(128x16x32x32)	10	10	0
+gradients/resnet_model/conv2d_3/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	9410	9410	(128x16x32x32)(int32 4x1)(128x16x32x32)->(3x3x16x16)	10	10	0
+gradients/AddN_21	AddN	GPU-0	0	33	33	(3x3x64x64)(3x3x64x64)->(3x3x64x64)	10	10	0
+resnet_model/dense/bias	VariableV2	GPU-0	0	24	36	(no input)->(10x1)	0	10	0
+resnet_model/batch_normalization_2/moving_variance	VariableV2	GPU-0	0	24	40	(no input)->(16x1)	0	10	0
+gradients/resnet_model/conv2d_33/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	2225	2225	(128x64x8x8)(int32 4x1)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x64x64)	10	10	0
+gradients/L2Loss_64_grad/mul	Mul	GPU-0	0	14	14	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/conv2d_2/kernel/read	Identity	GPU-0	0	10	30	(3x3x16x16)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_4/moving_variance/read	Identity	GPU-0	0	9	26	(16x1)->(16x1)	0	10	0
+gradients/resnet_model/Mean_grad/range	Const	GPU-0	0	12	30	(no input)->(int32 4x1)	0	10	0
+gradients/AddN	AddN	GPU-0	0	26	26	(10x1)(10x1)->(10x1)	10	10	0
+resnet_model/batch_normalization_23/gamma/read	Identity	GPU-0	0	10	29	(64x1)->(64x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_7/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	47	47	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_14/beta/read	Identity	GPU-0	0	10	29	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_3/gamma/read	Identity	GPU-0	0	10	28	(16x1)->(16x1)	0	10	0
+gradients/AddN_24	AddN	GPU-0	0	22	22	(64x1)(64x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_7/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3756	3756	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x16x16)(128x16x32x32)->(128x16x32x32)	10	10	0
+PiecewiseConstant/case/Assert/AssertGuard/control_dependency	Const	GPU-0	0	26	39	(no input)->(boolean 1x1)	0	10	0
+gradients/add_grad/tuple/control_dependency_1	Const	GPU-0	0	18	34	(no input)->(1x1)	0	10	0
+resnet_model/batch_normalization_23/beta	VariableV2	GPU-0	0	17	30	(no input)->(64x1)	0	10	0
+L2Loss_73	L2Loss	GPU-0	0	17	17	(64x1)->(1x1)	10	10	0
+resnet_model/Relu_10	Relu	GPU-0	0	1110	1110	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )->(128x16x32x32)	10	10	0
+gradients/L2Loss_38_grad/mul	Mul	GPU-0	0	19	19	(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_5/AssignMovingAvg_1/mul	Mul	GPU-0	0	18	18	(16x1)(1x1)->(16x1)	10	10	0
+gradients/AddN_45	AddN	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+gradients/L2Loss_80_grad/mul	Mul	GPU-0	0	14	14	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_11/moving_variance	VariableV2	GPU-0	0	18	31	(no input)->(32x1)	0	10	0
+gradients/resnet_model/conv2d_31/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	2212	2212	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x64x64)(128x64x8x8)->(128x64x8x8)	10	10	0
+resnet_model/conv2d_12/kernel/Momentum	VariableV2	GPU-0	0	19	39	(no input)->(1x1x16x32)	0	10	0
+gradients/AddN_28	AddN	GPU-0	0	32	32	(3x3x64x64)(3x3x64x64)->(3x3x64x64)	10	10	0
+_retval_global_step/add_0_1	_Retval	CPU-0	0	11	23	(int64 1x1)->(no output info)	0	10	0
+gradients/L2Loss_74_grad/mul	Mul	GPU-0	0	17	17	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/dense/MatMul	MatMul	GPU-0	0	84	84	(128x64)(64x10)->(128x10)	10	10	0
+Momentum/update_resnet_model/batch_normalization_29/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	45	45	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_2/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3728	3728	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x16x16)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_13/AssignMovingAvg_1	AssignSub	GPU-0	0	18	18	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_4/gamma	VariableV2	GPU-0	0	20	35	(no input)->(16x1)	0	10	0
+resnet_model/conv2d_15/kernel/Momentum	VariableV2	GPU-0	0	23	39	(no input)->(3x3x32x32)	0	10	0
+gradients/AddN_20	AddN	GPU-0	0	21	21	(64x1)(64x1)->(64x1)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_26/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	9	24	(no input)->(int32 4x1)	0	10	0
+Momentum/update_resnet_model/conv2d_19/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	63	63	(3x3x32x32)(3x3x32x32)(1x1)(int32 1x1 slot 1 slot )(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+gradients/resnet_model/Relu_11_grad/ReluGrad	ReluGrad	GPU-0	0	770	770	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_6/beta	VariableV2	GPU-0	0	21	38	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_29/gamma/read	Identity	GPU-0	0	10	27	(64x1)->(64x1)	0	10	0
+L2Loss_12	L2Loss	GPU-0	0	18	18	(16x1)->(1x1)	10	10	0
+gradients/resnet_model/batch_normalization_11/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	1436	1436	(128x32x16x16)(128x32x16x16)(32x1)(32x1)(32x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+gradients/L2Loss_21_grad/mul	Mul	GPU-0	0	16	16	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_11/AssignMovingAvg_1/mul	Mul	GPU-0	0	17	17	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/conv2d_21/kernel/read	Identity	GPU-0	0	9	30	(3x3x32x32)->(3x3x32x32)	0	10	0
+resnet_model/batch_normalization_3/moving_mean/read	Identity	GPU-0	0	9	27	(16x1)->(16x1)	0	10	0
+gradients/resnet_model/Relu_3_grad/ReluGrad	ReluGrad	GPU-0	0	1602	1602	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+gradients/resnet_model/conv2d_9/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	36	66	(128x16x32x32)(3x3x16x16)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/batch_normalization_30/moving_mean	VariableV2	GPU-0	0	21	36	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_22/AssignMovingAvg_1/mul	Mul	GPU-0	0	19	19	(64x1)(1x1)->(64x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_11/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	44	44	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_3/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+L2Loss_15	L2Loss	GPU-0	0	17	17	(16x1)->(1x1)	10	10	0
+L2Loss_25	L2Loss	GPU-0	0	42	42	(3x3x16x16)->(1x1)	10	10	0
+resnet_model/batch_normalization_14/moving_mean/read	Identity	GPU-0	0	12	28	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_1/beta/Momentum	VariableV2	GPU-0	0	20	51	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_11/gamma/read	Identity	GPU-0	0	9	27	(32x1)->(32x1)	0	10	0
+gradients/L2Loss_96_grad/mul	Mul	GPU-0	0	14	14	(64x10)(1x1)->(64x10)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_14/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	11	28	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_7/FusedBatchNorm	FusedBatchNorm	GPU-0	0	1701	1701	(128x16x32x32)(16x1)(16x1)(1x1)(1x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )	10	10	0
+resnet_model/conv2d_19/kernel/Momentum	VariableV2	GPU-0	0	21	38	(no input)->(3x3x32x32)	0	10	0
+gradients/L2Loss_3_grad/mul	Mul	GPU-0	0	15	15	(1x1x16x16)(1x1)->(1x1x16x16)	10	10	0
+gradients/L2Loss_52_grad/mul	Mul	GPU-0	0	17	17	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_6/AssignMovingAvg_1	AssignSub	GPU-0	0	20	20	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/conv2d_22/kernel/Momentum	VariableV2	GPU-0	0	22	39	(no input)->(3x3x32x32)	0	10	0
+gradients/AddN_14	AddN	GPU-0	0	36	36	(3x3x64x64)(3x3x64x64)->(3x3x64x64)	10	10	0
+resnet_model/conv2d_14/Conv2D	Conv2D	GPU-0	0	1510	1510	(128x32x16x16)(3x3x32x32)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_22/AssignMovingAvg/sub_1	Sub	GPU-0	0	21	21	(64x1)(64x1)->(64x1)	10	10	0
+Momentum/update_resnet_model/conv2d_20/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	62	62	(3x3x32x32)(3x3x32x32)(1x1)(int32 1x1 slot 1 slot )(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+gradients/resnet_model/conv2d_18/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	3331	3331	(128x32x16x16)(int32 4x1)(128x32x16x16)->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_9/AssignMovingAvg/mul	Mul	GPU-0	0	23	23	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/conv2d_26/kernel	VariableV2	GPU-0	0	23	44	(no input)->(3x3x64x64)	0	10	0
+resnet_model/batch_normalization_12/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization/AssignMovingAvg	AssignSub	GPU-0	0	22	22	(16x1)(16x1)->(16x1)	10	10	0
+gradients/resnet_model/batch_normalization_28/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	610	610	(128x64x8x8)(128x64x8x8)(64x1)(64x1)(64x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_7/beta/read	Identity	GPU-0	0	11	27	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_5/AssignMovingAvg/sub_1	Sub	GPU-0	0	20	20	(16x1)(16x1)->(16x1)	10	10	0
+gradients/resnet_model/Pad_grad/Shape	Shape	GPU-0	0	16	35	(128x16x32x32)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_29/moving_variance/read	Identity	GPU-0	0	9	28	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_1/AssignMovingAvg_1/mul	Mul	GPU-0	0	19	19	(16x1)(1x1)->(16x1)	10	10	0
+L2Loss_31	L2Loss	GPU-0	0	40	40	(3x3x16x16)->(1x1)	10	10	0
+resnet_model/batch_normalization_22/FusedBatchNorm	FusedBatchNorm	GPU-0	0	433	433	(128x64x8x8)(64x1)(64x1)(1x1)(1x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )	10	10	0
+edge_1440_gradients/resnet_model/Mean_grad/DynamicStitch/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	10	10	(Transfer)->(16 bytes)	0	0	10
+resnet_model/batch_normalization_29/beta/Momentum	VariableV2	GPU-0	0	18	35	(no input)->(64x1)	0	10	0
+resnet_model/conv2d_7/kernel/read	Identity	GPU-0	0	11	35	(3x3x16x16)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_5/moving_variance/read	Identity	GPU-0	0	11	26	(16x1)->(16x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_13/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/Relu_25	Relu	GPU-0	0	247	247	(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_29/moving_variance	VariableV2	GPU-0	0	22	37	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_27/FusedBatchNorm	FusedBatchNorm	GPU-0	0	440	440	(128x64x8x8)(64x1)(64x1)(1x1)(1x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_22/beta/read	Identity	GPU-0	0	9	46	(64x1)->(64x1)	0	10	0
+gradients/AddN_19	AddN	GPU-0	0	18	18	(64x1)(64x1)->(64x1)	10	10	0
+L2Loss_72	L2Loss	GPU-0	0	56	56	(3x3x64x64)->(1x1)	10	10	0
+gradients/resnet_model/conv2d_26/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	2224	2224	(128x64x8x8)(int32 4x1)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x64x64)	10	10	0
+gradients/resnet_model/conv2d_31/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	35	62	(128x64x8x8)(3x3x64x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+gradients/AddN_47	AddN	GPU-0	0	27	27	(3x3x32x32)(3x3x32x32)->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_19/beta/Momentum	VariableV2	GPU-0	0	17	34	(no input)->(32x1)	0	10	0
+gradients/AddN_80	AddN	GPU-0	0	1600	1600	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x16x32x32)	10	10	0
+gradients/AddN_55	AddN	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization/AssignMovingAvg_1/mul	Mul	GPU-0	0	18	18	(16x1)(1x1)->(16x1)	10	10	0
+gradients/AddN_27	AddN	GPU-0	0	21	21	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_12/gamma/read	Identity	GPU-0	0	9	29	(32x1)->(32x1)	0	10	0
+gradients/resnet_model/conv2d/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	3575	3575	(128x3x32x32)(int32 4x1)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x3x16)	10	10	0
+resnet_model/batch_normalization_13/moving_variance	VariableV2	GPU-0	0	17	34	(no input)->(32x1)	0	10	0
+resnet_model/conv2d_26/kernel/Momentum	VariableV2	GPU-0	0	24	40	(no input)->(3x3x64x64)	0	10	0
+resnet_model/batch_normalization_18/gamma/Momentum	VariableV2	GPU-0	0	19	36	(no input)->(32x1)	0	10	0
+resnet_model/Relu_1	Relu	GPU-0	0	1111	1111	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )->(128x16x32x32)	10	10	0
+PiecewiseConstant/case/LessEqual	LessEqual	GPU-0	0	43	74	(int32 1x1)(int32 1x1)->(boolean 1x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_27/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	44	44	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_25/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	11	25	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_4/AssignMovingAvg_1/mul	Mul	GPU-0	0	17	17	(16x1)(1x1)->(16x1)	10	10	0
+L2Loss_96	L2Loss	GPU-0	0	24	24	(64x10)->(1x1)	10	10	0
+gradients/L2Loss_87_grad/mul	Mul	GPU-0	0	32	32	(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+resnet_model/conv2d_33/kernel/Momentum	VariableV2	GPU-0	0	21	36	(no input)->(3x3x64x64)	0	10	0
+resnet_model/batch_normalization_28/moving_variance/read	Identity	GPU-0	0	9	25	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_17/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+gradients/AddN_74	AddN	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+gradients/L2Loss_48_grad/mul	Mul	GPU-0	0	16	16	(32x1)(1x1)->(32x1)	10	10	0
+gradients/L2Loss_91_grad/mul	Mul	GPU-0	0	15	15	(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_4/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	48	86	(128x16x32x32)(3x3x16x16)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+gradients/AddN_64	AddN	GPU-0	0	24	24	(3x3x32x32)(3x3x32x32)->(3x3x32x32)	10	10	0
+gradients/L2Loss_56_grad/mul	Mul	GPU-0	0	18	18	(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+resnet_model/conv2d_7/Conv2D	Conv2D	GPU-0	0	3762	3762	(128x16x32x32)(3x3x16x16)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization/moving_mean	VariableV2	GPU-0	0	22	38	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_20/AssignMovingAvg_1/mul	Mul	GPU-0	0	18	18	(32x1)(1x1)->(32x1)	10	10	0
+L2Loss_55	L2Loss	GPU-0	0	20	20	(32x1)->(1x1)	10	10	0
+L2Loss_69	L2Loss	GPU-0	0	53	53	(3x3x64x64)->(1x1)	10	10	0
+resnet_model/Mean	Mean	GPU-0	0	221	221	(128x64x8x8)(int32 2x1)->(128x64x1x1)	10	10	0
+gradients/AddN_97	AddN	GPU-0	0	25	25	(3x3x16x16)(3x3x16x16)->(3x3x16x16)	10	10	0
+gradients/AddN_107	AddN	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/conv2d_9/kernel/read	Identity	GPU-0	0	9	33	(3x3x16x16)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_22/gamma/Momentum	VariableV2	GPU-0	0	19	32	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_8/moving_mean/read	Identity	GPU-0	0	10	26	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_30/beta/read	Identity	GPU-0	0	9	28	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_2/moving_variance/read	Identity	GPU-0	0	13	32	(16x1)->(16x1)	0	10	0
+resnet_model/Relu_28	Relu	GPU-0	0	244	244	(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_6/AssignMovingAvg_1/mul	Mul	GPU-0	0	19	19	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_16/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+PiecewiseConstant/case/cond/cond/cond/Switch/Switch	Switch	GPU-0	0	10	45	(boolean 1x1)(boolean 1x1)->(boolean 1x1 slot 1 slot )	0	10	0
+L2Loss_95	L2Loss	GPU-0	0	16	16	(64x1)->(1x1)	10	10	0
+gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv	RealDiv	GPU-0	0	18	18	(1x1)(1x1)->(1x1)	10	10	0
+PiecewiseConstant/case/cond/pred_id	Identity	GPU-0	0	9	31	(boolean 1x1)->(boolean 1x1)	0	10	0
+gradients/AddN_grad/tuple/control_dependency_2	Const	GPU-0	0	27	98	(no input)->(1x1)	0	10	0
+resnet_model/batch_normalization_4/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_13/AssignMovingAvg_1/mul	Mul	GPU-0	0	17	17	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_24/AssignMovingAvg	AssignSub	GPU-0	0	21	21	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/conv2d_12/Conv2D	Conv2D	GPU-0	0	738	738	(128x16x32x32)(1x1x16x32)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_2/FusedBatchNorm	FusedBatchNorm	GPU-0	0	1719	1719	(128x16x32x32)(16x1)(16x1)(1x1)(1x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )	10	10	0
+resnet_model/Relu_15	Relu	GPU-0	0	563	563	(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/conv2d_6/kernel/read	Identity	GPU-0	0	12	36	(3x3x16x16)->(3x3x16x16)	0	10	0
+L2Loss_11	L2Loss	GPU-0	0	19	19	(16x1)->(1x1)	10	10	0
+L2Loss_7	L2Loss	GPU-0	0	40	40	(3x3x16x16)->(1x1)	10	10	0
+gradients/AddN_61	AddN	GPU-0	0	24	24	(3x3x32x32)(3x3x32x32)->(3x3x32x32)	10	10	0
+PiecewiseConstant/case/cond/cond/Switch_1	Switch	GPU-0	0	8	26	(1x1)(boolean 1x1)->(1x1 slot 1 slot )	0	10	0
+resnet_model/conv2d_14/kernel/read	Identity	GPU-0	0	10	30	(3x3x32x32)->(3x3x32x32)	0	10	0
+gradients/AddN_66	AddN	GPU-0	0	15	15	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_3/AssignMovingAvg_1	AssignSub	GPU-0	0	17	17	(16x1)(16x1)->(16x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_19/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	46	46	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+gradients/resnet_model/Relu_17_grad/ReluGrad	ReluGrad	GPU-0	0	773	773	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_21/beta	VariableV2	GPU-0	0	18	36	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization/moving_variance	VariableV2	GPU-0	0	18	33	(no input)->(16x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_5/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	46	46	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/batch_normalization_10/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	2851	2851	(128x16x32x32)(128x16x32x32)(16x1)(16x1)(16x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+Momentum	AssignAdd	GPU-0	0	21	21	(int64 1x1)(int64 1x1)->(int64 1x1)	10	10	0
+resnet_model/batch_normalization_12/moving_mean	VariableV2	GPU-0	0	17	33	(no input)->(32x1)	0	10	0
+resnet_model/add_14	Add	GPU-0	0	390	390	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+gradients/AddN_8	AddN	GPU-0	0	401	401	(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_20/moving_variance	VariableV2	GPU-0	0	25	40	(no input)->(32x1)	0	10	0
+gradients/AddN_86	AddN	GPU-0	0	24	24	(3x3x16x16)(3x3x16x16)->(3x3x16x16)	10	10	0
+gradients/resnet_model/Relu_10_grad/ReluGrad	ReluGrad	GPU-0	0	1620	1620	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_3/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_5/AssignMovingAvg_1	AssignSub	GPU-0	0	16	16	(16x1)(16x1)->(16x1)	10	10	0
+gradients/resnet_model/Mean_grad/Maximum_1/y	Const	GPU-0	0	14	30	(no input)->(int32 1x1)	0	10	0
+resnet_model/conv2d_33/kernel/read	Identity	GPU-0	0	11	36	(3x3x64x64)->(3x3x64x64)	0	10	0
+gradients/AddN_23	AddN	GPU-0	0	17	17	(64x1)(64x1)->(64x1)	10	10	0
+gradients/AddN_65	AddN	GPU-0	0	805	805	(128x32x16x16)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/conv2d_29/kernel/read	Identity	GPU-0	0	8	42	(3x3x64x64)->(3x3x64x64)	0	10	0
+resnet_model/batch_normalization_9/gamma	VariableV2	GPU-0	0	19	36	(no input)->(16x1)	0	10	0
+resnet_model/conv2d/kernel/Momentum	VariableV2	GPU-0	0	24	40	(no input)->(3x3x3x16)	0	10	0
+L2Loss_91	L2Loss	GPU-0	0	19	19	(64x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_8/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/conv2d_4/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3707	3707	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x16x16)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x16x32x32)	10	10	0
+gradients/L2Loss_68_grad/mul	Mul	GPU-0	0	17	17	(64x1)(1x1)->(64x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_1/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_9/AssignMovingAvg	AssignSub	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_4/AssignMovingAvg	AssignSub	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+gradients/resnet_model/conv2d_17/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	3336	3336	(128x32x16x16)(int32 4x1)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_24/AssignMovingAvg/mul	Mul	GPU-0	0	20	20	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_2/gamma/read	Identity	GPU-0	0	8	34	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_10/AssignMovingAvg_1/mul	Mul	GPU-0	0	18	18	(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/conv2d_15/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	1506	1506	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x32x32)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_9/AssignMovingAvg/sub_1	Sub	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_17/AssignMovingAvg_1/mul	Mul	GPU-0	0	19	19	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_21/AssignMovingAvg	AssignSub	GPU-0	0	21	21	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_6/gamma/read	Identity	GPU-0	0	10	32	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_14/AssignMovingAvg	AssignSub	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/conv2d_19/kernel	VariableV2	GPU-0	0	23	43	(no input)->(3x3x32x32)	0	10	0
+resnet_model/batch_normalization_20/gamma/Momentum	VariableV2	GPU-0	0	19	34	(no input)->(32x1)	0	10	0
+resnet_model/batch_normalization_16/gamma/Momentum	VariableV2	GPU-0	0	19	37	(no input)->(32x1)	0	10	0
+PiecewiseConstant/case/cond/cond/cond/cond/Switch_1	Switch	GPU-0	0	12	33	(1x1)(boolean 1x1)->(1x1 slot 1 slot )	0	10	0
+resnet_model/conv2d_7/kernel/Momentum	VariableV2	GPU-0	0	21	37	(no input)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_12/gamma/Momentum	VariableV2	GPU-0	0	22	35	(no input)->(32x1)	0	10	0
+gradients/L2Loss_63_grad/mul	Mul	GPU-0	0	15	15	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_3/beta	VariableV2	GPU-0	0	20	36	(no input)->(16x1)	0	10	0
+resnet_model/dense/BiasAdd	BiasAdd	GPU-0	0	22	22	(128x10)(10x1)->(128x10)	10	10	0
+gradients/resnet_model/batch_normalization_22/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	608	608	(128x64x8x8)(128x64x8x8)(64x1)(64x1)(64x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+L2Loss_40	L2Loss	GPU-0	0	18	18	(32x1)->(1x1)	10	10	0
+resnet_model/conv2d_30/Conv2D	Conv2D	GPU-0	0	2230	2230	(128x64x8x8)(3x3x64x64)->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_25/AssignMovingAvg	AssignSub	GPU-0	0	20	20	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/dense/bias/Momentum	VariableV2	GPU-0	0	25	37	(no input)->(10x1)	0	10	0
+resnet_model/conv2d_9/kernel/Momentum	VariableV2	GPU-0	0	21	39	(no input)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_13/AssignMovingAvg	AssignSub	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+L2Loss_71	L2Loss	GPU-0	0	18	18	(64x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_27/AssignMovingAvg	AssignSub	GPU-0	0	24	24	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_14/moving_variance	VariableV2	GPU-0	0	18	34	(no input)->(32x1)	0	10	0
+gradients/AddN_46	AddN	GPU-0	0	21	21	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_19/moving_mean	VariableV2	GPU-0	0	28	44	(no input)->(32x1)	0	10	0
+resnet_model/conv2d_33/Conv2D	Conv2D	GPU-0	0	2224	2224	(128x64x8x8)(3x3x64x64)->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_18/gamma/read	Identity	GPU-0	0	9	29	(32x1)->(32x1)	0	10	0
+resnet_model/add_9	Add	GPU-0	0	818	818	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_24/beta/Momentum	VariableV2	GPU-0	0	18	31	(no input)->(64x1)	0	10	0
+gradients/L2Loss_30_grad/mul	Mul	GPU-0	0	15	15	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/conv2d_17/kernel/Momentum	VariableV2	GPU-0	0	24	42	(no input)->(3x3x32x32)	0	10	0
+resnet_model/conv2d_6/kernel/Momentum	VariableV2	GPU-0	0	20	38	(no input)->(3x3x16x16)	0	10	0
+gradients/L2Loss_39_grad/mul	Mul	GPU-0	0	15	15	(32x1)(1x1)->(32x1)	10	10	0
+gradients/L2Loss_25_grad/mul	Mul	GPU-0	0	17	17	(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+resnet_model/Reshape/shape	Const	GPU-0	0	9	27	(no input)->(int32 2x1)	0	10	0
+gradients/AddN_60	AddN	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+edge_259_IteratorGetNext/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	1227	1227	(Transfer)->(1572864 bytes)	0	0	10
+resnet_model/batch_normalization/moving_variance/read	Identity	GPU-0	0	10	28	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_28/gamma/read	Identity	GPU-0	0	8	29	(64x1)->(64x1)	0	10	0
+resnet_model/conv2d_13/kernel	VariableV2	GPU-0	0	27	43	(no input)->(3x3x16x32)	0	10	0
+ConstantFolding/gradients/resnet_model/conv2d_6/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	12	32	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_30/moving_mean/read	Identity	GPU-0	0	5	25	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_9/AssignMovingAvg_1	AssignSub	GPU-0	0	20	20	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/conv2d_18/kernel	VariableV2	GPU-0	0	26	41	(no input)->(3x3x32x32)	0	10	0
+Momentum/update_resnet_model/batch_normalization_22/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_3/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+gradients/AddN_36	AddN	GPU-0	0	29	29	(3x3x32x64)(3x3x32x64)->(3x3x32x64)	10	10	0
+resnet_model/batch_normalization_18/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_11/moving_mean	VariableV2	GPU-0	0	20	35	(no input)->(32x1)	0	10	0
+resnet_model/batch_normalization_19/AssignMovingAvg_1/mul	Mul	GPU-0	0	19	19	(32x1)(1x1)->(32x1)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_22/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	10	26	(no input)->(int32 4x1)	0	10	0
+L2Loss_81	L2Loss	GPU-0	0	51	51	(3x3x64x64)->(1x1)	10	10	0
+gradients/AddN_76	AddN	GPU-0	0	21	21	(3x3x16x16)(3x3x16x16)->(3x3x16x16)	10	10	0
+Momentum/update_resnet_model/batch_normalization_1/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	59	59	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_5/moving_variance	VariableV2	GPU-0	0	19	36	(no input)->(16x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_26/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_11/moving_variance/read	Identity	GPU-0	0	12	30	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_1/gamma/Momentum	VariableV2	GPU-0	0	20	35	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_30/AssignMovingAvg_1/mul	Mul	GPU-0	0	17	17	(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/batch_normalization_17/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	1447	1447	(128x32x16x16)(128x32x16x16)(32x1)(32x1)(32x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_5/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	18	18	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_27/gamma/read	Identity	GPU-0	0	10	29	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_8/gamma	VariableV2	GPU-0	0	20	37	(no input)->(16x1)	0	10	0
+gradients/resnet_model/conv2d_22/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	1510	1510	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x32x32)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x32x16x16)	10	10	0
+gradients/AddN_62	AddN	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights	Snapshot	GPU-0	0	13	24	(128x1)->(128x1)	0	10	0
+gradients/resnet_model/conv2d_20/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	1505	1505	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x32x32)(128x32x16x16)->(128x32x16x16)	10	10	0
+gradients/AddN_93	AddN	GPU-0	0	24	24	(3x3x16x16)(3x3x16x16)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_18/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_29/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	11	22	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_20/FusedBatchNorm	FusedBatchNorm	GPU-0	0	871	871	(128x32x16x16)(32x1)(32x1)(1x1)(1x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )	10	10	0
+gradients/resnet_model/conv2d_19/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	1506	1506	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x32x32)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x32x16x16)	10	10	0
+gradients/resnet_model/conv2d_24/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3499	3499	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x32x64)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x32x18x18)	10	10	0
+resnet_model/Relu_18	Relu	GPU-0	0	561	561	(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_13/moving_mean/read	Identity	GPU-0	0	10	33	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_17/gamma/Momentum	VariableV2	GPU-0	0	19	34	(no input)->(32x1)	0	10	0
+gradients/AddN_44	AddN	GPU-0	0	804	804	(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/conv2d_10/kernel/Momentum	VariableV2	GPU-0	0	22	39	(no input)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_10/FusedBatchNorm	FusedBatchNorm	GPU-0	0	1726	1726	(128x16x32x32)(16x1)(16x1)(1x1)(1x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )	10	10	0
+gradients/resnet_model/conv2d_18/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	1520	1520	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x32x32)(128x32x16x16)->(128x32x16x16)	10	10	0
+gradients/AddN_42	AddN	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_18/FusedBatchNorm	FusedBatchNorm	GPU-0	0	874	874	(128x32x16x16)(32x1)(32x1)(1x1)(1x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_2/AssignMovingAvg/mul	Mul	GPU-0	0	20	20	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_2/beta/Momentum	VariableV2	GPU-0	0	17	30	(no input)->(16x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_20/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	45	45	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/conv2d_3/kernel	VariableV2	GPU-0	0	24	44	(no input)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_21/FusedBatchNorm	FusedBatchNorm	GPU-0	0	446	446	(128x64x8x8)(64x1)(64x1)(1x1)(1x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_5/moving_mean/read	Identity	GPU-0	0	8	40	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_27/gamma/Momentum	VariableV2	GPU-0	0	18	53	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_5/AssignMovingAvg	AssignSub	GPU-0	0	20	20	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_29/gamma/Momentum	VariableV2	GPU-0	0	20	36	(no input)->(64x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_30/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	44	44	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/conv2d_26/kernel/read	Identity	GPU-0	0	8	32	(3x3x64x64)->(3x3x64x64)	0	10	0
+resnet_model/batch_normalization_15/gamma/read	Identity	GPU-0	0	10	28	(32x1)->(32x1)	0	10	0
+L2Loss_19	L2Loss	GPU-0	0	40	40	(3x3x16x16)->(1x1)	10	10	0
+resnet_model/Relu_27	Relu	GPU-0	0	248	248	(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(64x1 slot 3 slot )(64x1 slot 4 slot )->(128x64x8x8)	10	10	0
+gradients/resnet_model/Mean_grad/floordiv_1	FloorDiv	GPU-0	0	41	88	(int32 1x1)(int32 1x1)->(int32 1x1)	0	10	0
+add	Add	GPU-0	0	23	23	(1x1)(1x1)->(1x1)	10	10	0
+resnet_model/conv2d_22/kernel	VariableV2	GPU-0	0	24	42	(no input)->(3x3x32x32)	0	10	0
+global_step/cond/read/Switch	RefSwitch	GPU-0	0	12	51	(int64 1x1)(boolean 1x1)->(int64 1x1 slot 1 slot )	0	10	0
+L2Loss_23	L2Loss	GPU-0	0	18	18	(16x1)->(1x1)	10	10	0
+gradients/AddN_98	AddN	GPU-0	0	18	18	(16x1)(16x1)->(16x1)	10	10	0
+gradients/AddN_59	AddN	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+gradients/resnet_model/Relu_28_grad/ReluGrad	ReluGrad	GPU-0	0	416	416	(128x64x8x8)(128x64x8x8)->(128x64x8x8)	10	10	0
+L2Loss_92	L2Loss	GPU-0	0	19	19	(64x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_5/beta/read	Identity	GPU-0	0	9	29	(16x1)->(16x1)	0	10	0
+gradients/AddN_26	AddN	GPU-0	0	17	17	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_1/FusedBatchNorm	FusedBatchNorm	GPU-0	0	1731	1731	(128x16x32x32)(16x1)(16x1)(1x1)(1x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )	10	10	0
+resnet_model/batch_normalization_23/moving_variance	VariableV2	GPU-0	0	41	53	(no input)->(64x1)	0	10	0
+ConstantFolding/gradients/resnet_model/conv2d_10/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	11	33	(no input)->(int32 4x1)	0	10	0
+gradients/resnet_model/conv2d_17/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	1510	1510	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x32x32)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x32x16x16)	10	10	0
+gradients/resnet_model/conv2d_16/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	35	67	(128x32x16x16)(3x3x32x32)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+gradients/resnet_model/conv2d_20/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	32	62	(128x32x16x16)(3x3x32x32)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+resnet_model/conv2d_29/kernel	VariableV2	GPU-0	0	21	42	(no input)->(3x3x64x64)	0	10	0
+gradients/L2Loss_41_grad/mul	Mul	GPU-0	0	20	20	(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+gradients/resnet_model/conv2d_22/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	3801	3801	(128x32x16x16)(int32 4x1)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_18/moving_variance	VariableV2	GPU-0	0	24	42	(no input)->(32x1)	0	10	0
+L2Loss_33	L2Loss	GPU-0	0	18	18	(16x1)->(1x1)	10	10	0
+resnet_model/dense/kernel	VariableV2	GPU-0	0	24	41	(no input)->(64x10)	0	10	0
+resnet_model/batch_normalization_10/moving_mean	VariableV2	GPU-0	0	16	32	(no input)->(16x1)	0	10	0
+ConstantFoldingCtrl/PiecewiseConstant/case/Assert/AssertGuard/Switch_1	Identity	GPU-0	0	11	41	(1)->(boolean 1x1)	0	10	0
+resnet_model/batch_normalization_3/AssignMovingAvg_1/mul	Mul	GPU-0	0	17	17	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_14/beta/Momentum	VariableV2	GPU-0	0	18	35	(no input)->(32x1)	0	10	0
+resnet_model/Relu	Relu	GPU-0	0	1107	1107	(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_11/beta	VariableV2	GPU-0	0	21	38	(no input)->(32x1)	0	10	0
+ConstantFolding/gradients/resnet_model/conv2d_9/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	13	30	(no input)->(int32 4x1)	0	10	0
+L2Loss_44	L2Loss	GPU-0	0	42	42	(3x3x32x32)->(1x1)	10	10	0
+gradients/L2Loss_32_grad/mul	Mul	GPU-0	0	14	14	(16x1)(1x1)->(16x1)	10	10	0
+gradients/AddN_69	AddN	GPU-0	0	22	22	(1x1x16x32)(1x1x16x32)->(1x1x16x32)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_20/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	12	28	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_24/beta/read	Identity	GPU-0	0	12	29	(64x1)->(64x1)	0	10	0
+gradients/AddN_102	AddN	GPU-0	0	17	17	(16x1)(16x1)->(16x1)	10	10	0
+L2Loss_8	L2Loss	GPU-0	0	20	20	(16x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_21/AssignMovingAvg_1/mul	Mul	GPU-0	0	16	16	(64x1)(1x1)->(64x1)	10	10	0
+Momentum/update_resnet_model/conv2d_18/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	62	62	(3x3x32x32)(3x3x32x32)(1x1)(int32 1x1 slot 1 slot )(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_28/AssignMovingAvg	AssignSub	GPU-0	0	23	23	(64x1)(64x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_13/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	2730	2730	(128x16x34x34)(int32 4x1)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x16x32)	10	10	0
+resnet_model/conv2d_23/kernel/Momentum	VariableV2	GPU-0	0	23	39	(no input)->(1x1x32x64)	0	10	0
+edge_617_PiecewiseConstant/case/Cast/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	10	10	(Transfer)->(16 bytes)	0	0	10
+Momentum/update_resnet_model/conv2d_9/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	54	54	(3x3x16x16)(3x3x16x16)(1x1)(int32 1x1 slot 1 slot )(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+Momentum/update_resnet_model/conv2d_16/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	61	61	(3x3x32x32)(3x3x32x32)(1x1)(int32 1x1 slot 1 slot )(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+gradients/L2Loss_16_grad/mul	Mul	GPU-0	0	20	20	(3x3x16x16)(1x1)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_29/beta/read	Identity	GPU-0	0	10	27	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_13/AssignMovingAvg/sub_1	Sub	GPU-0	0	20	20	(32x1)(32x1)->(32x1)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_27/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	10	31	(no input)->(int32 4x1)	0	10	0
+gradients/L2Loss_50_grad/mul	Mul	GPU-0	0	20	20	(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_6/moving_variance/read	Identity	GPU-0	0	9	26	(16x1)->(16x1)	0	10	0
+gradients/AddN_68	AddN	GPU-0	0	23	23	(3x3x32x32)(3x3x32x32)->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_8/gamma/Momentum	VariableV2	GPU-0	0	19	30	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_3/FusedBatchNorm	FusedBatchNorm	GPU-0	0	1714	1714	(128x16x32x32)(16x1)(16x1)(1x1)(1x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(16x1 slot 3 slot )(16x1 slot 4 slot )	10	10	0
+gradients/AddN_53	AddN	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+edge_272_Cast_100/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	10	10	(Transfer)->(4 bytes)	0	0	10
+gradients/resnet_model/conv2d_6/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	9489	9489	(128x16x32x32)(int32 4x1)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x16x16)	10	10	0
+PiecewiseConstant/Greater_2	Greater	GPU-0	0	65	117	(int32 1x1)(int32 1x1)->(boolean 1x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_25/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	44	44	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+gradients/AddN_75	AddN	GPU-0	0	24	24	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_17/AssignMovingAvg	AssignSub	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Mul	Snapshot	GPU-0	0	15	42	(128x1)->(128x1)	0	10	0
+gradients/resnet_model/dense/MatMul_grad/MatMul	MatMul	GPU-0	0	86	86	(128x10)(64x10)->(128x64)	10	10	0
+resnet_model/batch_normalization_20/gamma/read	Identity	GPU-0	0	9	28	(32x1)->(32x1)	0	10	0
+L2Loss_47	L2Loss	GPU-0	0	42	42	(3x3x32x32)->(1x1)	10	10	0
+resnet_model/batch_normalization_12/moving_mean/read	Identity	GPU-0	0	10	29	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_7/gamma	VariableV2	GPU-0	0	21	35	(no input)->(16x1)	0	10	0
+resnet_model/batch_normalization_6/moving_mean/read	Identity	GPU-0	0	9	27	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_16/beta/read	Identity	GPU-0	0	9	27	(32x1)->(32x1)	0	10	0
+gradients/resnet_model/Relu_4_grad/ReluGrad	ReluGrad	GPU-0	0	1601	1601	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+resnet_model/conv2d_1/kernel/Momentum	VariableV2	GPU-0	0	24	41	(no input)->(1x1x16x16)	0	10	0
+sparse_softmax_cross_entropy_loss/Greater	Greater	GPU-0	0	19	19	(1x1)(1x1)->(boolean 1x1)	10	10	0
+gradients/resnet_model/conv2d_26/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	31	60	(128x64x8x8)(3x3x64x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+gradients/resnet_model/conv2d_1/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	3682	3682	(128x16x32x32)(int32 4x1)(128x16x32x32)->(1x1x16x16)	10	10	0
+resnet_model/batch_normalization_15/moving_mean	VariableV2	GPU-0	0	21	35	(no input)->(32x1)	0	10	0
+PiecewiseConstant/and	LogicalAnd	GPU-0	0	20	20	(boolean 1x1)(boolean 1x1)->(boolean 1x1)	10	10	0
+Momentum/update_resnet_model/conv2d_1/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	47	47	(1x1x16x16)(1x1x16x16)(1x1)(int32 1x1 slot 1 slot )(1x1x16x16)(1x1)->(1x1x16x16)	10	10	0
+resnet_model/batch_normalization_18/AssignMovingAvg/mul	Mul	GPU-0	0	21	21	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/conv2d_32/Conv2D	Conv2D	GPU-0	0	2224	2224	(128x64x8x8)(3x3x64x64)->(128x64x8x8)	10	10	0
+gradients/AddN_15	AddN	GPU-0	0	399	399	(128x64x8x8)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_7/AssignMovingAvg/sub_1	Sub	GPU-0	0	23	23	(16x1)(16x1)->(16x1)	10	10	0
+gradients/resnet_model/conv2d_12/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	1550	1550	(128x16x32x32)(int32 4x1)(128x32x16x16)->(1x1x16x32)	10	10	0
+resnet_model/batch_normalization_14/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_2/gamma/Momentum	VariableV2	GPU-0	0	16	32	(no input)->(16x1)	0	10	0
+gradients/AddN_29	AddN	GPU-0	0	402	402	(128x64x8x8)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_23/gamma	VariableV2	GPU-0	0	20	35	(no input)->(64x1)	0	10	0
+resnet_model/conv2d_17/kernel/read	Identity	GPU-0	0	9	32	(3x3x32x32)->(3x3x32x32)	0	10	0
+resnet_model/batch_normalization_1/AssignMovingAvg	AssignSub	GPU-0	0	23	23	(16x1)(16x1)->(16x1)	10	10	0
+L2Loss_63	L2Loss	GPU-0	0	17	17	(32x1)->(1x1)	10	10	0
+gradients/resnet_model/conv2d_10/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	9522	9522	(128x16x32x32)(int32 4x1)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x16x16)	10	10	0
+gradients/L2Loss_20_grad/mul	Mul	GPU-0	0	18	18	(16x1)(1x1)->(16x1)	10	10	0
+L2Loss_77	L2Loss	GPU-0	0	19	19	(64x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_23/beta/Momentum	VariableV2	GPU-0	0	20	33	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_26/moving_variance	VariableV2	GPU-0	0	17	31	(no input)->(64x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_4/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	41	41	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/Mean_grad/Tile	Tile	GPU-0	0	626	626	(128x64x1x1)(int32 4x1)->(128x64x8x8)	10	10	0
+gradients/resnet_model/Pad_1_grad/Slice_1	Slice	GPU-0	0	1179	1179	(128x16x34x34)(int32 4x1)(int32 4x1)->(128x16x32x32)	10	10	0
+resnet_model/batch_normalization_24/beta	VariableV2	GPU-0	0	19	38	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_11/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	18	18	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_22/AssignMovingAvg_1	AssignSub	GPU-0	0	17	17	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_24/gamma/read	Identity	GPU-0	0	7	27	(64x1)->(64x1)	0	10	0
+gradients/AddN_51	AddN	GPU-0	0	818	818	(128x32x16x16)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/conv2d_24/Conv2D	Conv2D	GPU-0	0	1317	1317	(128x32x18x18)(3x3x32x64)->(128x64x8x8)	10	10	0
+global_step/IsVariableInitialized	IsVariableInitialized	GPU-0	0	58	86	(int64 1x1)->(boolean 1x1)	0	10	0
+gradients/resnet_model/Relu_12_grad/ReluGrad	ReluGrad	GPU-0	0	774	774	(128x32x16x16)(128x32x16x16)->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_2/AssignMovingAvg_1/mul	Mul	GPU-0	0	17	17	(16x1)(1x1)->(16x1)	10	10	0
+gradients/resnet_model/conv2d_23/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	730	730	(128x32x16x16)(int32 4x1)(128x64x8x8)->(1x1x32x64)	10	10	0
+Momentum/update_resnet_model/batch_normalization_6/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	40	40	(16x1)(16x1)(1x1)(int32 1x1 slot 1 slot )(16x1)(1x1)->(16x1)	10	10	0
+L2Loss_28	L2Loss	GPU-0	0	39	39	(3x3x16x16)->(1x1)	10	10	0
+gradients/L2Loss_49_grad/mul	Mul	GPU-0	0	18	18	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_20/moving_variance/read	Identity	GPU-0	0	12	29	(32x1)->(32x1)	0	10	0
+resnet_model/batch_normalization_23/moving_variance/read	Identity	GPU-0	0	9	27	(64x1)->(64x1)	0	10	0
+Momentum/momentum	Const	GPU-0	0	15	81	(no input)->(1x1)	0	10	0
+resnet_model/batch_normalization/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(16x1)(16x1)->(16x1)	10	10	0
+L2Loss_17	L2Loss	GPU-0	0	18	18	(16x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_12/AssignMovingAvg_1/mul	Mul	GPU-0	0	18	18	(32x1)(1x1)->(32x1)	10	10	0
+gradients/AddN_6	AddN	GPU-0	0	23	23	(64x1)(64x1)->(64x1)	10	10	0
+gradients/resnet_model/batch_normalization_26/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	602	602	(128x64x8x8)(128x64x8x8)(64x1)(64x1)(64x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+gradients/L2Loss_29_grad/mul	Mul	GPU-0	0	18	18	(16x1)(1x1)->(16x1)	10	10	0
+gradients/L2Loss_79_grad/mul	Mul	GPU-0	0	15	15	(64x1)(1x1)->(64x1)	10	10	0
+gradients/resnet_model/conv2d_4/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	9409	9409	(128x16x32x32)(int32 4x1)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x16x16)	10	10	0
+gradients/resnet_model/conv2d_21/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	1509	1509	(int32 4x1)(int32 4x1 slot 1 slot )(3x3x32x32)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_15/beta	VariableV2	GPU-0	0	19	35	(no input)->(32x1)	0	10	0
+gradients/L2Loss_76_grad/mul	Mul	GPU-0	0	18	18	(64x1)(1x1)->(64x1)	10	10	0
+L2Loss_29	L2Loss	GPU-0	0	20	20	(16x1)->(1x1)	10	10	0
+resnet_model/conv2d_7/kernel	VariableV2	GPU-0	0	25	41	(no input)->(3x3x16x16)	0	10	0
+gradients/L2Loss_71_grad/mul	Mul	GPU-0	0	14	14	(64x1)(1x1)->(64x1)	10	10	0
+gradients/AddN_79	AddN	GPU-0	0	22	22	(3x3x16x16)(3x3x16x16)->(3x3x16x16)	10	10	0
+resnet_model/batch_normalization_20/gamma	VariableV2	GPU-0	0	20	37	(no input)->(32x1)	0	10	0
+resnet_model/batch_normalization_9/moving_mean	VariableV2	GPU-0	0	23	38	(no input)->(16x1)	0	10	0
+group_deps	NoOp	GPU-0	0	10	131	(no input)->(no output info)	0	10	0
+resnet_model/batch_normalization_27/moving_variance	VariableV2	GPU-0	0	19	33	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_12/gamma	VariableV2	GPU-0	0	40	57	(no input)->(32x1)	0	10	0
+L2Loss_84	L2Loss	GPU-0	0	54	54	(3x3x64x64)->(1x1)	10	10	0
+gradients/AddN_111	AddN	GPU-0	0	21	21	(16x1)(16x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_12/AssignMovingAvg/mul	Mul	GPU-0	0	20	20	(32x1)(1x1)->(32x1)	10	10	0
+gradients/AddN_1	AddN	GPU-0	0	19	19	(64x10)(64x10)->(64x10)	10	10	0
+resnet_model/conv2d_2/kernel	VariableV2	GPU-0	0	32	48	(no input)->(3x3x16x16)	0	10	0
+gradients/L2Loss_60_grad/mul	Mul	GPU-0	0	17	17	(32x1)(1x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_24/AssignMovingAvg/sub_1	Sub	GPU-0	0	20	20	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_26/beta/Momentum	VariableV2	GPU-0	0	32	48	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_21/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_14/beta	VariableV2	GPU-0	0	21	36	(no input)->(32x1)	0	10	0
+L2Loss_4	L2Loss	GPU-0	0	37	37	(3x3x16x16)->(1x1)	10	10	0
+gradients/AddN_39	AddN	GPU-0	0	21	21	(32x1)(32x1)->(32x1)	10	10	0
+gradients/resnet_model/batch_normalization_3/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	2870	2870	(128x16x32x32)(128x16x32x32)(16x1)(16x1)(16x1)->(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_32/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	11	31	(no input)->(int32 4x1)	0	10	0
+resnet_model/batch_normalization_15/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(32x1)(32x1)->(32x1)	10	10	0
+gradients/resnet_model/conv2d_19/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	3813	3813	(128x32x16x16)(int32 4x1)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_15/AssignMovingAvg/mul	Mul	GPU-0	0	20	20	(32x1)(1x1)->(32x1)	10	10	0
+L2Loss_24	L2Loss	GPU-0	0	19	19	(16x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_18/moving_mean	VariableV2	GPU-0	0	40	55	(no input)->(32x1)	0	10	0
+gradients/L2Loss_23_grad/mul	Mul	GPU-0	0	16	16	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/conv2d_11/kernel/read	Identity	GPU-0	0	7	35	(3x3x16x16)->(3x3x16x16)	0	10	0
+resnet_model/batch_normalization_10/moving_variance	VariableV2	GPU-0	0	16	31	(no input)->(16x1)	0	10	0
+PiecewiseConstant/case/preds_c/MEMCPYDtoD	MEMCPYDtoD	GPU-0	0	40	40	(Transfer)->(1 bytes)	0	0	10
+resnet_model/batch_normalization_22/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	16	16	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_26/moving_variance/read	Identity	GPU-0	0	9	27	(64x1)->(64x1)	0	10	0
+resnet_model/batch_normalization_13/beta/Momentum	VariableV2	GPU-0	0	18	32	(no input)->(32x1)	0	10	0
+gradients/L2Loss_85_grad/mul	Mul	GPU-0	0	17	17	(64x1)(1x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_13/moving_mean	VariableV2	GPU-0	0	18	35	(no input)->(32x1)	0	10	0
+gradients/resnet_model/conv2d_2/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	9501	9501	(128x16x32x32)(int32 4x1)(128x16x32x32)(16x1 slot 1 slot )(16x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x16x16)	10	10	0
+sparse_softmax_cross_entropy_loss/Mul	Snapshot	GPU-0	0	12	30	(128x1)(128x10 slot 1 slot )->(128x1)	0	10	0
+gradients/resnet_model/Mean_grad/floordiv	FloorDiv	GPU-0	0	22	48	(int32 4x1)(int32 4x1)->(int32 4x1)	0	10	0
+gradients/AddN_73	AddN	GPU-0	0	1624	1624	(128x16x32x32)(128x16x32x32)->(128x16x32x32)	10	10	0
+gradients/L2Loss_94_grad/mul	Mul	GPU-0	0	16	16	(64x1)(1x1)->(64x1)	10	10	0
+L2Loss_36	L2Loss	GPU-0	0	20	20	(32x1)->(1x1)	10	10	0
+resnet_model/Relu_20	Relu	GPU-0	0	565	565	(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )->(128x32x16x16)	10	10	0
+resnet_model/batch_normalization_24/gamma/Momentum	VariableV2	GPU-0	0	21	32	(no input)->(64x1)	0	10	0
+resnet_model/conv2d/kernel	VariableV2	GPU-0	0	23	40	(no input)->(3x3x3x16)	0	10	0
+resnet_model/batch_normalization_1/gamma/read	Identity	GPU-0	0	9	28	(16x1)->(16x1)	0	10	0
+resnet_model/Relu_11	Relu	GPU-0	0	565	565	(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(32x1 slot 3 slot )(32x1 slot 4 slot )->(128x32x16x16)	10	10	0
+gradients/resnet_model/conv2d_30/Conv2D_grad/ShapeN	ShapeN	GPU-0	0	30	56	(128x64x8x8)(3x3x64x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	10	0
+Momentum/update_resnet_model/conv2d_32/kernel/ApplyMomentum	ApplyMomentum	GPU-0	0	86	86	(3x3x64x64)(3x3x64x64)(1x1)(int32 1x1 slot 1 slot )(3x3x64x64)(1x1)->(3x3x64x64)	10	10	0
+gradients/L2Loss_18_grad/mul	Mul	GPU-0	0	17	17	(16x1)(1x1)->(16x1)	10	10	0
+PiecewiseConstant/Const_2	Const	GPU-0	0	12	31	(no input)->(int32 1x1)	0	10	0
+resnet_model/batch_normalization_7/AssignMovingAvg_1/sub_1	Sub	GPU-0	0	18	18	(16x1)(16x1)->(16x1)	10	10	0
+gradients/L2Loss_47_grad/mul	Mul	GPU-0	0	18	18	(3x3x32x32)(1x1)->(3x3x32x32)	10	10	0
+resnet_model/batch_normalization_21/moving_mean	VariableV2	GPU-0	0	53	84	(no input)->(64x1)	0	10	0
+gradients/L2Loss_57_grad/mul	Mul	GPU-0	0	17	17	(32x1)(1x1)->(32x1)	10	10	0
+gradients/resnet_model/batch_normalization_23/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	602	602	(128x64x8x8)(128x64x8x8)(64x1)(64x1)(64x1)->(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+resnet_model/transpose/perm	Const	GPU-0	0	14	33	(no input)->(int32 4x1)	0	10	0
+gradients/resnet_model/Pad_3_grad/Reshape	Const	GPU-0	0	11	31	(no input)->(int32 4x1)	0	10	0
+Momentum/update_resnet_model/batch_normalization_27/gamma/ApplyMomentum	ApplyMomentum	GPU-0	0	39	39	(64x1)(64x1)(1x1)(int32 1x1 slot 1 slot )(64x1)(1x1)->(64x1)	10	10	0
+L2Loss_54	L2Loss	GPU-0	0	16	16	(32x1)->(1x1)	10	10	0
+resnet_model/conv2d_28/Conv2D	Conv2D	GPU-0	0	2222	2222	(128x64x8x8)(3x3x64x64)->(128x64x8x8)	10	10	0
+resnet_model/batch_normalization_25/AssignMovingAvg/sub_1	Sub	GPU-0	0	22	22	(64x1)(64x1)->(64x1)	10	10	0
+resnet_model/batch_normalization_8/moving_mean	VariableV2	GPU-0	0	22	37	(no input)->(16x1)	0	10	0
+L2Loss	L2Loss	GPU-0	0	21	21	(3x3x3x16)->(1x1)	10	10	0
+gradients/AddN_83	AddN	GPU-0	0	26	26	(3x3x16x16)(3x3x16x16)->(3x3x16x16)	10	10	0
+ConstantFolding/gradients/resnet_model/conv2d_16/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	10	28	(no input)->(int32 4x1)	0	10	0
+gradients/L2Loss_2_grad/mul	Mul	GPU-0	0	14	14	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/conv2d_18/Conv2D	Conv2D	GPU-0	0	1505	1505	(128x32x16x16)(3x3x32x32)->(128x32x16x16)	10	10	0
+gradients/resnet_model/conv2d_21/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	3341	3341	(128x32x16x16)(int32 4x1)(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x32x32)	10	10	0
+resnet_model/conv2d_13/kernel/read	Identity	GPU-0	0	10	34	(3x3x16x32)->(3x3x16x32)	0	10	0
+resnet_model/batch_normalization_15/AssignMovingAvg	AssignSub	GPU-0	0	21	21	(32x1)(32x1)->(32x1)	10	10	0
+resnet_model/batch_normalization_8/gamma/read	Identity	GPU-0	0	9	30	(16x1)->(16x1)	0	10	0
+resnet_model/batch_normalization_23/moving_mean	VariableV2	GPU-0	0	21	39	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_22/beta/Momentum	VariableV2	GPU-0	0	23	37	(no input)->(64x1)	0	10	0
+resnet_model/batch_normalization_25/moving_variance	VariableV2	GPU-0	0	20	35	(no input)->(64x1)	0	10	0
+gradients/resnet_model/batch_normalization_13/FusedBatchNorm_grad/FusedBatchNormGrad	FusedBatchNormGrad	GPU-0	0	1450	1450	(128x32x16x16)(128x32x16x16)(32x1)(32x1)(32x1)->(128x32x16x16)(32x1 slot 1 slot )(32x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )	10	10	0
+L2Loss_86	L2Loss	GPU-0	0	18	18	(64x1)->(1x1)	10	10	0
+resnet_model/batch_normalization_12/moving_variance	VariableV2	GPU-0	0	18	33	(no input)->(32x1)	0	10	0
+gradients/AddN_3	AddN	GPU-0	0	21	21	(64x1)(64x1)->(64x1)	10	10	0
+L2Loss_93	L2Loss	GPU-0	0	53	53	(3x3x64x64)->(1x1)	10	10	0
+resnet_model/batch_normalization_12/AssignMovingAvg_1	AssignSub	GPU-0	0	19	19	(32x1)(32x1)->(32x1)	10	10	0
+Momentum/update_resnet_model/batch_normalization_12/beta/ApplyMomentum	ApplyMomentum	GPU-0	0	45	45	(32x1)(32x1)(1x1)(int32 1x1 slot 1 slot )(32x1)(1x1)->(32x1)	10	10	0
+edge_709_PiecewiseConstant/and/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	10	10	(Transfer)->(1 bytes)	0	0	10
+L2Loss_60	L2Loss	GPU-0	0	17	17	(32x1)->(1x1)	10	10	0
+gradients/L2Loss_26_grad/mul	Mul	GPU-0	0	16	16	(16x1)(1x1)->(16x1)	10	10	0
+resnet_model/batch_normalization_19/gamma/Momentum	VariableV2	GPU-0	0	19	32	(no input)->(32x1)	0	10	0
+resnet_model/conv2d_16/kernel	VariableV2	GPU-0	0	22	43	(no input)->(3x3x32x32)	0	10	0
+resnet_model/batch_normalization_29/beta	VariableV2	GPU-0	0	20	34	(no input)->(64x1)	0	10	0
+gradients/resnet_model/conv2d_29/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	2215	2215	(128x64x8x8)(int32 4x1)(128x64x8x8)->(3x3x64x64)	10	10	0
+L2Loss_43	L2Loss	GPU-0	0	19	19	(32x1)->(1x1)	10	10	0
+gradients/resnet_model/conv2d_30/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	2232	2232	(128x64x8x8)(int32 4x1)(128x64x8x8)(64x1 slot 1 slot )(64x1 slot 2 slot )(1x1 slot 3 slot )(1x1 slot 4 slot )->(3x3x64x64)	10	10	0

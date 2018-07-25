@@ -26,7 +26,7 @@ import os
 # t10k-labels-idx1-ubyte, train-labels-idx1-ubyte,
 # t10k-images-idx3-ubyte,  train-images-idx3-ubyte)
 # The files will be downloaded, if not found there
-path_to_mnist_dataset = os.path.abspath(os.path.join(__file__, '..', '..',  '..', '..', 'common_datasets'))
+path_to_mnist_dataset = os.path.abspath(os.path.join(__file__, '..', '..',  '..', '..', 'common_datasets/mnist'))
 
 # path to cloned git repo https://github.com/MikalaiDrabovich/TensorScope/
 path_to_tensorscope = os.path.abspath(os.path.join(__file__, '..', '..', '..',  '..', '..', 'tensorscope'))

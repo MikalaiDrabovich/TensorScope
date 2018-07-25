@@ -1,81 +1,81 @@
-2018-07-12 12:06:40.943805: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-07-12 12:06:40.944249: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
+2018-07-25 03:25:03.879629: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-07-25 03:25:03.880090: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
 name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
 pciBusID: 0000:01:00.0
-totalMemory: 5.94GiB freeMemory: 5.61GiB
-2018-07-12 12:06:40.944261: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-07-12 12:06:41.135248: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-07-12 12:06:41.135295: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-07-12 12:06:41.135301: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-07-12 12:06:41.135481: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5383 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-2018-07-12 12:06:41.135722: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
+totalMemory: 5.94GiB freeMemory: 5.44GiB
+2018-07-25 03:25:03.880120: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-07-25 03:25:04.077297: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-07-25 03:25:04.077326: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-07-25 03:25:04.077331: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-07-25 03:25:04.077552: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5209 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-07-25 03:25:04.077754: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
 /usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
-I0712 12:06:43.093585 140482234029824 tf_logging.py:115] Using config: {'_train_distribute': None, '_save_summary_steps': 100, '_task_type': 'worker', '_model_dir': '/home/ndr/work/TensorScope/reproduce_results/resnet/resnet_model', '_save_checkpoints_steps': None, '_evaluation_master': '', '_num_worker_replicas': 1, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7fc3f00bc7f0>, '_global_id_in_cluster': 0, '_device_fn': None, '_tf_random_seed': None, '_log_step_count_steps': 100, '_task_id': 0, '_master': '', '_is_chief': True, '_session_config': allow_soft_placement: true
-, '_num_ps_replicas': 0, '_keep_checkpoint_every_n_hours': 10000, '_keep_checkpoint_max': 5, '_save_checkpoints_secs': 600}
-W0712 12:06:43.094509 140482234029824 tf_logging.py:120] 'cpuinfo' not imported. CPU info will not be logged.
-2018-07-12 12:06:43.094684: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-07-12 12:06:43.094735: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-07-12 12:06:43.094740: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-07-12 12:06:43.094744: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-07-12 12:06:43.094887: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5383 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-I0712 12:06:43.098094 140482234029824 tf_logging.py:115] Benchmark run: {'run_parameters': [{'long_value': 128, 'name': 'batch_size'}, {'name': 'dtype', 'string_value': "<dtype: 'float32'>"}, {'name': 'resnet_size', 'string_value': '32'}, {'name': 'resnet_version', 'string_value': '2'}, {'bool_value': 'False', 'name': 'synthetic_data'}, {'long_value': 250, 'name': 'train_epochs'}], 'model_name': 'resnet', 'machine_config': {'memory_available': 15035084800, 'memory_total': 16698224640, 'gpu_info': {'model': 'GeForce GTX 1060', 'count': 1}}, 'test_id': None, 'run_date': '2018-07-12T19:06:43.094057Z', 'dataset': {'name': 'CIFAR-10'}, 'tensorflow_version': {'git_hash': 'v1.9.0-rc2-203-g35287be', 'version': '1.9.0-rc0'}, 'tensorflow_environment_variables': [{'value': '1', 'name': 'TF_ENABLE_WINOGRAD_NONFUSED'}]}
-I0712 12:06:43.098310 140482234029824 tf_logging.py:115] Starting a training cycle: 0/25
-I0712 12:06:43.204269 140482234029824 tf_logging.py:115] Calling model_fn.
-I0712 12:06:45.124877 140482234029824 tf_logging.py:115] Done calling model_fn.
-I0712 12:06:45.125867 140482234029824 tf_logging.py:115] Create CheckpointSaverHook.
-I0712 12:06:45.947088 140482234029824 tf_logging.py:115] Graph was finalized.
-2018-07-12 12:06:45.947404: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-07-12 12:06:45.947445: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-07-12 12:06:45.947449: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-07-12 12:06:45.947471: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-07-12 12:06:45.947608: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5383 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-I0712 12:06:46.392642 140482234029824 tf_logging.py:115] Running local_init_op.
-I0712 12:06:46.422058 140482234029824 tf_logging.py:115] Done running local_init_op.
-I0712 12:06:47.861369 140482234029824 tf_logging.py:115] Saving checkpoints for 0 into /home/ndr/work/TensorScope/reproduce_results/resnet/resnet_model/model.ckpt.
-2018-07-12 12:06:49.038957: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
-I0712 12:06:50.210584 140482234029824 tf_logging.py:115] loss = 2.7259545, step = 0
-/home/ndr/work/TensorScope/reproduce_results/common_datasets/cifar10
-['/home/ndr/work/TensorScope/reproduce_results/resnet', '/home/ndr/work/TensorScope/reproduce_results/resnet/official/resnet', '/usr/lib/python35.zip', '/usr/lib/python3.5', '/usr/lib/python3.5/plat-x86_64-linux-gnu', '/usr/lib/python3.5/lib-dynload', '/home/ndr/.local/lib/python3.5/site-packages', '/home/ndr/.local/lib/python3.5/site-packages/pyrfr-0.4.0-py3.5-linux-x86_64.egg', '/usr/local/lib/python3.5/dist-packages', '/usr/local/lib/python3.5/dist-packages/openml-0.3.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/xmltodict-0.11.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/mock-2.0.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/pbr-3.1.1-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/loky-1.1.0.dev0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/auto_sklearn-0.2.0-py3.5-linux-x86_64.egg', '/usr/local/lib/python3.5/dist-packages/mlxtend-0.7.1.dev0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/virtualenv-15.1.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/PySide-1.2.4-py3.5-linux-x86_64.egg', '/usr/lib/python3/dist-packages', '/usr/lib/python3.5/dist-packages']
-data_dir:  /home/ndr/work/TensorScope/reproduce_results/common_datasets/cifar10/cifar-10-batches-bin
-Step 0/10(14) completed in 1.9527 seconds.
-New device info extracted from metadata: /device:GPU:0/stream:15 GPU 0
-New device info extracted from metadata: /device:GPU:0/stream:14 GPU 0
-New device info extracted from metadata: /job:localhost/replica:0/task:0/device:CPU:0 CPU 0
-New device info extracted from metadata: /device:GPU:0/memcpy GPU 0
-New device info extracted from metadata: /device:GPU:0/stream:all GPU 0
-New device info extracted from metadata: /job:localhost/replica:0/task:0/device:GPU:0 GPU 0
-New device info extracted from metadata: /device:GPU:0/stream:13 GPU 0
-Session graph and metadata parsed in 1.0018 seconds
-Step 1/10(14) completed in 0.7117 seconds.
-Timeline saved in /home/ndr/work/TensorScope/results/resnet/timeline_at_step_2.json
-Step 2/10(14) completed in 0.0782 seconds.
-Step 3/10(14) completed in 0.0739 seconds.
-Step 4/10(14) completed in 0.0748 seconds.
-Step 5/10(14) completed in 0.0724 seconds.
-Step 6/10(14) completed in 0.0738 seconds.
-Step 7/10(14) completed in 0.0707 seconds.
-Step 8/10(14) completed in 0.0739 seconds.
-Step 9/10(14) completed in 0.0727 seconds.
-Step 10/10(14) completed in 0.0727 seconds.
+I0725 03:25:06.007151 140529936443136 tf_logging.py:115] Using config: {'_save_summary_steps': 100, '_evaluation_master': '', '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7fcf4527e358>, '_log_step_count_steps': 100, '_num_worker_replicas': 1, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+, '_tf_random_seed': None, '_train_distribute': None, '_task_id': 0, '_num_ps_replicas': 0, '_service': None, '_device_fn': None, '_keep_checkpoint_every_n_hours': 10000, '_is_chief': True, '_keep_checkpoint_max': 5, '_global_id_in_cluster': 0, '_master': '', '_save_checkpoints_steps': None, '_task_type': 'worker', '_model_dir': '/home/ndr/work_july/july24/TensorScope/reproduce_results/resnet/resnet_model'}
+W0725 03:25:06.008183 140529936443136 tf_logging.py:120] 'cpuinfo' not imported. CPU info will not be logged.
+2018-07-25 03:25:06.008385: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-07-25 03:25:06.008419: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-07-25 03:25:06.008436: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-07-25 03:25:06.008440: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-07-25 03:25:06.008602: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5209 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+I0725 03:25:06.049426 140529936443136 tf_logging.py:115] Benchmark run: {'run_parameters': [{'name': 'batch_size', 'long_value': 128}, {'name': 'dtype', 'string_value': "<dtype: 'float32'>"}, {'name': 'resnet_size', 'string_value': '32'}, {'name': 'resnet_version', 'string_value': '2'}, {'bool_value': 'False', 'name': 'synthetic_data'}, {'name': 'train_epochs', 'long_value': 250}], 'dataset': {'name': 'CIFAR-10'}, 'tensorflow_environment_variables': [{'value': '1', 'name': 'TF_ENABLE_WINOGRAD_NONFUSED'}], 'tensorflow_version': {'version': '1.9.0-rc0', 'git_hash': 'v1.9.0-rc2-203-g35287be'}, 'machine_config': {'gpu_info': {'model': 'GeForce GTX 1060', 'count': 1}, 'memory_available': 14291214336, 'memory_total': 16698224640}, 'run_date': '2018-07-25T10:25:06.007664Z', 'model_name': 'resnet', 'test_id': None}
+I0725 03:25:06.049658 140529936443136 tf_logging.py:115] Starting a training cycle: 0/25
+I0725 03:25:06.153565 140529936443136 tf_logging.py:115] Calling model_fn.
+I0725 03:25:08.057903 140529936443136 tf_logging.py:115] Done calling model_fn.
+I0725 03:25:08.058981 140529936443136 tf_logging.py:115] Create CheckpointSaverHook.
+I0725 03:25:08.903884 140529936443136 tf_logging.py:115] Graph was finalized.
+2018-07-25 03:25:08.904134: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-07-25 03:25:08.904158: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-07-25 03:25:08.904163: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-07-25 03:25:08.904167: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-07-25 03:25:08.904278: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5209 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+I0725 03:25:09.362947 140529936443136 tf_logging.py:115] Running local_init_op.
+I0725 03:25:09.391898 140529936443136 tf_logging.py:115] Done running local_init_op.
+I0725 03:25:10.861274 140529936443136 tf_logging.py:115] Saving checkpoints for 0 into /home/ndr/work_july/july24/TensorScope/reproduce_results/resnet/resnet_model/model.ckpt.
+2018-07-25 03:25:12.078313: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
+I0725 03:25:13.266947 140529936443136 tf_logging.py:115] loss = 2.7518976, step = 0
+/home/ndr/work_july/july24/TensorScope/reproduce_results/common_datasets/cifar10
+['/home/ndr/work_july/july24/TensorScope/reproduce_results/resnet', '/home/ndr/work_july/july24/TensorScope/reproduce_results/resnet/official/resnet', '/usr/lib/python35.zip', '/usr/lib/python3.5', '/usr/lib/python3.5/plat-x86_64-linux-gnu', '/usr/lib/python3.5/lib-dynload', '/home/ndr/.local/lib/python3.5/site-packages', '/home/ndr/.local/lib/python3.5/site-packages/pyrfr-0.4.0-py3.5-linux-x86_64.egg', '/usr/local/lib/python3.5/dist-packages', '/usr/local/lib/python3.5/dist-packages/openml-0.3.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/xmltodict-0.11.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/mock-2.0.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/pbr-3.1.1-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/loky-1.1.0.dev0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/auto_sklearn-0.2.0-py3.5-linux-x86_64.egg', '/usr/local/lib/python3.5/dist-packages/mlxtend-0.7.1.dev0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/virtualenv-15.1.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/PySide-1.2.4-py3.5-linux-x86_64.egg', '/usr/lib/python3/dist-packages', '/usr/lib/python3.5/dist-packages']
+data_dir:  /home/ndr/work_july/july24/TensorScope/reproduce_results/common_datasets/cifar10/cifar-10-batches-bin
+Step 0/10(14) completed in 2.0102 seconds.
+Session graph and metadata parsed in 0.0434 seconds
+Step 1/10(14) completed in 0.7137 seconds.
+Timeline saved in /home/ndr/work_july/july24/TensorScope/results/resnet/timeline_at_step_2.json
+Session graph and metadata parsed in 0.0499 seconds
+Step 2/10(14) completed in 0.0803 seconds.
+Session graph and metadata parsed in 0.0465 seconds
+Step 3/10(14) completed in 0.0824 seconds.
+Session graph and metadata parsed in 0.0482 seconds
+Step 4/10(14) completed in 0.0774 seconds.
+Session graph and metadata parsed in 0.1164 seconds
+Step 5/10(14) completed in 0.0767 seconds.
+Session graph and metadata parsed in 0.0489 seconds
+Step 6/10(14) completed in 0.0784 seconds.
+Session graph and metadata parsed in 0.0484 seconds
+Step 7/10(14) completed in 0.0778 seconds.
+Session graph and metadata parsed in 0.0487 seconds
+Step 8/10(14) completed in 0.0802 seconds.
+Session graph and metadata parsed in 0.1281 seconds
+Step 9/10(14) completed in 0.0799 seconds.
+Session graph and metadata parsed in 0.0479 seconds
+Step 10/10(14) completed in 0.0840 seconds.
 Session is closed
 
-Sanity check: total time for 10 steps: 1.375 sec., 1 step avg. time:  137486.3 microsec., 1 step avg. time captured in metadata: 50748.3 microsec., number of unique ops: 895
-
-2 - Total time for 10 steps: 1.375 sec., 1 step avg. time:  137486.3 microsec., 1 step avg. time captured in metadata: 50748.3 microsec., number of unique ops: 165
+Sanity check: total time for 10 steps: 1.431 sec., 1 step avg. time:  143102.7 microsec., 1 step avg. time captured in metadata: 54444.4 microsec., number of unique ops: 239
 
 *** Brief summary ***
 
-Top-1 ops (0.6%)	5.6 ms (11.0%)
-Top-2 ops (1.2%)	9.3 ms (18.3%)
-Top-3 ops (1.8%)	13.0 ms (25.5%)
-Top-5 ops (3.0%)	18.3 ms (36.1%)
-Top-10 ops (6.1%)	27.0 ms (53.2%)
-Top-17 ops (10.3%)	35.4 ms (69.7%)
-Top-30 ops (18.2%)	43.6 ms (85.8%)
-Top-53 ops (32.1%)	48.4 ms (95.4%)
-Top-94 ops (57.0%)	50.5 ms (99.5%)
-Top-165 ops (100.0%)	50.7 ms (100.0%)
+Top-1 ops (0.4%)	8.7 ms (16.1%)
+Top-2 ops (0.8%)	14.4 ms (26.5%)
+Top-3 ops (1.3%)	18.2 ms (33.5%)
+Top-6 ops (2.5%)	27.1 ms (49.8%)
+Top-11 ops (4.6%)	35.4 ms (64.9%)
+Top-21 ops (8.8%)	44.1 ms (80.9%)
+Top-39 ops (16.3%)	49.3 ms (90.6%)
+Top-71 ops (29.7%)	52.4 ms (96.3%)
+Top-130 ops (54.4%)	54.0 ms (99.3%)
+Top-239 ops (100.0%)	54.4 ms (100.0%)
 
-*** I/O tensor shapes are saved to /home/ndr/work/TensorScope/results/resnet/data.tsv ***
+*** I/O tensor shapes are saved to /home/ndr/work_july/july24/TensorScope/results/resnet/data.tsv ***
 

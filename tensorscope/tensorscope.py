@@ -674,7 +674,10 @@ class Tensorscope(object):
             
 
     def fill_raw_data(self, step_stats, current_raw_nodes):
-        tf.train.write_graph(step_stats, self.temp_path, 'metadata_'+str(time.time()) +'.txt')
+    
+        # save RunMetadata from session
+        #tf.train.write_graph(step_stats, self.temp_path, 'metadata_'+str(time.time()) +'.txt')
+        
         all_current_raw_nodes = []
         
         mem_nodes = ['MEMCPYDtoH', 'MEMCPYHtoD', 'MEMCPYDtoD', 'MEMCPYHtoH']
@@ -737,6 +740,8 @@ class Tensorscope(object):
         self.current_raw_nodes = all_current_raw_nodes      
         self.node_list_all_sessions.extend(all_current_raw_nodes)
         
+        # save unaggregated data from each session
+        """
         filename_ops_metadata = self.temp_path + "node_list_one_session_"+str(time.time())+".tsv"
         file_ops_metadata = open(filename_ops_metadata,'w')
         sorted_all_node_names = sorted(all_current_raw_nodes)
@@ -745,7 +750,7 @@ class Tensorscope(object):
             file_ops_metadata.write('\n')
             
         file_ops_metadata.close()
-        
+        """
        
  
     def print_distribution_summary(self, sorted_times, denom_const):
@@ -981,6 +986,7 @@ class Tensorscope(object):
                     self.sess_node_dict_out = self.aggregate_session_by_node_path(self.current_raw_nodes)
                      
                     # save raw data
+                    """
                     filename_ops_metadata = self.temp_path + "final_session_"+str(time.time())+".tsv"
                     file_ops_metadata = open(filename_ops_metadata,'w')
 
@@ -990,7 +996,8 @@ class Tensorscope(object):
                         file_ops_metadata.write('\n')
                         
                     file_ops_metadata.close()
-                     
+                    """
+                    
                     # aggregate by type + parameters + device
                     if not self.profiling_result:
                         self.profiling_result = self.sess_node_dict_out.copy()
@@ -1040,7 +1047,7 @@ class Tensorscope(object):
                 
             print('Session is closed')
             
-            filename_ops_metadata = self.temp_path + "all_sessions_merged_"+str(time.time())+".tsv"
+            filename_ops_metadata = self.temp_path + "data_all_sessions_unaggregated" + ".tsv"
             file_ops_metadata = open(filename_ops_metadata,'w')
  
             for k,v in self.profiling_result.items():

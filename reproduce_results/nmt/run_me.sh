@@ -8,7 +8,7 @@ MODEL=nmt
 LOG_FILE=${MODEL}'_log.txt'
 OUTPUT_DIR="../../results/${MODEL}"
 if [ ! -d ${OUTPUT_DIR} ]; then
-  mkdir ${OUTPUT_DIR}
+  mkdir -p ${OUTPUT_DIR}
 fi
 
 DATA_PATH=../common_datasets/nmt
@@ -51,7 +51,7 @@ CURRENT_DIR=`pwd`
 SUMMARY_DIR="${CURRENT_DIR}/../../results_summary/${MODEL}"
 
 if [ ! -d ${SUMMARY_DIR} ]; then
-  mkdir ${SUMMARY_DIR}
+  mkdir -p ${SUMMARY_DIR}
 fi
 
 cp  "${CURRENT_DIR}/../../results/${MODEL}/pie_chart.html" "${CURRENT_DIR}/../../results_summary/${MODEL}/"

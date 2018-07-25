@@ -4,5 +4,6 @@
 ~$*
 *.*~
 **/__pycache__/
-
-
+events.out.*
+reproduce_results/mnist/mnist_model/
+reproduce_results/nmt/nmt_model/log_*
