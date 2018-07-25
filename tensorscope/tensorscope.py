@@ -860,7 +860,8 @@ class Tensorscope(object):
           # remove slot info from shapes
           spl = times_value[6].split(' slot ')
           if len(spl) > 1:
-              times_value[6] = spl[0]+')'
+              no_spl_res = [p for p in spl if not p.isdigit()]
+              times_value[6] = ''.join(no_spl_res)
           
           opname_short = times_value[1]
           shape_str = times_value[6]
