@@ -217,27 +217,11 @@ class Tensorscope(object):
 
         self.session_results = []
         
-        
         # path, device str, duration, all duration, outpu str, timelabel_str
         self.current_raw_nodes = []
         self.current_nodes_generic = []
         self.node_list_all_sessions = []
         
-    def remove_tensor_position_from_node_name(self, name_from_metadata):
-        # LayoutOptimizer adds tensor position in i/o array to the node name,
-        # this may lead to difference between name in metadata and timeline_label
-        # see AddTransformToOutputs(), AddLayoutTransposeToInputs() and similar in 
-        # tensorflow/core/grappler/optimizers/layout_optimizer.cc , 
-        # search there for "-" (with quotes)
-        current_node_path_parts = name_from_metadata.split('/')
-        for i, node in enumerate(current_node_path_parts):
-            node_loc = node.split('-')
-            if 'LayoutOptimizer' in node_loc:
-                node_loc = [n for n in node_loc if not n.isdigit()]
-                current_node_path_parts[i] = '-'.join(node_loc)
-                
-        return '/'.join(current_node_path_parts)
-
     def make_generic_node_name(self, name_from_metadata):
 
         current_node_path_parts = name_from_metadata.split('/')
@@ -255,6 +239,7 @@ class Tensorscope(object):
 
     def get_common_shapes(self, device_id, in_node, sess_node_dict_out_raw):
         fin_shape = '?'
+        in_node_orig = in_node+''
         
         in_node = in_node.split('/')
         leaf_node_parts = in_node[-1].split('_')
@@ -275,8 +260,7 @@ class Tensorscope(object):
                                 # what if there is also an exact output slot for the value?
                                 return loc_dev_dict[devid][1][0]
          
- 
-        
+    
         if leaf_node == 'ConcatOffset':
             return '(2x1)'
        
@@ -288,7 +272,25 @@ class Tensorscope(object):
     
         if leaf_node in ['add', 'Reshape', 'RealDiv',  'zeros', 'zeros_like', 'ones_like', 'ones', 'y', 'stack', 'ExponentialDecay']:
             return '(1|2|3x1)'   
-          
+        
+        """
+        if in_node_orig.endswith('TransposeNHWCToNCHW-LayoutOptimizer'):
+            temp_workaround = in_node_orig.replace('NHWCToNCHW', 'NCHWToNHWC')
+            temp_workaround = temp_workaround.replace('-0-', '-0-0-')
+            
+            if temp_workaround in sess_node_dict_out_raw:
+                loc_dev_dict = sess_node_dict_out_raw[temp_workaround][1]
+                if device_id in loc_dev_dict: 
+                    return loc_dev_dict[device_id][1]
+                else:
+                    for devid, devval in loc_dev_dict.items():
+                        if 'replica' in devid:
+                            if in_node in loc_dev_dict[devid]:
+                                if loc_dev_dict[devid][1][0] != '(no output)':
+                                    # what if there is also an exact output slot for the value?
+                                    return loc_dev_dict[devid][1][0]
+        """                        
+                                
         return fin_shape
 
     
@@ -388,6 +390,10 @@ class Tensorscope(object):
         total_lines = len(sess_node_list_in)
         current_line = 0
         sess_node_dict_out_raw = {}
+                      
+        mem_nodes = ['MEMCPYDtoH', 'MEMCPYHtoD', 'MEMCPYDtoD', 'MEMCPYHtoH']
+        mem_nodes_hcc  = ['hcMemcpyDeviceToHost', 'hcMemcpyHostToDevice', 'hcMemcpyDeviceToDevice', 'hcMemcpyHostToHost']    
+        mem_nodes.extend(mem_nodes_hcc)
                 
         while current_line < total_lines:
  
@@ -395,11 +401,18 @@ class Tensorscope(object):
             current_key = current_key.split('/')
             current_key_last = current_key[-1] + ''
             current_key_last = current_key_last.split(':')
-            shortname = current_key_last[0]
-            current_key[-1] = shortname+ ''
+            
+            if len(current_key_last) > 1 and current_key_last[-1] in mem_nodes:
+                shortname = current_key_last[-1]
+                current_key[-1] =  current_key_last[0]
+                current_key.append(shortname)
+            else:
+                shortname = current_key_last[0]
+                current_key[-1] = shortname+ ''
+                
             current_key = '/'.join(current_key)
             current_device = sess_node_list_in[current_line][1]
-            
+                                          
             if not current_key in sess_node_dict_out_raw:
                 device_dict = {}
                 device_dict[current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
@@ -407,8 +420,7 @@ class Tensorscope(object):
             
             if current_device not in  sess_node_dict_out_raw[current_key][1]:
                 sess_node_dict_out_raw[current_key][1][current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
-                
-                        
+                                        
             device_data = []
                   
             # we can get input names, short op name, output size, but not time, time will be from stream:all or sum of other streams minus stream:all and replica  
@@ -439,10 +451,6 @@ class Tensorscope(object):
                 device_data = [['no inputs saved in stream'], ['no outputs saved in stream'], sess_node_list_in[current_line][2], sess_node_list_in[current_line][3], sess_node_list_in[current_line][4]]
  
             if 'memcpy' in current_device:
-                mem_nodes = ['MEMCPYDtoH', 'MEMCPYHtoD', 'MEMCPYDtoD', 'MEMCPYHtoH']
-                mem_nodes_hcc  = ['hcMemcpyDeviceToHost', 'hcMemcpyHostToDevice', 'hcMemcpyDeviceToDevice', 'hcMemcpyHostToHost']    
-                mem_nodes.extend(mem_nodes_hcc)
-        
                 timeline_string = sess_node_list_in[current_line][-1]
                 
                 lb = timeline_string
@@ -452,6 +460,19 @@ class Tensorscope(object):
                 if mem_cand in mem_nodes:
                     memsz = timeline_string.split(' ')
                     output_shapes_list.append('(' + memsz[1]+' bytes)')
+                    
+                    """
+                    current_key = current_key + '/' + mem_cand
+                    
+                    if not current_key in sess_node_dict_out_raw:
+                        device_dict = {}
+                        device_dict[current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
+                        sess_node_dict_out_raw[current_key] = [shortname, device_dict]
+                    
+                    if current_device not in  sess_node_dict_out_raw[current_key][1]:
+                        sess_node_dict_out_raw[current_key][1][current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
+                
+                    """          
                 else:
                     output_shapes_list.append('(no output info)')
                                    
@@ -474,7 +495,6 @@ class Tensorscope(object):
                         for in_node in input_names_from_stream:
                             if in_node[0] !='^': # skip control nodes
                             
-                              
                                 if in_node in sess_node_dict_out_raw:  #for each input name candidate find shape if recorded
                                     loc_dev_dict = sess_node_dict_out_raw[in_node][1]
                                     if k in loc_dev_dict:
@@ -486,16 +506,14 @@ class Tensorscope(object):
                                         if leaf_shape != '?':
                                             inp_with_shape.extend(leaf_shape)
                                         else:
-                                            inp_with_shape.extend(['1 - ? node '+in_node+' no data found for device ' + k])
-                                            print('1 ? - for node ', in_node, ' for device ', k)
+                                            inp_with_shape.extend(['(?)'])
+                                            print('Attention: this node is referenced as input in timeline_label but is absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 1')
                                         
                                 else:
                                      in_node = in_node.split('/')
                                      leaf_node_parts = in_node[-1].split('_')
                                      leaf_node = [p for p in leaf_node_parts if not p.isdigit()]
                                      leaf_node = '_'.join(leaf_node)
-                                     
-                            
                                      
                                      if leaf_node == '': # if in_node ends in for example /_42
                                          in_node = '/'.join(in_node[:-1])
@@ -530,7 +548,7 @@ class Tensorscope(object):
                                                     if leaf_shape != '?':
                                                         inp_with_shape.extend(leaf_shape)
                                                     else:                                        
-                                                        inp_with_shape.extend(['2 - ? node '+in_node+' no data found for device ' + k])
+                                                        inp_with_shape.extend(['(?)'])
                                                         print('2 ? - for node ', in_node, ' for device ', k)
                                          else:
                                          
@@ -540,25 +558,16 @@ class Tensorscope(object):
                                             if leaf_shape != '?':
                                                 inp_with_shape.extend(leaf_shape)
                                             else:
-                                                inp_with_shape.extend(['3 - ? node '+in_node+' was in not dict, device '+k])
-                                                print('3 ? - node not found in RunMetadata ', in_node, ' would be looking for info from device ', k)
-
-
-                                                   
-
-
-
+                                                inp_with_shape.extend(['(?)'])
+                                                print('Attention: this node is referenced as input in timeline_label but is absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 3')
 
                                      else:
                                         # try exact slot number 
-                                        
-                                        
                                         leaf_node_parts = in_node[-1].split(':')
                                         slot_number = 'not defined'
                                         if leaf_node_parts[-1].isdigit():
                                             slot_number = int(leaf_node_parts[-1])
-                                      
-                                        
+                                                                              
                                         if slot_number != 'not defined':
                                             in_node[-1] = leaf_node_parts[0] 
                                             in_node = '/'.join(in_node)
@@ -606,42 +615,35 @@ class Tensorscope(object):
                                                         if leaf_shape != '?':
                                                             inp_with_shape.extend(leaf_shape)
                                                         else:
-                                                            inp_with_shape.extend(['4 - ? node '+ in_node +' no data found for device ' + k])
-                                                            print('4 ? - for node ', in_node, ' for device ', k)
-                                            else:
-                                            
+                                                            inp_with_shape.extend(['(?)'])
+                                                            print('Attention: this node is referenced as input in timeline_label but is absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 4')
+                                            else:                                            
                                             
                                                 leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
                                                 
                                                 if leaf_shape != '?':
                                                     inp_with_shape.extend(leaf_shape)
                                                 else:
-                                                    inp_with_shape.extend(['5 - ? node '+in_node+' was not in RunMetada, would be quering for device '+k])
-                                                    print('5 ? - node not found in RunMetadata ', in_node, ' would be looking for info from device ', k)
-
-
-
+                                                    inp_with_shape.extend(['(?)'])
+                                                    print('Attention: this node is referenced as input in timeline_label but is absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 5')
 
                                         else:
-                                        
-                                            
+                                                                                  
                                             in_node = '/'.join(in_node)
                                             leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
                                             
                                             if leaf_shape != '?':
                                                 inp_with_shape.extend(leaf_shape)
                                             else:
-                                                inp_with_shape.extend(['6 - ? node '+in_node+' was not in RunMetada, would be quering for device '+k])
-                                                print('6 ? - node not found in RunMetadata ', in_node, ' would be looking for info from device ', k)
-
-
+                                                inp_with_shape.extend(['(?)'])
+                                                print('Attention: this node is referenced as input in timeline_label but is absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 6')
 
                                   
                         if len(inp_with_shape) == 0: # if all inputs where control nodes
                             device_dict[k][0] = ['(no input)']
                         else:
                             # replace names of inputs with shapes found
-                            device_dict[k][0] = inp_with_shape # ref correct??
+                            device_dict[k][0] = inp_with_shape # ref correct?
                  
                     break # since other non replica will not have input names at all
                     
@@ -706,7 +708,7 @@ class Tensorscope(object):
                             result_shape_with_type = tensor_shape_result
                         
                         if result_shape_with_type=='':
-                            result_shape_with_type = '???fin'
+                            result_shape_with_type = '? unknown type'
                         
                         if node_stat_out.slot:
                             output_shapes_list.append('('+result_shape_with_type+' slot ' + str(node_stat_out.slot) + ' slot ' +')')
@@ -731,10 +733,8 @@ class Tensorscope(object):
                 output_shapes = output_shapes_list#''.join(output_shapes_list) 
                 all_current_raw_nodes.append([node_stat.node_name, dev_stats.device, node_stat.op_start_rel_micros, node_stat.op_end_rel_micros, node_stat.all_end_rel_micros, output_shapes, node_stat.timeline_label])
         
-        
-        
-        self.current_raw_nodes = all_current_raw_nodes
-        
+                
+        self.current_raw_nodes = all_current_raw_nodes      
         self.node_list_all_sessions.extend(all_current_raw_nodes)
         
         filename_ops_metadata = self.temp_path + "node_list_one_session_"+str(time.time())+".tsv"
@@ -816,8 +816,7 @@ class Tensorscope(object):
           #total_ops_time = total_ops_time + op_time[4]
           # all_end timings
           total_ops_time = total_ops_time + op_time[5]
-          
-            
+                
         mean_time_per_step = float(self.total_time_analyzed)/self.num_steps_analyzed
         mean_all_ops_time_per_step = float(total_ops_time)/self.num_steps_analyzed
         denom_const = 0.01*self.num_steps_analyzed*mean_all_ops_time_per_step
@@ -861,8 +860,6 @@ class Tensorscope(object):
           opname_short = times_value[1]
           shape_str = times_value[6]
             
-         
-          
           num_calls_all_runs =  max(times_value[7],times_value[8],times_value[9])
           num_calls_per_run =  (num_calls_all_runs/float(self.num_steps_analyzed))#int(times_value[1]/self.num_steps_analyzed)
           
@@ -872,8 +869,7 @@ class Tensorscope(object):
 
           op_time_all_runs = times_value[5]
           
-          
-         
+
           # keep in mind that same nodes will likely have different io shapes between session for models like nmt (seq2seq, lstm)
           # alternatively, don't divide total time by number of session runs, to get actual time spent in each op
           op_time_per_run_microsec = op_time_all_runs/(float(self.num_steps_analyzed))
@@ -884,9 +880,6 @@ class Tensorscope(object):
           cumul_time += op_time_per_run_microsec
           op_count = op_count + 1
                    
-          
-          
-
           opname_for_summation = '/'.join([opname_short, times_value[2], times_value[6]]) # op, device, i/o shapes
           #opname_for_summation = opname_for_summation[0].upper() + opname_for_summation[1:]
            
@@ -982,13 +975,11 @@ class Tensorscope(object):
                 self.num_steps_analyzed += 1
                 
                 if True:
-
                     parsing_start_time = time.time()
                     
                     self.fill_raw_data(self.session_metadata.step_stats, self.current_raw_nodes)#input_names, output_shapes):
                     self.sess_node_dict_out = self.aggregate_session_by_node_path(self.current_raw_nodes)
-                    
-                    
+                     
                     # save raw data
                     filename_ops_metadata = self.temp_path + "final_session_"+str(time.time())+".tsv"
                     file_ops_metadata = open(filename_ops_metadata,'w')
@@ -999,8 +990,7 @@ class Tensorscope(object):
                         file_ops_metadata.write('\n')
                         
                     file_ops_metadata.close()
-                    
-                    
+                     
                     # aggregate by type + parameters + device
                     if not self.profiling_result:
                         self.profiling_result = self.sess_node_dict_out.copy()
@@ -1021,8 +1011,7 @@ class Tensorscope(object):
                             else:
                                 self.profiling_result[k] = v
                                 
-        
-        
+
                     parsing_end_time = time.time()
                     self.tracing_graph_parsed = True
                     print("Session graph and metadata parsed in %4.4f seconds" % (parsing_end_time - parsing_start_time))                    
@@ -1034,8 +1023,7 @@ class Tensorscope(object):
         print("Step %d/%d(%d) completed in %4.4f seconds." % 
         (self.num_steps_analyzed, self.num_steps_to_analyze, self.total_num_sessions, self.current_session_time))
         
-        
-        
+
         # save timeline at a specific step (number 2 by default)
         if self.current_session == self.step_to_save_timeline_at:
             self.save_timeline()        
@@ -1111,4 +1099,3 @@ class TensorscopeRunHook(session_run_hook.SessionRunHook):
     self._ts.session_metadata = run_values.run_metadata
     self._ts.characterize_model(graph=run_context.session.graph) 
     self._next_step = global_step + 1
-    
