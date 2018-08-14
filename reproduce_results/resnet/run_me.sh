@@ -19,7 +19,7 @@ mkdir "${RESNET_MODEL_PATH}"
 
 cd official
 cd resnet
-python3 cifar10_main.py 2>&1 | tee ../../${OUTPUT_DIR}/${LOG_FILE}
+python3 imagenet_main.py 2>&1 | tee ../../${OUTPUT_DIR}/${LOG_FILE}
 cd ../..
 
 # generate pie chart
@@ -37,8 +37,9 @@ fi
 cp  "${CURRENT_DIR}/../../results/${MODEL}/pie_chart.html" "${CURRENT_DIR}/../../results_summary/${MODEL}/"
 cp  "${CURRENT_DIR}/../../results/${MODEL}/data.tsv" "${CURRENT_DIR}/../../results_summary/${MODEL}/"
 
-echo Detailed results saved to "${CURRENT_DIR}/../../results/${MODEL}/"
-echo Summary of results saved to "${CURRENT_DIR}/../../results_summary/${MODEL}/"
+echo
+echo "Results saved to " ${CURRENT_DIR}/../../results/${MODEL}/
+echo "Summary of results (pie_chart.html, data.tsv) copied to" "${CURRENT_DIR}/../../results_summary/${MODEL}/"
 
 #chromium-browser "../../results/${MODEL}/pie_chart.html"
 

@@ -46,7 +46,7 @@ import os
 ts_path = os.path.abspath(os.path.join(__file__, '..', '..', '..', 'tensorscope'))
 sys.path.insert(0, ts_path)
 
-from tensorscope import Tensorscope
+from tensorscope import TensorScope
 
 FLAGS = None
 
@@ -196,20 +196,18 @@ def time_tensorflow_run(session, target, info_string):
   total_duration = 0.0
   total_duration_squared = 0.0
   
-  #1/3 Enable tensorscope - add this line before main loop
-  ts = Tensorscope(num_steps=10, 
-                   output_dir=os.path.abspath(os.path.join(__file__, '..', '..', '..', 'results/alexnet')),
-                   session=session)
+  # Enable tensorscope
+  ts = TensorScope(model_name='alexnet', session=session)
   
   for i in xrange(FLAGS.num_batches + num_steps_burn_in):
     start_time = time.time()
 
-    #2/3 Enable tensorscope - add 'options' and 'run_metadata' to session.run()
+    # Enable tensorscope - add 'options' and 'run_metadata' to session.run()
     _ = session.run(target,
                     options=ts.options,
                     run_metadata=ts.metadata())  
     
-    #3/3 Enable tensorscope - add after session.run()
+    # Enable tensorscope
     ts.characterize_model(graph=session.graph) 
 
     duration = time.time() - start_time
@@ -228,10 +226,7 @@ def time_tensorflow_run(session, target, info_string):
 
 
 def run_benchmark():
-
-
-
-
+ 
   """Run the benchmark on AlexNet."""
   with tf.Graph().as_default():
     # Generate some dummy images.

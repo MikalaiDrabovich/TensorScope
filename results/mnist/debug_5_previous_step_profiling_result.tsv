@@ -1,0 +1,162 @@
+dense_1/bias	VarHandleOp	GPU-0	17	38	123	(no input)->(tf_resource 1x1)	0	50	0
+gradients/sequential/dropout/dropout/div_grad/Reshape	Reshape	GPU-0	18	68	225	(100x1024)(int32 2x1)->(100x1024)	0	50	0
+_retval_global_step/add_0_0	_Retval	CPU-0	30	56	153	(int64 1x1)->(no output info)	0	50	0
+Adam/beta1	Const	GPU-0	9	89	173	(no input)->(1x1)	0	50	0
+sequential/dropout/dropout/keep_prob	Const	GPU-0	14	94	196	(no input)->(1x1)	0	50	0
+sequential/max_pooling2d/MaxPool	MaxPool	GPU-0	0	5223	5223	(100x32x28x28)->(100x32x14x14)	50	50	0
+dense_1/kernel	VarHandleOp	GPU-0	16	78	160	(no input)->(tf_resource 1x1)	0	50	0
+Adam/beta2	Const	GPU-0	16	97	202	(no input)->(1x1)	0	50	0
+Adam/value	Const	GPU-0	45	159	288	(no input)->(int64 1x1)	0	50	0
+Adam/Assign/MEMCPYDtoD	MEMCPYDtoD	GPU-0	0	50	50	(Transfer)->(4 bytes)	0	0	50
+Adam/learning_rate	Const	GPU-0	13	114	222	(no input)->(1x1)	0	50	0
+gradients/sequential/dropout/dropout/div_grad/Shape	Shape	GPU-0	18	166	293	(100x1024)->(int32 2x1)	0	50	0
+gradients/sequential/conv2d/Relu_grad/ReluGrad	ReluGrad	GPU-0	0	14784	14784	(100x32x28x28)(100x32x28x28)->(100x32x28x28)	50	50	0
+gradients/sequential/flatten/Reshape_grad/Shape	Shape	GPU-0	24	188	312	(100x64x7x7)->(int32 4x1)	0	50	0
+_SOURCE	NoOp	GPU-0	233	312	3992	(no input)->(no output info)	0	50	0
+dense/kernel/Adam	VarHandleOp	GPU-0	16	58	160	(no input)->(tf_resource 1x1)	0	50	0
+global_step/add/MEMCPYDtoD	MEMCPYDtoD	GPU-0	0	50	50	(Transfer)->(8 bytes)	0	0	50
+sequential/conv2d/Conv2D/ReadVariableOp	ReadVariableOp	GPU-0	18	265	410	(tf_resource 1x1)->(5x5x1x32)	0	50	0
+sequential/conv2d/BiasAdd/ReadVariableOp	ReadVariableOp	GPU-0	15	138	263	(tf_resource 1x1)->(32x1)	0	50	0
+Adam/update_dense/bias/ResourceApplyAdam	ResourceApplyAdam	GPU-0	0	421	421	(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1024x1)->(no output info)	50	50	0
+gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv	RealDiv	GPU-0	0	87	87	(1x1)(1x1)->(1x1)	50	50	0
+sequential/reshape/Reshape/shape/2	Const	GPU-0	17	78	169	(no input)->(int32 1x1)	0	50	0
+sequential/dense/MatMul/ReadVariableOp	ReadVariableOp	GPU-0	14	114	224	(tf_resource 1x1)->(3136x1024)	0	50	0
+sparse_softmax_cross_entropy_loss/Mul	Snapshot	GPU-0	15	66	154	(100x1)(100x10 slot 1 slot )->(100x1)	0	50	0
+dense_1/kernel/Adam	VarHandleOp	GPU-0	27	72	170	(no input)->(tf_resource 1x1)	0	50	0
+beta1_power	VariableV2	GPU-0	13	405	514	(no input)->(1x1)	0	50	0
+sequential/dense/BiasAdd	BiasAdd	GPU-0	0	210	210	(100x1024)(1024x1)->(100x1024)	50	50	0
+sequential/reshape/Reshape	Reshape	GPU-0	112	199	617	(100x784)(int32 100x1 slot 1 slot )(int32 4x1)->(100x1x28x28)	0	50	0
+sequential/flatten/strided_slice	StridedSlice	GPU-0	29	301	413	(int32 4x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 1x1)	0	50	0
+gradients/sequential/dropout/dropout/mul_grad/Mul	Mul	GPU-0	0	192	192	(100x1024)(100x1024)->(100x1024)	50	50	0
+Adam/update_dense/kernel/ResourceApplyAdam	ResourceApplyAdam	GPU-0	0	41352	41352	(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(3136x1024)->(no output info)	50	50	0
+conv2d/bias	VarHandleOp	GPU-0	19	49	148	(no input)->(tf_resource 1x1)	0	50	0
+conv2d_1/kernel/Adam	VarHandleOp	GPU-0	25	88	199	(no input)->(tf_resource 1x1)	0	50	0
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	37106	37106	(int32 4x1)(int32 4x1 slot 1 slot )(5x5x32x64)(100x64x14x14)->(100x32x14x14)	50	50	0
+gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim	Const	GPU-0	29	62	168	(no input)->(int32 1x1)	0	50	0
+sequential/flatten/Reshape/shape	Pack	GPU-0	20	227	368	(int32 1x1)(int32 1x1)->(int32 2x1)	0	50	0
+sparse_softmax_cross_entropy_loss/Select	Select	GPU-0	0	85	85	(boolean 1x1)(1|2|3x1)(1x1)->(1x1)	50	50	0
+sequential/conv2d_1/Relu	Relu	GPU-0	0	3350	3350	(100x64x14x14)->(100x64x14x14)	50	50	0
+sequential/dense/MatMul	MatMul	GPU-0	0	12120	12120	(100x3136)(3136x1024)->(100x1024)	50	50	0
+Iterator	Iterator	CPU-0	25	596	986	(no input)->(tf_resource 1x1)	0	50	0
+global_step/Initializer/zeros	Const	GPU-0	15	98	182	(no input)->(int64 1x1)	0	50	0
+Adam/update_dense_1/bias/ResourceApplyAdam	ResourceApplyAdam	GPU-0	0	479	479	(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(10x1)->(no output info)	50	50	0
+gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad	BiasAddGrad	GPU-0	0	365	365	(100x10)->(10x1)	50	50	0
+global_step/IsVariableInitialized	IsVariableInitialized	GPU-0	27	321	465	(int64 1x1)->(boolean 1x1)	0	50	0
+sequential/conv2d_1/Conv2D	Conv2D	GPU-0	0	29385	29385	(100x32x14x14)(5x5x32x64)->(100x64x14x14)	50	50	0
+sparse_softmax_cross_entropy_loss/div	RealDiv	GPU-0	0	112	112	(1x1)(1x1)->(1x1)	50	50	0
+gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad	BiasAddGrad	GPU-0	0	2162	2162	(100x64x14x14)->(64x1)	50	50	0
+conv2d/kernel	VarHandleOp	GPU-0	15	83	172	(no input)->(tf_resource 1x1)	0	50	0
+sequential/dropout/dropout/Floor	Floor	GPU-0	0	139	139	(100x1024)->(100x1024)	50	50	0
+sequential/conv2d_1/BiasAdd/ReadVariableOp	ReadVariableOp	GPU-0	18	113	204	(tf_resource 1x1)->(64x1)	0	50	0
+conv2d_1/bias/Adam	VarHandleOp	GPU-0	22	61	177	(no input)->(tf_resource 1x1)	0	50	0
+global_step/add	Snapshot	GPU-0	23	4426	4693	(int64 1x1)(int32 1x1 slot 1 slot )->(int64 1x1)	0	50	0
+sparse_softmax_cross_entropy_loss/num_present	Sum	GPU-0	0	89	89	(100x1)(1)->(1x1)	50	50	0
+sequential/dense_1/BiasAdd/ReadVariableOp	ReadVariableOp	GPU-0	16	90	206	(tf_resource 1x1)->(10x1)	0	50	0
+beta1_power/read	Identity	GPU-0	28	87	199	(1x1)->(1x1)	0	50	0
+conv2d/bias/Adam_1	VarHandleOp	GPU-0	22	94	196	(no input)->(tf_resource 1x1)	0	50	0
+conv2d_1/bias/Adam_1	VarHandleOp	GPU-0	15	63	150	(no input)->(tf_resource 1x1)	0	50	0
+ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1	Const	GPU-0	43	147	471	(no input)->(int32 1x1)	0	50	0
+sequential/conv2d_1/Conv2D/ReadVariableOp	ReadVariableOp	GPU-0	18	99	211	(tf_resource 1x1)->(5x5x32x64)	0	50	0
+Adam/epsilon	Const	GPU-0	8	85	161	(no input)->(1x1)	0	50	0
+gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad	BiasAddGrad	GPU-0	0	3707	3707	(100x32x28x28)->(32x1)	50	50	0
+conv2d/kernel/Adam_1	VarHandleOp	GPU-0	16	74	173	(no input)->(tf_resource 1x1)	0	50	0
+gradients/sequential/dense_1/MatMul_grad/MatMul	MatMul	GPU-0	0	721	721	(100x10)(1024x10)->(100x1024)	50	50	0
+gradients/sparse_softmax_cross_entropy_loss/value_grad/Select	Select	GPU-0	0	96	96	(boolean 1x1)(1x1)(1x1)->(1x1)	50	50	0
+edge_81_IteratorGetNext/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	50	50	(Transfer)->(400 bytes)	0	0	50
+dense/bias/Adam_1	VarHandleOp	GPU-0	13	76	160	(no input)->(tf_resource 1x1)	0	50	0
+sparse_softmax_cross_entropy_loss/Equal	Equal	GPU-0	0	82	82	(1x1)(1|2|3x1)->(boolean 1x1)	50	50	0
+_SOURCE	NoOp	CPU-0	57	73	301	(no input)->(no output info)	0	50	0
+Adam	AssignAdd	GPU-0	0	93	93	(int64 1x1)(int64 1x1)->(int64 1x1)	50	50	0
+sequential/dense/BiasAdd/ReadVariableOp	ReadVariableOp	GPU-0	21	97	206	(tf_resource 1x1)->(1024x1)	0	50	0
+sequential/flatten/Reshape	Reshape	GPU-0	19	103	232	(100x64x7x7)(int32 2x1)->(100x3136)	0	50	0
+beta2_power	VariableV2	GPU-0	18	100	204	(no input)->(1x1)	0	50	0
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Const	Const	GPU-0	13	92	178	(no input)->(1x1)	0	50	0
+sequential/conv2d/Conv2D	Conv2D	GPU-0	0	5738	5738	(100x1x28x28)(5x5x1x32)->(100x32x28x28)	50	50	0
+sequential/reshape/Shape	Shape	CPU-0	32	418	733	(100x784)(int32 100x1 slot 1 slot )->(int32 2x1)	0	50	0
+IteratorGetNext	IteratorGetNext	CPU-0	73	263099	263688	(tf_resource 1x1)->(100x784)(int32 100x1 slot 1 slot )	0	50	0
+edge_340_global_step/add/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	50	50	(Transfer)->(8 bytes)	0	0	50
+Adam/mul	Mul	GPU-0	0	95	95	(1x1)(1x1)->(1x1)	50	50	0
+sequential/dense/Relu	Relu	GPU-0	0	139	139	(100x1024)->(100x1024)	50	50	0
+Adam/update_conv2d/kernel/ResourceApplyAdam	ResourceApplyAdam	GPU-0	0	429	429	(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(5x5x1x32)->(no output info)	50	50	0
+conv2d/kernel/Adam	VarHandleOp	GPU-0	24	71	177	(no input)->(tf_resource 1x1)	0	50	0
+sequential/reshape/Reshape/shape/1	Const	GPU-0	17	42	133	(no input)->(int32 1x1)	0	50	0
+sparse_softmax_cross_entropy_loss/Greater	Greater	GPU-0	0	90	90	(1x1)(1|2|3x1)->(boolean 1x1)	50	50	0
+sequential/dropout/dropout/random_uniform	Snapshot	GPU-0	13	40	140	(100x1024)->(100x1024)	0	50	0
+conv2d_1/kernel	VarHandleOp	GPU-0	16	48	144	(no input)->(tf_resource 1x1)	0	50	0
+Adam/mul_1	Mul	GPU-0	0	80	80	(1x1)(1x1)->(1x1)	50	50	0
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape	Reshape	GPU-0	48	96	230	(1x1)(int32 1x1)->(1x1)	0	50	0
+sequential/conv2d/BiasAdd	BiasAdd	GPU-0	0	7872	7872	(100x32x28x28)(32x1)->(100x32x28x28)	50	50	0
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Reshape	Reshape	GPU-0	23	67	199	(100x1)(1|2|3x1)->(100x1)	0	50	0
+conv2d/bias/Adam	VarHandleOp	GPU-0	19	106	278	(no input)->(tf_resource 1x1)	0	50	0
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape	Shape	GPU-0	21	187	300	(100x1)(100x10 slot 1 slot )->(int32 1x1)	0	50	0
+gradients/sequential/dropout/dropout/div_grad/RealDiv	Mul	GPU-0	0	170	170	(100x1024)(1x1)->(100x1024)	50	50	0
+global_step	VariableV2	GPU-0	12	127	214	(no input)->(int64 1x1)	0	50	0
+dense_1/bias/Adam	VarHandleOp	GPU-0	8	62	138	(no input)->(tf_resource 1x1)	0	50	0
+sequential/dropout/dropout/add	Add	GPU-0	0	166	166	(1x1)(100x1024)->(100x1024)	50	50	0
+sequential/dropout/dropout/mul	Mul	GPU-0	0	164	164	(100x1024)(100x1024)->(100x1024)	50	50	0
+sequential/reshape/strided_slice/stack	Const	GPU-0	18	53	165	(no input)->(int32 1x1)	0	50	0
+sparse_softmax_cross_entropy_loss/xentropy/xentropy	SparseSoftmaxCrossEntropyWithLogits	GPU-0	0	1199	1199	(100x10)(100x784)(int32 100x1 slot 1 slot )->(100x1)(100x10 slot 1 slot )	50	50	0
+gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad	MaxPoolGrad	GPU-0	0	8334	8334	(100x32x28x28)(100x32x14x14)(100x32x14x14)->(100x32x28x28)	50	50	0
+sequential/reshape/Reshape/shape	Pack	GPU-0	47	425	640	(int32 1x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 4x1)	0	50	0
+sequential/conv2d_1/BiasAdd	BiasAdd	GPU-0	0	3998	3998	(100x64x14x14)(64x1)->(100x64x14x14)	50	50	0
+gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	12794	12794	(100x1x28x28)(int32 4x1)(100x32x28x28)->(5x5x1x32)	50	50	0
+dense/bias/Adam	VarHandleOp	GPU-0	16	61	178	(no input)->(tf_resource 1x1)	0	50	0
+dense/kernel/Adam_1	VarHandleOp	GPU-0	15	84	157	(no input)->(tf_resource 1x1)	0	50	0
+ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip	Const	GPU-0	15	102	182	(no input)->(1x1)	0	50	0
+beta2_power/read	Identity	GPU-0	22	65	159	(1x1)->(1x1)	0	50	0
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape	Shape	GPU-0	15	122	231	(100x1)->(int32 1x1)	0	50	0
+gradients/sequential/dropout/dropout/div_grad/BroadcastGradientArgs	BroadcastGradientArgs	GPU-0	31	258	441	(int32 2x1)(int32 1x1)->(int32 1x1)(int32 2x1 slot 1 slot )	0	50	0
+gradients/sequential/dense/MatMul_grad/MatMul	MatMul	GPU-0	0	12158	12158	(100x1024)(3136x1024)->(100x3136)	50	50	0
+sequential/dropout/dropout/div	Mul	GPU-0	0	169	169	(100x1024)(1x1)->(100x1024)	50	50	0
+conv2d_1/bias	VarHandleOp	GPU-0	18	43	141	(no input)->(tf_resource 1x1)	0	50	0
+dense_1/bias/Adam_1	VarHandleOp	GPU-0	15	50	130	(no input)->(tf_resource 1x1)	0	50	0
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Mul	Snapshot	GPU-0	30	95	210	(100x1)->(100x1)	0	50	0
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights	Snapshot	GPU-0	29	71	184	(100x1)->(100x1)	0	50	0
+gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims	ExpandDims	GPU-0	20	149	244	(100x1)(int32 1x1)->(100x1)	0	50	0
+sequential/dropout/dropout/random_uniform/RandomUniform	RandomUniform	GPU-0	0	406	406	(int32 2x1)->(100x1024)	50	50	0
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	37041	37041	(100x32x14x14)(int32 4x1)(100x64x14x14)->(5x5x32x64)	50	50	0
+Adam/update_dense_1/kernel/ResourceApplyAdam	ResourceApplyAdam	GPU-0	0	495	495	(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1024x10)->(no output info)	50	50	0
+global_step/cond/Merge	Merge	GPU-0	29	159	380	(int64 1x1 slot 1 slot )(int64 1x1)->(int64 1x1)(int32 1x1 slot 1 slot )	0	50	0
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape	Const	GPU-0	30	74	234	(no input)->(int32 1x1)	0	50	0
+gradients/sequential/dense/BiasAdd_grad/BiasAddGrad	BiasAddGrad	GPU-0	0	238	238	(100x1024)->(1024x1)	50	50	0
+gradients/Fill	Const	GPU-0	11	77	151	(no input)->(1x1)	0	50	0
+dense/bias	VarHandleOp	GPU-0	12	50	123	(no input)->(tf_resource 1x1)	0	50	0
+gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad	MaxPoolGrad	GPU-0	0	6059	6059	(100x64x14x14)(100x64x7x7)(100x64x7x7)->(100x64x14x14)	50	50	0
+ConstantFolding/gradients/sequential/conv2d/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	36	94	230	(no input)->(int32 4x1)	0	50	0
+dense/kernel	VarHandleOp	GPU-0	14	49	139	(no input)->(tf_resource 1x1)	0	50	0
+Adam/Assign_1/MEMCPYDtoD	MEMCPYDtoD	GPU-0	0	50	50	(Transfer)->(4 bytes)	0	0	50
+sequential/reshape/strided_slice	StridedSlice	GPU-0	129	863	1335	(int32 2x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 1x1)	0	50	0
+gradients/sequential/conv2d_1/Relu_grad/ReluGrad	ReluGrad	GPU-0	0	7266	7266	(100x64x14x14)(100x64x14x14)->(100x64x14x14)	50	50	0
+gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul	Mul	GPU-0	0	167	167	(100x1)(100x10)->(100x10)	50	50	0
+gradients/sequential/dense/MatMul_grad/MatMul_1	MatMul	GPU-0	0	9518	9518	(100x3136)(100x1024)->(3136x1024)	50	50	0
+global_step/cond/Switch_1	Switch	GPU-0	25	78	188	(int64 1x1)(boolean 1x1)->(int64 1x1 slot 1 slot )	0	50	0
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/BroadcastGradientArgs	BroadcastGradientArgs	GPU-0	31	210	394	(1|2|3x1)(int32 1x1)->(int32 1x1)(int32 1x1 slot 1 slot )	0	50	0
+sequential/max_pooling2d_1/MaxPool	MaxPool	GPU-0	0	4345	4345	(100x64x14x14)->(100x64x7x7)	50	50	0
+sequential/dense_1/BiasAdd	BiasAdd	GPU-0	0	99	99	(100x10)(10x1)->(100x10)	50	50	0
+gradients/sequential/flatten/Reshape_grad/Reshape	Reshape	GPU-0	60	98	316	(100x3136)(int32 4x1)->(100x64x7x7)	0	50	0
+sequential/dropout/dropout/random_uniform/mul	Snapshot	GPU-0	21	103	200	(100x1024)->(100x1024)	0	50	0
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Sum	Sum	GPU-0	16	104	188	(100x1)(int32 1x1)(int32 1x1 slot 1 slot )->(100x1)	0	50	0
+sequential/conv2d/Relu	Relu	GPU-0	0	6640	6640	(100x32x28x28)->(100x32x28x28)	50	50	0
+conv2d_1/kernel/Adam_1	VarHandleOp	GPU-0	18	58	146	(no input)->(tf_resource 1x1)	0	50	0
+edge_342_sparse_softmax_cross_entropy_loss/value/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	50	50	(Transfer)->(4 bytes)	0	0	50
+Adam/Assign_1	Assign	GPU-0	42	736	939	(1x1)(1x1)->(1x1)	0	50	0
+gradients/sequential/dropout/dropout/div_grad/Sum	Sum	GPU-0	29	127	247	(100x1024)(int32 1x1)(int32 2x1 slot 1 slot )->(100x1024)	0	50	0
+gradients/sequential/dense/Relu_grad/ReluGrad	ReluGrad	GPU-0	0	252	252	(100x1024)(100x1024)->(100x1024)	50	50	0
+sequential/dense_1/MatMul	MatMul	GPU-0	0	810	810	(100x1024)(1024x10)->(100x10)	50	50	0
+gradients/sequential/dense_1/MatMul_grad/MatMul_1	MatMul	GPU-0	0	540	540	(100x1024)(100x10)->(1024x10)	50	50	0
+edge_30_IteratorGetNext/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	1241	1241	(Transfer)->(313600 bytes)	0	0	50
+sparse_softmax_cross_entropy_loss/Sum	Sum	GPU-0	0	126	126	(100x1)(1)->(1x1)	50	50	0
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile	Tile	GPU-0	0	126	126	(1x1)(int32 1x1)->(100x1)	50	50	0
+Adam/update_conv2d_1/bias/ResourceApplyAdam	ResourceApplyAdam	GPU-0	0	410	410	(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(64x1)->(no output info)	50	50	0
+Adam/update_conv2d_1/kernel/ResourceApplyAdam	ResourceApplyAdam	GPU-0	0	855	855	(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(5x5x32x64)->(no output info)	50	50	0
+Adam/Assign	Assign	GPU-0	38	1185	1405	(1x1)(1x1)->(1x1)	0	50	0
+global_step/cond/read/Switch	RefSwitch	GPU-0	19	60	275	(int64 1x1)(boolean 1x1)->(int64 1x1 slot 1 slot )	0	50	0
+sequential/dense_1/MatMul/ReadVariableOp	ReadVariableOp	GPU-0	43	83	218	(tf_resource 1x1)->(1024x10)	0	50	0
+_retval_sparse_softmax_cross_entropy_loss/value_0_1	_Retval	CPU-0	41	81	260	(1x1)->(no output info)	0	50	0
+ConstantFolding/gradients/sequential/conv2d_1/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	38	81	214	(no input)->(int32 4x1)	0	50	0
+gradients/sequential/conv2d_1/Conv2D_grad/ShapeN	ShapeN	GPU-0	31	300	534	(100x32x14x14)(5x5x32x64)->(int32 4x1)(int32 4x1 slot 1 slot )	0	50	0
+sparse_softmax_cross_entropy_loss/value	Select	GPU-0	0	86	86	(boolean 1x1)(1x1)(1|2|3x1)->(1x1)	50	50	0
+dense_1/kernel/Adam_1	VarHandleOp	GPU-0	16	59	144	(no input)->(tf_resource 1x1)	0	50	0
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like	Fill	GPU-0	0	94	94	(int32 1x1)(1x1)->(100x1)	50	50	0
+Adam/update_conv2d/bias/ResourceApplyAdam	ResourceApplyAdam	GPU-0	0	416	416	(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(32x1)->(no output info)	50	50	0
+gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like	Const	GPU-0	17	115	238	(no input)->(1x1)	0	50	0

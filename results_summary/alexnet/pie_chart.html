@@ -6634,910 +6634,679 @@ function zoomOut()
     <dataset>data_for_pie_chart</dataset>
    </datasets>
 <node name="all">
- <magnitude><val>224957.6</val></magnitude>
- <node name="Time">
-  <magnitude><val>0</val></magnitude>
+ <magnitude><val>227993.59</val></magnitude>
+ <node name="Conv2DBackpropInput">
+  <magnitude><val>20005.57</val></magnitude>
+  <node name="12.4 TFLOPS">
+   <magnitude><val>4613.41</val></magnitude>
+   <node name="(int32 4x1)(5x5x64x192)(128x192x27x27)->(128x64x27x27)">
+    <magnitude><val>4613.41</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4613.41</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="6.2 TFLOPS">
+   <magnitude><val>10317.5</val></magnitude>
+   <node name="(int32 4x1)(3x3x384x256)(128x256x13x13)->(128x384x13x13)">
+    <magnitude><val>6208.46</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6208.46</val></magnitude>
+    </node>
+   </node>
+   <node name="(int32 4x1)(3x3x256x256)(128x256x13x13)->(128x256x13x13)">
+    <magnitude><val>4109.04</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4109.04</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="5.7 TFLOPS">
+   <magnitude><val>5074.66</val></magnitude>
+   <node name="(int32 4x1)(3x3x192x384)(128x384x13x13)->(128x192x13x13)">
+    <magnitude><val>5074.66</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5074.66</val></magnitude>
+    </node>
+   </node>
+  </node>
  </node>
- <node name="GPU-0">
-  <magnitude><val>224920.7</val></magnitude>
-  <node name="BiasAdd">
-   <magnitude><val>4101.9</val></magnitude>
-   <node name="conv1">
-    <magnitude><val>1682.4</val></magnitude>
-    <node name="(128x64x56x56)(64x1)->(128x64x56x56)">
-     <magnitude><val>1682.4</val></magnitude>
+ <node name="Identity">
+  <magnitude><val>29.17</val></magnitude>
+  <node name=" ">
+   <magnitude><val>29.17</val></magnitude>
+   <node name="(64x1)->(64x1)">
+    <magnitude><val>2.28</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.28</val></magnitude>
     </node>
    </node>
-   <node name="conv4">
-    <magnitude><val>359.4</val></magnitude>
-    <node name="(128x256x13x13)(256x1)->(128x256x13x13)">
-     <magnitude><val>359.4</val></magnitude>
+   <node name="(3x3x384x256)->(3x3x384x256)">
+    <magnitude><val>2.89</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.89</val></magnitude>
     </node>
    </node>
-   <node name="conv2">
-    <magnitude><val>1163.8</val></magnitude>
-    <node name="(128x192x27x27)(192x1)->(128x192x27x27)">
-     <magnitude><val>1163.8</val></magnitude>
+   <node name="(5x5x64x192)->(5x5x64x192)">
+    <magnitude><val>2.52</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.52</val></magnitude>
     </node>
    </node>
-   <node name="conv3">
-    <magnitude><val>537.6</val></magnitude>
-    <node name="(128x384x13x13)(384x1)->(128x384x13x13)">
-     <magnitude><val>537.6</val></magnitude>
+   <node name="(11x11x3x64)->(11x11x3x64)">
+    <magnitude><val>2.58</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.58</val></magnitude>
     </node>
    </node>
-   <node name="conv5">
-    <magnitude><val>358.7</val></magnitude>
-    <node name="(128x256x13x13)(256x1)->(128x256x13x13)">
-     <magnitude><val>358.7</val></magnitude>
+   <node name="(3x3x256x256)->(3x3x256x256)">
+    <magnitude><val>2.62</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.62</val></magnitude>
     </node>
    </node>
-  </node>
-  <node name="MaxPoolGrad">
-   <magnitude><val>5047.5</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>5047.5</val></magnitude>
-    <node name="pool1_grad">
-     <magnitude><val>2974.7</val></magnitude>
-     <node name="(128x64x56x56)(128x64x27x27)(128x64x27x27)->(128x64x56x56)">
-      <magnitude><val>2974.7</val></magnitude>
-     </node>
-    </node>
-    <node name="pool5_grad">
-     <magnitude><val>795.2</val></magnitude>
-     <node name="(128x256x13x13)(128x256x6x6)(128x256x6x6)->(128x256x13x13)">
-      <magnitude><val>795.2</val></magnitude>
-     </node>
-    </node>
-    <node name="pool2_grad">
-     <magnitude><val>1277.6</val></magnitude>
-     <node name="(128x192x27x27)(128x192x13x13)(128x192x13x13)->(128x192x27x27)">
-      <magnitude><val>1277.6</val></magnitude>
-     </node>
+   <node name="(384x1)->(384x1)">
+    <magnitude><val>2.74</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.74</val></magnitude>
     </node>
    </node>
-  </node>
-  <node name="LRN">
-   <magnitude><val>45041</val></magnitude>
-   <node name="lrn2">
-    <magnitude><val>23830.5</val></magnitude>
-    <node name="(128x27x27x192)->(128x27x27x192)">
-     <magnitude><val>23830.5</val></magnitude>
-    </node>
-   </node>
-   <node name="lrn1">
-    <magnitude><val>21210.5</val></magnitude>
-    <node name="(128x56x56x64)->(128x56x56x64)">
-     <magnitude><val>21210.5</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="Identity">
-   <magnitude><val>31.4</val></magnitude>
-   <node name="conv5">
-    <magnitude><val>9.4</val></magnitude>
-    <node name="biases">
-     <magnitude><val>3.6</val></magnitude>
-     <node name="(256x1)->(256x1)">
-      <magnitude><val>3.6</val></magnitude>
-     </node>
-    </node>
-    <node name="weights">
-     <magnitude><val>5.8</val></magnitude>
-     <node name="(3x3x256x256)->(3x3x256x256)">
-      <magnitude><val>5.8</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="conv3">
-    <magnitude><val>6.3</val></magnitude>
-    <node name="weights">
-     <magnitude><val>2</val></magnitude>
-     <node name="(3x3x192x384)->(3x3x192x384)">
-      <magnitude><val>2</val></magnitude>
-     </node>
-    </node>
-    <node name="biases">
-     <magnitude><val>4.3</val></magnitude>
-     <node name="(384x1)->(384x1)">
-      <magnitude><val>4.3</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="conv2">
-    <magnitude><val>5.9</val></magnitude>
-    <node name="biases">
-     <magnitude><val>2.2</val></magnitude>
-     <node name="(192x1)->(192x1)">
-      <magnitude><val>2.2</val></magnitude>
-     </node>
-    </node>
-    <node name="weights">
-     <magnitude><val>3.7</val></magnitude>
-     <node name="(5x5x64x192)->(5x5x64x192)">
-      <magnitude><val>3.7</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="conv4">
-    <magnitude><val>3.6</val></magnitude>
-    <node name="weights">
-     <magnitude><val>1.9</val></magnitude>
-     <node name="(3x3x384x256)->(3x3x384x256)">
-      <magnitude><val>1.9</val></magnitude>
-     </node>
-    </node>
-    <node name="biases">
-     <magnitude><val>1.7</val></magnitude>
-     <node name="(256x1)->(256x1)">
-      <magnitude><val>1.7</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="conv1">
-    <magnitude><val>4.3</val></magnitude>
-    <node name="weights">
+   <node name="(192x1)->(192x1)">
+    <magnitude><val>2.4</val></magnitude>
+    <node name=" ">
      <magnitude><val>2.4</val></magnitude>
-     <node name="(11x11x3x64)->(11x11x3x64)">
-      <magnitude><val>2.4</val></magnitude>
-     </node>
-    </node>
-    <node name="biases">
-     <magnitude><val>1.9</val></magnitude>
-     <node name="(64x1)->(64x1)">
-      <magnitude><val>1.9</val></magnitude>
-     </node>
     </node>
    </node>
-   <node name="Variable">
-    <magnitude><val>1.9</val></magnitude>
-    <node name="(128x224x224x3)->(128x224x224x3)">
-     <magnitude><val>1.9</val></magnitude>
+   <node name="(256x1)->(256x1)">
+    <magnitude><val>4.94</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.94</val></magnitude>
     </node>
    </node>
-  </node>
-  <node name="VariableV2">
-   <magnitude><val>64.6</val></magnitude>
-   <node name="conv5">
-    <magnitude><val>24.7</val></magnitude>
-    <node name="(no input)->(256x1)">
-     <magnitude><val>17.3</val></magnitude>
-    </node>
-    <node name="(no input)->(3x3x256x256)">
-     <magnitude><val>7.4</val></magnitude>
+   <node name="(128x224x224x3)->(128x224x224x3)">
+    <magnitude><val>3.1</val></magnitude>
+    <node name=" ">
+     <magnitude><val>3.1</val></magnitude>
     </node>
    </node>
-   <node name="conv2">
-    <magnitude><val>8.6</val></magnitude>
-    <node name="(no input)->(5x5x64x192)">
-     <magnitude><val>6.3</val></magnitude>
-    </node>
-    <node name="(no input)->(192x1)">
-     <magnitude><val>2.3</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(128x224x224x3)">
-    <magnitude><val>5.2</val></magnitude>
-   </node>
-   <node name="conv3">
-    <magnitude><val>11.8</val></magnitude>
-    <node name="(no input)->(3x3x192x384)">
-     <magnitude><val>4.3</val></magnitude>
-    </node>
-    <node name="(no input)->(384x1)">
-     <magnitude><val>7.5</val></magnitude>
-    </node>
-   </node>
-   <node name="conv4">
-    <magnitude><val>6</val></magnitude>
-    <node name="(no input)->(3x3x384x256)">
-     <magnitude><val>2.5</val></magnitude>
-    </node>
-    <node name="(no input)->(256x1)">
-     <magnitude><val>3.5</val></magnitude>
-    </node>
-   </node>
-   <node name="conv1">
-    <magnitude><val>8.3</val></magnitude>
-    <node name="(no input)->(11x11x3x64)">
-     <magnitude><val>5.2</val></magnitude>
-    </node>
-    <node name="(no input)->(64x1)">
+   <node name="(3x3x192x384)->(3x3x192x384)">
+    <magnitude><val>3.1</val></magnitude>
+    <node name=" ">
      <magnitude><val>3.1</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="MaxPool">
-   <magnitude><val>2412.1</val></magnitude>
-   <node name="(128x64x56x56)->(128x64x27x27)">
-    <magnitude><val>1257</val></magnitude>
-   </node>
-   <node name="(128x192x27x27)->(128x192x13x13)">
-    <magnitude><val>884.6</val></magnitude>
-   </node>
-   <node name="(128x256x13x13)->(128x256x6x6)">
-    <magnitude><val>270.5</val></magnitude>
-   </node>
-  </node>
-  <node name="MEMCPYDtoH">
-   <magnitude><val>980.6</val></magnitude>
-   <node name="edge_181_gradients">
-    <magnitude><val>1.6</val></magnitude>
-    <node name="conv2">
-     <magnitude><val>1.6</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>1.6</val></magnitude>
-      <node name="BiasAddGrad">
-       <magnitude><val>1.6</val></magnitude>
-       <node name="(Transfer)->(768 bytes)">
-        <magnitude><val>1.6</val></magnitude>
-       </node>
-      </node>
-     </node>
+ </node>
+ <node name="BiasAdd">
+  <magnitude><val>4211.35</val></magnitude>
+  <node name="0.0 TFLOPS">
+   <magnitude><val>4211.35</val></magnitude>
+   <node name="(128x384x13x13)(384x1)->(128x384x13x13)">
+    <magnitude><val>552.58</val></magnitude>
+    <node name=" ">
+     <magnitude><val>552.58</val></magnitude>
     </node>
    </node>
-   <node name="edge_179_gradients">
-    <magnitude><val>7</val></magnitude>
-    <node name="conv1">
-     <magnitude><val>7</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>7</val></magnitude>
-      <node name="Conv2DBackpropFilter">
-       <magnitude><val>7</val></magnitude>
-       <node name="(Transfer)->(92928 bytes)">
-        <magnitude><val>7</val></magnitude>
-       </node>
-      </node>
-     </node>
+   <node name="(128x192x27x27)(192x1)->(128x192x27x27)">
+    <magnitude><val>1205.51</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1205.51</val></magnitude>
     </node>
    </node>
-   <node name="edge_187_gradients">
-    <magnitude><val>273</val></magnitude>
-    <node name="conv3">
-     <magnitude><val>273</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>273</val></magnitude>
-      <node name="Conv2DBackpropFilter">
-       <magnitude><val>273</val></magnitude>
-       <node name="(Transfer)->(2654208 bytes)">
-        <magnitude><val>273</val></magnitude>
-       </node>
-      </node>
-     </node>
+   <node name="(128x64x56x56)(64x1)->(128x64x56x56)">
+    <magnitude><val>1723.83</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1723.83</val></magnitude>
     </node>
    </node>
-   <node name="edge_183_gradients">
-    <magnitude><val>114.3</val></magnitude>
-    <node name="conv2">
-     <magnitude><val>114.3</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>114.3</val></magnitude>
-      <node name="Conv2DBackpropFilter">
-       <magnitude><val>114.3</val></magnitude>
-       <node name="(Transfer)->(1228800 bytes)">
-        <magnitude><val>114.3</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="edge_177_gradients">
-    <magnitude><val>1</val></magnitude>
-    <node name="conv1">
-     <magnitude><val>1</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>1</val></magnitude>
-      <node name="BiasAddGrad">
-       <magnitude><val>1</val></magnitude>
-       <node name="(Transfer)->(256 bytes)">
-        <magnitude><val>1</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="edge_189_gradients">
-    <magnitude><val>1.1</val></magnitude>
-    <node name="conv4">
-     <magnitude><val>1.1</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>1.1</val></magnitude>
-      <node name="BiasAddGrad">
-       <magnitude><val>1.1</val></magnitude>
-       <node name="(Transfer)->(1024 bytes)">
-        <magnitude><val>1.1</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="edge_195_gradients">
-    <magnitude><val>259.2</val></magnitude>
-    <node name="conv5">
-     <magnitude><val>259.2</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>259.2</val></magnitude>
-      <node name="Conv2DBackpropFilter">
-       <magnitude><val>259.2</val></magnitude>
-       <node name="(Transfer)->(2359296 bytes)">
-        <magnitude><val>259.2</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="edge_193_gradients">
-    <magnitude><val>1.5</val></magnitude>
-    <node name="conv5">
-     <magnitude><val>1.5</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>1.5</val></magnitude>
-      <node name="BiasAddGrad">
-       <magnitude><val>1.5</val></magnitude>
-       <node name="(Transfer)->(1024 bytes)">
-        <magnitude><val>1.5</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="edge_191_gradients">
-    <magnitude><val>316.9</val></magnitude>
-    <node name="conv4">
-     <magnitude><val>316.9</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>316.9</val></magnitude>
-      <node name="Conv2DBackpropFilter">
-       <magnitude><val>316.9</val></magnitude>
-       <node name="(Transfer)->(3538944 bytes)">
-        <magnitude><val>316.9</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="edge_185_gradients">
-    <magnitude><val>5</val></magnitude>
-    <node name="conv3">
-     <magnitude><val>5</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>5</val></magnitude>
-      <node name="BiasAddGrad">
-       <magnitude><val>5</val></magnitude>
-       <node name="(Transfer)->(1536 bytes)">
-        <magnitude><val>5</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Conv2D">
-   <magnitude><val>28284.9</val></magnitude>
-   <node name="conv4">
-    <magnitude><val>6029.4</val></magnitude>
-    <node name="(128x384x13x13)(3x3x384x256)->(128x256x13x13)">
-     <magnitude><val>6029.4</val></magnitude>
-    </node>
-   </node>
-   <node name="conv1">
-    <magnitude><val>8481.1</val></magnitude>
-    <node name="(128x3x224x224)(11x11x3x64)->(128x64x56x56)">
-     <magnitude><val>8481.1</val></magnitude>
-    </node>
-   </node>
-   <node name="conv3">
-    <magnitude><val>5029.4</val></magnitude>
-    <node name="(128x192x13x13)(3x3x192x384)->(128x384x13x13)">
-     <magnitude><val>5029.4</val></magnitude>
-    </node>
-   </node>
-   <node name="conv2">
-    <magnitude><val>4569.3</val></magnitude>
-    <node name="(128x64x27x27)(5x5x64x192)->(128x192x27x27)">
-     <magnitude><val>4569.3</val></magnitude>
-    </node>
-   </node>
-   <node name="conv5">
-    <magnitude><val>4175.7</val></magnitude>
-    <node name="(128x256x13x13)(3x3x256x256)->(128x256x13x13)">
-     <magnitude><val>4175.7</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="Const">
-   <magnitude><val>35.4</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>10.1</val></magnitude>
-    <node name="conv4">
-     <magnitude><val>2.1</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>2.1</val></magnitude>
-      <node name="(no input)->(int32 4x1)">
-       <magnitude><val>2.1</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv5">
-     <magnitude><val>2.5</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>2.5</val></magnitude>
-      <node name="(no input)->(int32 4x1)">
-       <magnitude><val>2.5</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv2">
-     <magnitude><val>2.3</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>2.3</val></magnitude>
-      <node name="(no input)->(int32 4x1)">
-       <magnitude><val>2.3</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv3">
-     <magnitude><val>3.2</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>3.2</val></magnitude>
-      <node name="(no input)->(int32 4x1)">
-       <magnitude><val>3.2</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="(no input)->(int32 4x1)">
-    <magnitude><val>12.6</val></magnitude>
-   </node>
-   <node name="ConstantFolding">
-    <magnitude><val>12.7</val></magnitude>
-    <node name="gradients">
-     <magnitude><val>12.7</val></magnitude>
-     <node name="conv5">
-      <magnitude><val>2</val></magnitude>
-      <node name="Conv2D_grad">
-       <magnitude><val>2</val></magnitude>
-       <node name="(no input)->(int32 4x1)">
-        <magnitude><val>2</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="conv3">
-      <magnitude><val>2</val></magnitude>
-      <node name="Conv2D_grad">
-       <magnitude><val>2</val></magnitude>
-       <node name="(no input)->(int32 4x1)">
-        <magnitude><val>2</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="conv2">
-      <magnitude><val>2.2</val></magnitude>
-      <node name="Conv2D_grad">
-       <magnitude><val>2.2</val></magnitude>
-       <node name="(no input)->(int32 4x1)">
-        <magnitude><val>2.2</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="conv4">
-      <magnitude><val>2.1</val></magnitude>
-      <node name="Conv2D_grad">
-       <magnitude><val>2.1</val></magnitude>
-       <node name="(no input)->(int32 4x1)">
-        <magnitude><val>2.1</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="conv1">
-      <magnitude><val>4.4</val></magnitude>
-      <node name="Conv2D_grad">
-       <magnitude><val>4.4</val></magnitude>
-       <node name="(no input)->(int32 4x1)">
-        <magnitude><val>4.4</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Transpose">
-   <magnitude><val>15705.9</val></magnitude>
-   <node name="(128x384x13x13)(int32 4x1)->(128x13x13x384)">
-    <magnitude><val>492.8</val></magnitude>
-   </node>
-   <node name="(128x64x56x56)(int32 4x1)->(128x56x56x64)">
-    <magnitude><val>1356.9</val></magnitude>
-   </node>
-   <node name="gradients">
-    <magnitude><val>10259.8</val></magnitude>
-    <node name="conv2_grad">
-     <magnitude><val>1906</val></magnitude>
-     <node name="(128x27x27x192)(int32 4x1)->(128x192x27x27)">
-      <magnitude><val>957.8</val></magnitude>
-     </node>
-     <node name="(128x192x27x27)(int32 4x1)->(128x27x27x192)">
-      <magnitude><val>948.2</val></magnitude>
-     </node>
-    </node>
-    <node name="conv3_grad">
-     <magnitude><val>441.9</val></magnitude>
-     <node name="(128x384x13x13)(int32 4x1)->(128x13x13x384)">
-      <magnitude><val>441.9</val></magnitude>
-     </node>
-    </node>
-    <node name="pool1_grad">
-     <magnitude><val>2717.8</val></magnitude>
-     <node name="(128x64x56x56)(int32 4x1)->(128x56x56x64)">
-      <magnitude><val>1352.9</val></magnitude>
-     </node>
-     <node name="(128x56x56x64)(int32 4x1)->(128x64x56x56)">
-      <magnitude><val>1364.9</val></magnitude>
-     </node>
-    </node>
-    <node name="conv4_grad">
-     <magnitude><val>293.3</val></magnitude>
-     <node name="(128x256x13x13)(int32 4x1)->(128x13x13x256)">
-      <magnitude><val>293.3</val></magnitude>
-     </node>
-    </node>
-    <node name="pool2_grad">
-     <magnitude><val>1895.4</val></magnitude>
-     <node name="(128x192x27x27)(int32 4x1)->(128x27x27x192)">
-      <magnitude><val>945.1</val></magnitude>
-     </node>
-     <node name="(128x27x27x192)(int32 4x1)->(128x192x27x27)">
-      <magnitude><val>950.3</val></magnitude>
-     </node>
-    </node>
-    <node name="conv5_grad">
-     <magnitude><val>294.6</val></magnitude>
-     <node name="(128x256x13x13)(int32 4x1)->(128x13x13x256)">
-      <magnitude><val>294.6</val></magnitude>
-     </node>
-    </node>
-    <node name="conv1_grad">
-     <magnitude><val>2710.8</val></magnitude>
-     <node name="(128x56x56x64)(int32 4x1)->(128x64x56x56)">
-      <magnitude><val>1361.4</val></magnitude>
-     </node>
-     <node name="(128x64x56x56)(int32 4x1)->(128x56x56x64)">
-      <magnitude><val>1349.4</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="(128x192x13x13)(int32 4x1)->(128x13x13x192)">
-    <magnitude><val>220.3</val></magnitude>
-   </node>
-   <node name="(128x192x27x27)(int32 4x1)->(128x27x27x192)">
-    <magnitude><val>948.5</val></magnitude>
-   </node>
-   <node name="(128x64x27x27)(int32 4x1)->(128x27x27x64)">
-    <magnitude><val>316.9</val></magnitude>
-   </node>
-   <node name="(128x256x13x13)(int32 4x1)->(128x13x13x256)">
-    <magnitude><val>294.9</val></magnitude>
-   </node>
-   <node name="conv1">
-    <magnitude><val>1815.8</val></magnitude>
-    <node name="(128x224x224x3)(int32 4x1)->(128x3x224x224)">
-     <magnitude><val>1815.8</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="Conv2DBackpropFilter">
-   <magnitude><val>37596.8</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>37596.8</val></magnitude>
-    <node name="conv1">
-     <magnitude><val>13314.8</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>13314.8</val></magnitude>
-      <node name="(128x224x224x3)(int32 4x1)(128x56x56x64)->(11x11x3x64)">
-       <magnitude><val>13314.8</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv4">
-     <magnitude><val>6675.6</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>6675.6</val></magnitude>
-      <node name="(128x13x13x384)(int32 4x1)(128x13x13x256)->(3x3x384x256)">
-       <magnitude><val>6675.6</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv3">
-     <magnitude><val>6454.8</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>6454.8</val></magnitude>
-      <node name="(128x13x13x192)(int32 4x1)(128x13x13x384)->(3x3x192x384)">
-       <magnitude><val>6454.8</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv2">
-     <magnitude><val>6417.6</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>6417.6</val></magnitude>
-      <node name="(128x27x27x64)(int32 4x1)(128x27x27x192)->(5x5x64x192)">
-       <magnitude><val>6417.6</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv5">
-     <magnitude><val>4734</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>4734</val></magnitude>
-      <node name="(128x13x13x256)(int32 4x1)(128x13x13x256)->(3x3x256x256)">
-       <magnitude><val>4734</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="ReluGrad">
-   <magnitude><val>4902.4</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>4902.4</val></magnitude>
-    <node name="conv3_grad">
-     <magnitude><val>656.1</val></magnitude>
-     <node name="(128x384x13x13)(128x384x13x13)->(128x384x13x13)">
-      <magnitude><val>656.1</val></magnitude>
-     </node>
-    </node>
-    <node name="conv2_grad">
-     <magnitude><val>1383.4</val></magnitude>
-     <node name="(128x192x27x27)(128x192x27x27)->(128x192x27x27)">
-      <magnitude><val>1383.4</val></magnitude>
-     </node>
-    </node>
-    <node name="conv4_grad">
-     <magnitude><val>428.7</val></magnitude>
-     <node name="(128x256x13x13)(128x256x13x13)->(128x256x13x13)">
-      <magnitude><val>428.7</val></magnitude>
-     </node>
-    </node>
-    <node name="conv1_grad">
-     <magnitude><val>2006.6</val></magnitude>
-     <node name="(128x64x56x56)(128x64x56x56)->(128x64x56x56)">
-      <magnitude><val>2006.6</val></magnitude>
-     </node>
-    </node>
-    <node name="conv5_grad">
-     <magnitude><val>427.6</val></magnitude>
-     <node name="(128x256x13x13)(128x256x13x13)->(128x256x13x13)">
-      <magnitude><val>427.6</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Conv2DBackpropInput">
-   <magnitude><val>19510.4</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>19510.4</val></magnitude>
-    <node name="conv5">
-     <magnitude><val>4002.6</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>4002.6</val></magnitude>
-      <node name="(int32 4x1)(3x3x256x256)(128x256x13x13)->(128x256x13x13)">
-       <magnitude><val>4002.6</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv2">
-     <magnitude><val>4510.8</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>4510.8</val></magnitude>
-      <node name="(int32 4x1)(5x5x64x192)(128x192x27x27)->(128x64x27x27)">
-       <magnitude><val>4510.8</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv3">
-     <magnitude><val>4959.4</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>4959.4</val></magnitude>
-      <node name="(int32 4x1)(3x3x192x384)(128x384x13x13)->(128x192x13x13)">
-       <magnitude><val>4959.4</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv4">
-     <magnitude><val>6037.6</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>6037.6</val></magnitude>
-      <node name="(int32 4x1)(3x3x384x256)(128x256x13x13)->(128x384x13x13)">
-       <magnitude><val>6037.6</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Relu">
-   <magnitude><val>3300.8</val></magnitude>
-   <node name="(128x192x27x27)->(128x192x27x27)">
-    <magnitude><val>938.5</val></magnitude>
-   </node>
-   <node name="(128x384x13x13)->(128x384x13x13)">
-    <magnitude><val>435.8</val></magnitude>
-   </node>
-   <node name="(128x256x13x13)->(128x256x13x13)">
-    <magnitude><val>581</val></magnitude>
-   </node>
-   <node name="(128x64x56x56)->(128x64x56x56)">
-    <magnitude><val>1345.5</val></magnitude>
-   </node>
-  </node>
-  <node name="NoOp">
-   <magnitude><val>27</val></magnitude>
-   <node name="(no input)->(no output info)">
-    <magnitude><val>27</val></magnitude>
-   </node>
-  </node>
-  <node name="LRNGrad">
-   <magnitude><val>56045.3</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>56045.3</val></magnitude>
-    <node name="lrn2">
-     <magnitude><val>31108</val></magnitude>
-     <node name="LRN_grad">
-      <magnitude><val>31108</val></magnitude>
-      <node name="(128x27x27x192)(128x27x27x192)(128x27x27x192)->(128x27x27x192)">
-       <magnitude><val>31108</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="lrn1">
-     <magnitude><val>24937.3</val></magnitude>
-     <node name="LRN_grad">
-      <magnitude><val>24937.3</val></magnitude>
-      <node name="(128x56x56x64)(128x56x56x64)(128x56x56x64)->(128x56x56x64)">
-       <magnitude><val>24937.3</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="BiasAddGrad">
-   <magnitude><val>1832.7</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>1832.7</val></magnitude>
-    <node name="conv5">
-     <magnitude><val>169.6</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>169.6</val></magnitude>
-      <node name="(128x13x13x256)->(256x1)">
-       <magnitude><val>169.6</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv3">
-     <magnitude><val>256.6</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>256.6</val></magnitude>
-      <node name="(128x13x13x384)->(384x1)">
-       <magnitude><val>256.6</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv2">
-     <magnitude><val>489.4</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>489.4</val></magnitude>
-      <node name="(128x27x27x192)->(192x1)">
-       <magnitude><val>489.4</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv1">
-     <magnitude><val>747.2</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>747.2</val></magnitude>
-      <node name="(128x56x56x64)->(64x1)">
-       <magnitude><val>747.2</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv4">
-     <magnitude><val>169.9</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>169.9</val></magnitude>
-      <node name="(128x13x13x256)->(256x1)">
-       <magnitude><val>169.9</val></magnitude>
-      </node>
-     </node>
+   <node name="(128x256x13x13)(256x1)->(128x256x13x13)">
+    <magnitude><val>729.43</val></magnitude>
+    <node name=" ">
+     <magnitude><val>729.43</val></magnitude>
     </node>
    </node>
   </node>
  </node>
- <node name="CPU-0">
-  <magnitude><val>36.9</val></magnitude>
-  <node name="_Retval">
-   <magnitude><val>31</val></magnitude>
-   <node name="_retval_gradients">
-    <magnitude><val>31</val></magnitude>
-    <node name="conv1">
-     <magnitude><val>9.5</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>4.6</val></magnitude>
-      <node name="(11x11x3x64)->(no output info)">
-       <magnitude><val>4.6</val></magnitude>
-      </node>
-     </node>
-     <node name="BiasAdd_grad">
-      <magnitude><val>4.9</val></magnitude>
-      <node name="(64x1)->(no output info)">
-       <magnitude><val>4.9</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv4">
-     <magnitude><val>5.3</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>2.4</val></magnitude>
-      <node name="(3x3x384x256)->(no output info)">
-       <magnitude><val>2.4</val></magnitude>
-      </node>
-     </node>
-     <node name="BiasAdd_grad">
-      <magnitude><val>2.9</val></magnitude>
-      <node name="(256x1)->(no output info)">
-       <magnitude><val>2.9</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv5">
-     <magnitude><val>6.9</val></magnitude>
-     <node name="Conv2D_grad">
-      <magnitude><val>2.7</val></magnitude>
-      <node name="(3x3x256x256)->(no output info)">
-       <magnitude><val>2.7</val></magnitude>
-      </node>
-     </node>
-     <node name="BiasAdd_grad">
-      <magnitude><val>4.2</val></magnitude>
-      <node name="(256x1)->(no output info)">
-       <magnitude><val>4.2</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv3">
-     <magnitude><val>4.7</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>2.4</val></magnitude>
-      <node name="(384x1)->(no output info)">
-       <magnitude><val>2.4</val></magnitude>
-      </node>
-     </node>
-     <node name="Conv2D_grad">
-      <magnitude><val>2.3</val></magnitude>
-      <node name="(3x3x192x384)->(no output info)">
-       <magnitude><val>2.3</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv2">
-     <magnitude><val>4.6</val></magnitude>
-     <node name="BiasAdd_grad">
-      <magnitude><val>2.8</val></magnitude>
-      <node name="(192x1)->(no output info)">
-       <magnitude><val>2.8</val></magnitude>
-      </node>
-     </node>
-     <node name="Conv2D_grad">
-      <magnitude><val>1.8</val></magnitude>
-      <node name="(5x5x64x192)->(no output info)">
-       <magnitude><val>1.8</val></magnitude>
-      </node>
-     </node>
+ <node name="Conv2D">
+  <magnitude><val>28925.28</val></magnitude>
+  <node name="5.6 TFLOPS">
+   <magnitude><val>5142.67</val></magnitude>
+   <node name="(128x192x13x13)(3x3x192x384)->(128x384x13x13)">
+    <magnitude><val>5142.67</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5142.67</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="NoOp">
-   <magnitude><val>5.9</val></magnitude>
-   <node name="(no input)->(no output info)">
-    <magnitude><val>5.9</val></magnitude>
+  <node name="6.2 TFLOPS">
+   <magnitude><val>6214.17</val></magnitude>
+   <node name="(128x384x13x13)(3x3x384x256)->(128x256x13x13)">
+    <magnitude><val>6214.17</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6214.17</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="12.2 TFLOPS">
+   <magnitude><val>4681.78</val></magnitude>
+   <node name="(128x64x27x27)(5x5x64x192)->(128x192x27x27)">
+    <magnitude><val>4681.78</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4681.78</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="2.2 TFLOPS">
+   <magnitude><val>8639.12</val></magnitude>
+   <node name="(128x3x224x224)(11x11x3x64)->(128x64x56x56)">
+    <magnitude><val>8639.12</val></magnitude>
+    <node name=" ">
+     <magnitude><val>8639.12</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="6.0 TFLOPS">
+   <magnitude><val>4247.54</val></magnitude>
+   <node name="(128x256x13x13)(3x3x256x256)->(128x256x13x13)">
+    <magnitude><val>4247.54</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4247.54</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="LRNGrad">
+  <magnitude><val>55893.24</val></magnitude>
+  <node name=" ">
+   <magnitude><val>55893.24</val></magnitude>
+   <node name="(128x27x27x192)(128x27x27x192)(128x27x27x192)->(128x27x27x192)">
+    <magnitude><val>31377.85</val></magnitude>
+    <node name=" ">
+     <magnitude><val>31377.85</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x56x56x64)(128x56x56x64)(128x56x56x64)->(128x56x56x64)">
+    <magnitude><val>24515.39</val></magnitude>
+    <node name=" ">
+     <magnitude><val>24515.39</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="MEMCPYDtoH">
+  <magnitude><val>920.74</val></magnitude>
+  <node name=" ">
+   <magnitude><val>920.74</val></magnitude>
+   <node name="(Transfer)->(1228800 bytes)">
+    <magnitude><val>103.6</val></magnitude>
+    <node name=" ">
+     <magnitude><val>103.6</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(2359296 bytes)">
+    <magnitude><val>241.64</val></magnitude>
+    <node name=" ">
+     <magnitude><val>241.64</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(92928 bytes)">
+    <magnitude><val>7</val></magnitude>
+    <node name=" ">
+     <magnitude><val>7</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(1024 bytes)">
+    <magnitude><val>2.63</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.63</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(768 bytes)">
+    <magnitude><val>1.59</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.59</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(256 bytes)">
+    <magnitude><val>1</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(2654208 bytes)">
+    <magnitude><val>257.68</val></magnitude>
+    <node name=" ">
+     <magnitude><val>257.68</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(1536 bytes)">
+    <magnitude><val>2.3</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.3</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(3538944 bytes)">
+    <magnitude><val>303.3</val></magnitude>
+    <node name=" ">
+     <magnitude><val>303.3</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Transpose">
+  <magnitude><val>15948.95</val></magnitude>
+  <node name=" ">
+   <magnitude><val>15948.95</val></magnitude>
+   <node name="(128x192x13x13)(int32 4x1)->(128x13x13x192)">
+    <magnitude><val>219.76</val></magnitude>
+    <node name=" ">
+     <magnitude><val>219.76</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x192x27x27)(int32 4x1)->(128x27x27x192)">
+    <magnitude><val>2914.36</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2914.36</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x224x224x3)(int32 4x1)->(128x3x224x224)">
+    <magnitude><val>1841.84</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1841.84</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x384x13x13)(int32 4x1)->(128x13x13x384)">
+    <magnitude><val>905.6</val></magnitude>
+    <node name=" ">
+     <magnitude><val>905.6</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x64x56x56)(int32 4x1)->(128x56x56x64)">
+    <magnitude><val>4142.29</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4142.29</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x56x56x64)(int32 4x1)->(128x64x56x56)">
+    <magnitude><val>2763.91</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2763.91</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x256x13x13)(int32 4x1)->(128x13x13x256)">
+    <magnitude><val>907.89</val></magnitude>
+    <node name=" ">
+     <magnitude><val>907.89</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x27x27x192)(int32 4x1)->(128x192x27x27)">
+    <magnitude><val>1936.74</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1936.74</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x64x27x27)(int32 4x1)->(128x27x27x64)">
+    <magnitude><val>316.56</val></magnitude>
+    <node name=" ">
+     <magnitude><val>316.56</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="BiasAddGrad">
+  <magnitude><val>1855.89</val></magnitude>
+  <node name="0.0 TFLOPS">
+   <magnitude><val>1855.89</val></magnitude>
+   <node name="(128x27x27x192)->(192x1)">
+    <magnitude><val>490.6</val></magnitude>
+    <node name=" ">
+     <magnitude><val>490.6</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x13x13x384)->(384x1)">
+    <magnitude><val>262.35</val></magnitude>
+    <node name=" ">
+     <magnitude><val>262.35</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x13x13x256)->(256x1)">
+    <magnitude><val>349.82</val></magnitude>
+    <node name=" ">
+     <magnitude><val>349.82</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x56x56x64)->(64x1)">
+    <magnitude><val>753.12</val></magnitude>
+    <node name=" ">
+     <magnitude><val>753.12</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Relu">
+  <magnitude><val>3366.41</val></magnitude>
+  <node name=" ">
+   <magnitude><val>3366.41</val></magnitude>
+   <node name="(128x256x13x13)->(128x256x13x13)">
+    <magnitude><val>594.18</val></magnitude>
+    <node name=" ">
+     <magnitude><val>594.18</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x64x56x56)->(128x64x56x56)">
+    <magnitude><val>1385.75</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1385.75</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x384x13x13)->(128x384x13x13)">
+    <magnitude><val>440.09</val></magnitude>
+    <node name=" ">
+     <magnitude><val>440.09</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x192x27x27)->(128x192x27x27)">
+    <magnitude><val>946.39</val></magnitude>
+    <node name=" ">
+     <magnitude><val>946.39</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="_Retval">
+  <magnitude><val>34.88</val></magnitude>
+  <node name=" ">
+   <magnitude><val>34.88</val></magnitude>
+   <node name="(384x1)->(no output info)">
+    <magnitude><val>3.32</val></magnitude>
+    <node name=" ">
+     <magnitude><val>3.32</val></magnitude>
+    </node>
+   </node>
+   <node name="(256x1)->(no output info)">
+    <magnitude><val>9.52</val></magnitude>
+    <node name=" ">
+     <magnitude><val>9.52</val></magnitude>
+    </node>
+   </node>
+   <node name="(64x1)->(no output info)">
+    <magnitude><val>4.49</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.49</val></magnitude>
+    </node>
+   </node>
+   <node name="(3x3x192x384)->(no output info)">
+    <magnitude><val>2.26</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.26</val></magnitude>
+    </node>
+   </node>
+   <node name="(11x11x3x64)->(no output info)">
+    <magnitude><val>4.88</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.88</val></magnitude>
+    </node>
+   </node>
+   <node name="(3x3x256x256)->(no output info)">
+    <magnitude><val>2.18</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.18</val></magnitude>
+    </node>
+   </node>
+   <node name="(5x5x64x192)->(no output info)">
+    <magnitude><val>1.91</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.91</val></magnitude>
+    </node>
+   </node>
+   <node name="(3x3x384x256)->(no output info)">
+    <magnitude><val>2.2</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.2</val></magnitude>
+    </node>
+   </node>
+   <node name="(192x1)->(no output info)">
+    <magnitude><val>4.12</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.12</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Time">
+  <magnitude><val>0</val></magnitude>
+ </node>
+ <node name="LRN">
+  <magnitude><val>45453.43</val></magnitude>
+  <node name=" ">
+   <magnitude><val>45453.43</val></magnitude>
+   <node name="(128x56x56x64)->(128x56x56x64)">
+    <magnitude><val>21371.42</val></magnitude>
+    <node name=" ">
+     <magnitude><val>21371.42</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x27x27x192)->(128x27x27x192)">
+    <magnitude><val>24082.01</val></magnitude>
+    <node name=" ">
+     <magnitude><val>24082.01</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="MaxPool">
+  <magnitude><val>2447.84</val></magnitude>
+  <node name="0.0 TFLOPS">
+   <magnitude><val>2447.84</val></magnitude>
+   <node name="(128x256x13x13)->(128x256x6x6)">
+    <magnitude><val>274.01</val></magnitude>
+    <node name=" ">
+     <magnitude><val>274.01</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x192x27x27)->(128x192x13x13)">
+    <magnitude><val>910.31</val></magnitude>
+    <node name=" ">
+     <magnitude><val>910.31</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x64x56x56)->(128x64x27x27)">
+    <magnitude><val>1263.52</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1263.52</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Const">
+  <magnitude><val>34.04</val></magnitude>
+  <node name=" ">
+   <magnitude><val>34.04</val></magnitude>
+   <node name="(no input)->(int32 4x1)">
+    <magnitude><val>34.04</val></magnitude>
+    <node name=" ">
+     <magnitude><val>34.04</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="VariableV2">
+  <magnitude><val>66.84</val></magnitude>
+  <node name=" ">
+   <magnitude><val>66.84</val></magnitude>
+   <node name="(no input)->(3x3x384x256)">
+    <magnitude><val>4.38</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.38</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(64x1)">
+    <magnitude><val>3.68</val></magnitude>
+    <node name=" ">
+     <magnitude><val>3.68</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(5x5x64x192)">
+    <magnitude><val>5.57</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5.57</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(128x224x224x3)">
+    <magnitude><val>6.98</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6.98</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(3x3x192x384)">
+    <magnitude><val>4.77</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.77</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(256x1)">
+    <magnitude><val>25.63</val></magnitude>
+    <node name=" ">
+     <magnitude><val>25.63</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(192x1)">
+    <magnitude><val>3.91</val></magnitude>
+    <node name=" ">
+     <magnitude><val>3.91</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(11x11x3x64)">
+    <magnitude><val>4.84</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.84</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(3x3x256x256)">
+    <magnitude><val>3.7</val></magnitude>
+    <node name=" ">
+     <magnitude><val>3.7</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(384x1)">
+    <magnitude><val>3.38</val></magnitude>
+    <node name=" ">
+     <magnitude><val>3.38</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="NoOp">
+  <magnitude><val>28.03</val></magnitude>
+  <node name=" ">
+   <magnitude><val>28.03</val></magnitude>
+   <node name="(no input)->(no output info)">
+    <magnitude><val>28.03</val></magnitude>
+    <node name=" ">
+     <magnitude><val>28.03</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Conv2DBackpropFilter">
+  <magnitude><val>38578.39</val></magnitude>
+  <node name="8.8 TFLOPS">
+   <magnitude><val>6524.73</val></magnitude>
+   <node name="(128x27x27x64)(int32 4x1)(128x27x27x192)->(5x5x64x192)">
+    <magnitude><val>6524.73</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6524.73</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="5.5 TFLOPS">
+   <magnitude><val>6914.68</val></magnitude>
+   <node name="(128x13x13x384)(int32 4x1)(128x13x13x256)->(3x3x384x256)">
+    <magnitude><val>6914.68</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6914.68</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="1.4 TFLOPS">
+   <magnitude><val>13635.39</val></magnitude>
+   <node name="(128x224x224x3)(int32 4x1)(128x56x56x64)->(11x11x3x64)">
+    <magnitude><val>13635.39</val></magnitude>
+    <node name=" ">
+     <magnitude><val>13635.39</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="4.3 TFLOPS">
+   <magnitude><val>6637.92</val></magnitude>
+   <node name="(128x13x13x192)(int32 4x1)(128x13x13x384)->(3x3x192x384)">
+    <magnitude><val>6637.92</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6637.92</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name="5.2 TFLOPS">
+   <magnitude><val>4865.67</val></magnitude>
+   <node name="(128x13x13x256)(int32 4x1)(128x13x13x256)->(3x3x256x256)">
+    <magnitude><val>4865.67</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4865.67</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="ReluGrad">
+  <magnitude><val>5001.86</val></magnitude>
+  <node name=" ">
+   <magnitude><val>5001.86</val></magnitude>
+   <node name="(128x64x56x56)(128x64x56x56)->(128x64x56x56)">
+    <magnitude><val>2033.71</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2033.71</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x384x13x13)(128x384x13x13)->(128x384x13x13)">
+    <magnitude><val>675.49</val></magnitude>
+    <node name=" ">
+     <magnitude><val>675.49</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x256x13x13)(128x256x13x13)->(128x256x13x13)">
+    <magnitude><val>877.69</val></magnitude>
+    <node name=" ">
+     <magnitude><val>877.69</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x192x27x27)(128x192x27x27)->(128x192x27x27)">
+    <magnitude><val>1414.97</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1414.97</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="MaxPoolGrad">
+  <magnitude><val>5191.68</val></magnitude>
+  <node name="0.0 TFLOPS">
+   <magnitude><val>5191.68</val></magnitude>
+   <node name="(128x64x56x56)(128x64x27x27)(128x64x27x27)->(128x64x56x56)">
+    <magnitude><val>3079.54</val></magnitude>
+    <node name=" ">
+     <magnitude><val>3079.54</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x192x27x27)(128x192x13x13)(128x192x13x13)->(128x192x27x27)">
+    <magnitude><val>1309.81</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1309.81</val></magnitude>
+    </node>
+   </node>
+   <node name="(128x256x13x13)(128x256x6x6)(128x256x6x6)->(128x256x13x13)">
+    <magnitude><val>802.33</val></magnitude>
+    <node name=" ">
+     <magnitude><val>802.33</val></magnitude>
+    </node>
    </node>
   </node>
  </node>

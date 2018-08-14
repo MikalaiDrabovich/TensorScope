@@ -6634,51 +6634,363 @@ function zoomOut()
     <dataset>data_for_pie_chart</dataset>
    </datasets>
 <node name="all">
- <magnitude><val>10305.3</val></magnitude>
- <node name="CPU-0">
-  <magnitude><val>3986.5</val></magnitude>
-  <node name="IteratorGetNext">
-   <magnitude><val>3953.8</val></magnitude>
-   <node name="(tf_resource 1x1)->(100x784)(int32 100x1)">
-    <magnitude><val>3953.8</val></magnitude>
-   </node>
-  </node>
-  <node name="NoOp">
-   <magnitude><val>4.2</val></magnitude>
-   <node name="(no input)->(no output info)">
-    <magnitude><val>4.2</val></magnitude>
-   </node>
-  </node>
-  <node name="Shape">
-   <magnitude><val>7.8</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>7.8</val></magnitude>
-    <node name="reshape">
-     <magnitude><val>7.8</val></magnitude>
-     <node name="(100x784)(int32 100x1)">
-      <magnitude><val>7.8</val></magnitude>
-     </node>
+ <magnitude><val>12116.07</val></magnitude>
+ <node name="Identity">
+  <magnitude><val>8.42</val></magnitude>
+  <node name=" ">
+   <magnitude><val>8.42</val></magnitude>
+   <node name="(1x1)->(1x1)">
+    <magnitude><val>8.42</val></magnitude>
+    <node name=" ">
+     <magnitude><val>8.42</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="Iterator">
-   <magnitude><val>16.1</val></magnitude>
-   <node name="(no input)->(tf_resource 1x1)">
-    <magnitude><val>16.1</val></magnitude>
-   </node>
-  </node>
-  <node name="_Retval">
-   <magnitude><val>4.6</val></magnitude>
-   <node name="_retval_global_step">
-    <magnitude><val>1.7</val></magnitude>
-    <node name="(int64 1x1)->(no output info)">
-     <magnitude><val>1.7</val></magnitude>
+ </node>
+ <node name="Pack">
+  <magnitude><val>24.47</val></magnitude>
+  <node name=" ">
+   <magnitude><val>24.47</val></magnitude>
+   <node name="(int32 1x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 4x1)">
+    <magnitude><val>15.03</val></magnitude>
+    <node name=" ">
+     <magnitude><val>15.03</val></magnitude>
     </node>
    </node>
-   <node name="_retval_sparse_softmax_cross_entropy_loss">
-    <magnitude><val>2.9</val></magnitude>
-    <node name="(1x1)->(no output info)">
-     <magnitude><val>2.9</val></magnitude>
+   <node name="(int32 1x1)(int32 1x1)->(int32 2x1)">
+    <magnitude><val>9.44</val></magnitude>
+    <node name=" ">
+     <magnitude><val>9.44</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Reshape">
+  <magnitude><val>45.54</val></magnitude>
+  <node name=" ">
+   <magnitude><val>45.54</val></magnitude>
+   <node name="(1x1)(int32 1x1)->(1x1)">
+    <magnitude><val>5.77</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5.77</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x64x7x7)(int32 2x1)->(100x3136)">
+    <magnitude><val>5.92</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5.92</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1)(int32 1x1)->(100x1)">
+    <magnitude><val>0.05</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.05</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1024)(int32 2x1)->(100x1024)">
+    <magnitude><val>6.1</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6.1</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x784)(int32 100x1)(int32 4x1)->(100x1x28x28)">
+    <magnitude><val>14.52</val></magnitude>
+    <node name=" ">
+     <magnitude><val>14.52</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1)(1|2|3x1)->(100x1)">
+    <magnitude><val>5.17</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5.17</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x3136)(int32 4x1)->(100x64x7x7)">
+    <magnitude><val>8.01</val></magnitude>
+    <node name=" ">
+     <magnitude><val>8.01</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="RandomUniform">
+  <magnitude><val>8.18</val></magnitude>
+  <node name=" ">
+   <magnitude><val>8.18</val></magnitude>
+   <node name="(int32 2x1)->(100x1024)">
+    <magnitude><val>8.18</val></magnitude>
+    <node name=" ">
+     <magnitude><val>8.18</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Tile">
+  <magnitude><val>2.47</val></magnitude>
+  <node name=" ">
+   <magnitude><val>2.47</val></magnitude>
+   <node name="(1x1)(int32 1x1)->(100x1)">
+    <magnitude><val>2.47</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.47</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Merge">
+  <magnitude><val>8.75</val></magnitude>
+  <node name=" ">
+   <magnitude><val>8.75</val></magnitude>
+   <node name="(int64 1x1)(int64 1x1)->(int64 1x1)(int32 1x1)">
+    <magnitude><val>8.75</val></magnitude>
+    <node name=" ">
+     <magnitude><val>8.75</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="RealDiv">
+  <magnitude><val>3.98</val></magnitude>
+  <node name="0.0 TFLOPS">
+   <magnitude><val>3.98</val></magnitude>
+   <node name="(1x1)(1x1)->(1x1)">
+    <magnitude><val>3.98</val></magnitude>
+    <node name=" ">
+     <magnitude><val>3.98</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Conv2DBackpropInput">
+  <magnitude><val>739.89</val></magnitude>
+  <node name=" ">
+   <magnitude><val>739.89</val></magnitude>
+   <node name="(int32 4x1)(int32 4x1)(5x5x32x64)(100x64x14x14)->(100x32x14x14)">
+    <magnitude><val>739.89</val></magnitude>
+    <node name=" ">
+     <magnitude><val>739.89</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="MEMCPYHtoD">
+  <magnitude><val>25.89</val></magnitude>
+  <node name=" ">
+   <magnitude><val>25.89</val></magnitude>
+   <node name="(Transfer)->(100 bytes)">
+    <magnitude><val>0.01</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.01</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(400 bytes)">
+    <magnitude><val>1</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(4 bytes)">
+    <magnitude><val>0.01</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.01</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(313600 bytes)">
+    <magnitude><val>24.87</val></magnitude>
+    <node name=" ">
+     <magnitude><val>24.87</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="ExpandDims">
+  <magnitude><val>6.12</val></magnitude>
+  <node name=" ">
+   <magnitude><val>6.12</val></magnitude>
+   <node name="(100x1)(int32 1x1)->(100x1)">
+    <magnitude><val>6.12</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6.12</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="_Retval">
+  <magnitude><val>9.88</val></magnitude>
+  <node name=" ">
+   <magnitude><val>9.88</val></magnitude>
+   <node name="(1x1)->(no output info)">
+    <magnitude><val>6.29</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6.29</val></magnitude>
+    </node>
+   </node>
+   <node name="(string 1x1)->(no output info)">
+    <magnitude><val>0.03</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.03</val></magnitude>
+    </node>
+   </node>
+   <node name="(int64 1x1)->(no output info)">
+    <magnitude><val>3.56</val></magnitude>
+    <node name=" ">
+     <magnitude><val>3.56</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Size">
+  <magnitude><val>0.17</val></magnitude>
+  <node name=" ">
+   <magnitude><val>0.17</val></magnitude>
+   <node name="(100x1)->(int32 1x1)">
+    <magnitude><val>0.17</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.17</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="SparseSoftmaxCrossEntropyWithLogits">
+  <magnitude><val>24.09</val></magnitude>
+  <node name=" ">
+   <magnitude><val>24.09</val></magnitude>
+   <node name="(100x10)(100x784)(int32 100x1)->(100x1)(100x10)">
+    <magnitude><val>24.09</val></magnitude>
+    <node name=" ">
+     <magnitude><val>24.09</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Conv2D">
+  <magnitude><val>699.48</val></magnitude>
+  <node name=" ">
+   <magnitude><val>699.48</val></magnitude>
+   <node name="(100x1x28x28)(5x5x1x32)->(100x32x28x28)">
+    <magnitude><val>114.56</val></magnitude>
+    <node name=" ">
+     <magnitude><val>114.56</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x32x14x14)(5x5x32x64)->(100x64x14x14)">
+    <magnitude><val>584.92</val></magnitude>
+    <node name=" ">
+     <magnitude><val>584.92</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="IsVariableInitialized">
+  <magnitude><val>10.59</val></magnitude>
+  <node name=" ">
+   <magnitude><val>10.59</val></magnitude>
+   <node name="(int64 1x1)->(boolean 1x1)">
+    <magnitude><val>10.59</val></magnitude>
+    <node name=" ">
+     <magnitude><val>10.59</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Floor">
+  <magnitude><val>2.77</val></magnitude>
+  <node name=" ">
+   <magnitude><val>2.77</val></magnitude>
+   <node name="(100x1024)->(100x1024)">
+    <magnitude><val>2.77</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.77</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Relu">
+  <magnitude><val>202.56</val></magnitude>
+  <node name=" ">
+   <magnitude><val>202.56</val></magnitude>
+   <node name="(100x32x28x28)->(100x32x28x28)">
+    <magnitude><val>132.75</val></magnitude>
+    <node name=" ">
+     <magnitude><val>132.75</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1024)->(100x1024)">
+    <magnitude><val>2.81</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2.81</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x64x14x14)->(100x64x14x14)">
+    <magnitude><val>67</val></magnitude>
+    <node name=" ">
+     <magnitude><val>67</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="BiasAdd">
+  <magnitude><val>243.1</val></magnitude>
+  <node name=" ">
+   <magnitude><val>243.1</val></magnitude>
+   <node name="(100x10)(10x1)->(100x10)">
+    <magnitude><val>1.99</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.99</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1024)(1024x1)->(100x1024)">
+    <magnitude><val>4.21</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.21</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x32x28x28)(32x1)->(100x32x28x28)">
+    <magnitude><val>157.08</val></magnitude>
+    <node name=" ">
+     <magnitude><val>157.08</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x64x14x14)(64x1)->(100x64x14x14)">
+    <magnitude><val>79.82</val></magnitude>
+    <node name=" ">
+     <magnitude><val>79.82</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="ArgMax">
+  <magnitude><val>0.04</val></magnitude>
+  <node name=" ">
+   <magnitude><val>0.04</val></magnitude>
+   <node name="(100x10)(int32 1x1)->(int64 100x1)">
+    <magnitude><val>0.04</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.04</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Select">
+  <magnitude><val>5.25</val></magnitude>
+  <node name=" ">
+   <magnitude><val>5.25</val></magnitude>
+   <node name="(boolean 1x1)(1|2|3x1)(1x1)->(1x1)">
+    <magnitude><val>1.66</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.66</val></magnitude>
+    </node>
+   </node>
+   <node name="(boolean 1x1)(1x1)(1x1)->(1x1)">
+    <magnitude><val>1.92</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.92</val></magnitude>
+    </node>
+   </node>
+   <node name="(boolean 1x1)(1x1)(1|2|3x1)->(1x1)">
+    <magnitude><val>1.67</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.67</val></magnitude>
     </node>
    </node>
   </node>
@@ -6686,1331 +6998,761 @@ function zoomOut()
  <node name="Time">
   <magnitude><val>0</val></magnitude>
  </node>
- <node name="GPU-0">
-  <magnitude><val>6318.8</val></magnitude>
-  <node name="Reshape">
-   <magnitude><val>25.2</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>12.2</val></magnitude>
-    <node name="reshape">
-     <magnitude><val>8.6</val></magnitude>
-     <node name="(100x784)(int32 100x1)">
-      <magnitude><val>8.6</val></magnitude>
-     </node>
-    </node>
-    <node name="flatten">
-     <magnitude><val>3.6</val></magnitude>
-     <node name="(100x64x7x7)(int32 2x1)->(100x3136)">
-      <magnitude><val>3.6</val></magnitude>
-     </node>
+ <node name="BroadcastGradientArgs">
+  <magnitude><val>21.88</val></magnitude>
+  <node name=" ">
+   <magnitude><val>21.88</val></magnitude>
+   <node name="(int32 2x1)(int32 1x1)->(int32 1x1)(int32 2x1)">
+    <magnitude><val>11.42</val></magnitude>
+    <node name=" ">
+     <magnitude><val>11.42</val></magnitude>
     </node>
    </node>
-   <node name="gradients">
-    <magnitude><val>13</val></magnitude>
-    <node name="sparse_softmax_cross_entropy_loss">
-     <magnitude><val>5.4</val></magnitude>
-     <node name="Mul_grad">
-      <magnitude><val>2.5</val></magnitude>
-      <node name="(100x1)(1|2|3x1)->(100x1)">
-       <magnitude><val>2.5</val></magnitude>
-      </node>
-     </node>
-     <node name="Sum_grad">
-      <magnitude><val>2.9</val></magnitude>
-      <node name="(1x1)(int32 1x1)->(1x1)">
-       <magnitude><val>2.9</val></magnitude>
-      </node>
-     </node>
+   <node name="(1|2|3x1)(int32 1x1)->(int32 1x1)(int32 1x1)">
+    <magnitude><val>10.31</val></magnitude>
+    <node name=" ">
+     <magnitude><val>10.31</val></magnitude>
     </node>
-    <node name="sequential">
-     <magnitude><val>7.6</val></magnitude>
-     <node name="dropout">
-      <magnitude><val>3.2</val></magnitude>
-      <node name="dropout">
-       <magnitude><val>3.2</val></magnitude>
-       <node name="div_grad">
-        <magnitude><val>3.2</val></magnitude>
-        <node name="(100x1024)(int32 2x1)->(100x1024)">
-         <magnitude><val>3.2</val></magnitude>
-        </node>
-       </node>
-      </node>
-     </node>
-     <node name="flatten">
-      <magnitude><val>4.4</val></magnitude>
-      <node name="Reshape_grad">
-       <magnitude><val>4.4</val></magnitude>
-       <node name="(100x3136)(int32 4x1)->(100x64x7x7)">
-        <magnitude><val>4.4</val></magnitude>
-       </node>
-      </node>
-     </node>
+   </node>
+   <node name="(int32 1x1)(int32 1x1)->(int32 1x1)(int32 1x1)">
+    <magnitude><val>0.15</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.15</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="BiasAdd">
-   <magnitude><val>251.2</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>251.2</val></magnitude>
-    <node name="dense_1">
-     <magnitude><val>1.9</val></magnitude>
-     <node name="(100x10)(10x1)->(100x10)">
-      <magnitude><val>1.9</val></magnitude>
-     </node>
-    </node>
-    <node name="conv2d">
-     <magnitude><val>162.4</val></magnitude>
-     <node name="(100x32x28x28)(32x1)->(100x32x28x28)">
-      <magnitude><val>162.4</val></magnitude>
-     </node>
-    </node>
-    <node name="dense">
-     <magnitude><val>4.2</val></magnitude>
-     <node name="(100x1024)(1024x1)->(100x1024)">
-      <magnitude><val>4.2</val></magnitude>
-     </node>
-    </node>
-    <node name="conv2d_1">
-     <magnitude><val>82.7</val></magnitude>
-     <node name="(100x64x14x14)(64x1)->(100x64x14x14)">
-      <magnitude><val>82.7</val></magnitude>
-     </node>
+ </node>
+ <node name="ReadVariableOp">
+  <magnitude><val>44.38</val></magnitude>
+  <node name=" ">
+   <magnitude><val>44.38</val></magnitude>
+   <node name="(tf_resource 1x1)->(1024x1)">
+    <magnitude><val>4.74</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.74</val></magnitude>
     </node>
    </node>
-  </node>
-  <node name="VariableV2">
-   <magnitude><val>19.3</val></magnitude>
-   <node name="(no input)->(int64 1x1)">
-    <magnitude><val>3</val></magnitude>
-   </node>
-   <node name="(no input)->(1x1)">
-    <magnitude><val>16.3</val></magnitude>
-   </node>
-  </node>
-  <node name="Conv2D">
-   <magnitude><val>752.2</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>752.2</val></magnitude>
-    <node name="conv2d">
-     <magnitude><val>119.5</val></magnitude>
-     <node name="(100x1x28x28)(5x5x1x32)->(100x32x28x28)">
-      <magnitude><val>119.5</val></magnitude>
-     </node>
-    </node>
-    <node name="conv2d_1">
-     <magnitude><val>632.7</val></magnitude>
-     <node name="(100x32x14x14)(5x5x32x64)->(100x64x14x14)">
-      <magnitude><val>632.7</val></magnitude>
-     </node>
+   <node name="(tf_resource 1x1)->(1024x10)">
+    <magnitude><val>4.85</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.85</val></magnitude>
     </node>
    </node>
-  </node>
-  <node name="Assign">
-   <magnitude><val>33.1</val></magnitude>
-   <node name="Adam">
-    <magnitude><val>33.1</val></magnitude>
-    <node name="(1x1)(1x1)->(1x1)">
-     <magnitude><val>33.1</val></magnitude>
+   <node name="(tf_resource 1x1)->(5x5x1x32)">
+    <magnitude><val>9.32</val></magnitude>
+    <node name=" ">
+     <magnitude><val>9.32</val></magnitude>
     </node>
    </node>
-  </node>
-  <node name="Fill">
-   <magnitude><val>2</val></magnitude>
-   <node name="sparse_softmax_cross_entropy_loss">
-    <magnitude><val>2</val></magnitude>
-    <node name="num_present">
-     <magnitude><val>2</val></magnitude>
-     <node name="broadcast_weights">
-      <magnitude><val>2</val></magnitude>
-      <node name="(int32 1x1)(1x1)->(100x1)">
-       <magnitude><val>2</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="NoOp">
-   <magnitude><val>73</val></magnitude>
-   <node name="(no input)->(no output info)">
-    <magnitude><val>73</val></magnitude>
-   </node>
-  </node>
-  <node name="Relu">
-   <magnitude><val>203.1</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>203.1</val></magnitude>
-    <node name="conv2d">
-     <magnitude><val>132.9</val></magnitude>
-     <node name="(100x32x28x28)->(100x32x28x28)">
-      <magnitude><val>132.9</val></magnitude>
-     </node>
-    </node>
-    <node name="conv2d_1">
-     <magnitude><val>67.2</val></magnitude>
-     <node name="(100x64x14x14)->(100x64x14x14)">
-      <magnitude><val>67.2</val></magnitude>
-     </node>
-    </node>
-    <node name="dense">
-     <magnitude><val>3</val></magnitude>
-     <node name="(100x1024)->(100x1024)">
-      <magnitude><val>3</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="SparseSoftmaxCrossEntropyWithLogits">
-   <magnitude><val>25.7</val></magnitude>
-   <node name="sparse_softmax_cross_entropy_loss">
-    <magnitude><val>25.7</val></magnitude>
-    <node name="xentropy">
-     <magnitude><val>25.7</val></magnitude>
-     <node name="(100x10)(100x784)(int32 100x1)">
-      <magnitude><val>25.7</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="MatMul">
-   <magnitude><val>764.9</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>270.7</val></magnitude>
-    <node name="dense">
-     <magnitude><val>253.7</val></magnitude>
-     <node name="(100x3136)(3136x1024)->(100x1024)">
-      <magnitude><val>253.7</val></magnitude>
-     </node>
-    </node>
-    <node name="dense_1">
-     <magnitude><val>17</val></magnitude>
-     <node name="(100x1024)(1024x10)->(100x10)">
-      <magnitude><val>17</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="gradients">
-    <magnitude><val>494.2</val></magnitude>
-    <node name="sequential">
-     <magnitude><val>494.2</val></magnitude>
-     <node name="dense_1">
-      <magnitude><val>28.8</val></magnitude>
-      <node name="MatMul_grad">
-       <magnitude><val>28.8</val></magnitude>
-       <node name="(100x1024)(100x10)->(1024x10)">
-        <magnitude><val>12.8</val></magnitude>
-       </node>
-       <node name="(100x10)(1024x10)->(100x1024)">
-        <magnitude><val>16</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="dense">
-      <magnitude><val>465.4</val></magnitude>
-      <node name="MatMul_grad">
-       <magnitude><val>465.4</val></magnitude>
-       <node name="(100x3136)(100x1024)->(3136x1024)">
-        <magnitude><val>202.2</val></magnitude>
-       </node>
-       <node name="(100x1024)(3136x1024)->(100x3136)">
-        <magnitude><val>263.2</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Switch">
-   <magnitude><val>2.4</val></magnitude>
-   <node name="global_step">
-    <magnitude><val>2.4</val></magnitude>
-    <node name="cond">
-     <magnitude><val>2.4</val></magnitude>
-     <node name="(int64 1x1)(boolean 1x1)->(int64 1x1)">
-      <magnitude><val>2.4</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Pack">
-   <magnitude><val>14.3</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>14.3</val></magnitude>
-    <node name="reshape">
-     <magnitude><val>8.8</val></magnitude>
-     <node name="Reshape">
-      <magnitude><val>8.8</val></magnitude>
-      <node name="(int32 1x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 4x1)">
-       <magnitude><val>8.8</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="flatten">
-     <magnitude><val>5.5</val></magnitude>
-     <node name="Reshape">
-      <magnitude><val>5.5</val></magnitude>
-      <node name="(int32 1x1)(int32 1x1)->(int32 2x1)">
-       <magnitude><val>5.5</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="MEMCPYDtoH">
-   <magnitude><val>2.7</val></magnitude>
-   <node name="edge_340_global_step">
-    <magnitude><val>1.7</val></magnitude>
-    <node name="add">
-     <magnitude><val>1.7</val></magnitude>
-     <node name="(Transfer)->(8 bytes)">
-      <magnitude><val>1.7</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="edge_342_sparse_softmax_cross_entropy_loss">
-    <magnitude><val>1</val></magnitude>
-    <node name="value">
-     <magnitude><val>1</val></magnitude>
-     <node name="(Transfer)->(4 bytes)">
-      <magnitude><val>1</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Select">
-   <magnitude><val>5.1</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>2.1</val></magnitude>
-    <node name="sparse_softmax_cross_entropy_loss">
-     <magnitude><val>2.1</val></magnitude>
-     <node name="value_grad">
-      <magnitude><val>2.1</val></magnitude>
-      <node name="(boolean 1x1)(1x1)(1x1)->(1x1)">
-       <magnitude><val>2.1</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="sparse_softmax_cross_entropy_loss">
-    <magnitude><val>3</val></magnitude>
-    <node name="(boolean 1x1)(1|2|3x1)(1x1)->(1x1)">
-     <magnitude><val>1.5</val></magnitude>
-    </node>
-    <node name="(boolean 1x1)(1x1)(1|2|3x1)->(1x1)">
-     <magnitude><val>1.5</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="ReadVariableOp">
-   <magnitude><val>34.7</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>34.7</val></magnitude>
-    <node name="conv2d_1">
-     <magnitude><val>8.3</val></magnitude>
-     <node name="BiasAdd">
-      <magnitude><val>4</val></magnitude>
-      <node name="(tf_resource 1x1)->(64x1)">
-       <magnitude><val>4</val></magnitude>
-      </node>
-     </node>
-     <node name="Conv2D">
-      <magnitude><val>4.3</val></magnitude>
-      <node name="(tf_resource 1x1)->(5x5x32x64)">
-       <magnitude><val>4.3</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="dense">
-     <magnitude><val>8.1</val></magnitude>
-     <node name="BiasAdd">
-      <magnitude><val>4.8</val></magnitude>
-      <node name="(tf_resource 1x1)->(1024x1)">
-       <magnitude><val>4.8</val></magnitude>
-      </node>
-     </node>
-     <node name="MatMul">
-      <magnitude><val>3.3</val></magnitude>
-      <node name="(tf_resource 1x1)->(3136x1024)">
-       <magnitude><val>3.3</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="dense_1">
-     <magnitude><val>8</val></magnitude>
-     <node name="BiasAdd">
-      <magnitude><val>3.9</val></magnitude>
-      <node name="(tf_resource 1x1)->(10x1)">
-       <magnitude><val>3.9</val></magnitude>
-      </node>
-     </node>
-     <node name="MatMul">
-      <magnitude><val>4.1</val></magnitude>
-      <node name="(tf_resource 1x1)->(1024x10)">
-       <magnitude><val>4.1</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="conv2d">
-     <magnitude><val>10.3</val></magnitude>
-     <node name="BiasAdd">
-      <magnitude><val>2.8</val></magnitude>
-      <node name="(tf_resource 1x1)->(32x1)">
-       <magnitude><val>2.8</val></magnitude>
-      </node>
-     </node>
-     <node name="Conv2D">
-      <magnitude><val>7.5</val></magnitude>
-      <node name="(tf_resource 1x1)->(5x5x1x32)">
-       <magnitude><val>7.5</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Const">
-   <magnitude><val>75.5</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>12.6</val></magnitude>
-    <node name="sparse_softmax_cross_entropy_loss">
-     <magnitude><val>8.5</val></magnitude>
-     <node name="xentropy">
-      <magnitude><val>2.1</val></magnitude>
-      <node name="xentropy_grad">
-       <magnitude><val>2.1</val></magnitude>
-       <node name="ExpandDims">
-        <magnitude><val>2.1</val></magnitude>
-        <node name="(no input)->(int32 1x1)">
-         <magnitude><val>2.1</val></magnitude>
-        </node>
-       </node>
-      </node>
-     </node>
-     <node name="Sum_grad">
-      <magnitude><val>2.8</val></magnitude>
-      <node name="Reshape">
-       <magnitude><val>2.8</val></magnitude>
-       <node name="(no input)->(int32 1x1)">
-        <magnitude><val>2.8</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="value_grad">
-      <magnitude><val>3.6</val></magnitude>
-      <node name="(no input)->(1x1)">
-       <magnitude><val>3.6</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="(no input)->(1x1)">
-     <magnitude><val>4.1</val></magnitude>
-    </node>
-   </node>
-   <node name="ConstantFolding">
-    <magnitude><val>20.3</val></magnitude>
-    <node name="gradients">
-     <magnitude><val>20.3</val></magnitude>
-     <node name="sparse_softmax_cross_entropy_loss">
-      <magnitude><val>9.1</val></magnitude>
-      <node name="div_grad">
-       <magnitude><val>9.1</val></magnitude>
-       <node name="(no input)->(int32 1x1)">
-        <magnitude><val>9.1</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="sequential">
-      <magnitude><val>11.2</val></magnitude>
-      <node name="conv2d_1">
-       <magnitude><val>3.1</val></magnitude>
-       <node name="Conv2D_grad">
-        <magnitude><val>3.1</val></magnitude>
-        <node name="(no input)->(int32 4x1)">
-         <magnitude><val>3.1</val></magnitude>
-        </node>
-       </node>
-      </node>
-      <node name="dropout">
-       <magnitude><val>4.3</val></magnitude>
-       <node name="dropout">
-        <magnitude><val>4.3</val></magnitude>
-        <node name="div_grad">
-         <magnitude><val>4.3</val></magnitude>
-         <node name="(no input)->(1x1)">
-          <magnitude><val>4.3</val></magnitude>
-         </node>
-        </node>
-       </node>
-      </node>
-      <node name="conv2d">
-       <magnitude><val>3.8</val></magnitude>
-       <node name="Conv2D_grad">
-        <magnitude><val>3.8</val></magnitude>
-        <node name="(no input)->(int32 4x1)">
-         <magnitude><val>3.8</val></magnitude>
-        </node>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="Adam">
-    <magnitude><val>22.2</val></magnitude>
-    <node name="(no input)->(1x1)">
-     <magnitude><val>18.3</val></magnitude>
-    </node>
-    <node name="(no input)->(int64 1x1)">
-     <magnitude><val>3.9</val></magnitude>
-    </node>
-   </node>
-   <node name="sparse_softmax_cross_entropy_loss">
-    <magnitude><val>3.8</val></magnitude>
-    <node name="num_present">
-     <magnitude><val>3.8</val></magnitude>
-     <node name="broadcast_weights">
-      <magnitude><val>3.8</val></magnitude>
-      <node name="ones_like">
-       <magnitude><val>3.8</val></magnitude>
-       <node name="(no input)->(1x1)">
-        <magnitude><val>3.8</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="sequential">
-    <magnitude><val>13</val></magnitude>
-    <node name="reshape">
-     <magnitude><val>7.5</val></magnitude>
-     <node name="Reshape">
-      <magnitude><val>5.2</val></magnitude>
-      <node name="shape">
-       <magnitude><val>5.2</val></magnitude>
-       <node name="(no input)->(int32 1x1)">
-        <magnitude><val>5.2</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="strided_slice">
-      <magnitude><val>2.3</val></magnitude>
-      <node name="(no input)->(int32 1x1)">
-       <magnitude><val>2.3</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="dropout">
-     <magnitude><val>5.5</val></magnitude>
-     <node name="dropout">
-      <magnitude><val>5.5</val></magnitude>
-      <node name="(no input)->(1x1)">
-       <magnitude><val>5.5</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="global_step">
-    <magnitude><val>3.6</val></magnitude>
-    <node name="Initializer">
-     <magnitude><val>3.6</val></magnitude>
-     <node name="(no input)->(int64 1x1)">
-      <magnitude><val>3.6</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="AssignAdd">
-   <magnitude><val>1.9</val></magnitude>
-   <node name="(int64 1x1)(int64 1x1)->(int64 1x1)">
-    <magnitude><val>1.9</val></magnitude>
-   </node>
-  </node>
-  <node name="ShapeN">
-   <magnitude><val>7.6</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>7.6</val></magnitude>
-    <node name="sequential">
-     <magnitude><val>7.6</val></magnitude>
-     <node name="conv2d_1">
-      <magnitude><val>7.6</val></magnitude>
-      <node name="Conv2D_grad">
-       <magnitude><val>7.6</val></magnitude>
-       <node name="(100x32x14x14)(5x5x32x64)->(int32 4x1)(int32 4x1)">
-        <magnitude><val>7.6</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Sum">
-   <magnitude><val>11.6</val></magnitude>
-   <node name="sparse_softmax_cross_entropy_loss">
-    <magnitude><val>4.5</val></magnitude>
-    <node name="(100x1)(1)->(1x1)">
-     <magnitude><val>4.5</val></magnitude>
-    </node>
-   </node>
-   <node name="gradients">
-    <magnitude><val>7.1</val></magnitude>
-    <node name="sequential">
-     <magnitude><val>4</val></magnitude>
-     <node name="dropout">
-      <magnitude><val>4</val></magnitude>
-      <node name="dropout">
-       <magnitude><val>4</val></magnitude>
-       <node name="div_grad">
-        <magnitude><val>4</val></magnitude>
-        <node name="(100x1024)(int32 1x1)(int32 2x1)">
-         <magnitude><val>4</val></magnitude>
-        </node>
-       </node>
-      </node>
-     </node>
-    </node>
-    <node name="sparse_softmax_cross_entropy_loss">
-     <magnitude><val>3.1</val></magnitude>
-     <node name="Mul_grad">
-      <magnitude><val>3.1</val></magnitude>
-      <node name="(100x1)(int32 1x1)(int32 1x1)">
-       <magnitude><val>3.1</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="MaxPoolGrad">
-   <magnitude><val>296.7</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>296.7</val></magnitude>
-    <node name="sequential">
-     <magnitude><val>296.7</val></magnitude>
-     <node name="max_pooling2d">
-      <magnitude><val>167.6</val></magnitude>
-      <node name="MaxPool_grad">
-       <magnitude><val>167.6</val></magnitude>
-       <node name="(100x32x28x28)(100x32x14x14)(100x32x14x14)->(100x32x28x28)">
-        <magnitude><val>167.6</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="max_pooling2d_1">
-      <magnitude><val>129.1</val></magnitude>
-      <node name="MaxPool_grad">
-       <magnitude><val>129.1</val></magnitude>
-       <node name="(100x64x14x14)(100x64x7x7)(100x64x7x7)->(100x64x14x14)">
-        <magnitude><val>129.1</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="ReluGrad">
-   <magnitude><val>323.7</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>323.7</val></magnitude>
-    <node name="sequential">
-     <magnitude><val>323.7</val></magnitude>
-     <node name="dense">
-      <magnitude><val>5.2</val></magnitude>
-      <node name="Relu_grad">
-       <magnitude><val>5.2</val></magnitude>
-       <node name="(100x1024)(100x1024)->(100x1024)">
-        <magnitude><val>5.2</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="conv2d_1">
-      <magnitude><val>96</val></magnitude>
-      <node name="Relu_grad">
-       <magnitude><val>96</val></magnitude>
-       <node name="(100x64x14x14)(100x64x14x14)->(100x64x14x14)">
-        <magnitude><val>96</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="conv2d">
-      <magnitude><val>222.5</val></magnitude>
-      <node name="Relu_grad">
-       <magnitude><val>222.5</val></magnitude>
-       <node name="(100x32x28x28)(100x32x28x28)->(100x32x28x28)">
-        <magnitude><val>222.5</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="MEMCPYDtoD">
-   <magnitude><val>3</val></magnitude>
-   <node name="Adam">
-    <magnitude><val>2</val></magnitude>
-    <node name="Assign">
-     <magnitude><val>1</val></magnitude>
-     <node name="(Transfer)->(4 bytes)">
-      <magnitude><val>1</val></magnitude>
-     </node>
-    </node>
-    <node name="Assign_1">
-     <magnitude><val>1</val></magnitude>
-     <node name="(Transfer)->(4 bytes)">
-      <magnitude><val>1</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="global_step">
-    <magnitude><val>1</val></magnitude>
-    <node name="add">
-     <magnitude><val>1</val></magnitude>
-     <node name="(Transfer)->(8 bytes)">
-      <magnitude><val>1</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="IsVariableInitialized">
-   <magnitude><val>10.3</val></magnitude>
-   <node name="global_step">
-    <magnitude><val>10.3</val></magnitude>
-    <node name="(int64 1x1)->(boolean 1x1)">
-     <magnitude><val>10.3</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="ResourceApplyAdam">
-   <magnitude><val>904.6</val></magnitude>
-   <node name="Adam">
-    <magnitude><val>904.6</val></magnitude>
-    <node name="update_dense_1">
-     <magnitude><val>21</val></magnitude>
-     <node name="kernel">
-      <magnitude><val>10.4</val></magnitude>
-      <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1024x10)->(no output info)">
-       <magnitude><val>10.4</val></magnitude>
-      </node>
-     </node>
-     <node name="bias">
-      <magnitude><val>10.6</val></magnitude>
-      <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(10x1)->(no output info)">
-       <magnitude><val>10.6</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="update_conv2d_1">
-     <magnitude><val>26.8</val></magnitude>
-     <node name="kernel">
-      <magnitude><val>18.1</val></magnitude>
-      <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(5x5x32x64)->(no output info)">
-       <magnitude><val>18.1</val></magnitude>
-      </node>
-     </node>
-     <node name="bias">
-      <magnitude><val>8.7</val></magnitude>
-      <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(64x1)->(no output info)">
-       <magnitude><val>8.7</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="update_conv2d">
-     <magnitude><val>17.6</val></magnitude>
-     <node name="kernel">
-      <magnitude><val>8.9</val></magnitude>
-      <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(5x5x1x32)->(no output info)">
-       <magnitude><val>8.9</val></magnitude>
-      </node>
-     </node>
-     <node name="bias">
-      <magnitude><val>8.7</val></magnitude>
-      <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(32x1)->(no output info)">
-       <magnitude><val>8.7</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="update_dense">
-     <magnitude><val>839.2</val></magnitude>
-     <node name="kernel">
-      <magnitude><val>830.1</val></magnitude>
-      <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(3136x1024)->(no output info)">
-       <magnitude><val>830.1</val></magnitude>
-      </node>
-     </node>
-     <node name="bias">
-      <magnitude><val>9.1</val></magnitude>
-      <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1024x1)->(no output info)">
-       <magnitude><val>9.1</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="MEMCPYHtoD">
-   <magnitude><val>29.8</val></magnitude>
-   <node name="edge_81_IteratorGetNext">
-    <magnitude><val>1</val></magnitude>
-    <node name="(Transfer)->(400 bytes)">
-     <magnitude><val>1</val></magnitude>
-    </node>
-   </node>
-   <node name="edge_30_IteratorGetNext">
-    <magnitude><val>28.8</val></magnitude>
-    <node name="(Transfer)->(313600 bytes)">
-     <magnitude><val>28.8</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="Tile">
-   <magnitude><val>2.5</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>2.5</val></magnitude>
-    <node name="sparse_softmax_cross_entropy_loss">
-     <magnitude><val>2.5</val></magnitude>
-     <node name="Sum_grad">
-      <magnitude><val>2.5</val></magnitude>
-      <node name="(1x1)(int32 1x1)->(100x1)">
-       <magnitude><val>2.5</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="BiasAddGrad">
-   <magnitude><val>133.6</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>133.6</val></magnitude>
-    <node name="sequential">
-     <magnitude><val>133.6</val></magnitude>
-     <node name="dense_1">
-      <magnitude><val>9.2</val></magnitude>
-      <node name="BiasAdd_grad">
-       <magnitude><val>9.2</val></magnitude>
-       <node name="(100x10)->(10x1)">
-        <magnitude><val>9.2</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="conv2d">
-      <magnitude><val>75.2</val></magnitude>
-      <node name="BiasAdd_grad">
-       <magnitude><val>75.2</val></magnitude>
-       <node name="(100x32x28x28)->(32x1)">
-        <magnitude><val>75.2</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="dense">
-      <magnitude><val>5</val></magnitude>
-      <node name="BiasAdd_grad">
-       <magnitude><val>5</val></magnitude>
-       <node name="(100x1024)->(1024x1)">
-        <magnitude><val>5</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="conv2d_1">
-      <magnitude><val>44.2</val></magnitude>
-      <node name="BiasAdd_grad">
-       <magnitude><val>44.2</val></magnitude>
-       <node name="(100x64x14x14)->(64x1)">
-        <magnitude><val>44.2</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Conv2DBackpropInput">
-   <magnitude><val>790.2</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>790.2</val></magnitude>
-    <node name="sequential">
-     <magnitude><val>790.2</val></magnitude>
-     <node name="conv2d_1">
-      <magnitude><val>790.2</val></magnitude>
-      <node name="Conv2D_grad">
-       <magnitude><val>790.2</val></magnitude>
-       <node name="(int32 4x1)(int32 4x1)">
-        <magnitude><val>790.2</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="BroadcastGradientArgs">
-   <magnitude><val>12.4</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>12.4</val></magnitude>
-    <node name="sequential">
-     <magnitude><val>6.6</val></magnitude>
-     <node name="dropout">
-      <magnitude><val>6.6</val></magnitude>
-      <node name="dropout">
-       <magnitude><val>6.6</val></magnitude>
-       <node name="div_grad">
-        <magnitude><val>6.6</val></magnitude>
-        <node name="(int32 2x1)(int32 1x1)->(int32 1x1)(int32 2x1)">
-         <magnitude><val>6.6</val></magnitude>
-        </node>
-       </node>
-      </node>
-     </node>
-    </node>
-    <node name="sparse_softmax_cross_entropy_loss">
-     <magnitude><val>5.8</val></magnitude>
-     <node name="Mul_grad">
-      <magnitude><val>5.8</val></magnitude>
-      <node name="(1|2|3x1)(int32 1x1)->(int32 1x1)(int32 1x1)">
-       <magnitude><val>5.8</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Floor">
-   <magnitude><val>2.9</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>2.9</val></magnitude>
-    <node name="dropout">
-     <magnitude><val>2.9</val></magnitude>
-     <node name="dropout">
-      <magnitude><val>2.9</val></magnitude>
-      <node name="(100x1024)->(100x1024)">
-       <magnitude><val>2.9</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="RealDiv">
-   <magnitude><val>3.8</val></magnitude>
-   <node name="sparse_softmax_cross_entropy_loss">
-    <magnitude><val>2</val></magnitude>
-    <node name="(1x1)(1x1)->(1x1)">
-     <magnitude><val>2</val></magnitude>
-    </node>
-   </node>
-   <node name="gradients">
-    <magnitude><val>1.8</val></magnitude>
-    <node name="sparse_softmax_cross_entropy_loss">
-     <magnitude><val>1.8</val></magnitude>
-     <node name="div_grad">
-      <magnitude><val>1.8</val></magnitude>
-      <node name="(1x1)(1x1)->(1x1)">
-       <magnitude><val>1.8</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Conv2DBackpropFilter">
-   <magnitude><val>1059.8</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>1059.8</val></magnitude>
-    <node name="sequential">
-     <magnitude><val>1059.8</val></magnitude>
-     <node name="conv2d">
-      <magnitude><val>261.4</val></magnitude>
-      <node name="Conv2D_grad">
-       <magnitude><val>261.4</val></magnitude>
-       <node name="(100x1x28x28)(int32 4x1)(100x32x28x28)->(5x5x1x32)">
-        <magnitude><val>261.4</val></magnitude>
-       </node>
-      </node>
-     </node>
-     <node name="conv2d_1">
-      <magnitude><val>798.4</val></magnitude>
-      <node name="Conv2D_grad">
-       <magnitude><val>798.4</val></magnitude>
-       <node name="(100x32x14x14)(int32 4x1)(100x64x14x14)->(5x5x32x64)">
-        <magnitude><val>798.4</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="MaxPool">
-   <magnitude><val>164.7</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>164.7</val></magnitude>
-    <node name="max_pooling2d">
-     <magnitude><val>106.8</val></magnitude>
-     <node name="(100x32x28x28)->(100x32x14x14)">
-      <magnitude><val>106.8</val></magnitude>
-     </node>
-    </node>
-    <node name="max_pooling2d_1">
-     <magnitude><val>57.9</val></magnitude>
-     <node name="(100x64x14x14)->(100x64x7x7)">
-      <magnitude><val>57.9</val></magnitude>
-     </node>
-    </node>
-   </node>
-  </node>
-  <node name="Snapshot">
-   <magnitude><val>90.2</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>2.8</val></magnitude>
-    <node name="sparse_softmax_cross_entropy_loss">
-     <magnitude><val>2.8</val></magnitude>
-     <node name="Mul_grad">
-      <magnitude><val>2.8</val></magnitude>
-      <node name="(100x1)->(100x1)">
-       <magnitude><val>2.8</val></magnitude>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="sparse_softmax_cross_entropy_loss">
+   <node name="(tf_resource 1x1)->(5x5x32x64)">
     <magnitude><val>5.2</val></magnitude>
-    <node name="num_present">
-     <magnitude><val>2.7</val></magnitude>
-     <node name="(100x1)->(100x1)">
-      <magnitude><val>2.7</val></magnitude>
-     </node>
-    </node>
-    <node name="(100x1)(100x10)">
-     <magnitude><val>2.5</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5.2</val></magnitude>
     </node>
    </node>
-   <node name="sequential">
-    <magnitude><val>5.3</val></magnitude>
-    <node name="dropout">
-     <magnitude><val>5.3</val></magnitude>
-     <node name="dropout">
-      <magnitude><val>5.3</val></magnitude>
-      <node name="(100x1024)->(100x1024)">
-       <magnitude><val>2.2</val></magnitude>
-      </node>
-      <node name="random_uniform">
-       <magnitude><val>3.1</val></magnitude>
-       <node name="(100x1024)->(100x1024)">
-        <magnitude><val>3.1</val></magnitude>
-       </node>
-      </node>
-     </node>
+   <node name="(tf_resource 1x1)->(10x1)">
+    <magnitude><val>4.75</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.75</val></magnitude>
     </node>
    </node>
-   <node name="global_step">
-    <magnitude><val>76.9</val></magnitude>
-    <node name="(int64 1x1)(int32 1x1)">
-     <magnitude><val>76.9</val></magnitude>
+   <node name="(tf_resource 1x1)->(3136x1024)">
+    <magnitude><val>5.02</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5.02</val></magnitude>
+    </node>
+   </node>
+   <node name="(tf_resource 1x1)->(64x1)">
+    <magnitude><val>4.84</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.84</val></magnitude>
+    </node>
+   </node>
+   <node name="(tf_resource 1x1)->(32x1)">
+    <magnitude><val>5.66</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5.66</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="Add">
-   <magnitude><val>3.6</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>3.6</val></magnitude>
-    <node name="dropout">
-     <magnitude><val>3.6</val></magnitude>
-     <node name="dropout">
-      <magnitude><val>3.6</val></magnitude>
-      <node name="(1x1)(100x1024)->(100x1024)">
-       <magnitude><val>3.6</val></magnitude>
-      </node>
-     </node>
+ </node>
+ <node name="MaxPoolGrad">
+  <magnitude><val>287.16</val></magnitude>
+  <node name=" ">
+   <magnitude><val>287.16</val></magnitude>
+   <node name="(100x64x14x14)(100x64x7x7)(100x64x7x7)->(100x64x14x14)">
+    <magnitude><val>120.81</val></magnitude>
+    <node name=" ">
+     <magnitude><val>120.81</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x32x28x28)(100x32x14x14)(100x32x14x14)->(100x32x28x28)">
+    <magnitude><val>166.35</val></magnitude>
+    <node name=" ">
+     <magnitude><val>166.35</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="Shape">
-   <magnitude><val>17.1</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>12.3</val></magnitude>
-    <node name="sparse_softmax_cross_entropy_loss">
-     <magnitude><val>3.1</val></magnitude>
-     <node name="Sum_grad">
-      <magnitude><val>3.1</val></magnitude>
-      <node name="(100x1)->(int32 1x1)">
-       <magnitude><val>3.1</val></magnitude>
-      </node>
-     </node>
-    </node>
-    <node name="sequential">
-     <magnitude><val>9.2</val></magnitude>
-     <node name="dropout">
-      <magnitude><val>4.3</val></magnitude>
-      <node name="dropout">
-       <magnitude><val>4.3</val></magnitude>
-       <node name="div_grad">
-        <magnitude><val>4.3</val></magnitude>
-        <node name="(100x1024)->(int32 2x1)">
-         <magnitude><val>4.3</val></magnitude>
-        </node>
-       </node>
-      </node>
-     </node>
-     <node name="flatten">
-      <magnitude><val>4.9</val></magnitude>
-      <node name="Reshape_grad">
-       <magnitude><val>4.9</val></magnitude>
-       <node name="(100x64x7x7)->(int32 4x1)">
-        <magnitude><val>4.9</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-   </node>
-   <node name="sparse_softmax_cross_entropy_loss">
-    <magnitude><val>4.8</val></magnitude>
-    <node name="num_present">
-     <magnitude><val>4.8</val></magnitude>
-     <node name="broadcast_weights">
-      <magnitude><val>4.8</val></magnitude>
-      <node name="ones_like">
-       <magnitude><val>4.8</val></magnitude>
-       <node name="(100x1)(100x10)">
-        <magnitude><val>4.8</val></magnitude>
-       </node>
-      </node>
-     </node>
+ </node>
+ <node name="RefSwitch">
+  <magnitude><val>6.25</val></magnitude>
+  <node name=" ">
+   <magnitude><val>6.25</val></magnitude>
+   <node name="(int64 1x1)(boolean 1x1)->(int64 1x1)">
+    <magnitude><val>6.25</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6.25</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="Merge">
-   <magnitude><val>4.8</val></magnitude>
-   <node name="global_step">
-    <magnitude><val>4.8</val></magnitude>
-    <node name="cond">
-     <magnitude><val>4.8</val></magnitude>
-     <node name="(int64 1x1)">
-      <magnitude><val>4.8</val></magnitude>
-     </node>
+ </node>
+ <node name="Shape">
+  <magnitude><val>47.1</val></magnitude>
+  <node name=" ">
+   <magnitude><val>47.1</val></magnitude>
+   <node name="(100x1)(100x10)->(int32 1x1)">
+    <magnitude><val>8.06</val></magnitude>
+    <node name=" ">
+     <magnitude><val>8.06</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1024)->(int32 2x1)">
+    <magnitude><val>7.82</val></magnitude>
+    <node name=" ">
+     <magnitude><val>7.82</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1)->(int32 1x1)">
+    <magnitude><val>5.85</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5.85</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x64x7x7)->(int32 4x1)">
+    <magnitude><val>8.3</val></magnitude>
+    <node name=" ">
+     <magnitude><val>8.3</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x784)(int32 100x1)->(int32 2x1)">
+    <magnitude><val>17.07</val></magnitude>
+    <node name=" ">
+     <magnitude><val>17.07</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="StridedSlice">
-   <magnitude><val>23.5</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>23.5</val></magnitude>
-    <node name="reshape">
-     <magnitude><val>17.3</val></magnitude>
-     <node name="(int32 2x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 1x1)">
-      <magnitude><val>17.3</val></magnitude>
-     </node>
+ </node>
+ <node name="Fill">
+  <magnitude><val>1.83</val></magnitude>
+  <node name=" ">
+   <magnitude><val>1.83</val></magnitude>
+   <node name="(int32 1x1)(1x1)->(100x1)">
+    <magnitude><val>1.82</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.82</val></magnitude>
     </node>
-    <node name="flatten">
-     <magnitude><val>6.2</val></magnitude>
-     <node name="(int32 4x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 1x1)">
-      <magnitude><val>6.2</val></magnitude>
-     </node>
+   </node>
+   <node name="(1|2|3x1)(1x1)->(100x1)">
+    <magnitude><val>0.01</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.01</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="ExpandDims">
-   <magnitude><val>3.9</val></magnitude>
-   <node name="gradients">
-    <magnitude><val>3.9</val></magnitude>
-    <node name="sparse_softmax_cross_entropy_loss">
-     <magnitude><val>3.9</val></magnitude>
-     <node name="xentropy">
-      <magnitude><val>3.9</val></magnitude>
-      <node name="xentropy_grad">
-       <magnitude><val>3.9</val></magnitude>
-       <node name="(100x1)(int32 1x1)->(100x1)">
-        <magnitude><val>3.9</val></magnitude>
-       </node>
-      </node>
-     </node>
+ </node>
+ <node name="AssignAdd">
+  <magnitude><val>1.88</val></magnitude>
+  <node name="0.0 TFLOPS">
+   <magnitude><val>1.88</val></magnitude>
+   <node name="(1x1)(1x1)->(1x1)">
+    <magnitude><val>0.04</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.04</val></magnitude>
+    </node>
+   </node>
+   <node name="(int64 1x1)(int64 1x1)->(int64 1x1)">
+    <magnitude><val>1.84</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.84</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="VarHandleOp">
-   <magnitude><val>84.1</val></magnitude>
-   <node name="dense_1">
-    <magnitude><val>19.1</val></magnitude>
-    <node name="bias">
-     <magnitude><val>4.3</val></magnitude>
-     <node name="(no input)->(tf_resource 1x1)">
-      <magnitude><val>4.3</val></magnitude>
-     </node>
-    </node>
-    <node name="(no input)->(tf_resource 1x1)">
-     <magnitude><val>6.3</val></magnitude>
-    </node>
-    <node name="kernel">
-     <magnitude><val>8.5</val></magnitude>
-     <node name="(no input)->(tf_resource 1x1)">
-      <magnitude><val>8.5</val></magnitude>
-     </node>
+ </node>
+ <node name="Conv2DBackpropFilter">
+  <magnitude><val>993.36</val></magnitude>
+  <node name=" ">
+   <magnitude><val>993.36</val></magnitude>
+   <node name="(100x1x28x28)(int32 4x1)(100x32x28x28)->(5x5x1x32)">
+    <magnitude><val>255.47</val></magnitude>
+    <node name=" ">
+     <magnitude><val>255.47</val></magnitude>
     </node>
    </node>
-   <node name="conv2d">
-    <magnitude><val>24.8</val></magnitude>
-    <node name="bias">
-     <magnitude><val>6.7</val></magnitude>
-     <node name="(no input)->(tf_resource 1x1)">
-      <magnitude><val>6.7</val></magnitude>
-     </node>
-    </node>
-    <node name="(no input)->(tf_resource 1x1)">
-     <magnitude><val>10</val></magnitude>
-    </node>
-    <node name="kernel">
-     <magnitude><val>8.1</val></magnitude>
-     <node name="(no input)->(tf_resource 1x1)">
-      <magnitude><val>8.1</val></magnitude>
-     </node>
-    </node>
-   </node>
-   <node name="conv2d_1">
-    <magnitude><val>17.2</val></magnitude>
-    <node name="bias">
-     <magnitude><val>7.3</val></magnitude>
-     <node name="(no input)->(tf_resource 1x1)">
-      <magnitude><val>7.3</val></magnitude>
-     </node>
-    </node>
-    <node name="kernel">
-     <magnitude><val>4.4</val></magnitude>
-     <node name="(no input)->(tf_resource 1x1)">
-      <magnitude><val>4.4</val></magnitude>
-     </node>
-    </node>
-    <node name="(no input)->(tf_resource 1x1)">
-     <magnitude><val>5.5</val></magnitude>
-    </node>
-   </node>
-   <node name="dense">
-    <magnitude><val>23</val></magnitude>
-    <node name="(no input)->(tf_resource 1x1)">
-     <magnitude><val>7.9</val></magnitude>
-    </node>
-    <node name="kernel">
-     <magnitude><val>7.7</val></magnitude>
-     <node name="(no input)->(tf_resource 1x1)">
-      <magnitude><val>7.7</val></magnitude>
-     </node>
-    </node>
-    <node name="bias">
-     <magnitude><val>7.4</val></magnitude>
-     <node name="(no input)->(tf_resource 1x1)">
-      <magnitude><val>7.4</val></magnitude>
-     </node>
+   <node name="(100x32x14x14)(int32 4x1)(100x64x14x14)->(5x5x32x64)">
+    <magnitude><val>737.89</val></magnitude>
+    <node name=" ">
+     <magnitude><val>737.89</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="Mul">
-   <magnitude><val>22.3</val></magnitude>
-   <node name="Adam">
-    <magnitude><val>3.6</val></magnitude>
-    <node name="(1x1)(1x1)->(1x1)">
-     <magnitude><val>3.6</val></magnitude>
+ </node>
+ <node name="MEMCPYDtoH">
+  <magnitude><val>2.06</val></magnitude>
+  <node name=" ">
+   <magnitude><val>2.06</val></magnitude>
+   <node name="(Transfer)->(8 bytes)">
+    <magnitude><val>1.01</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.01</val></magnitude>
     </node>
    </node>
-   <node name="gradients">
-    <magnitude><val>11.9</val></magnitude>
-    <node name="sparse_softmax_cross_entropy_loss">
-     <magnitude><val>3.8</val></magnitude>
-     <node name="xentropy">
-      <magnitude><val>3.8</val></magnitude>
-      <node name="xentropy_grad">
-       <magnitude><val>3.8</val></magnitude>
-       <node name="(100x1)(100x10)->(100x10)">
-        <magnitude><val>3.8</val></magnitude>
-       </node>
-      </node>
-     </node>
-    </node>
-    <node name="sequential">
-     <magnitude><val>8.1</val></magnitude>
-     <node name="dropout">
-      <magnitude><val>8.1</val></magnitude>
-      <node name="dropout">
-       <magnitude><val>8.1</val></magnitude>
-       <node name="mul_grad">
-        <magnitude><val>3.8</val></magnitude>
-        <node name="(100x1024)(100x1024)->(100x1024)">
-         <magnitude><val>3.8</val></magnitude>
-        </node>
-       </node>
-       <node name="div_grad">
-        <magnitude><val>4.3</val></magnitude>
-        <node name="(100x1024)(1x1)->(100x1024)">
-         <magnitude><val>4.3</val></magnitude>
-        </node>
-       </node>
-      </node>
-     </node>
+   <node name="(Transfer)->(4 bytes)">
+    <magnitude><val>1.04</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.04</val></magnitude>
     </node>
    </node>
-   <node name="sequential">
-    <magnitude><val>6.8</val></magnitude>
-    <node name="dropout">
-     <magnitude><val>6.8</val></magnitude>
-     <node name="dropout">
-      <magnitude><val>6.8</val></magnitude>
-      <node name="(100x1024)(1x1)->(100x1024)">
-       <magnitude><val>3.2</val></magnitude>
-      </node>
-      <node name="(100x1024)(100x1024)->(100x1024)">
-       <magnitude><val>3.6</val></magnitude>
-      </node>
-     </node>
+   <node name="(Transfer)->(400 bytes)">
+    <magnitude><val>0.01</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.01</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="Equal">
-   <magnitude><val>1.8</val></magnitude>
-   <node name="sparse_softmax_cross_entropy_loss">
-    <magnitude><val>1.8</val></magnitude>
-    <node name="(1x1)(1|2|3x1)->(boolean 1x1)">
-     <magnitude><val>1.8</val></magnitude>
+ </node>
+ <node name="ScalarSummary">
+  <magnitude><val>0.48</val></magnitude>
+  <node name=" ">
+   <magnitude><val>0.48</val></magnitude>
+   <node name="(string 1x1)(1x1)->(string 1x1)">
+    <magnitude><val>0.48</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.48</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="Identity">
-   <magnitude><val>7.9</val></magnitude>
-   <node name="beta2_power">
+ </node>
+ <node name="Const">
+  <magnitude><val>95.35</val></magnitude>
+  <node name=" ">
+   <magnitude><val>95.35</val></magnitude>
+   <node name="(no input)->(int64 1x1)">
+    <magnitude><val>11.37</val></magnitude>
+    <node name=" ">
+     <magnitude><val>11.37</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(int32 1x1)">
+    <magnitude><val>31</val></magnitude>
+    <node name=" ">
+     <magnitude><val>31</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(1x1)">
+    <magnitude><val>41.28</val></magnitude>
+    <node name=" ">
+     <magnitude><val>41.28</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(string 1x1)">
+    <magnitude><val>0.15</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.15</val></magnitude>
+    </node>
+   </node>
+   <node name="(no input)->(int32 4x1)">
+    <magnitude><val>11.55</val></magnitude>
+    <node name=" ">
+     <magnitude><val>11.55</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Greater">
+  <magnitude><val>1.77</val></magnitude>
+  <node name="0.0 TFLOPS">
+   <magnitude><val>1.77</val></magnitude>
+   <node name="(1x1)(1|2|3x1)->(boolean 1x1)">
+    <magnitude><val>1.75</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.75</val></magnitude>
+    </node>
+   </node>
+   <node name="(1x1)(1x1)->(boolean 1x1)">
+    <magnitude><val>0.02</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.02</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Equal">
+  <magnitude><val>1.87</val></magnitude>
+  <node name="0.0 TFLOPS">
+   <magnitude><val>1.62</val></magnitude>
+   <node name="(1x1)(1|2|3x1)->(boolean 1x1)">
+    <magnitude><val>1.62</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1.62</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name=" ">
+   <magnitude><val>0.25</val></magnitude>
+   <node name="(int32 100x1)(100x784)(int32 100x1)->(boolean 100x1)">
+    <magnitude><val>0.25</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.25</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Mul">
+  <magnitude><val>31.72</val></magnitude>
+  <node name="0.0 TFLOPS">
+   <magnitude><val>3.43</val></magnitude>
+   <node name="(1x1)(1x1)->(1x1)">
+    <magnitude><val>3.43</val></magnitude>
+    <node name=" ">
+     <magnitude><val>3.43</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name=" ">
+   <magnitude><val>28.29</val></magnitude>
+   <node name="(100x1024)(100x1024)->(100x1024)">
+    <magnitude><val>7.11</val></magnitude>
+    <node name=" ">
+     <magnitude><val>7.11</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1024)(1x1)->(100x1024)">
+    <magnitude><val>6.63</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6.63</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1)(100x10)->(100x10)">
+    <magnitude><val>14.55</val></magnitude>
+    <node name=" ">
+     <magnitude><val>14.55</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Sum">
+  <magnitude><val>15.78</val></magnitude>
+  <node name=" ">
+   <magnitude><val>15.78</val></magnitude>
+   <node name="(100x1)(int32 1x1)->(1x1)">
+    <magnitude><val>0.03</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.03</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1)(int32 1x1)(int32 1x1)->(100x1)">
+    <magnitude><val>5.04</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5.04</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1)(1)->(1x1)">
+    <magnitude><val>4.13</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.13</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1024)(int32 1x1)(int32 2x1)->(100x1024)">
+    <magnitude><val>6.58</val></magnitude>
+    <node name=" ">
+     <magnitude><val>6.58</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="VariableV2">
+  <magnitude><val>21.07</val></magnitude>
+  <node name=" ">
+   <magnitude><val>21.07</val></magnitude>
+   <node name="(no input)->(int64 1x1)">
     <magnitude><val>5</val></magnitude>
-    <node name="(1x1)->(1x1)">
+    <node name=" ">
      <magnitude><val>5</val></magnitude>
     </node>
    </node>
-   <node name="beta1_power">
-    <magnitude><val>2.9</val></magnitude>
-    <node name="(1x1)->(1x1)">
-     <magnitude><val>2.9</val></magnitude>
+   <node name="(no input)->(1x1)">
+    <magnitude><val>16.07</val></magnitude>
+    <node name=" ">
+     <magnitude><val>16.07</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="RefSwitch">
-   <magnitude><val>5.9</val></magnitude>
-   <node name="global_step">
-    <magnitude><val>5.9</val></magnitude>
-    <node name="cond">
-     <magnitude><val>5.9</val></magnitude>
-     <node name="read">
-      <magnitude><val>5.9</val></magnitude>
-      <node name="(int64 1x1)(boolean 1x1)->(int64 1x1)">
-       <magnitude><val>5.9</val></magnitude>
-      </node>
-     </node>
+ </node>
+ <node name="MatMul">
+  <magnitude><val>713.24</val></magnitude>
+  <node name=" ">
+   <magnitude><val>713.24</val></magnitude>
+   <node name="(100x10)(1024x10)->(100x1024)">
+    <magnitude><val>14.28</val></magnitude>
+    <node name=" ">
+     <magnitude><val>14.28</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x3136)(100x1024)->(3136x1024)">
+    <magnitude><val>189.4</val></magnitude>
+    <node name=" ">
+     <magnitude><val>189.4</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x3136)(3136x1024)->(100x1024)">
+    <magnitude><val>240.46</val></magnitude>
+    <node name=" ">
+     <magnitude><val>240.46</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1024)(1024x10)->(100x10)">
+    <magnitude><val>16.12</val></magnitude>
+    <node name=" ">
+     <magnitude><val>16.12</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1024)(100x10)->(1024x10)">
+    <magnitude><val>10.83</val></magnitude>
+    <node name=" ">
+     <magnitude><val>10.83</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1024)(3136x1024)->(100x3136)">
+    <magnitude><val>242.15</val></magnitude>
+    <node name=" ">
+     <magnitude><val>242.15</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="Greater">
-   <magnitude><val>1.8</val></magnitude>
-   <node name="sparse_softmax_cross_entropy_loss">
-    <magnitude><val>1.8</val></magnitude>
-    <node name="(1x1)(1|2|3x1)->(boolean 1x1)">
-     <magnitude><val>1.8</val></magnitude>
+ </node>
+ <node name="IteratorGetNext">
+  <magnitude><val>5647.48</val></magnitude>
+  <node name=" ">
+   <magnitude><val>5647.48</val></magnitude>
+   <node name="(tf_resource 1x1)->(100x784)(int32 100x1)">
+    <magnitude><val>5647.48</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5647.48</val></magnitude>
     </node>
    </node>
   </node>
-  <node name="RandomUniform">
-   <magnitude><val>8.4</val></magnitude>
-   <node name="sequential">
-    <magnitude><val>8.4</val></magnitude>
-    <node name="dropout">
-     <magnitude><val>8.4</val></magnitude>
-     <node name="dropout">
-      <magnitude><val>8.4</val></magnitude>
-      <node name="random_uniform">
-       <magnitude><val>8.4</val></magnitude>
-       <node name="(int32 2x1)->(100x1024)">
-        <magnitude><val>8.4</val></magnitude>
-       </node>
-      </node>
-     </node>
+ </node>
+ <node name="Switch">
+  <magnitude><val>4.45</val></magnitude>
+  <node name=" ">
+   <magnitude><val>4.45</val></magnitude>
+   <node name="(int64 1x1)(boolean 1x1)->(int64 1x1)">
+    <magnitude><val>4.45</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.45</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Snapshot">
+  <magnitude><val>123.89</val></magnitude>
+  <node name="0.0 TFLOPS">
+   <magnitude><val>100.35</val></magnitude>
+   <node name="(int64 1x1)(int32 1x1)->(int64 1x1)">
+    <magnitude><val>100.35</val></magnitude>
+    <node name=" ">
+     <magnitude><val>100.35</val></magnitude>
+    </node>
+   </node>
+  </node>
+  <node name=" ">
+   <magnitude><val>23.54</val></magnitude>
+   <node name="(100x1024)->(100x1024)">
+    <magnitude><val>9.03</val></magnitude>
+    <node name=" ">
+     <magnitude><val>9.03</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1)(100x10)->(100x1)">
+    <magnitude><val>4.2</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.2</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1)->(100x1)">
+    <magnitude><val>10.31</val></magnitude>
+    <node name=" ">
+     <magnitude><val>10.31</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Iterator">
+  <magnitude><val>22.2</val></magnitude>
+  <node name=" ">
+   <magnitude><val>22.2</val></magnitude>
+   <node name="(no input)->(tf_resource 1x1)">
+    <magnitude><val>22.2</val></magnitude>
+    <node name=" ">
+     <magnitude><val>22.2</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Assign">
+  <magnitude><val>59.63</val></magnitude>
+  <node name=" ">
+   <magnitude><val>59.63</val></magnitude>
+   <node name="(1x1)(1x1)->(1x1)">
+    <magnitude><val>59.63</val></magnitude>
+    <node name=" ">
+     <magnitude><val>59.63</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="VarHandleOp">
+  <magnitude><val>90.7</val></magnitude>
+  <node name=" ">
+   <magnitude><val>90.7</val></magnitude>
+   <node name="(no input)->(tf_resource 1x1)">
+    <magnitude><val>90.7</val></magnitude>
+    <node name=" ">
+     <magnitude><val>90.7</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="ReluGrad">
+  <magnitude><val>436.53</val></magnitude>
+  <node name=" ">
+   <magnitude><val>436.53</val></magnitude>
+   <node name="(100x32x28x28)(100x32x28x28)->(100x32x28x28)">
+    <magnitude><val>275.29</val></magnitude>
+    <node name=" ">
+     <magnitude><val>275.29</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1024)(100x1024)->(100x1024)">
+    <magnitude><val>5.04</val></magnitude>
+    <node name=" ">
+     <magnitude><val>5.04</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x64x14x14)(100x64x14x14)->(100x64x14x14)">
+    <magnitude><val>156.2</val></magnitude>
+    <node name=" ">
+     <magnitude><val>156.2</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="StridedSlice">
+  <magnitude><val>42.43</val></magnitude>
+  <node name=" ">
+   <magnitude><val>42.43</val></magnitude>
+   <node name="(int32 2x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 1x1)">
+    <magnitude><val>31.8</val></magnitude>
+    <node name=" ">
+     <magnitude><val>31.8</val></magnitude>
+    </node>
+   </node>
+   <node name="(int32 4x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 1x1)">
+    <magnitude><val>10.63</val></magnitude>
+    <node name=" ">
+     <magnitude><val>10.63</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="MergeSummary">
+  <magnitude><val>0.19</val></magnitude>
+  <node name=" ">
+   <magnitude><val>0.19</val></magnitude>
+   <node name="(string 1x1)(string 1x1)->(string 1x1)">
+    <magnitude><val>0.19</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.19</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="NoOp">
+  <magnitude><val>104.81</val></magnitude>
+  <node name=" ">
+   <magnitude><val>104.81</val></magnitude>
+   <node name="(no input)->(no output info)">
+    <magnitude><val>104.81</val></magnitude>
+    <node name=" ">
+     <magnitude><val>104.81</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="ResourceApplyAdam">
+  <magnitude><val>896.66</val></magnitude>
+  <node name=" ">
+   <magnitude><val>896.66</val></magnitude>
+   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(64x1)->(no output info)">
+    <magnitude><val>8.26</val></magnitude>
+    <node name=" ">
+     <magnitude><val>8.26</val></magnitude>
+    </node>
+   </node>
+   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(5x5x1x32)->(no output info)">
+    <magnitude><val>8.53</val></magnitude>
+    <node name=" ">
+     <magnitude><val>8.53</val></magnitude>
+    </node>
+   </node>
+   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(3136x1024)->(no output info)">
+    <magnitude><val>827.32</val></magnitude>
+    <node name=" ">
+     <magnitude><val>827.32</val></magnitude>
+    </node>
+   </node>
+   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1024x10)->(no output info)">
+    <magnitude><val>9.5</val></magnitude>
+    <node name=" ">
+     <magnitude><val>9.5</val></magnitude>
+    </node>
+   </node>
+   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1024x1)->(no output info)">
+    <magnitude><val>8.17</val></magnitude>
+    <node name=" ">
+     <magnitude><val>8.17</val></magnitude>
+    </node>
+   </node>
+   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(32x1)->(no output info)">
+    <magnitude><val>8.23</val></magnitude>
+    <node name=" ">
+     <magnitude><val>8.23</val></magnitude>
+    </node>
+   </node>
+   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(5x5x32x64)->(no output info)">
+    <magnitude><val>17.11</val></magnitude>
+    <node name=" ">
+     <magnitude><val>17.11</val></magnitude>
+    </node>
+   </node>
+   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(10x1)->(no output info)">
+    <magnitude><val>9.54</val></magnitude>
+    <node name=" ">
+     <magnitude><val>9.54</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="MEMCPYDtoD">
+  <magnitude><val>3</val></magnitude>
+  <node name=" ">
+   <magnitude><val>3</val></magnitude>
+   <node name="(Transfer)->(4 bytes)">
+    <magnitude><val>2</val></magnitude>
+    <node name=" ">
+     <magnitude><val>2</val></magnitude>
+    </node>
+   </node>
+   <node name="(Transfer)->(8 bytes)">
+    <magnitude><val>1</val></magnitude>
+    <node name=" ">
+     <magnitude><val>1</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="BiasAddGrad">
+  <magnitude><val>129.52</val></magnitude>
+  <node name=" ">
+   <magnitude><val>129.52</val></magnitude>
+   <node name="(100x32x28x28)->(32x1)">
+    <magnitude><val>74.18</val></magnitude>
+    <node name=" ">
+     <magnitude><val>74.18</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x10)->(10x1)">
+    <magnitude><val>7.32</val></magnitude>
+    <node name=" ">
+     <magnitude><val>7.32</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x64x14x14)->(64x1)">
+    <magnitude><val>43.26</val></magnitude>
+    <node name=" ">
+     <magnitude><val>43.26</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x1024)->(1024x1)">
+    <magnitude><val>4.76</val></magnitude>
+    <node name=" ">
+     <magnitude><val>4.76</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="ShapeN">
+  <magnitude><val>13.31</val></magnitude>
+  <node name=" ">
+   <magnitude><val>13.31</val></magnitude>
+   <node name="(100x32x14x14)(5x5x32x64)->(int32 4x1)(int32 4x1)">
+    <magnitude><val>13.31</val></magnitude>
+    <node name=" ">
+     <magnitude><val>13.31</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Cast">
+  <magnitude><val>0.05</val></magnitude>
+  <node name=" ">
+   <magnitude><val>0.05</val></magnitude>
+   <node name="(int32 1x1)->(1x1)">
+    <magnitude><val>0.02</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.02</val></magnitude>
+    </node>
+   </node>
+   <node name="(boolean 100x1)->(100x1)">
+    <magnitude><val>0.02</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.02</val></magnitude>
+    </node>
+   </node>
+   <node name="(int64 100x1)->(int32 100x1)">
+    <magnitude><val>0.01</val></magnitude>
+    <node name=" ">
+     <magnitude><val>0.01</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="MaxPool">
+  <magnitude><val>179.13</val></magnitude>
+  <node name=" ">
+   <magnitude><val>179.13</val></magnitude>
+   <node name="(100x32x28x28)->(100x32x14x14)">
+    <magnitude><val>104.25</val></magnitude>
+    <node name=" ">
+     <magnitude><val>104.25</val></magnitude>
+    </node>
+   </node>
+   <node name="(100x64x14x14)->(100x64x7x7)">
+    <magnitude><val>74.88</val></magnitude>
+    <node name=" ">
+     <magnitude><val>74.88</val></magnitude>
+    </node>
+   </node>
+  </node>
+ </node>
+ <node name="Add">
+  <magnitude><val>3.27</val></magnitude>
+  <node name=" ">
+   <magnitude><val>3.27</val></magnitude>
+   <node name="(1x1)(100x1024)->(100x1024)">
+    <magnitude><val>3.27</val></magnitude>
+    <node name=" ">
+     <magnitude><val>3.27</val></magnitude>
     </node>
    </node>
   </node>

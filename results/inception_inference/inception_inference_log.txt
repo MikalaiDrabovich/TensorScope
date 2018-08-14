@@ -1,57 +1,46 @@
-2018-07-25 03:25:18.174676: W tensorflow/core/framework/op_def_util.cc:346] Op BatchNormWithGlobalNormalization is deprecated. It will cease to work in GraphDef version 9. Use tf.nn.batch_normalization().
-2018-07-25 03:25:18.394167: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-07-25 03:25:18.394706: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
+2018-08-13 18:35:23.141214: W tensorflow/core/framework/op_def_util.cc:346] Op BatchNormWithGlobalNormalization is deprecated. It will cease to work in GraphDef version 9. Use tf.nn.batch_normalization().
+2018-08-13 18:35:23.361296: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-08-13 18:35:23.361701: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
 name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
 pciBusID: 0000:01:00.0
-totalMemory: 5.94GiB freeMemory: 5.44GiB
-2018-07-25 03:25:18.394720: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-07-25 03:25:18.540919: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-07-25 03:25:18.540945: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-07-25 03:25:18.540968: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-07-25 03:25:18.541197: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5209 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-2018-07-25 03:25:18.541469: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
-2018-07-25 03:25:18.973040: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
+totalMemory: 5.94GiB freeMemory: 5.41GiB
+2018-08-13 18:35:23.361731: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-13 18:35:23.513922: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-13 18:35:23.513946: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-13 18:35:23.513951: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-13 18:35:23.514112: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5176 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-08-13 18:35:23.514307: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
+2018-08-13 18:35:23.965101: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
 /usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
-['/home/ndr/work_july/july24/TensorScope/tensorscope', '/home/ndr/work_july/july24/TensorScope/reproduce_results/inception_inference', '/usr/lib/python35.zip', '/usr/lib/python3.5', '/usr/lib/python3.5/plat-x86_64-linux-gnu', '/usr/lib/python3.5/lib-dynload', '/home/ndr/.local/lib/python3.5/site-packages', '/home/ndr/.local/lib/python3.5/site-packages/pyrfr-0.4.0-py3.5-linux-x86_64.egg', '/usr/local/lib/python3.5/dist-packages', '/usr/local/lib/python3.5/dist-packages/openml-0.3.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/xmltodict-0.11.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/mock-2.0.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/pbr-3.1.1-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/loky-1.1.0.dev0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/auto_sklearn-0.2.0-py3.5-linux-x86_64.egg', '/usr/local/lib/python3.5/dist-packages/mlxtend-0.7.1.dev0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/virtualenv-15.1.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/PySide-1.2.4-py3.5-linux-x86_64.egg', '/usr/lib/python3/dist-packages', '/usr/lib/python3.5/dist-packages']
-Step 0/10(14) completed in 1.5021 seconds.
-Session graph and metadata parsed in 0.0257 seconds
-Step 1/10(14) completed in 0.0386 seconds.
-Timeline saved in /home/ndr/work_july/july24/TensorScope/results/inception_inference/timeline_at_step_2.json
-Session graph and metadata parsed in 0.0244 seconds
-Step 2/10(14) completed in 0.0397 seconds.
-Session graph and metadata parsed in 0.0271 seconds
-Step 3/10(14) completed in 0.0411 seconds.
-Session graph and metadata parsed in 0.0579 seconds
-Step 4/10(14) completed in 0.0412 seconds.
-Session graph and metadata parsed in 0.0280 seconds
-Step 5/10(14) completed in 0.0439 seconds.
-Session graph and metadata parsed in 0.0316 seconds
-Step 6/10(14) completed in 0.0404 seconds.
-Session graph and metadata parsed in 0.0266 seconds
-Step 7/10(14) completed in 0.0447 seconds.
-Session graph and metadata parsed in 0.0272 seconds
-Step 8/10(14) completed in 0.0449 seconds.
-Session graph and metadata parsed in 0.0629 seconds
-Step 9/10(14) completed in 0.0463 seconds.
-Session graph and metadata parsed in 0.0275 seconds
-Step 10/10(14) completed in 0.0433 seconds.
+total ops:  1004
+num nodes with flops available:  113
+total GFlops:  11.451537846
 Session is closed
 
-Sanity check: total time for 10 steps: 0.424 sec., 1 step avg. time:  42416.8 microsec., 1 step avg. time captured in metadata: 52776.8 microsec., number of unique ops: 220
+Sanity check before aggregation:
+ total wall time for 100 steps: 		 5.033 sec. (0.050330 sec./batch) 
+ op time extracted from RunMetadata: 	 5.244 sec. (0.052442 sec./batch) 
+ number of ops: 918
 
-*** Brief summary ***
+Sanity check after aggregation:
+ total wall time for 100 steps: 		 5.033 sec. (0.050330 sec./batch) 
+ op time extracted from RunMetadata: 	 5.244 sec. (0.052442 sec./batch) 
+ number of unique ops: 220
 
-Top-1 ops (0.5%)	8.3 ms (15.7%)
-Top-2 ops (0.9%)	15.0 ms (28.4%)
-Top-3 ops (1.4%)	19.7 ms (37.3%)
-Top-6 ops (2.7%)	27.3 ms (51.7%)
-Top-11 ops (5.0%)	32.0 ms (60.6%)
-Top-20 ops (9.1%)	38.4 ms (72.8%)
-Top-36 ops (16.4%)	44.4 ms (84.1%)
-Top-66 ops (30.0%)	49.6 ms (93.9%)
-Top-121 ops (55.0%)	52.0 ms (98.5%)
-Top-220 ops (100.0%)	52.8 ms (100.0%)
 
-*** I/O tensor shapes are saved to /home/ndr/work_july/july24/TensorScope/results/inception_inference/data.tsv ***
+*** Top-K ops vs total time ***
+
+Top-1	(0.5% of all ops):	8.5 ms(16.1% of all time)
+Top-2	(0.9% of all ops):	15.9 ms(30.3% of all time)
+Top-3	(1.4% of all ops):	20.4 ms(38.8% of all time)
+Top-6	(2.7% of all ops):	27.4 ms(52.2% of all time)
+Top-11	(5.0% of all ops):	32.1 ms(61.2% of all time)
+Top-20	(9.1% of all ops):	38.3 ms(73.1% of all time)
+Top-36	(16.4% of all ops):	44.2 ms(84.3% of all time)
+Top-66	(30.0% of all ops):	49.4 ms(94.1% of all time)
+Top-121	(55.0% of all ops):	51.7 ms(98.6% of all time)
+Top-220	(100.0% of all ops):	52.4 ms(100.0% of all time)
+
+*** See data.tsv, pie_chart.html for details ***
 

@@ -29,6 +29,10 @@ Please see the tutorial and website for a detailed description of how
 to use this script to perform image recognition.
 
 https://tensorflow.org/tutorials/image_recognition/
+
+Original:
+https://github.com/tensorflow/models/blob/master/tutorials/image/imagenet/classify_image.py
+
 """
 
 from __future__ import absolute_import
@@ -48,18 +52,15 @@ import tensorflow as tf
 
 #---
 #from tensorflow.python.tools import optimize_for_inference_lib
-
 import sys
 # path to cloned git repo https://github.com/MikalaiDrabovich/TensorScope/
 path_to_tensorscope = os.path.abspath(os.path.join(__file__, '..', '..','..', 'tensorscope'))
 sys.path.insert(0, path_to_tensorscope)
-print(sys.path)
-from tensorscope import Tensorscope
+from tensorscope import TensorScope
 
-# path to existing directory for saving Tensorscope results
+# path to existing directory for saving TensorScope results
 path_to_ts_results = os.path.abspath(os.path.join(__file__, '..', '..', '..','results/inception_inference'))
 path_to_inception_model = os.path.abspath(os.path.join(__file__, '..', '..','common_datasets/inception_inference'))
-
 #---
 
 FLAGS = None
@@ -174,16 +175,18 @@ def run_inference_on_image(image):
     
     softmax_tensor = sess.graph.get_tensor_by_name('softmax:0')
     
-    #1/3 Enable tensorscope - add this line before main loop
-    ts = Tensorscope(num_steps=10, output_dir=path_to_ts_results, session=sess)
+    # Enable TensorScope
+    ts = TensorScope(num_steps_to_warmup=10,
+                       num_steps_to_measure=100,
+                       model_name='inception_inference',
+                       session=sess)
     
-    for numiter in range(100):
-      run_meta = ts.metadata()
-      
+    for numiter in range(1000):
+
       predictions = sess.run(softmax_tensor,
                            {'DecodeJpeg/contents:0': image_data},
                            options=ts.options,
-                           run_metadata=run_meta)
+                           run_metadata=ts.metadata())
    
       ts.characterize_model(graph=sess.graph)
            

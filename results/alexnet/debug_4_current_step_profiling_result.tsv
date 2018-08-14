@@ -1,0 +1,117 @@
+gradients/conv4/BiasAdd_grad/BiasAddGrad@GPU-0@(128x13x13x256)->(256x1)	gradients/conv4/BiasAdd_grad/BiasAddGrad	BiasAddGrad	GPU-0	0	170	170	(128x13x13x256)->(256x1)	1	1	0
+gradients/conv5_grad/ReluGrad@GPU-0@(128x256x13x13)(128x256x13x13)->(128x256x13x13)	gradients/conv5_grad/ReluGrad	ReluGrad	GPU-0	0	427	427	(128x256x13x13)(128x256x13x13)->(128x256x13x13)	1	1	0
+gradients/conv2/Conv2D_grad/Conv2DBackpropInput@GPU-0@(int32 4x1)(5x5x64x192)(128x192x27x27)->(128x64x27x27)	gradients/conv2/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	4606	4606	(int32 4x1)(5x5x64x192)(128x192x27x27)->(128x64x27x27)	1	1	0
+conv3/weights@GPU-0@(no input)->(3x3x192x384)	conv3/weights	VariableV2	GPU-0	1	1	4	(no input)->(3x3x192x384)	0	1	0
+gradients/conv4/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer@GPU-0@(no input)->(int32 4x1)	gradients/conv4/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer	Const	GPU-0	0	1	2	(no input)->(int32 4x1)	0	1	0
+gradients/conv3_grad/ReluGrad-1-0-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x384x13x13)(int32 4x1)->(128x13x13x384)	gradients/conv3_grad/ReluGrad-1-0-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	445	445	(128x384x13x13)(int32 4x1)->(128x13x13x384)	1	1	0
+PermConstNCHWToNHWC-LayoutOptimizer@GPU-0@(no input)->(int32 4x1)	PermConstNCHWToNHWC-LayoutOptimizer	Const	GPU-0	0	2	18	(no input)->(int32 4x1)	0	1	0
+conv4/BiasAdd@GPU-0@(128x256x13x13)(256x1)->(128x256x13x13)	conv4/BiasAdd	BiasAdd	GPU-0	0	357	357	(128x256x13x13)(256x1)->(128x256x13x13)	1	1	0
+lrn1/LRN@GPU-0@(128x56x56x64)->(128x56x56x64)	lrn1/LRN	LRN	GPU-0	0	21354	21354	(128x56x56x64)->(128x56x56x64)	1	1	0
+gradients/conv3/Conv2D_grad/Conv2DBackpropInput@GPU-0@(int32 4x1)(3x3x192x384)(128x384x13x13)->(128x192x13x13)	gradients/conv3/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	5042	5042	(int32 4x1)(3x3x192x384)(128x384x13x13)->(128x192x13x13)	1	1	0
+Variable/read@GPU-0@(128x224x224x3)->(128x224x224x3)	Variable/read	Identity	GPU-0	0	1	2	(128x224x224x3)->(128x224x224x3)	0	1	0
+gradients/lrn1/LRN_grad/LRNGrad@GPU-0@(128x56x56x64)(128x56x56x64)(128x56x56x64)->(128x56x56x64)	gradients/lrn1/LRN_grad/LRNGrad	LRNGrad	GPU-0	0	23531	23531	(128x56x56x64)(128x56x56x64)(128x56x56x64)->(128x56x56x64)	1	1	0
+gradients/pool1_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x64x56x56)(int32 4x1)->(128x56x56x64)	gradients/pool1_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	1356	1356	(128x64x56x56)(int32 4x1)->(128x56x56x64)	1	1	0
+conv1-1-1-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x64x56x56)(int32 4x1)->(128x56x56x64)	conv1-1-1-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	1360	1360	(128x64x56x56)(int32 4x1)->(128x56x56x64)	1	1	0
+conv3/biases@GPU-0@(no input)->(384x1)	conv3/biases	VariableV2	GPU-0	1	1	3	(no input)->(384x1)	0	1	0
+pool2-1-0-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x192x13x13)(int32 4x1)->(128x13x13x192)	pool2-1-0-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	220	220	(128x192x13x13)(int32 4x1)->(128x13x13x192)	1	1	0
+conv1/weights/read@GPU-0@(11x11x3x64)->(11x11x3x64)	conv1/weights/read	Identity	GPU-0	0	1	2	(11x11x3x64)->(11x11x3x64)	0	1	0
+conv4/Conv2D@GPU-0@(128x384x13x13)(3x3x384x256)->(128x256x13x13)	conv4/Conv2D	Conv2D	GPU-0	0	5976	5976	(128x384x13x13)(3x3x384x256)->(128x256x13x13)	1	1	0
+lrn2/LRN@GPU-0@(128x27x27x192)->(128x27x27x192)	lrn2/LRN	LRN	GPU-0	0	23584	23584	(128x27x27x192)->(128x27x27x192)	1	1	0
+conv1/Conv2D@GPU-0@(128x3x224x224)(11x11x3x64)->(128x64x56x56)	conv1/Conv2D	Conv2D	GPU-0	0	8687	8687	(128x3x224x224)(11x11x3x64)->(128x64x56x56)	1	1	0
+gradients/conv1/Conv2D_grad/Conv2DBackpropFilter@GPU-0@(128x224x224x3)(int32 4x1)(128x56x56x64)->(11x11x3x64)	gradients/conv1/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	14165	14165	(128x224x224x3)(int32 4x1)(128x56x56x64)->(11x11x3x64)	1	1	0
+gradients/conv2_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x192x27x27)(int32 4x1)->(128x27x27x192)	gradients/conv2_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	948	948	(128x192x27x27)(int32 4x1)->(128x27x27x192)	1	1	0
+conv4/biases@GPU-0@(no input)->(256x1)	conv4/biases	VariableV2	GPU-0	0	1	2	(no input)->(256x1)	0	1	0
+gradients/pool1_grad/MaxPoolGrad-0-TransposeNHWCToNCHW-LayoutOptimizer@GPU-0@(128x56x56x64)(int32 4x1)->(128x64x56x56)	gradients/pool1_grad/MaxPoolGrad-0-TransposeNHWCToNCHW-LayoutOptimizer	Transpose	GPU-0	0	1371	1371	(128x56x56x64)(int32 4x1)->(128x64x56x56)	1	1	0
+gradients/conv5/BiasAdd_grad/BiasAddGrad@GPU-0@(128x13x13x256)->(256x1)	gradients/conv5/BiasAdd_grad/BiasAddGrad	BiasAddGrad	GPU-0	0	169	169	(128x13x13x256)->(256x1)	1	1	0
+edge_195_gradients/conv5/Conv2D_grad/Conv2DBackpropFilter/MEMCPYDtoH@GPU-0@(Transfer)->(2359296 bytes)	edge_195_gradients/conv5/Conv2D_grad/Conv2DBackpropFilter/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	248	248	(Transfer)->(2359296 bytes)	0	0	1
+_retval_gradients/conv2/BiasAdd_grad/BiasAddGrad_0_2@CPU-0@(192x1)->(no output info)	_retval_gradients/conv2/BiasAdd_grad/BiasAddGrad_0_2	_Retval	CPU-0	2	2	6	(192x1)->(no output info)	0	1	0
+pool1@GPU-0@(128x64x56x56)->(128x64x27x27)	pool1	MaxPool	GPU-0	0	1249	1249	(128x64x56x56)->(128x64x27x27)	1	1	0
+conv1/weights@GPU-0@(no input)->(11x11x3x64)	conv1/weights	VariableV2	GPU-0	1	2	5	(no input)->(11x11x3x64)	0	1	0
+_retval_gradients/conv5/Conv2D_grad/Conv2DBackpropFilter_0_9@CPU-0@(3x3x256x256)->(no output info)	_retval_gradients/conv5/Conv2D_grad/Conv2DBackpropFilter_0_9	_Retval	CPU-0	1	1	3	(3x3x256x256)->(no output info)	0	1	0
+conv2/biases/read@GPU-0@(192x1)->(192x1)	conv2/biases/read	Identity	GPU-0	0	1	1	(192x1)->(192x1)	0	1	0
+gradients/conv4/Conv2D_grad/Conv2DBackpropFilter@GPU-0@(128x13x13x384)(int32 4x1)(128x13x13x256)->(3x3x384x256)	gradients/conv4/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	6621	6621	(128x13x13x384)(int32 4x1)(128x13x13x256)->(3x3x384x256)	1	1	0
+ConstantFolding/gradients/conv4/Conv2D_grad/ShapeN-matshapes-1@GPU-0@(no input)->(int32 4x1)	ConstantFolding/gradients/conv4/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	1	2	(no input)->(int32 4x1)	0	1	0
+gradients/pool5_grad/MaxPoolGrad@GPU-0@(128x256x13x13)(128x256x6x6)(128x256x6x6)->(128x256x13x13)	gradients/pool5_grad/MaxPoolGrad	MaxPoolGrad	GPU-0	0	777	777	(128x256x13x13)(128x256x6x6)(128x256x6x6)->(128x256x13x13)	1	1	0
+conv5/biases/read@GPU-0@(256x1)->(256x1)	conv5/biases/read	Identity	GPU-0	0	1	2	(256x1)->(256x1)	0	1	0
+conv5/weights@GPU-0@(no input)->(3x3x256x256)	conv5/weights	VariableV2	GPU-0	0	1	2	(no input)->(3x3x256x256)	0	1	0
+conv3/Conv2D@GPU-0@(128x192x13x13)(3x3x192x384)->(128x384x13x13)	conv3/Conv2D	Conv2D	GPU-0	0	4951	4951	(128x192x13x13)(3x3x192x384)->(128x384x13x13)	1	1	0
+conv4/weights@GPU-0@(no input)->(3x3x384x256)	conv4/weights	VariableV2	GPU-0	1	1	3	(no input)->(3x3x384x256)	0	1	0
+gradients/conv4_grad/ReluGrad@GPU-0@(128x256x13x13)(128x256x13x13)->(128x256x13x13)	gradients/conv4_grad/ReluGrad	ReluGrad	GPU-0	0	427	427	(128x256x13x13)(128x256x13x13)->(128x256x13x13)	1	1	0
+ConstantFolding/gradients/conv3/Conv2D_grad/ShapeN-matshapes-1@GPU-0@(no input)->(int32 4x1)	ConstantFolding/gradients/conv3/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	1	2	(no input)->(int32 4x1)	0	1	0
+edge_181_gradients/conv2/BiasAdd_grad/BiasAddGrad/MEMCPYDtoH@GPU-0@(Transfer)->(768 bytes)	edge_181_gradients/conv2/BiasAdd_grad/BiasAddGrad/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	1	1	(Transfer)->(768 bytes)	0	0	1
+conv1/Conv2D-0-TransposeNHWCToNCHW-LayoutOptimizer@GPU-0@(128x224x224x3)(int32 4x1)->(128x3x224x224)	conv1/Conv2D-0-TransposeNHWCToNCHW-LayoutOptimizer	Transpose	GPU-0	0	1875	1875	(128x224x224x3)(int32 4x1)->(128x3x224x224)	1	1	0
+conv2-1-1-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x192x27x27)(int32 4x1)->(128x27x27x192)	conv2-1-1-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	951	951	(128x192x27x27)(int32 4x1)->(128x27x27x192)	1	1	0
+gradients/lrn2/LRN_grad/LRNGrad@GPU-0@(128x27x27x192)(128x27x27x192)(128x27x27x192)->(128x27x27x192)	gradients/lrn2/LRN_grad/LRNGrad	LRNGrad	GPU-0	0	30460	30460	(128x27x27x192)(128x27x27x192)(128x27x27x192)->(128x27x27x192)	1	1	0
+pool5@GPU-0@(128x256x13x13)->(128x256x6x6)	pool5	MaxPool	GPU-0	0	270	270	(128x256x13x13)->(128x256x6x6)	1	1	0
+gradients/conv3/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer@GPU-0@(no input)->(int32 4x1)	gradients/conv3/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer	Const	GPU-0	0	1	2	(no input)->(int32 4x1)	0	1	0
+_retval_gradients/conv1/BiasAdd_grad/BiasAddGrad_0_0@CPU-0@(64x1)->(no output info)	_retval_gradients/conv1/BiasAdd_grad/BiasAddGrad_0_0	_Retval	CPU-0	1	2	4	(64x1)->(no output info)	0	1	0
+edge_193_gradients/conv5/BiasAdd_grad/BiasAddGrad/MEMCPYDtoH@GPU-0@(Transfer)->(1024 bytes)	edge_193_gradients/conv5/BiasAdd_grad/BiasAddGrad/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	2	2	(Transfer)->(1024 bytes)	0	0	1
+conv1/biases/read@GPU-0@(64x1)->(64x1)	conv1/biases/read	Identity	GPU-0	1	0	2	(64x1)->(64x1)	0	1	0
+conv4/weights/read@GPU-0@(3x3x384x256)->(3x3x384x256)	conv4/weights/read	Identity	GPU-0	1	0	20	(3x3x384x256)->(3x3x384x256)	0	1	0
+edge_177_gradients/conv1/BiasAdd_grad/BiasAddGrad/MEMCPYDtoH@GPU-0@(Transfer)->(256 bytes)	edge_177_gradients/conv1/BiasAdd_grad/BiasAddGrad/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	1	1	(Transfer)->(256 bytes)	0	0	1
+_retval_gradients/conv3/BiasAdd_grad/BiasAddGrad_0_4@CPU-0@(384x1)->(no output info)	_retval_gradients/conv3/BiasAdd_grad/BiasAddGrad_0_4	_Retval	CPU-0	1	1	4	(384x1)->(no output info)	0	1	0
+gradients/conv5/Conv2D_grad/Conv2DBackpropFilter@GPU-0@(128x13x13x256)(int32 4x1)(128x13x13x256)->(3x3x256x256)	gradients/conv5/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	4690	4690	(128x13x13x256)(int32 4x1)(128x13x13x256)->(3x3x256x256)	1	1	0
+conv5/biases@GPU-0@(no input)->(256x1)	conv5/biases	VariableV2	GPU-0	0	12	15	(no input)->(256x1)	0	1	0
+conv3-1-0-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x384x13x13)(int32 4x1)->(128x13x13x384)	conv3-1-0-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	442	442	(128x384x13x13)(int32 4x1)->(128x13x13x384)	1	1	0
+edge_187_gradients/conv3/Conv2D_grad/Conv2DBackpropFilter/MEMCPYDtoH@GPU-0@(Transfer)->(2654208 bytes)	edge_187_gradients/conv3/Conv2D_grad/Conv2DBackpropFilter/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	253	253	(Transfer)->(2654208 bytes)	0	0	1
+gradients/conv1_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer@GPU-0@(128x56x56x64)(int32 4x1)->(128x64x56x56)	gradients/conv1_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer	Transpose	GPU-0	0	1366	1366	(128x56x56x64)(int32 4x1)->(128x64x56x56)	1	1	0
+pool1-3-0-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x64x27x27)(int32 4x1)->(128x27x27x64)	pool1-3-0-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	316	316	(128x64x27x27)(int32 4x1)->(128x27x27x64)	1	1	0
+edge_183_gradients/conv2/Conv2D_grad/Conv2DBackpropFilter/MEMCPYDtoH@GPU-0@(Transfer)->(1228800 bytes)	edge_183_gradients/conv2/Conv2D_grad/Conv2DBackpropFilter/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	118	118	(Transfer)->(1228800 bytes)	0	0	1
+gradients/pool1_grad/MaxPoolGrad@GPU-0@(128x64x56x56)(128x64x27x27)(128x64x27x27)->(128x64x56x56)	gradients/pool1_grad/MaxPoolGrad	MaxPoolGrad	GPU-0	0	3092	3092	(128x64x56x56)(128x64x27x27)(128x64x27x27)->(128x64x56x56)	1	1	0
+gradients/conv4/Conv2D_grad/Conv2DBackpropInput@GPU-0@(int32 4x1)(3x3x384x256)(128x256x13x13)->(128x384x13x13)	gradients/conv4/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	5971	5971	(int32 4x1)(3x3x384x256)(128x256x13x13)->(128x384x13x13)	1	1	0
+gradients/conv2/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer@GPU-0@(no input)->(int32 4x1)	gradients/conv2/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer	Const	GPU-0	0	1	2	(no input)->(int32 4x1)	0	1	0
+_SOURCE@CPU-0@(no input)->(no output info)	_SOURCE	NoOp	CPU-0	1	1	7	(no input)->(no output info)	0	1	0
+gradients/conv2_grad/ReluGrad@GPU-0@(128x192x27x27)(128x192x27x27)->(128x192x27x27)	gradients/conv2_grad/ReluGrad	ReluGrad	GPU-0	0	1381	1381	(128x192x27x27)(128x192x27x27)->(128x192x27x27)	1	1	0
+_retval_gradients/conv2/Conv2D_grad/Conv2DBackpropFilter_0_3@CPU-0@(5x5x64x192)->(no output info)	_retval_gradients/conv2/Conv2D_grad/Conv2DBackpropFilter_0_3	_Retval	CPU-0	1	0	1	(5x5x64x192)->(no output info)	0	1	0
+conv1/biases@GPU-0@(no input)->(64x1)	conv1/biases	VariableV2	GPU-0	1	2	4	(no input)->(64x1)	0	1	0
+conv1@GPU-0@(128x64x56x56)->(128x64x56x56)	conv1	Relu	GPU-0	0	1348	1348	(128x64x56x56)->(128x64x56x56)	1	1	0
+conv3/weights/read@GPU-0@(3x3x192x384)->(3x3x192x384)	conv3/weights/read	Identity	GPU-0	0	1	2	(3x3x192x384)->(3x3x192x384)	0	1	0
+gradients/conv4_grad/ReluGrad-1-0-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x256x13x13)(int32 4x1)->(128x13x13x256)	gradients/conv4_grad/ReluGrad-1-0-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	293	293	(128x256x13x13)(int32 4x1)->(128x13x13x256)	1	1	0
+_retval_gradients/conv5/BiasAdd_grad/BiasAddGrad_0_8@CPU-0@(256x1)->(no output info)	_retval_gradients/conv5/BiasAdd_grad/BiasAddGrad_0_8	_Retval	CPU-0	1	3	6	(256x1)->(no output info)	0	1	0
+gradients/conv2_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer@GPU-0@(128x27x27x192)(int32 4x1)->(128x192x27x27)	gradients/conv2_grad/ReluGrad-0-TransposeNHWCToNCHW-LayoutOptimizer	Transpose	GPU-0	0	955	955	(128x27x27x192)(int32 4x1)->(128x192x27x27)	1	1	0
+conv5@GPU-0@(128x256x13x13)->(128x256x13x13)	conv5	Relu	GPU-0	0	289	289	(128x256x13x13)->(128x256x13x13)	1	1	0
+conv3/BiasAdd@GPU-0@(128x384x13x13)(384x1)->(128x384x13x13)	conv3/BiasAdd	BiasAdd	GPU-0	0	532	532	(128x384x13x13)(384x1)->(128x384x13x13)	1	1	0
+gradients/conv5/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer@GPU-0@(no input)->(int32 4x1)	gradients/conv5/Conv2D_grad/Conv2DBackpropInput-0-LayoutOptimizer	Const	GPU-0	1	1	3	(no input)->(int32 4x1)	0	1	0
+_retval_gradients/conv3/Conv2D_grad/Conv2DBackpropFilter_0_5@CPU-0@(3x3x192x384)->(no output info)	_retval_gradients/conv3/Conv2D_grad/Conv2DBackpropFilter_0_5	_Retval	CPU-0	0	1	3	(3x3x192x384)->(no output info)	0	1	0
+gradients/conv2/BiasAdd_grad/BiasAddGrad@GPU-0@(128x27x27x192)->(192x1)	gradients/conv2/BiasAdd_grad/BiasAddGrad	BiasAddGrad	GPU-0	0	493	493	(128x27x27x192)->(192x1)	1	1	0
+_retval_gradients/conv4/Conv2D_grad/Conv2DBackpropFilter_0_7@CPU-0@(3x3x384x256)->(no output info)	_retval_gradients/conv4/Conv2D_grad/Conv2DBackpropFilter_0_7	_Retval	CPU-0	1	0	3	(3x3x384x256)->(no output info)	0	1	0
+conv2/biases@GPU-0@(no input)->(192x1)	conv2/biases	VariableV2	GPU-0	1	1	4	(no input)->(192x1)	0	1	0
+ConstantFolding/gradients/conv5/Conv2D_grad/ShapeN-matshapes-1@GPU-0@(no input)->(int32 4x1)	ConstantFolding/gradients/conv5/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	1	0	2	(no input)->(int32 4x1)	0	1	0
+edge_191_gradients/conv4/Conv2D_grad/Conv2DBackpropFilter/MEMCPYDtoH@GPU-0@(Transfer)->(3538944 bytes)	edge_191_gradients/conv4/Conv2D_grad/Conv2DBackpropFilter/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	307	307	(Transfer)->(3538944 bytes)	0	0	1
+gradients/conv3/BiasAdd_grad/BiasAddGrad@GPU-0@(128x13x13x384)->(384x1)	gradients/conv3/BiasAdd_grad/BiasAddGrad	BiasAddGrad	GPU-0	0	257	257	(128x13x13x384)->(384x1)	1	1	0
+conv4/biases/read@GPU-0@(256x1)->(256x1)	conv4/biases/read	Identity	GPU-0	0	1	2	(256x1)->(256x1)	0	1	0
+gradients/conv5/Conv2D_grad/Conv2DBackpropInput@GPU-0@(int32 4x1)(3x3x256x256)(128x256x13x13)->(128x256x13x13)	gradients/conv5/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	GPU-0	0	3973	3973	(int32 4x1)(3x3x256x256)(128x256x13x13)->(128x256x13x13)	1	1	0
+ConstantFolding/gradients/conv2/Conv2D_grad/ShapeN-matshapes-1@GPU-0@(no input)->(int32 4x1)	ConstantFolding/gradients/conv2/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	1	2	(no input)->(int32 4x1)	0	1	0
+edge_179_gradients/conv1/Conv2D_grad/Conv2DBackpropFilter/MEMCPYDtoH@GPU-0@(Transfer)->(92928 bytes)	edge_179_gradients/conv1/Conv2D_grad/Conv2DBackpropFilter/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	7	7	(Transfer)->(92928 bytes)	0	0	1
+conv2/weights@GPU-0@(no input)->(5x5x64x192)	conv2/weights	VariableV2	GPU-0	0	3	4	(no input)->(5x5x64x192)	0	1	0
+gradients/conv3_grad/ReluGrad@GPU-0@(128x384x13x13)(128x384x13x13)->(128x384x13x13)	gradients/conv3_grad/ReluGrad	ReluGrad	GPU-0	0	655	655	(128x384x13x13)(128x384x13x13)->(128x384x13x13)	1	1	0
+conv3/biases/read@GPU-0@(384x1)->(384x1)	conv3/biases/read	Identity	GPU-0	0	1	2	(384x1)->(384x1)	0	1	0
+ConstantFolding/gradients/conv1/Conv2D_grad/ShapeN-matshapes-1@GPU-0@(no input)->(int32 4x1)	ConstantFolding/gradients/conv1/Conv2D_grad/ShapeN-matshapes-1	Const	GPU-0	0	1	2	(no input)->(int32 4x1)	0	1	0
+_retval_gradients/conv4/BiasAdd_grad/BiasAddGrad_0_6@CPU-0@(256x1)->(no output info)	_retval_gradients/conv4/BiasAdd_grad/BiasAddGrad_0_6	_Retval	CPU-0	0	2	4	(256x1)->(no output info)	0	1	0
+edge_189_gradients/conv4/BiasAdd_grad/BiasAddGrad/MEMCPYDtoH@GPU-0@(Transfer)->(1024 bytes)	edge_189_gradients/conv4/BiasAdd_grad/BiasAddGrad/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	1	1	(Transfer)->(1024 bytes)	0	0	1
+conv5/Conv2D@GPU-0@(128x256x13x13)(3x3x256x256)->(128x256x13x13)	conv5/Conv2D	Conv2D	GPU-0	0	4091	4091	(128x256x13x13)(3x3x256x256)->(128x256x13x13)	1	1	0
+conv1/BiasAdd@GPU-0@(128x64x56x56)(64x1)->(128x64x56x56)	conv1/BiasAdd	BiasAdd	GPU-0	0	1729	1729	(128x64x56x56)(64x1)->(128x64x56x56)	1	1	0
+conv5/BiasAdd@GPU-0@(128x256x13x13)(256x1)->(128x256x13x13)	conv5/BiasAdd	BiasAdd	GPU-0	0	358	358	(128x256x13x13)(256x1)->(128x256x13x13)	1	1	0
+edge_185_gradients/conv3/BiasAdd_grad/BiasAddGrad/MEMCPYDtoH@GPU-0@(Transfer)->(1536 bytes)	edge_185_gradients/conv3/BiasAdd_grad/BiasAddGrad/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	3	3	(Transfer)->(1536 bytes)	0	0	1
+gradients/conv1_grad/ReluGrad@GPU-0@(128x64x56x56)(128x64x56x56)->(128x64x56x56)	gradients/conv1_grad/ReluGrad	ReluGrad	GPU-0	0	1980	1980	(128x64x56x56)(128x64x56x56)->(128x64x56x56)	1	1	0
+conv5/weights/read@GPU-0@(3x3x256x256)->(3x3x256x256)	conv5/weights/read	Identity	GPU-0	1	0	2	(3x3x256x256)->(3x3x256x256)	0	1	0
+_SOURCE@GPU-0@(no input)->(no output info)	_SOURCE	NoOp	GPU-0	4	4	12	(no input)->(no output info)	0	1	0
+gradients/pool2_grad/MaxPoolGrad-0-TransposeNHWCToNCHW-LayoutOptimizer@GPU-0@(128x27x27x192)(int32 4x1)->(128x192x27x27)	gradients/pool2_grad/MaxPoolGrad-0-TransposeNHWCToNCHW-LayoutOptimizer	Transpose	GPU-0	0	949	949	(128x27x27x192)(int32 4x1)->(128x192x27x27)	1	1	0
+conv3@GPU-0@(128x384x13x13)->(128x384x13x13)	conv3	Relu	GPU-0	0	435	435	(128x384x13x13)->(128x384x13x13)	1	1	0
+gradients/conv1_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x64x56x56)(int32 4x1)->(128x56x56x64)	gradients/conv1_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	1354	1354	(128x64x56x56)(int32 4x1)->(128x56x56x64)	1	1	0
+gradients/pool2_grad/MaxPoolGrad@GPU-0@(128x192x27x27)(128x192x13x13)(128x192x13x13)->(128x192x27x27)	gradients/pool2_grad/MaxPoolGrad	MaxPoolGrad	GPU-0	0	1295	1295	(128x192x27x27)(128x192x13x13)(128x192x13x13)->(128x192x27x27)	1	1	0
+gradients/pool2_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x192x27x27)(int32 4x1)->(128x27x27x192)	gradients/pool2_grad/MaxPoolGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	947	947	(128x192x27x27)(int32 4x1)->(128x27x27x192)	1	1	0
+gradients/conv5_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x256x13x13)(int32 4x1)->(128x13x13x256)	gradients/conv5_grad/ReluGrad-0-0-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	295	295	(128x256x13x13)(int32 4x1)->(128x13x13x256)	1	1	0
+conv2/BiasAdd@GPU-0@(128x192x27x27)(192x1)->(128x192x27x27)	conv2/BiasAdd	BiasAdd	GPU-0	0	1203	1203	(128x192x27x27)(192x1)->(128x192x27x27)	1	1	0
+gradients/conv2/Conv2D_grad/Conv2DBackpropFilter@GPU-0@(128x27x27x64)(int32 4x1)(128x27x27x192)->(5x5x64x192)	gradients/conv2/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	6464	6464	(128x27x27x64)(int32 4x1)(128x27x27x192)->(5x5x64x192)	1	1	0
+conv4@GPU-0@(128x256x13x13)->(128x256x13x13)	conv4	Relu	GPU-0	0	291	291	(128x256x13x13)->(128x256x13x13)	1	1	0
+Variable@GPU-0@(no input)->(128x224x224x3)	Variable	VariableV2	GPU-0	0	4	6	(no input)->(128x224x224x3)	0	1	0
+conv4-2-0-TransposeNCHWToNHWC-LayoutOptimizer@GPU-0@(128x256x13x13)(int32 4x1)->(128x13x13x256)	conv4-2-0-TransposeNCHWToNHWC-LayoutOptimizer	Transpose	GPU-0	0	294	294	(128x256x13x13)(int32 4x1)->(128x13x13x256)	1	1	0
+PermConstNHWCToNCHW-LayoutOptimizer@GPU-0@(no input)->(int32 4x1)	PermConstNHWCToNCHW-LayoutOptimizer	Const	GPU-0	1	1	3	(no input)->(int32 4x1)	0	1	0
+gradients/conv3/Conv2D_grad/Conv2DBackpropFilter@GPU-0@(128x13x13x192)(int32 4x1)(128x13x13x384)->(3x3x192x384)	gradients/conv3/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	GPU-0	0	6478	6478	(128x13x13x192)(int32 4x1)(128x13x13x384)->(3x3x192x384)	1	1	0
+conv2@GPU-0@(128x192x27x27)->(128x192x27x27)	conv2	Relu	GPU-0	0	943	943	(128x192x27x27)->(128x192x27x27)	1	1	0
+pool2@GPU-0@(128x192x27x27)->(128x192x13x13)	pool2	MaxPool	GPU-0	0	876	876	(128x192x27x27)->(128x192x13x13)	1	1	0
+_retval_gradients/conv1/Conv2D_grad/Conv2DBackpropFilter_0_1@CPU-0@(11x11x3x64)->(no output info)	_retval_gradients/conv1/Conv2D_grad/Conv2DBackpropFilter_0_1	_Retval	CPU-0	1	1	5	(11x11x3x64)->(no output info)	0	1	0
+gradients/conv1/BiasAdd_grad/BiasAddGrad@GPU-0@(128x56x56x64)->(64x1)	gradients/conv1/BiasAdd_grad/BiasAddGrad	BiasAddGrad	GPU-0	0	762	762	(128x56x56x64)->(64x1)	1	1	0
+conv2/weights/read@GPU-0@(5x5x64x192)->(5x5x64x192)	conv2/weights/read	Identity	GPU-0	0	1	2	(5x5x64x192)->(5x5x64x192)	0	1	0
+conv2/Conv2D@GPU-0@(128x64x27x27)(5x5x64x192)->(128x192x27x27)	conv2/Conv2D	Conv2D	GPU-0	0	4704	4704	(128x64x27x27)(5x5x64x192)->(128x192x27x27)	1	1	0

@@ -41,12 +41,7 @@ import sys
 # path to cloned git repo https://github.com/MikalaiDrabovich/TensorScope/
 path_to_tensorscope = os.path.abspath(os.path.join(__file__, '..', '..', '..','..', '..', 'tensorscope'))
 sys.path.append(path_to_tensorscope)
-
-# path to existing directory for saving Tensorscope results
-path_to_ts_results = os.path.abspath(os.path.join(__file__, '..', '..', '..', '..', '..','results/resnet'))
-
-from tensorscope import TensorscopeRunHook
-
+from tensorscope import TensorScopeRunHook
 
 ################################################################################
 # Functions for input processing.
@@ -452,19 +447,16 @@ def resnet_main(
     tf.logging.info('Starting a training cycle: %d/%d',
                     cycle_index, total_training_cycle)
 
-    mh = TensorscopeRunHook(
-      output_dir=path_to_ts_results, save_steps=10,
-      show_memory=True, show_dataflow=True)
+    ts_hook = TensorScopeRunHook(model_name='resnet')
 
-
-    classifier.train(input_fn=input_fn_train, hooks=[mh],
+    classifier.train(input_fn=input_fn_train, hooks=[ts_hook],
                      max_steps=flags_obj.max_train_steps)
 
     tf.logging.info('Starting to evaluate.')
 
     # flags_obj.max_train_steps is generally associated with testing and
     # profiling. As a result it is frequently called with synthetic data, which
-    # will iterate forever. Passing steps=flags_obj.max_train_steps allows the
+    # will iterate forever. Passing steps=flags_obj.max_train_steps allows thes
     # eval (which is generally unimportant in those circumstances) to terminate.
     # Note that eval will run for max_train_steps each loop, regardless of the
     # global_step count.

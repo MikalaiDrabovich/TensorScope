@@ -24,6 +24,13 @@ from absl import app as absl_app
 from absl import flags
 import tensorflow as tf  # pylint: disable=g-bad-import-order
 
+# temp path to store trained model
+path_to_resnet_model = os.path.abspath(os.path.join(__file__, '..','..', '..','resnet_model'))
+
+# one of the ways to add path to module 'official.resnet'
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(__file__, '..', '..', '..',  '..', '..', 'reproduce_results/resnet')))
+
 from official.utils.flags import core as flags_core
 from official.utils.logs import logger
 from official.resnet import imagenet_preprocessing
@@ -311,7 +318,12 @@ def define_imagenet_flags():
   resnet_run_loop.define_resnet_flags(
       resnet_size_choices=['18', '34', '50', '101', '152', '200'])
   flags.adopt_module_key_flags(resnet_run_loop)
-  flags_core.set_defaults(train_epochs=100)
+  flags_core.set_defaults(model_dir=path_to_resnet_model,
+                          resnet_size='50',
+                          train_epochs=100,
+                          epochs_between_evals=20,
+                          batch_size=64,
+                          use_synthetic_data=True)
 
 
 def run_imagenet(flags_obj):

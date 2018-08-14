@@ -24,8 +24,9 @@ GCP_METADATA_HEADER = {"Metadata-Flavor": "Google"}
 
 def on_gcp():
   """Detect whether the current running environment is on GCP."""
-  try:
-    response = requests.get(GCP_METADATA_URL, headers=GCP_METADATA_HEADER)
-    return response.status_code == 200
-  except requests.exceptions.RequestException:
-    return False
+  #try:
+  #  response = requests.get(GCP_METADATA_URL, headers=GCP_METADATA_HEADER)
+  #  return response.status_code == 200
+  #except requests.exceptions.RequestException:
+  #  return False
+  return False

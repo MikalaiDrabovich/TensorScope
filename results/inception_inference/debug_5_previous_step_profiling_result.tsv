@@ -1,0 +1,918 @@
+mixed_4/tower_1/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	441	441	(1x17x17x128)(128x1)(128x1)(128x1)(1)->(1x17x17x128)	50	50	0
+mixed_4/tower_1/conv_1/control_dependency	Identity	GPU-0	57	102	332	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_7/tower_1/conv_2	Relu	GPU-0	0	107	107	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_8/tower_1/conv_3/CheckNumerics	CheckNumerics	GPU-0	62	13111	13303	(1x8x8x192)->(1x8x8x192)	0	50	0
+mixed_2/tower_1/conv/CheckNumerics	CheckNumerics	GPU-0	106	18587	18816	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_2/tower_1/conv_1/batchnorm/moving_mean	Const	GPU-0	9	53	103	(no input)->(96x1)	0	50	0
+mixed_6/tower/conv_2/conv2d_params	Const	GPU-0	6	73	120	(no input)->(7x1x160x192)	0	50	0
+mixed_5/tower/conv_1/Conv2D	Conv2D	GPU-0	0	7663	7663	(1x17x17x160)(1x7x160x160)->(1x17x17x160)	50	50	0
+mixed_10/tower_2/conv/CheckNumerics	CheckNumerics	GPU-0	69	12739	12922	(1x8x8x192)->(1x8x8x192)	0	50	0
+mixed_7/tower_1/conv_1/CheckNumerics	CheckNumerics	GPU-0	61	20746	20939	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_5/tower_1/conv_3/control_dependency	Identity	GPU-0	61	96	297	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_10/conv	Relu	GPU-0	0	126	126	(1x8x8x320)->(1x8x8x320)	50	50	0
+mixed_1/conv/Conv2D	Conv2D	GPU-0	0	1069	1069	(1x35x35x256)(1x1x256x64)->(1x35x35x64)	50	50	0
+mixed_10/tower_1/mixed/conv_1/batchnorm/moving_mean	Const	GPU-0	11	84	156	(no input)->(384x1)	0	50	0
+mixed_9/tower_1/mixed/conv_1/CheckNumerics	CheckNumerics	GPU-0	60	21528	21680	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_5/tower_1/conv_2/control_dependency	Identity	GPU-0	50	80	235	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_1/tower/conv/control_dependency	Identity	GPU-0	57	88	312	(1x35x35x48)->(1x35x35x48)	0	50	0
+mixed_7/tower/conv_1/batchnorm/beta	Const	GPU-0	7	62	109	(no input)->(192x1)	0	50	0
+mixed_7/tower_1/conv_1/Conv2D	Conv2D	GPU-0	0	9989	9989	(1x17x17x192)(7x1x192x192)->(1x17x17x192)	50	50	0
+mixed_10/tower_2/conv/conv2d_params	Const	GPU-0	13	89	162	(no input)->(1x1x2048x192)	0	50	0
+mixed_5/tower_1/conv/batchnorm/moving_variance	Const	GPU-0	12	56	110	(no input)->(160x1)	0	50	0
+mixed/tower_1/conv_1/batchnorm/moving_mean	Const	GPU-0	12	51	104	(no input)->(96x1)	0	50	0
+mixed_10/tower/mixed/conv/batchnorm/moving_variance	Const	GPU-0	8	51	120	(no input)->(384x1)	0	50	0
+mixed_7/tower_1/conv_3/batchnorm/moving_variance	Const	GPU-0	10	51	100	(no input)->(192x1)	0	50	0
+mixed/tower_1/conv/batchnorm/beta	Const	GPU-0	6	52	107	(no input)->(64x1)	0	50	0
+mixed_6/tower_1/conv_2/batchnorm/beta	Const	GPU-0	9	59	110	(no input)->(160x1)	0	50	0
+mixed_3/tower/conv_2/CheckNumerics	CheckNumerics	GPU-0	61	7449	7641	(1x17x17x96)->(1x17x17x96)	0	50	0
+conv_3/CheckNumerics	CheckNumerics	GPU-0	68	13984	14266	(1x73x73x80)->(1x73x73x80)	0	50	0
+mixed_8/tower/conv/conv2d_params	Const	GPU-0	6	72	127	(no input)->(1x1x768x192)	0	50	0
+mixed_4/tower/conv_1/batchnorm/moving_mean	Const	GPU-0	10	55	126	(no input)->(128x1)	0	50	0
+mixed_4/tower/conv/CheckNumerics	CheckNumerics	GPU-0	106	17460	17722	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_7/tower_1/conv_2/Conv2D	Conv2D	GPU-0	0	8787	8787	(1x17x17x192)(1x7x192x192)->(1x17x17x192)	50	50	0
+mixed_6/join	Concat	GPU-0	0	752	752	(1)(1x17x17x192)(1x17x17x192)(1x17x17x192)(1x17x17x192)->(1x17x17x768)	50	50	0
+mixed_10/tower_1/mixed/conv_1/control_dependency	Identity	GPU-0	55	87	273	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_1/tower/conv/Conv2D	Conv2D	GPU-0	0	893	893	(1x35x35x256)(1x1x256x48)->(1x35x35x48)	50	50	0
+mixed_4/tower_1/conv/Conv2D	Conv2D	GPU-0	0	1033	1033	(1x17x17x768)(1x1x768x128)->(1x17x17x128)	50	50	0
+mixed_8/tower_1/conv_3/conv2d_params	Const	GPU-0	2	68	117	(no input)->(3x3x192x192)	0	50	0
+mixed/tower_1/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	871	871	(1x35x35x96)(96x1)(96x1)(96x1)(96x1)->(1x35x35x96)	50	50	0
+mixed_10/tower/conv/CheckNumerics	CheckNumerics	GPU-0	90	13249	13464	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_2/tower/conv	Relu	GPU-0	0	204	204	(1x35x35x48)->(1x35x35x48)	50	50	0
+mixed_10/tower_1/conv/CheckNumerics	CheckNumerics	GPU-0	100	11393	11608	(1x8x8x448)->(1x8x8x448)	0	50	0
+mixed_7/tower_1/conv_3/batchnorm/moving_mean	Const	GPU-0	10	48	103	(no input)->(192x1)	0	50	0
+mixed_4/tower_1/conv	Relu	GPU-0	0	148	148	(1x17x17x128)->(1x17x17x128)	50	50	0
+mixed_1/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	894	894	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed_3/tower/conv_1/Conv2D	Conv2D	GPU-0	0	3649	3649	(1x35x35x64)(3x3x64x96)->(1x35x35x96)	50	50	0
+mixed_5/tower_1/conv_1/conv2d_params	Const	GPU-0	9	81	138	(no input)->(7x1x160x160)	0	50	0
+mixed_7/tower_1/conv_4/batchnorm/moving_mean	Const	GPU-0	7	48	92	(no input)->(192x1)	0	50	0
+mixed_6/tower_1/conv/conv2d_params	Const	GPU-0	19	67	126	(no input)->(1x1x768x160)	0	50	0
+mixed_3/pool	MaxPool	GPU-0	0	1156	1156	(1x35x35x288)->(1x17x17x288)	50	50	0
+mixed_6/tower/conv/batchnorm/beta	Const	GPU-0	9	62	115	(no input)->(160x1)	0	50	0
+mixed_8/tower_1/conv_2	Relu	GPU-0	0	113	113	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_6/tower/conv/control_dependency	Identity	GPU-0	51	98	309	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_9/tower_2/conv/Conv2D	Conv2D	GPU-0	0	1129	1129	(1x8x8x1280)(1x1x1280x192)->(1x8x8x192)	50	50	0
+mixed_10/tower/mixed/conv/batchnorm/beta	Const	GPU-0	10	68	117	(no input)->(384x1)	0	50	0
+mixed_10/conv/batchnorm/beta	Const	GPU-0	10	52	103	(no input)->(320x1)	0	50	0
+mixed_9/tower/conv/batchnorm/beta	Const	GPU-0	10	60	108	(no input)->(384x1)	0	50	0
+mixed_5/tower/conv_2	Relu	GPU-0	0	130	130	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_6/tower/conv_1	Relu	GPU-0	0	116	116	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed_4/tower_1/conv_3/conv2d_params	Const	GPU-0	11	78	146	(no input)->(7x1x128x128)	0	50	0
+mixed_7/tower_1/conv_2/conv2d_params	Const	GPU-0	10	71	123	(no input)->(1x7x192x192)	0	50	0
+mixed/tower_2/pool	AvgPool	GPU-0	0	8349	8349	(1x35x35x192)->(1x35x35x192)	50	50	0
+mixed_8/tower/conv_1/CheckNumerics	CheckNumerics	GPU-0	71	19829	20052	(1x8x8x320)->(1x8x8x320)	0	50	0
+mixed_10/tower_1/mixed/conv/batchnorm/moving_variance	Const	GPU-0	13	103	176	(no input)->(384x1)	0	50	0
+mixed_10/tower/conv/batchnorm/moving_mean	Const	GPU-0	9	53	99	(no input)->(384x1)	0	50	0
+mixed_7/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	765	765	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+conv_2	Relu	GPU-0	0	3452	3452	(1x147x147x64)->(1x147x147x64)	50	50	0
+mixed_10/tower/mixed/conv_1/control_dependency	Identity	GPU-0	48	88	267	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_9/tower/mixed/conv/batchnorm/beta	Const	GPU-0	9	64	112	(no input)->(384x1)	0	50	0
+conv_4/CheckNumerics	CheckNumerics	GPU-0	82	30040	30352	(1x71x71x192)->(1x71x71x192)	0	50	0
+mixed_8/tower_1/conv_3/batchnorm/beta	Const	GPU-0	7	60	109	(no input)->(192x1)	0	50	0
+mixed_3/tower/conv_1/batchnorm/beta	Const	GPU-0	23	91	161	(no input)->(96x1)	0	50	0
+mixed_7/tower/conv_2/Conv2D	Conv2D	GPU-0	0	9813	9813	(1x17x17x192)(7x1x192x192)->(1x17x17x192)	50	50	0
+mixed_5/tower_1/conv_4/batchnorm/moving_mean	Const	GPU-0	8	67	119	(no input)->(192x1)	0	50	0
+mixed_4/tower_1/conv_4/Conv2D	Conv2D	GPU-0	0	6105	6105	(1x17x17x128)(1x7x128x192)->(1x17x17x192)	50	50	0
+mixed_5/tower/conv_2/batchnorm/moving_mean	Const	GPU-0	10	87	140	(no input)->(192x1)	0	50	0
+mixed_10/tower/conv/batchnorm/moving_variance	Const	GPU-0	7	40	85	(no input)->(384x1)	0	50	0
+mixed_4/conv/conv2d_params	Const	GPU-0	9	79	143	(no input)->(1x1x768x192)	0	50	0
+mixed_10/tower/mixed/conv/Conv2D	Conv2D	GPU-0	0	9545	9545	(1x8x8x384)(1x3x384x384)->(1x8x8x384)	50	50	0
+mixed_7/tower_1/conv_2/CheckNumerics	CheckNumerics	GPU-0	67	18711	18898	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_10/tower_1/mixed/conv	Relu	GPU-0	0	104	104	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed_10/tower_1/conv_1	Relu	GPU-0	0	101	101	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed_1/tower_2/conv/control_dependency	Identity	GPU-0	59	118	351	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_9/tower_1/conv/Conv2D	Conv2D	GPU-0	0	1247	1247	(1x8x8x1280)(1x1x1280x448)->(1x8x8x448)	50	50	0
+mixed_5/tower_1/conv/control_dependency	Identity	GPU-0	55	134	350	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_10/tower_1/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	318	318	(1x8x8x448)(448x1)(448x1)(448x1)(1)->(1x8x8x448)	50	50	0
+mixed_7/tower_1/conv_2/control_dependency	Identity	GPU-0	53	88	246	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed/tower_1/conv_1/batchnorm/moving_variance	Const	GPU-0	13	49	101	(no input)->(96x1)	0	50	0
+mixed_4/tower_1/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	437	437	(1x17x17x128)(128x1)(128x1)(128x1)(1)->(1x17x17x128)	50	50	0
+conv_2/conv2d_params	Const	GPU-0	7	76	129	(no input)->(3x3x32x64)	0	50	0
+mixed_6/tower_1/conv_1/batchnorm/moving_mean	Const	GPU-0	8	52	102	(no input)->(160x1)	0	50	0
+mixed_7/tower_1/conv_2/batchnorm/moving_mean	Const	GPU-0	7	51	97	(no input)->(192x1)	0	50	0
+mixed_3/conv/Conv2D	Conv2D	GPU-0	0	21725	21725	(1x35x35x288)(3x3x288x384)->(1x17x17x384)	50	50	0
+mixed_5/tower_1/conv_1/CheckNumerics	CheckNumerics	GPU-0	68	16859	17040	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_3/conv/conv2d_params	Const	GPU-0	6	62	112	(no input)->(3x3x288x384)	0	50	0
+mixed_3/tower/conv/Conv2D	Conv2D	GPU-0	0	1236	1236	(1x35x35x288)(1x1x288x64)->(1x35x35x64)	50	50	0
+mixed/tower_1/conv_2/control_dependency	Identity	GPU-0	67	96	326	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed/tower/conv_1/batchnorm/beta	Const	GPU-0	7	69	115	(no input)->(64x1)	0	50	0
+mixed_4/tower/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	651	651	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_6/tower/conv_2/batchnorm/moving_mean	Const	GPU-0	10	50	95	(no input)->(192x1)	0	50	0
+mixed/tower_1/conv_1/batchnorm/gamma	Const	GPU-0	8	50	117	(no input)->(96x1)	0	50	0
+conv_4/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	6179	6179	(1x71x71x192)(192x1)(192x1)(192x1)(192x1)->(1x71x71x192)	50	50	0
+mixed_5/tower_1/conv_2/Conv2D	Conv2D	GPU-0	0	7539	7539	(1x17x17x160)(1x7x160x160)->(1x17x17x160)	50	50	0
+mixed_9/tower_1/conv/batchnorm/gamma	Const	GPU-0	13	51	125	(no input)->(448x1)	0	50	0
+mixed_10/tower/mixed/conv/conv2d_params	Const	GPU-0	5	70	120	(no input)->(1x3x384x384)	0	50	0
+mixed_9/tower_1/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	335	335	(1x8x8x448)(448x1)(448x1)(448x1)(448x1)->(1x8x8x448)	50	50	0
+mixed/tower_2/conv/control_dependency	Identity	GPU-0	71	120	447	(1x35x35x32)->(1x35x35x32)	0	50	0
+mixed_7/tower_2/conv/control_dependency	Identity	GPU-0	69	117	385	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_6/tower_1/conv_1/CheckNumerics	CheckNumerics	GPU-0	86	17006	17205	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_9/conv	Relu	GPU-0	0	124	124	(1x8x8x320)->(1x8x8x320)	50	50	0
+mixed_1/tower_1/conv/batchnorm/moving_mean	Const	GPU-0	6	53	98	(no input)->(64x1)	0	50	0
+mixed_3/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	774	774	(1x17x17x384)(384x1)(384x1)(384x1)(384x1)->(1x17x17x384)	50	50	0
+mixed_1/tower_1/conv_1/batchnorm/moving_mean	Const	GPU-0	6	54	99	(no input)->(96x1)	0	50	0
+mixed_10/tower_2/conv/control_dependency	Identity	GPU-0	57	105	330	(1x8x8x192)->(1x8x8x192)	0	50	0
+mixed_9/tower_2/conv/batchnorm/beta	Const	GPU-0	14	54	109	(no input)->(192x1)	0	50	0
+mixed_7/tower_2/conv	Relu	GPU-0	0	182	182	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_7/tower/conv_1/control_dependency	Identity	GPU-0	84	104	340	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_6/tower_1/conv_2	Relu	GPU-0	0	112	112	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed_4/tower_1/conv_1/conv2d_params	Const	GPU-0	14	93	184	(no input)->(7x1x128x128)	0	50	0
+mixed_6/conv/Conv2D	Conv2D	GPU-0	0	1564	1564	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+mixed_7/tower_2/conv/Conv2D	Conv2D	GPU-0	0	1632	1632	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+mixed/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	950	950	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed_1/tower_1/conv_1/CheckNumerics	CheckNumerics	GPU-0	81	13416	13601	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed_6/tower_1/conv/batchnorm/beta	Const	GPU-0	9	63	114	(no input)->(160x1)	0	50	0
+conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	7769	7769	(1x147x147x64)(64x1)(64x1)(64x1)(64x1)->(1x147x147x64)	50	50	0
+mixed_10/tower_1/mixed/conv/control_dependency	Identity	GPU-0	68	122	361	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_10/join	Concat	GPU-0	0	636	636	(1)(1x8x8x320)(1x8x8x384)(1x8x8x384)(1x8x8x384)(1x8x8x384)(1x8x8x192)->(1x8x8x2048)	50	50	0
+mixed_9/tower_1/mixed/conv/batchnorm/beta	Const	GPU-0	9	68	112	(no input)->(384x1)	0	50	0
+mixed_8/tower/conv/Conv2D	Conv2D	GPU-0	0	1568	1568	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+mixed_4/tower/conv_2/batchnorm/moving_mean	Const	GPU-0	34	88	186	(no input)->(192x1)	0	50	0
+mixed_4/tower_2/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	652	652	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_1/conv/batchnorm/moving_variance	Const	GPU-0	7	49	93	(no input)->(64x1)	0	50	0
+mixed_2/conv/batchnorm/beta	Const	GPU-0	8	54	103	(no input)->(64x1)	0	50	0
+mixed/tower_1/conv/batchnorm/moving_mean	Const	GPU-0	23	51	127	(no input)->(64x1)	0	50	0
+mixed_7/conv/Conv2D	Conv2D	GPU-0	0	1568	1568	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+conv_4/Conv2D	Conv2D	GPU-0	0	17948	17948	(1x73x73x80)(3x3x80x192)->(1x71x71x192)	50	50	0
+mixed_5/tower/conv/CheckNumerics	CheckNumerics	GPU-0	112	17504	17737	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_9/tower_1/mixed/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	309	309	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+Sub/y	Const	GPU-0	9	64	110	(no input)->(1x1)	0	50	0
+mixed_7/tower_2/conv/conv2d_params	Const	GPU-0	12	70	126	(no input)->(1x1x768x192)	0	50	0
+mixed_2/tower_1/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	789	789	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed_8/tower_1/conv_3/batchnorm/moving_variance	Const	GPU-0	8	51	104	(no input)->(192x1)	0	50	0
+mixed_10/tower_1/mixed/conv_1	Relu	GPU-0	0	89	89	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed_4/tower_1/conv_4/batchnorm/moving_mean	Const	GPU-0	37	86	173	(no input)->(192x1)	0	50	0
+mixed_9/tower_1/conv_1/CheckNumerics	CheckNumerics	GPU-0	67	41710	41939	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_6/tower/conv_2/Conv2D	Conv2D	GPU-0	0	8848	8848	(1x17x17x160)(7x1x160x192)->(1x17x17x192)	50	50	0
+conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	2408	2408	(1x149x149x32)(32x1)(32x1)(32x1)(32x1)->(1x149x149x32)	50	50	0
+mixed_4/conv/batchnorm/beta	Const	GPU-0	6	89	143	(no input)->(192x1)	0	50	0
+unknown/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	5724	5724	(Transfer)->(8 bytes)	0	0	50
+mixed_7/tower_1/conv/control_dependency	Identity	GPU-0	62	108	331	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_8/tower_1/conv_1/control_dependency	Identity	GPU-0	56	79	239	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_4/tower_1/conv_3/batchnorm/moving_variance	Const	GPU-0	15	70	141	(no input)->(128x1)	0	50	0
+mixed_1/tower_2/conv/CheckNumerics	CheckNumerics	GPU-0	80	16337	16537	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed/conv/CheckNumerics	CheckNumerics	GPU-0	123	20934	21424	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_9/tower_1/mixed/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	373	373	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+mixed_5/tower_1/conv_4/CheckNumerics	CheckNumerics	GPU-0	58	11189	11386	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed/tower_1/conv/control_dependency	Identity	GPU-0	85	131	498	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_5/tower_2/conv/batchnorm/moving_variance	Const	GPU-0	9	52	101	(no input)->(192x1)	0	50	0
+mixed_7/tower_2/pool	AvgPool	GPU-0	0	7914	7914	(1x17x17x768)->(1x17x17x768)	50	50	0
+mixed_1/tower_1/conv	Relu	GPU-0	0	205	205	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_10/tower_2/conv	Relu	GPU-0	0	115	115	(1x8x8x192)->(1x8x8x192)	50	50	0
+softmax/logits/MatMul	MatMul	GPU-0	0	2909	2909	(1x2048)(2048x1008)->(1x1008)	50	50	0
+mixed_3/join	Concat	GPU-0	0	695	695	(1)(1x17x17x384)(1x17x17x96)(1x17x17x288)->(1x17x17x768)	50	50	0
+mixed_1/tower_2/pool	AvgPool	GPU-0	0	11384	11384	(1x35x35x256)->(1x35x35x256)	50	50	0
+ExpandDims	ExpandDims	GPU-0	16	179	260	(100x100x3)(int32 1x1)->(1x100x100x3)	0	50	0
+mixed/tower_1/conv/batchnorm/moving_variance	Const	GPU-0	12	51	100	(no input)->(64x1)	0	50	0
+conv_4/batchnorm/beta	Const	GPU-0	12	68	119	(no input)->(192x1)	0	50	0
+mixed_7/tower_1/conv/conv2d_params	Const	GPU-0	10	62	123	(no input)->(1x1x768x192)	0	50	0
+mixed_5/tower_1/conv_4/batchnorm/moving_variance	Const	GPU-0	11	56	102	(no input)->(192x1)	0	50	0
+mixed_9/tower/mixed/conv_1/control_dependency	Identity	GPU-0	49	95	302	(1x8x8x384)->(1x8x8x384)	0	50	0
+conv/control_dependency	Identity	GPU-0	89	151	443	(1x149x149x32)->(1x149x149x32)	0	50	0
+mixed_4/conv/control_dependency	Identity	GPU-0	62	126	369	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_10/tower/mixed/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	306	306	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+mixed_9/tower_1/conv_1/batchnorm/moving_mean	Const	GPU-0	8	48	87	(no input)->(384x1)	0	50	0
+mixed_8/tower_1/conv/batchnorm/moving_mean	Const	GPU-0	5	68	119	(no input)->(192x1)	0	50	0
+mixed_10/tower/mixed/conv/CheckNumerics	CheckNumerics	GPU-0	83	43890	44088	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_4/tower_2/conv/conv2d_params	Const	GPU-0	10	82	183	(no input)->(1x1x768x192)	0	50	0
+mixed_7/tower/conv_2/CheckNumerics	CheckNumerics	GPU-0	67	17454	17669	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_6/tower_1/conv_4/batchnorm/moving_variance	Const	GPU-0	6	53	99	(no input)->(192x1)	0	50	0
+mixed_4/tower/conv_1/control_dependency	Identity	GPU-0	67	109	348	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_8/tower_1/conv_3/batchnorm/moving_mean	Const	GPU-0	10	47	97	(no input)->(192x1)	0	50	0
+mixed_9/tower_1/mixed/conv	Relu	GPU-0	0	99	99	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed_9/join	Concat	GPU-0	0	610	610	(1)(1x8x8x320)(1x8x8x384)(1x8x8x384)(1x8x8x384)(1x8x8x384)(1x8x8x192)->(1x8x8x2048)	50	50	0
+mixed/tower_1/conv_2/batchnorm/moving_variance	Const	GPU-0	14	43	111	(no input)->(96x1)	0	50	0
+mixed_2/tower/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	809	809	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed_4/tower/conv/batchnorm/gamma	Const	GPU-0	7	66	133	(no input)->(128x1)	0	50	0
+mixed_4/conv/batchnorm/moving_mean	Const	GPU-0	9	79	145	(no input)->(192x1)	0	50	0
+mixed_1/tower/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	520	520	(1x35x35x48)(48x1)(48x1)(48x1)(1)->(1x35x35x48)	50	50	0
+mixed_9/conv/batchnorm/moving_mean	Const	GPU-0	8	51	99	(no input)->(320x1)	0	50	0
+mixed/tower/conv_1/Conv2D	Conv2D	GPU-0	0	7753	7753	(1x35x35x48)(5x5x48x64)->(1x35x35x64)	50	50	0
+mixed_10/tower/mixed/conv_1/CheckNumerics	CheckNumerics	GPU-0	72	42300	42501	(1x8x8x384)->(1x8x8x384)	0	50	0
+conv_1/batchnorm/moving_mean	Const	GPU-0	16	55	109	(no input)->(32x1)	0	50	0
+mixed_6/tower_2/conv	Relu	GPU-0	0	181	181	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_7/tower/conv_2/batchnorm/moving_variance	Const	GPU-0	8	53	103	(no input)->(192x1)	0	50	0
+mixed_7/tower_2/conv/CheckNumerics	CheckNumerics	GPU-0	68	15377	15570	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_10/tower_1/conv/control_dependency	Identity	GPU-0	60	94	317	(1x8x8x448)->(1x8x8x448)	0	50	0
+mixed_6/tower_1/conv_3/batchnorm/moving_variance	Const	GPU-0	12	48	96	(no input)->(160x1)	0	50	0
+mixed_10/tower/conv	Relu	GPU-0	0	115	115	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed_4/tower/conv_1/conv2d_params	Const	GPU-0	9	72	132	(no input)->(1x7x128x128)	0	50	0
+Sub	Sub	GPU-0	0	256	256	(1x299x299x3)(1x1)->(1x299x299x3)	50	50	0
+mixed_2/tower_2/pool	AvgPool	GPU-0	0	12660	12660	(1x35x35x288)->(1x35x35x288)	50	50	0
+mixed_3/tower/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	899	899	(1x35x35x96)(96x1)(96x1)(96x1)(1)->(1x35x35x96)	50	50	0
+mixed_6/tower_1/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	554	554	(1x17x17x160)(160x1)(160x1)(160x1)(1)->(1x17x17x160)	50	50	0
+mixed_2/tower_1/conv_1/batchnorm/moving_variance	Const	GPU-0	14	76	128	(no input)->(96x1)	0	50	0
+mixed_1/tower_2/conv/Conv2D	Conv2D	GPU-0	0	1214	1214	(1x35x35x256)(1x1x256x64)->(1x35x35x64)	50	50	0
+ResizeBilinear	ResizeBilinear	GPU-0	0	1394	1394	(1x100x100x3)(int32 2x1)->(1x299x299x3)	50	50	0
+mixed_8/pool/CheckNumerics	CheckNumerics	GPU-0	98	9481	9821	(1x17x17x768)->(1x17x17x768)	0	50	0
+mixed_8/tower_1/conv_2/batchnorm/moving_mean	Const	GPU-0	11	55	111	(no input)->(192x1)	0	50	0
+mixed_5/tower/conv_2/control_dependency	Identity	GPU-0	64	135	361	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_5/tower_1/conv_3/batchnorm/moving_variance	Const	GPU-0	7	71	124	(no input)->(160x1)	0	50	0
+mixed_7/conv/batchnorm/moving_mean	Const	GPU-0	14	45	96	(no input)->(192x1)	0	50	0
+mixed/tower_1/conv	Relu	GPU-0	0	186	186	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_9/tower_1/conv/control_dependency	Identity	GPU-0	61	112	351	(1x8x8x448)->(1x8x8x448)	0	50	0
+mixed_5/tower_1/conv_3	Relu	GPU-0	0	110	110	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed/conv/batchnorm/beta	Const	GPU-0	10	65	112	(no input)->(64x1)	0	50	0
+mixed_5/tower_1/conv/conv2d_params	Const	GPU-0	22	67	154	(no input)->(1x1x768x160)	0	50	0
+mixed_4/tower_2/conv/control_dependency	Identity	GPU-0	66	135	399	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed/tower_1/conv_1/CheckNumerics	CheckNumerics	GPU-0	118	12452	12685	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed_9/tower_1/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	370	370	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+mixed_7/conv/CheckNumerics	CheckNumerics	GPU-0	87	19151	19427	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_9/tower_1/mixed/conv_1	Relu	GPU-0	0	91	91	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed/tower/conv_1/batchnorm/moving_variance	Const	GPU-0	5	54	95	(no input)->(64x1)	0	50	0
+mixed_5/tower/conv_1/batchnorm/moving_variance	Const	GPU-0	11	57	111	(no input)->(160x1)	0	50	0
+mixed_2/tower/conv/Conv2D	Conv2D	GPU-0	0	995	995	(1x35x35x288)(1x1x288x48)->(1x35x35x48)	50	50	0
+DecodeJpeg	DecodeJpeg	CPU-0	12	12867	13124	(string 1x1)->(uint8 100x100x3)	0	50	0
+mixed_10/tower/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	312	312	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+mixed_9/tower_1/conv/batchnorm/moving_variance	Const	GPU-0	4	54	100	(no input)->(448x1)	0	50	0
+_ZN10tensorflow83_GLOBAL__N__59_tmpxft_00001e6f_00000000_6_check_numerics_op_gpu_cu_cpp1_ii_99cbec1319CheckNumericsKernelIfEEvPKT_iPi	_ZN10tensorflow83_GLOBAL__N__59_tmpxft_00001e6f_00000000_6_check_numerics_op_gpu_cu_cpp1_ii_99cbec1319CheckNumericsKernelIfEEvPKT_iPi	GPU-0	0	25488	25488	no inputs saved in stream->no outputs saved in stream	50	0	0
+conv/batchnorm/moving_mean	Const	GPU-0	10	63	111	(no input)->(32x1)	0	50	0
+mixed_6/tower_1/conv_3/CheckNumerics	CheckNumerics	GPU-0	61	11544	11740	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_10/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	379	379	(1x8x8x320)(320x1)(320x1)(320x1)(1)->(1x8x8x320)	50	50	0
+Mul/y	Const	GPU-0	6	49	95	(no input)->(1x1)	0	50	0
+mixed_8/tower_1/conv_2/CheckNumerics	CheckNumerics	GPU-0	63	12975	13182	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_4/tower/conv_2/batchnorm/beta	Const	GPU-0	29	77	166	(no input)->(192x1)	0	50	0
+mixed_7/tower_2/conv/batchnorm/moving_variance	Const	GPU-0	5	66	109	(no input)->(192x1)	0	50	0
+ExpandDims/dim	Const	GPU-0	11	55	120	(no input)->(int32 1x1)	0	50	0
+mixed_6/tower_2/conv/batchnorm/beta	Const	GPU-0	11	73	128	(no input)->(192x1)	0	50	0
+mixed_3/tower/conv_2/batchnorm/moving_variance	Const	GPU-0	12	98	152	(no input)->(96x1)	0	50	0
+mixed_5/tower/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	568	568	(1x17x17x160)(160x1)(160x1)(160x1)(160x1)->(1x17x17x160)	50	50	0
+mixed_5/tower/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	605	605	(1x17x17x160)(160x1)(160x1)(160x1)(1)->(1x17x17x160)	50	50	0
+conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	2321	2321	(1x147x147x32)(32x1)(32x1)(32x1)(1)->(1x147x147x32)	50	50	0
+mixed_1/tower_2/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	758	758	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed_4/tower_1/conv_2	Relu	GPU-0	0	91	91	(1x17x17x128)->(1x17x17x128)	50	50	0
+mixed_10/tower/conv/batchnorm/beta	Const	GPU-0	10	57	104	(no input)->(384x1)	0	50	0
+mixed_9/tower/mixed/conv/conv2d_params	Const	GPU-0	7	70	121	(no input)->(1x3x384x384)	0	50	0
+mixed_4/tower/conv_1/CheckNumerics	CheckNumerics	GPU-0	60	14218	14415	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_5/join	Concat	GPU-0	0	748	748	(1)(1x17x17x192)(1x17x17x192)(1x17x17x192)(1x17x17x192)->(1x17x17x768)	50	50	0
+mixed_3/pool/control_dependency	Identity	GPU-0	58	113	347	(1x35x35x288)->(1x35x35x288)	0	50	0
+mixed_1/tower/conv/CheckNumerics	CheckNumerics	GPU-0	208	20730	21052	(1x35x35x48)->(1x35x35x48)	0	50	0
+mixed_2/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	891	891	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed_2/tower_2/conv/batchnorm/moving_variance	Const	GPU-0	5	51	97	(no input)->(64x1)	0	50	0
+conv	Relu	GPU-0	0	1656	1656	(1x149x149x32)->(1x149x149x32)	50	50	0
+mixed_10/tower/mixed/conv_1/conv2d_params	Const	GPU-0	13	67	125	(no input)->(3x1x384x384)	0	50	0
+mixed_9/tower/mixed/conv_1/CheckNumerics	CheckNumerics	GPU-0	68	41320	41494	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_4/tower/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	466	466	(1x17x17x128)(128x1)(128x1)(128x1)(1)->(1x17x17x128)	50	50	0
+mixed_4/tower_1/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	494	494	(1x17x17x128)(128x1)(128x1)(128x1)(1)->(1x17x17x128)	50	50	0
+mixed_2/tower_1/conv/Conv2D	Conv2D	GPU-0	0	904	904	(1x35x35x288)(1x1x288x64)->(1x35x35x64)	50	50	0
+mixed_6/tower/conv_1/batchnorm/moving_mean	Const	GPU-0	10	57	110	(no input)->(160x1)	0	50	0
+mixed_9/tower/conv/control_dependency	Identity	GPU-0	51	107	354	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed/tower_2/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	446	446	(1x35x35x32)(32x1)(32x1)(32x1)(1)->(1x35x35x32)	50	50	0
+mixed_1/tower/conv_1/batchnorm/beta	Const	GPU-0	11	56	116	(no input)->(64x1)	0	50	0
+mixed_6/tower_1/conv_3/Conv2D	Conv2D	GPU-0	0	7553	7553	(1x17x17x160)(7x1x160x160)->(1x17x17x160)	50	50	0
+mixed_8/tower_1/conv	Relu	GPU-0	0	164	164	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_2/tower_1/conv/batchnorm/moving_mean	Const	GPU-0	10	50	101	(no input)->(64x1)	0	50	0
+mixed_7/tower/conv/conv2d_params	Const	GPU-0	10	70	124	(no input)->(1x1x768x192)	0	50	0
+mixed_10/tower_2/conv/batchnorm/moving_mean	Const	GPU-0	12	60	119	(no input)->(192x1)	0	50	0
+mixed_8/tower_1/conv_1/batchnorm/beta	Const	GPU-0	5	59	110	(no input)->(192x1)	0	50	0
+mixed_6/tower_1/conv/Conv2D	Conv2D	GPU-0	0	1226	1226	(1x17x17x768)(1x1x768x160)->(1x17x17x160)	50	50	0
+mixed_3/tower/conv_1/batchnorm/moving_variance	Const	GPU-0	10	89	155	(no input)->(96x1)	0	50	0
+mixed_7/tower_1/conv_1/batchnorm/moving_mean	Const	GPU-0	12	46	97	(no input)->(192x1)	0	50	0
+mixed_9/conv/batchnorm/beta	Const	GPU-0	9	62	108	(no input)->(320x1)	0	50	0
+mixed/tower_1/conv_1	Relu	GPU-0	0	127	127	(1x35x35x96)->(1x35x35x96)	50	50	0
+mixed_10/tower_1/mixed/conv_1/batchnorm/moving_variance	Const	GPU-0	8	88	144	(no input)->(384x1)	0	50	0
+mixed_5/tower_1/conv_2/CheckNumerics	CheckNumerics	GPU-0	66	15381	15553	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_10/tower_1/conv/batchnorm/moving_variance	Const	GPU-0	10	48	91	(no input)->(448x1)	0	50	0
+mixed_9/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	376	376	(1x8x8x320)(320x1)(320x1)(320x1)(1)->(1x8x8x320)	50	50	0
+mixed_3/tower/conv_2	Relu	GPU-0	0	96	96	(1x17x17x96)->(1x17x17x96)	50	50	0
+mixed_7/tower/conv/batchnorm/moving_variance	Const	GPU-0	7	52	99	(no input)->(192x1)	0	50	0
+mixed_5/tower_1/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	554	554	(1x17x17x160)(160x1)(160x1)(160x1)(1)->(1x17x17x160)	50	50	0
+mixed_4/tower_1/conv_3/batchnorm/moving_mean	Const	GPU-0	9	55	137	(no input)->(128x1)	0	50	0
+conv_3/batchnorm/moving_mean	Const	GPU-0	7	51	100	(no input)->(80x1)	0	50	0
+mixed_6/tower_1/conv_4/conv2d_params	Const	GPU-0	11	74	130	(no input)->(1x7x160x192)	0	50	0
+softmax	Softmax	GPU-0	0	695	695	(1x1008)->(1x1008)	50	50	0
+mixed_2/tower/conv/control_dependency	Identity	GPU-0	47	83	253	(1x35x35x48)->(1x35x35x48)	0	50	0
+conv_3/Conv2D	Conv2D	GPU-0	0	2441	2441	(1x73x73x64)(1x1x64x80)->(1x73x73x80)	50	50	0
+mixed_5/conv/batchnorm/moving_mean	Const	GPU-0	11	75	132	(no input)->(192x1)	0	50	0
+mixed_4/tower_1/conv_2/Conv2D	Conv2D	GPU-0	0	5794	5794	(1x17x17x128)(1x7x128x128)->(1x17x17x128)	50	50	0
+mixed_6/tower_2/conv/Conv2D	Conv2D	GPU-0	0	1644	1644	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+mixed_10/tower_1/mixed/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	374	374	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+mixed_10/tower/mixed/conv/control_dependency	Identity	GPU-0	60	103	340	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_2/tower/conv_1/batchnorm/moving_variance	Const	GPU-0	9	48	96	(no input)->(64x1)	0	50	0
+mixed_2/tower_2/conv/CheckNumerics	CheckNumerics	GPU-0	74	16927	17119	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_4/tower_1/conv/conv2d_params	Const	GPU-0	27	95	193	(no input)->(1x1x768x128)	0	50	0
+mixed_1/tower_1/conv_2/control_dependency	Identity	GPU-0	65	101	346	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed_2/tower/conv/CheckNumerics	CheckNumerics	GPU-0	95	21303	21530	(1x35x35x48)->(1x35x35x48)	0	50	0
+mixed_6/tower/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	593	593	(1x17x17x160)(160x1)(160x1)(160x1)(1)->(1x17x17x160)	50	50	0
+mixed_3/tower/conv/batchnorm/moving_mean	Const	GPU-0	8	50	97	(no input)->(64x1)	0	50	0
+mixed_6/tower_1/conv/batchnorm/moving_variance	Const	GPU-0	9	66	134	(no input)->(160x1)	0	50	0
+mixed_6/conv/CheckNumerics	CheckNumerics	GPU-0	78	18194	18442	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_6/tower/conv_1/conv2d_params	Const	GPU-0	9	67	120	(no input)->(1x7x160x160)	0	50	0
+mixed_6/tower/conv	Relu	GPU-0	0	157	157	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed_4/tower/conv_2/control_dependency	Identity	GPU-0	58	102	327	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_7/tower_1/conv_3/batchnorm/beta	Const	GPU-0	13	61	110	(no input)->(192x1)	0	50	0
+mixed_5/tower/conv_1/CheckNumerics	CheckNumerics	GPU-0	67	17551	17777	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_5/tower_1/conv_4	Relu	GPU-0	0	115	115	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed/conv/Conv2D	Conv2D	GPU-0	0	919	919	(1x35x35x192)(1x1x192x64)->(1x35x35x64)	50	50	0
+mixed_10/tower/mixed/conv_1/batchnorm/moving_mean	Const	GPU-0	4	48	91	(no input)->(384x1)	0	50	0
+mixed_3/tower/conv	Relu	GPU-0	0	198	198	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_3/tower/conv/conv2d_params	Const	GPU-0	8	76	143	(no input)->(1x1x288x64)	0	50	0
+conv_3/conv2d_params	Const	GPU-0	12	59	117	(no input)->(1x1x64x80)	0	50	0
+mixed_1/tower/conv_1/batchnorm/moving_mean	Const	GPU-0	9	51	98	(no input)->(64x1)	0	50	0
+conv_3/control_dependency	Identity	GPU-0	86	151	430	(1x73x73x80)->(1x73x73x80)	0	50	0
+mixed_8/tower_1/conv/control_dependency	Identity	GPU-0	60	105	345	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_7/tower_1/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	651	651	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_6/tower_2/pool	AvgPool	GPU-0	0	7914	7914	(1x17x17x768)->(1x17x17x768)	50	50	0
+mixed_6/conv	Relu	GPU-0	0	180	180	(1x17x17x192)->(1x17x17x192)	50	50	0
+conv_1/batchnorm/moving_variance	Const	GPU-0	8	53	102	(no input)->(32x1)	0	50	0
+mixed_6/tower_1/conv_4/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	607	607	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_2/conv/control_dependency	Identity	GPU-0	63	134	397	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_7/tower_1/conv_4/Conv2D	Conv2D	GPU-0	0	8771	8771	(1x17x17x192)(1x7x192x192)->(1x17x17x192)	50	50	0
+mixed_5/tower_2/pool	AvgPool	GPU-0	0	7912	7912	(1x17x17x768)->(1x17x17x768)	50	50	0
+mixed_5/tower/conv_2/batchnorm/beta	Const	GPU-0	13	79	147	(no input)->(192x1)	0	50	0
+mixed_9/tower/conv	Relu	GPU-0	0	111	111	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed_9/tower_2/conv/CheckNumerics	CheckNumerics	GPU-0	109	11578	11819	(1x8x8x192)->(1x8x8x192)	0	50	0
+mixed_5/tower/conv/batchnorm/beta	Const	GPU-0	9	64	150	(no input)->(160x1)	0	50	0
+conv_4/conv2d_params	Const	GPU-0	4	60	111	(no input)->(3x3x80x192)	0	50	0
+mixed_2/join	Concat	GPU-0	0	1143	1143	(1)(1x35x35x64)(1x35x35x64)(1x35x35x96)(1x35x35x64)->(1x35x35x288)	50	50	0
+mixed_1/conv	Relu	GPU-0	0	214	214	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_3/tower/conv_1/conv2d_params	Const	GPU-0	10	72	128	(no input)->(3x3x64x96)	0	50	0
+mixed_6/tower_2/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	597	597	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_4/tower_2/conv/batchnorm/moving_mean	Const	GPU-0	13	52	124	(no input)->(192x1)	0	50	0
+mixed_5/tower_1/conv	Relu	GPU-0	0	150	150	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed_5/tower/conv/Conv2D	Conv2D	GPU-0	0	1262	1262	(1x17x17x768)(1x1x768x160)->(1x17x17x160)	50	50	0
+mixed_5/tower_2/conv/control_dependency	Identity	GPU-0	73	115	378	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_4/tower/conv_2/CheckNumerics	CheckNumerics	GPU-0	66	14064	14283	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_9/tower_2/pool	AvgPool	GPU-0	0	2914	2914	(1x8x8x1280)->(1x8x8x1280)	50	50	0
+conv_1/Conv2D	Conv2D	GPU-0	0	12301	12301	(1x149x149x32)(3x3x32x32)->(1x147x147x32)	50	50	0
+mixed_4/tower/conv_1/batchnorm/moving_variance	Const	GPU-0	14	82	160	(no input)->(128x1)	0	50	0
+mixed_6/tower/conv_2/control_dependency	Identity	GPU-0	66	100	316	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_3/tower/conv_2/batchnorm/beta	Const	GPU-0	26	137	222	(no input)->(96x1)	0	50	0
+conv_2/batchnorm/beta	Const	GPU-0	11	63	119	(no input)->(64x1)	0	50	0
+mixed_1/conv/CheckNumerics	CheckNumerics	GPU-0	81	20958	21232	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_7/conv	Relu	GPU-0	0	171	171	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_2/tower_2/conv/batchnorm/moving_mean	Const	GPU-0	8	75	119	(no input)->(64x1)	0	50	0
+mixed_5/tower_2/conv	Relu	GPU-0	0	183	183	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_7/tower_1/conv/Conv2D	Conv2D	GPU-0	0	1404	1404	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+mixed_5/tower_1/conv_2/batchnorm/moving_mean	Const	GPU-0	12	52	105	(no input)->(160x1)	0	50	0
+mixed_1/tower/conv_1/CheckNumerics	CheckNumerics	GPU-0	94	14373	14631	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_5/tower/conv/batchnorm/gamma	Const	GPU-0	7	66	166	(no input)->(160x1)	0	50	0
+mixed/tower_2/conv/batchnorm/moving_mean	Const	GPU-0	7	48	98	(no input)->(32x1)	0	50	0
+mixed_6/tower_1/conv_1	Relu	GPU-0	0	141	141	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed/tower_2/conv	Relu	GPU-0	0	135	135	(1x35x35x32)->(1x35x35x32)	50	50	0
+mixed_4/tower/conv/batchnorm/moving_variance	Const	GPU-0	13	57	116	(no input)->(128x1)	0	50	0
+mixed_2/tower/conv_1/batchnorm/moving_mean	Const	GPU-0	9	50	101	(no input)->(64x1)	0	50	0
+mixed_10/tower_1/mixed/conv/conv2d_params	Const	GPU-0	6	61	116	(no input)->(1x3x384x384)	0	50	0
+mixed_5/tower_1/conv/batchnorm/beta	Const	GPU-0	12	63	137	(no input)->(160x1)	0	50	0
+mixed_5/tower/conv/batchnorm/moving_mean	Const	GPU-0	6	68	127	(no input)->(160x1)	0	50	0
+mixed_5/conv/Conv2D	Conv2D	GPU-0	0	1571	1571	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+mixed/tower/conv/batchnorm/gamma	Const	GPU-0	15	50	113	(no input)->(48x1)	0	50	0
+mixed_4/tower_1/conv_2/control_dependency	Identity	GPU-0	56	95	261	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_8/tower_1/conv_1/batchnorm/moving_mean	Const	GPU-0	10	52	99	(no input)->(192x1)	0	50	0
+mixed_10/tower_1/conv/batchnorm/beta	Const	GPU-0	6	59	107	(no input)->(448x1)	0	50	0
+mixed_6/tower_1/conv_4	Relu	GPU-0	0	119	119	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_10/tower_1/conv_1/conv2d_params	Const	GPU-0	8	66	116	(no input)->(3x3x448x384)	0	50	0
+mixed/tower_1/conv/Conv2D	Conv2D	GPU-0	0	794	794	(1x35x35x192)(1x1x192x64)->(1x35x35x64)	50	50	0
+mixed_7/tower_2/conv/batchnorm/moving_mean	Const	GPU-0	8	50	99	(no input)->(192x1)	0	50	0
+mixed_2/tower_1/conv_2/batchnorm/beta	Const	GPU-0	9	53	99	(no input)->(96x1)	0	50	0
+mixed_6/tower_1/conv_3/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	583	583	(1x17x17x160)(160x1)(160x1)(160x1)(1)->(1x17x17x160)	50	50	0
+conv_2/control_dependency	Identity	GPU-0	94	143	475	(1x147x147x64)->(1x147x147x64)	0	50	0
+mixed/tower_2/conv/conv2d_params	Const	GPU-0	14	66	125	(no input)->(1x1x192x32)	0	50	0
+mixed_4/tower_2/conv/batchnorm/beta	Const	GPU-0	25	88	172	(no input)->(192x1)	0	50	0
+mixed_9/tower/mixed/conv_1	Relu	GPU-0	0	128	128	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed/tower/conv/CheckNumerics	CheckNumerics	GPU-0	163	19461	19826	(1x35x35x48)->(1x35x35x48)	0	50	0
+mixed_6/tower_1/conv_1/conv2d_params	Const	GPU-0	10	69	129	(no input)->(7x1x160x160)	0	50	0
+mixed_6/tower_1/conv_1/batchnorm/beta	Const	GPU-0	11	60	110	(no input)->(160x1)	0	50	0
+mixed_2/conv/batchnorm/moving_variance	Const	GPU-0	23	43	103	(no input)->(64x1)	0	50	0
+mixed_7/tower_1/conv_4/batchnorm/beta	Const	GPU-0	9	54	105	(no input)->(192x1)	0	50	0
+mixed_5/tower_2/conv/batchnorm/beta	Const	GPU-0	9	61	114	(no input)->(192x1)	0	50	0
+mixed_9/tower/mixed/conv/batchnorm/moving_mean	Const	GPU-0	8	47	118	(no input)->(384x1)	0	50	0
+mixed_6/tower_1/conv_4/batchnorm/beta	Const	GPU-0	15	59	118	(no input)->(192x1)	0	50	0
+mixed_5/conv/batchnorm/beta	Const	GPU-0	10	73	132	(no input)->(192x1)	0	50	0
+mixed_9/conv/batchnorm/moving_variance	Const	GPU-0	7	53	100	(no input)->(320x1)	0	50	0
+mixed_6/tower_1/conv_2/batchnorm/moving_mean	Const	GPU-0	11	50	103	(no input)->(160x1)	0	50	0
+mixed_7/tower/conv/control_dependency	Identity	GPU-0	62	82	334	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_4/tower_1/conv_3/Conv2D	Conv2D	GPU-0	0	5531	5531	(1x17x17x128)(7x1x128x128)->(1x17x17x128)	50	50	0
+mixed_3/tower/conv_1/batchnorm/moving_mean	Const	GPU-0	12	81	152	(no input)->(96x1)	0	50	0
+conv/batchnorm/moving_variance	Const	GPU-0	9	59	101	(no input)->(32x1)	0	50	0
+pool_3/_reshape	Reshape	GPU-0	19	117	200	(1x1x1x2048)(int32 2x1)->(1x2048)	0	50	0
+mixed_6/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	742	742	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_8/tower/conv_1/batchnorm/moving_variance	Const	GPU-0	7	56	104	(no input)->(320x1)	0	50	0
+mixed_6/tower/conv/batchnorm/moving_mean	Const	GPU-0	10	49	101	(no input)->(160x1)	0	50	0
+mixed_5/tower_1/conv/Conv2D	Conv2D	GPU-0	0	1209	1209	(1x17x17x768)(1x1x768x160)->(1x17x17x160)	50	50	0
+mixed_4/tower_1/conv_3/batchnorm/beta	Const	GPU-0	12	78	165	(no input)->(128x1)	0	50	0
+mixed/tower_1/conv_1/conv2d_params	Const	GPU-0	10	66	125	(no input)->(3x3x64x96)	0	50	0
+mixed_6/tower_2/conv/conv2d_params	Const	GPU-0	4	66	119	(no input)->(1x1x768x192)	0	50	0
+mixed_8/tower/conv_1/batchnorm/beta	Const	GPU-0	9	68	117	(no input)->(320x1)	0	50	0
+mixed/tower_1/conv/CheckNumerics	CheckNumerics	GPU-0	477	15140	15776	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed/tower/conv_1/conv2d_params	Const	GPU-0	10	63	119	(no input)->(5x5x48x64)	0	50	0
+mixed_1/tower_1/conv_2/conv2d_params	Const	GPU-0	8	61	114	(no input)->(3x3x96x96)	0	50	0
+mixed_6/tower/conv_1/batchnorm/moving_variance	Const	GPU-0	8	57	107	(no input)->(160x1)	0	50	0
+mixed_4/tower/conv_1/Conv2D	Conv2D	GPU-0	0	5814	5814	(1x17x17x128)(1x7x128x128)->(1x17x17x128)	50	50	0
+mixed_10/tower_1/conv_1/Conv2D	Conv2D	GPU-0	0	22256	22256	(1x8x8x448)(3x3x448x384)->(1x8x8x384)	50	50	0
+mixed_4/conv/batchnorm/moving_variance	Const	GPU-0	9	64	134	(no input)->(192x1)	0	50	0
+mixed_1/tower_1/conv_1/Conv2D	Conv2D	GPU-0	0	3650	3650	(1x35x35x64)(3x3x64x96)->(1x35x35x96)	50	50	0
+edge_2_DecodeJpeg/MEMCPYHtoD	MEMCPYHtoD	GPU-0	0	152	152	(Transfer)->(30000 bytes)	0	0	50
+mixed_2/tower/conv/batchnorm/moving_variance	Const	GPU-0	10	54	103	(no input)->(48x1)	0	50	0
+mixed_8/tower/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	373	373	(1x8x8x320)(320x1)(320x1)(320x1)(320x1)->(1x8x8x320)	50	50	0
+mixed_6/tower_1/conv_2/control_dependency	Identity	GPU-0	47	77	220	(1x17x17x160)->(1x17x17x160)	0	50	0
+_retval_softmax_0_0	_Retval	CPU-0	28	68	170	(1x1008)->(no output info)	0	50	0
+conv/batchnorm/gamma	Const	GPU-0	13	55	118	(no input)->(32x1)	0	50	0
+pool_1/CheckNumerics	CheckNumerics	GPU-0	61	7962	8211	(1x71x71x192)->(1x71x71x192)	0	50	0
+mixed_4/tower/conv/conv2d_params	Const	GPU-0	7	101	217	(no input)->(1x1x768x128)	0	50	0
+mixed_9/tower_1/conv/CheckNumerics	CheckNumerics	GPU-0	93	11187	11430	(1x8x8x448)->(1x8x8x448)	0	50	0
+mixed_6/tower/conv_1/Conv2D	Conv2D	GPU-0	0	7611	7611	(1x17x17x160)(1x7x160x160)->(1x17x17x160)	50	50	0
+mixed/tower/conv_1/control_dependency	Identity	GPU-0	67	130	382	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_10/tower_2/conv/batchnorm/moving_variance	Const	GPU-0	12	60	118	(no input)->(192x1)	0	50	0
+mixed_9/tower/mixed/conv/control_dependency	Identity	GPU-0	64	115	344	(1x8x8x384)->(1x8x8x384)	0	50	0
+ResizeBilinear/size	Const	GPU-0	5	42	95	(no input)->(int32 2x1)	0	50	0
+mixed_6/tower/conv_1/CheckNumerics	CheckNumerics	GPU-0	66	17661	17867	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_6/tower/conv_2/batchnorm/beta	Const	GPU-0	8	57	110	(no input)->(192x1)	0	50	0
+mixed_4/tower/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	509	509	(1x17x17x128)(128x1)(128x1)(128x1)(128x1)->(1x17x17x128)	50	50	0
+mixed_1/tower/conv/batchnorm/moving_mean	Const	GPU-0	6	52	98	(no input)->(48x1)	0	50	0
+mixed_3/tower/conv_2/control_dependency	Identity	GPU-0	73	92	325	(1x17x17x96)->(1x17x17x96)	0	50	0
+conv_1/conv2d_params	Const	GPU-0	7	69	124	(no input)->(3x3x32x32)	0	50	0
+mixed_7/tower/conv_1/batchnorm/moving_mean	Const	GPU-0	7	51	114	(no input)->(192x1)	0	50	0
+mixed_7/tower_1/conv_4/CheckNumerics	CheckNumerics	GPU-0	57	11880	12094	(1x17x17x192)->(1x17x17x192)	0	50	0
+conv_3	Relu	GPU-0	0	848	848	(1x73x73x80)->(1x73x73x80)	50	50	0
+mixed_10/conv/Conv2D	Conv2D	GPU-0	0	1759	1759	(1x8x8x2048)(1x1x2048x320)->(1x8x8x320)	50	50	0
+mixed_8/tower/conv_1/conv2d_params	Const	GPU-0	12	62	123	(no input)->(3x3x192x320)	0	50	0
+mixed_10/conv/batchnorm/moving_mean	Const	GPU-0	7	59	106	(no input)->(320x1)	0	50	0
+mixed_9/tower_1/conv/batchnorm/moving_mean	Const	GPU-0	11	61	111	(no input)->(448x1)	0	50	0
+mixed_1/conv/batchnorm/moving_mean	Const	GPU-0	7	56	101	(no input)->(64x1)	0	50	0
+mixed_7/conv/control_dependency	Identity	GPU-0	60	106	377	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_7/join	Concat	GPU-0	0	777	777	(1)(1x17x17x192)(1x17x17x192)(1x17x17x192)(1x17x17x192)->(1x17x17x768)	50	50	0
+mixed_7/tower_1/conv_1/control_dependency	Identity	GPU-0	68	97	340	(1x17x17x192)->(1x17x17x192)	0	50	0
+conv_4/batchnorm/moving_variance	Const	GPU-0	14	49	100	(no input)->(192x1)	0	50	0
+mixed_10/tower_1/conv_1/batchnorm/moving_variance	Const	GPU-0	8	47	93	(no input)->(384x1)	0	50	0
+mixed/tower/conv/Conv2D	Conv2D	GPU-0	0	634	634	(1x35x35x192)(1x1x192x48)->(1x35x35x48)	50	50	0
+mixed_5/tower/conv_2/conv2d_params	Const	GPU-0	10	87	160	(no input)->(7x1x160x192)	0	50	0
+conv_3/batchnorm/moving_variance	Const	GPU-0	7	57	103	(no input)->(80x1)	0	50	0
+mixed/conv/control_dependency	Identity	GPU-0	98	192	555	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_5/tower_2/conv/batchnorm/moving_mean	Const	GPU-0	10	50	100	(no input)->(192x1)	0	50	0
+mixed_1/conv/conv2d_params	Const	GPU-0	7	60	112	(no input)->(1x1x256x64)	0	50	0
+mixed_9/tower_1/mixed/conv/conv2d_params	Const	GPU-0	6	66	115	(no input)->(1x3x384x384)	0	50	0
+mixed_8/tower_1/conv/batchnorm/moving_variance	Const	GPU-0	15	44	97	(no input)->(192x1)	0	50	0
+mixed_6/tower_1/conv_4/Conv2D	Conv2D	GPU-0	0	7938	7938	(1x17x17x160)(1x7x160x192)->(1x17x17x192)	50	50	0
+mixed_3/tower/conv/CheckNumerics	CheckNumerics	GPU-0	70	26768	26934	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed/tower_1/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	913	913	(1x35x35x96)(96x1)(96x1)(96x1)(1)->(1x35x35x96)	50	50	0
+mixed_9/tower_1/conv_1/conv2d_params	Const	GPU-0	9	62	129	(no input)->(3x3x448x384)	0	50	0
+mixed_4/tower_1/conv_4/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	635	635	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_1/tower_1/conv/batchnorm/moving_variance	Const	GPU-0	14	46	91	(no input)->(64x1)	0	50	0
+mixed_10/tower_2/pool	MaxPool	GPU-0	0	1363	1363	(1x8x8x2048)->(1x8x8x2048)	50	50	0
+mixed_8/tower/conv/CheckNumerics	CheckNumerics	GPU-0	109	10312	10562	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_5/tower/conv/control_dependency	Identity	GPU-0	52	86	288	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_7/tower/conv	Relu	GPU-0	0	173	173	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_3/tower/conv_1	Relu	GPU-0	0	140	140	(1x35x35x96)->(1x35x35x96)	50	50	0
+mixed_7/tower_1/conv_3/Conv2D	Conv2D	GPU-0	0	9767	9767	(1x17x17x192)(7x1x192x192)->(1x17x17x192)	50	50	0
+mixed_10/tower_2/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	330	330	(1x8x8x192)(192x1)(192x1)(192x1)(1)->(1x8x8x192)	50	50	0
+mixed_9/tower_2/conv/conv2d_params	Const	GPU-0	13	60	120	(no input)->(1x1x1280x192)	0	50	0
+mixed_8/tower/conv/batchnorm/beta	Const	GPU-0	11	59	109	(no input)->(192x1)	0	50	0
+mixed_9/tower_1/conv_1/control_dependency	Identity	GPU-0	70	139	369	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_1/tower_1/conv/conv2d_params	Const	GPU-0	8	64	118	(no input)->(1x1x256x64)	0	50	0
+mixed_4/tower_1/conv_4/conv2d_params	Const	GPU-0	7	102	161	(no input)->(1x7x128x192)	0	50	0
+mixed_5/tower_2/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	621	621	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_2/tower/conv/batchnorm/moving_mean	Const	GPU-0	9	49	111	(no input)->(48x1)	0	50	0
+mixed_4/tower_1/conv_4/CheckNumerics	CheckNumerics	GPU-0	57	9599	9779	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_1/tower_1/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	891	891	(1x35x35x96)(96x1)(96x1)(96x1)(1)->(1x35x35x96)	50	50	0
+mixed/tower/conv	Relu	GPU-0	0	208	208	(1x35x35x48)->(1x35x35x48)	50	50	0
+mixed_7/tower_1/conv_2/batchnorm/moving_variance	Const	GPU-0	17	43	104	(no input)->(192x1)	0	50	0
+mixed_6/tower_1/conv_1/control_dependency	Identity	GPU-0	61	99	317	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_7/tower_1/conv_1	Relu	GPU-0	0	161	161	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_4/tower_1/conv_3/CheckNumerics	CheckNumerics	GPU-0	55	9602	9782	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_5/tower_2/conv/CheckNumerics	CheckNumerics	GPU-0	97	13683	13893	(1x17x17x192)->(1x17x17x192)	0	50	0
+pool/control_dependency	Identity	GPU-0	84	134	428	(1x147x147x64)->(1x147x147x64)	0	50	0
+pool_3/_reshape/shape	Const	GPU-0	13	82	175	(no input)->(int32 2x1)	0	50	0
+mixed_7/tower_1/conv_3/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	659	659	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_1/tower_1/conv_1/control_dependency	Identity	GPU-0	50	91	260	(1x35x35x96)->(1x35x35x96)	0	50	0
+pool/CheckNumerics	CheckNumerics	GPU-0	45	9502	9766	(1x147x147x64)->(1x147x147x64)	0	50	0
+mixed_4/join	Concat	GPU-0	0	743	743	(1)(1x17x17x192)(1x17x17x192)(1x17x17x192)(1x17x17x192)->(1x17x17x768)	50	50	0
+conv_1/control_dependency	Identity	GPU-0	102	142	457	(1x147x147x32)->(1x147x147x32)	0	50	0
+conv_4	Relu	GPU-0	0	2372	2372	(1x71x71x192)->(1x71x71x192)	50	50	0
+mixed_6/tower/conv_2	Relu	GPU-0	0	134	134	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_6/tower/conv/batchnorm/moving_variance	Const	GPU-0	7	55	103	(no input)->(160x1)	0	50	0
+mixed_5/tower_1/conv_4/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	615	615	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_8/tower_1/conv_3/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	350	350	(1x8x8x192)(192x1)(192x1)(192x1)(1)->(1x8x8x192)	50	50	0
+mixed_5/tower_1/conv_1/batchnorm/beta	Const	GPU-0	9	57	106	(no input)->(160x1)	0	50	0
+mixed/tower_1/conv_1/batchnorm/beta	Const	GPU-0	9	62	106	(no input)->(96x1)	0	50	0
+mixed/tower_1/conv_2/batchnorm/moving_mean	Const	GPU-0	6	54	103	(no input)->(96x1)	0	50	0
+mixed_1/tower_2/conv/batchnorm/beta	Const	GPU-0	9	58	107	(no input)->(64x1)	0	50	0
+mixed_2/tower_1/conv_2/Conv2D	Conv2D	GPU-0	0	4440	4440	(1x35x35x96)(3x3x96x96)->(1x35x35x96)	50	50	0
+mixed_4/tower/conv_1/batchnorm/beta	Const	GPU-0	10	99	158	(no input)->(128x1)	0	50	0
+mixed_2/tower_2/conv/Conv2D	Conv2D	GPU-0	0	1266	1266	(1x35x35x288)(1x1x288x64)->(1x35x35x64)	50	50	0
+mixed_9/tower_1/conv/conv2d_params	Const	GPU-0	6	63	111	(no input)->(1x1x1280x448)	0	50	0
+conv_1/batchnorm/beta	Const	GPU-0	7	63	113	(no input)->(32x1)	0	50	0
+mixed_2/tower_1/conv_2/CheckNumerics	CheckNumerics	GPU-0	68	7631	7829	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed_2/tower_1/conv_1	Relu	GPU-0	0	128	128	(1x35x35x96)->(1x35x35x96)	50	50	0
+mixed_9/conv/Conv2D	Conv2D	GPU-0	0	1241	1241	(1x8x8x1280)(1x1x1280x320)->(1x8x8x320)	50	50	0
+mixed_1/conv/batchnorm/beta	Const	GPU-0	15	55	110	(no input)->(64x1)	0	50	0
+mixed_1/tower_2/conv/conv2d_params	Const	GPU-0	9	59	113	(no input)->(1x1x256x64)	0	50	0
+mixed_4/tower/conv/batchnorm/moving_mean	Const	GPU-0	9	109	227	(no input)->(128x1)	0	50	0
+mixed_10/conv/CheckNumerics	CheckNumerics	GPU-0	80	11877	12118	(1x8x8x320)->(1x8x8x320)	0	50	0
+mixed_6/tower/conv_2/CheckNumerics	CheckNumerics	GPU-0	69	16391	16596	(1x17x17x192)->(1x17x17x192)	0	50	0
+conv_3/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	2354	2354	(1x73x73x80)(80x1)(80x1)(80x1)(80x1)->(1x73x73x80)	50	50	0
+mixed_2/tower_2/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	771	771	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed_1/tower_1/conv_2/batchnorm/moving_mean	Const	GPU-0	10	49	101	(no input)->(96x1)	0	50	0
+mixed_5/conv/control_dependency	Identity	GPU-0	83	104	359	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_9/tower_1/conv	Relu	GPU-0	0	127	127	(1x8x8x448)->(1x8x8x448)	50	50	0
+mixed_4/tower_1/conv/batchnorm/moving_variance	Const	GPU-0	11	102	170	(no input)->(128x1)	0	50	0
+mixed_7/tower/conv_1/Conv2D	Conv2D	GPU-0	0	8866	8866	(1x17x17x192)(1x7x192x192)->(1x17x17x192)	50	50	0
+mixed_9/tower_1/mixed/conv_1/control_dependency	Identity	GPU-0	51	86	264	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_8/tower_1/conv_1/Conv2D	Conv2D	GPU-0	0	8811	8811	(1x17x17x192)(1x7x192x192)->(1x17x17x192)	50	50	0
+conv_3/batchnorm/beta	Const	GPU-0	10	61	119	(no input)->(80x1)	0	50	0
+mixed_3/tower/conv_2/Conv2D	Conv2D	GPU-0	0	4465	4465	(1x35x35x96)(3x3x96x96)->(1x17x17x96)	50	50	0
+mixed_3/tower/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	401	401	(1x17x17x96)(96x1)(96x1)(96x1)(1)->(1x17x17x96)	50	50	0
+mixed_6/conv/batchnorm/beta	Const	GPU-0	10	71	125	(no input)->(192x1)	0	50	0
+mixed_2/tower_1/conv/batchnorm/beta	Const	GPU-0	9	61	108	(no input)->(64x1)	0	50	0
+mixed_2/tower/conv_1/Conv2D	Conv2D	GPU-0	0	7211	7211	(1x35x35x48)(5x5x48x64)->(1x35x35x64)	50	50	0
+_arg_DecodeJpeg/contents_0_0	_Arg	CPU-0	13	220	755	(no input)->(string 1x1)	0	50	0
+mixed_4/tower_1/conv_1/batchnorm/moving_variance	Const	GPU-0	10	62	122	(no input)->(128x1)	0	50	0
+mixed_6/tower_1/conv	Relu	GPU-0	0	174	174	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed_5/tower_1/conv_2	Relu	GPU-0	0	109	109	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed_10/tower_1/conv_1/batchnorm/beta	Const	GPU-0	8	59	110	(no input)->(384x1)	0	50	0
+mixed_10/tower/mixed/conv/batchnorm/moving_mean	Const	GPU-0	8	52	100	(no input)->(384x1)	0	50	0
+mixed_3/conv/batchnorm/beta	Const	GPU-0	3	62	109	(no input)->(384x1)	0	50	0
+mixed_6/tower_1/conv_3/batchnorm/moving_mean	Const	GPU-0	12	50	104	(no input)->(160x1)	0	50	0
+mixed/join/concat_dim	Const	GPU-0	8	40	117	(no input)->(int32 1x1)	0	50	0
+mixed_8/tower_1/conv_1/conv2d_params	Const	GPU-0	9	64	119	(no input)->(1x7x192x192)	0	50	0
+mixed_7/tower_1/conv_1/batchnorm/beta	Const	GPU-0	6	74	122	(no input)->(192x1)	0	50	0
+mixed/tower_2/conv/batchnorm/moving_variance	Const	GPU-0	15	48	98	(no input)->(32x1)	0	50	0
+pool_1/control_dependency	Identity	GPU-0	84	128	427	(1x71x71x192)->(1x71x71x192)	0	50	0
+mixed_9/conv/conv2d_params	Const	GPU-0	10	63	140	(no input)->(1x1x1280x320)	0	50	0
+mixed_7/tower/conv_2/control_dependency	Identity	GPU-0	57	104	310	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_4/tower_1/conv_4	Relu	GPU-0	0	112	112	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_2/tower_1/conv_1/batchnorm/beta	Const	GPU-0	7	57	105	(no input)->(96x1)	0	50	0
+mixed_8/tower_1/conv_2/Conv2D	Conv2D	GPU-0	0	9746	9746	(1x17x17x192)(7x1x192x192)->(1x17x17x192)	50	50	0
+mixed_4/tower_1/conv_1/CheckNumerics	CheckNumerics	GPU-0	65	12788	12963	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_2/tower/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	556	556	(1x35x35x48)(48x1)(48x1)(48x1)(1)->(1x35x35x48)	50	50	0
+mixed_7/tower_1/conv_1/batchnorm/moving_variance	Const	GPU-0	9	50	101	(no input)->(192x1)	0	50	0
+mixed_10/tower_1/conv	Relu	GPU-0	0	124	124	(1x8x8x448)->(1x8x8x448)	50	50	0
+mixed_9/tower/conv/batchnorm/moving_variance	Const	GPU-0	12	66	119	(no input)->(384x1)	0	50	0
+mixed_10/tower/mixed/conv_1	Relu	GPU-0	0	138	138	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed_7/tower/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	608	608	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_1/tower/conv_1/control_dependency	Identity	GPU-0	67	105	353	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_5/tower/conv_2/batchnorm/moving_variance	Const	GPU-0	10	81	133	(no input)->(192x1)	0	50	0
+conv_2/batchnorm/gamma	Const	GPU-0	10	60	146	(no input)->(64x1)	0	50	0
+mixed_3/tower/conv_2/conv2d_params	Const	GPU-0	9	96	158	(no input)->(3x3x96x96)	0	50	0
+mixed_4/tower_1/conv_2/batchnorm/beta	Const	GPU-0	15	80	143	(no input)->(128x1)	0	50	0
+mixed_6/tower_1/conv/batchnorm/moving_mean	Const	GPU-0	9	52	100	(no input)->(160x1)	0	50	0
+mixed_2/tower_1/conv_2/batchnorm/moving_mean	Const	GPU-0	11	49	103	(no input)->(96x1)	0	50	0
+mixed_9/tower/mixed/conv/CheckNumerics	CheckNumerics	GPU-0	71	42844	43068	(1x8x8x384)->(1x8x8x384)	0	50	0
+softmax/biases	Const	GPU-0	11	84	156	(no input)->(1008x1)	0	50	0
+mixed/tower/conv_1/batchnorm/moving_mean	Const	GPU-0	9	47	98	(no input)->(64x1)	0	50	0
+mixed_5/tower_1/conv_2/batchnorm/beta	Const	GPU-0	10	84	137	(no input)->(160x1)	0	50	0
+mixed_1/tower_1/conv/CheckNumerics	CheckNumerics	GPU-0	123	18735	18986	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_1/tower_1/conv_2/CheckNumerics	CheckNumerics	GPU-0	77	8378	8599	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed_8/tower/conv_1/batchnorm/gamma	Const	GPU-0	8	54	110	(no input)->(320x1)	0	50	0
+mixed_4/tower/conv/control_dependency	Identity	GPU-0	50	94	279	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_4/tower_1/conv_4/control_dependency	Identity	GPU-0	61	101	318	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_7/tower_1/conv_3/conv2d_params	Const	GPU-0	8	62	148	(no input)->(7x1x192x192)	0	50	0
+mixed_9/tower_1/mixed/conv_1/conv2d_params	Const	GPU-0	8	64	118	(no input)->(3x1x384x384)	0	50	0
+mixed_2/tower/conv_1/batchnorm/beta	Const	GPU-0	6	65	107	(no input)->(64x1)	0	50	0
+mixed_7/tower_2/conv/batchnorm/beta	Const	GPU-0	8	74	118	(no input)->(192x1)	0	50	0
+mixed_7/tower_1/conv_3/CheckNumerics	CheckNumerics	GPU-0	57	12822	13033	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_9/tower/mixed/conv_1/conv2d_params	Const	GPU-0	11	58	115	(no input)->(3x1x384x384)	0	50	0
+mixed_1/tower/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	814	814	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed/tower/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	844	844	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed_5/tower_1/conv_1/control_dependency	Identity	GPU-0	56	102	312	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_2/tower_1/conv_2/control_dependency	Identity	GPU-0	70	97	315	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed/tower_1/conv_2/conv2d_params	Const	GPU-0	8	73	128	(no input)->(3x3x96x96)	0	50	0
+mixed_2/tower_1/conv_2	Relu	GPU-0	0	139	139	(1x35x35x96)->(1x35x35x96)	50	50	0
+mixed/tower_1/conv_1/control_dependency	Identity	GPU-0	53	95	301	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed_10/tower_2/conv/Conv2D	Conv2D	GPU-0	0	1527	1527	(1x8x8x2048)(1x1x2048x192)->(1x8x8x192)	50	50	0
+mixed_7/tower_1/conv_4/control_dependency	Identity	GPU-0	76	101	349	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_9/tower_1/conv_1	Relu	GPU-0	0	102	102	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed_5/tower_2/conv/Conv2D	Conv2D	GPU-0	0	1629	1629	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+mixed_5/tower/conv_1/batchnorm/moving_mean	Const	GPU-0	12	52	141	(no input)->(160x1)	0	50	0
+mixed_7/tower/conv_2/batchnorm/moving_mean	Const	GPU-0	4	51	93	(no input)->(192x1)	0	50	0
+mixed_5/tower/conv_1/batchnorm/beta	Const	GPU-0	7	113	165	(no input)->(160x1)	0	50	0
+mixed_1/tower/conv/batchnorm/moving_variance	Const	GPU-0	7	53	103	(no input)->(48x1)	0	50	0
+mixed_4/tower/conv/batchnorm/beta	Const	GPU-0	35	72	170	(no input)->(128x1)	0	50	0
+mixed/tower_1/conv_2/batchnorm/beta	Const	GPU-0	8	62	107	(no input)->(96x1)	0	50	0
+mixed/join	Concat	GPU-0	0	1034	1034	(int32 1x1)(1x35x35x64)(1x35x35x64)(1x35x35x96)(1x35x35x32)->(1x35x35x256)	50	50	0
+conv_2/Conv2D	Conv2D	GPU-0	0	16744	16744	(1x147x147x32)(3x3x32x64)->(1x147x147x64)	50	50	0
+mixed/tower_1/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	871	871	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed/tower/conv/batchnorm/moving_mean	Const	GPU-0	7	52	101	(no input)->(48x1)	0	50	0
+mixed_1/tower_2/conv/batchnorm/moving_variance	Const	GPU-0	10	47	93	(no input)->(64x1)	0	50	0
+mixed_9/tower/mixed/conv_1/batchnorm/moving_variance	Const	GPU-0	13	46	101	(no input)->(384x1)	0	50	0
+mixed_1/tower_1/conv_2/batchnorm/moving_variance	Const	GPU-0	11	54	97	(no input)->(96x1)	0	50	0
+mixed_3/tower/conv/batchnorm/beta	Const	GPU-0	10	54	109	(no input)->(64x1)	0	50	0
+mixed_4/tower/conv/Conv2D	Conv2D	GPU-0	0	1118	1118	(1x17x17x768)(1x1x768x128)->(1x17x17x128)	50	50	0
+mixed_5/tower_1/conv_4/control_dependency	Identity	GPU-0	65	99	316	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_5/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	762	762	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_8/tower_1/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	591	591	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_4/conv	Relu	GPU-0	0	185	185	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_1/tower_1/conv/batchnorm/beta	Const	GPU-0	9	63	105	(no input)->(64x1)	0	50	0
+mixed_2/tower_1/conv_1/CheckNumerics	CheckNumerics	GPU-0	81	13009	13201	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed_5/conv/CheckNumerics	CheckNumerics	GPU-0	81	17955	18206	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_3/tower/conv_1/CheckNumerics	CheckNumerics	GPU-0	63	8056	8276	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed/conv/batchnorm/moving_mean	Const	GPU-0	8	52	99	(no input)->(64x1)	0	50	0
+mixed/conv/conv2d_params	Const	GPU-0	7	66	119	(no input)->(1x1x192x64)	0	50	0
+mixed/tower_2/conv/Conv2D	Conv2D	GPU-0	0	884	884	(1x35x35x192)(1x1x192x32)->(1x35x35x32)	50	50	0
+mixed_10/tower/mixed/conv_1/Conv2D	Conv2D	GPU-0	0	9411	9411	(1x8x8x384)(3x1x384x384)->(1x8x8x384)	50	50	0
+mixed_2/tower_1/conv_2/batchnorm/moving_variance	Const	GPU-0	9	48	95	(no input)->(96x1)	0	50	0
+mixed_7/tower_1/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	636	636	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_6/tower/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	554	554	(1x17x17x160)(160x1)(160x1)(160x1)(1)->(1x17x17x160)	50	50	0
+mixed/tower_1/conv_1/Conv2D	Conv2D	GPU-0	0	3677	3677	(1x35x35x64)(3x3x64x96)->(1x35x35x96)	50	50	0
+mixed_8/tower_1/conv_1/batchnorm/moving_variance	Const	GPU-0	6	54	109	(no input)->(192x1)	0	50	0
+mixed_7/tower/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	680	680	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_6/tower_1/conv_4/CheckNumerics	CheckNumerics	GPU-0	55	11403	11589	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_7/tower_1/conv/CheckNumerics	CheckNumerics	GPU-0	83	17821	18052	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_4/tower_1/conv/batchnorm/moving_mean	Const	GPU-0	13	55	149	(no input)->(128x1)	0	50	0
+mixed_3/conv/batchnorm/gamma	Const	GPU-0	5	55	123	(no input)->(384x1)	0	50	0
+mixed_5/conv/batchnorm/moving_variance	Const	GPU-0	12	73	128	(no input)->(192x1)	0	50	0
+mixed_2/tower/conv_1/CheckNumerics	CheckNumerics	GPU-0	80	13654	13890	(1x35x35x64)->(1x35x35x64)	0	50	0
+Cast	Cast	GPU-0	0	121	121	(uint8 100x100x3)->(100x100x3)	50	50	0
+mixed_9/tower_2/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	338	338	(1x8x8x192)(192x1)(192x1)(192x1)(1)->(1x8x8x192)	50	50	0
+mixed_9/tower/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	322	322	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+mixed_5/tower_1/conv_3/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	578	578	(1x17x17x160)(160x1)(160x1)(160x1)(1)->(1x17x17x160)	50	50	0
+mixed_4/conv/CheckNumerics	CheckNumerics	GPU-0	91	18057	18361	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_8/tower_1/conv_3	Relu	GPU-0	0	97	97	(1x8x8x192)->(1x8x8x192)	50	50	0
+mixed_2/tower_2/conv/control_dependency	Identity	GPU-0	79	117	380	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_10/tower_1/mixed/conv_1/Conv2D	Conv2D	GPU-0	0	9286	9286	(1x8x8x384)(3x1x384x384)->(1x8x8x384)	50	50	0
+mixed_4/tower_1/conv/CheckNumerics	CheckNumerics	GPU-0	160	15654	15937	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_7/conv/batchnorm/moving_variance	Const	GPU-0	9	50	98	(no input)->(192x1)	0	50	0
+mixed_4/tower_1/conv_3	Relu	GPU-0	0	95	95	(1x17x17x128)->(1x17x17x128)	50	50	0
+mixed_2/tower/conv/conv2d_params	Const	GPU-0	7	64	123	(no input)->(1x1x288x48)	0	50	0
+_SOURCE	NoOp	GPU-0	262	323	12547	(no input)->(no output info)	0	50	0
+mixed_2/tower_2/conv/batchnorm/beta	Const	GPU-0	10	55	106	(no input)->(64x1)	0	50	0
+mixed_9/tower_2/conv/control_dependency	Identity	GPU-0	68	103	361	(1x8x8x192)->(1x8x8x192)	0	50	0
+conv_1/CheckNumerics	CheckNumerics	GPU-0	61	20661	20952	(1x147x147x32)->(1x147x147x32)	0	50	0
+mixed_3/conv/batchnorm/moving_variance	Const	GPU-0	12	51	96	(no input)->(384x1)	0	50	0
+mixed_8/tower_1/conv/conv2d_params	Const	GPU-0	10	72	127	(no input)->(1x1x768x192)	0	50	0
+mixed_5/conv	Relu	GPU-0	0	168	168	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_9/tower/conv/CheckNumerics	CheckNumerics	GPU-0	91	12009	12224	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_5/tower_1/conv_3/batchnorm/beta	Const	GPU-0	12	56	106	(no input)->(160x1)	0	50	0
+mixed_5/tower_1/conv_4/batchnorm/beta	Const	GPU-0	6	68	124	(no input)->(192x1)	0	50	0
+mixed_7/tower_1/conv_4/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	664	664	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_3/tower/conv_2/batchnorm/moving_mean	Const	GPU-0	6	82	151	(no input)->(96x1)	0	50	0
+mixed_2/tower_1/conv_1/control_dependency	Identity	GPU-0	62	93	278	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed_8/tower/conv/control_dependency	Identity	GPU-0	57	98	292	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_4/conv/Conv2D	Conv2D	GPU-0	0	1577	1577	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+mixed_8/tower/conv_1/batchnorm/moving_mean	Const	GPU-0	19	53	107	(no input)->(320x1)	0	50	0
+mixed_10/tower/conv/conv2d_params	Const	GPU-0	6	67	118	(no input)->(1x1x2048x384)	0	50	0
+mixed_4/tower_1/conv_1	Relu	GPU-0	0	127	127	(1x17x17x128)->(1x17x17x128)	50	50	0
+mixed_2/conv/Conv2D	Conv2D	GPU-0	0	1166	1166	(1x35x35x288)(1x1x288x64)->(1x35x35x64)	50	50	0
+mixed_1/tower_1/conv_2/batchnorm/beta	Const	GPU-0	12	60	108	(no input)->(96x1)	0	50	0
+mixed_9/tower_1/mixed/conv/batchnorm/moving_mean	Const	GPU-0	6	47	104	(no input)->(384x1)	0	50	0
+mixed_2/tower_1/conv	Relu	GPU-0	0	215	215	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_10/tower_1/conv_1/control_dependency	Identity	GPU-0	63	147	372	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_9/tower/mixed/conv/Conv2D	Conv2D	GPU-0	0	9574	9574	(1x8x8x384)(1x3x384x384)->(1x8x8x384)	50	50	0
+mixed_1/tower/conv/conv2d_params	Const	GPU-0	14	66	121	(no input)->(1x1x256x48)	0	50	0
+mixed_6/tower_1/conv_3/control_dependency	Identity	GPU-0	63	107	314	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_1/tower_1/conv_1/batchnorm/beta	Const	GPU-0	11	55	106	(no input)->(96x1)	0	50	0
+mixed_8/tower/conv/batchnorm/moving_variance	Const	GPU-0	24	52	111	(no input)->(192x1)	0	50	0
+mixed_5/tower_1/conv_2/conv2d_params	Const	GPU-0	10	70	139	(no input)->(1x7x160x160)	0	50	0
+mixed_6/conv/conv2d_params	Const	GPU-0	8	92	149	(no input)->(1x1x768x192)	0	50	0
+mixed_1/tower_1/conv_1/batchnorm/moving_variance	Const	GPU-0	8	50	102	(no input)->(96x1)	0	50	0
+mixed_4/tower_2/conv/CheckNumerics	CheckNumerics	GPU-0	106	12472	12690	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_5/tower/conv_1/control_dependency	Identity	GPU-0	68	105	331	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_5/tower_1/conv_4/conv2d_params	Const	GPU-0	15	62	137	(no input)->(1x7x160x192)	0	50	0
+mixed_10/tower_2/pool/control_dependency	Identity	GPU-0	57	106	392	(1x8x8x2048)->(1x8x8x2048)	0	50	0
+mixed_4/tower_2/conv	Relu	GPU-0	0	183	183	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_10/tower_1/conv/batchnorm/moving_mean	Const	GPU-0	12	47	103	(no input)->(448x1)	0	50	0
+mixed_10/tower_1/mixed/conv_1/conv2d_params	Const	GPU-0	13	113	184	(no input)->(3x1x384x384)	0	50	0
+mixed_7/tower_1/conv_4/batchnorm/moving_variance	Const	GPU-0	6	65	110	(no input)->(192x1)	0	50	0
+mixed_1/tower/conv/batchnorm/beta	Const	GPU-0	6	55	103	(no input)->(48x1)	0	50	0
+mixed_6/tower_1/conv_3/batchnorm/beta	Const	GPU-0	9	59	109	(no input)->(160x1)	0	50	0
+mixed_4/tower/conv_2/batchnorm/moving_variance	Const	GPU-0	10	69	144	(no input)->(192x1)	0	50	0
+mixed_6/tower/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	668	668	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_5/tower_1/conv_1/Conv2D	Conv2D	GPU-0	0	8299	8299	(1x17x17x160)(7x1x160x160)->(1x17x17x160)	50	50	0
+mixed_2/tower/conv_1/conv2d_params	Const	GPU-0	11	59	114	(no input)->(5x5x48x64)	0	50	0
+mixed_8/pool	MaxPool	GPU-0	0	760	760	(1x17x17x768)->(1x8x8x768)	50	50	0
+mixed_2/tower_1/conv_1/Conv2D	Conv2D	GPU-0	0	3633	3633	(1x35x35x64)(3x3x64x96)->(1x35x35x96)	50	50	0
+mixed_2/conv/conv2d_params	Const	GPU-0	8	60	117	(no input)->(1x1x288x64)	0	50	0
+mixed_1/tower_1/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	855	855	(1x35x35x96)(96x1)(96x1)(96x1)(1)->(1x35x35x96)	50	50	0
+conv_2/batchnorm/moving_mean	Const	GPU-0	6	56	104	(no input)->(64x1)	0	50	0
+mixed_4/tower_2/conv/Conv2D	Conv2D	GPU-0	0	1639	1639	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+mixed_8/tower_1/conv_1	Relu	GPU-0	0	119	119	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_3/tower/conv/batchnorm/moving_variance	Const	GPU-0	13	51	99	(no input)->(64x1)	0	50	0
+mixed_5/tower_1/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	566	566	(1x17x17x160)(160x1)(160x1)(160x1)(1)->(1x17x17x160)	50	50	0
+mixed_7/tower_1/conv/batchnorm/beta	Const	GPU-0	8	60	111	(no input)->(192x1)	0	50	0
+mixed/tower_1/conv/conv2d_params	Const	GPU-0	8	59	114	(no input)->(1x1x192x64)	0	50	0
+mixed_6/tower/conv_1/batchnorm/beta	Const	GPU-0	13	64	111	(no input)->(160x1)	0	50	0
+mixed_8/tower/conv	Relu	GPU-0	0	172	172	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_5/tower_1/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	558	558	(1x17x17x160)(160x1)(160x1)(160x1)(1)->(1x17x17x160)	50	50	0
+conv_3/batchnorm/gamma	Const	GPU-0	14	69	120	(no input)->(80x1)	0	50	0
+Mul	Mul	GPU-0	0	250	250	(1x299x299x3)(1x1)->(1x299x299x3)	50	50	0
+mixed_3/tower/conv_1/control_dependency	Identity	GPU-0	69	99	316	(1x35x35x96)->(1x35x35x96)	0	50	0
+mixed_3/conv/batchnorm/moving_mean	Const	GPU-0	7	51	101	(no input)->(384x1)	0	50	0
+mixed_8/tower_1/conv_2/batchnorm/moving_variance	Const	GPU-0	10	47	108	(no input)->(192x1)	0	50	0
+mixed_10/tower_1/mixed/conv/Conv2D	Conv2D	GPU-0	0	9337	9337	(1x8x8x384)(1x3x384x384)->(1x8x8x384)	50	50	0
+mixed_5/tower/conv_1/conv2d_params	Const	GPU-0	14	67	130	(no input)->(1x7x160x160)	0	50	0
+mixed/conv/batchnorm/moving_variance	Const	GPU-0	7	53	96	(no input)->(64x1)	0	50	0
+mixed_10/tower_1/mixed/conv_1/batchnorm/beta	Const	GPU-0	18	74	165	(no input)->(384x1)	0	50	0
+mixed_9/tower_1/conv_1/batchnorm/beta	Const	GPU-0	10	59	114	(no input)->(384x1)	0	50	0
+mixed_6/tower_1/conv_3	Relu	GPU-0	0	110	110	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed_4/tower/conv_2/conv2d_params	Const	GPU-0	9	86	153	(no input)->(7x1x128x192)	0	50	0
+mixed_7/tower_1/conv_4/conv2d_params	Const	GPU-0	7	68	120	(no input)->(1x7x192x192)	0	50	0
+conv_1	Relu	GPU-0	0	1588	1588	(1x147x147x32)->(1x147x147x32)	50	50	0
+mixed_1/tower_2/conv	Relu	GPU-0	0	213	213	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_6/conv/batchnorm/moving_mean	Const	GPU-0	12	56	101	(no input)->(192x1)	0	50	0
+mixed_6/tower_2/conv/batchnorm/moving_mean	Const	GPU-0	5	50	108	(no input)->(192x1)	0	50	0
+mixed_8/tower_1/conv/Conv2D	Conv2D	GPU-0	0	1466	1466	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+mixed_9/tower_1/mixed/conv_1/batchnorm/moving_variance	Const	GPU-0	10	43	92	(no input)->(384x1)	0	50	0
+mixed/tower/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	547	547	(1x35x35x48)(48x1)(48x1)(48x1)(48x1)->(1x35x35x48)	50	50	0
+mixed_4/tower_1/conv_1/batchnorm/beta	Const	GPU-0	14	87	156	(no input)->(128x1)	0	50	0
+mixed_9/tower_1/conv_1/batchnorm/moving_variance	Const	GPU-0	4	52	97	(no input)->(384x1)	0	50	0
+mixed_6/tower/conv_2/batchnorm/moving_variance	Const	GPU-0	6	58	108	(no input)->(192x1)	0	50	0
+mixed_8/tower_1/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	648	648	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_4/tower_1/conv/batchnorm/beta	Const	GPU-0	11	64	153	(no input)->(128x1)	0	50	0
+mixed_1/tower/conv_1	Relu	GPU-0	0	157	157	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_2/tower_1/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	881	881	(1x35x35x96)(96x1)(96x1)(96x1)(1)->(1x35x35x96)	50	50	0
+mixed_5/tower_1/conv_3/CheckNumerics	CheckNumerics	GPU-0	55	11109	11301	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_2/tower_1/conv/control_dependency	Identity	GPU-0	62	107	368	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_5/tower_1/conv_3/Conv2D	Conv2D	GPU-0	0	7577	7577	(1x17x17x160)(7x1x160x160)->(1x17x17x160)	50	50	0
+mixed_9/tower/conv/Conv2D	Conv2D	GPU-0	0	1205	1205	(1x8x8x1280)(1x1x1280x384)->(1x8x8x384)	50	50	0
+mixed_5/tower_1/conv/batchnorm/moving_mean	Const	GPU-0	14	45	104	(no input)->(160x1)	0	50	0
+mixed_5/tower/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	674	674	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+conv_4/batchnorm/gamma	Const	GPU-0	5	53	169	(no input)->(192x1)	0	50	0
+mixed_6/tower/conv/Conv2D	Conv2D	GPU-0	0	1267	1267	(1x17x17x768)(1x1x768x160)->(1x17x17x160)	50	50	0
+mixed_5/tower_1/conv_3/conv2d_params	Const	GPU-0	10	68	125	(no input)->(7x1x160x160)	0	50	0
+mixed_8/tower/conv_1/control_dependency	Identity	GPU-0	65	108	346	(1x8x8x320)->(1x8x8x320)	0	50	0
+conv/CheckNumerics	CheckNumerics	GPU-0	75	15235	15528	(1x149x149x32)->(1x149x149x32)	0	50	0
+mixed_10/conv/conv2d_params	Const	GPU-0	7	63	115	(no input)->(1x1x2048x320)	0	50	0
+mixed_7/tower_1/conv/batchnorm/moving_variance	Const	GPU-0	6	54	94	(no input)->(192x1)	0	50	0
+mixed_9/tower_1/mixed/conv/control_dependency	Identity	GPU-0	66	112	349	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_5/conv/conv2d_params	Const	GPU-0	8	67	131	(no input)->(1x1x768x192)	0	50	0
+mixed/tower/conv/batchnorm/moving_variance	Const	GPU-0	21	45	104	(no input)->(48x1)	0	50	0
+mixed_5/tower_2/conv/conv2d_params	Const	GPU-0	6	92	148	(no input)->(1x1x768x192)	0	50	0
+mixed_1/tower_1/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	740	740	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed_9/tower/mixed/conv_1/batchnorm/beta	Const	GPU-0	14	60	109	(no input)->(384x1)	0	50	0
+mixed_8/join	Concat	GPU-0	0	392	392	(1)(1x8x8x320)(1x8x8x192)(1x8x8x768)->(1x8x8x1280)	50	50	0
+mixed_2/tower_1/conv/conv2d_params	Const	GPU-0	8	62	117	(no input)->(1x1x288x64)	0	50	0
+mixed_9/conv/CheckNumerics	CheckNumerics	GPU-0	86	11818	12104	(1x8x8x320)->(1x8x8x320)	0	50	0
+mixed_10/tower/conv/control_dependency	Identity	GPU-0	54	117	330	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_5/tower/conv_1	Relu	GPU-0	0	119	119	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed_4/tower_1/conv_1/Conv2D	Conv2D	GPU-0	0	5618	5618	(1x17x17x128)(7x1x128x128)->(1x17x17x128)	50	50	0
+pool_3	AvgPool	GPU-0	0	2452	2452	(1x8x8x2048)->(1x1x1x2048)	50	50	0
+mixed_2/tower_1/conv/batchnorm/moving_variance	Const	GPU-0	6	55	98	(no input)->(64x1)	0	50	0
+mixed_6/tower_1/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	576	576	(1x17x17x160)(160x1)(160x1)(160x1)(1)->(1x17x17x160)	50	50	0
+mixed_9/tower_2/conv/batchnorm/moving_mean	Const	GPU-0	6	50	98	(no input)->(192x1)	0	50	0
+mixed_4/tower/conv	Relu	GPU-0	0	141	141	(1x17x17x128)->(1x17x17x128)	50	50	0
+mixed/tower_1/conv_2	Relu	GPU-0	0	133	133	(1x35x35x96)->(1x35x35x96)	50	50	0
+mixed_5/tower_1/conv_1	Relu	GPU-0	0	138	138	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed_4/tower_2/pool	AvgPool	GPU-0	0	7902	7902	(1x17x17x768)->(1x17x17x768)	50	50	0
+mixed_1/tower_1/conv_1	Relu	GPU-0	0	135	135	(1x35x35x96)->(1x35x35x96)	50	50	0
+mixed_6/tower/conv/conv2d_params	Const	GPU-0	9	85	141	(no input)->(1x1x768x160)	0	50	0
+mixed_2/tower_2/conv	Relu	GPU-0	0	231	231	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_6/tower_2/conv/CheckNumerics	CheckNumerics	GPU-0	71	13333	13528	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_8/tower_1/conv_1/CheckNumerics	CheckNumerics	GPU-0	61	20080	20252	(1x17x17x192)->(1x17x17x192)	0	50	0
+softmax/weights	Const	GPU-0	11	107	184	(no input)->(2048x1008)	0	50	0
+mixed_6/tower_1/conv/CheckNumerics	CheckNumerics	GPU-0	172	15597	15910	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_7/tower/conv_1/CheckNumerics	CheckNumerics	GPU-0	69	19325	19557	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_1/tower_1/conv_1/conv2d_params	Const	GPU-0	5	62	113	(no input)->(3x3x64x96)	0	50	0
+mixed_7/tower_1/conv_1/conv2d_params	Const	GPU-0	6	62	108	(no input)->(7x1x192x192)	0	50	0
+mixed_6/tower_1/conv_2/Conv2D	Conv2D	GPU-0	0	7584	7584	(1x17x17x160)(1x7x160x160)->(1x17x17x160)	50	50	0
+edge_1629_softmax/MEMCPYDtoH	MEMCPYDtoH	GPU-0	0	50	50	(Transfer)->(4032 bytes)	0	0	50
+pool	MaxPool	GPU-0	0	3933	3933	(1x147x147x64)->(1x73x73x64)	50	50	0
+mixed_10/tower_1/mixed/conv/batchnorm/beta	Const	GPU-0	70	662	882	(no input)->(384x1)	0	50	0
+mixed_7/conv/batchnorm/beta	Const	GPU-0	8	53	107	(no input)->(192x1)	0	50	0
+mixed_10/tower_1/conv_1/CheckNumerics	CheckNumerics	GPU-0	66	42561	42775	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_7/tower_1/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	647	647	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_6/tower_1/conv_2/conv2d_params	Const	GPU-0	8	90	144	(no input)->(1x7x160x160)	0	50	0
+mixed/tower/conv/batchnorm/beta	Const	GPU-0	6	76	121	(no input)->(48x1)	0	50	0
+softmax/logits	BiasAdd	GPU-0	0	103	103	(1x1008)(1008x1)->(1x1008)	50	50	0
+mixed_7/tower/conv/batchnorm/beta	Const	GPU-0	9	66	116	(no input)->(192x1)	0	50	0
+mixed_8/tower_1/conv_3/Conv2D	Conv2D	GPU-0	0	10197	10197	(1x17x17x192)(3x3x192x192)->(1x8x8x192)	50	50	0
+mixed_5/tower_1/conv_1/batchnorm/moving_variance	Const	GPU-0	13	49	138	(no input)->(160x1)	0	50	0
+mixed_2/tower/conv_1	Relu	GPU-0	0	181	181	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_9/tower_2/conv/batchnorm/moving_variance	Const	GPU-0	13	45	94	(no input)->(192x1)	0	50	0
+mixed/tower/conv/control_dependency	Identity	GPU-0	76	161	516	(1x35x35x48)->(1x35x35x48)	0	50	0
+mixed_2/tower_1/conv_2/conv2d_params	Const	GPU-0	8	69	124	(no input)->(3x3x96x96)	0	50	0
+mixed_1/tower_1/conv_2/Conv2D	Conv2D	GPU-0	0	4440	4440	(1x35x35x96)(3x3x96x96)->(1x35x35x96)	50	50	0
+mixed_9/tower/mixed/conv_1/Conv2D	Conv2D	GPU-0	0	9404	9404	(1x8x8x384)(3x1x384x384)->(1x8x8x384)	50	50	0
+mixed_7/tower/conv_1/batchnorm/moving_variance	Const	GPU-0	5	74	118	(no input)->(192x1)	0	50	0
+mixed_8/tower/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	663	663	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+conv_2/CheckNumerics	CheckNumerics	GPU-0	72	31189	31490	(1x147x147x64)->(1x147x147x64)	0	50	0
+mixed_4/tower/conv_1	Relu	GPU-0	0	110	110	(1x17x17x128)->(1x17x17x128)	50	50	0
+mixed_10/tower_1/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	379	379	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+mixed_7/tower/conv_1/conv2d_params	Const	GPU-0	12	62	130	(no input)->(1x7x192x192)	0	50	0
+pool_1	MaxPool	GPU-0	0	2773	2773	(1x71x71x192)->(1x35x35x192)	50	50	0
+mixed_10/tower_1/conv/conv2d_params	Const	GPU-0	7	59	111	(no input)->(1x1x2048x448)	0	50	0
+mixed_8/tower_1/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	642	642	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_7/tower/conv_2	Relu	GPU-0	0	168	168	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_2/conv/CheckNumerics	CheckNumerics	GPU-0	83	21468	21764	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_9/tower_1/conv/batchnorm/beta	Const	GPU-0	9	58	122	(no input)->(448x1)	0	50	0
+mixed_1/join	Concat	GPU-0	0	1144	1144	(1)(1x35x35x64)(1x35x35x64)(1x35x35x96)(1x35x35x64)->(1x35x35x288)	50	50	0
+mixed_4/tower_1/conv_3/control_dependency	Identity	GPU-0	63	88	294	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_9/tower_1/mixed/conv/CheckNumerics	CheckNumerics	GPU-0	75	22846	23056	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_10/tower_1/conv/Conv2D	Conv2D	GPU-0	0	1858	1858	(1x8x8x2048)(1x1x2048x448)->(1x8x8x448)	50	50	0
+mixed_6/tower_1/conv_4/batchnorm/moving_mean	Const	GPU-0	16	45	110	(no input)->(192x1)	0	50	0
+mixed_8/tower_1/conv_2/control_dependency	Identity	GPU-0	74	100	325	(1x17x17x192)->(1x17x17x192)	0	50	0
+conv/conv2d_params	Const	GPU-0	7	75	130	(no input)->(3x3x3x32)	0	50	0
+mixed_3/conv/CheckNumerics	CheckNumerics	GPU-0	67	28818	29048	(1x17x17x384)->(1x17x17x384)	0	50	0
+mixed_3/tower/conv/control_dependency	Identity	GPU-0	61	94	292	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_5/tower/conv_2/CheckNumerics	CheckNumerics	GPU-0	64	16702	16921	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_1/conv/control_dependency	Identity	GPU-0	55	102	347	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_4/tower_1/conv/control_dependency	Identity	GPU-0	58	100	332	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_9/tower_2/conv	Relu	GPU-0	0	112	112	(1x8x8x192)->(1x8x8x192)	50	50	0
+mixed_10/tower_1/mixed/conv/batchnorm/moving_mean	Const	GPU-0	17	84	191	(no input)->(384x1)	0	50	0
+mixed_10/tower_1/mixed/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	296	296	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+mixed_5/tower_1/conv_1/batchnorm/moving_mean	Const	GPU-0	10	51	115	(no input)->(160x1)	0	50	0
+mixed_7/tower_1/conv	Relu	GPU-0	0	162	162	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_4/tower/conv_2	Relu	GPU-0	0	123	123	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_7/tower/conv/Conv2D	Conv2D	GPU-0	0	1449	1449	(1x17x17x768)(1x1x768x192)->(1x17x17x192)	50	50	0
+mixed_8/tower_1/conv/CheckNumerics	CheckNumerics	GPU-0	120	9137	9375	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_7/tower/conv/batchnorm/moving_mean	Const	GPU-0	13	50	103	(no input)->(192x1)	0	50	0
+mixed_2/tower/conv_1/control_dependency	Identity	GPU-0	73	95	328	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_5/tower/conv/batchnorm/moving_variance	Const	GPU-0	9	82	135	(no input)->(160x1)	0	50	0
+mixed_6/tower_2/conv/batchnorm/moving_variance	Const	GPU-0	9	66	103	(no input)->(192x1)	0	50	0
+mixed_1/tower_1/conv_2	Relu	GPU-0	0	131	131	(1x35x35x96)->(1x35x35x96)	50	50	0
+mixed_6/tower_1/conv_2/batchnorm/moving_variance	Const	GPU-0	10	50	99	(no input)->(160x1)	0	50	0
+mixed_6/tower_1/conv_2/CheckNumerics	CheckNumerics	GPU-0	60	16104	16276	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_6/tower_1/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	543	543	(1x17x17x160)(160x1)(160x1)(160x1)(1)->(1x17x17x160)	50	50	0
+mixed_2/conv	Relu	GPU-0	0	209	209	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_5/tower_1/conv_4/Conv2D	Conv2D	GPU-0	0	7950	7950	(1x17x17x160)(1x7x160x192)->(1x17x17x192)	50	50	0
+mixed_2/tower_2/conv/conv2d_params	Const	GPU-0	8	62	116	(no input)->(1x1x288x64)	0	50	0
+conv/Conv2D	Conv2D	GPU-0	0	5767	5767	(1x299x299x3)(3x3x3x32)->(1x149x149x32)	50	50	0
+mixed_6/tower/conv_1/control_dependency	Identity	GPU-0	60	104	311	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_10/tower_1/mixed/conv/CheckNumerics	CheckNumerics	GPU-0	72	21765	21983	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_9/tower_1/mixed/conv/Conv2D	Conv2D	GPU-0	0	9413	9413	(1x8x8x384)(1x3x384x384)->(1x8x8x384)	50	50	0
+mixed_9/tower/mixed/conv	Relu	GPU-0	0	114	114	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed_1/tower/conv	Relu	GPU-0	0	191	191	(1x35x35x48)->(1x35x35x48)	50	50	0
+mixed_5/tower/conv/conv2d_params	Const	GPU-0	9	73	163	(no input)->(1x1x768x160)	0	50	0
+mixed_9/conv/control_dependency	Identity	GPU-0	62	125	406	(1x8x8x320)->(1x8x8x320)	0	50	0
+_SOURCE	NoOp	CPU-0	54	80	349	(no input)->(no output info)	0	50	0
+mixed_10/conv/control_dependency	Identity	GPU-0	57	103	364	(1x8x8x320)->(1x8x8x320)	0	50	0
+mixed_2/conv/batchnorm/moving_mean	Const	GPU-0	9	53	102	(no input)->(64x1)	0	50	0
+mixed_1/tower_1/conv/control_dependency	Identity	GPU-0	63	97	359	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_4/tower_1/conv_2/CheckNumerics	CheckNumerics	GPU-0	81	13572	13759	(1x17x17x128)->(1x17x17x128)	0	50	0
+mixed_4/tower_1/conv_2/batchnorm/moving_variance	Const	GPU-0	12	113	167	(no input)->(128x1)	0	50	0
+mixed_3/conv/control_dependency	Identity	GPU-0	64	111	310	(1x17x17x384)->(1x17x17x384)	0	50	0
+mixed_5/tower/conv	Relu	GPU-0	0	149	149	(1x17x17x160)->(1x17x17x160)	50	50	0
+mixed_7/tower/conv_2/conv2d_params	Const	GPU-0	12	63	122	(no input)->(7x1x192x192)	0	50	0
+mixed_10/conv/batchnorm/moving_variance	Const	GPU-0	11	66	111	(no input)->(320x1)	0	50	0
+mixed_5/tower_1/conv_2/batchnorm/moving_variance	Const	GPU-0	9	67	126	(no input)->(160x1)	0	50	0
+mixed_9/tower/mixed/conv/batchnorm/moving_variance	Const	GPU-0	11	54	105	(no input)->(384x1)	0	50	0
+mixed_9/tower_1/mixed/conv_1/Conv2D	Conv2D	GPU-0	0	9302	9302	(1x8x8x384)(3x1x384x384)->(1x8x8x384)	50	50	0
+mixed_8/tower/conv/batchnorm/moving_mean	Const	GPU-0	7	49	129	(no input)->(192x1)	0	50	0
+mixed_6/tower/conv/CheckNumerics	CheckNumerics	GPU-0	101	16851	17063	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_7/tower/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	659	659	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed_3/conv	Relu	GPU-0	0	273	273	(1x17x17x384)->(1x17x17x384)	50	50	0
+mixed_9/tower_1/mixed/conv/batchnorm/moving_variance	Const	GPU-0	10	48	95	(no input)->(384x1)	0	50	0
+mixed_6/tower_1/conv_1/batchnorm/moving_variance	Const	GPU-0	9	54	98	(no input)->(160x1)	0	50	0
+mixed_5/tower/conv_2/Conv2D	Conv2D	GPU-0	0	8857	8857	(1x17x17x160)(7x1x160x192)->(1x17x17x192)	50	50	0
+mixed_3/tower/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	767	767	(1x35x35x64)(64x1)(64x1)(64x1)(1)->(1x35x35x64)	50	50	0
+mixed_4/tower_1/conv_4/batchnorm/beta	Const	GPU-0	10	76	137	(no input)->(192x1)	0	50	0
+mixed_4/tower_1/conv_3/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	463	463	(1x17x17x128)(128x1)(128x1)(128x1)(1)->(1x17x17x128)	50	50	0
+mixed/conv	Relu	GPU-0	0	215	215	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_1/tower_2/conv/batchnorm/moving_mean	Const	GPU-0	7	52	96	(no input)->(64x1)	0	50	0
+mixed/tower/conv_1	Relu	GPU-0	0	139	139	(1x35x35x64)->(1x35x35x64)	50	50	0
+mixed_9/tower/mixed/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	363	363	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+mixed/tower_2/conv/CheckNumerics	CheckNumerics	GPU-0	114	11627	11867	(1x35x35x32)->(1x35x35x32)	0	50	0
+mixed_7/tower_1/conv/batchnorm/moving_mean	Const	GPU-0	9	51	102	(no input)->(192x1)	0	50	0
+mixed_9/tower_1/mixed/conv_1/batchnorm/beta	Const	GPU-0	5	55	101	(no input)->(384x1)	0	50	0
+mixed/tower_2/conv/batchnorm/beta	Const	GPU-0	10	57	107	(no input)->(32x1)	0	50	0
+mixed_3/pool/CheckNumerics	CheckNumerics	GPU-0	94	13785	14048	(1x35x35x288)->(1x35x35x288)	0	50	0
+mixed_6/conv/control_dependency	Identity	GPU-0	60	104	362	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_8/tower_1/conv_3/control_dependency	Identity	GPU-0	69	104	322	(1x8x8x192)->(1x8x8x192)	0	50	0
+mixed_10/tower_1/conv_1/batchnorm/moving_mean	Const	GPU-0	8	52	91	(no input)->(384x1)	0	50	0
+mixed_4/tower_1/conv_1/batchnorm/moving_mean	Const	GPU-0	30	58	215	(no input)->(128x1)	0	50	0
+mixed/tower/conv/conv2d_params	Const	GPU-0	6	68	116	(no input)->(1x1x192x48)	0	50	0
+mixed_4/tower/conv_2/Conv2D	Conv2D	GPU-0	0	6752	6752	(1x17x17x128)(7x1x128x192)->(1x17x17x192)	50	50	0
+mixed_1/tower_1/conv/Conv2D	Conv2D	GPU-0	0	806	806	(1x35x35x256)(1x1x256x64)->(1x35x35x64)	50	50	0
+mixed_6/tower_1/conv_1/Conv2D	Conv2D	GPU-0	0	8286	8286	(1x17x17x160)(7x1x160x160)->(1x17x17x160)	50	50	0
+mixed_2/tower/conv/batchnorm/beta	Const	GPU-0	11	56	107	(no input)->(48x1)	0	50	0
+mixed_8/tower_1/conv_2/conv2d_params	Const	GPU-0	13	64	120	(no input)->(7x1x192x192)	0	50	0
+mixed_4/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	790	790	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+conv_4/control_dependency	Identity	GPU-0	96	147	447	(1x71x71x192)->(1x71x71x192)	0	50	0
+mixed_6/tower_1/conv/control_dependency	Identity	GPU-0	63	126	369	(1x17x17x160)->(1x17x17x160)	0	50	0
+mixed_1/tower/conv_1/batchnorm/moving_variance	Const	GPU-0	7	51	97	(no input)->(64x1)	0	50	0
+mixed_10/tower/mixed/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	348	348	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+mixed/tower_1/conv_2/Conv2D	Conv2D	GPU-0	0	4465	4465	(1x35x35x96)(3x3x96x96)->(1x35x35x96)	50	50	0
+mixed_10/tower/mixed/conv_1/batchnorm/moving_variance	Const	GPU-0	13	45	100	(no input)->(384x1)	0	50	0
+mixed_6/tower_1/conv_3/conv2d_params	Const	GPU-0	11	88	146	(no input)->(7x1x160x160)	0	50	0
+mixed_5/tower_1/conv/CheckNumerics	CheckNumerics	GPU-0	157	16243	16561	(1x17x17x160)->(1x17x17x160)	0	50	0
+conv/batchnorm/beta	Const	GPU-0	9	55	111	(no input)->(32x1)	0	50	0
+mixed_7/tower_1/conv_2/batchnorm/beta	Const	GPU-0	19	65	125	(no input)->(192x1)	0	50	0
+mixed_2/tower_1/conv_2/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	873	873	(1x35x35x96)(96x1)(96x1)(96x1)(1)->(1x35x35x96)	50	50	0
+mixed_10/tower/conv/Conv2D	Conv2D	GPU-0	0	1800	1800	(1x8x8x2048)(1x1x2048x384)->(1x8x8x384)	50	50	0
+mixed_4/tower_2/conv/batchnorm/moving_variance	Const	GPU-0	12	65	139	(no input)->(192x1)	0	50	0
+mixed_8/tower_1/conv_2/batchnorm/beta	Const	GPU-0	10	75	125	(no input)->(192x1)	0	50	0
+mixed_10/tower/mixed/conv	Relu	GPU-0	0	128	128	(1x8x8x384)->(1x8x8x384)	50	50	0
+mixed/tower/conv_1/CheckNumerics	CheckNumerics	GPU-0	124	13714	13998	(1x35x35x64)->(1x35x35x64)	0	50	0
+mixed_8/tower_1/conv/batchnorm/beta	Const	GPU-0	10	59	114	(no input)->(192x1)	0	50	0
+mixed_10/tower/mixed/conv_1/batchnorm/beta	Const	GPU-0	13	63	117	(no input)->(384x1)	0	50	0
+mixed_9/tower/conv/conv2d_params	Const	GPU-0	7	61	129	(no input)->(1x1x1280x384)	0	50	0
+mixed_4/tower_1/conv_4/batchnorm/moving_variance	Const	GPU-0	13	67	139	(no input)->(192x1)	0	50	0
+mixed_2/tower_1/conv_1/conv2d_params	Const	GPU-0	8	60	116	(no input)->(3x3x64x96)	0	50	0
+mixed_10/tower_1/mixed/conv_1/CheckNumerics	CheckNumerics	GPU-0	67	20388	20547	(1x8x8x384)->(1x8x8x384)	0	50	0
+mixed_7/tower/conv_1	Relu	GPU-0	0	145	145	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_7/tower/conv/CheckNumerics	CheckNumerics	GPU-0	99	18713	19006	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_9/tower_1/mixed/conv_1/batchnorm/moving_mean	Const	GPU-0	12	75	124	(no input)->(384x1)	0	50	0
+mixed_10/tower_2/pool/CheckNumerics	CheckNumerics	GPU-0	74	9055	9291	(1x8x8x2048)->(1x8x8x2048)	0	50	0
+mixed_10/tower_2/conv/batchnorm/beta	Const	GPU-0	12	75	135	(no input)->(192x1)	0	50	0
+conv_2/batchnorm/moving_variance	Const	GPU-0	10	47	97	(no input)->(64x1)	0	50	0
+mixed_6/tower_2/conv/control_dependency	Identity	GPU-0	60	117	359	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_6/tower_1/conv_4/control_dependency	Identity	GPU-0	66	98	306	(1x17x17x192)->(1x17x17x192)	0	50	0
+mixed_9/tower/mixed/conv_1/batchnorm/moving_mean	Const	GPU-0	6	48	97	(no input)->(384x1)	0	50	0
+mixed_5/tower_1/conv_3/batchnorm/moving_mean	Const	GPU-0	5	54	102	(no input)->(160x1)	0	50	0
+mixed_7/conv/conv2d_params	Const	GPU-0	6	76	129	(no input)->(1x1x768x192)	0	50	0
+mixed_8/pool/control_dependency	Identity	GPU-0	74	162	440	(1x17x17x768)->(1x17x17x768)	0	50	0
+mixed_7/tower_1/conv_4	Relu	GPU-0	0	124	124	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_7/tower/conv_2/batchnorm/beta	Const	GPU-0	9	64	113	(no input)->(192x1)	0	50	0
+mixed_8/tower/conv_1/Conv2D	Conv2D	GPU-0	0	12503	12503	(1x17x17x192)(3x3x192x320)->(1x8x8x320)	50	50	0
+mixed_9/tower_1/conv_1/Conv2D	Conv2D	GPU-0	0	22275	22275	(1x8x8x448)(3x3x448x384)->(1x8x8x384)	50	50	0
+mixed_8/tower/conv_1	Relu	GPU-0	0	117	117	(1x8x8x320)->(1x8x8x320)	50	50	0
+mixed_1/tower/conv_1/conv2d_params	Const	GPU-0	17	60	119	(no input)->(5x5x48x64)	0	50	0
+mixed_9/tower/conv/batchnorm/moving_mean	Const	GPU-0	8	50	97	(no input)->(384x1)	0	50	0
+mixed_7/tower_1/conv_3	Relu	GPU-0	0	116	116	(1x17x17x192)->(1x17x17x192)	50	50	0
+mixed_4/tower_1/conv_2/conv2d_params	Const	GPU-0	14	90	176	(no input)->(1x7x128x128)	0	50	0
+mixed_7/tower_2/conv/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	583	583	(1x17x17x192)(192x1)(192x1)(192x1)(1)->(1x17x17x192)	50	50	0
+mixed/tower_1/conv_2/CheckNumerics	CheckNumerics	GPU-0	69	7495	7723	(1x35x35x96)->(1x35x35x96)	0	50	0
+conv_4/batchnorm/moving_mean	Const	GPU-0	13	58	107	(no input)->(192x1)	0	50	0
+mixed_1/tower/conv_1/Conv2D	Conv2D	GPU-0	0	7395	7395	(1x35x35x48)(5x5x48x64)->(1x35x35x64)	50	50	0
+mixed_9/tower/mixed/conv_1/batchnorm	BatchNormWithGlobalNormalization	GPU-0	0	345	345	(1x8x8x384)(384x1)(384x1)(384x1)(1)->(1x8x8x384)	50	50	0
+mixed_4/tower_1/conv_2/batchnorm/moving_mean	Const	GPU-0	13	60	121	(no input)->(128x1)	0	50	0
+mixed_6/conv/batchnorm/moving_variance	Const	GPU-0	10	64	109	(no input)->(192x1)	0	50	0
+mixed_7/tower_1/conv_3/control_dependency	Identity	GPU-0	67	98	330	(1x17x17x192)->(1x17x17x192)	0	50	0

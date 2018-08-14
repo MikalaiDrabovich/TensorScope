@@ -80,9 +80,9 @@ import os
 path_to_tensorscope = os.path.abspath(os.path.join(__file__, '..', '..', '..', 'tensorscope'))
 sys.path.append(path_to_tensorscope)
 
-from tensorscope import Tensorscope
+from tensorscope import TensorScope
 
-# path to existing directory for saving Tensorscope results
+# path to existing directory for saving TensorScope results
 path_to_ts_results = os.path.abspath(os.path.join(__file__, '..', '..', '..', 'results/ptb'))
 
 
@@ -111,7 +111,7 @@ BASIC = "basic"
 CUDNN = "cudnn"
 BLOCK = "block"
 
-ts = None
+
 
 def data_type():
   return tf.float16 if FLAGS.use_fp16 else tf.float32
@@ -435,11 +435,12 @@ def run_epoch(session, model, eval_op=None, verbose=False):
           .build())
  
   """
-
-  global ts
-  #1/3 Enable tensorscope - add this line before main loop
-  if ts is None:
-      ts = Tensorscope(num_steps=10, output_dir=path_to_ts_results, session=session)
+  
+  # Enable TensorScope
+  ts = TensorScope(num_steps_to_warmup=10,
+                       num_steps_to_measure=100,
+                       model_name='ptb',
+                       session=session)
     
   for step in range(model.input.epoch_size):
     feed_dict = {}
@@ -447,12 +448,12 @@ def run_epoch(session, model, eval_op=None, verbose=False):
       feed_dict[c] = state[i].c
       feed_dict[h] = state[i].h
     
-    run_meta = ts.metadata()
-   
+    # Enable TensorScope
     vals = session.run(fetches, feed_dict,
                      options=ts.options,
-                     run_metadata=run_meta)
-   
+                     run_metadata=ts.metadata())
+
+    # Enable TensorScope
     ts.characterize_model(graph=session.graph)
     
     

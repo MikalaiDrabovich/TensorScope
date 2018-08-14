@@ -14,79 +14,108 @@
 # ==============================================================================
 
 """
-Find what GPU kernels should be tuned for which tensors to significantly reduce 
-inference/training time of any Tensorflow model. Results are presented as 
-interactive, hierarchical pie chart of GPU/CPU ops with concrete tensor shapes 
-and relative time contribution. 
+Quickly find bottleneck ops and their exact input/output tensor shapes for 
+models in Tensorflow.
 
-How to:
-- If training uses estimator API:
-  
-  1) Import TensorscopeRunHook to your main training file, for example like this:
+Visualize model end-to-end training on a pie chart diagram. Standard timeline 
+from tfprof does not allow to aggregate ops like this, and can not provide 
+i/o tensor shapes for some computationally expensive ops, especially in 
+case of RNNs. While it could be possible to extract i/o shapes from Tensorflow   
+manually and/or after changing model source code, 
+for complex models with thousand of ops this may take days.
 
+With Tensorscope, you should get actionable information within minutes 
+by following 5 step how-to (see below). For some popular model 
+setups, bundled with TensorScope, you'll get results within seconds:
+ 
+cd reproduce_results
+./run_me.sh
+
+---
+
+How to get results for your own model setup - 5 steps:
+
+1) git clone https://github.com/MikalaiDrabovich/TensorScope.git
+
+2) Find among your training source files the one with a main loop 
+over data batches. This will be unique for your training 
+setup and may take quite some time to figure out (you may want to start with 
+grep -rE "sess.*\.run\(|\.train\(" . )
+
+As an example, for official.resnet main training loop is located in 
+official/resnet/resnet_run_loop.py, and for NMT it will be in nmt/nmt/model.py
+
+3) In the file from previous step:
+
+  a) Import TensorScope module. 
+     For example, add after 'import tensorflow as tf' :
+          
         import sys
-        # path to cloned git repo https://github.com/MikalaiDrabovich/TensorScope
-        path_to_tensorscope = '/home/ndr/TensorScope'
+        sys.path.append('full path to TensorScope/tensorscope/ from clone git repo')
+      
+   - if you use estimator API:
+        from tensorscope import TensorScopeRunHook
+      
+   - if you use session API:
+        from tensorscope import TensorScope    
 
-        sys.path.append(path_to_tensorscope)
-        from tensorscope import TensorscopeRunHook
-
-  2) Add before main training loop:
-  
-        session_hook = TensorscopeRunHook(output_dir=path_to_ts_results,
-          save_steps=10, show_memory=True, show_dataflow=True)
-
-  3) In main training loop add/append session_hook to estimator.train() call:
-  
-        mnist_classifier.train(input_fn=train_input_fn, hooks=[session_hook])
+  b) add before the loop from step 2:
+   
+   - if you use estimator API:
+      session_hook = TensorScopeRunHook(num_steps_to_warmup=10,
+                                        num_steps_to_measure=100,
+                                        model_name='model_name')   
+   - if you use session API:
+      # ts may need to be defined as global object
+      # (see this case in nmt/nmt/model.py)
+      ts = TensorScope(num_steps_to_warmup=10,
+                       num_steps_to_measure=100,
+                       model_name='model_name',
+                       session=session)
+                         
+  c) add in the loop from step 2:
+      
+   - if you use session API, add 'options' and 'run_metadata' to session.run() and
+     also call tensorscope.characterize_model(my_session) after it, for example:
      
-
-- If training explicitly uses session API: 
-
-  1) Import Tensorscope to your main training file,
-     for example like this:
-
-        import sys
-        # path to cloned git repo https://github.com/MikalaiDrabovich/TensorScope
-        path_to_tensorscope = '/home/ndr/TensorScope'
-
-        sys.path.append(path_to_tensorscope)
-        from tensorscope import Tensorscope
-    
-  2) Initialize Tensorscope object before main training loop, for example: 
- 
-        ts = Tensorscope(num_steps=10, output_dir='/tmp/tensorscope', session=session)
-
-  3) Add options and run_metadata parameters to session.run() (in the main training loop)
- 
-        _ = session.run(target,
-                        options=ts.options,
-                        run_metadata=ts.metadata())  
-                        
-        # finally, add right after sesion.run():
-        ts.characterize_model(graph=session.graph) 
+      _ = session.run(target,
+                      options=ts.options,
+                      run_metadata=ts.metadata())  
+      ts.characterize_model(graph=session.graph) 
+              
+   - if you use estimator API, you only need to add/append 
+     session_hook to estimator.train(), for example:
         
-        
-Run training/inference as usual, it will stop after specified number of steps
-(10 by default) and launch Chrome brpwser to display interactive chart
-
-Take a look at brief summary in terminal. Details are saved to 
-data_*.tsv file in output_dir 
+      my_estimator.train(input_fn=train_input_fn, hooks=[session_hook])
 
 
-Some of the addressed issues:
-- models may not provide tensor shapes of inputs or outputs;
-- some of collected metadata 'streams' may not have info about tensor inputs
-or outputs (for example, 'stream:all')
-- Some streams may have only partial timings, we rely on the sum of all minus  
-'stream:all' and the ones similar to "/job:localhost/replica:0/task:0/device:GPU:0 Compute"
-to get correct total time.
-- op names in model and metadata may be slightly different:
-e.g. MatMul_17:MatMul  while exact name is necessary to keep to find correct inputs
-- chart data format for node path required info about op placement device to be 
-inserted before tensor shapes in order to get meaningful hierarchy in a chart.
+4) Now run training/inference as usual.
+TensorScope will generate results and stop training after 
+num_steps_to_warmup+num_steps_to_measure steps (10+100 by default)
 
-Mikalai Drabovich, nick.drabovich@amd.com
+5) See generated pie_chart.html and data.tsv for detailed results.
+
+Also, take a look at printed out log-scale distribution of top-k ops vs 
+cumulative time (under '*** Top-K ops vs total time ***' and duplicated 
+in /results/model_name/model_name_log.txt). If you see that, for example, 
+top-10 ops (out of total 1000 ops) take 90% of time, it is quite likely that 
+focusing optimization/tuning efforts on that 1% of ops could be more 
+advantageous. The assumption of course is that full utilization of 
+compute device is still far from being reached. 
+It is possible to verify this assumption for a small number of ops 
+(which have RegisterStatistics('flops') implemented) - see data 
+in column 'G(FL)OP/S achieved'.
+
+6) To compare to some other system, copy its 'data.tsv' to 
+results/model_name directory, rename 'data.tsv' to 'data_from_another_system.tsv'.
+See results in 'data_compared.tsv', unmatched ops will be saved
+to 'data_unmatched_ops.tsv'
+
+
+---
+
+If you have questions/comments please open an issue at 
+https://github.com/MikalaiDrabovich/TensorScope or send e-mail to nick.drabovich@amd.com 
 
 """
 
@@ -101,142 +130,187 @@ import time
 import csv
 import numpy as np
 import tensorflow as tf
+import errno
 
 from tensorflow.python.client import timeline
 from tensorflow.python.framework import tensor_shape
 from tensorflow.python.framework import graph_io
+from tensorflow.python.framework import ops
 
 from tensorflow.python.training import session_run_hook
-from tensorflow.python.training.summary_io import SummaryWriterCache
 from tensorflow.python.training import training_util
 from tensorflow.python.training.session_run_hook import SessionRunArgs
 
-from tensorflow.core.protobuf import config_pb2
 
-from enum import Enum
-
-# Find data type names for tensors from int value as defined in RunMetadata proto
-# based on https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/types.proto
-class TensorDataType(Enum):
-  invalid = 0
-  flt = 1 # float
-  double = 2
-  int32 = 3
-  uint8 = 4
-  int16 = 5
-  int8 = 6
-  string = 7
-  complex64 = 8  # single-precision complex
-  int64 = 9
-  boolean = 10 # bool
-  qint8 = 11     # quantized int8
-  quint8 = 12    # quantized uint8
-  qint32 = 13    # quantized int32
-  bfloat16 = 14  # float32 truncated to 16 bits.  only for cast ops.
-  qint16 = 15    # quantized int16
-  quint16 = 16   # quantized uint16
-  uint16 = 17
-  complex128 = 18  # double-precision complex
-  half = 19
-  tf_resource = 20
-  variant = 21  # arbitrary c++ data types
-  uint32 = 22
-  uint64 = 23
-  float_ref = 101
-  double_ref = 102
-  int32_ref = 103
-  uint8_ref = 104
-  int16_ref = 105
-  int8_ref = 106
-  string_ref = 107
-  complex64_ref = 108
-  int64_ref = 109
-  bool_ref = 110
-  qint8_ref = 111
-  quint8_ref = 112
-  qint32_ref = 113
-  bfloat16_ref = 114
-  qint16_ref = 115
-  quint16_ref = 116
-  uint16_ref = 117
-  complex128_ref = 118
-  half_ref = 119
-  tf_resource_ref = 120
-  variant_ref = 121
-  uint32_ref = 122
-  uint64_ref = 123
-
-
-class Tensorscope(object):
+class TensorScope(object):
     
-    def __init__(self, num_steps=10, output_dir="/tmp/tensorscope/", session=tf.get_default_session()):
+    def __init__(self, num_steps_to_warmup=10, num_steps_to_measure=100, model_name='model_name', session=tf.get_default_session()):
     
-        if not session:
-            print("session is None, exiting.")
-            sys.exit()
-        else:
-            self.session = session
+        # number of steps to skip in the beginning
+        self.num_steps_to_warm_up = num_steps_to_warmup
         
-        # directory for saving results
-        self.temp_path = output_dir if output_dir[-1] == '/' else output_dir+('/')
-        self.temp_path = "/tmp/tensorscope/" if self.temp_path.strip() == '/' else self.temp_path
-           
-        if not os.path.exists(self.temp_path):
-            os.makedirs(self.temp_path)
-            
-        self.num_steps_to_analyze = num_steps
+        # total number of measurements  
+        self.num_steps_to_analyze = num_steps_to_measure
         
-        # 'burn in' - skip 2 runs at start and 2 runs at the end
-        self.total_num_sessions = self.num_steps_to_analyze + 4
+        # Step number when to generate timeline. You may use it to 
+        # double check that TensorScope didn't miss any ops - 
+        # total times should be similar.
+        # Also, you can manually verfy shapes for some 
+        # tensors (if they are not unknown on the timeline).
+        # As can be expected, time for timeline generation (as well
+        # as RunMetaData analysis) will be excluded from total wall time.
+        self.step_to_save_timeline_at = self.num_steps_to_warm_up + int(self.num_steps_to_analyze/2) + 1
         
-        # timeline may be useful for sanity checks of results,
-        # to view it, launch Chrome browser, go to chrome://tracing
-        # and load generated timeline_at_step_*.json file
-        self.step_to_save_timeline_at = 2
+        # set to -1 to disable, otherwise set to some step number after warm-up, for which to dump all intermediate results
+        self.debug_dump_step = self.step_to_save_timeline_at # -1
         
-        # full trace option should gather both time and memory data 
-        self.options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
-                
-        self.node_input_names = dict()
-        self.node_output_shapes = dict()
-        self.final_io_shapes = dict()
-        self.op_time_total = dict()
-        self.cf_temp = dict()
+        # To estimate profiler overhead, set to NO_TRACE
+        # possible values: NO_TRACE, SOFTWARE_TRACE, HARDWARE_TRACE
+        self.options = tf.RunOptions(trace_level=tf.RunOptions.HARDWARE_TRACE)
+        #self.options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE, output_partition_graphs=True, allow_soft_placement=False, report_tensor_allocations_upon_oom=False)
+       
+        self.num_steps_analyzed = 0
+        self.total_time_analyzed = 0
+        self.current_step = 0
+        
         
         self.node_dict = {}
         self.current_node_dict = {}
         self.sess_node_dict_out_raw = {}
-        
         self.sess_node_dict_out = {}
-        self.profiling_result = None
+        self.profiling_result = {}
+        self.available_flops_estimate = {}
+        self.flops_retrieved = False
         
-        self.current_session = 0
-        self.num_steps_analyzed = 0
-        self.total_time_analyzed = 0
-        self.tracing_graph_parsed = False
-
         self.session_results = []
-        
-        # path, device str, duration, all duration, outpu str, timelabel_str
         self.current_raw_nodes = []
         self.current_nodes_generic = []
         self.node_list_all_sessions = []
         
-    def make_generic_node_name(self, name_from_metadata):
+        if not session:
+            print("tf.session is None, exiting.")
+            sys.exit(0)
+        self.session = session
+        
+        # create directory for saving results
+        output_dir = os.path.abspath(os.path.join(__file__, '..', '..', 'results', model_name))
 
-        current_node_path_parts = name_from_metadata.split('/')
-        for i, node in enumerate(current_node_path_parts):
-            node_loc = node+''
-            node_loc = node_loc.split(':')
-            for j, nd in enumerate(node_loc):
-                nd = nd.split('_')  
-                nd = [n if not n.isdigit() else 'numberN'  for n in nd ]
-                node_loc[j] = '_'.join(nd)
-            node_loc = ':'.join(node_loc)
-            current_node_path_parts[i] = node_loc
+        self.temp_path = output_dir if output_dir[-1] == os.sep else output_dir+os.sep
+        if (model_name == '') or (''.join(set(model_name.strip())) == os.sep):
+            os.model_name='model_name'
+        
+        if (''.join(set(self.temp_path.strip())) == os.sep):
+            self.temp_path = os.path.abspath(os.path.join('tmp', 'tensorscope', 'results', model_name))
             
-        return '/'.join(current_node_path_parts)      
+        try:
+            os.makedirs(self.temp_path)
+        except OSError as e:
+            if e.errno != errno.EEXIST:
+                print(e)
+                sys.exit(0)
+        
 
+    def aggregate_node_data(self, sess_node_dict_out_raw):
+        result_dict = {}
+        for k,v in sess_node_dict_out_raw.items():
+            all_streams_dict = v[1]
+           
+            device_type = 'unknown'
+            device_number = -1
+ 
+            op_device_dict = {}
+            op_finalized_dict = {}
+                       
+            timings_saved = False
+            
+            op_start_replica = -1
+            op_end_replica = -1
+            all_end_replica = -1
+            replica_key = ''
+      
+            for k1,v1 in all_streams_dict.items():
+                device_path = k1.split('/')
+                for dev_path in device_path:
+                    dev_path_parts = dev_path.split(':')
+                    if dev_path_parts[0] == 'device':
+                       device_type = dev_path_parts[1]
+                       device_number = dev_path_parts[2]
+                       break
+                
+                new_key = device_type + '-' + device_number
+
+                if not new_key in op_finalized_dict:
+                    op_finalized_dict[new_key] = {'timings_saved':False, 'op_start_replica':-1, 'op_end_replica': -1, 'all_end_replica':-1, 'replica_key':new_key}
+                          
+                if ('stream:all' in k1): # 'stream:all' is the first place to search for timing data, if it's not there - we'll get time from memcpy or replica
+                    if new_key not in op_device_dict:
+                        op_device_dict[new_key] = {'op_start':v1[2],'op_end':v1[3],'all_end':v1[4], 'io_shapes':''.join(v1[0])+'->'+''.join(v1[1]), 'num_calls_stream_all': 1, 'num_calls_replica': 0, 'num_calls_memcpy': 0}
+                    else:
+                        op_device_dict[new_key]['op_start'] = v1[2]
+                        op_device_dict[new_key]['op_end'] = v1[3]
+                        op_device_dict[new_key]['all_end'] = v1[4]
+                        op_device_dict[new_key]['num_calls_stream_all'] += 1  
+                    
+                    # set to False to also add timing from replica:
+                    op_finalized_dict[new_key]['timings_saved'] = True
+                        
+                        
+                if ('replica' in k1):
+                    if new_key not in op_device_dict:
+                        op_device_dict[new_key] = {'io_shapes':''.join(v1[0])+'->'+''.join(v1[1]),  'num_calls_stream_all': 0, 'num_calls_replica': 1, 'num_calls_memcpy': 0}
+                    else:
+                        op_device_dict[new_key]['io_shapes'] = ''.join(v1[0])+'->'+''.join(v1[1])
+                        op_device_dict[new_key]['num_calls_replica'] += 1
+                    
+                    if not op_finalized_dict[new_key]['timings_saved']:
+                        op_finalized_dict[new_key]['op_start_replica'] = v1[2]
+                        op_finalized_dict[new_key]['op_end_replica'] = v1[3]
+                        op_finalized_dict[new_key]['all_end_replica'] = v1[4]
+                        op_finalized_dict[new_key]['replica_key'] = new_key+'' 
+                        
+                if  ('memcpy' in k1):
+                    if new_key not in op_device_dict:
+                        op_device_dict[new_key] = {'io_shapes':''.join(v1[0])+'->'+''.join(v1[1]),  'num_calls_stream_all': 0, 'num_calls_replica': 0, 'num_calls_memcpy': 1}
+                    else:
+                        op_device_dict[new_key]['io_shapes'] = ''.join(v1[0])+'->'+''.join(v1[1])
+                        op_device_dict[new_key]['num_calls_memcpy'] +=1
+                        
+                    op_device_dict[new_key]['op_start'] = v1[2]
+                    op_device_dict[new_key]['op_end'] = v1[3]
+                    op_device_dict[new_key]['all_end'] = v1[4]
+                    op_finalized_dict[new_key]['timings_saved'] = True
+
+            """
+            for k2,v2 in op_finalized_dict.items():
+                if not v2['timings_saved']:
+                    op_device_dict[v2['replica_key']]['op_start'] = v2['op_start_replica']
+                    op_device_dict[v2['replica_key']]['op_end'] = v2['op_end_replica']
+                    op_device_dict[v2['replica_key']]['all_end'] = v2['all_end_replica']
+            """
+            # add time from replica
+            for k2,v2 in op_finalized_dict.items():
+                #print(v2['replica_key'])
+                if not v2['timings_saved']:
+                    op_device_dict[v2['replica_key']]['op_start'] = v2['op_start_replica']
+                    prev_op_end = 0
+                    if 'op_end' in op_device_dict[v2['replica_key']]:
+                        prev_op_end = op_device_dict[v2['replica_key']]['op_end']
+                    
+                    prev_all_end = 0
+                    if 'all_end' in op_device_dict[v2['replica_key']]:
+                        prev_all_end = op_device_dict[v2['replica_key']]['all_end']
+                        
+                    op_device_dict[v2['replica_key']]['op_end'] = prev_op_end + v2['op_end_replica']
+                    op_device_dict[v2['replica_key']]['all_end'] = prev_all_end + v2['all_end_replica']
+                            
+            for k1,v1 in op_device_dict.items():
+                # the final aggregation by type + device + i/o shapes
+                new_key =  k + '@' + k1 + '@' + v1['io_shapes']
+                result_dict[new_key] = [k, v[0], k1, v1['op_start'], v1['op_end'], v1['all_end'], v1['io_shapes'], v1['num_calls_stream_all'], v1['num_calls_replica'], v1['num_calls_memcpy']]
+       
+        return result_dict
+        
+        
     def get_common_shapes(self, device_id, in_node, sess_node_dict_out_raw):
         fin_shape = '?'
         in_node_orig = in_node+''
@@ -257,10 +331,10 @@ class Tensorscope(object):
                     if 'replica' in devid:
                         if in_node in loc_dev_dict[devid]:
                             if loc_dev_dict[devid][1][0] != '(no output)':
-                                # what if there is also an exact output slot for the value?
+                                # TODO: handle case when there is also an exact output slot for the value
                                 return loc_dev_dict[devid][1][0]
          
-    
+        # TODO: verify ops below and add more ops with fixed shapes
         if leaf_node == 'ConcatOffset':
             return '(2x1)'
        
@@ -274,6 +348,7 @@ class Tensorscope(object):
             return '(1|2|3x1)'   
         
         """
+        # TODO: workaround for missing nodes, if they are still present in ROCm TensorFlow
         if in_node_orig.endswith('TransposeNHWCToNCHW-LayoutOptimizer'):
             temp_workaround = in_node_orig.replace('NHWCToNCHW', 'NCHWToNHWC')
             temp_workaround = temp_workaround.replace('-0-', '-0-0-')
@@ -294,99 +369,18 @@ class Tensorscope(object):
         return fin_shape
 
     
-    def consolidate_node_data(self, sess_node_dict_out_raw):
-        result_dict = {}
-        for k,v in sess_node_dict_out_raw.items():
-            all_streams_dict = v[1]
-           
-            device_type = 'unknown'
-            device_number = -1
- 
-            op_device_dict = {}
-            op_finalized_dict = {}
-                       
-            timings_saved = False
-            
-            op_start_replica = -1
-            op_end_replica = -1
-            all_end_replica = -1
-            replica_key = ''
- 
-                   
-            for k1,v1 in all_streams_dict.items():
-                 
-                device_path = k1.split('/')
-                for dev_path in device_path:
-                    dev_path_parts = dev_path.split(':')
-                    if dev_path_parts[0] == 'device':
-                       device_type = dev_path_parts[1]
-                       device_number = dev_path_parts[2]
-                       break
-                
-                new_key = device_type + '-' + device_number
-                
-                if not new_key in op_finalized_dict:
-                     
-                    op_finalized_dict[new_key] = {'timings_saved':False, 'op_start_replica':-1, 'op_end_replica': -1, 'all_end_replica':-1, 'replica_key':''}
-                          
-                if ('stream:all' in k1): # this stream will have the highest priority in timing data, if it's not available - get time from memcpy or replica;
-                    if new_key not in op_device_dict:
-                        op_device_dict[new_key] = {'op_start':v1[2],'op_end':v1[3],'all_end':v1[4], 'io_shapes':''.join(v1[0])+'->'+''.join(v1[1]), 'num_calls_stream_all': 1, 'num_calls_replica': 0, 'num_calls_memcpy': 0}
-                    else:
-                     
-                        op_device_dict[new_key]['op_start'] = v1[2]
-                        op_device_dict[new_key]['op_end'] = v1[3]
-                        op_device_dict[new_key]['all_end'] = v1[4]
-                        op_device_dict[new_key]['num_calls_stream_all'] += 1
-                        
-                    op_finalized_dict[new_key]['timings_saved'] = True
-                        
-                        
-                if ('replica' in k1):
-                
-                    if new_key not in op_device_dict:
-                        op_device_dict[new_key] = {'io_shapes':''.join(v1[0])+'->'+''.join(v1[1]),  'num_calls_stream_all': 0, 'num_calls_replica': 1, 'num_calls_memcpy': 0}
-                    else:
-                        op_device_dict[new_key]['io_shapes'] = ''.join(v1[0])+'->'+''.join(v1[1])
-                        op_device_dict[new_key]['num_calls_replica'] += 1
-                    
-                    if not op_finalized_dict[new_key]['timings_saved']:
-              
-                        op_finalized_dict[new_key]['op_start_replica'] = v1[2]
-                        op_finalized_dict[new_key]['op_end_replica'] = v1[3]
-                        op_finalized_dict[new_key]['all_end_replica'] = v1[4]
-                    
-                        op_finalized_dict[new_key]['replica_key'] = new_key+'' 
-                        
-                
-                if  ('memcpy' in k1):
-                
-                    if new_key not in op_device_dict:
-                        op_device_dict[new_key] = {'io_shapes':''.join(v1[0])+'->'+''.join(v1[1]),  'num_calls_stream_all': 0, 'num_calls_replica': 0, 'num_calls_memcpy': 1}
-                    else:
-                        op_device_dict[new_key]['io_shapes'] = ''.join(v1[0])+'->'+''.join(v1[1])
-                        op_device_dict[new_key]['num_calls_memcpy'] +=1
-                        
-                    op_device_dict[new_key]['op_start'] = v1[2]
-                    op_device_dict[new_key]['op_end'] = v1[3]
-                    op_device_dict[new_key]['all_end'] = v1[4]
-                    
-                    op_finalized_dict[new_key]['timings_saved'] = True
-                                  
-            
-            for k2,v2 in op_finalized_dict.items():
-                if not v2['timings_saved']:
-                    op_device_dict[v2['replica_key']]['op_start'] = v2['op_start_replica']
-                    op_device_dict[v2['replica_key']]['op_end'] = v2['op_end_replica']
-                    op_device_dict[v2['replica_key']]['all_end'] = v2['all_end_replica']
-                    
-            for k1,v1 in op_device_dict.items():
-                new_key =  k + '@' + k1 + '@' + v1['io_shapes']
-                result_dict[new_key] = [k, v[0], k1, v1['op_start'], v1['op_end'], v1['all_end'], v1['io_shapes'], v1['num_calls_stream_all'], v1['num_calls_replica'], v1['num_calls_memcpy']]
-       
-        return result_dict
-    
-    def aggregate_session_by_node_path(self, sess_node_list_in):
+    def extract_session_data(self, sess_node_list_in):
+        # Returns dictionary. Key - based on path.
+        # For example, for /path_part1/part2:part3 key will be /path_part1/part2/part3
+        # for /path_part1/part2 key will be /path_part1/part2
+        # Values are the following:
+        # [shortname, dict['device']]
+        # shortname - for example for /path_part1/part2:part3 short name will be 'part3'
+        # (TODO: make sure this is ok with any future TF changes)
+        # dict['device'] = [input size, output size, times - op start, op end, all end ]
+        
+        # input: sess_node_list_in = [op name, device, op_start_rel_micros,  op_end_rel_micros,  all_end_rel_micros, output_shapes_list, timeline_label]
+        
         total_lines = len(sess_node_list_in)
         current_line = 0
         sess_node_dict_out_raw = {}
@@ -395,35 +389,40 @@ class Tensorscope(object):
         mem_nodes_hcc  = ['hcMemcpyDeviceToHost', 'hcMemcpyHostToDevice', 'hcMemcpyDeviceToDevice', 'hcMemcpyHostToHost']    
         mem_nodes.extend(mem_nodes_hcc)
                 
+       
         while current_line < total_lines:
- 
+            # aggregate op name in current_key
             current_key = sess_node_list_in[current_line][0]
             current_key = current_key.split('/')
-            current_key_last = current_key[-1] + ''
-            current_key_last = current_key_last.split(':')
+ 
+            current_key_last = current_key[-1].split(':')
             
             if len(current_key_last) > 1 and current_key_last[-1] in mem_nodes:
                 shortname = current_key_last[-1]
                 current_key[-1] =  current_key_last[0]
-                current_key.append(shortname)
+                current_key.append(shortname)         
             else:
                 shortname = current_key_last[0]
-                current_key[-1] = shortname+ ''
+                current_key[-1] =  current_key_last[0]
                 
             current_key = '/'.join(current_key)
             current_device = sess_node_list_in[current_line][1]
-                                          
-            if not current_key in sess_node_dict_out_raw:
+             
+            # add new key                             
+            if current_key not in sess_node_dict_out_raw:
                 device_dict = {}
                 device_dict[current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
                 sess_node_dict_out_raw[current_key] = [shortname, device_dict]
             
-            if current_device not in  sess_node_dict_out_raw[current_key][1]:
+            # add new device
+            if current_device not in sess_node_dict_out_raw[current_key][1]:
                 sess_node_dict_out_raw[current_key][1][current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
                                         
             device_data = []
                   
-            # we can get input names, short op name, output size, but not time, time will be from stream:all or sum of other streams minus stream:all and replica  
+           
+            # Time data can be extracted from (stream:all + replica) or from (streams:0..N + replica) or just memcpy 
+            # 'replica' stream may have input names, short op name, output size.           
             if 'replica' in current_device: 
                 timeline_string = sess_node_list_in[current_line][-1]
                 input_names = ''
@@ -439,18 +438,21 @@ class Tensorscope(object):
                     if len(inputs_from_timeline_string)==1: # if just closing bracket, then no inputs
                         input_names = ['(no input)']
                         if inputs_from_timeline_string[0] != ')':
-                            sys.exit('timeline_label string didnt have closing bracket: ', sess_node_list_in[current_line][-1], timeline_string)
+                            sys.exit('timeline_label string did not have closing bracket: ', sess_node_list_in[current_line][-1], timeline_string)
                     else:
                         inputs_from_timeline_string = inputs_from_timeline_string[:-1]
                         timeline_input_names = inputs_from_timeline_string.split(',')
                         input_names = [p.strip() for p in timeline_input_names]
                 
+                #sess_node_list_in has [op name, device, op_start_rel_micros,  op_end_rel_micros,  all_end_rel_micros, output_shapes_list, timeline_label]
                 device_data = [input_names, sess_node_list_in[current_line][-2], sess_node_list_in[current_line][2], sess_node_list_in[current_line][3], sess_node_list_in[current_line][4]]
             
-            if 'stream' in current_device: # we can get times from stream:all amd stream:0..n 
+            if 'stream' in current_device:
+                # stream:* doesn't have io tensor shapes info
                 device_data = [['no inputs saved in stream'], ['no outputs saved in stream'], sess_node_list_in[current_line][2], sess_node_list_in[current_line][3], sess_node_list_in[current_line][4]]
  
             if 'memcpy' in current_device:
+                
                 timeline_string = sess_node_list_in[current_line][-1]
                 
                 lb = timeline_string
@@ -462,6 +464,7 @@ class Tensorscope(object):
                     output_shapes_list.append('(' + memsz[1]+' bytes)')
                     
                     """
+                    # TODO: probably remove this completely
                     current_key = current_key + '/' + mem_cand
                     
                     if not current_key in sess_node_dict_out_raw:
@@ -469,7 +472,7 @@ class Tensorscope(object):
                         device_dict[current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
                         sess_node_dict_out_raw[current_key] = [shortname, device_dict]
                     
-                    if current_device not in  sess_node_dict_out_raw[current_key][1]:
+                    if current_device not in sess_node_dict_out_raw[current_key][1]:
                         sess_node_dict_out_raw[current_key][1][current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
                 
                     """          
@@ -478,46 +481,55 @@ class Tensorscope(object):
                                    
                 device_data = [['(Transfer)'], output_shapes_list, sess_node_list_in[current_line][2], sess_node_list_in[current_line][3], sess_node_list_in[current_line][4]]
 
-            current_data = sess_node_dict_out_raw[current_key][1][current_device]            
-            sess_node_dict_out_raw[current_key][1][current_device] = [device_data[0], device_data[1], current_data[2], int(current_data[3]) + device_data[3] - device_data[2], int(current_data[4]) + device_data[4]]            
+            current_data = sess_node_dict_out_raw[current_key][1][current_device]
+           
+            # aggregate op data for every device: preprocess io shapes, sum up time
+            # dict[op] = [tensorflow_op_name=shortname, dict[current_device]], 
+            # where dict[current_device] = [input tensor names, output shapes,  op_start_rel_micros, op_end_rel_micros, all_end_rel_micros]
+            sess_node_dict_out_raw[current_key][1][current_device] = [device_data[0], device_data[1], device_data[2], int(current_data[3]) + (device_data[3] - device_data[2]), int(current_data[4]) + device_data[4]]
+            
+            # ensure that op_end_rel_micros >= op_start_rel_micros
+            if  device_data[3] < device_data[2]:
+                print('Error in RunMetadata: op_end_rel_micros < op_start_rel_micros', current_key, current_device, sess_node_dict_out_raw[current_key][1][current_device])
+                sys.exit(0)
+
             current_line +=1
                      
-        
-        count = 0
-        #now replace names of inputs with actual sizes 
+        #replace names of inputs with actual sizes 
         for key, val in sess_node_dict_out_raw.items():
             device_dict = val[1]
             for k,v in device_dict.items():
-                if 'replica' in k: # find input names to look for later
+                # find input names to look for later
+                if 'replica' in k:
                     input_names_from_stream = device_dict[k][0]
                     if input_names_from_stream[0] != '(no input)':
                         inp_with_shape = []
                         for in_node in input_names_from_stream:
-                            if in_node[0] !='^': # skip control nodes
-                            
-                                if in_node in sess_node_dict_out_raw:  #for each input name candidate find shape if recorded
+                            # skip control nodes
+                            if in_node[0] !='^':
+                                #for each input name candidate find shape if recorded
+                                if in_node in sess_node_dict_out_raw:
                                     loc_dev_dict = sess_node_dict_out_raw[in_node][1]
                                     if k in loc_dev_dict:
                                         inp_with_shape.extend(loc_dev_dict[k][1])
                                     else:
-                                    
                                         leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
-                                                
                                         if leaf_shape != '?':
                                             inp_with_shape.extend(leaf_shape)
                                         else:
                                             inp_with_shape.extend(['(?)'])
-                                            print('Attention: this node is referenced as input in timeline_label but is absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 1')
-                                        
+                                            print('*** Missing data *** node referenced as input in timeline_label but absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 1')
                                 else:
                                      in_node = in_node.split('/')
                                      leaf_node_parts = in_node[-1].split('_')
                                      leaf_node = [p for p in leaf_node_parts if not p.isdigit()]
                                      leaf_node = '_'.join(leaf_node)
                                      
-                                     if leaf_node == '': # if in_node ends in for example /_42
+                                     # if in_node ends in for example /_42
+                                     if leaf_node == '': 
                                          in_node = '/'.join(in_node[:-1])
-                                         if in_node in sess_node_dict_out_raw:  #for each input name candidate find shape if recorded
+                                         #find shape
+                                         if in_node in sess_node_dict_out_raw:
                                             loc_dev_dict = sess_node_dict_out_raw[in_node][1]
                                             if k in loc_dev_dict:
                                                 inp_with_shape.extend(loc_dev_dict[k][1])
@@ -532,6 +544,7 @@ class Tensorscope(object):
                                                     if k_alt in loc_dev_dict:
                                                         new_res = loc_dev_dict[k_alt][1]
                                                     """
+                                                    # TODO: check handling of XLA* devices
                                                     else:
                                                         k_alt = k.replace('XLA_GPU', 'CPU')
                                                         if k_alt in loc_dev_dict:
@@ -559,8 +572,7 @@ class Tensorscope(object):
                                                 inp_with_shape.extend(leaf_shape)
                                             else:
                                                 inp_with_shape.extend(['(?)'])
-                                                print('Attention: this node is referenced as input in timeline_label but is absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 3')
-
+                                                print('*** Missing data *** node referenced as input in timeline_label but absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 3')
                                      else:
                                         # try exact slot number 
                                         leaf_node_parts = in_node[-1].split(':')
@@ -599,14 +611,13 @@ class Tensorscope(object):
                                                         if k_alt in loc_dev_dict:
                                                             new_res = loc_dev_dict[k_alt][1][tensor_number_in_output]
                                                         """
+                                                        # TODO: check handling of XLA* devices
                                                         else:
                                                             k_alt = k.replace('XLA_GPU', 'CPU')
                                                             if k_alt in loc_dev_dict:
                                                                 new_res = loc_dev_dict[k_alt][1]
                                                                 # k_alt = k.replace('GPU', 'CPU') xla
                                                         """
-                                                        
-                                                        
                                                     if len(new_res) > 0:
                                                         inp_with_shape.extend(new_res)
                                                     else:
@@ -616,7 +627,7 @@ class Tensorscope(object):
                                                             inp_with_shape.extend(leaf_shape)
                                                         else:
                                                             inp_with_shape.extend(['(?)'])
-                                                            print('Attention: this node is referenced as input in timeline_label but is absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 4')
+                                                            print('*** Missing data *** node referenced as input in timeline_label but absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 4')
                                             else:                                            
                                             
                                                 leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
@@ -625,58 +636,30 @@ class Tensorscope(object):
                                                     inp_with_shape.extend(leaf_shape)
                                                 else:
                                                     inp_with_shape.extend(['(?)'])
-                                                    print('Attention: this node is referenced as input in timeline_label but is absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 5')
-
-                                        else:
-                                                                                  
+                                                    print('*** Missing data *** node referenced as input in timeline_label but absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 5')
+                                        else:                                      
                                             in_node = '/'.join(in_node)
                                             leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
-                                            
                                             if leaf_shape != '?':
                                                 inp_with_shape.extend(leaf_shape)
                                             else:
                                                 inp_with_shape.extend(['(?)'])
-                                                print('Attention: this node is referenced as input in timeline_label but is absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 6')
-
-                                  
+                                                print('*** Missing data *** node referenced as input in timeline_label but absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 6')
                         if len(inp_with_shape) == 0: # if all inputs where control nodes
                             device_dict[k][0] = ['(no input)']
                         else:
-                            # replace names of inputs with shapes found
-                            device_dict[k][0] = inp_with_shape # ref correct?
-                 
-                    break # since other non replica will not have input names at all
-                    
-      
-        """
-        filename_ops_metadata = self.temp_path + "before consolidation"+str(time.time())+".tsv"
-        file_ops_metadata = open(filename_ops_metadata,'w')
+                            # replace names of inputs with shapes
+                            # TODO: also probably check if ref is correct
+                            device_dict[k][0] = inp_with_shape                    
+                    # we done, since another (non-replica) streams will not have input names at all:
+                    break 
 
-
-        for k,v in sess_node_dict_out_raw.items():
-            
-            op_per_device = []
-        
-            dev_dict = v[1]
-            for dev, op_data in dev_dict.items():
-                op_per_device.append(dev)
-                op_per_device.append(op_data)
-            line_out = [k, v[0], op_per_device]
-            file_ops_metadata.write('\t'.join([str(p) for p in line_out]))
-            file_ops_metadata.write('\n')
-            
-        file_ops_metadata.close()
-        """
-
-        result_dict = self.consolidate_node_data(sess_node_dict_out_raw)
-       
-        return result_dict
+        return sess_node_dict_out_raw
             
 
-    def fill_raw_data(self, step_stats, current_raw_nodes):
-    
-        # save RunMetadata from session
-        #tf.train.write_graph(step_stats, self.temp_path, 'metadata_'+str(time.time()) +'.txt')
+    def process_step_stats(self, step_stats, current_raw_nodes):
+        # extract [op name, device, time (op start, end, all end), output size ]
+        # for memcpy, output size is extracted from timeline_label
         
         all_current_raw_nodes = []
         
@@ -684,47 +667,47 @@ class Tensorscope(object):
         mem_nodes_hcc  = ['hcMemcpyDeviceToHost', 'hcMemcpyHostToDevice', 'hcMemcpyDeviceToDevice', 'hcMemcpyHostToHost']    
         mem_nodes.extend(mem_nodes_hcc)
         
+        # map data type id in RunMetadata to type name (as defined in tensorflow/core/framework/types.proto)
+        tensor_data_types = { '0':'invalid',      '1':'float',            '2':'double',           '3':'int32',            '4':'uint8', 
+                              '5':'int16',        '6':'int8',             '7':'string',           '8':'complex64',        '9':'int64', 
+                              '10':'boolean',     '11':'qint8',           '12':'quint8',         '13':'qint32',           '14':'bfloat16',
+                              '15':'qint16',      '16':'quint16',         '17':'uint16',         '18':'complex128',       '19':'half',
+                              '20':'tf_resource', '21':'variant',         '22':'uint32',         '23':'uint64',           '101':'float_ref',
+                              '102':'double_ref', '103':'int32_ref',      '104':'uint8_ref',    '105':'int16_ref',        '106':'int8_ref',
+                              '107':'string_ref', '108':'complex64_ref',  '109':'int64_ref',    '110':'bool_ref',         '111':'qint8_ref',
+                              '112':'quint8_ref', '113':'qint32_ref',     '114':'bfloat16_ref', '115':'qint16_ref',       '116':'quint16_ref',
+                              '117':'uint16_ref', '118':'complex128_ref', '119':'half_ref',     '120':'tf_resource_ref',  '121':'variant_ref',
+                              '122':'uint32_ref', '123':'uint64_ref'}
+                              
+
         for dev_stats in step_stats.dev_stats:
             for node_stat in dev_stats.node_stats:
-            
                 output_shapes_list = []
                 if node_stat.output:
-                    for (i, node_stat_out) in enumerate(node_stat.output):
-                        
+                    for (i, node_stat_out) in enumerate(node_stat.output):    
                         node_stat_dims = node_stat_out.tensor_description.shape.dim
-
                         valid_tensor_shapes = [str(d.size) for d in node_stat_dims if (d.size and str(d.size)!='')]
                         if len(valid_tensor_shapes) == 1:
                             valid_tensor_shapes.append('1')
-                        
                         tensor_shape_result = 'x'.join(valid_tensor_shapes)
-
                         if tensor_shape_result=='':
                             tensor_shape_result = '1x1'
-
-                        # prepend data type if it is not 32b float
+                        # add data type name (if it is not 32b float)
                         if node_stat_out.tensor_description.dtype != 1:
                             # convert int description to data type name
-                            tensor_data_type = TensorDataType(node_stat_out.tensor_description.dtype)
-                            result_shape_with_type = tensor_data_type.name + ' ' + tensor_shape_result
+                            result_shape_with_type = tensor_data_types[str(node_stat_out.tensor_description.dtype)] + ' ' + tensor_shape_result
                         else:
                             result_shape_with_type = tensor_shape_result
-                        
                         if result_shape_with_type=='':
                             result_shape_with_type = '? unknown type'
-                        
                         if node_stat_out.slot:
                             output_shapes_list.append('('+result_shape_with_type+' slot ' + str(node_stat_out.slot) + ' slot ' +')')
                         else:
                             output_shapes_list.append('('+result_shape_with_type+')')
                 else:
-                
                     if node_stat.timeline_label:
-                    
                         lb = node_stat.timeline_label
                         mem_cand = lb.split(' ')[0]
-                        
-                        
                         if mem_cand in mem_nodes:
                             memsz = node_stat.timeline_label.split(' ')
                             output_shapes_list.append('(' + memsz[1]+' bytes)')
@@ -733,127 +716,271 @@ class Tensorscope(object):
                     else:
                         output_shapes_list.append('(no output)')
                         
-                output_shapes = output_shapes_list#''.join(output_shapes_list) 
-                all_current_raw_nodes.append([node_stat.node_name, dev_stats.device, node_stat.op_start_rel_micros, node_stat.op_end_rel_micros, node_stat.all_end_rel_micros, output_shapes, node_stat.timeline_label])
+                all_current_raw_nodes.append([node_stat.node_name, dev_stats.device, node_stat.op_start_rel_micros, node_stat.op_end_rel_micros, node_stat.all_end_rel_micros, output_shapes_list, node_stat.timeline_label])
         
-                
         self.current_raw_nodes = all_current_raw_nodes      
         self.node_list_all_sessions.extend(all_current_raw_nodes)
+   
         
-        # save unaggregated data from each session
-        """
-        filename_ops_metadata = self.temp_path + "node_list_one_session_"+str(time.time())+".tsv"
-        file_ops_metadata = open(filename_ops_metadata,'w')
-        sorted_all_node_names = sorted(all_current_raw_nodes)
-        for opname in sorted_all_node_names:
-            file_ops_metadata.write('\t'.join([str(p) for p in opname]))
-            file_ops_metadata.write('\n')
+    # TODO: may be used later, for adding workarounds for missing nodes in hipTensorFlow
+    """
+    def make_generic_node_name(self, name_from_metadata):
+        current_node_path_parts = name_from_metadata.split('/')
+        for i, node in enumerate(current_node_path_parts):
+            node_loc = node+''
+            node_loc = node_loc.split(':')
+            for j, nd in enumerate(node_loc):
+                nd = nd.split('_')  
+                nd = [n if not n.isdigit() else 'numberN'  for n in nd ]
+                node_loc[j] = '_'.join(nd)
+            node_loc = ':'.join(node_loc)
+            current_node_path_parts[i] = node_loc
             
-        file_ops_metadata.close()
-        """
-       
- 
+        return '/'.join(current_node_path_parts)
+    """
+    
+    
     def print_distribution_summary(self, sorted_times, denom_const):
-        # Distribution of time among top k ops
+        # Distribution of time among Top-k ops (op type + io tensor shape + device)
         # Value of k is equally spaced in log10
-        
         num_unique_ops = len(sorted_times)
-        k_values = np.round(np.power(10, np.linspace(0, np.log10(num_unique_ops), num=10, endpoint=True)).astype(np.double))
-        top_k_time = np.zeros(len(k_values))
-        
-        bin_count = 0
-        op_count = 0
-        total_ops_time = 0
-           
-        for op_name, op_time in sorted_times:
-          op_count = op_count + 1
-          total_ops_time = total_ops_time + op_time[0]
-          
-          if op_count >= k_values[bin_count]:
-            top_k_time[bin_count] = total_ops_time
-            bin_count = bin_count + 1
-            
-        for k_count in range(len(top_k_time)):
-          print("Top-%d ops (%.1f%%)\t%.1f ms (%.1f%%)" % (k_values[k_count], 100*k_values[k_count]/float(num_unique_ops),
-                top_k_time[k_count]/(1000*self.num_steps_analyzed),
-                top_k_time[k_count]/denom_const))
+        if num_unique_ops < 1:
+            print("No ops data found. See data dump to debug - set self.debug_dump_step from -1 to self.step_to_save_timeline_at")
+            sys.exit(0)
+        else:       
+            k_values = np.round(np.power(10, np.linspace(0, np.log10(num_unique_ops), num=10, endpoint=True)).astype(np.double))
+            top_k_time = np.zeros(len(k_values))
+            bin_count = 0
+            op_count = 0
+            total_ops_time = 0
+            for op_name, op_time in sorted_times:
+              op_count = op_count + 1
+              total_ops_time = total_ops_time + op_time[0]
+              
+              if op_count >= k_values[bin_count]:
+                top_k_time[bin_count] = total_ops_time
+                bin_count = bin_count + 1
+                
+            for k_count in range(len(top_k_time)):
+              print("Top-%d\t(%.1f%% of all ops):\t%.1f ms(%.1f%% of all time)" % (k_values[k_count], 100*k_values[k_count]/float(num_unique_ops),
+                    top_k_time[k_count]/(1000*self.num_steps_analyzed),
+                    top_k_time[k_count]/denom_const))
                         
                         
     def metadata(self):
-
-          self.session_start_time = time.time()
-          self.current_session += 1
+          # For session-based setups (without SessionRunHook) we need to increment number of steps here.
+          # For estimator API with SessionRunHook, increment is done at the end of before_run()
+          self.current_step_start_time = time.time()
+          self.current_step += 1
           self.session_metadata = tf.RunMetadata()
           return self.session_metadata
  
  
     def save_timeline(self):
-    
         _timeline = timeline.Timeline(self.session_metadata.step_stats)
         _chrome_trace = _timeline.generate_chrome_trace_format(show_memory=True)
 
-        _timeline_file_name = self.temp_path + "timeline_at_step_%d.json" % (self.current_session) #str(time.time())[:10]      
+        _timeline_file_name = self.temp_path + "timeline_at_step_%d.json" % self.current_step 
         with open(_timeline_file_name,'w') as _timeline_file:
-            _timeline_file.write(_chrome_trace) 
-            print('Timeline saved in', _timeline_file.name)
-   
-   
-    def show_results(self, tsv_file_name_for_chart):
-  
-        # immediatly break outside loop of training/inference
-        sys.exit(0)
-         
+            _timeline_file.write(_chrome_trace)
+            tf.logging.info('Timeline saved in %s', _timeline_file.name)
     
-    def generate_results(self):
-       
-        # op_end timings
-        #sorted_times = ( (key, value) for key, value in sorted(self.profiling_result.items(), key=lambda x: list(x[1])[4], reverse=True))
-        
-        # all_end timings
-        sorted_times = ( (key, value) for key, value in sorted(self.profiling_result.items(), key=lambda x: list(x[1])[5], reverse=True))
-        
-        sorted_times = list(sorted_times)
+    def compare_systems(self, data_file_1, data_file_2, result_file, unmatched_ops_file):
  
+        tsv_file_obj_1 = open(data_file_1,'r')
+        tsv_file_obj_2 = open(data_file_2,'r')
+        tsv_file_obj_result = open(result_file,'w')
+        tsv_file_obj_unmatched = open(unmatched_ops_file,'w')
+        
+        tsv_file_writer = csv.writer(tsv_file_obj_result, delimiter='\t')
+        tsv_file_writer_unmatched = csv.writer(tsv_file_obj_unmatched, delimiter='\t')
+    
+        header_tsv = ['Op', 'System_1 time per call', 'System_2 time per call', 'Ratio (per occurence)', 'System_1 total op time', 
+        'System_2 total op time', 'Ratio (per all calls)', 'System_1 occurence', 'System_2 occurence', 'Occurence Ratio', 
+        'System1 cumulative time', 'System1 % of total time ', 'System1 cumulative % of total time ',
+        'System2 cumulative time', 'System2 % of total time ', 'System2 cumulative % of total time ']
+        
+        header_tsv_unmatched = ['System number', 'Op rank by total time', 'Time of 1 call, microseconds', 'Number of calls in 1 run', 'Total time in 1 run',
+                      '% of total time', 'Cumulative time, microseconds', '% of total cumulative time',
+                      '(FL)OP estimation', 'GFLOP/S achieved',
+                      'Op name', 'Device', 'Input/output tensors']
+                      
+        tsv_file_writer.writerow(header_tsv)
+        tsv_file_writer_unmatched.writerow(header_tsv_unmatched)
+        
+        sys1_op_dict = {}
+        sys2_op_dict = {}
+        
+        sys_op_intersection_dict = {}
+        sys_op_difference_dict = {}
+        
+        sys1 = tsv_file_obj_1.readlines()
+        sys2 = tsv_file_obj_2.readlines()
+ 
+        sys1 = sys1[1:]
+        sys2 = sys2[1:]
+ 
+        sys1 = [p.strip() for p in sys1] 
+        sys2 = [p.strip() for p in sys2]
+        
+        for p in sys1:
+            p_parts = p.split('\t')
+            p_parts = [p1.strip() for p1 in p_parts] 
+            unique_op_description = '@'.join(p_parts[-3:])
+            # op, time 1 call, occ, total time, % of available step time, 
+            sys1_op_dict[unique_op_description] = [p_parts, p_parts[1], p_parts[2], p_parts[3]]
+             
+        for p in sys2:
+            p_parts = p.split('\t')
+            p_parts = [p1.strip() for p1 in p_parts] 
+            unique_op_description = '@'.join(p_parts[-3:])
+            # op, time 1 call, occ, total time, % of available step time, 
+            sys2_op_dict[unique_op_description] = [p_parts, p_parts[1], p_parts[2], p_parts[3]]
+             
+        for k,v in sys1_op_dict.items():
+            if k in sys2_op_dict:
+                sys2_row = sys2_op_dict[k]
+                sys_op_intersection_dict[k] = [k, v[1], sys2_row[1], float(v[1])/float(sys2_row[1]), v[3], sys2_row[3], float(v[3])/float(sys2_row[3]), v[2], sys2_row[2], float(v[2])/float(sys2_row[2])]
+        
+        missing_in_1 = list(set(sys2_op_dict.keys())-set(sys1_op_dict.keys()))
+        missing_in_2 = list(set(sys1_op_dict.keys())-set(sys2_op_dict.keys()))
+        
+        for k in missing_in_1:
+            sys1_row = ['System 1']
+            sys1_row.extend(sys2_op_dict[k][0])
+            tsv_file_writer_unmatched.writerow(sys1_row)
+            
+        for k in missing_in_2:
+            sys2_row = ['System 2']
+            sys2_row.extend(sys1_op_dict[k][0])
+            tsv_file_writer_unmatched.writerow(sys2_row)
+        
+        tsv_file_obj_unmatched.close()
+        
+        # sort ops by total time in sys1
+        sorted_times = ( (key, value) for key, value in sorted(sys_op_intersection_dict.items(), key=lambda x: float(list(x[1])[4]), reverse=True))
+        sorted_times = list(sorted_times)
+        
+        # add cumulative stats to find cut offs for the ops to optimize
+        fin_sorted_times = []
+        total_time_sys1 = 0
+        total_time_sys2 = 0
+        
+        for k,v in sorted_times:
+           total_time_sys1 += float(v[4])
+           total_time_sys2 += float(v[5])
+        
+        # absolute total time, cumulative total time, absolute total time percentage, cumultative total time percentage
+        stats1 = [0, 0, 0, 0]
+        stats2 = [0, 0, 0, 0]
+        
+        for k,v in sorted_times:
+            # v contains ['Op', 'System_1 time per call', 'System_2 time per call', 'Ratio (per occurence)', 'System_1 total op time', 
+            #              'System_2 total op time', 'Ratio (per all calls)', 'System_1 occurence', 'System_2 occurence', 'Occurence Ratio']
+            t1 = float(v[4])
+            t2 = float(v[5])
+            
+            stats1 = [t1, stats1[1] + t1, t1/total_time_sys1, stats1[3] + t1/total_time_sys1]
+            stats2 = [t2, stats2[1] + t2, t2/total_time_sys2, stats2[3] + t2/total_time_sys2]
+          
+            v.extend(stats1[1:])
+            v.extend(stats2[1:])
+            
+            fin_sorted_times.append((k,v))
+        
+        for op_name, op_time in sorted_times:
+            tsv_file_obj_result.write('\t'.join([str(p) for p in op_time]))
+            tsv_file_obj_result.write('\n') 
+              
+        tsv_file_obj_result.close()
+        
+        
+    def generate_results(self): 
+
+        # if op time is calculated as all_end_rel - 0
+        sorted_times = ( (key, value) for key, value in sorted(self.profiling_result.items(), key=lambda x: list(x[1])[5], reverse=True))
+      
+        # if op time is calculated as op_end_rel - op_start_rel 
+        #sorted_times = ( (key, value) for key, value in sorted(self.profiling_result.items(), key=lambda x: list(x[1])[4], reverse=True))
+         
+        sorted_times = list(sorted_times)
+        
+        # if requested, dump sorted results before grouping by type + io shapes + device
+        if self.debug_dump_step > 0:
+            filename_ops_metadata = self.temp_path + "debug_7_all_sessions_profiling_result.tsv"
+            file_ops_metadata = open(filename_ops_metadata,'w')
+
+            for op_name, op_time in sorted_times:
+                file_ops_metadata.write('\t'.join([str(p) for p in op_time]))
+                file_ops_metadata.write('\t')
+                file_ops_metadata.write(op_name)
+                file_ops_metadata.write('\n') 
+            file_ops_metadata.close()
+                    
+
+        """
+        # if requested, dump sorted results before grouping by type + io shapes + device
+        if self.debug_dump_step > 0:
+            filename_ops_metadata = self.temp_path + "data_extracted.tsv"
+            file_ops_metadata = open(filename_ops_metadata,'w')
+            
+            header_data_extracted = ['Op', 'Total Time', 'Occurence', 'Time of 1 call', 'Tensor Shapes', Path in model', 'Time of 1 call, microseconds', 'Number of calls in 1 run', 'Total time in 1 run', '% of total time', 'Cumulative time, microseconds', '% of total cumulative time', 'Op name', 'Device', 'Input/output tensors']
+            
+            for op_key, op_data in sorted_times:
+                file_ops_metadata.write('\t'.join([str(op_data[1]), str(op_data[6]), str(op_data[0]), str(op_data[2]), str(op_data[5]), str(op_data[3]), str(op_data[4]), str(op_data) ]))
+                file_ops_metadata.write('\n') 
+            file_ops_metadata.close()
+        """                        
+                    
         total_ops_time = 0.0
         num_unique_ops = len(sorted_times)
         for op_name, op_time in sorted_times:
-          # op_end timings
-          #total_ops_time = total_ops_time + op_time[4]
-          # all_end timings
+          # if op time is calculated as all_end_rel - 0
           total_ops_time = total_ops_time + op_time[5]
+          
+          # if op time is calculated as op_end_rel - op_start_rel 
+          #total_ops_time = total_ops_time + op_time[4]
                 
         mean_time_per_step = float(self.total_time_analyzed)/self.num_steps_analyzed
         mean_all_ops_time_per_step = float(total_ops_time)/self.num_steps_analyzed
-        denom_const = 0.01*self.num_steps_analyzed*mean_all_ops_time_per_step
 
-        #print("\nSanity check: total time for %d steps: %.3f sec., 1 step avg. time:  %.1f microsec., 1 step avg. time captured in metadata: %.1f microsec., number of unique ops: %d" % 
-        #    (self.num_steps_analyzed, self.total_time_analyzed, 1000000.0*mean_time_per_step, mean_all_ops_time_per_step, num_unique_ops))
-        
-        # *** extract tensor shapes, create input file for chart generation ***
-        
-        # this is where we store timings of ops grouped by device+op_type+tensors
+        print("\nSanity check before aggregation:\n total wall time for %d steps: \t\t %.3f sec. (%.6f sec./batch) \n op time extracted from RunMetadata: \t %.3f sec. (%.6f sec./batch) \n number of ops: %d" % 
+            (self.num_steps_analyzed, self.total_time_analyzed, mean_time_per_step, total_ops_time/1000000.0, mean_all_ops_time_per_step/1000000.0, num_unique_ops))
+               
+        # Extract tensor shapes, create input file for chart generation
+        # timings grouped by device + op_type + i/o tensors
         results_for_op_device_shape = {}
-        
         op_count = 0
         cumul_time = 0.0
         
-        # prepare files for saving results
+        # create files for saving results
         tsv_file_name = self.temp_path + "data.tsv"
         tsv_file_name_for_chart = self.temp_path + "data_for_pie_chart.tsv"
         
         tsv_file_obj = open(tsv_file_name,'w')
         tsv_file_obj_for_chart = open(tsv_file_name_for_chart,'w')
-
+        
         tsv_file_writer = csv.writer(tsv_file_obj, delimiter='\t')
         tsv_file_writer_for_chart = csv.writer(tsv_file_obj_for_chart, delimiter='\t')
 
-        header_tsv = ['Op rank by total time', 'Time of 1 call, microseconds', 'Number of calls in 1 run', 'Total time in 1 run', '% of total time', 'Cumulative time, microseconds', '% of total cumulative time', 'Op name', 'Device', 'Input/output tensors']
+        header_tsv = ['Op rank by total time', 'Time of 1 call, microseconds', 'Number of calls in 1 run', 'Total time in 1 run',
+                      '% of total time', 'Cumulative time, microseconds', '% of total cumulative time',
+                      '(FL)OP estimation', 'GFLOP/S achieved',
+                      'Op name', 'Device', 'Input/output tensors']
+                      
         header_tsv_for_chart = ['Node','Time']
 
         tsv_file_writer.writerow(header_tsv)
         tsv_file_writer_for_chart.writerow(header_tsv_for_chart)
-        
-        
+
+        """
+        compare_to_other_system = False
+        if compare_to_other_system:
+            tsv_file_obj_other_system = open(self.temp_path + "data_for_pie_chart_2.tsv",'r')
+            other_system_results = tsv_file_obj_other_system.readlines()
+            other_system_results = [p.strip() for p in other_system_results]
+        """
+         
         # finalize data for the chart
         for times_key, times_value in sorted_times:
  
@@ -863,56 +990,109 @@ class Tensorscope(object):
               no_spl_res = [p for p in spl if not p.isdigit()]
               times_value[6] = ''.join(no_spl_res)
           
-          opname_short = times_value[1]
+          
           shape_str = times_value[6]
             
-          num_calls_all_runs =  max(times_value[7],times_value[8],times_value[9])
-          num_calls_per_run =  (num_calls_all_runs/float(self.num_steps_analyzed))#int(times_value[1]/self.num_steps_analyzed)
+          num_calls_all_steps =  max(times_value[7],times_value[8],times_value[9])
           
-          # rounding fix 99/100
-          if num_calls_per_run == 0:
-              num_calls_per_run = 1
-
+          #num_calls_per_step should be float to spot ops that do not run in every session, as could be expected
+          num_calls_per_step =  (num_calls_all_steps/float(self.num_steps_analyzed))
           op_time_all_runs = times_value[5]
+          num_flops_per_step = -1
+          times_key_part = times_key.split('@')
+          times_key_part = times_key_part[0]
+          if times_key_part in self.available_flops_estimate:
+              num_flops_per_step = self.available_flops_estimate[times_key_part]
+          #else:
+          #    print(times_key_part, 'not in RegisterStatistics(flops)')
           
-
-          # keep in mind that same nodes will likely have different io shapes between session for models like nmt (seq2seq, lstm)
-          # alternatively, don't divide total time by number of session runs, to get actual time spent in each op
+          
+          # For RNN models nodes in graph may have different io shapes between sessions.
+          # To get actual time spent in each op, don't divide total time by number of session runs.
+          # op_time_per_run_microsec = op_time_all_runs
+          
           op_time_per_run_microsec = op_time_all_runs/(float(self.num_steps_analyzed))
-          #op_time_per_run_microsec = op_time_all_runs 
-           
-          op_time_per_call_microsec = op_time_per_run_microsec/float(num_calls_per_run)
           
           cumul_time += op_time_per_run_microsec
           op_count = op_count + 1
                    
+          opname_short = times_value[1]
+          
           opname_for_summation = '/'.join([opname_short, times_value[2], times_value[6]]) # op, device, i/o shapes
           #opname_for_summation = opname_for_summation[0].upper() + opname_for_summation[1:]
            
           if opname_for_summation in results_for_op_device_shape:
-              prev_val = results_for_op_device_shape[opname_for_summation] 
-              results_for_op_device_shape[opname_for_summation] = [prev_val[0] + op_time_all_runs, prev_val[1] + num_calls_all_runs]
+              prev_val = results_for_op_device_shape[opname_for_summation]
+              flops_est = num_flops_per_step
+              if prev_val[2] > 0 and num_flops_per_step > 0:
+                  if (prev_val[2] - flops_est) > 0.1:
+                      print('Warning: varying estimates for flops found for the same opname_for_summation: ', opname_for_summation, times_key, prev_val[2], flops_est)
+                      flops_est = max(flops_est, prev_val[2])  
+              results_for_op_device_shape[opname_for_summation] = [prev_val[0] + op_time_all_runs, prev_val[1] + num_calls_all_steps, flops_est]
           else:
-              results_for_op_device_shape[opname_for_summation] = [op_time_all_runs, num_calls_all_runs]
+              results_for_op_device_shape[opname_for_summation] = [op_time_all_runs, num_calls_all_steps, num_flops_per_step]
 
-          current_row_output_for_chart_tsv = [op_time_per_run_microsec, times_value[2], opname_short]#, times_value[0]]
+          current_row_output_for_chart_tsv = [op_time_per_run_microsec, times_value[2], opname_short]
           chart_nodes = times_value[0].split('/')
           current_row_output_for_chart_tsv.extend(chart_nodes[:-1])
-          current_row_output_for_chart_tsv.append(times_value[6])  
-          tsv_file_writer_for_chart.writerow(current_row_output_for_chart_tsv)
+          current_row_output_for_chart_tsv.append(times_value[6])
           
+          if num_flops_per_step > 0:
+              current_row_output_for_chart_tsv.insert(3, ('%.1f' % (num_flops_per_step/op_time_per_run_microsec/1000000.0)) +' TFLOPS' )
+          else:
+              current_row_output_for_chart_tsv.insert(3, ' ')
+                       
+         
+          # suppress long op paths
+          current_row_output_for_chart_tsv = [current_row_output_for_chart_tsv[0], current_row_output_for_chart_tsv[1], current_row_output_for_chart_tsv[2], current_row_output_for_chart_tsv[3],  current_row_output_for_chart_tsv[-1]]
+          
+          # suppress 'rays' of io shapes on a chart
+          current_row_output_for_chart_tsv.append(' ')
+          # suppress displaying device number
+          
+          del current_row_output_for_chart_tsv[1]
+          
+          """
+          if compare_to_other_system:
+              current_row_output_for_chart_tsv.insert(-1, 'red')
+              temp1 = current_row_output_for_chart_tsv[2]
+              del  current_row_output_for_chart_tsv[2]
+              current_row_output_for_chart_tsv.insert(-1, temp1)
+          """
+              
+          tsv_file_writer_for_chart.writerow(current_row_output_for_chart_tsv)
+ 
+        """
+        if compare_to_other_system:
+            for p in other_system_results[1:]:
+                other_row = p.split('\t')
+                other_row.insert(-1, 'green')
+                temp1 = other_row[2]
+                del other_row[2]
+                other_row.insert(-1, temp1)
+                tsv_file_writer_for_chart.writerow(other_row)
+        """
         tsv_file_obj_for_chart.close()
         
-        # finalize stats for op+params+device 
+        # finalize stats for op+params+device
         fin_sorted_times = ( (key, value) for key, value in sorted(results_for_op_device_shape.items(), key=lambda x: list(x[1])[0], reverse=True))
-        sorted_times = list(fin_sorted_times)
+        fin_sorted_times = list(fin_sorted_times)
         
+        # if requested, dump sorted results before grouping by type + io shapes + device
+        if self.debug_dump_step > 0:
+            filename_ops_metadata = self.temp_path + "debug_8_results_dict.tsv"
+            file_ops_metadata = open(filename_ops_metadata,'w')
+            for opdata in fin_sorted_times:
+                file_ops_metadata.write('\t'.join([str(p) for p in opdata]))
+                file_ops_metadata.write('\n') 
+            file_ops_metadata.close()    
+            
         total_ops_time = 0
         op_count = 0
         cumul_time = 0.0
 
-        num_unique_ops = len(sorted_times)
-        for op_name, op_time in sorted_times:
+        num_unique_ops = len(fin_sorted_times)
+        for op_name, op_time in fin_sorted_times:
           op_count = op_count + 1
           total_ops_time = total_ops_time + op_time[0]
 
@@ -920,190 +1100,244 @@ class Tensorscope(object):
         mean_all_ops_time_per_step = float(total_ops_time)/self.num_steps_analyzed  
         denom_const = 0.01*self.num_steps_analyzed*mean_all_ops_time_per_step
 
-        print("\nSanity check: total time for %d steps: %.3f sec., 1 step avg. time:  %.1f microsec., 1 step avg. time captured in metadata: %.1f microsec., number of unique ops: %d" % 
-            (self.num_steps_analyzed, self.total_time_analyzed, 1000000.0*mean_time_per_step, mean_all_ops_time_per_step, num_unique_ops))
-
+        print("\nSanity check after aggregation:\n total wall time for %d steps: \t\t %.3f sec. (%.6f sec./batch) \n op time extracted from RunMetadata: \t %.3f sec. (%.6f sec./batch) \n number of unique ops: %d" % 
+            (self.num_steps_analyzed, self.total_time_analyzed, mean_time_per_step, total_ops_time/1000000.0, mean_all_ops_time_per_step/1000000.0, num_unique_ops))
+            
         op_rank = 0
-        for times_key, times_value in sorted_times:
-          num_calls_all_runs =  times_value[1]
-          num_calls_per_run =  (times_value[1]/float(self.num_steps_analyzed)) #int
-          
-          # rounding fix 99/100
-          if num_calls_per_run == 0:
-              num_calls_per_run = 1
-
+        for times_key, times_value in fin_sorted_times:
+          num_calls_all_steps =  times_value[1]
+          num_calls_per_step =  (times_value[1]/float(self.num_steps_analyzed)) #not int but float (to highlight ops that are not run in every session)
           op_time_all_runs = times_value[0]
-          op_time_per_run_microsec = op_time_all_runs/float(self.num_steps_analyzed)
-          op_time_per_call_microsec = op_time_per_run_microsec/float(num_calls_per_run)
           
+          # For RNN models nodes in graph may have different io shapes between sessions.
+          # To get actual time spent in each op, don't divide total time by number of session runs.
+          # op_time_per_run_microsec = op_time_all_runs
+          op_time_per_run_microsec = op_time_all_runs/float(self.num_steps_analyzed)
+          
+          op_time_per_call_microsec = op_time_per_run_microsec/float(num_calls_per_step)
           cumul_time += op_time_per_run_microsec
           op_rank = op_rank + 1
-                   
+          
+          gflops1 = float((times_value[2] if times_value[2] > 0 else 0))
+          
+          gflops = gflops1/float(op_time_per_call_microsec)
+          gflops/=1000.0 #(because op time is not in seconds but in microseconds)
+          
           current_row_output = [op_rank, 
                                 "%9.1f" % op_time_per_call_microsec,
-                                "%9.1f" % num_calls_per_run, #%d
+                                "%9.1f" % num_calls_per_step,
                                 "%9.1f" % (op_time_per_run_microsec),
                                 "%9.1f" % (100*op_time_all_runs/float(total_ops_time)),
                                 "%9.1f" % (cumul_time),
-                                "%9.1f" % (100*cumul_time/mean_all_ops_time_per_step)]
-                                
+                                "%9.1f" % (100*cumul_time/mean_all_ops_time_per_step),
+                                "%9.0f" % (num_calls_per_step*times_value[2] if times_value[2] > 0 else 0),
+                                "%9.3f" % gflops]
+                                                
           nodepathparts = times_key.split('/')                                 
           current_row_output.extend(nodepathparts)
           tsv_file_writer.writerow(current_row_output)
 
         tsv_file_obj.close()
 
-        print('\n*** Brief summary ***\n')
-        self.print_distribution_summary(sorted_times, denom_const)
-        print('\n*** I/O tensor shapes are saved to %s ***\n' % tsv_file_name)
-       
-        self.show_results(tsv_file_name_for_chart)
+        print('\n\n*** Top-K ops vs total time ***\n')
+        self.print_distribution_summary(fin_sorted_times, denom_const)
+        print("\n*** See data.tsv, pie_chart.html for details ***\n")
+        
+        if os.path.exists(self.temp_path + "data_from_another_system.tsv"):
+            self.compare_systems(self.temp_path + "data.tsv",
+                                 self.temp_path + "data_from_another_system.tsv",
+                                 self.temp_path + "data_compared.tsv",
+                                 self.temp_path + "data_unmatched_ops.tsv")
+            
+        # session should be closed by now
+        sys.exit(0)
         
             
-    def characterize_model(self, graph=tf.get_default_graph()):
-    
+    def characterize_model(self, graph=tf.get_default_graph()): 
         if not graph:
             print("session is None, exiting.")
             sys.exit()
-        else:
-            assert self.session.graph is graph
-            self.model_graph = graph
-         
-        if self.session_metadata is not None:
-            
-            # assuming that the default graph is the one of interest
-            #self.model_graph = agraph#tf.get_default_graph()
-            self.current_session_time = time.time() - self.session_start_time 
-                    
-            # skip two first and two last session runs
-            if self.current_session > 1 and self.current_session < (self.total_num_sessions - 2) : 
-                self.total_time_analyzed += self.current_session_time
-                self.num_steps_analyzed += 1
-                
-                if True:
-                    parsing_start_time = time.time()
-                    
-                    self.fill_raw_data(self.session_metadata.step_stats, self.current_raw_nodes)#input_names, output_shapes):
-                    self.sess_node_dict_out = self.aggregate_session_by_node_path(self.current_raw_nodes)
-                     
-                    # save raw data
-                    """
-                    filename_ops_metadata = self.temp_path + "final_session_"+str(time.time())+".tsv"
-                    file_ops_metadata = open(filename_ops_metadata,'w')
+        
+        if not self.session.graph is graph:
+            print("self.session.graph is not graph, exiting.")
+            sys.exit()
+        
+        if not self.flops_retrieved:
+            tot_ops_num = 0
+            flops_calc = 0
+            total_flops = 0
+            for op in graph.get_operations():
+                flops = -1
+                tot_ops_num +=1
+                try:
+                    flops = ops.get_stats_for_node_def(graph, op.node_def, "flops").value
+                    if flops is not None:
+                        flops_calc+=1
+                        total_flops+=flops
+                        self.available_flops_estimate[op.node_def.name] = flops
+                except Exception as e: 
+                    continue  
 
+            print('total ops: ', tot_ops_num)
+            print('num nodes with flops available: ', flops_calc)  
+            print('total GFlops: ', total_flops/1000000000)  
+            self.flops_retrieved = True
+
+        
+        if self.session_metadata is not None:
+            self.current_step_time = time.time() - self.current_step_start_time 
+            
+            if self.current_step <= self.num_steps_to_warm_up:
+                tf.logging.info('Warm-up step %d/%d completed in %4.4f seconds.',
+                        self.current_step,self.num_steps_to_warm_up, self.current_step_time)
+            else:                       
+                self.total_time_analyzed += self.current_step_time
+                self.num_steps_analyzed += 1
+                parsing_start_time = time.time()
+                
+                # if requested, dump raw data for debug
+                if self.debug_dump_step == self.current_step:
+                    with open(os.path.join(self.temp_path,'debug_1_RunMetadata.txt'),'w') as f:
+                        f.write(str(self.session_metadata))
                     
+                    with open(os.path.join(self.temp_path,'debug_1_RunMetadata_step_stats.txt'),'w') as f:
+                        f.write(str(self.session_metadata.step_stats))
+                    
+                    if hasattr(self.session_metadata, 'partition_graphs'):
+                        pg_count = 0
+                        for pg in self.session_metadata.partition_graphs:
+                            tf.train.write_graph(pg, self.temp_path,'debug_1_RunMetadata_partition_graph_' + str(pg_count) + '.txt')
+                            pg_count+=1
+
+                self.process_step_stats(self.session_metadata.step_stats, self.current_raw_nodes)
+                
+                # if requested, dump extracted nodes from RunMetadata.step_stats
+                if self.debug_dump_step == self.current_step:
+                    filename_ops_metadata = self.temp_path + "debug_2_nodes_after_process_step_stats.tsv"
+                    file_ops_metadata = open(filename_ops_metadata,'w')
+                    sorted_all_node_names = sorted(self.current_raw_nodes)
+                    for opname in sorted_all_node_names:
+                        file_ops_metadata.write('\t'.join([str(p) for p in opname]))
+                        file_ops_metadata.write('\n') 
+                    file_ops_metadata.close()
+            
+                extracted_session_data = self.extract_session_data(self.current_raw_nodes)
+                    
+                # if requested, dump consolidated results for verification
+                if self.debug_dump_step == self.current_step:
+                    filename_ops_metadata = self.temp_path + "debug_3_nodes_after_extract_session_data.tsv"
+                    file_ops_metadata = open(filename_ops_metadata,'w')
+                    for k, v in extracted_session_data.items():
+                        file_ops_metadata.write(k)
+                        file_ops_metadata.write('\t')
+                        file_ops_metadata.write(v[0])
+                        file_ops_metadata.write('\t')
+                        file_ops_metadata.write(str(v[1]))
+                        file_ops_metadata.write('\n')
+                    file_ops_metadata.close()
+                    
+                self.sess_node_dict_out = self.aggregate_node_data(extracted_session_data)
+                
+                # if requested, dump consolidated results for verification
+                if self.debug_dump_step == self.current_step:
+                    filename_ops_metadata = self.temp_path + "debug_4_current_step_profiling_result.tsv"
+                    file_ops_metadata = open(filename_ops_metadata,'w')
                     for k,v in self.sess_node_dict_out.items():
+                        file_ops_metadata.write(k)
+                        file_ops_metadata.write('\t')
                         file_ops_metadata.write('\t'.join([str(p) for p in v]))
                         file_ops_metadata.write('\n')
-                        
                     file_ops_metadata.close()
-                    """
                     
-                    # aggregate by type + parameters + device
-                    if not self.profiling_result:
-                        self.profiling_result = self.sess_node_dict_out.copy()
-                    else:
-                        for k,v in self.sess_node_dict_out.items():
-                            if k in self.profiling_result:
-                                self.profiling_result[k][3] = self.profiling_result[k][3] + v[3]
-                                self.profiling_result[k][4] = self.profiling_result[k][4] + v[4]
-                                self.profiling_result[k][5] = self.profiling_result[k][5] + v[5]
-                                
-                                if v[6] != self.profiling_result[k][6]:
-                                    print('Warning: shape differ between sessions for node:', k, v[6], self.profiling_result[k][6])
-                                     
-                                self.profiling_result[k][7] = self.profiling_result[k][7] + v[7]
-                                self.profiling_result[k][8] = self.profiling_result[k][8]+ v[8]
-                                self.profiling_result[k][9] =  self.profiling_result[k][9] + v[9]
-                                
-                            else:
-                                self.profiling_result[k] = v
-                                
 
-                    parsing_end_time = time.time()
-                    self.tracing_graph_parsed = True
-                    print("Session graph and metadata parsed in %4.4f seconds" % (parsing_end_time - parsing_start_time))                    
-
+                # if requested, dump final dict before adding session results
+                if self.debug_dump_step == self.current_step:
+                    filename_ops_metadata = self.temp_path + "debug_5_previous_step_profiling_result.tsv"
+                    file_ops_metadata = open(filename_ops_metadata,'w')
+         
+                    for k,v in self.profiling_result.items():
+                        file_ops_metadata.write('\t'.join([str(p) for p in v]))
+                        file_ops_metadata.write('\n') 
+                    file_ops_metadata.close()
+                    
+                # add one session results to the dict of all sessions
+                if not self.profiling_result:
+                    self.profiling_result = self.sess_node_dict_out.copy()
+                else:
+                    for k,v in self.sess_node_dict_out.items():
+                        if k in self.profiling_result:
+                            self.profiling_result[k][3] = self.profiling_result[k][3] + v[3]
+                            self.profiling_result[k][4] = self.profiling_result[k][4] + v[4]
+                            self.profiling_result[k][5] = self.profiling_result[k][5] + v[5]
+                            
+                            if v[6] != self.profiling_result[k][6]:
+                                print('Warning: shape differ between sessions for node:', k, v[6], self.profiling_result[k][6])
+                                 
+                            self.profiling_result[k][7] = self.profiling_result[k][7] + v[7]
+                            self.profiling_result[k][8] = self.profiling_result[k][8]+ v[8]
+                            self.profiling_result[k][9] =  self.profiling_result[k][9] + v[9]
+                            
+                        else:
+                            self.profiling_result[k] = v
+                
+                # if requested, dump final dict after adding session results
+                if self.debug_dump_step == self.current_step:
+                    filename_ops_metadata = self.temp_path + "debug_6_merged_profiling_result.tsv"
+                    file_ops_metadata = open(filename_ops_metadata,'w')
+         
+                    for k,v in self.profiling_result.items():
+                        file_ops_metadata.write('\t'.join([str(p) for p in v]))
+                        file_ops_metadata.write('\t')
+                        file_ops_metadata.write(k)
+                        file_ops_metadata.write('\n')
+                    file_ops_metadata.close()
+                                                  
+                parsing_end_time = time.time()
+                tf.logging.info('Step %d/%d completed in %4.4f seconds, RunMetadata parsed in %4.4f seconds',
+                                self.num_steps_analyzed, self.num_steps_to_analyze, self.current_step_time, parsing_end_time - parsing_start_time)
+   
         else:
-            print("Metadata was not collected, check calls to session.run()")
+            print("self.session_metadata is None, check calls to session.run()")
             sys.exit(0)
 
-        print("Step %d/%d(%d) completed in %4.4f seconds." % 
-        (self.num_steps_analyzed, self.num_steps_to_analyze, self.total_num_sessions, self.current_session_time))
-        
-
-        # save timeline at a specific step (number 2 by default)
-        if self.current_session == self.step_to_save_timeline_at:
-            self.save_timeline()        
+        # save timeline at a specific step
+        if self.step_to_save_timeline_at == self.current_step:
+            self.save_timeline()  
                 
-        # after we captured required number of steps, 
-        # start analysis and show results
-        if self.num_steps_analyzed == self.num_steps_to_analyze:
-            #if not self.session._closed:
-            #    self.session.close()
+        # all requested steps are measured, start analysis and generate results
+        if self.num_steps_analyzed >= self.num_steps_to_analyze:
             try:
                 session.close()
             except:
-                pass
-                
+                pass   
+
             print('Session is closed')
-            
-            filename_ops_metadata = self.temp_path + "data_all_sessions_unaggregated" + ".tsv"
-            file_ops_metadata = open(filename_ops_metadata,'w')
- 
-            for k,v in self.profiling_result.items():
-                file_ops_metadata.write('\t'.join([str(p) for p in v]))
-                file_ops_metadata.write('\n')
-                
-            file_ops_metadata.close()
-                    
             self.generate_results()
 
 
-class TensorscopeRunHook(session_run_hook.SessionRunHook):
+# SessionRunHook to use with esitmator API
+class TensorScopeRunHook(session_run_hook.SessionRunHook):
  
-  def __init__(self,
-               save_steps=None,
-               save_secs=None,
-               output_dir='/tmp',
-               show_dataflow=True,
-               show_memory=False):
-
-    self._ts = None 
-    self._output_file = os.path.join(output_dir, "timeline-{}.json")
-    self._file_writer = SummaryWriterCache.get(output_dir)
-    self._output_dir = output_dir
-    self._show_dataflow = show_dataflow
-    self._show_memory = show_memory
-    self._timer = tf.train.SecondOrStepTimer(
-        every_secs=save_secs, every_steps=save_steps)
-
-  def begin(self):
-    self._next_step = None
-    self._global_step_tensor = training_util._get_or_create_global_step_read()  # pylint: disable=protected-access
-    if self._global_step_tensor is None:
-      raise RuntimeError("Global step should be created to use ProfilerHook.")
-
+  def __init__(self, num_steps_to_warmup=10, num_steps_to_measure=100, model_name='model_name'):
+    self._ts = None
+    self._num_steps_to_warmup = num_steps_to_warmup  
+    self._num_steps_to_measure = num_steps_to_measure
+    self._model_name = model_name
+    
   def before_run(self, run_context):
-    self._request_summary = (
-        self._next_step is None or
-        self._timer.should_trigger_for_step(self._next_step))
-    requests = {"global_step": self._global_step_tensor}
-    opts = (config_pb2.RunOptions(trace_level=config_pb2.RunOptions.FULL_TRACE)
-            if self._request_summary else None)
-    
     if not self._ts:
-        self._ts = Tensorscope(num_steps=10, output_dir=self._output_dir, session=run_context.session)
-    
-    self._ts.session_start_time = time.time()
-    self._ts.current_session += 1
-          
-    return SessionRunArgs(requests, options=opts)
+        self._ts = TensorScope(num_steps_to_warmup=self._num_steps_to_warmup,
+                               num_steps_to_measure = self._num_steps_to_measure,
+                               model_name=self._model_name,
+                               session=run_context.session)
+                               
+    self._ts.current_step_start_time = time.time()
+    self._ts.current_step += 1
+    return SessionRunArgs(None, options=self._ts.options)
 
   def after_run(self, run_context, run_values):
-    stale_global_step = run_values.results["global_step"]
-    global_step = stale_global_step + 1
-    
     self._ts.session_metadata = run_values.run_metadata
-    self._ts.characterize_model(graph=run_context.session.graph) 
-    self._next_step = global_step + 1
+    self._ts.characterize_model(graph=run_context.session.graph)
+    
+
+

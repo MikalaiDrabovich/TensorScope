@@ -24,26 +24,12 @@ from absl import app as absl_app
 from absl import flags
 import tensorflow as tf  # pylint: disable=g-bad-import-order
 
-# setup all necessary paths
-
-import sys
-path_to_cifar10_dataset = os.path.abspath(os.path.join(__file__, '..', '..', '..', '..','common_datasets/cifar10'))
-print(path_to_cifar10_dataset)
-
-# path to existing directory for saving Tensorscope results
-path_to_ts_results = os.path.abspath(os.path.join(__file__, '..', '..', '..', '..', '..','results/resnet'))
-
-# path to existing directory for saving/restoring trained model
+# temp path to store trained model
 path_to_resnet_model = os.path.abspath(os.path.join(__file__, '..','..', '..','resnet_model'))
 
-# path to cloned git repo https://github.com/tensorflow/models
-#path_to_tf_models = os.path.abspath(os.path.join(__file__, '/official'))
-
-path_to_tensorscope1 = os.path.abspath(os.path.join(__file__, '..', '..', '..',  '..', '..', 'reproduce_results/resnet'))
-sys.path.insert(0,path_to_tensorscope1)
-print(sys.path)
-
-
+# path for official.resnet module
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(__file__, '..', '..', '..',  '..', '..', 'reproduce_results/resnet')))
 
 from official.utils.flags import core as flags_core
 from official.utils.logs import logger
@@ -251,12 +237,12 @@ def cifar10_model_fn(features, labels, mode, params):
 def define_cifar_flags():
   resnet_run_loop.define_resnet_flags()
   flags.adopt_module_key_flags(resnet_run_loop)
-  flags_core.set_defaults(data_dir=path_to_cifar10_dataset,
-                          model_dir=path_to_resnet_model,
-                          resnet_size='32',
+  flags_core.set_defaults(model_dir=path_to_resnet_model,
+                          resnet_size='50',
                           train_epochs=250,
-                          epochs_between_evals=10,
-                          batch_size=128)
+                          epochs_between_evals=20,
+                          batch_size=1024,
+                          use_synthetic_data=True)
 
 
 def run_cifar(flags_obj):

@@ -1,81 +1,191 @@
-2018-07-25 03:25:03.879629: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-07-25 03:25:03.880090: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
+2018-08-13 18:55:39.891939: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-08-13 18:55:39.892352: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
 name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
 pciBusID: 0000:01:00.0
-totalMemory: 5.94GiB freeMemory: 5.44GiB
-2018-07-25 03:25:03.880120: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-07-25 03:25:04.077297: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-07-25 03:25:04.077326: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-07-25 03:25:04.077331: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-07-25 03:25:04.077552: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5209 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-2018-07-25 03:25:04.077754: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
+totalMemory: 5.94GiB freeMemory: 5.66GiB
+2018-08-13 18:55:39.892364: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-13 18:55:40.085016: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-13 18:55:40.085044: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-13 18:55:40.085050: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-13 18:55:40.085251: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5435 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-08-13 18:55:40.085467: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
 /usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
-I0725 03:25:06.007151 140529936443136 tf_logging.py:115] Using config: {'_save_summary_steps': 100, '_evaluation_master': '', '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7fcf4527e358>, '_log_step_count_steps': 100, '_num_worker_replicas': 1, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
-, '_tf_random_seed': None, '_train_distribute': None, '_task_id': 0, '_num_ps_replicas': 0, '_service': None, '_device_fn': None, '_keep_checkpoint_every_n_hours': 10000, '_is_chief': True, '_keep_checkpoint_max': 5, '_global_id_in_cluster': 0, '_master': '', '_save_checkpoints_steps': None, '_task_type': 'worker', '_model_dir': '/home/ndr/work_july/july24/TensorScope/reproduce_results/resnet/resnet_model'}
-W0725 03:25:06.008183 140529936443136 tf_logging.py:120] 'cpuinfo' not imported. CPU info will not be logged.
-2018-07-25 03:25:06.008385: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-07-25 03:25:06.008419: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-07-25 03:25:06.008436: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-07-25 03:25:06.008440: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-07-25 03:25:06.008602: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5209 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-I0725 03:25:06.049426 140529936443136 tf_logging.py:115] Benchmark run: {'run_parameters': [{'name': 'batch_size', 'long_value': 128}, {'name': 'dtype', 'string_value': "<dtype: 'float32'>"}, {'name': 'resnet_size', 'string_value': '32'}, {'name': 'resnet_version', 'string_value': '2'}, {'bool_value': 'False', 'name': 'synthetic_data'}, {'name': 'train_epochs', 'long_value': 250}], 'dataset': {'name': 'CIFAR-10'}, 'tensorflow_environment_variables': [{'value': '1', 'name': 'TF_ENABLE_WINOGRAD_NONFUSED'}], 'tensorflow_version': {'version': '1.9.0-rc0', 'git_hash': 'v1.9.0-rc2-203-g35287be'}, 'machine_config': {'gpu_info': {'model': 'GeForce GTX 1060', 'count': 1}, 'memory_available': 14291214336, 'memory_total': 16698224640}, 'run_date': '2018-07-25T10:25:06.007664Z', 'model_name': 'resnet', 'test_id': None}
-I0725 03:25:06.049658 140529936443136 tf_logging.py:115] Starting a training cycle: 0/25
-I0725 03:25:06.153565 140529936443136 tf_logging.py:115] Calling model_fn.
-I0725 03:25:08.057903 140529936443136 tf_logging.py:115] Done calling model_fn.
-I0725 03:25:08.058981 140529936443136 tf_logging.py:115] Create CheckpointSaverHook.
-I0725 03:25:08.903884 140529936443136 tf_logging.py:115] Graph was finalized.
-2018-07-25 03:25:08.904134: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-07-25 03:25:08.904158: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-07-25 03:25:08.904163: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-07-25 03:25:08.904167: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-07-25 03:25:08.904278: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5209 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-I0725 03:25:09.362947 140529936443136 tf_logging.py:115] Running local_init_op.
-I0725 03:25:09.391898 140529936443136 tf_logging.py:115] Done running local_init_op.
-I0725 03:25:10.861274 140529936443136 tf_logging.py:115] Saving checkpoints for 0 into /home/ndr/work_july/july24/TensorScope/reproduce_results/resnet/resnet_model/model.ckpt.
-2018-07-25 03:25:12.078313: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
-I0725 03:25:13.266947 140529936443136 tf_logging.py:115] loss = 2.7518976, step = 0
-/home/ndr/work_july/july24/TensorScope/reproduce_results/common_datasets/cifar10
-['/home/ndr/work_july/july24/TensorScope/reproduce_results/resnet', '/home/ndr/work_july/july24/TensorScope/reproduce_results/resnet/official/resnet', '/usr/lib/python35.zip', '/usr/lib/python3.5', '/usr/lib/python3.5/plat-x86_64-linux-gnu', '/usr/lib/python3.5/lib-dynload', '/home/ndr/.local/lib/python3.5/site-packages', '/home/ndr/.local/lib/python3.5/site-packages/pyrfr-0.4.0-py3.5-linux-x86_64.egg', '/usr/local/lib/python3.5/dist-packages', '/usr/local/lib/python3.5/dist-packages/openml-0.3.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/xmltodict-0.11.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/mock-2.0.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/pbr-3.1.1-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/loky-1.1.0.dev0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/auto_sklearn-0.2.0-py3.5-linux-x86_64.egg', '/usr/local/lib/python3.5/dist-packages/mlxtend-0.7.1.dev0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/virtualenv-15.1.0-py3.5.egg', '/usr/local/lib/python3.5/dist-packages/PySide-1.2.4-py3.5-linux-x86_64.egg', '/usr/lib/python3/dist-packages', '/usr/lib/python3.5/dist-packages']
-data_dir:  /home/ndr/work_july/july24/TensorScope/reproduce_results/common_datasets/cifar10/cifar-10-batches-bin
-Step 0/10(14) completed in 2.0102 seconds.
-Session graph and metadata parsed in 0.0434 seconds
-Step 1/10(14) completed in 0.7137 seconds.
-Timeline saved in /home/ndr/work_july/july24/TensorScope/results/resnet/timeline_at_step_2.json
-Session graph and metadata parsed in 0.0499 seconds
-Step 2/10(14) completed in 0.0803 seconds.
-Session graph and metadata parsed in 0.0465 seconds
-Step 3/10(14) completed in 0.0824 seconds.
-Session graph and metadata parsed in 0.0482 seconds
-Step 4/10(14) completed in 0.0774 seconds.
-Session graph and metadata parsed in 0.1164 seconds
-Step 5/10(14) completed in 0.0767 seconds.
-Session graph and metadata parsed in 0.0489 seconds
-Step 6/10(14) completed in 0.0784 seconds.
-Session graph and metadata parsed in 0.0484 seconds
-Step 7/10(14) completed in 0.0778 seconds.
-Session graph and metadata parsed in 0.0487 seconds
-Step 8/10(14) completed in 0.0802 seconds.
-Session graph and metadata parsed in 0.1281 seconds
-Step 9/10(14) completed in 0.0799 seconds.
-Session graph and metadata parsed in 0.0479 seconds
-Step 10/10(14) completed in 0.0840 seconds.
+I0813 18:55:41.971148 139898266224384 tf_logging.py:115] Using config: {'_master': '', '_num_ps_replicas': 0, '_log_step_count_steps': 100, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_save_summary_steps': 100, '_evaluation_master': '', '_session_config': allow_soft_placement: true
+, '_service': None, '_is_chief': True, '_global_id_in_cluster': 0, '_train_distribute': None, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_tf_random_seed': None, '_model_dir': '/home/ndr/work_august/TensorScope/reproduce_results/resnet/resnet_model', '_num_worker_replicas': 1, '_device_fn': None, '_task_id': 0, '_task_type': 'worker', '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f3bdb826da0>}
+W0813 18:55:41.972111 139898266224384 tf_logging.py:120] 'cpuinfo' not imported. CPU info will not be logged.
+2018-08-13 18:55:41.972304: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-13 18:55:41.972343: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-13 18:55:41.972348: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-13 18:55:41.972371: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-13 18:55:41.972500: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5435 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+I0813 18:55:41.973014 139898266224384 tf_logging.py:115] Benchmark run: {'run_parameters': [{'long_value': 64, 'name': 'batch_size'}, {'string_value': "<dtype: 'float32'>", 'name': 'dtype'}, {'string_value': '50', 'name': 'resnet_size'}, {'string_value': '2', 'name': 'resnet_version'}, {'bool_value': 'True', 'name': 'synthetic_data'}, {'long_value': 100, 'name': 'train_epochs'}], 'test_id': None, 'tensorflow_version': {'git_hash': 'v1.9.0-rc2-203-g35287be', 'version': '1.9.0-rc0'}, 'machine_config': {'memory_available': 14882447360, 'memory_total': 16698224640, 'gpu_info': {'model': 'GeForce GTX 1060', 'count': 1}}, 'model_name': 'resnet', 'dataset': {'name': 'ImageNet-synthetic'}, 'run_date': '2018-08-14T01:55:41.971641Z', 'tensorflow_environment_variables': [{'value': '1', 'name': 'TF_ENABLE_WINOGRAD_NONFUSED'}]}
+I0813 18:55:41.973245 139898266224384 tf_logging.py:115] Starting a training cycle: 0/5
+I0813 18:55:42.030715 139898266224384 tf_logging.py:115] Calling model_fn.
+I0813 18:55:44.942247 139898266224384 tf_logging.py:115] Done calling model_fn.
+I0813 18:55:44.943217 139898266224384 tf_logging.py:115] Create CheckpointSaverHook.
+I0813 18:55:46.129912 139898266224384 tf_logging.py:115] Graph was finalized.
+2018-08-13 18:55:46.130193: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-13 18:55:46.130217: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-13 18:55:46.130224: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-13 18:55:46.130230: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-13 18:55:46.130344: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5435 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+I0813 18:55:47.302281 139898266224384 tf_logging.py:115] Running local_init_op.
+I0813 18:55:47.338644 139898266224384 tf_logging.py:115] Done running local_init_op.
+I0813 18:55:49.508060 139898266224384 tf_logging.py:115] Saving checkpoints for 0 into /home/ndr/work_august/TensorScope/reproduce_results/resnet/resnet_model/model.ckpt.
+2018-08-13 18:55:51.610150: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
+2018-08-13 18:55:53.639754: W tensorflow/core/common_runtime/bfc_allocator.cc:219] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.27GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-08-13 18:55:53.715233: W tensorflow/core/common_runtime/bfc_allocator.cc:219] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.32GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-08-13 18:55:53.745734: W tensorflow/core/common_runtime/bfc_allocator.cc:219] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.54GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-08-13 18:55:53.783908: W tensorflow/core/common_runtime/bfc_allocator.cc:219] Allocator (GPU_0_bfc) ran out of memory trying to allocate 657.00MiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-08-13 18:55:53.790242: W tensorflow/core/common_runtime/bfc_allocator.cc:219] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.33GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-08-13 18:55:53.818093: W tensorflow/core/common_runtime/bfc_allocator.cc:219] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.54GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-08-13 18:55:53.818133: W tensorflow/core/common_runtime/bfc_allocator.cc:219] Allocator (GPU_0_bfc) ran out of memory trying to allocate 284.75MiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-08-13 18:55:53.829683: W tensorflow/core/common_runtime/bfc_allocator.cc:219] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.27GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-08-13 18:55:53.853832: W tensorflow/core/common_runtime/bfc_allocator.cc:219] Allocator (GPU_0_bfc) ran out of memory trying to allocate 657.00MiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-08-13 18:55:53.853864: W tensorflow/core/common_runtime/bfc_allocator.cc:219] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.33GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+I0813 18:55:55.530846 139898266224384 tf_logging.py:115] Warm-up step 1/10 completed in 5.1591 seconds.
+I0813 18:55:55.531077 139898266224384 tf_logging.py:115] loss = 8.304358, step = 0
+I0813 18:55:57.219449 139898266224384 tf_logging.py:115] Warm-up step 2/10 completed in 1.6878 seconds.
+I0813 18:55:58.018400 139898266224384 tf_logging.py:115] Warm-up step 3/10 completed in 0.7985 seconds.
+I0813 18:55:58.821001 139898266224384 tf_logging.py:115] Warm-up step 4/10 completed in 0.8020 seconds.
+I0813 18:55:59.620653 139898266224384 tf_logging.py:115] Warm-up step 5/10 completed in 0.7990 seconds.
+I0813 18:56:00.424351 139898266224384 tf_logging.py:115] Warm-up step 6/10 completed in 0.8031 seconds.
+I0813 18:56:01.224365 139898266224384 tf_logging.py:115] Warm-up step 7/10 completed in 0.7994 seconds.
+I0813 18:56:02.024448 139898266224384 tf_logging.py:115] Warm-up step 8/10 completed in 0.7996 seconds.
+I0813 18:56:02.822150 139898266224384 tf_logging.py:115] Warm-up step 9/10 completed in 0.7971 seconds.
+I0813 18:56:03.623954 139898266224384 tf_logging.py:115] Warm-up step 10/10 completed in 0.8013 seconds.
+I0813 18:56:04.477878 139898266224384 tf_logging.py:115] Step 1/100 completed in 0.8002 seconds, RunMetadata parsed in 0.0534 seconds
+I0813 18:56:05.415556 139898266224384 tf_logging.py:115] Step 2/100 completed in 0.8043 seconds, RunMetadata parsed in 0.1319 seconds
+I0813 18:56:06.273818 139898266224384 tf_logging.py:115] Step 3/100 completed in 0.7971 seconds, RunMetadata parsed in 0.0595 seconds
+I0813 18:56:07.140622 139898266224384 tf_logging.py:115] Step 4/100 completed in 0.8053 seconds, RunMetadata parsed in 0.0598 seconds
+I0813 18:56:08.004374 139898266224384 tf_logging.py:115] Step 5/100 completed in 0.8006 seconds, RunMetadata parsed in 0.0612 seconds
+I0813 18:56:08.949526 139898266224384 tf_logging.py:115] Step 6/100 completed in 0.8035 seconds, RunMetadata parsed in 0.1398 seconds
+I0813 18:56:09.813616 139898266224384 tf_logging.py:115] Step 7/100 completed in 0.8017 seconds, RunMetadata parsed in 0.0604 seconds
+I0813 18:56:10.681002 139898266224384 tf_logging.py:115] Step 8/100 completed in 0.8031 seconds, RunMetadata parsed in 0.0624 seconds
+I0813 18:56:11.551420 139898266224384 tf_logging.py:115] Step 9/100 completed in 0.8055 seconds, RunMetadata parsed in 0.0628 seconds
+I0813 18:56:12.512706 139898266224384 tf_logging.py:115] Step 10/100 completed in 0.8062 seconds, RunMetadata parsed in 0.1531 seconds
+I0813 18:56:13.380660 139898266224384 tf_logging.py:115] Step 11/100 completed in 0.8026 seconds, RunMetadata parsed in 0.0633 seconds
+I0813 18:56:14.250522 139898266224384 tf_logging.py:115] Step 12/100 completed in 0.8054 seconds, RunMetadata parsed in 0.0624 seconds
+I0813 18:56:15.124550 139898266224384 tf_logging.py:115] Step 13/100 completed in 0.8067 seconds, RunMetadata parsed in 0.0651 seconds
+I0813 18:56:15.994845 139898266224384 tf_logging.py:115] Step 14/100 completed in 0.8062 seconds, RunMetadata parsed in 0.0619 seconds
+I0813 18:56:16.966980 139898266224384 tf_logging.py:115] Step 15/100 completed in 0.8041 seconds, RunMetadata parsed in 0.1658 seconds
+I0813 18:56:17.833435 139898266224384 tf_logging.py:115] Step 16/100 completed in 0.8008 seconds, RunMetadata parsed in 0.0633 seconds
+I0813 18:56:18.703904 139898266224384 tf_logging.py:115] Step 17/100 completed in 0.8038 seconds, RunMetadata parsed in 0.0645 seconds
+I0813 18:56:19.574011 139898266224384 tf_logging.py:115] Step 18/100 completed in 0.8039 seconds, RunMetadata parsed in 0.0639 seconds
+I0813 18:56:20.443515 139898266224384 tf_logging.py:115] Step 19/100 completed in 0.8037 seconds, RunMetadata parsed in 0.0636 seconds
+I0813 18:56:21.424749 139898266224384 tf_logging.py:115] Step 20/100 completed in 0.8045 seconds, RunMetadata parsed in 0.1745 seconds
+I0813 18:56:22.294970 139898266224384 tf_logging.py:115] Step 21/100 completed in 0.8050 seconds, RunMetadata parsed in 0.0630 seconds
+I0813 18:56:23.167071 139898266224384 tf_logging.py:115] Step 22/100 completed in 0.8060 seconds, RunMetadata parsed in 0.0639 seconds
+I0813 18:56:24.043009 139898266224384 tf_logging.py:115] Step 23/100 completed in 0.8087 seconds, RunMetadata parsed in 0.0649 seconds
+I0813 18:56:24.912999 139898266224384 tf_logging.py:115] Step 24/100 completed in 0.8050 seconds, RunMetadata parsed in 0.0628 seconds
+I0813 18:56:25.913634 139898266224384 tf_logging.py:115] Step 25/100 completed in 0.8051 seconds, RunMetadata parsed in 0.1932 seconds
+I0813 18:56:26.783819 139898266224384 tf_logging.py:115] Step 26/100 completed in 0.8074 seconds, RunMetadata parsed in 0.0606 seconds
+I0813 18:56:27.655510 139898266224384 tf_logging.py:115] Step 27/100 completed in 0.8047 seconds, RunMetadata parsed in 0.0641 seconds
+I0813 18:56:28.524878 139898266224384 tf_logging.py:115] Step 28/100 completed in 0.8041 seconds, RunMetadata parsed in 0.0630 seconds
+I0813 18:56:29.395083 139898266224384 tf_logging.py:115] Step 29/100 completed in 0.8045 seconds, RunMetadata parsed in 0.0633 seconds
+I0813 18:56:30.267796 139898266224384 tf_logging.py:115] Step 30/100 completed in 0.8065 seconds, RunMetadata parsed in 0.0639 seconds
+I0813 18:56:31.286058 139898266224384 tf_logging.py:115] Step 31/100 completed in 0.8062 seconds, RunMetadata parsed in 0.2098 seconds
+I0813 18:56:32.160542 139898266224384 tf_logging.py:115] Step 32/100 completed in 0.8076 seconds, RunMetadata parsed in 0.0646 seconds
+I0813 18:56:33.037091 139898266224384 tf_logging.py:115] Step 33/100 completed in 0.8107 seconds, RunMetadata parsed in 0.0636 seconds
+I0813 18:56:33.906885 139898266224384 tf_logging.py:115] Step 34/100 completed in 0.8035 seconds, RunMetadata parsed in 0.0639 seconds
+I0813 18:56:34.778279 139898266224384 tf_logging.py:115] Step 35/100 completed in 0.8035 seconds, RunMetadata parsed in 0.0656 seconds
+I0813 18:56:35.648832 139898266224384 tf_logging.py:115] Step 36/100 completed in 0.8034 seconds, RunMetadata parsed in 0.0648 seconds
+I0813 18:56:36.687785 139898266224384 tf_logging.py:115] Step 37/100 completed in 0.8130 seconds, RunMetadata parsed in 0.2235 seconds
+I0813 18:56:37.557700 139898266224384 tf_logging.py:115] Step 38/100 completed in 0.8031 seconds, RunMetadata parsed in 0.0646 seconds
+I0813 18:56:38.433395 139898266224384 tf_logging.py:115] Step 39/100 completed in 0.8026 seconds, RunMetadata parsed in 0.0707 seconds
+I0813 18:56:39.306814 139898266224384 tf_logging.py:115] Step 40/100 completed in 0.8063 seconds, RunMetadata parsed in 0.0648 seconds
+I0813 18:56:40.175787 139898266224384 tf_logging.py:115] Step 41/100 completed in 0.8023 seconds, RunMetadata parsed in 0.0644 seconds
+I0813 18:56:41.047423 139898266224384 tf_logging.py:115] Step 42/100 completed in 0.8048 seconds, RunMetadata parsed in 0.0644 seconds
+I0813 18:56:41.922605 139898266224384 tf_logging.py:115] Step 43/100 completed in 0.8075 seconds, RunMetadata parsed in 0.0652 seconds
+I0813 18:56:42.972642 139898266224384 tf_logging.py:115] Step 44/100 completed in 0.8055 seconds, RunMetadata parsed in 0.2421 seconds
+I0813 18:56:43.845967 139898266224384 tf_logging.py:115] Step 45/100 completed in 0.8042 seconds, RunMetadata parsed in 0.0668 seconds
+I0813 18:56:44.723764 139898266224384 tf_logging.py:115] Step 46/100 completed in 0.8087 seconds, RunMetadata parsed in 0.0667 seconds
+I0813 18:56:45.594482 139898266224384 tf_logging.py:115] Step 47/100 completed in 0.8039 seconds, RunMetadata parsed in 0.0644 seconds
+I0813 18:56:46.473926 139898266224384 tf_logging.py:115] Step 48/100 completed in 0.8089 seconds, RunMetadata parsed in 0.0681 seconds
+I0813 18:56:47.349282 139898266224384 tf_logging.py:115] Step 49/100 completed in 0.8054 seconds, RunMetadata parsed in 0.0676 seconds
+I0813 18:56:48.223618 139898266224384 tf_logging.py:115] Step 50/100 completed in 0.8081 seconds, RunMetadata parsed in 0.0640 seconds
+I0813 18:56:49.227511 139898266224384 tf_logging.py:115] Step 51/100 completed in 0.8037 seconds, RunMetadata parsed in 0.1978 seconds
+I0813 18:56:49.986614 139898266224384 tf_logging.py:115] Timeline saved in /home/ndr/work_august/TensorScope/results/resnet/timeline_at_step_61.json
+I0813 18:56:50.866164 139898266224384 tf_logging.py:115] Step 52/100 completed in 0.8095 seconds, RunMetadata parsed in 0.0623 seconds
+I0813 18:56:51.735417 139898266224384 tf_logging.py:115] Step 53/100 completed in 0.8060 seconds, RunMetadata parsed in 0.0609 seconds
+I0813 18:56:52.610249 139898266224384 tf_logging.py:115] Step 54/100 completed in 0.8053 seconds, RunMetadata parsed in 0.0671 seconds
+I0813 18:56:53.485900 139898266224384 tf_logging.py:115] Step 55/100 completed in 0.8076 seconds, RunMetadata parsed in 0.0656 seconds
+I0813 18:56:54.364352 139898266224384 tf_logging.py:115] Step 56/100 completed in 0.8102 seconds, RunMetadata parsed in 0.0659 seconds
+I0813 18:56:55.242867 139898266224384 tf_logging.py:115] Step 57/100 completed in 0.8107 seconds, RunMetadata parsed in 0.0654 seconds
+I0813 18:56:56.116640 139898266224384 tf_logging.py:115] Step 58/100 completed in 0.8060 seconds, RunMetadata parsed in 0.0654 seconds
+I0813 18:56:57.208804 139898266224384 tf_logging.py:115] Step 59/100 completed in 0.8051 seconds, RunMetadata parsed in 0.2847 seconds
+I0813 18:56:58.083861 139898266224384 tf_logging.py:115] Step 60/100 completed in 0.8072 seconds, RunMetadata parsed in 0.0654 seconds
+I0813 18:56:58.958168 139898266224384 tf_logging.py:115] Step 61/100 completed in 0.8063 seconds, RunMetadata parsed in 0.0656 seconds
+I0813 18:56:59.834257 139898266224384 tf_logging.py:115] Step 62/100 completed in 0.8089 seconds, RunMetadata parsed in 0.0649 seconds
+I0813 18:57:00.711470 139898266224384 tf_logging.py:115] Step 63/100 completed in 0.8099 seconds, RunMetadata parsed in 0.0649 seconds
+I0813 18:57:01.587465 139898266224384 tf_logging.py:115] Step 64/100 completed in 0.8078 seconds, RunMetadata parsed in 0.0658 seconds
+I0813 18:57:02.461721 139898266224384 tf_logging.py:115] Step 65/100 completed in 0.8088 seconds, RunMetadata parsed in 0.0631 seconds
+I0813 18:57:03.338061 139898266224384 tf_logging.py:115] Step 66/100 completed in 0.8090 seconds, RunMetadata parsed in 0.0650 seconds
+I0813 18:57:04.206072 139898266224384 tf_logging.py:115] Step 67/100 completed in 0.8041 seconds, RunMetadata parsed in 0.0616 seconds
+I0813 18:57:05.321812 139898266224384 tf_logging.py:115] Step 68/100 completed in 0.8067 seconds, RunMetadata parsed in 0.3066 seconds
+I0813 18:57:06.204097 139898266224384 tf_logging.py:115] Step 69/100 completed in 0.8098 seconds, RunMetadata parsed in 0.0701 seconds
+I0813 18:57:07.080060 139898266224384 tf_logging.py:115] Step 70/100 completed in 0.8064 seconds, RunMetadata parsed in 0.0671 seconds
+I0813 18:57:07.951524 139898266224384 tf_logging.py:115] Step 71/100 completed in 0.8046 seconds, RunMetadata parsed in 0.0640 seconds
+I0813 18:57:08.823141 139898266224384 tf_logging.py:115] Step 72/100 completed in 0.8058 seconds, RunMetadata parsed in 0.0634 seconds
+I0813 18:57:09.695805 139898266224384 tf_logging.py:115] Step 73/100 completed in 0.8052 seconds, RunMetadata parsed in 0.0651 seconds
+I0813 18:57:10.570940 139898266224384 tf_logging.py:115] Step 74/100 completed in 0.8092 seconds, RunMetadata parsed in 0.0635 seconds
+I0813 18:57:11.444031 139898266224384 tf_logging.py:115] Step 75/100 completed in 0.8063 seconds, RunMetadata parsed in 0.0645 seconds
+I0813 18:57:12.316308 139898266224384 tf_logging.py:115] Step 76/100 completed in 0.8066 seconds, RunMetadata parsed in 0.0633 seconds
+I0813 18:57:13.193571 139898266224384 tf_logging.py:115] Step 77/100 completed in 0.8129 seconds, RunMetadata parsed in 0.0619 seconds
+I0813 18:57:14.337147 139898266224384 tf_logging.py:115] Step 78/100 completed in 0.8091 seconds, RunMetadata parsed in 0.3321 seconds
+I0813 18:57:15.210491 139898266224384 tf_logging.py:115] Step 79/100 completed in 0.8065 seconds, RunMetadata parsed in 0.0645 seconds
+I0813 18:57:16.093182 139898266224384 tf_logging.py:115] Step 80/100 completed in 0.8112 seconds, RunMetadata parsed in 0.0691 seconds
+I0813 18:57:16.972332 139898266224384 tf_logging.py:115] Step 81/100 completed in 0.8062 seconds, RunMetadata parsed in 0.0702 seconds
+I0813 18:57:17.852165 139898266224384 tf_logging.py:115] Step 82/100 completed in 0.8089 seconds, RunMetadata parsed in 0.0685 seconds
+I0813 18:57:18.731515 139898266224384 tf_logging.py:115] Step 83/100 completed in 0.8081 seconds, RunMetadata parsed in 0.0687 seconds
+I0813 18:57:19.602140 139898266224384 tf_logging.py:115] Step 84/100 completed in 0.8051 seconds, RunMetadata parsed in 0.0631 seconds
+I0813 18:57:20.482702 139898266224384 tf_logging.py:115] Step 85/100 completed in 0.8068 seconds, RunMetadata parsed in 0.0713 seconds
+I0813 18:57:21.365254 139898266224384 tf_logging.py:115] Step 86/100 completed in 0.8114 seconds, RunMetadata parsed in 0.0687 seconds
+I0813 18:57:22.238791 139898266224384 tf_logging.py:115] Step 87/100 completed in 0.8069 seconds, RunMetadata parsed in 0.0642 seconds
+I0813 18:57:23.408119 139898266224384 tf_logging.py:115] Step 88/100 completed in 0.8103 seconds, RunMetadata parsed in 0.3565 seconds
+I0813 18:57:24.284020 139898266224384 tf_logging.py:115] Step 89/100 completed in 0.8089 seconds, RunMetadata parsed in 0.0646 seconds
+I0813 18:57:25.157950 139898266224384 tf_logging.py:115] Step 90/100 completed in 0.8058 seconds, RunMetadata parsed in 0.0657 seconds
+I0813 18:57:25.963602 139898266224384 tf_logging.py:115] global_step/sec: 1.10409
+I0813 18:57:26.042803 139898266224384 tf_logging.py:115] Step 91/100 completed in 0.8129 seconds, RunMetadata parsed in 0.0695 seconds
+I0813 18:57:26.045274 139898266224384 tf_logging.py:115] loss = 1.429839, step = 100 (90.514 sec)
+I0813 18:57:26.923209 139898266224384 tf_logging.py:115] Step 92/100 completed in 0.8079 seconds, RunMetadata parsed in 0.0697 seconds
+I0813 18:57:27.799998 139898266224384 tf_logging.py:115] Step 93/100 completed in 0.8059 seconds, RunMetadata parsed in 0.0683 seconds
+I0813 18:57:28.680940 139898266224384 tf_logging.py:115] Step 94/100 completed in 0.8094 seconds, RunMetadata parsed in 0.0691 seconds
+I0813 18:57:29.558919 139898266224384 tf_logging.py:115] Step 95/100 completed in 0.8055 seconds, RunMetadata parsed in 0.0698 seconds
+I0813 18:57:30.442360 139898266224384 tf_logging.py:115] Step 96/100 completed in 0.8134 seconds, RunMetadata parsed in 0.0675 seconds
+I0813 18:57:31.320948 139898266224384 tf_logging.py:115] Step 97/100 completed in 0.8061 seconds, RunMetadata parsed in 0.0699 seconds
+I0813 18:57:32.203454 139898266224384 tf_logging.py:115] Step 98/100 completed in 0.8117 seconds, RunMetadata parsed in 0.0683 seconds
+I0813 18:57:33.405541 139898266224384 tf_logging.py:115] Step 99/100 completed in 0.8069 seconds, RunMetadata parsed in 0.3927 seconds
+I0813 18:57:34.286799 139898266224384 tf_logging.py:115] Step 100/100 completed in 0.8121 seconds, RunMetadata parsed in 0.0666 seconds
+total ops:  6003
+num nodes with flops available:  808
+total GFlops:  524.84565713
 Session is closed
 
-Sanity check: total time for 10 steps: 1.431 sec., 1 step avg. time:  143102.7 microsec., 1 step avg. time captured in metadata: 54444.4 microsec., number of unique ops: 239
+Sanity check before aggregation:
+ total wall time for 100 steps: 		 80.642 sec. (0.806417 sec./batch) 
+ op time extracted from RunMetadata: 	 75.927 sec. (0.759270 sec./batch) 
+ number of ops: 1947
 
-*** Brief summary ***
+Sanity check after aggregation:
+ total wall time for 100 steps: 		 80.642 sec. (0.806417 sec./batch) 
+ op time extracted from RunMetadata: 	 75.927 sec. (0.759270 sec./batch) 
+ number of unique ops: 394
 
-Top-1 ops (0.4%)	8.7 ms (16.1%)
-Top-2 ops (0.8%)	14.4 ms (26.5%)
-Top-3 ops (1.3%)	18.2 ms (33.5%)
-Top-6 ops (2.5%)	27.1 ms (49.8%)
-Top-11 ops (4.6%)	35.4 ms (64.9%)
-Top-21 ops (8.8%)	44.1 ms (80.9%)
-Top-39 ops (16.3%)	49.3 ms (90.6%)
-Top-71 ops (29.7%)	52.4 ms (96.3%)
-Top-130 ops (54.4%)	54.0 ms (99.3%)
-Top-239 ops (100.0%)	54.4 ms (100.0%)
 
-*** I/O tensor shapes are saved to /home/ndr/work_july/july24/TensorScope/results/resnet/data.tsv ***
+*** Top-K ops vs total time ***
+
+Top-1	(0.3% of all ops):	14.9 ms(2.0% of all time)
+Top-2	(0.5% of all ops):	29.2 ms(3.8% of all time)
+Top-4	(1.0% of all ops):	56.5 ms(7.4% of all time)
+Top-7	(1.8% of all ops):	94.7 ms(12.5% of all time)
+Top-14	(3.6% of all ops):	174.1 ms(22.9% of all time)
+Top-28	(7.1% of all ops):	300.1 ms(39.5% of all time)
+Top-54	(13.7% of all ops):	457.5 ms(60.3% of all time)
+Top-104	(26.4% of all ops):	632.6 ms(83.3% of all time)
+Top-203	(51.5% of all ops):	742.6 ms(97.8% of all time)
+Top-394	(100.0% of all ops):	759.3 ms(100.0% of all time)
+
+*** See data.tsv, pie_chart.html for details ***
 

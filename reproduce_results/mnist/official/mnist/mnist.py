@@ -20,29 +20,23 @@ from __future__ import print_function
 import sys
 import os
 
-# setup all necessary paths
+#---
+# path to cloned git repo https://github.com/MikalaiDrabovich/TensorScope/
+path_to_tensorscope = os.path.abspath(os.path.join(__file__, '..', '..', '..',  '..', '..', 'tensorscope'))
+sys.path.append(path_to_tensorscope)
+from tensorscope import TensorScopeRunHook
 
 # path to mnist dataset (about 60 MB in 4 files: 
 # t10k-labels-idx1-ubyte, train-labels-idx1-ubyte,
 # t10k-images-idx3-ubyte,  train-images-idx3-ubyte)
 # The files will be downloaded, if not found there
 path_to_mnist_dataset = os.path.abspath(os.path.join(__file__, '..', '..',  '..', '..', 'common_datasets/mnist'))
-
-# path to cloned git repo https://github.com/MikalaiDrabovich/TensorScope/
-path_to_tensorscope = os.path.abspath(os.path.join(__file__, '..', '..', '..',  '..', '..', 'tensorscope'))
-sys.path.append(path_to_tensorscope)
-
-from tensorscope import TensorscopeRunHook
-# path to existing directory for saving Tensorscope results
-path_to_ts_results = os.path.abspath(os.path.join(__file__, '..', '..', '..', '..', '..', 'results/mnist'))
-
 # path to existing directory for saving/restoring trained model
 path_to_saved_model = os.path.abspath(os.path.join(__file__, '..', '..', '..', 'mnist_model'))
-
 # path to cloned git repo https://github.com/tensorflow/models
-path_to_tensorscope1 = os.path.abspath(os.path.join(__file__, '..', '..', '..',  '..', '..', 'reproduce_results/mnist'))
-sys.path.insert(0,path_to_tensorscope1)
-
+path_to_mnist_module = os.path.abspath(os.path.join(__file__, '..', '..', '..',  '..', '..', 'reproduce_results/mnist'))
+sys.path.insert(0, path_to_mnist_module)
+#---
 
 from official.mnist import dataset
 from official.utils.logs import hooks_helper
@@ -241,9 +235,7 @@ def run_mnist(flags_obj):
       flags_obj.hooks, model_dir=flags_obj.model_dir,
       batch_size=flags_obj.batch_size)
       
-  mh = TensorscopeRunHook(
-      output_dir=path_to_ts_results, save_steps=10,
-      show_memory=True, show_dataflow=True)
+  mh = TensorScopeRunHook(model_name='mnist')
       
   train_hooks.append(mh)
   

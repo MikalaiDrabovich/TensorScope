@@ -34,11 +34,10 @@ import os
 path_to_tensorscope = os.path.abspath(os.path.join(__file__, '..', '..', '..', '..', 'tensorscope'))
 sys.path.append(path_to_tensorscope)
 
-from tensorscope import Tensorscope
+from tensorscope import TensorScope
 
-# path to existing directory for saving Tensorscope results
+# path to existing directory for saving TensorScope results
 path_to_ts_results = os.path.abspath(os.path.join(__file__, '..', '..', '..', '..', 'results/nmt'))
-
 
 
 
@@ -307,11 +306,14 @@ class BaseModel(object):
     
    
     
-    #1/3 Enable tensorscope - add this line before main loop
+    # Enable tensorscope
     if self.ts is None:
-        self.ts = Tensorscope(num_steps=10, output_dir=path_to_ts_results, session=sess)
+        self.ts = TensorScope(num_steps_to_warmup=10,
+                              num_steps_to_measure=100,
+                              model_name='nmt',
+                              session=sess)
   
-    #2/2 add two arguments to run(): option and run_metadata
+    # Enable tensorscope
     sess_result = sess.run([self.update,
                      self.train_loss,
                      self.predict_count,
@@ -324,7 +326,7 @@ class BaseModel(object):
                      options=self.ts.options,
                      run_metadata=self.ts.metadata())
     
-    #3/3 Enable tensorscope - add after session.run()
+    # Enable tensorscope
     self.ts.characterize_model(graph=sess.graph)
     
     """
