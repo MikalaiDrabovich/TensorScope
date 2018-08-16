@@ -713,7 +713,7 @@ class TensorScope(object):
                                                 else:
                                                 """
                                                 inp_with_shape.extend(['(?)'])
-                                                print('Node missing from RunMetadata: ', in_node, ' for device ', k, 'also tried variant in sess_node_dict_out_raw: ', in_node_const, ', code ref 7')
+                                                print('Node missing from RunMetadata: ', in_node, ' for device ', k, ' code ref 7')
                                                     
                         if len(inp_with_shape) == 0: # if all inputs where control nodes
                             device_dict[k][0] = ['(no input)']
