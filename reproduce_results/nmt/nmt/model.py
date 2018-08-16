@@ -308,10 +308,7 @@ class BaseModel(object):
     
     # Enable tensorscope
     if self.ts is None:
-        self.ts = TensorScope(num_steps_to_warmup=10,
-                              num_steps_to_measure=100,
-                              model_name='nmt',
-                              session=sess)
+        self.ts = TensorScope(model_name='nmt', session=sess)
   
     # Enable tensorscope
     sess_result = sess.run([self.update,
@@ -328,6 +325,9 @@ class BaseModel(object):
     
     # Enable tensorscope
     self.ts.characterize_model(graph=sess.graph)
+    
+    #tf.logging.info('Global step, including warm-up: %d', self.ts.current_step)
+    #print('Global step: ', self.ts.current_step)
     
     """
     run_meta = tf.RunMetadata()

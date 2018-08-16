@@ -107,7 +107,7 @@ It is possible to verify this assumption for a small number of ops
 in column 'G(FL)OP/S achieved'.
 
 6) To compare to some other system, copy its 'data.tsv' to 
-results/model_name directory, rename 'data.tsv' to 'data_from_another_system.tsv'.
+results/model_name directory, rename 'data.tsv' to 'data_2.tsv'.
 See results in 'data_compared.tsv', unmatched ops will be saved
 to 'data_unmatched_ops.tsv'
 
@@ -184,8 +184,10 @@ class TensorScope(object):
         
         self.session_results = []
         self.current_raw_nodes = []
-        self.current_nodes_generic = []
+        self.current_nodes_with_const = {}
         self.node_list_all_sessions = []
+        
+        self.use_only_all_end_micros = False
         
         if not session:
             print("tf.session is None, exiting.")
@@ -307,11 +309,28 @@ class TensorScope(object):
                 # the final aggregation by type + device + i/o shapes
                 new_key =  k + '@' + k1 + '@' + v1['io_shapes']
                 result_dict[new_key] = [k, v[0], k1, v1['op_start'], v1['op_end'], v1['all_end'], v1['io_shapes'], v1['num_calls_stream_all'], v1['num_calls_replica'], v1['num_calls_memcpy']]
-       
+                if (v1['num_calls_stream_all']==0 and v1['num_calls_replica']==0 and v1['num_calls_memcpy']==0):
+                    print('Warning: v1[\'num_calls_stream_all\']==0 and v1[\'num_calls_replica\']==0 and v1[\'num_calls_memcpy\']==0')
+                    
         return result_dict
         
         
     def get_common_shapes(self, device_id, in_node, sess_node_dict_out_raw):
+        
+        if 'LayoutOptimizer' in in_node:
+            const_cand = self.add_path_with_const(in_node)
+            if const_cand in self.current_nodes_with_const:
+                loc_dev_dict = self.current_nodes_with_const[const_cand][1]
+                if device_id in loc_dev_dict: 
+                    return loc_dev_dict[device_id][1]
+                else:
+                    for devid, devval in loc_dev_dict.items():
+                        if 'replica' in devid:
+                            if in_node in loc_dev_dict[devid]:
+                                if loc_dev_dict[devid][1][0] != '(no output)':
+                                    # TODO: handle case when there is also an exact output slot for the value
+                                    return loc_dev_dict[devid][1][0]
+        
         fin_shape = '?'
         in_node_orig = in_node+''
         
@@ -346,7 +365,9 @@ class TensorScope(object):
     
         if leaf_node in ['add', 'Reshape', 'RealDiv',  'zeros', 'zeros_like', 'ones_like', 'ones', 'y', 'stack', 'ExponentialDecay']:
             return '(1|2|3x1)'   
-        
+
+     
+ 
         """
         # TODO: workaround for missing nodes, if they are still present in ROCm TensorFlow
         if in_node_orig.endswith('TransposeNHWCToNCHW-LayoutOptimizer'):
@@ -390,6 +411,8 @@ class TensorScope(object):
         mem_nodes.extend(mem_nodes_hcc)
                 
        
+        self.current_nodes_with_const = {}
+       
         while current_line < total_lines:
             # aggregate op name in current_key
             current_key = sess_node_list_in[current_line][0]
@@ -417,7 +440,21 @@ class TensorScope(object):
             # add new device
             if current_device not in sess_node_dict_out_raw[current_key][1]:
                 sess_node_dict_out_raw[current_key][1][current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
-                                        
+            
+            
+            # add new key with generic name for '-LayoutOptimizer'
+            if 'LayoutOptimizer' in current_key:
+                current_key_const = self.add_path_with_const(current_key)
+                if current_key_const not in self.current_nodes_with_const:
+                    device_dict = {}
+                    device_dict[current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
+                    self.current_nodes_with_const[current_key_const] = [shortname, device_dict]
+                
+                # add new device
+                if current_device not in self.current_nodes_with_const[current_key_const][1]:
+                    self.current_nodes_with_const[current_key_const][1][current_device] = [['(no input)'], ['(no output)'], 0, 0, 0]
+         
+                                   
             device_data = []
                   
            
@@ -486,7 +523,19 @@ class TensorScope(object):
             # aggregate op data for every device: preprocess io shapes, sum up time
             # dict[op] = [tensorflow_op_name=shortname, dict[current_device]], 
             # where dict[current_device] = [input tensor names, output shapes,  op_start_rel_micros, op_end_rel_micros, all_end_rel_micros]
-            sess_node_dict_out_raw[current_key][1][current_device] = [device_data[0], device_data[1], device_data[2], int(current_data[3]) + (device_data[3] - device_data[2]), int(current_data[4]) + device_data[4]]
+            # summig up timings
+            time_op_end_sum = int(current_data[3]) + (device_data[3] - device_data[2])
+            time_all_end_sum = int(current_data[4]) + device_data[4]
+            if time_op_end_sum > 100000000000000:
+                print('Warning: overflow in time_op_end_sum =  int(current_data[3]) + (device_data[3] - device_data[2])', current_data[3] + device_data[3] - device_data[2], current_data[3], device_data[3], device_data[2])
+                time_op_end_sum = int(current_data[3])
+                
+            if time_all_end_sum > 100000000000000:
+                print('Warning: overflow in time_all_end_sum = int(current_data[4]) + device_data[4]',  current_data[4] + device_data[4],  current_data[4], device_data[4])
+                time_all_end_sum = int(current_data[4])
+                  
+            sess_node_dict_out_raw[current_key][1][current_device] = [device_data[0], device_data[1], device_data[2], time_op_end_sum, time_all_end_sum]
+            
             
             # ensure that op_end_rel_micros >= op_start_rel_micros
             if  device_data[3] < device_data[2]:
@@ -518,7 +567,7 @@ class TensorScope(object):
                                             inp_with_shape.extend(leaf_shape)
                                         else:
                                             inp_with_shape.extend(['(?)'])
-                                            print('*** Missing data *** node referenced as input in timeline_label but absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 1')
+                                            print('Missing node in RunMetadata: ', in_node, ' for device ', k, ', code ref 1')
                                 else:
                                      in_node = in_node.split('/')
                                      leaf_node_parts = in_node[-1].split('_')
@@ -572,7 +621,7 @@ class TensorScope(object):
                                                 inp_with_shape.extend(leaf_shape)
                                             else:
                                                 inp_with_shape.extend(['(?)'])
-                                                print('*** Missing data *** node referenced as input in timeline_label but absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 3')
+                                                print('Node referenced but missing from RunMetadata: ', in_node, ' for device ', k, ', code ref 3')
                                      else:
                                         # try exact slot number 
                                         leaf_node_parts = in_node[-1].split(':')
@@ -627,7 +676,7 @@ class TensorScope(object):
                                                             inp_with_shape.extend(leaf_shape)
                                                         else:
                                                             inp_with_shape.extend(['(?)'])
-                                                            print('*** Missing data *** node referenced as input in timeline_label but absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 4')
+                                                            print('Node referenced but missing from RunMetadata: ', in_node, ' for device ', k, ', code ref 4')
                                             else:                                            
                                             
                                                 leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
@@ -636,15 +685,36 @@ class TensorScope(object):
                                                     inp_with_shape.extend(leaf_shape)
                                                 else:
                                                     inp_with_shape.extend(['(?)'])
-                                                    print('*** Missing data *** node referenced as input in timeline_label but absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 5')
+                                                    print('Node referenced but missing from RunMetadata: ', in_node, ' for device ', k, ', code ref 5')
                                         else:                                      
                                             in_node = '/'.join(in_node)
                                             leaf_shape = self.get_common_shapes(k, in_node, sess_node_dict_out_raw)
                                             if leaf_shape != '?':
                                                 inp_with_shape.extend(leaf_shape)
                                             else:
+                                                """
+                                                if in_node.endswith('-LayoutOptimizer'):
+                                                    # try for generic name
+                                                    in_node_const = add_path_with_const(in_node)
+                                                    
+                                                    
+                                                    if in_node_const in sess_node_dict_out_raw:
+                                                        loc_dev_dict = sess_node_dict_out_raw[in_node_const][1]
+                                                        if k in loc_dev_dict:
+                                                            inp_with_shape.extend(loc_dev_dict[k][1])
+                                                            print('Shape for missing node from RunMetadata: ', in_node, ' for device ', k, 'inferred from ', in_node_const, ' with result: ', loc_dev_dict[k][1])
+                                                        else:
+                                                            leaf_shape = self.get_common_shapes(k, in_node_const, sess_node_dict_out_raw)
+                                                            if leaf_shape != '?':
+                                                                inp_with_shape.extend(leaf_shape)
+                                                            else:
+                                                                inp_with_shape.extend(['(?)'])
+                                                                print('Node missing from RunMetadata: ', in_node, ' for device ', k, 'also tried variant in sess_node_dict_out_raw: ', in_node_const, ', code ref 6')
+                                                else:
+                                                """
                                                 inp_with_shape.extend(['(?)'])
-                                                print('*** Missing data *** node referenced as input in timeline_label but absent from RunMetadata: ', in_node, ' for device ', k, ', code ref 6')
+                                                print('Node missing from RunMetadata: ', in_node, ' for device ', k, 'also tried variant in sess_node_dict_out_raw: ', in_node_const, ', code ref 7')
+                                                    
                         if len(inp_with_shape) == 0: # if all inputs where control nodes
                             device_dict[k][0] = ['(no input)']
                         else:
@@ -738,7 +808,19 @@ class TensorScope(object):
             
         return '/'.join(current_node_path_parts)
     """
-    
+    def add_path_with_const(self, name_from_metadata):
+        current_node_path_parts = name_from_metadata.split('/')
+        for i, node in enumerate(current_node_path_parts):
+            node_loc = node+''
+            node_loc = node_loc.split(':')
+            for j, nd in enumerate(node_loc):
+                nd = nd.split('_')  
+                nd = [n if not n.isdigit() else 'tensorscopeN'  for n in nd ]
+                node_loc[j] = '_'.join(nd)
+            node_loc = ':'.join(node_loc)
+            current_node_path_parts[i] = node_loc
+            
+        return '/'.join(current_node_path_parts)
     
     def print_distribution_summary(self, sorted_times, denom_const):
         # Distribution of time among Top-k ops (op type + io tensor shape + device)
@@ -785,7 +867,7 @@ class TensorScope(object):
             _timeline_file.write(_chrome_trace)
             tf.logging.info('Timeline saved in %s', _timeline_file.name)
     
-    def compare_systems(self, data_file_1, data_file_2, result_file, unmatched_ops_file):
+    def compare_systems(data_file_1, data_file_2, result_file, unmatched_ops_file):
  
         tsv_file_obj_1 = open(data_file_1,'r')
         tsv_file_obj_2 = open(data_file_2,'r')
@@ -795,14 +877,14 @@ class TensorScope(object):
         tsv_file_writer = csv.writer(tsv_file_obj_result, delimiter='\t')
         tsv_file_writer_unmatched = csv.writer(tsv_file_obj_unmatched, delimiter='\t')
     
-        header_tsv = ['Op', 'System_1 time per call', 'System_2 time per call', 'Ratio (per occurence)', 'System_1 total op time', 
-        'System_2 total op time', 'Ratio (per all calls)', 'System_1 occurence', 'System_2 occurence', 'Occurence Ratio', 
+        header_tsv = ['Op', 'System_1 time per call', 'System_2 time per call', 'Time ratio Sys1/Sys2 (one call)', 'System_1 total op time', 
+        'System_2 total op time', 'Time ratio Sys1/Sys2 (all calls)', 'System_1 occurence', 'System_2 occurence', 'Occurence Ratio', 
         'System1 cumulative time', 'System1 % of total time ', 'System1 cumulative % of total time ',
         'System2 cumulative time', 'System2 % of total time ', 'System2 cumulative % of total time ']
         
         header_tsv_unmatched = ['System number', 'Op rank by total time', 'Time of 1 call, microseconds', 'Number of calls in 1 run', 'Total time in 1 run',
                       '% of total time', 'Cumulative time, microseconds', '% of total cumulative time',
-                      '(FL)OP estimation', 'GFLOP/S achieved',
+                      '(FL)OPs in RegisterStatistics', 'GFLOP/S achieved',
                       'Op name', 'Device', 'Input/output tensors']
                       
         tsv_file_writer.writerow(header_tsv)
@@ -827,19 +909,36 @@ class TensorScope(object):
             p_parts = p.split('\t')
             p_parts = [p1.strip() for p1 in p_parts] 
             unique_op_description = '@'.join(p_parts[-3:])
-            # op, time 1 call, occ, total time, % of available step time, 
+            # op, time 1 call, occ, total time 
             sys1_op_dict[unique_op_description] = [p_parts, p_parts[1], p_parts[2], p_parts[3]]
              
         for p in sys2:
             p_parts = p.split('\t')
             p_parts = [p1.strip() for p1 in p_parts] 
             unique_op_description = '@'.join(p_parts[-3:])
-            # op, time 1 call, occ, total time, % of available step time, 
+            # op, time 1 call, occ, total time
             sys2_op_dict[unique_op_description] = [p_parts, p_parts[1], p_parts[2], p_parts[3]]
              
         for k,v in sys1_op_dict.items():
+            if float(v[1]) <= 0.0:
+                print('Warning: v[1] == 0', k, v)
+                continue
+                
+            if float(v[2]) <= 0.0:
+                print('Warning: v[1] == 0', k, v)
+                continue
+                    
             if k in sys2_op_dict:
                 sys2_row = sys2_op_dict[k]
+                
+                if float(sys2_row[1]) <= 0.0:
+                    print('Warning: sys2_row[1] == 0', k, sys2_row)
+                    continue
+                
+                if float(sys2_row[2]) <= 0.0:
+                    print('Warning: sys2_row[2] == 0', k, sys2_row)
+                    continue
+
                 sys_op_intersection_dict[k] = [k, v[1], sys2_row[1], float(v[1])/float(sys2_row[1]), v[3], sys2_row[3], float(v[3])/float(sys2_row[3]), v[2], sys2_row[2], float(v[2])/float(sys2_row[2])]
         
         missing_in_1 = list(set(sys2_op_dict.keys())-set(sys1_op_dict.keys()))
@@ -894,14 +993,25 @@ class TensorScope(object):
               
         tsv_file_obj_result.close()
         
+        print('\n\n***Comparison completed***')
+        print('See data_compared.tsv to select candidates for optimization in system1.')
+        print('- See column D \'Time ratio Sys1/Sys2 (one call)\'. This is how many times an op is faster in system2 compared to system1.')
+        print('- Ops are sorted by total time in the 1st (slower) system.')
+        print('- To cover, for example, 80% of time spent in system1, see values in column M (\'System1 cumulative % of total time\')')
+        print('Good candidates for further optimizations will be ops from the first row to the row with value of about 0.8 (80%) in column M')
+        print('- Unmatched ops saved to data_unmatched_ops.tsv. Take a look there to see if some time consuming ops are actually unique to system1 and system2.')
+        print('- Baselines for system1 are in column B (\'Time of 1 call, microseconds\'). By default, these values are averaged over 100 runs (aka steps, batches) and 10 warm-up steps.')
         
+
+
     def generate_results(self): 
 
-        # if op time is calculated as all_end_rel - 0
-        sorted_times = ( (key, value) for key, value in sorted(self.profiling_result.items(), key=lambda x: list(x[1])[5], reverse=True))
-      
-        # if op time is calculated as op_end_rel - op_start_rel 
-        #sorted_times = ( (key, value) for key, value in sorted(self.profiling_result.items(), key=lambda x: list(x[1])[4], reverse=True))
+        if self.use_only_all_end_micros:
+            # if op time is calculated as all_end_rel - 0
+            sorted_times = ( (key, value) for key, value in sorted(self.profiling_result.items(), key=lambda x: list(x[1])[5], reverse=True))
+        else:
+            # if op time is calculated as op_end_rel - op_start_rel 
+            sorted_times = ( (key, value) for key, value in sorted(self.profiling_result.items(), key=lambda x: list(x[1])[4], reverse=True))
          
         sorted_times = list(sorted_times)
         
@@ -935,11 +1045,12 @@ class TensorScope(object):
         total_ops_time = 0.0
         num_unique_ops = len(sorted_times)
         for op_name, op_time in sorted_times:
-          # if op time is calculated as all_end_rel - 0
-          total_ops_time = total_ops_time + op_time[5]
-          
-          # if op time is calculated as op_end_rel - op_start_rel 
-          #total_ops_time = total_ops_time + op_time[4]
+          if self.use_only_all_end_micros:
+              # if op time is calculated as all_end_rel - 0
+              total_ops_time = total_ops_time + op_time[5]
+          else:
+              # if op time is calculated as op_end_rel - op_start_rel 
+              total_ops_time = total_ops_time + op_time[4]
                 
         mean_time_per_step = float(self.total_time_analyzed)/self.num_steps_analyzed
         mean_all_ops_time_per_step = float(total_ops_time)/self.num_steps_analyzed
@@ -965,7 +1076,7 @@ class TensorScope(object):
 
         header_tsv = ['Op rank by total time', 'Time of 1 call, microseconds', 'Number of calls in 1 run', 'Total time in 1 run',
                       '% of total time', 'Cumulative time, microseconds', '% of total cumulative time',
-                      '(FL)OP estimation', 'GFLOP/S achieved',
+                      '(FL)OPs in RegisterStatistics', 'GFLOP/S achieved',
                       'Op name', 'Device', 'Input/output tensors']
                       
         header_tsv_for_chart = ['Node','Time']
@@ -974,7 +1085,7 @@ class TensorScope(object):
         tsv_file_writer_for_chart.writerow(header_tsv_for_chart)
 
         """
-        compare_to_other_system = False
+        compare_to_other_system_on_chart = False
         if compare_to_other_system:
             tsv_file_obj_other_system = open(self.temp_path + "data_for_pie_chart_2.tsv",'r')
             other_system_results = tsv_file_obj_other_system.readlines()
@@ -983,7 +1094,7 @@ class TensorScope(object):
          
         # finalize data for the chart
         for times_key, times_value in sorted_times:
- 
+
           # remove slot info from shapes
           spl = times_value[6].split(' slot ')
           if len(spl) > 1:
@@ -993,11 +1104,31 @@ class TensorScope(object):
           
           shape_str = times_value[6]
             
-          num_calls_all_steps =  max(times_value[7],times_value[8],times_value[9])
-          
+          num_calls_all_steps =  max(times_value[7],times_value[8],times_value[9])          
+          if num_calls_all_steps <=0.0001:
+              print('Warning: num_calls_all_steps <=0.0001')
+              
           #num_calls_per_step should be float to spot ops that do not run in every session, as could be expected
           num_calls_per_step =  (num_calls_all_steps/float(self.num_steps_analyzed))
-          op_time_all_runs = times_value[5]
+          if num_calls_per_step <=0.0001:
+              print('Warning: num_calls_per_step <=0.0001')
+          
+          
+          if self.use_only_all_end_micros:
+              # all end
+              op_time_all_runs = times_value[5]
+          else:
+              # op end
+              op_time_all_runs = times_value[4]
+          
+          if op_time_all_runs < 1.0:
+              print(times_key, 'op_end_all_micros was 0: ', times_value[4], ' using all_end_micros instead : ', times_value[5], 'times_value: ', times_value)
+              op_time_all_runs = times_value[5]
+              if op_time_all_runs < 1.0:
+                  print(times_key, 'both all_end_micros and op_end_all_micros were 0, forcing to be 1 microsecond instead.')
+                  op_time_all_runs = 1
+          
+          
           num_flops_per_step = -1
           times_key_part = times_key.split('@')
           times_key_part = times_key_part[0]
@@ -1040,7 +1171,7 @@ class TensorScope(object):
           if num_flops_per_step > 0:
               current_row_output_for_chart_tsv.insert(3, ('%.1f' % (num_flops_per_step/op_time_per_run_microsec/1000000.0)) +' TFLOPS' )
           else:
-              current_row_output_for_chart_tsv.insert(3, ' ')
+              current_row_output_for_chart_tsv.insert(3, '|')
                        
          
           # suppress long op paths
@@ -1048,9 +1179,9 @@ class TensorScope(object):
           
           # suppress 'rays' of io shapes on a chart
           current_row_output_for_chart_tsv.append(' ')
-          # suppress displaying device number
           
-          del current_row_output_for_chart_tsv[1]
+          # suppress displaying device number
+          #del current_row_output_for_chart_tsv[1]
           
           """
           if compare_to_other_system:
@@ -1124,14 +1255,14 @@ class TensorScope(object):
           gflops/=1000.0 #(because op time is not in seconds but in microseconds)
           
           current_row_output = [op_rank, 
-                                "%9.1f" % op_time_per_call_microsec,
-                                "%9.1f" % num_calls_per_step,
-                                "%9.1f" % (op_time_per_run_microsec),
-                                "%9.1f" % (100*op_time_all_runs/float(total_ops_time)),
-                                "%9.1f" % (cumul_time),
-                                "%9.1f" % (100*cumul_time/mean_all_ops_time_per_step),
-                                "%9.0f" % (num_calls_per_step*times_value[2] if times_value[2] > 0 else 0),
-                                "%9.3f" % gflops]
+                                "%9.2f" % op_time_per_call_microsec,
+                                "%9.2f" % num_calls_per_step,
+                                "%9.2f" % (op_time_per_run_microsec),
+                                "%9.2f" % (100*op_time_all_runs/float(total_ops_time)),
+                                "%9.2f" % (cumul_time),
+                                "%9.2f" % (100*cumul_time/mean_all_ops_time_per_step),
+                                "%9.2f" % (num_calls_per_step*times_value[2] if times_value[2] > 0 else 0),
+                                "%9.2f" % gflops]
                                                 
           nodepathparts = times_key.split('/')                                 
           current_row_output.extend(nodepathparts)
@@ -1143,9 +1274,9 @@ class TensorScope(object):
         self.print_distribution_summary(fin_sorted_times, denom_const)
         print("\n*** See data.tsv, pie_chart.html for details ***\n")
         
-        if os.path.exists(self.temp_path + "data_from_another_system.tsv"):
-            self.compare_systems(self.temp_path + "data.tsv",
-                                 self.temp_path + "data_from_another_system.tsv",
+        if os.path.exists(self.temp_path + "data_2.tsv"):
+                TensorScope.compare_systems(self.temp_path + "data.tsv",
+                                 self.temp_path + "data_2.tsv",
                                  self.temp_path + "data_compared.tsv",
                                  self.temp_path + "data_unmatched_ops.tsv")
             
@@ -1178,10 +1309,9 @@ class TensorScope(object):
                 except Exception as e: 
                     continue  
 
-            print('total ops: ', tot_ops_num)
-            print('num nodes with flops available: ', flops_calc)  
-            print('total GFlops: ', total_flops/1000000000)  
-            self.flops_retrieved = True
+            print('Total ops: ', tot_ops_num)
+            print('Percentage of nodes with flops stats available: %2.1f%%. Sanity check - sum of number of operations (per single occurence) in these ops: %.3f GFLOP' % (100.0*(flops_calc/tot_ops_num), total_flops/1000000000.0))
+            self.flops_retrieved = True 
 
         
         if self.session_metadata is not None:
@@ -1339,5 +1469,10 @@ class TensorScopeRunHook(session_run_hook.SessionRunHook):
     self._ts.session_metadata = run_values.run_metadata
     self._ts.characterize_model(graph=run_context.session.graph)
     
+if __name__=="__main__":
+    if len(sys.argv) < 2:
+        TensorScope.compare_systems("data.tsv", "data_2.tsv", "data_compared.tsv", "data_unmatched_ops.tsv")
+    else:
+        TensorScope.compare_systems(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 
-
+    
