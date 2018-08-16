@@ -1,300 +1,310 @@
-2018-08-13 18:31:16.907997: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-08-13 18:31:16.908460: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
+2018-08-16 15:32:35.569465: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-08-16 15:32:35.569877: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
 name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
 pciBusID: 0000:01:00.0
-totalMemory: 5.94GiB freeMemory: 5.40GiB
-2018-08-13 18:31:16.908471: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-08-13 18:31:17.115833: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-08-13 18:31:17.115860: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-08-13 18:31:17.115866: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-08-13 18:31:17.115988: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5167 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-2018-08-13 18:31:17.116152: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
+totalMemory: 5.94GiB freeMemory: 5.67GiB
+2018-08-16 15:32:35.569890: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-16 15:32:35.761472: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-16 15:32:35.761500: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-16 15:32:35.761524: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-16 15:32:35.761714: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5445 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-08-16 15:32:35.762042: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
 /usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
 INFO:tensorflow:Using default config.
-I0813 18:31:17.176484 140127676114688 tf_logging.py:115] Using default config.
-INFO:tensorflow:Using config: {'_save_checkpoints_secs': 600, '_keep_checkpoint_every_n_hours': 10000, '_num_ps_replicas': 0, '_service': None, '_train_distribute': None, '_save_summary_steps': 100, '_is_chief': True, '_device_fn': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f719c15bf60>, '_num_worker_replicas': 1, '_session_config': None, '_tf_random_seed': None, '_master': '', '_global_id_in_cluster': 0, '_evaluation_master': '', '_save_checkpoints_steps': None, '_task_type': 'worker', '_log_step_count_steps': 100, '_model_dir': '/home/ndr/work_august/TensorScope/reproduce_results/mnist/mnist_model', '_task_id': 0, '_keep_checkpoint_max': 5}
-I0813 18:31:17.176856 140127676114688 tf_logging.py:115] Using config: {'_save_checkpoints_secs': 600, '_keep_checkpoint_every_n_hours': 10000, '_num_ps_replicas': 0, '_service': None, '_train_distribute': None, '_save_summary_steps': 100, '_is_chief': True, '_device_fn': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f719c15bf60>, '_num_worker_replicas': 1, '_session_config': None, '_tf_random_seed': None, '_master': '', '_global_id_in_cluster': 0, '_evaluation_master': '', '_save_checkpoints_steps': None, '_task_type': 'worker', '_log_step_count_steps': 100, '_model_dir': '/home/ndr/work_august/TensorScope/reproduce_results/mnist/mnist_model', '_task_id': 0, '_keep_checkpoint_max': 5}
+I0816 15:32:35.816070 140333487216384 tf_logging.py:115] Using default config.
+INFO:tensorflow:Using config: {'_save_checkpoints_secs': 600, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7fa1875dacc0>, '_train_distribute': None, '_task_id': 0, '_session_config': None, '_task_type': 'worker', '_num_worker_replicas': 1, '_service': None, '_global_id_in_cluster': 0, '_num_ps_replicas': 0, '_device_fn': None, '_master': '', '_tf_random_seed': None, '_save_summary_steps': 100, '_is_chief': True, '_keep_checkpoint_max': 5, '_model_dir': '/home/ndr/work_august/TensorScope/reproduce_results/mnist/mnist_model', '_evaluation_master': '', '_save_checkpoints_steps': None, '_log_step_count_steps': 100, '_keep_checkpoint_every_n_hours': 10000}
+I0816 15:32:35.816461 140333487216384 tf_logging.py:115] Using config: {'_save_checkpoints_secs': 600, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7fa1875dacc0>, '_train_distribute': None, '_task_id': 0, '_session_config': None, '_task_type': 'worker', '_num_worker_replicas': 1, '_service': None, '_global_id_in_cluster': 0, '_num_ps_replicas': 0, '_device_fn': None, '_master': '', '_tf_random_seed': None, '_save_summary_steps': 100, '_is_chief': True, '_keep_checkpoint_max': 5, '_model_dir': '/home/ndr/work_august/TensorScope/reproduce_results/mnist/mnist_model', '_evaluation_master': '', '_save_checkpoints_steps': None, '_log_step_count_steps': 100, '_keep_checkpoint_every_n_hours': 10000}
 INFO:tensorflow:Calling model_fn.
-I0813 18:31:17.217122 140127676114688 tf_logging.py:115] Calling model_fn.
+I0816 15:32:35.856944 140333487216384 tf_logging.py:115] Calling model_fn.
 INFO:tensorflow:Done calling model_fn.
-I0813 18:31:17.565639 140127676114688 tf_logging.py:115] Done calling model_fn.
+I0816 15:32:36.169640 140333487216384 tf_logging.py:115] Done calling model_fn.
 INFO:tensorflow:Create CheckpointSaverHook.
-I0813 18:31:17.566688 140127676114688 tf_logging.py:115] Create CheckpointSaverHook.
+I0816 15:32:36.170709 140333487216384 tf_logging.py:115] Create CheckpointSaverHook.
 INFO:tensorflow:Graph was finalized.
-I0813 18:31:17.711794 140127676114688 tf_logging.py:115] Graph was finalized.
-2018-08-13 18:31:17.712084: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-08-13 18:31:17.712106: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-08-13 18:31:17.712110: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-08-13 18:31:17.712114: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-08-13 18:31:17.712235: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5167 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+I0816 15:32:36.309996 140333487216384 tf_logging.py:115] Graph was finalized.
+2018-08-16 15:32:36.310244: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-16 15:32:36.310267: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-16 15:32:36.310272: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-16 15:32:36.310276: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-16 15:32:36.310360: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5445 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
 INFO:tensorflow:Running local_init_op.
-I0813 18:31:17.876564 140127676114688 tf_logging.py:115] Running local_init_op.
+I0816 15:32:36.470583 140333487216384 tf_logging.py:115] Running local_init_op.
 INFO:tensorflow:Done running local_init_op.
-I0813 18:31:17.882564 140127676114688 tf_logging.py:115] Done running local_init_op.
+I0816 15:32:36.476593 140333487216384 tf_logging.py:115] Done running local_init_op.
 INFO:tensorflow:Saving checkpoints for 0 into /home/ndr/work_august/TensorScope/reproduce_results/mnist/mnist_model/model.ckpt.
-I0813 18:31:18.115023 140127676114688 tf_logging.py:115] Saving checkpoints for 0 into /home/ndr/work_august/TensorScope/reproduce_results/mnist/mnist_model/model.ckpt.
-2018-08-13 18:31:18.385182: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
-INFO:tensorflow:cross_entropy = 2.3107994, learning_rate = 1e-04, train_accuracy = 0.08
-I0813 18:31:21.056866 140127676114688 tf_logging.py:115] cross_entropy = 2.3107994, learning_rate = 1e-04, train_accuracy = 0.08
-INFO:tensorflow:Warm-up step 1/10 completed in 2.8593 seconds.
-I0813 18:31:21.074142 140127676114688 tf_logging.py:115] Warm-up step 1/10 completed in 2.8593 seconds.
-INFO:tensorflow:loss = 2.3107994, step = 0
-I0813 18:31:21.074369 140127676114688 tf_logging.py:115] loss = 2.3107994, step = 0
-INFO:tensorflow:Warm-up step 2/10 completed in 0.0676 seconds.
-I0813 18:31:21.142223 140127676114688 tf_logging.py:115] Warm-up step 2/10 completed in 0.0676 seconds.
-INFO:tensorflow:Warm-up step 3/10 completed in 0.0130 seconds.
-I0813 18:31:21.155656 140127676114688 tf_logging.py:115] Warm-up step 3/10 completed in 0.0130 seconds.
-INFO:tensorflow:Warm-up step 4/10 completed in 0.0125 seconds.
-I0813 18:31:21.168457 140127676114688 tf_logging.py:115] Warm-up step 4/10 completed in 0.0125 seconds.
-INFO:tensorflow:Warm-up step 5/10 completed in 0.0125 seconds.
-I0813 18:31:21.181263 140127676114688 tf_logging.py:115] Warm-up step 5/10 completed in 0.0125 seconds.
-INFO:tensorflow:Warm-up step 6/10 completed in 0.0126 seconds.
-I0813 18:31:21.194111 140127676114688 tf_logging.py:115] Warm-up step 6/10 completed in 0.0126 seconds.
-INFO:tensorflow:Warm-up step 7/10 completed in 0.0124 seconds.
-I0813 18:31:21.206772 140127676114688 tf_logging.py:115] Warm-up step 7/10 completed in 0.0124 seconds.
-INFO:tensorflow:Warm-up step 8/10 completed in 0.0121 seconds.
-I0813 18:31:21.219248 140127676114688 tf_logging.py:115] Warm-up step 8/10 completed in 0.0121 seconds.
-INFO:tensorflow:Warm-up step 9/10 completed in 0.0128 seconds.
-I0813 18:31:21.232283 140127676114688 tf_logging.py:115] Warm-up step 9/10 completed in 0.0128 seconds.
-INFO:tensorflow:Warm-up step 10/10 completed in 0.0151 seconds.
-I0813 18:31:21.247634 140127676114688 tf_logging.py:115] Warm-up step 10/10 completed in 0.0151 seconds.
-INFO:tensorflow:Step 1/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0040 seconds
-I0813 18:31:21.264659 140127676114688 tf_logging.py:115] Step 1/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0040 seconds
-INFO:tensorflow:Step 2/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0043 seconds
-I0813 18:31:21.281875 140127676114688 tf_logging.py:115] Step 2/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0043 seconds
-INFO:tensorflow:Step 3/100 completed in 0.0135 seconds, RunMetadata parsed in 0.0044 seconds
-I0813 18:31:21.300205 140127676114688 tf_logging.py:115] Step 3/100 completed in 0.0135 seconds, RunMetadata parsed in 0.0044 seconds
-INFO:tensorflow:Step 4/100 completed in 0.0157 seconds, RunMetadata parsed in 0.0048 seconds
-I0813 18:31:21.321032 140127676114688 tf_logging.py:115] Step 4/100 completed in 0.0157 seconds, RunMetadata parsed in 0.0048 seconds
-INFO:tensorflow:Step 5/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0045 seconds
-I0813 18:31:21.338491 140127676114688 tf_logging.py:115] Step 5/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0045 seconds
-INFO:tensorflow:Step 6/100 completed in 0.0157 seconds, RunMetadata parsed in 0.0045 seconds
-I0813 18:31:21.358988 140127676114688 tf_logging.py:115] Step 6/100 completed in 0.0157 seconds, RunMetadata parsed in 0.0045 seconds
-INFO:tensorflow:Step 7/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0046 seconds
-I0813 18:31:21.375858 140127676114688 tf_logging.py:115] Step 7/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0046 seconds
-INFO:tensorflow:Step 8/100 completed in 0.0148 seconds, RunMetadata parsed in 0.0044 seconds
-I0813 18:31:21.395372 140127676114688 tf_logging.py:115] Step 8/100 completed in 0.0148 seconds, RunMetadata parsed in 0.0044 seconds
-INFO:tensorflow:Step 9/100 completed in 0.0135 seconds, RunMetadata parsed in 0.0044 seconds
-I0813 18:31:21.413664 140127676114688 tf_logging.py:115] Step 9/100 completed in 0.0135 seconds, RunMetadata parsed in 0.0044 seconds
-INFO:tensorflow:Step 10/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0046 seconds
-I0813 18:31:21.431391 140127676114688 tf_logging.py:115] Step 10/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0046 seconds
-INFO:tensorflow:Step 11/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0044 seconds
-I0813 18:31:21.448573 140127676114688 tf_logging.py:115] Step 11/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0044 seconds
-INFO:tensorflow:Step 12/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0050 seconds
-I0813 18:31:21.466454 140127676114688 tf_logging.py:115] Step 12/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0050 seconds
-INFO:tensorflow:Step 13/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0046 seconds
-I0813 18:31:21.483156 140127676114688 tf_logging.py:115] Step 13/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0046 seconds
-INFO:tensorflow:Step 14/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0045 seconds
-I0813 18:31:21.500320 140127676114688 tf_logging.py:115] Step 14/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0045 seconds
-INFO:tensorflow:Step 15/100 completed in 0.0122 seconds, RunMetadata parsed in 0.0045 seconds
-I0813 18:31:21.517378 140127676114688 tf_logging.py:115] Step 15/100 completed in 0.0122 seconds, RunMetadata parsed in 0.0045 seconds
-INFO:tensorflow:Step 16/100 completed in 0.0127 seconds, RunMetadata parsed in 0.0047 seconds
-I0813 18:31:21.535107 140127676114688 tf_logging.py:115] Step 16/100 completed in 0.0127 seconds, RunMetadata parsed in 0.0047 seconds
-INFO:tensorflow:Step 17/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0048 seconds
-I0813 18:31:21.553184 140127676114688 tf_logging.py:115] Step 17/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0048 seconds
-INFO:tensorflow:Step 18/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0047 seconds
-I0813 18:31:21.570600 140127676114688 tf_logging.py:115] Step 18/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0047 seconds
-INFO:tensorflow:Step 19/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0073 seconds
-I0813 18:31:21.590219 140127676114688 tf_logging.py:115] Step 19/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0073 seconds
-INFO:tensorflow:Step 20/100 completed in 0.0132 seconds, RunMetadata parsed in 0.0045 seconds
-I0813 18:31:21.608422 140127676114688 tf_logging.py:115] Step 20/100 completed in 0.0132 seconds, RunMetadata parsed in 0.0045 seconds
-INFO:tensorflow:Step 21/100 completed in 0.0146 seconds, RunMetadata parsed in 0.0045 seconds
-I0813 18:31:21.627864 140127676114688 tf_logging.py:115] Step 21/100 completed in 0.0146 seconds, RunMetadata parsed in 0.0045 seconds
-INFO:tensorflow:Step 22/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0390 seconds
-I0813 18:31:21.679674 140127676114688 tf_logging.py:115] Step 22/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0390 seconds
-INFO:tensorflow:Step 23/100 completed in 0.0153 seconds, RunMetadata parsed in 0.0044 seconds
-I0813 18:31:21.699750 140127676114688 tf_logging.py:115] Step 23/100 completed in 0.0153 seconds, RunMetadata parsed in 0.0044 seconds
-INFO:tensorflow:Step 24/100 completed in 0.0122 seconds, RunMetadata parsed in 0.0045 seconds
-I0813 18:31:21.716774 140127676114688 tf_logging.py:115] Step 24/100 completed in 0.0122 seconds, RunMetadata parsed in 0.0045 seconds
-INFO:tensorflow:Step 25/100 completed in 0.0152 seconds, RunMetadata parsed in 0.0051 seconds
-I0813 18:31:21.737323 140127676114688 tf_logging.py:115] Step 25/100 completed in 0.0152 seconds, RunMetadata parsed in 0.0051 seconds
-INFO:tensorflow:Step 26/100 completed in 0.0134 seconds, RunMetadata parsed in 0.0096 seconds
-I0813 18:31:21.760711 140127676114688 tf_logging.py:115] Step 26/100 completed in 0.0134 seconds, RunMetadata parsed in 0.0096 seconds
-INFO:tensorflow:Step 27/100 completed in 0.0152 seconds, RunMetadata parsed in 0.0091 seconds
-I0813 18:31:21.785461 140127676114688 tf_logging.py:115] Step 27/100 completed in 0.0152 seconds, RunMetadata parsed in 0.0091 seconds
-INFO:tensorflow:Step 28/100 completed in 0.0157 seconds, RunMetadata parsed in 0.0071 seconds
-I0813 18:31:21.808760 140127676114688 tf_logging.py:115] Step 28/100 completed in 0.0157 seconds, RunMetadata parsed in 0.0071 seconds
-INFO:tensorflow:Step 29/100 completed in 0.0151 seconds, RunMetadata parsed in 0.0071 seconds
-I0813 18:31:21.831346 140127676114688 tf_logging.py:115] Step 29/100 completed in 0.0151 seconds, RunMetadata parsed in 0.0071 seconds
-INFO:tensorflow:Step 30/100 completed in 0.0185 seconds, RunMetadata parsed in 0.0068 seconds
-I0813 18:31:21.857042 140127676114688 tf_logging.py:115] Step 30/100 completed in 0.0185 seconds, RunMetadata parsed in 0.0068 seconds
-INFO:tensorflow:Step 31/100 completed in 0.0161 seconds, RunMetadata parsed in 0.0073 seconds
-I0813 18:31:21.880841 140127676114688 tf_logging.py:115] Step 31/100 completed in 0.0161 seconds, RunMetadata parsed in 0.0073 seconds
-INFO:tensorflow:Step 32/100 completed in 0.0154 seconds, RunMetadata parsed in 0.0076 seconds
-I0813 18:31:21.904268 140127676114688 tf_logging.py:115] Step 32/100 completed in 0.0154 seconds, RunMetadata parsed in 0.0076 seconds
-INFO:tensorflow:Step 33/100 completed in 0.0158 seconds, RunMetadata parsed in 0.0073 seconds
-I0813 18:31:21.927861 140127676114688 tf_logging.py:115] Step 33/100 completed in 0.0158 seconds, RunMetadata parsed in 0.0073 seconds
-INFO:tensorflow:Step 34/100 completed in 0.0169 seconds, RunMetadata parsed in 0.0076 seconds
-I0813 18:31:21.952859 140127676114688 tf_logging.py:115] Step 34/100 completed in 0.0169 seconds, RunMetadata parsed in 0.0076 seconds
-INFO:tensorflow:Step 35/100 completed in 0.0195 seconds, RunMetadata parsed in 0.0073 seconds
-I0813 18:31:21.980100 140127676114688 tf_logging.py:115] Step 35/100 completed in 0.0195 seconds, RunMetadata parsed in 0.0073 seconds
-INFO:tensorflow:Step 36/100 completed in 0.0169 seconds, RunMetadata parsed in 0.0074 seconds
-I0813 18:31:22.004836 140127676114688 tf_logging.py:115] Step 36/100 completed in 0.0169 seconds, RunMetadata parsed in 0.0074 seconds
-INFO:tensorflow:Step 37/100 completed in 0.0159 seconds, RunMetadata parsed in 0.0078 seconds
-I0813 18:31:22.028993 140127676114688 tf_logging.py:115] Step 37/100 completed in 0.0159 seconds, RunMetadata parsed in 0.0078 seconds
-INFO:tensorflow:Step 38/100 completed in 0.0198 seconds, RunMetadata parsed in 0.0075 seconds
-I0813 18:31:22.056789 140127676114688 tf_logging.py:115] Step 38/100 completed in 0.0198 seconds, RunMetadata parsed in 0.0075 seconds
-INFO:tensorflow:Step 39/100 completed in 0.0161 seconds, RunMetadata parsed in 0.0077 seconds
-I0813 18:31:22.081002 140127676114688 tf_logging.py:115] Step 39/100 completed in 0.0161 seconds, RunMetadata parsed in 0.0077 seconds
-INFO:tensorflow:Step 40/100 completed in 0.0177 seconds, RunMetadata parsed in 0.0080 seconds
-I0813 18:31:22.107189 140127676114688 tf_logging.py:115] Step 40/100 completed in 0.0177 seconds, RunMetadata parsed in 0.0080 seconds
-INFO:tensorflow:Step 41/100 completed in 0.0167 seconds, RunMetadata parsed in 0.0082 seconds
-I0813 18:31:22.132646 140127676114688 tf_logging.py:115] Step 41/100 completed in 0.0167 seconds, RunMetadata parsed in 0.0082 seconds
-INFO:tensorflow:Step 42/100 completed in 0.0161 seconds, RunMetadata parsed in 0.0077 seconds
-I0813 18:31:22.156856 140127676114688 tf_logging.py:115] Step 42/100 completed in 0.0161 seconds, RunMetadata parsed in 0.0077 seconds
-INFO:tensorflow:Step 43/100 completed in 0.0169 seconds, RunMetadata parsed in 0.0081 seconds
-I0813 18:31:22.182249 140127676114688 tf_logging.py:115] Step 43/100 completed in 0.0169 seconds, RunMetadata parsed in 0.0081 seconds
-INFO:tensorflow:Step 44/100 completed in 0.0173 seconds, RunMetadata parsed in 0.0122 seconds
-I0813 18:31:22.212278 140127676114688 tf_logging.py:115] Step 44/100 completed in 0.0173 seconds, RunMetadata parsed in 0.0122 seconds
-INFO:tensorflow:Step 45/100 completed in 0.0200 seconds, RunMetadata parsed in 0.0118 seconds
-I0813 18:31:22.244676 140127676114688 tf_logging.py:115] Step 45/100 completed in 0.0200 seconds, RunMetadata parsed in 0.0118 seconds
-INFO:tensorflow:Step 46/100 completed in 0.0185 seconds, RunMetadata parsed in 0.0076 seconds
-I0813 18:31:22.271389 140127676114688 tf_logging.py:115] Step 46/100 completed in 0.0185 seconds, RunMetadata parsed in 0.0076 seconds
-INFO:tensorflow:Step 47/100 completed in 0.0161 seconds, RunMetadata parsed in 0.0073 seconds
-I0813 18:31:22.295290 140127676114688 tf_logging.py:115] Step 47/100 completed in 0.0161 seconds, RunMetadata parsed in 0.0073 seconds
-INFO:tensorflow:Step 48/100 completed in 0.0173 seconds, RunMetadata parsed in 0.0074 seconds
-I0813 18:31:22.320475 140127676114688 tf_logging.py:115] Step 48/100 completed in 0.0173 seconds, RunMetadata parsed in 0.0074 seconds
-INFO:tensorflow:Step 49/100 completed in 0.0184 seconds, RunMetadata parsed in 0.0077 seconds
-I0813 18:31:22.346971 140127676114688 tf_logging.py:115] Step 49/100 completed in 0.0184 seconds, RunMetadata parsed in 0.0077 seconds
-INFO:tensorflow:Step 50/100 completed in 0.0163 seconds, RunMetadata parsed in 0.0074 seconds
-I0813 18:31:22.371175 140127676114688 tf_logging.py:115] Step 50/100 completed in 0.0163 seconds, RunMetadata parsed in 0.0074 seconds
-INFO:tensorflow:Step 51/100 completed in 0.0176 seconds, RunMetadata parsed in 0.0223 seconds
-I0813 18:31:22.411657 140127676114688 tf_logging.py:115] Step 51/100 completed in 0.0176 seconds, RunMetadata parsed in 0.0223 seconds
+I0816 15:32:36.704959 140333487216384 tf_logging.py:115] Saving checkpoints for 0 into /home/ndr/work_august/TensorScope/reproduce_results/mnist/mnist_model/model.ckpt.
+2018-08-16 15:32:36.963153: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
+INFO:tensorflow:cross_entropy = 2.3095224, learning_rate = 1e-04, train_accuracy = 0.1
+I0816 15:32:39.700175 140333487216384 tf_logging.py:115] cross_entropy = 2.3095224, learning_rate = 1e-04, train_accuracy = 0.1
+INFO:tensorflow:Warm-up step 1/10 completed in 2.9162 seconds.
+I0816 15:32:39.717353 140333487216384 tf_logging.py:115] Warm-up step 1/10 completed in 2.9162 seconds.
+INFO:tensorflow:loss = 2.3095224, step = 0
+I0816 15:32:39.717619 140333487216384 tf_logging.py:115] loss = 2.3095224, step = 0
+INFO:tensorflow:Warm-up step 2/10 completed in 0.0690 seconds.
+I0816 15:32:39.786896 140333487216384 tf_logging.py:115] Warm-up step 2/10 completed in 0.0690 seconds.
+INFO:tensorflow:Warm-up step 3/10 completed in 0.0131 seconds.
+I0816 15:32:39.800350 140333487216384 tf_logging.py:115] Warm-up step 3/10 completed in 0.0131 seconds.
+INFO:tensorflow:Warm-up step 4/10 completed in 0.0129 seconds.
+I0816 15:32:39.813542 140333487216384 tf_logging.py:115] Warm-up step 4/10 completed in 0.0129 seconds.
+INFO:tensorflow:Warm-up step 5/10 completed in 0.0133 seconds.
+I0816 15:32:39.827053 140333487216384 tf_logging.py:115] Warm-up step 5/10 completed in 0.0133 seconds.
+INFO:tensorflow:Warm-up step 6/10 completed in 0.0113 seconds.
+I0816 15:32:39.838576 140333487216384 tf_logging.py:115] Warm-up step 6/10 completed in 0.0113 seconds.
+INFO:tensorflow:Warm-up step 7/10 completed in 0.0122 seconds.
+I0816 15:32:39.850971 140333487216384 tf_logging.py:115] Warm-up step 7/10 completed in 0.0122 seconds.
+INFO:tensorflow:Warm-up step 8/10 completed in 0.0122 seconds.
+I0816 15:32:39.863413 140333487216384 tf_logging.py:115] Warm-up step 8/10 completed in 0.0122 seconds.
+INFO:tensorflow:Warm-up step 9/10 completed in 0.0116 seconds.
+I0816 15:32:39.875263 140333487216384 tf_logging.py:115] Warm-up step 9/10 completed in 0.0116 seconds.
+INFO:tensorflow:Warm-up step 10/10 completed in 0.0121 seconds.
+I0816 15:32:39.887638 140333487216384 tf_logging.py:115] Warm-up step 10/10 completed in 0.0121 seconds.
+INFO:tensorflow:Step 1/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0040 seconds
+I0816 15:32:39.903766 140333487216384 tf_logging.py:115] Step 1/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0040 seconds
+INFO:tensorflow:Step 2/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0043 seconds
+I0816 15:32:39.921259 140333487216384 tf_logging.py:115] Step 2/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0043 seconds
+INFO:tensorflow:Step 3/100 completed in 0.0121 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:39.938380 140333487216384 tf_logging.py:115] Step 3/100 completed in 0.0121 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 4/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:39.955266 140333487216384 tf_logging.py:115] Step 4/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 5/100 completed in 0.0144 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:39.974333 140333487216384 tf_logging.py:115] Step 5/100 completed in 0.0144 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 6/100 completed in 0.0115 seconds, RunMetadata parsed in 0.0043 seconds
+I0816 15:32:39.990527 140333487216384 tf_logging.py:115] Step 6/100 completed in 0.0115 seconds, RunMetadata parsed in 0.0043 seconds
+INFO:tensorflow:Step 7/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.007710 140333487216384 tf_logging.py:115] Step 7/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 8/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0042 seconds
+I0816 15:32:40.025105 140333487216384 tf_logging.py:115] Step 8/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0042 seconds
+INFO:tensorflow:Step 9/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0041 seconds
+I0816 15:32:40.041984 140333487216384 tf_logging.py:115] Step 9/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0041 seconds
+INFO:tensorflow:Step 10/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:40.059622 140333487216384 tf_logging.py:115] Step 10/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 11/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:40.077195 140333487216384 tf_logging.py:115] Step 11/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 12/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0043 seconds
+I0816 15:32:40.094185 140333487216384 tf_logging.py:115] Step 12/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0043 seconds
+INFO:tensorflow:Step 13/100 completed in 0.0130 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.111966 140333487216384 tf_logging.py:115] Step 13/100 completed in 0.0130 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 14/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:40.129051 140333487216384 tf_logging.py:115] Step 14/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 15/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:40.146283 140333487216384 tf_logging.py:115] Step 15/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 16/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:40.163715 140333487216384 tf_logging.py:115] Step 16/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 17/100 completed in 0.0121 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:40.180529 140333487216384 tf_logging.py:115] Step 17/100 completed in 0.0121 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 18/100 completed in 0.0117 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.197086 140333487216384 tf_logging.py:115] Step 18/100 completed in 0.0117 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 19/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:40.214223 140333487216384 tf_logging.py:115] Step 19/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 20/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.230770 140333487216384 tf_logging.py:115] Step 20/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 21/100 completed in 0.0130 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:40.248432 140333487216384 tf_logging.py:115] Step 21/100 completed in 0.0130 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 22/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0367 seconds
+I0816 15:32:40.297691 140333487216384 tf_logging.py:115] Step 22/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0367 seconds
+INFO:tensorflow:Step 23/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0043 seconds
+I0816 15:32:40.315434 140333487216384 tf_logging.py:115] Step 23/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0043 seconds
+INFO:tensorflow:Step 24/100 completed in 0.0134 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:40.333516 140333487216384 tf_logging.py:115] Step 24/100 completed in 0.0134 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 25/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:40.350774 140333487216384 tf_logging.py:115] Step 25/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 26/100 completed in 0.0132 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:40.368687 140333487216384 tf_logging.py:115] Step 26/100 completed in 0.0132 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 27/100 completed in 0.0117 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:40.385201 140333487216384 tf_logging.py:115] Step 27/100 completed in 0.0117 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 28/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:40.402483 140333487216384 tf_logging.py:115] Step 28/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 29/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:40.419381 140333487216384 tf_logging.py:115] Step 29/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 30/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.436478 140333487216384 tf_logging.py:115] Step 30/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 31/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0048 seconds
+I0816 15:32:40.453432 140333487216384 tf_logging.py:115] Step 31/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0048 seconds
+INFO:tensorflow:Step 32/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.470206 140333487216384 tf_logging.py:115] Step 32/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 33/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.487529 140333487216384 tf_logging.py:115] Step 33/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 34/100 completed in 0.0122 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:40.504663 140333487216384 tf_logging.py:115] Step 34/100 completed in 0.0122 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 35/100 completed in 0.0127 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.522116 140333487216384 tf_logging.py:115] Step 35/100 completed in 0.0127 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 36/100 completed in 0.0135 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:40.540336 140333487216384 tf_logging.py:115] Step 36/100 completed in 0.0135 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 37/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:40.558077 140333487216384 tf_logging.py:115] Step 37/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 38/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0042 seconds
+I0816 15:32:40.575239 140333487216384 tf_logging.py:115] Step 38/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0042 seconds
+INFO:tensorflow:Step 39/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.592915 140333487216384 tf_logging.py:115] Step 39/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 40/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:40.610364 140333487216384 tf_logging.py:115] Step 40/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 41/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.627153 140333487216384 tf_logging.py:115] Step 41/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 42/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0048 seconds
+I0816 15:32:40.644566 140333487216384 tf_logging.py:115] Step 42/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0048 seconds
+INFO:tensorflow:Step 43/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:40.661399 140333487216384 tf_logging.py:115] Step 43/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 44/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:40.678374 140333487216384 tf_logging.py:115] Step 44/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 45/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:40.694906 140333487216384 tf_logging.py:115] Step 45/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 46/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:40.712491 140333487216384 tf_logging.py:115] Step 46/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 47/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.729079 140333487216384 tf_logging.py:115] Step 47/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 48/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.746941 140333487216384 tf_logging.py:115] Step 48/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 49/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:40.764303 140333487216384 tf_logging.py:115] Step 49/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 50/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.782113 140333487216384 tf_logging.py:115] Step 50/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 51/100 completed in 0.0116 seconds, RunMetadata parsed in 0.0130 seconds
+I0816 15:32:40.807010 140333487216384 tf_logging.py:115] Step 51/100 completed in 0.0116 seconds, RunMetadata parsed in 0.0130 seconds
 INFO:tensorflow:Timeline saved in /home/ndr/work_august/TensorScope/results/mnist/timeline_at_step_61.json
-I0813 18:31:22.449285 140127676114688 tf_logging.py:115] Timeline saved in /home/ndr/work_august/TensorScope/results/mnist/timeline_at_step_61.json
-INFO:tensorflow:Step 52/100 completed in 0.0168 seconds, RunMetadata parsed in 0.0072 seconds
-I0813 18:31:22.474229 140127676114688 tf_logging.py:115] Step 52/100 completed in 0.0168 seconds, RunMetadata parsed in 0.0072 seconds
-INFO:tensorflow:Step 53/100 completed in 0.0166 seconds, RunMetadata parsed in 0.0072 seconds
-I0813 18:31:22.498552 140127676114688 tf_logging.py:115] Step 53/100 completed in 0.0166 seconds, RunMetadata parsed in 0.0072 seconds
-INFO:tensorflow:Step 54/100 completed in 0.0159 seconds, RunMetadata parsed in 0.0078 seconds
-I0813 18:31:22.522719 140127676114688 tf_logging.py:115] Step 54/100 completed in 0.0159 seconds, RunMetadata parsed in 0.0078 seconds
-INFO:tensorflow:Step 55/100 completed in 0.0173 seconds, RunMetadata parsed in 0.0073 seconds
-I0813 18:31:22.547779 140127676114688 tf_logging.py:115] Step 55/100 completed in 0.0173 seconds, RunMetadata parsed in 0.0073 seconds
-INFO:tensorflow:Step 56/100 completed in 0.0177 seconds, RunMetadata parsed in 0.0074 seconds
-I0813 18:31:22.573321 140127676114688 tf_logging.py:115] Step 56/100 completed in 0.0177 seconds, RunMetadata parsed in 0.0074 seconds
-INFO:tensorflow:Step 57/100 completed in 0.0191 seconds, RunMetadata parsed in 0.0078 seconds
-I0813 18:31:22.600682 140127676114688 tf_logging.py:115] Step 57/100 completed in 0.0191 seconds, RunMetadata parsed in 0.0078 seconds
-INFO:tensorflow:Step 58/100 completed in 0.0157 seconds, RunMetadata parsed in 0.0087 seconds
-I0813 18:31:22.625536 140127676114688 tf_logging.py:115] Step 58/100 completed in 0.0157 seconds, RunMetadata parsed in 0.0087 seconds
-INFO:tensorflow:Step 59/100 completed in 0.0165 seconds, RunMetadata parsed in 0.0077 seconds
-I0813 18:31:22.650137 140127676114688 tf_logging.py:115] Step 59/100 completed in 0.0165 seconds, RunMetadata parsed in 0.0077 seconds
-INFO:tensorflow:Step 60/100 completed in 0.0177 seconds, RunMetadata parsed in 0.0135 seconds
-I0813 18:31:22.681779 140127676114688 tf_logging.py:115] Step 60/100 completed in 0.0177 seconds, RunMetadata parsed in 0.0135 seconds
-INFO:tensorflow:Step 61/100 completed in 0.0189 seconds, RunMetadata parsed in 0.0073 seconds
-I0813 18:31:22.708596 140127676114688 tf_logging.py:115] Step 61/100 completed in 0.0189 seconds, RunMetadata parsed in 0.0073 seconds
-INFO:tensorflow:Step 62/100 completed in 0.0160 seconds, RunMetadata parsed in 0.0074 seconds
-I0813 18:31:22.732527 140127676114688 tf_logging.py:115] Step 62/100 completed in 0.0160 seconds, RunMetadata parsed in 0.0074 seconds
-INFO:tensorflow:Step 63/100 completed in 0.0160 seconds, RunMetadata parsed in 0.0601 seconds
-I0813 18:31:22.809102 140127676114688 tf_logging.py:115] Step 63/100 completed in 0.0160 seconds, RunMetadata parsed in 0.0601 seconds
-INFO:tensorflow:Step 64/100 completed in 0.0168 seconds, RunMetadata parsed in 0.0071 seconds
-I0813 18:31:22.833436 140127676114688 tf_logging.py:115] Step 64/100 completed in 0.0168 seconds, RunMetadata parsed in 0.0071 seconds
-INFO:tensorflow:Step 65/100 completed in 0.0170 seconds, RunMetadata parsed in 0.0074 seconds
-I0813 18:31:22.858164 140127676114688 tf_logging.py:115] Step 65/100 completed in 0.0170 seconds, RunMetadata parsed in 0.0074 seconds
-INFO:tensorflow:Step 66/100 completed in 0.0157 seconds, RunMetadata parsed in 0.0100 seconds
-I0813 18:31:22.884272 140127676114688 tf_logging.py:115] Step 66/100 completed in 0.0157 seconds, RunMetadata parsed in 0.0100 seconds
-INFO:tensorflow:Step 67/100 completed in 0.0197 seconds, RunMetadata parsed in 0.0140 seconds
-I0813 18:31:22.918684 140127676114688 tf_logging.py:115] Step 67/100 completed in 0.0197 seconds, RunMetadata parsed in 0.0140 seconds
-INFO:tensorflow:Step 68/100 completed in 0.0175 seconds, RunMetadata parsed in 0.0078 seconds
-I0813 18:31:22.944621 140127676114688 tf_logging.py:115] Step 68/100 completed in 0.0175 seconds, RunMetadata parsed in 0.0078 seconds
-INFO:tensorflow:Step 69/100 completed in 0.0183 seconds, RunMetadata parsed in 0.0090 seconds
-I0813 18:31:22.972437 140127676114688 tf_logging.py:115] Step 69/100 completed in 0.0183 seconds, RunMetadata parsed in 0.0090 seconds
-INFO:tensorflow:Step 70/100 completed in 0.0195 seconds, RunMetadata parsed in 0.0082 seconds
-I0813 18:31:23.000742 140127676114688 tf_logging.py:115] Step 70/100 completed in 0.0195 seconds, RunMetadata parsed in 0.0082 seconds
-INFO:tensorflow:Step 71/100 completed in 0.0183 seconds, RunMetadata parsed in 0.0089 seconds
-I0813 18:31:23.028470 140127676114688 tf_logging.py:115] Step 71/100 completed in 0.0183 seconds, RunMetadata parsed in 0.0089 seconds
-INFO:tensorflow:Step 72/100 completed in 0.0191 seconds, RunMetadata parsed in 0.0102 seconds
-I0813 18:31:23.058317 140127676114688 tf_logging.py:115] Step 72/100 completed in 0.0191 seconds, RunMetadata parsed in 0.0102 seconds
-INFO:tensorflow:Step 73/100 completed in 0.0191 seconds, RunMetadata parsed in 0.0090 seconds
-I0813 18:31:23.086949 140127676114688 tf_logging.py:115] Step 73/100 completed in 0.0191 seconds, RunMetadata parsed in 0.0090 seconds
-INFO:tensorflow:Step 74/100 completed in 0.0207 seconds, RunMetadata parsed in 0.0096 seconds
-I0813 18:31:23.117825 140127676114688 tf_logging.py:115] Step 74/100 completed in 0.0207 seconds, RunMetadata parsed in 0.0096 seconds
-INFO:tensorflow:Step 75/100 completed in 0.0207 seconds, RunMetadata parsed in 0.0087 seconds
-I0813 18:31:23.147778 140127676114688 tf_logging.py:115] Step 75/100 completed in 0.0207 seconds, RunMetadata parsed in 0.0087 seconds
-INFO:tensorflow:Step 76/100 completed in 0.0174 seconds, RunMetadata parsed in 0.0090 seconds
-I0813 18:31:23.174628 140127676114688 tf_logging.py:115] Step 76/100 completed in 0.0174 seconds, RunMetadata parsed in 0.0090 seconds
-INFO:tensorflow:Step 77/100 completed in 0.0224 seconds, RunMetadata parsed in 0.0101 seconds
-I0813 18:31:23.207750 140127676114688 tf_logging.py:115] Step 77/100 completed in 0.0224 seconds, RunMetadata parsed in 0.0101 seconds
-INFO:tensorflow:Step 78/100 completed in 0.0203 seconds, RunMetadata parsed in 0.0091 seconds
-I0813 18:31:23.237812 140127676114688 tf_logging.py:115] Step 78/100 completed in 0.0203 seconds, RunMetadata parsed in 0.0091 seconds
-INFO:tensorflow:Step 79/100 completed in 0.0204 seconds, RunMetadata parsed in 0.0089 seconds
-I0813 18:31:23.267665 140127676114688 tf_logging.py:115] Step 79/100 completed in 0.0204 seconds, RunMetadata parsed in 0.0089 seconds
-INFO:tensorflow:Step 80/100 completed in 0.0219 seconds, RunMetadata parsed in 0.0097 seconds
-I0813 18:31:23.299817 140127676114688 tf_logging.py:115] Step 80/100 completed in 0.0219 seconds, RunMetadata parsed in 0.0097 seconds
-INFO:tensorflow:Step 81/100 completed in 0.0204 seconds, RunMetadata parsed in 0.0103 seconds
-I0813 18:31:23.331019 140127676114688 tf_logging.py:115] Step 81/100 completed in 0.0204 seconds, RunMetadata parsed in 0.0103 seconds
-INFO:tensorflow:Step 82/100 completed in 0.0229 seconds, RunMetadata parsed in 0.0089 seconds
-I0813 18:31:23.363333 140127676114688 tf_logging.py:115] Step 82/100 completed in 0.0229 seconds, RunMetadata parsed in 0.0089 seconds
-INFO:tensorflow:Step 83/100 completed in 0.0186 seconds, RunMetadata parsed in 0.0089 seconds
-I0813 18:31:23.391379 140127676114688 tf_logging.py:115] Step 83/100 completed in 0.0186 seconds, RunMetadata parsed in 0.0089 seconds
-INFO:tensorflow:Step 84/100 completed in 0.0187 seconds, RunMetadata parsed in 0.0093 seconds
-I0813 18:31:23.419933 140127676114688 tf_logging.py:115] Step 84/100 completed in 0.0187 seconds, RunMetadata parsed in 0.0093 seconds
-INFO:tensorflow:Step 85/100 completed in 0.0176 seconds, RunMetadata parsed in 0.0079 seconds
-I0813 18:31:23.445961 140127676114688 tf_logging.py:115] Step 85/100 completed in 0.0176 seconds, RunMetadata parsed in 0.0079 seconds
-INFO:tensorflow:Step 86/100 completed in 0.0193 seconds, RunMetadata parsed in 0.0084 seconds
-I0813 18:31:23.474102 140127676114688 tf_logging.py:115] Step 86/100 completed in 0.0193 seconds, RunMetadata parsed in 0.0084 seconds
-INFO:tensorflow:Step 87/100 completed in 0.0225 seconds, RunMetadata parsed in 0.0146 seconds
-I0813 18:31:23.511680 140127676114688 tf_logging.py:115] Step 87/100 completed in 0.0225 seconds, RunMetadata parsed in 0.0146 seconds
-INFO:tensorflow:Step 88/100 completed in 0.0223 seconds, RunMetadata parsed in 0.0084 seconds
-I0813 18:31:23.543017 140127676114688 tf_logging.py:115] Step 88/100 completed in 0.0223 seconds, RunMetadata parsed in 0.0084 seconds
-INFO:tensorflow:Step 89/100 completed in 0.0183 seconds, RunMetadata parsed in 0.0084 seconds
-I0813 18:31:23.570176 140127676114688 tf_logging.py:115] Step 89/100 completed in 0.0183 seconds, RunMetadata parsed in 0.0084 seconds
-INFO:tensorflow:Step 90/100 completed in 0.0168 seconds, RunMetadata parsed in 0.0084 seconds
-I0813 18:31:23.595957 140127676114688 tf_logging.py:115] Step 90/100 completed in 0.0168 seconds, RunMetadata parsed in 0.0084 seconds
-INFO:tensorflow:global_step/sec: 39.179
-I0813 18:31:23.608897 140127676114688 tf_logging.py:115] global_step/sec: 39.179
-INFO:tensorflow:cross_entropy = 0.5223229, learning_rate = 1e-04, train_accuracy = 0.46 (2.553 sec)
-I0813 18:31:23.609983 140127676114688 tf_logging.py:115] cross_entropy = 0.5223229, learning_rate = 1e-04, train_accuracy = 0.46 (2.553 sec)
-INFO:tensorflow:Step 91/100 completed in 0.0144 seconds, RunMetadata parsed in 0.0096 seconds
-I0813 18:31:23.620592 140127676114688 tf_logging.py:115] Step 91/100 completed in 0.0144 seconds, RunMetadata parsed in 0.0096 seconds
-INFO:tensorflow:loss = 0.5223229, step = 100 (2.547 sec)
-I0813 18:31:23.621092 140127676114688 tf_logging.py:115] loss = 0.5223229, step = 100 (2.547 sec)
-INFO:tensorflow:Step 92/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0087 seconds
-I0813 18:31:23.641939 140127676114688 tf_logging.py:115] Step 92/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0087 seconds
-INFO:tensorflow:Step 93/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0074 seconds
-I0813 18:31:23.662659 140127676114688 tf_logging.py:115] Step 93/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0074 seconds
-INFO:tensorflow:Step 94/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0073 seconds
-I0813 18:31:23.682677 140127676114688 tf_logging.py:115] Step 94/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0073 seconds
-INFO:tensorflow:Step 95/100 completed in 0.0109 seconds, RunMetadata parsed in 0.0070 seconds
-I0813 18:31:23.700969 140127676114688 tf_logging.py:115] Step 95/100 completed in 0.0109 seconds, RunMetadata parsed in 0.0070 seconds
-INFO:tensorflow:Step 96/100 completed in 0.0132 seconds, RunMetadata parsed in 0.0075 seconds
-I0813 18:31:23.722132 140127676114688 tf_logging.py:115] Step 96/100 completed in 0.0132 seconds, RunMetadata parsed in 0.0075 seconds
-INFO:tensorflow:Step 97/100 completed in 0.0100 seconds, RunMetadata parsed in 0.0071 seconds
-I0813 18:31:23.739676 140127676114688 tf_logging.py:115] Step 97/100 completed in 0.0100 seconds, RunMetadata parsed in 0.0071 seconds
-INFO:tensorflow:Step 98/100 completed in 0.0114 seconds, RunMetadata parsed in 0.0071 seconds
-I0813 18:31:23.758600 140127676114688 tf_logging.py:115] Step 98/100 completed in 0.0114 seconds, RunMetadata parsed in 0.0071 seconds
-INFO:tensorflow:Step 99/100 completed in 0.0108 seconds, RunMetadata parsed in 0.0075 seconds
-I0813 18:31:23.777273 140127676114688 tf_logging.py:115] Step 99/100 completed in 0.0108 seconds, RunMetadata parsed in 0.0075 seconds
-INFO:tensorflow:Step 100/100 completed in 0.0101 seconds, RunMetadata parsed in 0.0071 seconds
-I0813 18:31:23.794904 140127676114688 tf_logging.py:115] Step 100/100 completed in 0.0101 seconds, RunMetadata parsed in 0.0071 seconds
-total ops:  795
-num nodes with flops available:  36
-total GFlops:  0.006547033
+I0816 15:32:40.830726 140333487216384 tf_logging.py:115] Timeline saved in /home/ndr/work_august/TensorScope/results/mnist/timeline_at_step_61.json
+INFO:tensorflow:Step 52/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0043 seconds
+I0816 15:32:40.848299 140333487216384 tf_logging.py:115] Step 52/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0043 seconds
+INFO:tensorflow:Step 53/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0048 seconds
+I0816 15:32:40.865747 140333487216384 tf_logging.py:115] Step 53/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0048 seconds
+INFO:tensorflow:Step 54/100 completed in 0.0122 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:40.882920 140333487216384 tf_logging.py:115] Step 54/100 completed in 0.0122 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 55/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:40.899738 140333487216384 tf_logging.py:115] Step 55/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 56/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:40.916434 140333487216384 tf_logging.py:115] Step 56/100 completed in 0.0119 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 57/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:40.933940 140333487216384 tf_logging.py:115] Step 57/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 58/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0043 seconds
+I0816 15:32:40.950544 140333487216384 tf_logging.py:115] Step 58/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0043 seconds
+INFO:tensorflow:Step 59/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:40.968425 140333487216384 tf_logging.py:115] Step 59/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 60/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:40.985656 140333487216384 tf_logging.py:115] Step 60/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 61/100 completed in 0.0139 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:41.004393 140333487216384 tf_logging.py:115] Step 61/100 completed in 0.0139 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 62/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.021118 140333487216384 tf_logging.py:115] Step 62/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 63/100 completed in 0.0130 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:41.038982 140333487216384 tf_logging.py:115] Step 63/100 completed in 0.0130 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 64/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.056540 140333487216384 tf_logging.py:115] Step 64/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 65/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.073636 140333487216384 tf_logging.py:115] Step 65/100 completed in 0.0123 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 66/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0425 seconds
+I0816 15:32:41.129252 140333487216384 tf_logging.py:115] Step 66/100 completed in 0.0129 seconds, RunMetadata parsed in 0.0425 seconds
+INFO:tensorflow:Step 67/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.146861 140333487216384 tf_logging.py:115] Step 67/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 68/100 completed in 0.0142 seconds, RunMetadata parsed in 0.0040 seconds
+I0816 15:32:41.165427 140333487216384 tf_logging.py:115] Step 68/100 completed in 0.0142 seconds, RunMetadata parsed in 0.0040 seconds
+INFO:tensorflow:Step 69/100 completed in 0.0135 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:41.184006 140333487216384 tf_logging.py:115] Step 69/100 completed in 0.0135 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 70/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.201822 140333487216384 tf_logging.py:115] Step 70/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 71/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.218532 140333487216384 tf_logging.py:115] Step 71/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 72/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:41.236439 140333487216384 tf_logging.py:115] Step 72/100 completed in 0.0128 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 73/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0048 seconds
+I0816 15:32:41.253331 140333487216384 tf_logging.py:115] Step 73/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0048 seconds
+INFO:tensorflow:Step 74/100 completed in 0.0127 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:41.270764 140333487216384 tf_logging.py:115] Step 74/100 completed in 0.0127 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 75/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0048 seconds
+I0816 15:32:41.287860 140333487216384 tf_logging.py:115] Step 75/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0048 seconds
+INFO:tensorflow:Step 76/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.304664 140333487216384 tf_logging.py:115] Step 76/100 completed in 0.0120 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 77/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.321959 140333487216384 tf_logging.py:115] Step 77/100 completed in 0.0125 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 78/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:41.338732 140333487216384 tf_logging.py:115] Step 78/100 completed in 0.0118 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 79/100 completed in 0.0142 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.357663 140333487216384 tf_logging.py:115] Step 79/100 completed in 0.0142 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 80/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.375561 140333487216384 tf_logging.py:115] Step 80/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 81/100 completed in 0.0136 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:41.394123 140333487216384 tf_logging.py:115] Step 81/100 completed in 0.0136 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 82/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0049 seconds
+I0816 15:32:41.411915 140333487216384 tf_logging.py:115] Step 82/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0049 seconds
+INFO:tensorflow:Step 83/100 completed in 0.0122 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.428935 140333487216384 tf_logging.py:115] Step 83/100 completed in 0.0122 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 84/100 completed in 0.0121 seconds, RunMetadata parsed in 0.0051 seconds
+I0816 15:32:41.446543 140333487216384 tf_logging.py:115] Step 84/100 completed in 0.0121 seconds, RunMetadata parsed in 0.0051 seconds
+INFO:tensorflow:Step 85/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:41.464362 140333487216384 tf_logging.py:115] Step 85/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 86/100 completed in 0.0127 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:41.481717 140333487216384 tf_logging.py:115] Step 86/100 completed in 0.0127 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 87/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:41.499048 140333487216384 tf_logging.py:115] Step 87/100 completed in 0.0124 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:Step 88/100 completed in 0.0127 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.516504 140333487216384 tf_logging.py:115] Step 88/100 completed in 0.0127 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 89/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0042 seconds
+I0816 15:32:41.533580 140333487216384 tf_logging.py:115] Step 89/100 completed in 0.0126 seconds, RunMetadata parsed in 0.0042 seconds
+INFO:tensorflow:Step 90/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0047 seconds
+I0816 15:32:41.551671 140333487216384 tf_logging.py:115] Step 90/100 completed in 0.0131 seconds, RunMetadata parsed in 0.0047 seconds
+INFO:tensorflow:global_step/sec: 53.7184
+I0816 15:32:41.561388 140333487216384 tf_logging.py:115] global_step/sec: 53.7184
+INFO:tensorflow:cross_entropy = 0.5026942, learning_rate = 1e-04, train_accuracy = 0.485 (1.862 sec)
+I0816 15:32:41.561996 140333487216384 tf_logging.py:115] cross_entropy = 0.5026942, learning_rate = 1e-04, train_accuracy = 0.485 (1.862 sec)
+INFO:tensorflow:Step 91/100 completed in 0.0106 seconds, RunMetadata parsed in 0.0054 seconds
+I0816 15:32:41.567955 140333487216384 tf_logging.py:115] Step 91/100 completed in 0.0106 seconds, RunMetadata parsed in 0.0054 seconds
+INFO:tensorflow:loss = 0.5026942, step = 100 (1.851 sec)
+I0816 15:32:41.568174 140333487216384 tf_logging.py:115] loss = 0.5026942, step = 100 (1.851 sec)
+INFO:tensorflow:Step 92/100 completed in 0.0097 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.582487 140333487216384 tf_logging.py:115] Step 92/100 completed in 0.0097 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 93/100 completed in 0.0084 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:41.595829 140333487216384 tf_logging.py:115] Step 93/100 completed in 0.0084 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 94/100 completed in 0.0086 seconds, RunMetadata parsed in 0.0049 seconds
+I0816 15:32:41.609612 140333487216384 tf_logging.py:115] Step 94/100 completed in 0.0086 seconds, RunMetadata parsed in 0.0049 seconds
+INFO:tensorflow:Step 95/100 completed in 0.0087 seconds, RunMetadata parsed in 0.0043 seconds
+I0816 15:32:41.622969 140333487216384 tf_logging.py:115] Step 95/100 completed in 0.0087 seconds, RunMetadata parsed in 0.0043 seconds
+INFO:tensorflow:Step 96/100 completed in 0.0096 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:41.637277 140333487216384 tf_logging.py:115] Step 96/100 completed in 0.0096 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 97/100 completed in 0.0100 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.652059 140333487216384 tf_logging.py:115] Step 97/100 completed in 0.0100 seconds, RunMetadata parsed in 0.0045 seconds
+INFO:tensorflow:Step 98/100 completed in 0.0085 seconds, RunMetadata parsed in 0.0044 seconds
+I0816 15:32:41.665262 140333487216384 tf_logging.py:115] Step 98/100 completed in 0.0085 seconds, RunMetadata parsed in 0.0044 seconds
+INFO:tensorflow:Step 99/100 completed in 0.0097 seconds, RunMetadata parsed in 0.0046 seconds
+I0816 15:32:41.679898 140333487216384 tf_logging.py:115] Step 99/100 completed in 0.0097 seconds, RunMetadata parsed in 0.0046 seconds
+INFO:tensorflow:Step 100/100 completed in 0.0085 seconds, RunMetadata parsed in 0.0045 seconds
+I0816 15:32:41.693184 140333487216384 tf_logging.py:115] Step 100/100 completed in 0.0085 seconds, RunMetadata parsed in 0.0045 seconds
+Total ops:  795
+Percentage of nodes with flops stats available: 4.5%. Sanity check - sum of number of operations (per single occurence) in these ops: 0.007 GFLOP
 Session is closed
 
 Sanity check before aggregation:
- total wall time for 100 steps: 		 1.613 sec. (0.016131 sec./batch) 
- op time extracted from RunMetadata: 	 1.212 sec. (0.012116 sec./batch) 
+ total wall time for 100 steps: 		 1.220 sec. (0.012203 sec./batch) 
+ op time extracted from RunMetadata: 	 0.950 sec. (0.009500 sec./batch) 
  number of ops: 207
+accuracy/Const@GPU-0@(no input)->(int32 1x1) op_end_all_micros was 0:  0  using all_end_micros instead :  2 times_value:  ['accuracy/Const', 'Const', 'GPU-0', 1, 0, 2, '(no input)->(int32 1x1)', 0, 1, 0]
 
 Sanity check after aggregation:
- total wall time for 100 steps: 		 1.613 sec. (0.016131 sec./batch) 
- op time extracted from RunMetadata: 	 1.212 sec. (0.012116 sec./batch) 
+ total wall time for 100 steps: 		 1.220 sec. (0.012203 sec./batch) 
+ op time extracted from RunMetadata: 	 0.950 sec. (0.009500 sec./batch) 
  number of unique ops: 132
 
 
 *** Top-K ops vs total time ***
 
-Top-1	(0.8% of all ops):	5.6 ms(46.6% of all time)
-Top-2	(1.5% of all ops):	6.5 ms(53.4% of all time)
-Top-3	(2.3% of all ops):	7.2 ms(59.5% of all time)
-Top-5	(3.8% of all ops):	8.5 ms(70.5% of all time)
-Top-9	(6.8% of all ops):	9.6 ms(78.8% of all time)
-Top-15	(11.4% of all ops):	10.5 ms(86.4% of all time)
-Top-26	(19.7% of all ops):	11.4 ms(93.9% of all time)
-Top-45	(34.1% of all ops):	11.7 ms(96.9% of all time)
-Top-77	(58.3% of all ops):	12.0 ms(99.0% of all time)
-Top-132	(100.0% of all ops):	12.1 ms(100.0% of all time)
+Top-1	(0.8% of all ops):	3.5 ms(37.3% of all time)
+Top-2	(1.5% of all ops):	4.4 ms(46.1% of all time)
+Top-3	(2.3% of all ops):	5.1 ms(54.0% of all time)
+Top-5	(3.8% of all ops):	6.5 ms(68.3% of all time)
+Top-9	(6.8% of all ops):	7.5 ms(78.8% of all time)
+Top-15	(11.4% of all ops):	8.4 ms(88.5% of all time)
+Top-26	(19.7% of all ops):	9.1 ms(95.9% of all time)
+Top-45	(34.1% of all ops):	9.3 ms(98.2% of all time)
+Top-77	(58.3% of all ops):	9.4 ms(99.4% of all time)
+Top-132	(100.0% of all ops):	9.5 ms(100.0% of all time)
 
 *** See data.tsv, pie_chart.html for details ***
 
+
+
+***Comparison completed***
+See data_compared.tsv to select candidates for optimization in system1.
+- See column D 'Time ratio Sys1/Sys2 (one call)'. This is how many times an op is faster in system2 compared to system1.
+- Ops are sorted by total time in the 1st (slower) system.
+- To cover, for example, 80% of time spent in system1, see values in column M ('System1 cumulative % of total time')
+Good candidates for further optimizations will be ops from the first row to the row with value of about 0.8 (80%) in column M
+- Unmatched ops saved to data_unmatched_ops.tsv. Take a look there to see if some time consuming ops are actually unique to system1 and system2.
+- Baselines for system1 are in column B ('Time of 1 call, microseconds'). By default, these values are averaged over 100 runs (aka steps, batches) and 10 warm-up steps.

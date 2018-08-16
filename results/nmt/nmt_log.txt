@@ -1,0 +1,231 @@
+# Job id 0
+# Set random seed to 1
+# hparams:
+  src=vi
+  tgt=en
+  train_prefix=../common_datasets/nmt/train
+  dev_prefix=../common_datasets/nmt/tst2012
+  test_prefix=../common_datasets/nmt/tst2013
+  out_dir=nmt/nmt_model
+# Vocab file ../common_datasets/nmt/vocab.vi exists
+# Vocab file ../common_datasets/nmt/vocab.en exists
+  saving hparams to nmt/nmt_model/hparams
+  saving hparams to nmt/nmt_model/best_bleu/hparams
+  attention=scaled_luong
+  attention_architecture=standard
+  avg_ckpts=False
+  batch_size=128
+  beam_width=0
+  best_bleu=0
+  best_bleu_dir=nmt/nmt_model/best_bleu
+  check_special_token=True
+  colocate_gradients_with_ops=True
+  decay_scheme=
+  dev_prefix=../common_datasets/nmt/tst2012
+  dropout=0.2
+  embed_prefix=None
+  encoder_type=uni
+  eos=</s>
+  epoch_step=0
+  forget_bias=1.0
+  infer_batch_size=32
+  init_op=uniform
+  init_weight=0.1
+  learning_rate=1.0
+  length_penalty_weight=0.0
+  log_device_placement=False
+  max_gradient_norm=5.0
+  max_train=0
+  metrics=['bleu']
+  num_buckets=5
+  num_decoder_layers=2
+  num_decoder_residual_layers=0
+  num_embeddings_partitions=0
+  num_encoder_layers=2
+  num_encoder_residual_layers=0
+  num_gpus=1
+  num_inter_threads=0
+  num_intra_threads=0
+  num_keep_ckpts=5
+  num_layers=2
+  num_train_steps=12000
+  num_translations_per_input=1
+  num_units=128
+  optimizer=sgd
+  out_dir=nmt/nmt_model
+  output_attention=True
+  override_loaded_hparams=False
+  pass_hidden_state=True
+  random_seed=1
+  residual=False
+  sampling_temperature=0.0
+  share_vocab=False
+  sos=<s>
+  src=vi
+  src_embed_file=
+  src_max_len=50
+  src_max_len_infer=None
+  src_vocab_file=../common_datasets/nmt/vocab.vi
+  src_vocab_size=7709
+  steps_per_external_eval=None
+  steps_per_stats=100
+  subword_option=
+  test_prefix=../common_datasets/nmt/tst2013
+  tgt=en
+  tgt_embed_file=
+  tgt_max_len=50
+  tgt_max_len_infer=None
+  tgt_vocab_file=../common_datasets/nmt/vocab.en
+  tgt_vocab_size=17191
+  time_major=True
+  train_prefix=../common_datasets/nmt/train
+  unit_type=lstm
+  vocab_prefix=../common_datasets/nmt/vocab
+  warmup_scheme=t2t
+  warmup_steps=0
+# creating train graph ...
+  num_layers = 2, num_residual_layers=0
+  cell 0  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  cell 0  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DropoutWrapper, dropout=0.2   DeviceWrapper, device=/gpu:0
+  learning_rate=1, warmup_steps=0, warmup_scheme=t2t
+  decay_scheme=, start_decay_step=12000, decay_steps 0, decay_factor 1
+# Trainable variables
+  embeddings/encoder/embedding_encoder:0, (7709, 128), /device:GPU:0
+  embeddings/decoder/embedding_decoder:0, (17191, 128), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/memory_layer/kernel:0, (128, 128), 
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (384, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/luong_attention/attention_g:0, (), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/attention_layer/kernel:0, (256, 128), /device:GPU:0
+  dynamic_seq2seq/decoder/output_projection/kernel:0, (128, 17191), 
+# creating eval graph ...
+  num_layers = 2, num_residual_layers=0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+# Trainable variables
+  embeddings/encoder/embedding_encoder:0, (7709, 128), /device:GPU:0
+  embeddings/decoder/embedding_decoder:0, (17191, 128), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/memory_layer/kernel:0, (128, 128), 
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (384, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/luong_attention/attention_g:0, (), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/attention_layer/kernel:0, (256, 128), /device:GPU:0
+  dynamic_seq2seq/decoder/output_projection/kernel:0, (128, 17191), 
+# creating infer graph ...
+  num_layers = 2, num_residual_layers=0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 0  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+  cell 1  LSTM, forget_bias=1  DeviceWrapper, device=/gpu:0
+# Trainable variables
+  embeddings/encoder/embedding_encoder:0, (7709, 128), /device:GPU:0
+  embeddings/decoder/embedding_decoder:0, (17191, 128), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/encoder/rnn/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/memory_layer/kernel:0, (128, 128), 
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/kernel:0, (384, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_0/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/kernel:0, (256, 512), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/multi_rnn_cell/cell_1/basic_lstm_cell/bias:0, (512,), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/luong_attention/attention_g:0, (), /device:GPU:0
+  dynamic_seq2seq/decoder/attention/attention_layer/kernel:0, (256, 128), /device:GPU:0
+  dynamic_seq2seq/decoder/output_projection/kernel:0, (128, 17191), 
+# log_file=nmt/nmt_model/log_1534458784
+2018-08-16 15:33:04.189295: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-08-16 15:33:04.189656: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
+name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
+pciBusID: 0000:01:00.0
+totalMemory: 5.94GiB freeMemory: 5.67GiB
+2018-08-16 15:33:04.189670: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-16 15:33:04.386185: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-16 15:33:04.386214: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-16 15:33:04.386219: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-16 15:33:04.386353: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5445 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-08-16 15:33:04.386496: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
+2018-08-16 15:33:04.387117: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-16 15:33:04.387134: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-16 15:33:04.387139: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-16 15:33:04.387142: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-16 15:33:04.387226: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5445 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-08-16 15:33:04.387354: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-16 15:33:04.387367: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-16 15:33:04.387371: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-16 15:33:04.387374: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-16 15:33:04.387454: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5445 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+  created train model with fresh parameters, time 0.14s
+  created infer model with fresh parameters, time 0.07s
+  # 275
+    src: yêu công nghệ , thích sáng tạo
+    ref: We love technology . We love creativity .
+    nmt: loads 0.2 grammar Java Java Yale Yale surge surge surge athletes athletes FN FN
+  created eval model with fresh parameters, time 0.08s
+  eval dev: perplexity 17195.08, time 1s, Thu Aug 16 15:33:06 2018.
+  eval test: perplexity 17199.65, time 0s, Thu Aug 16 15:33:07 2018.
+2018-08-16 15:33:07.292662: I tensorflow/core/kernels/lookup_util.cc:373] Table trying to initialize from file ../common_datasets/nmt/vocab.vi is already initialized.
+2018-08-16 15:33:07.292662: I tensorflow/core/kernels/lookup_util.cc:373] Table trying to initialize from file ../common_datasets/nmt/vocab.en is already initialized.
+2018-08-16 15:33:07.292712: I tensorflow/core/kernels/lookup_util.cc:373] Table trying to initialize from file ../common_datasets/nmt/vocab.en is already initialized.
+  created infer model with fresh parameters, time 0.06s
+# Start step 0, lr 1, Thu Aug 16 15:33:07 2018
+# Init train iterator, skipping 0 elements
+2018-08-16 15:33:08.290259: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
+Total ops:  2872
+Percentage of nodes with flops stats available: 5.7%. Sanity check - sum of number of operations (per single occurence) in these ops: 0.033 GFLOP
+  step 100 lr 1 step-time 1.56s wps 3.59K ppl 21296.10 gN 90.10 bleu 0.00, Thu Aug 16 15:35:43 2018
+/usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Session is closed
+
+Sanity check before aggregation:
+ total wall time for 100 steps: 		 80.139 sec. (0.801392 sec./batch) 
+ op time extracted from RunMetadata: 	 13.138 sec. (0.131378 sec./batch) 
+ number of ops: 3220
+
+Sanity check after aggregation:
+ total wall time for 100 steps: 		 80.139 sec. (0.801392 sec./batch) 
+ op time extracted from RunMetadata: 	 13.138 sec. (0.131378 sec./batch) 
+ number of unique ops: 1131
+
+
+*** Top-K ops vs total time ***
+
+Top-1	(0.1% of all ops):	5.1 ms(3.9% of all time)
+Top-2	(0.2% of all ops):	9.6 ms(7.3% of all time)
+Top-5	(0.4% of all ops):	19.9 ms(15.1% of all time)
+Top-10	(0.9% of all ops):	33.9 ms(25.8% of all time)
+Top-23	(2.0% of all ops):	54.8 ms(41.7% of all time)
+Top-50	(4.4% of all ops):	80.1 ms(61.0% of all time)
+Top-109	(9.6% of all ops):	107.4 ms(81.8% of all time)
+Top-237	(21.0% of all ops):	125.4 ms(95.4% of all time)
+Top-518	(45.8% of all ops):	130.7 ms(99.5% of all time)
+Top-1131	(100.0% of all ops):	131.4 ms(100.0% of all time)
+
+*** See data.tsv, pie_chart.html for details ***
+
+
+
+***Comparison completed***
+See data_compared.tsv to select candidates for optimization in system1.
+- See column D 'Time ratio Sys1/Sys2 (one call)'. This is how many times an op is faster in system2 compared to system1.
+- Ops are sorted by total time in the 1st (slower) system.
+- To cover, for example, 80% of time spent in system1, see values in column M ('System1 cumulative % of total time')
+Good candidates for further optimizations will be ops from the first row to the row with value of about 0.8 (80%) in column M
+- Unmatched ops saved to data_unmatched_ops.tsv. Take a look there to see if some time consuming ops are actually unique to system1 and system2.
+- Baselines for system1 are in column B ('Time of 1 call, microseconds'). By default, these values are averaged over 100 runs (aka steps, batches) and 10 warm-up steps.

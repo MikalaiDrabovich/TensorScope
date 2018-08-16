@@ -1,117 +1,117 @@
-Adam	/job:localhost/replica:0/task:0/device:GPU:0	1	18	23	['(int64 1x1)']	Adam = AssignAdd(global_step, Adam/value)
-Adam/Assign	/job:localhost/replica:0/task:0/device:GPU:0	1	29	34	['(1x1)']	Adam/Assign = Assign(beta1_power, Adam/mul)
+Adam	/job:localhost/replica:0/task:0/device:GPU:0	0	13	16	['(int64 1x1)']	Adam = AssignAdd(global_step, Adam/value)
+Adam/Assign	/job:localhost/replica:0/task:0/device:GPU:0	0	18	21	['(1x1)']	Adam/Assign = Assign(beta1_power, Adam/mul)
 Adam/Assign:Assign:MEMCPYDtoD	/device:GPU:0/memcpy	0	1	1	['(4 bytes)']	MEMCPYDtoD 4 bytes (Device to Device)
 Adam/Assign:Assign:MEMCPYDtoD	/device:GPU:0/stream:13	0	1	1	['(4 bytes)']	MEMCPYDtoD 4 bytes (Device to Device)
-Adam/Assign_1	/job:localhost/replica:0/task:0/device:GPU:0	1	19	23	['(1x1)']	Adam/Assign_1 = Assign(beta2_power, Adam/mul_1)
+Adam/Assign_1	/job:localhost/replica:0/task:0/device:GPU:0	1	11	14	['(1x1)']	Adam/Assign_1 = Assign(beta2_power, Adam/mul_1)
 Adam/Assign_1:Assign:MEMCPYDtoD	/device:GPU:0/memcpy	0	1	1	['(4 bytes)']	MEMCPYDtoD 4 bytes (Device to Device)
 Adam/Assign_1:Assign:MEMCPYDtoD	/device:GPU:0/stream:13	0	1	1	['(4 bytes)']	MEMCPYDtoD 4 bytes (Device to Device)
-Adam/beta1	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(1x1)']	Adam/beta1 = Const()
-Adam/beta2	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(1x1)']	Adam/beta2 = Const()
+Adam/beta1	/job:localhost/replica:0/task:0/device:GPU:0	1	2	3	['(1x1)']	Adam/beta1 = Const()
+Adam/beta2	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(1x1)']	Adam/beta2 = Const()
 Adam/epsilon	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(1x1)']	Adam/epsilon = Const()
-Adam/learning_rate	/job:localhost/replica:0/task:0/device:GPU:0	0	3	4	['(1x1)']	Adam/learning_rate = Const()
-Adam/mul	/job:localhost/replica:0/task:0/device:GPU:0	1	19	22	['(1x1)']	Adam/mul = Mul(beta1_power/read, Adam/beta1, ^Adam/update_conv2d/bias/ResourceApplyAdam, ^Adam/update_conv2d/kernel/ResourceApplyAdam, ^Adam/update_conv2d_1/bias/ResourceApplyAdam, ^Adam/update_conv2d_1/kernel/ResourceApplyAdam, ^Adam/update_dense/bias/ResourceApplyAdam, ^Adam/update_dense/kernel/ResourceApplyAdam, ^Adam/update_dense_1/bias/ResourceApplyAdam, ^Adam/update_dense_1/kernel/ResourceApplyAdam)
+Adam/learning_rate	/job:localhost/replica:0/task:0/device:GPU:0	1	3	4	['(1x1)']	Adam/learning_rate = Const()
+Adam/mul	/job:localhost/replica:0/task:0/device:GPU:0	0	11	14	['(1x1)']	Adam/mul = Mul(beta1_power/read, Adam/beta1, ^Adam/update_conv2d/bias/ResourceApplyAdam, ^Adam/update_conv2d/kernel/ResourceApplyAdam, ^Adam/update_conv2d_1/bias/ResourceApplyAdam, ^Adam/update_conv2d_1/kernel/ResourceApplyAdam, ^Adam/update_dense/bias/ResourceApplyAdam, ^Adam/update_dense/kernel/ResourceApplyAdam, ^Adam/update_dense_1/bias/ResourceApplyAdam, ^Adam/update_dense_1/kernel/ResourceApplyAdam)
 Adam/mul:Mul	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 Adam/mul:Mul	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-Adam/mul_1	/job:localhost/replica:0/task:0/device:GPU:0	1	15	18	['(1x1)']	Adam/mul_1 = Mul(beta2_power/read, Adam/beta2, ^Adam/update_conv2d/bias/ResourceApplyAdam, ^Adam/update_conv2d/kernel/ResourceApplyAdam, ^Adam/update_conv2d_1/bias/ResourceApplyAdam, ^Adam/update_conv2d_1/kernel/ResourceApplyAdam, ^Adam/update_dense/bias/ResourceApplyAdam, ^Adam/update_dense/kernel/ResourceApplyAdam, ^Adam/update_dense_1/bias/ResourceApplyAdam, ^Adam/update_dense_1/kernel/ResourceApplyAdam)
-Adam/mul_1:Mul	/device:GPU:0/stream:13	0	1	1	['(no output)']	
-Adam/mul_1:Mul	/device:GPU:0/stream:all	0	1	1	['(no output)']	
-Adam/update_conv2d/bias/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	1	40	43	['(no output info)']	Adam/update_conv2d/bias/ResourceApplyAdam = ResourceApplyAdam(conv2d/bias, conv2d/bias/Adam, conv2d/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad)
+Adam/mul_1	/job:localhost/replica:0/task:0/device:GPU:0	0	9	14	['(1x1)']	Adam/mul_1 = Mul(beta2_power/read, Adam/beta2, ^Adam/update_conv2d/bias/ResourceApplyAdam, ^Adam/update_conv2d/kernel/ResourceApplyAdam, ^Adam/update_conv2d_1/bias/ResourceApplyAdam, ^Adam/update_conv2d_1/kernel/ResourceApplyAdam, ^Adam/update_dense/bias/ResourceApplyAdam, ^Adam/update_dense/kernel/ResourceApplyAdam, ^Adam/update_dense_1/bias/ResourceApplyAdam, ^Adam/update_dense_1/kernel/ResourceApplyAdam)
+Adam/mul_1:Mul	/device:GPU:0/stream:13	0	2	2	['(no output)']	
+Adam/mul_1:Mul	/device:GPU:0/stream:all	0	2	2	['(no output)']	
+Adam/update_conv2d/bias/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	1	26	28	['(no output info)']	Adam/update_conv2d/bias/ResourceApplyAdam = ResourceApplyAdam(conv2d/bias, conv2d/bias/Adam, conv2d/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad)
 Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	2	2	['(no output)']	
-Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	3	3	['(no output)']	
-Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	4	4	['(no output)']	
+Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	2	2	['(no output)']	
+Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	5	5	['(no output)']	
 Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	3	3	['(no output)']	
-Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	4	4	['(no output)']	
-Adam/update_conv2d/kernel/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	1	40	43	['(no output info)']	Adam/update_conv2d/kernel/ResourceApplyAdam = ResourceApplyAdam(conv2d/kernel, conv2d/kernel/Adam, conv2d/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter)
+Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	2	2	['(no output)']	
+Adam/update_conv2d/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	5	5	['(no output)']	
+Adam/update_conv2d/kernel/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	1	27	29	['(no output info)']	Adam/update_conv2d/kernel/ResourceApplyAdam = ResourceApplyAdam(conv2d/kernel, conv2d/kernel/Adam, conv2d/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter)
 Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	2	2	['(no output)']	
-Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	3	3	['(no output)']	
+Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	4	4	['(no output)']	
 Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	3	3	['(no output)']	
+Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	2	2	['(no output)']	
 Adam/update_conv2d/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	4	4	['(no output)']	
-Adam/update_conv2d_1/bias/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	2	39	42	['(no output info)']	Adam/update_conv2d_1/bias/ResourceApplyAdam = ResourceApplyAdam(conv2d_1/bias, conv2d_1/bias/Adam, conv2d_1/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad)
+Adam/update_conv2d_1/bias/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	1	24	26	['(no output info)']	Adam/update_conv2d_1/bias/ResourceApplyAdam = ResourceApplyAdam(conv2d_1/bias, conv2d_1/bias/Adam, conv2d_1/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad)
 Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	4	4	['(no output)']	
 Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	2	2	['(no output)']	
 Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	3	3	['(no output)']	
 Adam/update_conv2d_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	4	4	['(no output)']	
-Adam/update_conv2d_1/kernel/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	2	43	46	['(no output info)']	Adam/update_conv2d_1/kernel/ResourceApplyAdam = ResourceApplyAdam(conv2d_1/kernel, conv2d_1/kernel/Adam, conv2d_1/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter, ^gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput)
+Adam/update_conv2d_1/kernel/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	1	30	32	['(no output info)']	Adam/update_conv2d_1/kernel/ResourceApplyAdam = ResourceApplyAdam(conv2d_1/kernel, conv2d_1/kernel/Adam, conv2d_1/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter, ^gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput)
 Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	4	4	['(no output)']	
 Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	6	6	['(no output)']	
 Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	6	6	['(no output)']	
 Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	4	4	['(no output)']	
 Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	6	6	['(no output)']	
 Adam/update_conv2d_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	6	6	['(no output)']	
-Adam/update_dense/bias/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	2	41	44	['(no output info)']	Adam/update_dense/bias/ResourceApplyAdam = ResourceApplyAdam(dense/bias, dense/bias/Adam, dense/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense/BiasAdd_grad/BiasAddGrad)
+Adam/update_dense/bias/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	0	24	25	['(no output info)']	Adam/update_dense/bias/ResourceApplyAdam = ResourceApplyAdam(dense/bias, dense/bias/Adam, dense/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense/BiasAdd_grad/BiasAddGrad)
 Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	2	2	['(no output)']	
-Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	4	4	['(no output)']	
+Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	5	5	['(no output)']	
 Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	2	2	['(no output)']	
 Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	4	4	['(no output)']	
-Adam/update_dense/kernel/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	1	40	43	['(no output info)']	Adam/update_dense/kernel/ResourceApplyAdam = ResourceApplyAdam(dense/kernel, dense/kernel/Adam, dense/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense/MatMul_grad/MatMul_1, ^gradients/sequential/dense/MatMul_grad/MatMul)
-Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	246	246	['(no output)']	
-Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	248	248	['(no output)']	
-Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	332	332	['(no output)']	
-Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	246	246	['(no output)']	
-Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	248	248	['(no output)']	
-Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	332	332	['(no output)']	
-Adam/update_dense_1/bias/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	3	73	78	['(no output info)']	Adam/update_dense_1/bias/ResourceApplyAdam = ResourceApplyAdam(dense_1/bias, dense_1/bias/Adam, dense_1/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad)
-Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	2	2	['(no output)']	
+Adam/update_dense/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	5	5	['(no output)']	
+Adam/update_dense/kernel/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	0	25	27	['(no output info)']	Adam/update_dense/kernel/ResourceApplyAdam = ResourceApplyAdam(dense/kernel, dense/kernel/Adam, dense/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense/MatMul_grad/MatMul_1, ^gradients/sequential/dense/MatMul_grad/MatMul)
+Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	247	247	['(no output)']	
+Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	247	247	['(no output)']	
+Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	336	336	['(no output)']	
+Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	247	247	['(no output)']	
+Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	247	247	['(no output)']	
+Adam/update_dense/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	336	336	['(no output)']	
+Adam/update_dense_1/bias/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	1	32	35	['(no output info)']	Adam/update_dense_1/bias/ResourceApplyAdam = ResourceApplyAdam(dense_1/bias, dense_1/bias/Adam, dense_1/bias/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad)
+Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	4	4	['(no output)']	
-Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	2	2	['(no output)']	
+Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	3	3	['(no output)']	
 Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	3	3	['(no output)']	
 Adam/update_dense_1/bias/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	4	4	['(no output)']	
-Adam/update_dense_1/kernel/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	2	61	67	['(no output info)']	Adam/update_dense_1/kernel/ResourceApplyAdam = ResourceApplyAdam(dense_1/kernel, dense_1/kernel/Adam, dense_1/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense_1/MatMul_grad/MatMul_1, ^gradients/sequential/dense_1/MatMul_grad/MatMul)
-Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	2	2	['(no output)']	
+Adam/update_dense_1/kernel/ResourceApplyAdam	/job:localhost/replica:0/task:0/device:GPU:0	1	26	31	['(no output info)']	Adam/update_dense_1/kernel/ResourceApplyAdam = ResourceApplyAdam(dense_1/kernel, dense_1/kernel/Adam, dense_1/kernel/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/sequential/dense_1/MatMul_grad/MatMul_1, ^gradients/sequential/dense_1/MatMul_grad/MatMul)
+Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:13	0	4	4	['(no output)']	
-Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	2	2	['(no output)']	
+Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	3	3	['(no output)']	
 Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	3	3	['(no output)']	
 Adam/update_dense_1/kernel/ResourceApplyAdam:ResourceApplyAdam	/device:GPU:0/stream:all	0	4	4	['(no output)']	
-Adam/value	/job:localhost/replica:0/task:0/device:GPU:0	1	4	6	['(int64 1x1)']	Adam/value = Const(^Adam/Assign_1, ^Adam/Assign)
-Adam:AssignAdd	/device:GPU:0/stream:13	0	2	2	['(no output)']	
-Adam:AssignAdd	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-ConstantFolding/gradients/sequential/conv2d/Conv2D_grad/ShapeN-matshapes-1	/job:localhost/replica:0/task:0/device:GPU:0	2	6	11	['(int32 4x1)']	ConstantFolding/gradients/sequential/conv2d/Conv2D_grad/ShapeN-matshapes-1 = Const(^sequential/conv2d/Conv2D/ReadVariableOp, ^sequential/reshape/Reshape)
-ConstantFolding/gradients/sequential/conv2d_1/Conv2D_grad/ShapeN-matshapes-1	/job:localhost/replica:0/task:0/device:GPU:0	2	5	9	['(int32 4x1)']	ConstantFolding/gradients/sequential/conv2d_1/Conv2D_grad/ShapeN-matshapes-1 = Const(^gradients/sequential/conv2d_1/Conv2D_grad/ShapeN)
-ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(1x1)']	ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip = Const()
-ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1	/job:localhost/replica:0/task:0/device:GPU:0	2	6	13	['(int32 1x1)']	ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1 = Const()
-Iterator	/job:localhost/replica:0/task:0/device:CPU:0	1	15	25	['(tf_resource 1x1)']	Iterator = Iterator()
-IteratorGetNext	/job:localhost/replica:0/task:0/device:CPU:0	1	6397	6409	['(100x784)', '(int32 100x1 slot 1 slot )']	IteratorGetNext = IteratorGetNext(Iterator)
-_SOURCE	/job:localhost/replica:0/task:0/device:CPU:0	2	4	9	['(no output info)']	_SOURCE = NoOp()
-_SOURCE	/job:localhost/replica:0/task:0/device:GPU:0	5	12	26	['(no output info)']	_SOURCE = NoOp()
-_retval_global_step/add_0_0	/job:localhost/replica:0/task:0/device:CPU:0	1	2	3	['(no output info)']	_retval_global_step/add_0_0 = _Retval(global_step/add/_203)
-_retval_sparse_softmax_cross_entropy_loss/value_0_1	/job:localhost/replica:0/task:0/device:CPU:0	0	2	5	['(no output info)']	_retval_sparse_softmax_cross_entropy_loss/value_0_1 = _Retval(sparse_softmax_cross_entropy_loss/value/_205)
-beta1_power	/job:localhost/replica:0/task:0/device:GPU:0	0	9	11	['(1x1)']	beta1_power = VariableV2()
-beta1_power/read	/job:localhost/replica:0/task:0/device:GPU:0	4	6	8	['(1x1)']	beta1_power/read = Identity(beta1_power)
-beta2_power	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(1x1)']	beta2_power = VariableV2()
-beta2_power/read	/job:localhost/replica:0/task:0/device:GPU:0	1	2	4	['(1x1)']	beta2_power/read = Identity(beta2_power)
-conv2d/bias	/job:localhost/replica:0/task:0/device:GPU:0	1	2	4	['(tf_resource 1x1)']	conv2d/bias = VarHandleOp()
-conv2d/bias/Adam	/job:localhost/replica:0/task:0/device:GPU:0	1	4	8	['(tf_resource 1x1)']	conv2d/bias/Adam = VarHandleOp()
-conv2d/bias/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	1	3	6	['(tf_resource 1x1)']	conv2d/bias/Adam_1 = VarHandleOp()
-conv2d/kernel	/job:localhost/replica:0/task:0/device:GPU:0	13	15	17	['(tf_resource 1x1)']	conv2d/kernel = VarHandleOp()
-conv2d/kernel/Adam	/job:localhost/replica:0/task:0/device:GPU:0	1	3	5	['(tf_resource 1x1)']	conv2d/kernel/Adam = VarHandleOp()
+Adam/value	/job:localhost/replica:0/task:0/device:GPU:0	0	3	6	['(int64 1x1)']	Adam/value = Const(^Adam/Assign_1, ^Adam/Assign)
+Adam:AssignAdd	/device:GPU:0/stream:13	0	1	1	['(no output)']	
+Adam:AssignAdd	/device:GPU:0/stream:all	0	1	1	['(no output)']	
+ConstantFolding/gradients/sequential/conv2d/Conv2D_grad/ShapeN-matshapes-1	/job:localhost/replica:0/task:0/device:GPU:0	1	2	4	['(int32 4x1)']	ConstantFolding/gradients/sequential/conv2d/Conv2D_grad/ShapeN-matshapes-1 = Const(^sequential/conv2d/Conv2D/ReadVariableOp, ^sequential/reshape/Reshape)
+ConstantFolding/gradients/sequential/conv2d_1/Conv2D_grad/ShapeN-matshapes-1	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(int32 4x1)']	ConstantFolding/gradients/sequential/conv2d_1/Conv2D_grad/ShapeN-matshapes-1 = Const(^gradients/sequential/conv2d_1/Conv2D_grad/ShapeN)
+ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(1x1)']	ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip = Const()
+ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1	/job:localhost/replica:0/task:0/device:GPU:0	0	3	7	['(int32 1x1)']	ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1 = Const()
+Iterator	/job:localhost/replica:0/task:0/device:CPU:0	1	10	15	['(tf_resource 1x1)']	Iterator = Iterator()
+IteratorGetNext	/job:localhost/replica:0/task:0/device:CPU:0	4	3405	3410	['(100x784)', '(int32 100x1 slot 1 slot )']	IteratorGetNext = IteratorGetNext(Iterator)
+_SOURCE	/job:localhost/replica:0/task:0/device:CPU:0	1	2	5	['(no output info)']	_SOURCE = NoOp()
+_SOURCE	/job:localhost/replica:0/task:0/device:GPU:0	3	7	21	['(no output info)']	_SOURCE = NoOp()
+_retval_global_step/add_0_0	/job:localhost/replica:0/task:0/device:CPU:0	1	1	2	['(no output info)']	_retval_global_step/add_0_0 = _Retval(global_step/add/_203)
+_retval_sparse_softmax_cross_entropy_loss/value_0_1	/job:localhost/replica:0/task:0/device:CPU:0	0	1	3	['(no output info)']	_retval_sparse_softmax_cross_entropy_loss/value_0_1 = _Retval(sparse_softmax_cross_entropy_loss/value/_205)
+beta1_power	/job:localhost/replica:0/task:0/device:GPU:0	0	5	7	['(1x1)']	beta1_power = VariableV2()
+beta1_power/read	/job:localhost/replica:0/task:0/device:GPU:0	1	2	3	['(1x1)']	beta1_power/read = Identity(beta1_power)
+beta2_power	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(1x1)']	beta2_power = VariableV2()
+beta2_power/read	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(1x1)']	beta2_power/read = Identity(beta2_power)
+conv2d/bias	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(tf_resource 1x1)']	conv2d/bias = VarHandleOp()
+conv2d/bias/Adam	/job:localhost/replica:0/task:0/device:GPU:0	0	2	5	['(tf_resource 1x1)']	conv2d/bias/Adam = VarHandleOp()
+conv2d/bias/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(tf_resource 1x1)']	conv2d/bias/Adam_1 = VarHandleOp()
+conv2d/kernel	/job:localhost/replica:0/task:0/device:GPU:0	1	2	3	['(tf_resource 1x1)']	conv2d/kernel = VarHandleOp()
+conv2d/kernel/Adam	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(tf_resource 1x1)']	conv2d/kernel/Adam = VarHandleOp()
 conv2d/kernel/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(tf_resource 1x1)']	conv2d/kernel/Adam_1 = VarHandleOp()
-conv2d_1/bias	/job:localhost/replica:0/task:0/device:GPU:0	1	2	3	['(tf_resource 1x1)']	conv2d_1/bias = VarHandleOp()
-conv2d_1/bias/Adam	/job:localhost/replica:0/task:0/device:GPU:0	1	2	4	['(tf_resource 1x1)']	conv2d_1/bias/Adam = VarHandleOp()
-conv2d_1/bias/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(tf_resource 1x1)']	conv2d_1/bias/Adam_1 = VarHandleOp()
+conv2d_1/bias	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(tf_resource 1x1)']	conv2d_1/bias = VarHandleOp()
+conv2d_1/bias/Adam	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(tf_resource 1x1)']	conv2d_1/bias/Adam = VarHandleOp()
+conv2d_1/bias/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	1	2	4	['(tf_resource 1x1)']	conv2d_1/bias/Adam_1 = VarHandleOp()
 conv2d_1/kernel	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(tf_resource 1x1)']	conv2d_1/kernel = VarHandleOp()
 conv2d_1/kernel/Adam	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(tf_resource 1x1)']	conv2d_1/kernel/Adam = VarHandleOp()
-conv2d_1/kernel/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(tf_resource 1x1)']	conv2d_1/kernel/Adam_1 = VarHandleOp()
-dense/bias	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(tf_resource 1x1)']	dense/bias = VarHandleOp()
-dense/bias/Adam	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(tf_resource 1x1)']	dense/bias/Adam = VarHandleOp()
-dense/bias/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(tf_resource 1x1)']	dense/bias/Adam_1 = VarHandleOp()
-dense/kernel	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(tf_resource 1x1)']	dense/kernel = VarHandleOp()
-dense/kernel/Adam	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(tf_resource 1x1)']	dense/kernel/Adam = VarHandleOp()
-dense/kernel/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	1	2	3	['(tf_resource 1x1)']	dense/kernel/Adam_1 = VarHandleOp()
-dense_1/bias	/job:localhost/replica:0/task:0/device:GPU:0	1	1	3	['(tf_resource 1x1)']	dense_1/bias = VarHandleOp()
-dense_1/bias/Adam	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(tf_resource 1x1)']	dense_1/bias/Adam = VarHandleOp()
-dense_1/bias/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(tf_resource 1x1)']	dense_1/bias/Adam_1 = VarHandleOp()
-dense_1/kernel	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(tf_resource 1x1)']	dense_1/kernel = VarHandleOp()
-dense_1/kernel/Adam	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(tf_resource 1x1)']	dense_1/kernel/Adam = VarHandleOp()
-dense_1/kernel/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	1	2	5	['(tf_resource 1x1)']	dense_1/kernel/Adam_1 = VarHandleOp()
+conv2d_1/kernel/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(tf_resource 1x1)']	conv2d_1/kernel/Adam_1 = VarHandleOp()
+dense/bias	/job:localhost/replica:0/task:0/device:GPU:0	1	2	3	['(tf_resource 1x1)']	dense/bias = VarHandleOp()
+dense/bias/Adam	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(tf_resource 1x1)']	dense/bias/Adam = VarHandleOp()
+dense/bias/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(tf_resource 1x1)']	dense/bias/Adam_1 = VarHandleOp()
+dense/kernel	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(tf_resource 1x1)']	dense/kernel = VarHandleOp()
+dense/kernel/Adam	/job:localhost/replica:0/task:0/device:GPU:0	1	2	3	['(tf_resource 1x1)']	dense/kernel/Adam = VarHandleOp()
+dense/kernel/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(tf_resource 1x1)']	dense/kernel/Adam_1 = VarHandleOp()
+dense_1/bias	/job:localhost/replica:0/task:0/device:GPU:0	1	2	3	['(tf_resource 1x1)']	dense_1/bias = VarHandleOp()
+dense_1/bias/Adam	/job:localhost/replica:0/task:0/device:GPU:0	1	2	3	['(tf_resource 1x1)']	dense_1/bias/Adam = VarHandleOp()
+dense_1/bias/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(tf_resource 1x1)']	dense_1/bias/Adam_1 = VarHandleOp()
+dense_1/kernel	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(tf_resource 1x1)']	dense_1/kernel = VarHandleOp()
+dense_1/kernel/Adam	/job:localhost/replica:0/task:0/device:GPU:0	1	2	3	['(tf_resource 1x1)']	dense_1/kernel/Adam = VarHandleOp()
+dense_1/kernel/Adam_1	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(tf_resource 1x1)']	dense_1/kernel/Adam_1 = VarHandleOp()
 edge_30_IteratorGetNext:MEMCPYHtoD	/device:GPU:0/memcpy	0	25	25	['(313600 bytes)']	MEMCPYHtoD 313600 bytes (Pageable to Device)
 edge_30_IteratorGetNext:MEMCPYHtoD	/device:GPU:0/stream:14	0	25	25	['(313600 bytes)']	MEMCPYHtoD 313600 bytes (Pageable to Device)
 edge_340_global_step/add:MEMCPYDtoH	/device:GPU:0/memcpy	0	1	1	['(8 bytes)']	MEMCPYDtoH 8 bytes (Device to Pinned)
@@ -121,245 +121,245 @@ edge_342_sparse_softmax_cross_entropy_loss/value:MEMCPYDtoH	/device:GPU:0/stream
 edge_81_IteratorGetNext:MEMCPYHtoD	/device:GPU:0/memcpy	0	1	1	['(400 bytes)']	MEMCPYHtoD 400 bytes (Pageable to Device)
 edge_81_IteratorGetNext:MEMCPYHtoD	/device:GPU:0/stream:14	0	1	1	['(400 bytes)']	MEMCPYHtoD 400 bytes (Pageable to Device)
 global_step	/job:localhost/replica:0/task:0/device:GPU:0	0	3	5	['(int64 1x1)']	global_step = VariableV2()
-global_step/Initializer/zeros	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(int64 1x1)']	global_step/Initializer/zeros = Const()
-global_step/IsVariableInitialized	/job:localhost/replica:0/task:0/device:GPU:0	1	9	11	['(boolean 1x1)']	global_step/IsVariableInitialized = IsVariableInitialized(global_step)
-global_step/add	/job:localhost/replica:0/task:0/device:GPU:0	0	95	98	['(int64 1x1)']	global_step/add = Snapshot(global_step/cond/Merge)
+global_step/Initializer/zeros	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(int64 1x1)']	global_step/Initializer/zeros = Const()
+global_step/IsVariableInitialized	/job:localhost/replica:0/task:0/device:GPU:0	1	9	12	['(boolean 1x1)']	global_step/IsVariableInitialized = IsVariableInitialized(global_step)
+global_step/add	/job:localhost/replica:0/task:0/device:GPU:0	4	72	76	['(int64 1x1)']	global_step/add = Snapshot(global_step/cond/Merge)
 global_step/add:Snapshot:MEMCPYDtoD	/device:GPU:0/memcpy	0	1	1	['(8 bytes)']	MEMCPYDtoD 8 bytes (Device to Device)
 global_step/add:Snapshot:MEMCPYDtoD	/device:GPU:0/stream:13	0	1	1	['(8 bytes)']	MEMCPYDtoD 8 bytes (Device to Device)
-global_step/cond/Merge	/job:localhost/replica:0/task:0/device:GPU:0	0	3	7	['(int64 1x1)', '(int32 1x1 slot 1 slot )']	global_step/cond/Merge = Merge(global_step/cond/Switch_1, global_step/cond/read/Switch:1)
+global_step/cond/Merge	/job:localhost/replica:0/task:0/device:GPU:0	0	3	5	['(int64 1x1)', '(int32 1x1 slot 1 slot )']	global_step/cond/Merge = Merge(global_step/cond/Switch_1, global_step/cond/read/Switch:1)
 global_step/cond/Switch_1	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(int64 1x1 slot 1 slot )']	global_step/cond/Switch_1 = Switch(global_step/Initializer/zeros, global_step/IsVariableInitialized)
-global_step/cond/read/Switch	/job:localhost/replica:0/task:0/device:GPU:0	1	2	6	['(int64 1x1 slot 1 slot )']	global_step/cond/read/Switch = RefSwitch(global_step, global_step/IsVariableInitialized)
-gradients/Fill	/job:localhost/replica:0/task:0/device:GPU:0	1	2	4	['(1x1)']	gradients/Fill = Const()
-gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad	/job:localhost/replica:0/task:0/device:GPU:0	0	50	54	['(32x1)']	[GPU_0_bfc 9.6MB 9.6MB] gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sequential/conv2d/Relu_grad/ReluGrad)
+global_step/cond/read/Switch	/job:localhost/replica:0/task:0/device:GPU:0	0	1	5	['(int64 1x1 slot 1 slot )']	global_step/cond/read/Switch = RefSwitch(global_step, global_step/IsVariableInitialized)
+gradients/Fill	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(1x1)']	gradients/Fill = Const()
+gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad	/job:localhost/replica:0/task:0/device:GPU:0	0	32	34	['(32x1)']	[GPU_0_bfc 9.6MB 9.6MB] gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sequential/conv2d/Relu_grad/ReluGrad)
 gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:13	0	3	3	['(no output)']	
-gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:13	0	64	64	['(no output)']	
+gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:13	0	70	70	['(no output)']	
 gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:all	0	3	3	['(no output)']	
 gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:all	0	3	3	['(no output)']	
-gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:all	0	64	64	['(no output)']	
-gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter	/job:localhost/replica:0/task:0/device:GPU:0	1	79	86	['(5x5x1x32)']	gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter = Conv2DBackpropFilter(sequential/reshape/Reshape, ConstantFolding/gradients/sequential/conv2d/Conv2D_grad/ShapeN-matshapes-1, gradients/sequential/conv2d/Relu_grad/ReluGrad, ^gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad)
-gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	2	2	['(no output)']	
-gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	252	252	['(no output)']	
-gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	252	252	['(no output)']	
-gradients/sequential/conv2d/Relu_grad/ReluGrad	/job:localhost/replica:0/task:0/device:GPU:0	1	16	21	['(100x32x28x28)']	gradients/sequential/conv2d/Relu_grad/ReluGrad = ReluGrad(gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad, sequential/conv2d/Relu)
-gradients/sequential/conv2d/Relu_grad/ReluGrad:ReluGrad	/device:GPU:0/stream:13	0	466	466	['(no output)']	
-gradients/sequential/conv2d/Relu_grad/ReluGrad:ReluGrad	/device:GPU:0/stream:all	0	466	466	['(no output)']	
-gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad	/job:localhost/replica:0/task:0/device:GPU:0	1	58	61	['(64x1)']	[GPU_0_bfc 5.0MB 5.0MB] gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sequential/conv2d_1/Relu_grad/ReluGrad)
-gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:13	0	2	2	['(no output)']	
+gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:all	0	70	70	['(no output)']	
+gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter	/job:localhost/replica:0/task:0/device:GPU:0	1	49	53	['(5x5x1x32)']	gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter = Conv2DBackpropFilter(sequential/reshape/Reshape, ConstantFolding/gradients/sequential/conv2d/Conv2D_grad/ShapeN-matshapes-1, gradients/sequential/conv2d/Relu_grad/ReluGrad, ^gradients/sequential/conv2d/BiasAdd_grad/BiasAddGrad)
+gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	3	3	['(no output)']	
+gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	253	253	['(no output)']	
+gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	3	3	['(no output)']	
+gradients/sequential/conv2d/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	253	253	['(no output)']	
+gradients/sequential/conv2d/Relu_grad/ReluGrad	/job:localhost/replica:0/task:0/device:GPU:0	1	11	14	['(100x32x28x28)']	gradients/sequential/conv2d/Relu_grad/ReluGrad = ReluGrad(gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad, sequential/conv2d/Relu)
+gradients/sequential/conv2d/Relu_grad/ReluGrad:ReluGrad	/device:GPU:0/stream:13	0	194	194	['(no output)']	
+gradients/sequential/conv2d/Relu_grad/ReluGrad:ReluGrad	/device:GPU:0/stream:all	0	194	194	['(no output)']	
+gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad	/job:localhost/replica:0/task:0/device:GPU:0	1	40	43	['(64x1)']	[GPU_0_bfc 5.0MB 5.0MB] gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sequential/conv2d_1/Relu_grad/ReluGrad)
+gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:13	0	38	38	['(no output)']	
-gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:all	0	2	2	['(no output)']	
+gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:all	0	3	3	['(no output)']	
 gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:all	0	3	3	['(no output)']	
 gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:all	0	38	38	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter	/job:localhost/replica:0/task:0/device:GPU:0	1	111	116	['(5x5x32x64)']	[GPU_0_bfc 0.4MB 0.4MB] gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter = Conv2DBackpropFilter(sequential/max_pooling2d/MaxPool, ConstantFolding/gradients/sequential/conv2d_1/Conv2D_grad/ShapeN-matshapes-1, gradients/sequential/conv2d_1/Relu_grad/ReluGrad, ^gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad)
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter	/job:localhost/replica:0/task:0/device:GPU:0	1	75	79	['(5x5x32x64)']	[GPU_0_bfc 0.4MB 0.4MB] gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter = Conv2DBackpropFilter(sequential/max_pooling2d/MaxPool, ConstantFolding/gradients/sequential/conv2d_1/Conv2D_grad/ShapeN-matshapes-1, gradients/sequential/conv2d_1/Relu_grad/ReluGrad, ^gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad)
 gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	2	2	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	2	2	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	5	5	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	721	721	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	3	3	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	6	6	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:13	0	744	744	['(no output)']	
 gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	2	2	['(no output)']	
 gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	5	5	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	721	721	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput	/job:localhost/replica:0/task:0/device:GPU:0	1	97	104	['(100x32x14x14)']	[GPU_0_bfc 34.0MB 34.0MB] gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput = Conv2DBackpropInput(gradients/sequential/conv2d_1/Conv2D_grad/ShapeN, sequential/conv2d_1/Conv2D/ReadVariableOp, gradients/sequential/conv2d_1/Relu_grad/ReluGrad, ^gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad)
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:13	0	5	5	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	3	3	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	6	6	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter:Conv2DBackpropFilter	/device:GPU:0/stream:all	0	744	744	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput	/job:localhost/replica:0/task:0/device:GPU:0	1	68	73	['(100x32x14x14)']	[GPU_0_bfc 36.4MB 36.4MB] gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput = Conv2DBackpropInput(gradients/sequential/conv2d_1/Conv2D_grad/ShapeN, sequential/conv2d_1/Conv2D/ReadVariableOp, gradients/sequential/conv2d_1/Relu_grad/ReluGrad, ^gradients/sequential/conv2d_1/BiasAdd_grad/BiasAddGrad)
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:13	0	6	6	['(no output)']	
 gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:13	0	15	15	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:13	0	163	163	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:13	0	251	251	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:13	0	303	303	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:all	0	5	5	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:13	0	167	167	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:13	0	257	257	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:13	0	311	311	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:all	0	6	6	['(no output)']	
 gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:all	0	15	15	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:all	0	163	163	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:all	0	251	251	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:all	0	303	303	['(no output)']	
-gradients/sequential/conv2d_1/Conv2D_grad/ShapeN	/job:localhost/replica:0/task:0/device:GPU:0	1	12	21	['(int32 4x1)', '(int32 4x1 slot 1 slot )']	gradients/sequential/conv2d_1/Conv2D_grad/ShapeN = ShapeN(sequential/max_pooling2d/MaxPool, sequential/conv2d_1/Conv2D/ReadVariableOp)
-gradients/sequential/conv2d_1/Relu_grad/ReluGrad	/job:localhost/replica:0/task:0/device:GPU:0	1	17	22	['(100x64x14x14)']	gradients/sequential/conv2d_1/Relu_grad/ReluGrad = ReluGrad(gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad, sequential/conv2d_1/Relu)
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:all	0	167	167	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:all	0	257	257	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput:Conv2DBackpropInput	/device:GPU:0/stream:all	0	311	311	['(no output)']	
+gradients/sequential/conv2d_1/Conv2D_grad/ShapeN	/job:localhost/replica:0/task:0/device:GPU:0	0	5	8	['(int32 4x1)', '(int32 4x1 slot 1 slot )']	gradients/sequential/conv2d_1/Conv2D_grad/ShapeN = ShapeN(sequential/max_pooling2d/MaxPool, sequential/conv2d_1/Conv2D/ReadVariableOp)
+gradients/sequential/conv2d_1/Relu_grad/ReluGrad	/job:localhost/replica:0/task:0/device:GPU:0	0	11	14	['(100x64x14x14)']	gradients/sequential/conv2d_1/Relu_grad/ReluGrad = ReluGrad(gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad, sequential/conv2d_1/Relu)
 gradients/sequential/conv2d_1/Relu_grad/ReluGrad:ReluGrad	/device:GPU:0/stream:13	0	96	96	['(no output)']	
 gradients/sequential/conv2d_1/Relu_grad/ReluGrad:ReluGrad	/device:GPU:0/stream:all	0	96	96	['(no output)']	
-gradients/sequential/dense/BiasAdd_grad/BiasAddGrad	/job:localhost/replica:0/task:0/device:GPU:0	0	29	32	['(1024x1)']	gradients/sequential/dense/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sequential/dense/Relu_grad/ReluGrad)
+gradients/sequential/dense/BiasAdd_grad/BiasAddGrad	/job:localhost/replica:0/task:0/device:GPU:0	0	18	20	['(1024x1)']	gradients/sequential/dense/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sequential/dense/Relu_grad/ReluGrad)
 gradients/sequential/dense/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:13	0	4	4	['(no output)']	
 gradients/sequential/dense/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:all	0	4	4	['(no output)']	
-gradients/sequential/dense/MatMul_grad/MatMul	/job:localhost/replica:0/task:0/device:GPU:0	1	24	27	['(100x3136)']	[GPU_0_bfc 1.2MB 1.2MB] gradients/sequential/dense/MatMul_grad/MatMul = MatMul(gradients/sequential/dense/Relu_grad/ReluGrad, sequential/dense/MatMul/ReadVariableOp, ^gradients/sequential/dense/BiasAdd_grad/BiasAddGrad)
-gradients/sequential/dense/MatMul_grad/MatMul:MatMul	/device:GPU:0/stream:13	0	241	241	['(no output)']	
-gradients/sequential/dense/MatMul_grad/MatMul:MatMul	/device:GPU:0/stream:all	0	241	241	['(no output)']	
-gradients/sequential/dense/MatMul_grad/MatMul_1	/job:localhost/replica:0/task:0/device:GPU:0	1	21	25	['(3136x1024)']	[GPU_0_bfc 12.2MB 12.2MB] gradients/sequential/dense/MatMul_grad/MatMul_1 = MatMul(sequential/flatten/Reshape, gradients/sequential/dense/Relu_grad/ReluGrad, ^gradients/sequential/dense/BiasAdd_grad/BiasAddGrad)
-gradients/sequential/dense/MatMul_grad/MatMul_1:MatMul	/device:GPU:0/stream:13	0	190	190	['(no output)']	
-gradients/sequential/dense/MatMul_grad/MatMul_1:MatMul	/device:GPU:0/stream:all	0	190	190	['(no output)']	
-gradients/sequential/dense/Relu_grad/ReluGrad	/job:localhost/replica:0/task:0/device:GPU:0	1	20	25	['(100x1024)']	gradients/sequential/dense/Relu_grad/ReluGrad = ReluGrad(gradients/sequential/dropout/dropout/div_grad/Reshape, sequential/dense/Relu)
+gradients/sequential/dense/MatMul_grad/MatMul	/job:localhost/replica:0/task:0/device:GPU:0	1	17	19	['(100x3136)']	[GPU_0_bfc 1.2MB 1.2MB] gradients/sequential/dense/MatMul_grad/MatMul = MatMul(gradients/sequential/dense/Relu_grad/ReluGrad, sequential/dense/MatMul/ReadVariableOp, ^gradients/sequential/dense/BiasAdd_grad/BiasAddGrad)
+gradients/sequential/dense/MatMul_grad/MatMul:MatMul	/device:GPU:0/stream:13	0	248	248	['(no output)']	
+gradients/sequential/dense/MatMul_grad/MatMul:MatMul	/device:GPU:0/stream:all	0	248	248	['(no output)']	
+gradients/sequential/dense/MatMul_grad/MatMul_1	/job:localhost/replica:0/task:0/device:GPU:0	1	17	20	['(3136x1024)']	[GPU_0_bfc 12.2MB 12.2MB] gradients/sequential/dense/MatMul_grad/MatMul_1 = MatMul(sequential/flatten/Reshape, gradients/sequential/dense/Relu_grad/ReluGrad, ^gradients/sequential/dense/BiasAdd_grad/BiasAddGrad)
+gradients/sequential/dense/MatMul_grad/MatMul_1:MatMul	/device:GPU:0/stream:13	0	196	196	['(no output)']	
+gradients/sequential/dense/MatMul_grad/MatMul_1:MatMul	/device:GPU:0/stream:all	0	196	196	['(no output)']	
+gradients/sequential/dense/Relu_grad/ReluGrad	/job:localhost/replica:0/task:0/device:GPU:0	0	11	13	['(100x1024)']	gradients/sequential/dense/Relu_grad/ReluGrad = ReluGrad(gradients/sequential/dropout/dropout/div_grad/Reshape, sequential/dense/Relu)
 gradients/sequential/dense/Relu_grad/ReluGrad:ReluGrad	/device:GPU:0/stream:13	0	5	5	['(no output)']	
 gradients/sequential/dense/Relu_grad/ReluGrad:ReluGrad	/device:GPU:0/stream:all	0	5	5	['(no output)']	
-gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad	/job:localhost/replica:0/task:0/device:GPU:0	0	46	51	['(10x1)']	gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul)
-gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:13	0	8	8	['(no output)']	
-gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:all	0	8	8	['(no output)']	
-gradients/sequential/dense_1/MatMul_grad/MatMul	/job:localhost/replica:0/task:0/device:GPU:0	2	40	46	['(100x1024)']	[GPU_0_bfc 0.4MB 0.4MB] gradients/sequential/dense_1/MatMul_grad/MatMul = MatMul(gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul, sequential/dense_1/MatMul/ReadVariableOp, ^gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad)
+gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad	/job:localhost/replica:0/task:0/device:GPU:0	0	23	26	['(10x1)']	gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad = BiasAddGrad(gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul)
+gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:13	0	7	7	['(no output)']	
+gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad:BiasAddGrad	/device:GPU:0/stream:all	0	7	7	['(no output)']	
+gradients/sequential/dense_1/MatMul_grad/MatMul	/job:localhost/replica:0/task:0/device:GPU:0	1	16	22	['(100x1024)']	[GPU_0_bfc 0.4MB 0.4MB] gradients/sequential/dense_1/MatMul_grad/MatMul = MatMul(gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul, sequential/dense_1/MatMul/ReadVariableOp, ^gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad)
 gradients/sequential/dense_1/MatMul_grad/MatMul:MatMul	/device:GPU:0/stream:13	0	14	14	['(no output)']	
 gradients/sequential/dense_1/MatMul_grad/MatMul:MatMul	/device:GPU:0/stream:all	0	14	14	['(no output)']	
-gradients/sequential/dense_1/MatMul_grad/MatMul_1	/job:localhost/replica:0/task:0/device:GPU:0	1	31	39	['(1024x10)']	gradients/sequential/dense_1/MatMul_grad/MatMul_1 = MatMul(sequential/dropout/dropout/mul, gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul, ^gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad)
+gradients/sequential/dense_1/MatMul_grad/MatMul_1	/job:localhost/replica:0/task:0/device:GPU:0	0	14	17	['(1024x10)']	gradients/sequential/dense_1/MatMul_grad/MatMul_1 = MatMul(sequential/dropout/dropout/mul, gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul, ^gradients/sequential/dense_1/BiasAdd_grad/BiasAddGrad)
 gradients/sequential/dense_1/MatMul_grad/MatMul_1:MatMul	/device:GPU:0/stream:13	0	11	11	['(no output)']	
 gradients/sequential/dense_1/MatMul_grad/MatMul_1:MatMul	/device:GPU:0/stream:all	0	11	11	['(no output)']	
-gradients/sequential/dropout/dropout/div_grad/BroadcastGradientArgs	/job:localhost/replica:0/task:0/device:GPU:0	1	10	17	['(int32 1x1)', '(int32 2x1 slot 1 slot )']	gradients/sequential/dropout/dropout/div_grad/BroadcastGradientArgs = BroadcastGradientArgs(gradients/sequential/dropout/dropout/div_grad/Shape, ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1)
-gradients/sequential/dropout/dropout/div_grad/RealDiv	/job:localhost/replica:0/task:0/device:GPU:0	1	28	34	['(100x1024)']	gradients/sequential/dropout/dropout/div_grad/RealDiv = Mul(gradients/sequential/dropout/dropout/mul_grad/Mul, ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip)
+gradients/sequential/dropout/dropout/div_grad/BroadcastGradientArgs	/job:localhost/replica:0/task:0/device:GPU:0	1	5	7	['(int32 1x1)', '(int32 2x1 slot 1 slot )']	gradients/sequential/dropout/dropout/div_grad/BroadcastGradientArgs = BroadcastGradientArgs(gradients/sequential/dropout/dropout/div_grad/Shape, ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1)
+gradients/sequential/dropout/dropout/div_grad/RealDiv	/job:localhost/replica:0/task:0/device:GPU:0	0	9	11	['(100x1024)']	gradients/sequential/dropout/dropout/div_grad/RealDiv = Mul(gradients/sequential/dropout/dropout/mul_grad/Mul, ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip)
 gradients/sequential/dropout/dropout/div_grad/RealDiv:Mul	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 gradients/sequential/dropout/dropout/div_grad/RealDiv:Mul	/device:GPU:0/stream:all	0	3	3	['(no output)']	
-gradients/sequential/dropout/dropout/div_grad/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	0	2	6	['(100x1024)']	gradients/sequential/dropout/dropout/div_grad/Reshape = Reshape(gradients/sequential/dropout/dropout/div_grad/Sum, gradients/sequential/dropout/dropout/div_grad/Shape)
-gradients/sequential/dropout/dropout/div_grad/Shape	/job:localhost/replica:0/task:0/device:GPU:0	1	8	13	['(int32 2x1)']	gradients/sequential/dropout/dropout/div_grad/Shape = Shape(sequential/dense/Relu)
-gradients/sequential/dropout/dropout/div_grad/Sum	/job:localhost/replica:0/task:0/device:GPU:0	1	5	7	['(100x1024)']	gradients/sequential/dropout/dropout/div_grad/Sum = Sum(gradients/sequential/dropout/dropout/div_grad/RealDiv, gradients/sequential/dropout/dropout/div_grad/BroadcastGradientArgs)
-gradients/sequential/dropout/dropout/mul_grad/Mul	/job:localhost/replica:0/task:0/device:GPU:0	2	30	38	['(100x1024)']	gradients/sequential/dropout/dropout/mul_grad/Mul = Mul(gradients/sequential/dense_1/MatMul_grad/MatMul, sequential/dropout/dropout/Floor, ^gradients/sequential/dense_1/MatMul_grad/MatMul_1)
+gradients/sequential/dropout/dropout/div_grad/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(100x1024)']	gradients/sequential/dropout/dropout/div_grad/Reshape = Reshape(gradients/sequential/dropout/dropout/div_grad/Sum, gradients/sequential/dropout/dropout/div_grad/Shape)
+gradients/sequential/dropout/dropout/div_grad/Shape	/job:localhost/replica:0/task:0/device:GPU:0	0	3	4	['(int32 2x1)']	gradients/sequential/dropout/dropout/div_grad/Shape = Shape(sequential/dense/Relu)
+gradients/sequential/dropout/dropout/div_grad/Sum	/job:localhost/replica:0/task:0/device:GPU:0	1	3	7	['(100x1024)']	gradients/sequential/dropout/dropout/div_grad/Sum = Sum(gradients/sequential/dropout/dropout/div_grad/RealDiv, gradients/sequential/dropout/dropout/div_grad/BroadcastGradientArgs)
+gradients/sequential/dropout/dropout/mul_grad/Mul	/job:localhost/replica:0/task:0/device:GPU:0	1	11	14	['(100x1024)']	gradients/sequential/dropout/dropout/mul_grad/Mul = Mul(gradients/sequential/dense_1/MatMul_grad/MatMul, sequential/dropout/dropout/Floor, ^gradients/sequential/dense_1/MatMul_grad/MatMul_1)
 gradients/sequential/dropout/dropout/mul_grad/Mul:Mul	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 gradients/sequential/dropout/dropout/mul_grad/Mul:Mul	/device:GPU:0/stream:all	0	3	3	['(no output)']	
-gradients/sequential/flatten/Reshape_grad/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	1	3	7	['(100x64x7x7)']	gradients/sequential/flatten/Reshape_grad/Reshape = Reshape(gradients/sequential/dense/MatMul_grad/MatMul, gradients/sequential/flatten/Reshape_grad/Shape, ^gradients/sequential/dense/MatMul_grad/MatMul_1)
-gradients/sequential/flatten/Reshape_grad/Shape	/job:localhost/replica:0/task:0/device:GPU:0	1	9	14	['(int32 4x1)']	gradients/sequential/flatten/Reshape_grad/Shape = Shape(sequential/max_pooling2d_1/MaxPool)
-gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad	/job:localhost/replica:0/task:0/device:GPU:0	1	31	37	['(100x32x28x28)']	[GPU_0_bfc 9.6MB 9.6MB] gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad = MaxPoolGrad(sequential/conv2d/Relu, sequential/max_pooling2d/MaxPool, gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput, ^gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter)
-gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad:MaxPoolGrad	/device:GPU:0/stream:13	0	166	166	['(no output)']	
-gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad:MaxPoolGrad	/device:GPU:0/stream:all	0	166	166	['(no output)']	
-gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad	/job:localhost/replica:0/task:0/device:GPU:0	1	41	47	['(100x64x14x14)']	[GPU_0_bfc 4.8MB 4.8MB] gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad = MaxPoolGrad(sequential/conv2d_1/Relu, sequential/max_pooling2d_1/MaxPool, gradients/sequential/flatten/Reshape_grad/Reshape)
-gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad:MaxPoolGrad	/device:GPU:0/stream:13	0	121	121	['(no output)']	
-gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad:MaxPoolGrad	/device:GPU:0/stream:all	0	121	121	['(no output)']	
-gradients/sparse_softmax_cross_entropy_loss/Mul_grad/BroadcastGradientArgs	/job:localhost/replica:0/task:0/device:GPU:0	2	10	17	['(int32 1x1)', '(int32 1x1 slot 1 slot )']	gradients/sparse_softmax_cross_entropy_loss/Mul_grad/BroadcastGradientArgs = BroadcastGradientArgs(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Shape, ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1)
-gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Mul	/job:localhost/replica:0/task:0/device:GPU:0	1	5	8	['(100x1)']	gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Mul = Snapshot(gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile)
-gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	1	3	7	['(100x1)']	gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Reshape = Reshape(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Sum, gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Shape)
-gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Sum	/job:localhost/replica:0/task:0/device:GPU:0	1	5	8	['(100x1)']	gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Sum = Sum(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Mul, gradients/sparse_softmax_cross_entropy_loss/Mul_grad/BroadcastGradientArgs)
-gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	2	6	9	['(1x1)']	gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape = Reshape(gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape, ^sparse_softmax_cross_entropy_loss/Sum)
+gradients/sequential/flatten/Reshape_grad/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	1	3	8	['(100x64x7x7)']	gradients/sequential/flatten/Reshape_grad/Reshape = Reshape(gradients/sequential/dense/MatMul_grad/MatMul, gradients/sequential/flatten/Reshape_grad/Shape, ^gradients/sequential/dense/MatMul_grad/MatMul_1)
+gradients/sequential/flatten/Reshape_grad/Shape	/job:localhost/replica:0/task:0/device:GPU:0	0	3	4	['(int32 4x1)']	gradients/sequential/flatten/Reshape_grad/Shape = Shape(sequential/max_pooling2d_1/MaxPool)
+gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad	/job:localhost/replica:0/task:0/device:GPU:0	0	19	22	['(100x32x28x28)']	[GPU_0_bfc 9.6MB 9.6MB] gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad = MaxPoolGrad(sequential/conv2d/Relu, sequential/max_pooling2d/MaxPool, gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropInput, ^gradients/sequential/conv2d_1/Conv2D_grad/Conv2DBackpropFilter)
+gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad:MaxPoolGrad	/device:GPU:0/stream:13	0	167	167	['(no output)']	
+gradients/sequential/max_pooling2d/MaxPool_grad/MaxPoolGrad:MaxPoolGrad	/device:GPU:0/stream:all	0	167	167	['(no output)']	
+gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad	/job:localhost/replica:0/task:0/device:GPU:0	1	26	30	['(100x64x14x14)']	[GPU_0_bfc 4.8MB 4.8MB] gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad = MaxPoolGrad(sequential/conv2d_1/Relu, sequential/max_pooling2d_1/MaxPool, gradients/sequential/flatten/Reshape_grad/Reshape)
+gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad:MaxPoolGrad	/device:GPU:0/stream:13	0	123	123	['(no output)']	
+gradients/sequential/max_pooling2d_1/MaxPool_grad/MaxPoolGrad:MaxPoolGrad	/device:GPU:0/stream:all	0	123	123	['(no output)']	
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/BroadcastGradientArgs	/job:localhost/replica:0/task:0/device:GPU:0	0	4	7	['(int32 1x1)', '(int32 1x1 slot 1 slot )']	gradients/sparse_softmax_cross_entropy_loss/Mul_grad/BroadcastGradientArgs = BroadcastGradientArgs(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Shape, ConstantFolding/gradients/sparse_softmax_cross_entropy_loss/div_grad/BroadcastGradientArgs-folded-1)
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Mul	/job:localhost/replica:0/task:0/device:GPU:0	0	2	7	['(100x1)']	gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Mul = Snapshot(gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile)
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(100x1)']	gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Reshape = Reshape(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Sum, gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Shape)
+gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Sum	/job:localhost/replica:0/task:0/device:GPU:0	1	2	3	['(100x1)']	gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Sum = Sum(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Mul, gradients/sparse_softmax_cross_entropy_loss/Mul_grad/BroadcastGradientArgs)
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	4	5	6	['(1x1)']	gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape = Reshape(gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape, ^sparse_softmax_cross_entropy_loss/Sum)
 gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape	/job:localhost/replica:0/task:0/device:GPU:0	0	1	4	['(int32 1x1)']	gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape = Const()
-gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape	/job:localhost/replica:0/task:0/device:GPU:0	1	5	9	['(int32 1x1)']	gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape = Shape(sparse_softmax_cross_entropy_loss/Mul)
-gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile	/job:localhost/replica:0/task:0/device:GPU:0	1	37	47	['(100x1)']	gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile = Tile(gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape)
-gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile:Tile	/device:GPU:0/stream:13	0	2	2	['(no output)']	
-gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile:Tile	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv	/job:localhost/replica:0/task:0/device:GPU:0	1	25	31	['(1x1)']	gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv = RealDiv(gradients/sparse_softmax_cross_entropy_loss/value_grad/Select, sparse_softmax_cross_entropy_loss/Select)
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape	/job:localhost/replica:0/task:0/device:GPU:0	1	2	4	['(int32 1x1)']	gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape = Shape(sparse_softmax_cross_entropy_loss/Mul)
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile	/job:localhost/replica:0/task:0/device:GPU:0	0	16	20	['(100x1)']	gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile = Tile(gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Shape)
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile:Tile	/device:GPU:0/stream:13	0	3	3	['(no output)']	
+gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Tile:Tile	/device:GPU:0/stream:all	0	3	3	['(no output)']	
+gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv	/job:localhost/replica:0/task:0/device:GPU:0	1	9	11	['(1x1)']	gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv = RealDiv(gradients/sparse_softmax_cross_entropy_loss/value_grad/Select, sparse_softmax_cross_entropy_loss/Select)
 gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv:RealDiv	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 gradients/sparse_softmax_cross_entropy_loss/div_grad/RealDiv:RealDiv	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-gradients/sparse_softmax_cross_entropy_loss/value_grad/Select	/job:localhost/replica:0/task:0/device:GPU:0	1	36	41	['(1x1)']	gradients/sparse_softmax_cross_entropy_loss/value_grad/Select = Select(sparse_softmax_cross_entropy_loss/Greater, gradients/Fill, gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like)
+gradients/sparse_softmax_cross_entropy_loss/value_grad/Select	/job:localhost/replica:0/task:0/device:GPU:0	1	15	17	['(1x1)']	gradients/sparse_softmax_cross_entropy_loss/value_grad/Select = Select(sparse_softmax_cross_entropy_loss/Greater, gradients/Fill, gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like)
 gradients/sparse_softmax_cross_entropy_loss/value_grad/Select:Select	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 gradients/sparse_softmax_cross_entropy_loss/value_grad/Select:Select	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(1x1)']	gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like = Const()
-gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims	/job:localhost/replica:0/task:0/device:GPU:0	1	5	8	['(100x1)']	gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims = ExpandDims(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Reshape, gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim)
-gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(int32 1x1)']	gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim = Const()
-gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul	/job:localhost/replica:0/task:0/device:GPU:0	0	33	40	['(100x10)']	gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul = Mul(gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims, sparse_softmax_cross_entropy_loss/xentropy/xentropy:1)
+gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like	/job:localhost/replica:0/task:0/device:GPU:0	3	5	7	['(1x1)']	gradients/sparse_softmax_cross_entropy_loss/value_grad/zeros_like = Const()
+gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(100x1)']	gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims = ExpandDims(gradients/sparse_softmax_cross_entropy_loss/Mul_grad/Reshape, gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim)
+gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(int32 1x1)']	gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim = Const()
+gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul	/job:localhost/replica:0/task:0/device:GPU:0	0	14	16	['(100x10)']	gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul = Mul(gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims, sparse_softmax_cross_entropy_loss/xentropy/xentropy:1)
 gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul:Mul	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/mul:Mul	/device:GPU:0/stream:all	0	3	3	['(no output)']	
-sequential/conv2d/BiasAdd	/job:localhost/replica:0/task:0/device:GPU:0	1	35	41	['(100x32x28x28)']	sequential/conv2d/BiasAdd = BiasAdd(sequential/conv2d/Conv2D, sequential/conv2d/BiasAdd/ReadVariableOp)
-sequential/conv2d/BiasAdd/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	0	3	5	['(32x1)']	sequential/conv2d/BiasAdd/ReadVariableOp = ReadVariableOp(conv2d/bias)
+sequential/conv2d/BiasAdd	/job:localhost/replica:0/task:0/device:GPU:0	1	15	18	['(100x32x28x28)']	sequential/conv2d/BiasAdd = BiasAdd(sequential/conv2d/Conv2D, sequential/conv2d/BiasAdd/ReadVariableOp)
+sequential/conv2d/BiasAdd/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	1	3	4	['(32x1)']	sequential/conv2d/BiasAdd/ReadVariableOp = ReadVariableOp(conv2d/bias)
 sequential/conv2d/BiasAdd:BiasAdd	/device:GPU:0/stream:13	0	157	157	['(no output)']	
 sequential/conv2d/BiasAdd:BiasAdd	/device:GPU:0/stream:all	0	157	157	['(no output)']	
-sequential/conv2d/Conv2D	/job:localhost/replica:0/task:0/device:GPU:0	2	189	199	['(100x32x28x28)']	[GPU_0_bfc 19.1MB 19.1MB] sequential/conv2d/Conv2D = Conv2D(sequential/reshape/Reshape, sequential/conv2d/Conv2D/ReadVariableOp)
-sequential/conv2d/Conv2D/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	0	6	9	['(5x5x1x32)']	sequential/conv2d/Conv2D/ReadVariableOp = ReadVariableOp(conv2d/kernel)
+sequential/conv2d/Conv2D	/job:localhost/replica:0/task:0/device:GPU:0	0	90	94	['(100x32x28x28)']	[GPU_0_bfc 19.1MB 19.1MB] sequential/conv2d/Conv2D = Conv2D(sequential/reshape/Reshape, sequential/conv2d/Conv2D/ReadVariableOp)
+sequential/conv2d/Conv2D/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	1	5	6	['(5x5x1x32)']	sequential/conv2d/Conv2D/ReadVariableOp = ReadVariableOp(conv2d/kernel)
+sequential/conv2d/Conv2D:Conv2D	/device:GPU:0/stream:13	0	1	1	['(no output)']	
 sequential/conv2d/Conv2D:Conv2D	/device:GPU:0/stream:13	0	2	2	['(no output)']	
-sequential/conv2d/Conv2D:Conv2D	/device:GPU:0/stream:13	0	3	3	['(no output)']	
-sequential/conv2d/Conv2D:Conv2D	/device:GPU:0/stream:13	0	110	110	['(no output)']	
+sequential/conv2d/Conv2D:Conv2D	/device:GPU:0/stream:13	0	111	111	['(no output)']	
+sequential/conv2d/Conv2D:Conv2D	/device:GPU:0/stream:all	0	1	1	['(no output)']	
 sequential/conv2d/Conv2D:Conv2D	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-sequential/conv2d/Conv2D:Conv2D	/device:GPU:0/stream:all	0	3	3	['(no output)']	
-sequential/conv2d/Conv2D:Conv2D	/device:GPU:0/stream:all	0	110	110	['(no output)']	
-sequential/conv2d/Relu	/job:localhost/replica:0/task:0/device:GPU:0	1	29	35	['(100x32x28x28)']	sequential/conv2d/Relu = Relu(sequential/conv2d/BiasAdd)
-sequential/conv2d/Relu:Relu	/device:GPU:0/stream:13	0	132	132	['(no output)']	
-sequential/conv2d/Relu:Relu	/device:GPU:0/stream:all	0	132	132	['(no output)']	
-sequential/conv2d_1/BiasAdd	/job:localhost/replica:0/task:0/device:GPU:0	1	30	35	['(100x64x14x14)']	sequential/conv2d_1/BiasAdd = BiasAdd(sequential/conv2d_1/Conv2D, sequential/conv2d_1/BiasAdd/ReadVariableOp)
-sequential/conv2d_1/BiasAdd/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	0	3	5	['(64x1)']	sequential/conv2d_1/BiasAdd/ReadVariableOp = ReadVariableOp(conv2d_1/bias)
+sequential/conv2d/Conv2D:Conv2D	/device:GPU:0/stream:all	0	111	111	['(no output)']	
+sequential/conv2d/Relu	/job:localhost/replica:0/task:0/device:GPU:0	1	12	14	['(100x32x28x28)']	sequential/conv2d/Relu = Relu(sequential/conv2d/BiasAdd)
+sequential/conv2d/Relu:Relu	/device:GPU:0/stream:13	0	133	133	['(no output)']	
+sequential/conv2d/Relu:Relu	/device:GPU:0/stream:all	0	133	133	['(no output)']	
+sequential/conv2d_1/BiasAdd	/job:localhost/replica:0/task:0/device:GPU:0	0	11	13	['(100x64x14x14)']	sequential/conv2d_1/BiasAdd = BiasAdd(sequential/conv2d_1/Conv2D, sequential/conv2d_1/BiasAdd/ReadVariableOp)
+sequential/conv2d_1/BiasAdd/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(64x1)']	sequential/conv2d_1/BiasAdd/ReadVariableOp = ReadVariableOp(conv2d_1/bias)
 sequential/conv2d_1/BiasAdd:BiasAdd	/device:GPU:0/stream:13	0	80	80	['(no output)']	
 sequential/conv2d_1/BiasAdd:BiasAdd	/device:GPU:0/stream:all	0	80	80	['(no output)']	
-sequential/conv2d_1/Conv2D	/job:localhost/replica:0/task:0/device:GPU:0	1	125	132	['(100x64x14x14)']	[GPU_0_bfc 12.2MB 12.2MB] sequential/conv2d_1/Conv2D = Conv2D(sequential/max_pooling2d/MaxPool, sequential/conv2d_1/Conv2D/ReadVariableOp)
-sequential/conv2d_1/Conv2D/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	0	2	5	['(5x5x32x64)']	sequential/conv2d_1/Conv2D/ReadVariableOp = ReadVariableOp(conv2d_1/kernel)
-sequential/conv2d_1/Conv2D:Conv2D	/device:GPU:0/stream:13	0	3	3	['(no output)']	
+sequential/conv2d_1/Conv2D	/job:localhost/replica:0/task:0/device:GPU:0	0	46	49	['(100x64x14x14)']	[GPU_0_bfc 12.2MB 12.2MB] sequential/conv2d_1/Conv2D = Conv2D(sequential/max_pooling2d/MaxPool, sequential/conv2d_1/Conv2D/ReadVariableOp)
+sequential/conv2d_1/Conv2D/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	0	3	5	['(5x5x32x64)']	sequential/conv2d_1/Conv2D/ReadVariableOp = ReadVariableOp(conv2d_1/kernel)
+sequential/conv2d_1/Conv2D:Conv2D	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 sequential/conv2d_1/Conv2D:Conv2D	/device:GPU:0/stream:13	0	6	6	['(no output)']	
-sequential/conv2d_1/Conv2D:Conv2D	/device:GPU:0/stream:13	0	574	574	['(no output)']	
-sequential/conv2d_1/Conv2D:Conv2D	/device:GPU:0/stream:all	0	3	3	['(no output)']	
+sequential/conv2d_1/Conv2D:Conv2D	/device:GPU:0/stream:13	0	591	591	['(no output)']	
+sequential/conv2d_1/Conv2D:Conv2D	/device:GPU:0/stream:all	0	2	2	['(no output)']	
 sequential/conv2d_1/Conv2D:Conv2D	/device:GPU:0/stream:all	0	6	6	['(no output)']	
-sequential/conv2d_1/Conv2D:Conv2D	/device:GPU:0/stream:all	0	574	574	['(no output)']	
-sequential/conv2d_1/Relu	/job:localhost/replica:0/task:0/device:GPU:0	1	25	31	['(100x64x14x14)']	sequential/conv2d_1/Relu = Relu(sequential/conv2d_1/BiasAdd)
+sequential/conv2d_1/Conv2D:Conv2D	/device:GPU:0/stream:all	0	591	591	['(no output)']	
+sequential/conv2d_1/Relu	/job:localhost/replica:0/task:0/device:GPU:0	0	9	11	['(100x64x14x14)']	sequential/conv2d_1/Relu = Relu(sequential/conv2d_1/BiasAdd)
 sequential/conv2d_1/Relu:Relu	/device:GPU:0/stream:13	0	67	67	['(no output)']	
 sequential/conv2d_1/Relu:Relu	/device:GPU:0/stream:all	0	67	67	['(no output)']	
-sequential/dense/BiasAdd	/job:localhost/replica:0/task:0/device:GPU:0	2	30	36	['(100x1024)']	sequential/dense/BiasAdd = BiasAdd(sequential/dense/MatMul, sequential/dense/BiasAdd/ReadVariableOp)
+sequential/dense/BiasAdd	/job:localhost/replica:0/task:0/device:GPU:0	0	12	14	['(100x1024)']	sequential/dense/BiasAdd = BiasAdd(sequential/dense/MatMul, sequential/dense/BiasAdd/ReadVariableOp)
 sequential/dense/BiasAdd/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(1024x1)']	sequential/dense/BiasAdd/ReadVariableOp = ReadVariableOp(dense/bias)
-sequential/dense/BiasAdd:BiasAdd	/device:GPU:0/stream:13	0	4	4	['(no output)']	
-sequential/dense/BiasAdd:BiasAdd	/device:GPU:0/stream:all	0	4	4	['(no output)']	
-sequential/dense/MatMul	/job:localhost/replica:0/task:0/device:GPU:0	1	83	90	['(100x1024)']	[GPU_0_bfc 0.4MB 0.4MB] sequential/dense/MatMul = MatMul(sequential/flatten/Reshape, sequential/dense/MatMul/ReadVariableOp)
-sequential/dense/MatMul/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	0	2	5	['(3136x1024)']	sequential/dense/MatMul/ReadVariableOp = ReadVariableOp(dense/kernel)
-sequential/dense/MatMul:MatMul	/device:GPU:0/stream:13	0	236	236	['(no output)']	
-sequential/dense/MatMul:MatMul	/device:GPU:0/stream:all	0	236	236	['(no output)']	
-sequential/dense/Relu	/job:localhost/replica:0/task:0/device:GPU:0	1	24	29	['(100x1024)']	sequential/dense/Relu = Relu(sequential/dense/BiasAdd)
+sequential/dense/BiasAdd:BiasAdd	/device:GPU:0/stream:13	0	5	5	['(no output)']	
+sequential/dense/BiasAdd:BiasAdd	/device:GPU:0/stream:all	0	5	5	['(no output)']	
+sequential/dense/MatMul	/job:localhost/replica:0/task:0/device:GPU:0	0	40	43	['(100x1024)']	[GPU_0_bfc 0.4MB 0.4MB] sequential/dense/MatMul = MatMul(sequential/flatten/Reshape, sequential/dense/MatMul/ReadVariableOp)
+sequential/dense/MatMul/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	1	2	6	['(3136x1024)']	sequential/dense/MatMul/ReadVariableOp = ReadVariableOp(dense/kernel)
+sequential/dense/MatMul:MatMul	/device:GPU:0/stream:13	0	239	239	['(no output)']	
+sequential/dense/MatMul:MatMul	/device:GPU:0/stream:all	0	239	239	['(no output)']	
+sequential/dense/Relu	/job:localhost/replica:0/task:0/device:GPU:0	1	17	20	['(100x1024)']	sequential/dense/Relu = Relu(sequential/dense/BiasAdd)
 sequential/dense/Relu:Relu	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 sequential/dense/Relu:Relu	/device:GPU:0/stream:all	0	3	3	['(no output)']	
-sequential/dense_1/BiasAdd	/job:localhost/replica:0/task:0/device:GPU:0	1	26	31	['(100x10)']	sequential/dense_1/BiasAdd = BiasAdd(sequential/dense_1/MatMul, sequential/dense_1/BiasAdd/ReadVariableOp)
-sequential/dense_1/BiasAdd/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	4	7	9	['(10x1)']	sequential/dense_1/BiasAdd/ReadVariableOp = ReadVariableOp(dense_1/bias)
+sequential/dense_1/BiasAdd	/job:localhost/replica:0/task:0/device:GPU:0	1	9	11	['(100x10)']	sequential/dense_1/BiasAdd = BiasAdd(sequential/dense_1/MatMul, sequential/dense_1/BiasAdd/ReadVariableOp)
+sequential/dense_1/BiasAdd/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	2	4	6	['(10x1)']	sequential/dense_1/BiasAdd/ReadVariableOp = ReadVariableOp(dense_1/bias)
 sequential/dense_1/BiasAdd:BiasAdd	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 sequential/dense_1/BiasAdd:BiasAdd	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-sequential/dense_1/MatMul	/job:localhost/replica:0/task:0/device:GPU:0	1	39	45	['(100x10)']	sequential/dense_1/MatMul = MatMul(sequential/dropout/dropout/mul, sequential/dense_1/MatMul/ReadVariableOp)
+sequential/dense_1/MatMul	/job:localhost/replica:0/task:0/device:GPU:0	1	15	17	['(100x10)']	sequential/dense_1/MatMul = MatMul(sequential/dropout/dropout/mul, sequential/dense_1/MatMul/ReadVariableOp)
 sequential/dense_1/MatMul/ReadVariableOp	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(1024x10)']	sequential/dense_1/MatMul/ReadVariableOp = ReadVariableOp(dense_1/kernel)
-sequential/dense_1/MatMul:MatMul	/device:GPU:0/stream:13	0	16	16	['(no output)']	
-sequential/dense_1/MatMul:MatMul	/device:GPU:0/stream:all	0	16	16	['(no output)']	
-sequential/dropout/dropout/Floor	/job:localhost/replica:0/task:0/device:GPU:0	0	26	31	['(100x1024)']	sequential/dropout/dropout/Floor = Floor(sequential/dropout/dropout/add)
+sequential/dense_1/MatMul:MatMul	/device:GPU:0/stream:13	0	17	17	['(no output)']	
+sequential/dense_1/MatMul:MatMul	/device:GPU:0/stream:all	0	17	17	['(no output)']	
+sequential/dropout/dropout/Floor	/job:localhost/replica:0/task:0/device:GPU:0	1	11	13	['(100x1024)']	sequential/dropout/dropout/Floor = Floor(sequential/dropout/dropout/add)
 sequential/dropout/dropout/Floor:Floor	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 sequential/dropout/dropout/Floor:Floor	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-sequential/dropout/dropout/add	/job:localhost/replica:0/task:0/device:GPU:0	1	30	35	['(100x1024)']	sequential/dropout/dropout/add = Add(sequential/dropout/dropout/keep_prob, sequential/dropout/dropout/random_uniform)
+sequential/dropout/dropout/add	/job:localhost/replica:0/task:0/device:GPU:0	1	12	14	['(100x1024)']	sequential/dropout/dropout/add = Add(sequential/dropout/dropout/keep_prob, sequential/dropout/dropout/random_uniform)
 sequential/dropout/dropout/add:Add	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 sequential/dropout/dropout/add:Add	/device:GPU:0/stream:all	0	3	3	['(no output)']	
-sequential/dropout/dropout/div	/job:localhost/replica:0/task:0/device:GPU:0	1	35	41	['(100x1024)']	[GPU_0_bfc 0.4MB 0.4MB] sequential/dropout/dropout/div = Mul(sequential/dense/Relu, ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip)
+sequential/dropout/dropout/div	/job:localhost/replica:0/task:0/device:GPU:0	1	14	16	['(100x1024)']	[GPU_0_bfc 0.4MB 0.4MB] sequential/dropout/dropout/div = Mul(sequential/dense/Relu, ConstantFolding/gradients/sequential/dropout/dropout/div_grad/RealDiv_recip)
 sequential/dropout/dropout/div:Mul	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 sequential/dropout/dropout/div:Mul	/device:GPU:0/stream:all	0	3	3	['(no output)']	
-sequential/dropout/dropout/keep_prob	/job:localhost/replica:0/task:0/device:GPU:0	1	3	5	['(1x1)']	sequential/dropout/dropout/keep_prob = Const()
-sequential/dropout/dropout/mul	/job:localhost/replica:0/task:0/device:GPU:0	1	27	33	['(100x1024)']	sequential/dropout/dropout/mul = Mul(sequential/dropout/dropout/div, sequential/dropout/dropout/Floor)
+sequential/dropout/dropout/keep_prob	/job:localhost/replica:0/task:0/device:GPU:0	0	2	4	['(1x1)']	sequential/dropout/dropout/keep_prob = Const()
+sequential/dropout/dropout/mul	/job:localhost/replica:0/task:0/device:GPU:0	0	10	11	['(100x1024)']	sequential/dropout/dropout/mul = Mul(sequential/dropout/dropout/div, sequential/dropout/dropout/Floor)
 sequential/dropout/dropout/mul:Mul	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 sequential/dropout/dropout/mul:Mul	/device:GPU:0/stream:all	0	3	3	['(no output)']	
-sequential/dropout/dropout/random_uniform	/job:localhost/replica:0/task:0/device:GPU:0	1	3	7	['(100x1024)']	sequential/dropout/dropout/random_uniform = Snapshot(sequential/dropout/dropout/random_uniform/mul)
-sequential/dropout/dropout/random_uniform/RandomUniform	/job:localhost/replica:0/task:0/device:GPU:0	1	32	38	['(100x1024)']	[GPU_0_bfc 0.4MB 0.4MB] sequential/dropout/dropout/random_uniform/RandomUniform = RandomUniform(gradients/sequential/dropout/dropout/div_grad/Shape)
+sequential/dropout/dropout/random_uniform	/job:localhost/replica:0/task:0/device:GPU:0	0	0	1	['(100x1024)']	sequential/dropout/dropout/random_uniform = Snapshot(sequential/dropout/dropout/random_uniform/mul)
+sequential/dropout/dropout/random_uniform/RandomUniform	/job:localhost/replica:0/task:0/device:GPU:0	0	13	15	['(100x1024)']	[GPU_0_bfc 0.4MB 0.4MB] sequential/dropout/dropout/random_uniform/RandomUniform = RandomUniform(gradients/sequential/dropout/dropout/div_grad/Shape)
 sequential/dropout/dropout/random_uniform/RandomUniform:RandomUniform	/device:GPU:0/stream:13	0	8	8	['(no output)']	
 sequential/dropout/dropout/random_uniform/RandomUniform:RandomUniform	/device:GPU:0/stream:all	0	8	8	['(no output)']	
-sequential/dropout/dropout/random_uniform/mul	/job:localhost/replica:0/task:0/device:GPU:0	1	5	8	['(100x1024)']	sequential/dropout/dropout/random_uniform/mul = Snapshot(sequential/dropout/dropout/random_uniform/RandomUniform)
-sequential/flatten/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	1	5	9	['(100x3136)']	sequential/flatten/Reshape = Reshape(sequential/max_pooling2d_1/MaxPool, sequential/flatten/Reshape/shape)
-sequential/flatten/Reshape/shape	/job:localhost/replica:0/task:0/device:GPU:0	1	10	16	['(int32 2x1)']	sequential/flatten/Reshape/shape = Pack(sequential/flatten/strided_slice, gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim)
-sequential/flatten/strided_slice	/job:localhost/replica:0/task:0/device:GPU:0	0	11	15	['(int32 1x1)']	sequential/flatten/strided_slice = StridedSlice(gradients/sequential/flatten/Reshape_grad/Shape, sequential/reshape/strided_slice/stack, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape)
-sequential/max_pooling2d/MaxPool	/job:localhost/replica:0/task:0/device:GPU:0	1	57	64	['(100x32x14x14)']	[GPU_0_bfc 2.4MB 2.4MB] sequential/max_pooling2d/MaxPool = MaxPool(sequential/conv2d/Relu)
+sequential/dropout/dropout/random_uniform/mul	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(100x1024)']	sequential/dropout/dropout/random_uniform/mul = Snapshot(sequential/dropout/dropout/random_uniform/RandomUniform)
+sequential/flatten/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	1	2	4	['(100x3136)']	sequential/flatten/Reshape = Reshape(sequential/max_pooling2d_1/MaxPool, sequential/flatten/Reshape/shape)
+sequential/flatten/Reshape/shape	/job:localhost/replica:0/task:0/device:GPU:0	0	3	5	['(int32 2x1)']	sequential/flatten/Reshape/shape = Pack(sequential/flatten/strided_slice, gradients/sparse_softmax_cross_entropy_loss/xentropy/xentropy_grad/ExpandDims/dim)
+sequential/flatten/strided_slice	/job:localhost/replica:0/task:0/device:GPU:0	0	5	6	['(int32 1x1)']	sequential/flatten/strided_slice = StridedSlice(gradients/sequential/flatten/Reshape_grad/Shape, sequential/reshape/strided_slice/stack, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape)
+sequential/max_pooling2d/MaxPool	/job:localhost/replica:0/task:0/device:GPU:0	0	24	27	['(100x32x14x14)']	[GPU_0_bfc 2.4MB 2.4MB] sequential/max_pooling2d/MaxPool = MaxPool(sequential/conv2d/Relu)
 sequential/max_pooling2d/MaxPool:MaxPool	/device:GPU:0/stream:13	0	106	106	['(no output)']	
 sequential/max_pooling2d/MaxPool:MaxPool	/device:GPU:0/stream:all	0	106	106	['(no output)']	
-sequential/max_pooling2d_1/MaxPool	/job:localhost/replica:0/task:0/device:GPU:0	1	62	69	['(100x64x7x7)']	[GPU_0_bfc 1.2MB 1.2MB] sequential/max_pooling2d_1/MaxPool = MaxPool(sequential/conv2d_1/Relu)
-sequential/max_pooling2d_1/MaxPool:MaxPool	/device:GPU:0/stream:13	0	57	57	['(no output)']	
-sequential/max_pooling2d_1/MaxPool:MaxPool	/device:GPU:0/stream:all	0	57	57	['(no output)']	
-sequential/reshape/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	3	10	21	['(100x1x28x28)']	sequential/reshape/Reshape = Reshape(IteratorGetNext/_199, sequential/reshape/Reshape/shape)
-sequential/reshape/Reshape/shape	/job:localhost/replica:0/task:0/device:GPU:0	1	10	14	['(int32 4x1)']	sequential/reshape/Reshape/shape = Pack(sequential/reshape/strided_slice, sequential/reshape/Reshape/shape/1, sequential/reshape/Reshape/shape/2, sequential/reshape/Reshape/shape/2)
-sequential/reshape/Reshape/shape/1	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(int32 1x1)']	sequential/reshape/Reshape/shape/1 = Const()
-sequential/reshape/Reshape/shape/2	/job:localhost/replica:0/task:0/device:GPU:0	1	2	4	['(int32 1x1)']	sequential/reshape/Reshape/shape/2 = Const()
-sequential/reshape/Shape	/job:localhost/replica:0/task:0/device:CPU:0	0	9	15	['(int32 2x1)']	sequential/reshape/Shape = Shape(IteratorGetNext)
-sequential/reshape/strided_slice	/job:localhost/replica:0/task:0/device:GPU:0	3	21	30	['(int32 1x1)']	sequential/reshape/strided_slice = StridedSlice(sequential/reshape/Shape/_197, sequential/reshape/strided_slice/stack, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape)
-sequential/reshape/strided_slice/stack	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(int32 1x1)']	sequential/reshape/strided_slice/stack = Const()
-sparse_softmax_cross_entropy_loss/Equal	/job:localhost/replica:0/task:0/device:GPU:0	1	30	35	['(boolean 1x1)']	sparse_softmax_cross_entropy_loss/Equal = Equal(sparse_softmax_cross_entropy_loss/num_present, sparse_softmax_cross_entropy_loss/Greater/y)
+sequential/max_pooling2d_1/MaxPool	/job:localhost/replica:0/task:0/device:GPU:0	0	17	19	['(100x64x7x7)']	[GPU_0_bfc 1.2MB 1.2MB] sequential/max_pooling2d_1/MaxPool = MaxPool(sequential/conv2d_1/Relu)
+sequential/max_pooling2d_1/MaxPool:MaxPool	/device:GPU:0/stream:13	0	58	58	['(no output)']	
+sequential/max_pooling2d_1/MaxPool:MaxPool	/device:GPU:0/stream:all	0	58	58	['(no output)']	
+sequential/reshape/Reshape	/job:localhost/replica:0/task:0/device:GPU:0	0	2	6	['(100x1x28x28)']	sequential/reshape/Reshape = Reshape(IteratorGetNext/_199, sequential/reshape/Reshape/shape)
+sequential/reshape/Reshape/shape	/job:localhost/replica:0/task:0/device:GPU:0	1	9	13	['(int32 4x1)']	sequential/reshape/Reshape/shape = Pack(sequential/reshape/strided_slice, sequential/reshape/Reshape/shape/1, sequential/reshape/Reshape/shape/2, sequential/reshape/Reshape/shape/2)
+sequential/reshape/Reshape/shape/1	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(int32 1x1)']	sequential/reshape/Reshape/shape/1 = Const()
+sequential/reshape/Reshape/shape/2	/job:localhost/replica:0/task:0/device:GPU:0	0	1	2	['(int32 1x1)']	sequential/reshape/Reshape/shape/2 = Const()
+sequential/reshape/Shape	/job:localhost/replica:0/task:0/device:CPU:0	0	5	9	['(int32 2x1)']	sequential/reshape/Shape = Shape(IteratorGetNext)
+sequential/reshape/strided_slice	/job:localhost/replica:0/task:0/device:GPU:0	2	16	23	['(int32 1x1)']	sequential/reshape/strided_slice = StridedSlice(sequential/reshape/Shape/_197, sequential/reshape/strided_slice/stack, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape, gradients/sparse_softmax_cross_entropy_loss/Sum_grad/Reshape/shape)
+sequential/reshape/strided_slice/stack	/job:localhost/replica:0/task:0/device:GPU:0	1	2	4	['(int32 1x1)']	sequential/reshape/strided_slice/stack = Const()
+sparse_softmax_cross_entropy_loss/Equal	/job:localhost/replica:0/task:0/device:GPU:0	4	17	19	['(boolean 1x1)']	sparse_softmax_cross_entropy_loss/Equal = Equal(sparse_softmax_cross_entropy_loss/num_present, sparse_softmax_cross_entropy_loss/Greater/y)
 sparse_softmax_cross_entropy_loss/Equal:Equal	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 sparse_softmax_cross_entropy_loss/Equal:Equal	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-sparse_softmax_cross_entropy_loss/Greater	/job:localhost/replica:0/task:0/device:GPU:0	1	31	37	['(boolean 1x1)']	sparse_softmax_cross_entropy_loss/Greater = Greater(sparse_softmax_cross_entropy_loss/num_present, sparse_softmax_cross_entropy_loss/Greater/y)
+sparse_softmax_cross_entropy_loss/Greater	/job:localhost/replica:0/task:0/device:GPU:0	0	12	14	['(boolean 1x1)']	sparse_softmax_cross_entropy_loss/Greater = Greater(sparse_softmax_cross_entropy_loss/num_present, sparse_softmax_cross_entropy_loss/Greater/y)
 sparse_softmax_cross_entropy_loss/Greater:Greater	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 sparse_softmax_cross_entropy_loss/Greater:Greater	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-sparse_softmax_cross_entropy_loss/Mul	/job:localhost/replica:0/task:0/device:GPU:0	0	3	6	['(100x1)']	sparse_softmax_cross_entropy_loss/Mul = Snapshot(sparse_softmax_cross_entropy_loss/xentropy/xentropy)
-sparse_softmax_cross_entropy_loss/Select	/job:localhost/replica:0/task:0/device:GPU:0	1	27	33	['(1x1)']	sparse_softmax_cross_entropy_loss/Select = Select(sparse_softmax_cross_entropy_loss/Equal, sparse_softmax_cross_entropy_loss/ones_like, sparse_softmax_cross_entropy_loss/num_present)
-sparse_softmax_cross_entropy_loss/Select:Select	/device:GPU:0/stream:13	0	2	2	['(no output)']	
-sparse_softmax_cross_entropy_loss/Select:Select	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-sparse_softmax_cross_entropy_loss/Sum	/job:localhost/replica:0/task:0/device:GPU:0	1	35	42	['(1x1)']	sparse_softmax_cross_entropy_loss/Sum = Sum(sparse_softmax_cross_entropy_loss/Mul, sparse_softmax_cross_entropy_loss/Const_1)
+sparse_softmax_cross_entropy_loss/Mul	/job:localhost/replica:0/task:0/device:GPU:0	0	1	3	['(100x1)']	sparse_softmax_cross_entropy_loss/Mul = Snapshot(sparse_softmax_cross_entropy_loss/xentropy/xentropy)
+sparse_softmax_cross_entropy_loss/Select	/job:localhost/replica:0/task:0/device:GPU:0	1	9	11	['(1x1)']	sparse_softmax_cross_entropy_loss/Select = Select(sparse_softmax_cross_entropy_loss/Equal, sparse_softmax_cross_entropy_loss/ones_like, sparse_softmax_cross_entropy_loss/num_present)
+sparse_softmax_cross_entropy_loss/Select:Select	/device:GPU:0/stream:13	0	1	1	['(no output)']	
+sparse_softmax_cross_entropy_loss/Select:Select	/device:GPU:0/stream:all	0	1	1	['(no output)']	
+sparse_softmax_cross_entropy_loss/Sum	/job:localhost/replica:0/task:0/device:GPU:0	0	16	19	['(1x1)']	sparse_softmax_cross_entropy_loss/Sum = Sum(sparse_softmax_cross_entropy_loss/Mul, sparse_softmax_cross_entropy_loss/Const_1)
 sparse_softmax_cross_entropy_loss/Sum:Sum	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 sparse_softmax_cross_entropy_loss/Sum:Sum	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-sparse_softmax_cross_entropy_loss/div	/job:localhost/replica:0/task:0/device:GPU:0	1	28	33	['(1x1)']	sparse_softmax_cross_entropy_loss/div = RealDiv(sparse_softmax_cross_entropy_loss/Sum, sparse_softmax_cross_entropy_loss/Select)
+sparse_softmax_cross_entropy_loss/div	/job:localhost/replica:0/task:0/device:GPU:0	0	11	13	['(1x1)']	sparse_softmax_cross_entropy_loss/div = RealDiv(sparse_softmax_cross_entropy_loss/Sum, sparse_softmax_cross_entropy_loss/Select)
 sparse_softmax_cross_entropy_loss/div:RealDiv	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 sparse_softmax_cross_entropy_loss/div:RealDiv	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-sparse_softmax_cross_entropy_loss/num_present	/job:localhost/replica:0/task:0/device:GPU:0	1	33	40	['(1x1)']	sparse_softmax_cross_entropy_loss/num_present = Sum(sparse_softmax_cross_entropy_loss/num_present/broadcast_weights, sparse_softmax_cross_entropy_loss/Const_1)
-sparse_softmax_cross_entropy_loss/num_present/broadcast_weights	/job:localhost/replica:0/task:0/device:GPU:0	1	4	7	['(100x1)']	sparse_softmax_cross_entropy_loss/num_present/broadcast_weights = Snapshot(sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like)
-sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like	/job:localhost/replica:0/task:0/device:GPU:0	1	34	39	['(100x1)']	sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like = Fill(sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape, sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Const)
-sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Const	/job:localhost/replica:0/task:0/device:GPU:0	1	2	4	['(1x1)']	sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Const = Const()
-sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape	/job:localhost/replica:0/task:0/device:GPU:0	1	9	14	['(int32 1x1)']	sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape = Shape(sparse_softmax_cross_entropy_loss/xentropy/xentropy)
+sparse_softmax_cross_entropy_loss/num_present	/job:localhost/replica:0/task:0/device:GPU:0	0	10	12	['(1x1)']	sparse_softmax_cross_entropy_loss/num_present = Sum(sparse_softmax_cross_entropy_loss/num_present/broadcast_weights, sparse_softmax_cross_entropy_loss/Const_1)
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights	/job:localhost/replica:0/task:0/device:GPU:0	0	2	3	['(100x1)']	sparse_softmax_cross_entropy_loss/num_present/broadcast_weights = Snapshot(sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like)
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like	/job:localhost/replica:0/task:0/device:GPU:0	0	11	13	['(100x1)']	sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like = Fill(sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape, sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Const)
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Const	/job:localhost/replica:0/task:0/device:GPU:0	3	5	6	['(1x1)']	sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Const = Const()
+sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape	/job:localhost/replica:0/task:0/device:GPU:0	0	3	5	['(int32 1x1)']	sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like/Shape = Shape(sparse_softmax_cross_entropy_loss/xentropy/xentropy)
 sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like:Fill	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 sparse_softmax_cross_entropy_loss/num_present/broadcast_weights/ones_like:Fill	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-sparse_softmax_cross_entropy_loss/num_present:Sum	/device:GPU:0/stream:13	0	2	2	['(no output)']	
-sparse_softmax_cross_entropy_loss/num_present:Sum	/device:GPU:0/stream:all	0	2	2	['(no output)']	
-sparse_softmax_cross_entropy_loss/value	/job:localhost/replica:0/task:0/device:GPU:0	2	26	33	['(1x1)']	sparse_softmax_cross_entropy_loss/value = Select(sparse_softmax_cross_entropy_loss/Greater, sparse_softmax_cross_entropy_loss/div, sparse_softmax_cross_entropy_loss/Greater/y)
-sparse_softmax_cross_entropy_loss/value:Select	/device:GPU:0/stream:13	0	1	1	['(no output)']	
-sparse_softmax_cross_entropy_loss/value:Select	/device:GPU:0/stream:all	0	1	1	['(no output)']	
-sparse_softmax_cross_entropy_loss/xentropy/xentropy	/job:localhost/replica:0/task:0/device:GPU:0	1	113	122	['(100x1)', '(100x10 slot 1 slot )']	sparse_softmax_cross_entropy_loss/xentropy/xentropy = SparseSoftmaxCrossEntropyWithLogits(sequential/dense_1/BiasAdd, IteratorGetNext/_201)
+sparse_softmax_cross_entropy_loss/num_present:Sum	/device:GPU:0/stream:13	0	1	1	['(no output)']	
+sparse_softmax_cross_entropy_loss/num_present:Sum	/device:GPU:0/stream:all	0	1	1	['(no output)']	
+sparse_softmax_cross_entropy_loss/value	/job:localhost/replica:0/task:0/device:GPU:0	1	9	12	['(1x1)']	sparse_softmax_cross_entropy_loss/value = Select(sparse_softmax_cross_entropy_loss/Greater, sparse_softmax_cross_entropy_loss/div, sparse_softmax_cross_entropy_loss/Greater/y)
+sparse_softmax_cross_entropy_loss/value:Select	/device:GPU:0/stream:13	0	2	2	['(no output)']	
+sparse_softmax_cross_entropy_loss/value:Select	/device:GPU:0/stream:all	0	2	2	['(no output)']	
+sparse_softmax_cross_entropy_loss/xentropy/xentropy	/job:localhost/replica:0/task:0/device:GPU:0	1	47	51	['(100x1)', '(100x10 slot 1 slot )']	sparse_softmax_cross_entropy_loss/xentropy/xentropy = SparseSoftmaxCrossEntropyWithLogits(sequential/dense_1/BiasAdd, IteratorGetNext/_201)
 sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:13	0	2	2	['(no output)']	
 sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:13	0	3	3	['(no output)']	
-sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:13	0	4	4	['(no output)']	
+sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:13	0	3	3	['(no output)']	
 sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:13	0	5	5	['(no output)']	
 sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:13	0	8	8	['(no output)']	
 sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:all	0	2	2	['(no output)']	
 sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:all	0	2	2	['(no output)']	
 sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:all	0	3	3	['(no output)']	
-sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:all	0	4	4	['(no output)']	
+sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:all	0	3	3	['(no output)']	
 sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:all	0	5	5	['(no output)']	
 sparse_softmax_cross_entropy_loss/xentropy/xentropy:SparseSoftmaxCrossEntropyWithLogits	/device:GPU:0/stream:all	0	8	8	['(no output)']	

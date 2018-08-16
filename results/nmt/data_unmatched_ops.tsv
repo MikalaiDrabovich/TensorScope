@@ -1,0 +1,1 @@
+System number	Op rank by total time	Time of 1 call, microseconds	Number of calls in 1 run	Total time in 1 run	% of total time	Cumulative time, microseconds	% of total cumulative time	(FL)OPs in RegisterStatistics	GFLOP/S achieved	Op name	Device	Input/output tensors

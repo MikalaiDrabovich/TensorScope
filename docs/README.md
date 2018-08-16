@@ -80,7 +80,11 @@ It is possible to verify this assumption for a small number of ops
 in column 'G(FL)OP/S achieved'.
 
 6) To compare to some other system, copy its 'data.tsv' to 
-results/model_name directory, rename 'data.tsv' to 'data_from_another_system.tsv'.
+results/model_name directory, rename 'data.tsv' to 'data_2.tsv'.
+To compare two existing data.tsv files simply run
+
+python3 tensorscope.py sys1.tsv sys2.tsv data_compared.tsv data_unmatched_ops.tsv
+
 See results in 'data_compared.tsv', unmatched ops will be saved
 to 'data_unmatched_ops.tsv'
 

@@ -1,46 +1,55 @@
-2018-08-13 18:35:23.141214: W tensorflow/core/framework/op_def_util.cc:346] Op BatchNormWithGlobalNormalization is deprecated. It will cease to work in GraphDef version 9. Use tf.nn.batch_normalization().
-2018-08-13 18:35:23.361296: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-08-13 18:35:23.361701: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
+2018-08-16 15:40:55.216970: W tensorflow/core/framework/op_def_util.cc:346] Op BatchNormWithGlobalNormalization is deprecated. It will cease to work in GraphDef version 9. Use tf.nn.batch_normalization().
+2018-08-16 15:40:55.425296: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-08-16 15:40:55.425700: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
 name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
 pciBusID: 0000:01:00.0
-totalMemory: 5.94GiB freeMemory: 5.41GiB
-2018-08-13 18:35:23.361731: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-08-13 18:35:23.513922: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-08-13 18:35:23.513946: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-08-13 18:35:23.513951: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-08-13 18:35:23.514112: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5176 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-2018-08-13 18:35:23.514307: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
-2018-08-13 18:35:23.965101: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
+totalMemory: 5.94GiB freeMemory: 5.58GiB
+2018-08-16 15:40:55.425731: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-16 15:40:55.567112: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-16 15:40:55.567158: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-16 15:40:55.567163: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-16 15:40:55.567343: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5354 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-08-16 15:40:55.567576: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
+2018-08-16 15:40:55.999836: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
 /usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
-total ops:  1004
-num nodes with flops available:  113
-total GFlops:  11.451537846
+Total ops:  1004
+Percentage of nodes with flops stats available: 11.3%. Sanity check - sum of number of operations (per single occurence) in these ops: 11.452 GFLOP
 Session is closed
 
 Sanity check before aggregation:
- total wall time for 100 steps: 		 5.033 sec. (0.050330 sec./batch) 
- op time extracted from RunMetadata: 	 5.244 sec. (0.052442 sec./batch) 
+ total wall time for 100 steps: 		 4.523 sec. (0.045232 sec./batch) 
+ op time extracted from RunMetadata: 	 4.842 sec. (0.048416 sec./batch) 
  number of ops: 918
 
 Sanity check after aggregation:
- total wall time for 100 steps: 		 5.033 sec. (0.050330 sec./batch) 
- op time extracted from RunMetadata: 	 5.244 sec. (0.052442 sec./batch) 
+ total wall time for 100 steps: 		 4.523 sec. (0.045232 sec./batch) 
+ op time extracted from RunMetadata: 	 4.842 sec. (0.048416 sec./batch) 
  number of unique ops: 220
 
 
 *** Top-K ops vs total time ***
 
-Top-1	(0.5% of all ops):	8.5 ms(16.1% of all time)
-Top-2	(0.9% of all ops):	15.9 ms(30.3% of all time)
-Top-3	(1.4% of all ops):	20.4 ms(38.8% of all time)
-Top-6	(2.7% of all ops):	27.4 ms(52.2% of all time)
-Top-11	(5.0% of all ops):	32.1 ms(61.2% of all time)
-Top-20	(9.1% of all ops):	38.3 ms(73.1% of all time)
-Top-36	(16.4% of all ops):	44.2 ms(84.3% of all time)
-Top-66	(30.0% of all ops):	49.4 ms(94.1% of all time)
-Top-121	(55.0% of all ops):	51.7 ms(98.6% of all time)
-Top-220	(100.0% of all ops):	52.4 ms(100.0% of all time)
+Top-1	(0.5% of all ops):	7.5 ms(15.4% of all time)
+Top-2	(0.9% of all ops):	14.2 ms(29.4% of all time)
+Top-3	(1.4% of all ops):	18.7 ms(38.6% of all time)
+Top-6	(2.7% of all ops):	25.4 ms(52.4% of all time)
+Top-11	(5.0% of all ops):	29.9 ms(61.8% of all time)
+Top-20	(9.1% of all ops):	35.9 ms(74.2% of all time)
+Top-36	(16.4% of all ops):	41.5 ms(85.7% of all time)
+Top-66	(30.0% of all ops):	46.1 ms(95.2% of all time)
+Top-121	(55.0% of all ops):	47.9 ms(99.0% of all time)
+Top-220	(100.0% of all ops):	48.4 ms(100.0% of all time)
 
 *** See data.tsv, pie_chart.html for details ***
 
+
+
+***Comparison completed***
+See data_compared.tsv to select candidates for optimization in system1.
+- See column D 'Time ratio Sys1/Sys2 (one call)'. This is how many times an op is faster in system2 compared to system1.
+- Ops are sorted by total time in the 1st (slower) system.
+- To cover, for example, 80% of time spent in system1, see values in column M ('System1 cumulative % of total time')
+Good candidates for further optimizations will be ops from the first row to the row with value of about 0.8 (80%) in column M
+- Unmatched ops saved to data_unmatched_ops.tsv. Take a look there to see if some time consuming ops are actually unique to system1 and system2.
+- Baselines for system1 are in column B ('Time of 1 call, microseconds'). By default, these values are averaged over 100 runs (aka steps, batches) and 10 warm-up steps.

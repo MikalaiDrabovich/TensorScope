@@ -1,52 +1,61 @@
-2018-08-13 18:31:25.894030: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-08-13 18:31:25.894556: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
+2018-08-16 15:32:43.110348: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-08-16 15:32:43.110792: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
 name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
 pciBusID: 0000:01:00.0
-totalMemory: 5.94GiB freeMemory: 5.40GiB
-2018-08-13 18:31:25.894578: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-08-13 18:31:26.187249: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-08-13 18:31:26.187285: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-08-13 18:31:26.187292: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-08-13 18:31:26.187478: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5169 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-2018-08-13 18:31:26.187715: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
-2018-08-13 18:31:33.294382: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-08-13 18:31:33.294418: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-08-13 18:31:33.294425: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-08-13 18:31:33.294429: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-08-13 18:31:33.294521: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5169 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-2018-08-13 18:31:33.793972: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
+totalMemory: 5.94GiB freeMemory: 5.67GiB
+2018-08-16 15:32:43.110822: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-16 15:32:43.304516: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-16 15:32:43.304545: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-16 15:32:43.304550: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-16 15:32:43.304712: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/device:GPU:0 with 5445 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-08-16 15:32:43.304891: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
+2018-08-16 15:32:48.521593: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-16 15:32:48.521627: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-16 15:32:48.521632: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-16 15:32:48.521635: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-16 15:32:48.521768: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5445 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-08-16 15:32:48.944576: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
 /usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
 Epoch: 1 Learning rate: 1.000
-total ops:  1934
-num nodes with flops available:  275
-total GFlops:  7.47878019
-0.004 perplexity: 5430.043 speed: 6277 wps
+Total ops:  1934
+Percentage of nodes with flops stats available: 14.2%. Sanity check - sum of number of operations (per single occurence) in these ops: 7.479 GFLOP
+0.004 perplexity: 5743.773 speed: 6926 wps
 Session is closed
 
 Sanity check before aggregation:
- total wall time for 100 steps: 		 3.246 sec. (0.032461 sec./batch) 
- op time extracted from RunMetadata: 	 1.000 sec. (0.009998 sec./batch) 
+ total wall time for 100 steps: 		 3.092 sec. (0.030921 sec./batch) 
+ op time extracted from RunMetadata: 	 0.882 sec. (0.008825 sec./batch) 
  number of ops: 596
 
 Sanity check after aggregation:
- total wall time for 100 steps: 		 3.246 sec. (0.032461 sec./batch) 
- op time extracted from RunMetadata: 	 1.000 sec. (0.009998 sec./batch) 
+ total wall time for 100 steps: 		 3.092 sec. (0.030921 sec./batch) 
+ op time extracted from RunMetadata: 	 0.882 sec. (0.008825 sec./batch) 
  number of unique ops: 136
 
 
 *** Top-K ops vs total time ***
 
-Top-1	(0.7% of all ops):	1.1 ms(11.0% of all time)
-Top-2	(1.5% of all ops):	2.0 ms(19.5% of all time)
-Top-3	(2.2% of all ops):	2.7 ms(27.5% of all time)
-Top-5	(3.7% of all ops):	4.2 ms(41.6% of all time)
-Top-9	(6.6% of all ops):	6.2 ms(62.0% of all time)
-Top-15	(11.0% of all ops):	7.5 ms(75.5% of all time)
-Top-26	(19.1% of all ops):	8.8 ms(88.4% of all time)
-Top-46	(33.8% of all ops):	9.5 ms(95.2% of all time)
-Top-79	(58.1% of all ops):	9.8 ms(98.3% of all time)
-Top-136	(100.0% of all ops):	10.0 ms(100.0% of all time)
+Top-1	(0.7% of all ops):	1.1 ms(12.1% of all time)
+Top-2	(1.5% of all ops):	1.9 ms(21.4% of all time)
+Top-3	(2.2% of all ops):	2.7 ms(30.2% of all time)
+Top-5	(3.7% of all ops):	4.0 ms(44.8% of all time)
+Top-9	(6.6% of all ops):	5.9 ms(66.7% of all time)
+Top-15	(11.0% of all ops):	7.1 ms(80.4% of all time)
+Top-26	(19.1% of all ops):	8.1 ms(91.6% of all time)
+Top-46	(33.8% of all ops):	8.5 ms(96.7% of all time)
+Top-79	(58.1% of all ops):	8.7 ms(98.8% of all time)
+Top-136	(100.0% of all ops):	8.8 ms(100.0% of all time)
 
 *** See data.tsv, pie_chart.html for details ***
 
+
+
+***Comparison completed***
+See data_compared.tsv to select candidates for optimization in system1.
+- See column D 'Time ratio Sys1/Sys2 (one call)'. This is how many times an op is faster in system2 compared to system1.
+- Ops are sorted by total time in the 1st (slower) system.
+- To cover, for example, 80% of time spent in system1, see values in column M ('System1 cumulative % of total time')
+Good candidates for further optimizations will be ops from the first row to the row with value of about 0.8 (80%) in column M
+- Unmatched ops saved to data_unmatched_ops.tsv. Take a look there to see if some time consuming ops are actually unique to system1 and system2.
+- Baselines for system1 are in column B ('Time of 1 call, microseconds'). By default, these values are averaged over 100 runs (aka steps, batches) and 10 warm-up steps.

@@ -6634,681 +6634,702 @@ function zoomOut()
     <dataset>data_for_pie_chart</dataset>
    </datasets>
 <node name="all">
- <magnitude><val>227993.59</val></magnitude>
- <node name="Conv2DBackpropInput">
-  <magnitude><val>20005.57</val></magnitude>
-  <node name="12.4 TFLOPS">
-   <magnitude><val>4613.41</val></magnitude>
-   <node name="(int32 4x1)(5x5x64x192)(128x192x27x27)->(128x64x27x27)">
-    <magnitude><val>4613.41</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4613.41</val></magnitude>
+ <magnitude><val>224405.98</val></magnitude>
+ <node name="GPU-0">
+  <magnitude><val>224395.65</val></magnitude>
+  <node name="LRNGrad">
+   <magnitude><val>54729.34</val></magnitude>
+   <node name="|">
+    <magnitude><val>54729.34</val></magnitude>
+    <node name="(128x27x27x192)(128x27x27x192)(128x27x27x192)->(128x27x27x192)">
+     <magnitude><val>30753.51</val></magnitude>
+     <node name=" ">
+      <magnitude><val>30753.51</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x56x56x64)(128x56x56x64)(128x56x56x64)->(128x56x56x64)">
+     <magnitude><val>23975.83</val></magnitude>
+     <node name=" ">
+      <magnitude><val>23975.83</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
-  <node name="6.2 TFLOPS">
-   <magnitude><val>10317.5</val></magnitude>
-   <node name="(int32 4x1)(3x3x384x256)(128x256x13x13)->(128x384x13x13)">
-    <magnitude><val>6208.46</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6208.46</val></magnitude>
+  <node name="MaxPoolGrad">
+   <magnitude><val>5139.45</val></magnitude>
+   <node name="0.0 TFLOPS">
+    <magnitude><val>5139.45</val></magnitude>
+    <node name="(128x256x13x13)(128x256x6x6)(128x256x6x6)->(128x256x13x13)">
+     <magnitude><val>799.92</val></magnitude>
+     <node name=" ">
+      <magnitude><val>799.92</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(int32 4x1)(3x3x256x256)(128x256x13x13)->(128x256x13x13)">
-    <magnitude><val>4109.04</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4109.04</val></magnitude>
+    <node name="(128x192x27x27)(128x192x13x13)(128x192x13x13)->(128x192x27x27)">
+     <magnitude><val>1298.45</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1298.45</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x64x56x56)(128x64x27x27)(128x64x27x27)->(128x64x56x56)">
+     <magnitude><val>3041.08</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3041.08</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
-  <node name="5.7 TFLOPS">
-   <magnitude><val>5074.66</val></magnitude>
-   <node name="(int32 4x1)(3x3x192x384)(128x384x13x13)->(128x192x13x13)">
-    <magnitude><val>5074.66</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5074.66</val></magnitude>
+  <node name="LRN">
+   <magnitude><val>44625.14</val></magnitude>
+   <node name="|">
+    <magnitude><val>44625.14</val></magnitude>
+    <node name="(128x56x56x64)->(128x56x56x64)">
+     <magnitude><val>20983.62</val></magnitude>
+     <node name=" ">
+      <magnitude><val>20983.62</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x27x27x192)->(128x27x27x192)">
+     <magnitude><val>23641.52</val></magnitude>
+     <node name=" ">
+      <magnitude><val>23641.52</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="Identity">
-  <magnitude><val>29.17</val></magnitude>
-  <node name=" ">
-   <magnitude><val>29.17</val></magnitude>
-   <node name="(64x1)->(64x1)">
-    <magnitude><val>2.28</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.28</val></magnitude>
+  <node name="Relu">
+   <magnitude><val>3297.18</val></magnitude>
+   <node name="|">
+    <magnitude><val>3297.18</val></magnitude>
+    <node name="(128x64x56x56)->(128x64x56x56)">
+     <magnitude><val>1344.04</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1344.04</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x384x13x13)->(128x384x13x13)">
+     <magnitude><val>435.28</val></magnitude>
+     <node name=" ">
+      <magnitude><val>435.28</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x256x13x13)->(128x256x13x13)">
+     <magnitude><val>580.92</val></magnitude>
+     <node name=" ">
+      <magnitude><val>580.92</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x192x27x27)->(128x192x27x27)">
+     <magnitude><val>936.94</val></magnitude>
+     <node name=" ">
+      <magnitude><val>936.94</val></magnitude>
+     </node>
     </node>
    </node>
-   <node name="(3x3x384x256)->(3x3x384x256)">
-    <magnitude><val>2.89</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.89</val></magnitude>
+  </node>
+  <node name="Identity">
+   <magnitude><val>11.07</val></magnitude>
+   <node name="|">
+    <magnitude><val>11.07</val></magnitude>
+    <node name="(256x1)->(256x1)">
+     <magnitude><val>2.25</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.25</val></magnitude>
+     </node>
+    </node>
+    <node name="(64x1)->(64x1)">
+     <magnitude><val>1.18</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.18</val></magnitude>
+     </node>
+    </node>
+    <node name="(3x3x384x256)->(3x3x384x256)">
+     <magnitude><val>0.88</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.88</val></magnitude>
+     </node>
+    </node>
+    <node name="(384x1)->(384x1)">
+     <magnitude><val>1.16</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.16</val></magnitude>
+     </node>
+    </node>
+    <node name="(5x5x64x192)->(5x5x64x192)">
+     <magnitude><val>0.89</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.89</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x224x224x3)->(128x224x224x3)">
+     <magnitude><val>0.66</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.66</val></magnitude>
+     </node>
+    </node>
+    <node name="(192x1)->(192x1)">
+     <magnitude><val>0.95</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.95</val></magnitude>
+     </node>
+    </node>
+    <node name="(11x11x3x64)->(11x11x3x64)">
+     <magnitude><val>0.96</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.96</val></magnitude>
+     </node>
+    </node>
+    <node name="(3x3x256x256)->(3x3x256x256)">
+     <magnitude><val>1.12</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.12</val></magnitude>
+     </node>
+    </node>
+    <node name="(3x3x192x384)->(3x3x192x384)">
+     <magnitude><val>1.02</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.02</val></magnitude>
+     </node>
     </node>
    </node>
-   <node name="(5x5x64x192)->(5x5x64x192)">
-    <magnitude><val>2.52</val></magnitude>
-    <node name=" ">
+  </node>
+  <node name="BiasAddGrad">
+   <magnitude><val>1846.88</val></magnitude>
+   <node name="0.0 TFLOPS">
+    <magnitude><val>1846.88</val></magnitude>
+    <node name="(128x13x13x256)->(256x1)">
+     <magnitude><val>341.51</val></magnitude>
+     <node name=" ">
+      <magnitude><val>341.51</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x13x13x384)->(384x1)">
+     <magnitude><val>258.87</val></magnitude>
+     <node name=" ">
+      <magnitude><val>258.87</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x56x56x64)->(64x1)">
+     <magnitude><val>754.93</val></magnitude>
+     <node name=" ">
+      <magnitude><val>754.93</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x27x27x192)->(192x1)">
+     <magnitude><val>491.57</val></magnitude>
+     <node name=" ">
+      <magnitude><val>491.57</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Conv2DBackpropFilter">
+   <magnitude><val>38127.79</val></magnitude>
+   <node name="5.6 TFLOPS">
+    <magnitude><val>6827.92</val></magnitude>
+    <node name="(128x13x13x384)(int32 4x1)(128x13x13x256)->(3x3x384x256)">
+     <magnitude><val>6827.92</val></magnitude>
+     <node name=" ">
+      <magnitude><val>6827.92</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="8.9 TFLOPS">
+    <magnitude><val>6419.36</val></magnitude>
+    <node name="(128x27x27x64)(int32 4x1)(128x27x27x192)->(5x5x64x192)">
+     <magnitude><val>6419.36</val></magnitude>
+     <node name=" ">
+      <magnitude><val>6419.36</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="4.4 TFLOPS">
+    <magnitude><val>6559.23</val></magnitude>
+    <node name="(128x13x13x192)(int32 4x1)(128x13x13x384)->(3x3x192x384)">
+     <magnitude><val>6559.23</val></magnitude>
+     <node name=" ">
+      <magnitude><val>6559.23</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="1.4 TFLOPS">
+    <magnitude><val>13517.08</val></magnitude>
+    <node name="(128x224x224x3)(int32 4x1)(128x56x56x64)->(11x11x3x64)">
+     <magnitude><val>13517.08</val></magnitude>
+     <node name=" ">
+      <magnitude><val>13517.08</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="5.3 TFLOPS">
+    <magnitude><val>4804.2</val></magnitude>
+    <node name="(128x13x13x256)(int32 4x1)(128x13x13x256)->(3x3x256x256)">
+     <magnitude><val>4804.2</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4804.2</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="ReluGrad">
+   <magnitude><val>4873.47</val></magnitude>
+   <node name="|">
+    <magnitude><val>4873.47</val></magnitude>
+    <node name="(128x256x13x13)(128x256x13x13)->(128x256x13x13)">
+     <magnitude><val>855.01</val></magnitude>
+     <node name=" ">
+      <magnitude><val>855.01</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x64x56x56)(128x64x56x56)->(128x64x56x56)">
+     <magnitude><val>1977.59</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1977.59</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x192x27x27)(128x192x27x27)->(128x192x27x27)">
+     <magnitude><val>1383.94</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1383.94</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x384x13x13)(128x384x13x13)->(128x384x13x13)">
+     <magnitude><val>656.93</val></magnitude>
+     <node name=" ">
+      <magnitude><val>656.93</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Conv2D">
+   <magnitude><val>28684.07</val></magnitude>
+   <node name="6.1 TFLOPS">
+    <magnitude><val>4208.04</val></magnitude>
+    <node name="(128x256x13x13)(3x3x256x256)->(128x256x13x13)">
+     <magnitude><val>4208.04</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4208.04</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="6.2 TFLOPS">
+    <magnitude><val>6132.95</val></magnitude>
+    <node name="(128x384x13x13)(3x3x384x256)->(128x256x13x13)">
+     <magnitude><val>6132.95</val></magnitude>
+     <node name=" ">
+      <magnitude><val>6132.95</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="2.2 TFLOPS">
+    <magnitude><val>8613.72</val></magnitude>
+    <node name="(128x3x224x224)(11x11x3x64)->(128x64x56x56)">
+     <magnitude><val>8613.72</val></magnitude>
+     <node name=" ">
+      <magnitude><val>8613.72</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="12.4 TFLOPS">
+    <magnitude><val>4626.85</val></magnitude>
+    <node name="(128x64x27x27)(5x5x64x192)->(128x192x27x27)">
+     <magnitude><val>4626.85</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4626.85</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="5.6 TFLOPS">
+    <magnitude><val>5102.51</val></magnitude>
+    <node name="(128x192x13x13)(3x3x192x384)->(128x384x13x13)">
+     <magnitude><val>5102.51</val></magnitude>
+     <node name=" ">
+      <magnitude><val>5102.51</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="MaxPool">
+   <magnitude><val>2402.24</val></magnitude>
+   <node name="0.0 TFLOPS">
+    <magnitude><val>2402.24</val></magnitude>
+    <node name="(128x256x13x13)->(128x256x6x6)">
+     <magnitude><val>271.45</val></magnitude>
+     <node name=" ">
+      <magnitude><val>271.45</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x192x27x27)->(128x192x13x13)">
+     <magnitude><val>895.72</val></magnitude>
+     <node name=" ">
+      <magnitude><val>895.72</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x64x56x56)->(128x64x27x27)">
+     <magnitude><val>1235.07</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1235.07</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="NoOp">
+   <magnitude><val>6.33</val></magnitude>
+   <node name="|">
+    <magnitude><val>6.33</val></magnitude>
+    <node name="(no input)->(no output info)">
+     <magnitude><val>6.33</val></magnitude>
+     <node name=" ">
+      <magnitude><val>6.33</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Conv2DBackpropInput">
+   <magnitude><val>19775.71</val></magnitude>
+   <node name="12.6 TFLOPS">
+    <magnitude><val>4548.08</val></magnitude>
+    <node name="(int32 4x1)(5x5x64x192)(128x192x27x27)->(128x64x27x27)">
+     <magnitude><val>4548.08</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4548.08</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="6.3 TFLOPS">
+    <magnitude><val>4050.3</val></magnitude>
+    <node name="(int32 4x1)(3x3x256x256)(128x256x13x13)->(128x256x13x13)">
+     <magnitude><val>4050.3</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4050.3</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="5.7 TFLOPS">
+    <magnitude><val>5023.91</val></magnitude>
+    <node name="(int32 4x1)(3x3x192x384)(128x384x13x13)->(128x192x13x13)">
+     <magnitude><val>5023.91</val></magnitude>
+     <node name=" ">
+      <magnitude><val>5023.91</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="6.2 TFLOPS">
+    <magnitude><val>6153.42</val></magnitude>
+    <node name="(int32 4x1)(3x3x384x256)(128x256x13x13)->(128x384x13x13)">
+     <magnitude><val>6153.42</val></magnitude>
+     <node name=" ">
+      <magnitude><val>6153.42</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="BiasAdd">
+   <magnitude><val>4169.43</val></magnitude>
+   <node name="0.0 TFLOPS">
+    <magnitude><val>4169.43</val></magnitude>
+    <node name="(128x384x13x13)(384x1)->(128x384x13x13)">
+     <magnitude><val>544.91</val></magnitude>
+     <node name=" ">
+      <magnitude><val>544.91</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x192x27x27)(192x1)->(128x192x27x27)">
+     <magnitude><val>1183.39</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1183.39</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x256x13x13)(256x1)->(128x256x13x13)">
+     <magnitude><val>727.59</val></magnitude>
+     <node name=" ">
+      <magnitude><val>727.59</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x64x56x56)(64x1)->(128x64x56x56)">
+     <magnitude><val>1713.54</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1713.54</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Transpose">
+   <magnitude><val>15728.8</val></magnitude>
+   <node name="|">
+    <magnitude><val>15728.8</val></magnitude>
+    <node name="(128x64x27x27)(int32 4x1)->(128x27x27x64)">
+     <magnitude><val>316.19</val></magnitude>
+     <node name=" ">
+      <magnitude><val>316.19</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x384x13x13)(int32 4x1)->(128x13x13x384)">
+     <magnitude><val>885.13</val></magnitude>
+     <node name=" ">
+      <magnitude><val>885.13</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x224x224x3)(int32 4x1)->(128x3x224x224)">
+     <magnitude><val>1866.45</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1866.45</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x64x56x56)(int32 4x1)->(128x56x56x64)">
+     <magnitude><val>4068.93</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4068.93</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x56x56x64)(int32 4x1)->(128x64x56x56)">
+     <magnitude><val>2733.18</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2733.18</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x27x27x192)(int32 4x1)->(128x192x27x27)">
+     <magnitude><val>1909.2</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1909.2</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x256x13x13)(int32 4x1)->(128x13x13x256)">
+     <magnitude><val>883.15</val></magnitude>
+     <node name=" ">
+      <magnitude><val>883.15</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x192x27x27)(int32 4x1)->(128x27x27x192)">
+     <magnitude><val>2846.53</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2846.53</val></magnitude>
+     </node>
+    </node>
+    <node name="(128x192x13x13)(int32 4x1)->(128x13x13x192)">
+     <magnitude><val>220.04</val></magnitude>
+     <node name=" ">
+      <magnitude><val>220.04</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="VariableV2">
+   <magnitude><val>42.55</val></magnitude>
+   <node name="|">
+    <magnitude><val>42.55</val></magnitude>
+    <node name="(no input)->(256x1)">
+     <magnitude><val>17.67</val></magnitude>
+     <node name=" ">
+      <magnitude><val>17.67</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(3x3x192x384)">
+     <magnitude><val>2.7</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.7</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(3x3x256x256)">
+     <magnitude><val>1.69</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.69</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(384x1)">
+     <magnitude><val>2</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(11x11x3x64)">
+     <magnitude><val>3.31</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3.31</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(3x3x384x256)">
+     <magnitude><val>1.93</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.93</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(128x224x224x3)">
+     <magnitude><val>4.42</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4.42</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(192x1)">
+     <magnitude><val>2.59</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.59</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(64x1)">
+     <magnitude><val>2.66</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.66</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(5x5x64x192)">
+     <magnitude><val>3.58</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3.58</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="MEMCPYDtoH">
+   <magnitude><val>924.11</val></magnitude>
+   <node name="|">
+    <magnitude><val>924.11</val></magnitude>
+    <node name="(Transfer)->(1024 bytes)">
      <magnitude><val>2.52</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.52</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(11x11x3x64)->(11x11x3x64)">
-    <magnitude><val>2.58</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.58</val></magnitude>
+    <node name="(Transfer)->(2359296 bytes)">
+     <magnitude><val>244.36</val></magnitude>
+     <node name=" ">
+      <magnitude><val>244.36</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(3x3x256x256)->(3x3x256x256)">
-    <magnitude><val>2.62</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.62</val></magnitude>
+    <node name="(Transfer)->(2654208 bytes)">
+     <magnitude><val>259.26</val></magnitude>
+     <node name=" ">
+      <magnitude><val>259.26</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(384x1)->(384x1)">
-    <magnitude><val>2.74</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.74</val></magnitude>
+    <node name="(Transfer)->(768 bytes)">
+     <magnitude><val>1.42</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.42</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(192x1)->(192x1)">
-    <magnitude><val>2.4</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.4</val></magnitude>
+    <node name="(Transfer)->(1536 bytes)">
+     <magnitude><val>2.5</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.5</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(256x1)->(256x1)">
-    <magnitude><val>4.94</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.94</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x224x224x3)->(128x224x224x3)">
-    <magnitude><val>3.1</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3.1</val></magnitude>
-    </node>
-   </node>
-   <node name="(3x3x192x384)->(3x3x192x384)">
-    <magnitude><val>3.1</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3.1</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="BiasAdd">
-  <magnitude><val>4211.35</val></magnitude>
-  <node name="0.0 TFLOPS">
-   <magnitude><val>4211.35</val></magnitude>
-   <node name="(128x384x13x13)(384x1)->(128x384x13x13)">
-    <magnitude><val>552.58</val></magnitude>
-    <node name=" ">
-     <magnitude><val>552.58</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x192x27x27)(192x1)->(128x192x27x27)">
-    <magnitude><val>1205.51</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1205.51</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x64x56x56)(64x1)->(128x64x56x56)">
-    <magnitude><val>1723.83</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1723.83</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x256x13x13)(256x1)->(128x256x13x13)">
-    <magnitude><val>729.43</val></magnitude>
-    <node name=" ">
-     <magnitude><val>729.43</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Conv2D">
-  <magnitude><val>28925.28</val></magnitude>
-  <node name="5.6 TFLOPS">
-   <magnitude><val>5142.67</val></magnitude>
-   <node name="(128x192x13x13)(3x3x192x384)->(128x384x13x13)">
-    <magnitude><val>5142.67</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5142.67</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="6.2 TFLOPS">
-   <magnitude><val>6214.17</val></magnitude>
-   <node name="(128x384x13x13)(3x3x384x256)->(128x256x13x13)">
-    <magnitude><val>6214.17</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6214.17</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="12.2 TFLOPS">
-   <magnitude><val>4681.78</val></magnitude>
-   <node name="(128x64x27x27)(5x5x64x192)->(128x192x27x27)">
-    <magnitude><val>4681.78</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4681.78</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="2.2 TFLOPS">
-   <magnitude><val>8639.12</val></magnitude>
-   <node name="(128x3x224x224)(11x11x3x64)->(128x64x56x56)">
-    <magnitude><val>8639.12</val></magnitude>
-    <node name=" ">
-     <magnitude><val>8639.12</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="6.0 TFLOPS">
-   <magnitude><val>4247.54</val></magnitude>
-   <node name="(128x256x13x13)(3x3x256x256)->(128x256x13x13)">
-    <magnitude><val>4247.54</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4247.54</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="LRNGrad">
-  <magnitude><val>55893.24</val></magnitude>
-  <node name=" ">
-   <magnitude><val>55893.24</val></magnitude>
-   <node name="(128x27x27x192)(128x27x27x192)(128x27x27x192)->(128x27x27x192)">
-    <magnitude><val>31377.85</val></magnitude>
-    <node name=" ">
-     <magnitude><val>31377.85</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x56x56x64)(128x56x56x64)(128x56x56x64)->(128x56x56x64)">
-    <magnitude><val>24515.39</val></magnitude>
-    <node name=" ">
-     <magnitude><val>24515.39</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="MEMCPYDtoH">
-  <magnitude><val>920.74</val></magnitude>
-  <node name=" ">
-   <magnitude><val>920.74</val></magnitude>
-   <node name="(Transfer)->(1228800 bytes)">
-    <magnitude><val>103.6</val></magnitude>
-    <node name=" ">
-     <magnitude><val>103.6</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(2359296 bytes)">
-    <magnitude><val>241.64</val></magnitude>
-    <node name=" ">
-     <magnitude><val>241.64</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(92928 bytes)">
-    <magnitude><val>7</val></magnitude>
-    <node name=" ">
-     <magnitude><val>7</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(1024 bytes)">
-    <magnitude><val>2.63</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.63</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(768 bytes)">
-    <magnitude><val>1.59</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1.59</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(256 bytes)">
-    <magnitude><val>1</val></magnitude>
-    <node name=" ">
+    <node name="(Transfer)->(256 bytes)">
      <magnitude><val>1</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1</val></magnitude>
+     </node>
+    </node>
+    <node name="(Transfer)->(1228800 bytes)">
+     <magnitude><val>104.69</val></magnitude>
+     <node name=" ">
+      <magnitude><val>104.69</val></magnitude>
+     </node>
+    </node>
+    <node name="(Transfer)->(92928 bytes)">
+     <magnitude><val>7.09</val></magnitude>
+     <node name=" ">
+      <magnitude><val>7.09</val></magnitude>
+     </node>
+    </node>
+    <node name="(Transfer)->(3538944 bytes)">
+     <magnitude><val>301.27</val></magnitude>
+     <node name=" ">
+      <magnitude><val>301.27</val></magnitude>
+     </node>
     </node>
    </node>
-   <node name="(Transfer)->(2654208 bytes)">
-    <magnitude><val>257.68</val></magnitude>
-    <node name=" ">
-     <magnitude><val>257.68</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(1536 bytes)">
-    <magnitude><val>2.3</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.3</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(3538944 bytes)">
-    <magnitude><val>303.3</val></magnitude>
-    <node name=" ">
-     <magnitude><val>303.3</val></magnitude>
+  </node>
+  <node name="Const">
+   <magnitude><val>12.09</val></magnitude>
+   <node name="|">
+    <magnitude><val>12.09</val></magnitude>
+    <node name="(no input)->(int32 4x1)">
+     <magnitude><val>12.09</val></magnitude>
+     <node name=" ">
+      <magnitude><val>12.09</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
  </node>
- <node name="Transpose">
-  <magnitude><val>15948.95</val></magnitude>
-  <node name=" ">
-   <magnitude><val>15948.95</val></magnitude>
-   <node name="(128x192x13x13)(int32 4x1)->(128x13x13x192)">
-    <magnitude><val>219.76</val></magnitude>
-    <node name=" ">
-     <magnitude><val>219.76</val></magnitude>
+ <node name="CPU-0">
+  <magnitude><val>10.33</val></magnitude>
+  <node name="_Retval">
+   <magnitude><val>9.22</val></magnitude>
+   <node name="|">
+    <magnitude><val>9.22</val></magnitude>
+    <node name="(3x3x192x384)->(no output info)">
+     <magnitude><val>0.69</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.69</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(128x192x27x27)(int32 4x1)->(128x27x27x192)">
-    <magnitude><val>2914.36</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2914.36</val></magnitude>
+    <node name="(3x3x384x256)->(no output info)">
+     <magnitude><val>0.78</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.78</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(128x224x224x3)(int32 4x1)->(128x3x224x224)">
-    <magnitude><val>1841.84</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1841.84</val></magnitude>
+    <node name="(256x1)->(no output info)">
+     <magnitude><val>2.7</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.7</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(128x384x13x13)(int32 4x1)->(128x13x13x384)">
-    <magnitude><val>905.6</val></magnitude>
-    <node name=" ">
-     <magnitude><val>905.6</val></magnitude>
+    <node name="(3x3x256x256)->(no output info)">
+     <magnitude><val>0.74</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.74</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(128x64x56x56)(int32 4x1)->(128x56x56x64)">
-    <magnitude><val>4142.29</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4142.29</val></magnitude>
+    <node name="(64x1)->(no output info)">
+     <magnitude><val>1.17</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.17</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(128x56x56x64)(int32 4x1)->(128x64x56x56)">
-    <magnitude><val>2763.91</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2763.91</val></magnitude>
+    <node name="(11x11x3x64)->(no output info)">
+     <magnitude><val>0.75</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.75</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(128x256x13x13)(int32 4x1)->(128x13x13x256)">
-    <magnitude><val>907.89</val></magnitude>
-    <node name=" ">
-     <magnitude><val>907.89</val></magnitude>
+    <node name="(384x1)->(no output info)">
+     <magnitude><val>0.82</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.82</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(128x27x27x192)(int32 4x1)->(128x192x27x27)">
-    <magnitude><val>1936.74</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1936.74</val></magnitude>
+    <node name="(5x5x64x192)->(no output info)">
+     <magnitude><val>0.7</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.7</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(128x64x27x27)(int32 4x1)->(128x27x27x64)">
-    <magnitude><val>316.56</val></magnitude>
-    <node name=" ">
-     <magnitude><val>316.56</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="BiasAddGrad">
-  <magnitude><val>1855.89</val></magnitude>
-  <node name="0.0 TFLOPS">
-   <magnitude><val>1855.89</val></magnitude>
-   <node name="(128x27x27x192)->(192x1)">
-    <magnitude><val>490.6</val></magnitude>
-    <node name=" ">
-     <magnitude><val>490.6</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x13x13x384)->(384x1)">
-    <magnitude><val>262.35</val></magnitude>
-    <node name=" ">
-     <magnitude><val>262.35</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x13x13x256)->(256x1)">
-    <magnitude><val>349.82</val></magnitude>
-    <node name=" ">
-     <magnitude><val>349.82</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x56x56x64)->(64x1)">
-    <magnitude><val>753.12</val></magnitude>
-    <node name=" ">
-     <magnitude><val>753.12</val></magnitude>
+    <node name="(192x1)->(no output info)">
+     <magnitude><val>0.87</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.87</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="Relu">
-  <magnitude><val>3366.41</val></magnitude>
-  <node name=" ">
-   <magnitude><val>3366.41</val></magnitude>
-   <node name="(128x256x13x13)->(128x256x13x13)">
-    <magnitude><val>594.18</val></magnitude>
-    <node name=" ">
-     <magnitude><val>594.18</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x64x56x56)->(128x64x56x56)">
-    <magnitude><val>1385.75</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1385.75</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x384x13x13)->(128x384x13x13)">
-    <magnitude><val>440.09</val></magnitude>
-    <node name=" ">
-     <magnitude><val>440.09</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x192x27x27)->(128x192x27x27)">
-    <magnitude><val>946.39</val></magnitude>
-    <node name=" ">
-     <magnitude><val>946.39</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="_Retval">
-  <magnitude><val>34.88</val></magnitude>
-  <node name=" ">
-   <magnitude><val>34.88</val></magnitude>
-   <node name="(384x1)->(no output info)">
-    <magnitude><val>3.32</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3.32</val></magnitude>
-    </node>
-   </node>
-   <node name="(256x1)->(no output info)">
-    <magnitude><val>9.52</val></magnitude>
-    <node name=" ">
-     <magnitude><val>9.52</val></magnitude>
-    </node>
-   </node>
-   <node name="(64x1)->(no output info)">
-    <magnitude><val>4.49</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.49</val></magnitude>
-    </node>
-   </node>
-   <node name="(3x3x192x384)->(no output info)">
-    <magnitude><val>2.26</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.26</val></magnitude>
-    </node>
-   </node>
-   <node name="(11x11x3x64)->(no output info)">
-    <magnitude><val>4.88</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.88</val></magnitude>
-    </node>
-   </node>
-   <node name="(3x3x256x256)->(no output info)">
-    <magnitude><val>2.18</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.18</val></magnitude>
-    </node>
-   </node>
-   <node name="(5x5x64x192)->(no output info)">
-    <magnitude><val>1.91</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1.91</val></magnitude>
-    </node>
-   </node>
-   <node name="(3x3x384x256)->(no output info)">
-    <magnitude><val>2.2</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.2</val></magnitude>
-    </node>
-   </node>
-   <node name="(192x1)->(no output info)">
-    <magnitude><val>4.12</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.12</val></magnitude>
+  <node name="NoOp">
+   <magnitude><val>1.11</val></magnitude>
+   <node name="|">
+    <magnitude><val>1.11</val></magnitude>
+    <node name="(no input)->(no output info)">
+     <magnitude><val>1.11</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.11</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
  </node>
  <node name="Time">
   <magnitude><val>0</val></magnitude>
- </node>
- <node name="LRN">
-  <magnitude><val>45453.43</val></magnitude>
-  <node name=" ">
-   <magnitude><val>45453.43</val></magnitude>
-   <node name="(128x56x56x64)->(128x56x56x64)">
-    <magnitude><val>21371.42</val></magnitude>
-    <node name=" ">
-     <magnitude><val>21371.42</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x27x27x192)->(128x27x27x192)">
-    <magnitude><val>24082.01</val></magnitude>
-    <node name=" ">
-     <magnitude><val>24082.01</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="MaxPool">
-  <magnitude><val>2447.84</val></magnitude>
-  <node name="0.0 TFLOPS">
-   <magnitude><val>2447.84</val></magnitude>
-   <node name="(128x256x13x13)->(128x256x6x6)">
-    <magnitude><val>274.01</val></magnitude>
-    <node name=" ">
-     <magnitude><val>274.01</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x192x27x27)->(128x192x13x13)">
-    <magnitude><val>910.31</val></magnitude>
-    <node name=" ">
-     <magnitude><val>910.31</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x64x56x56)->(128x64x27x27)">
-    <magnitude><val>1263.52</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1263.52</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Const">
-  <magnitude><val>34.04</val></magnitude>
-  <node name=" ">
-   <magnitude><val>34.04</val></magnitude>
-   <node name="(no input)->(int32 4x1)">
-    <magnitude><val>34.04</val></magnitude>
-    <node name=" ">
-     <magnitude><val>34.04</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="VariableV2">
-  <magnitude><val>66.84</val></magnitude>
-  <node name=" ">
-   <magnitude><val>66.84</val></magnitude>
-   <node name="(no input)->(3x3x384x256)">
-    <magnitude><val>4.38</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.38</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(64x1)">
-    <magnitude><val>3.68</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3.68</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(5x5x64x192)">
-    <magnitude><val>5.57</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5.57</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(128x224x224x3)">
-    <magnitude><val>6.98</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6.98</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(3x3x192x384)">
-    <magnitude><val>4.77</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.77</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(256x1)">
-    <magnitude><val>25.63</val></magnitude>
-    <node name=" ">
-     <magnitude><val>25.63</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(192x1)">
-    <magnitude><val>3.91</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3.91</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(11x11x3x64)">
-    <magnitude><val>4.84</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.84</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(3x3x256x256)">
-    <magnitude><val>3.7</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3.7</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(384x1)">
-    <magnitude><val>3.38</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3.38</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="NoOp">
-  <magnitude><val>28.03</val></magnitude>
-  <node name=" ">
-   <magnitude><val>28.03</val></magnitude>
-   <node name="(no input)->(no output info)">
-    <magnitude><val>28.03</val></magnitude>
-    <node name=" ">
-     <magnitude><val>28.03</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Conv2DBackpropFilter">
-  <magnitude><val>38578.39</val></magnitude>
-  <node name="8.8 TFLOPS">
-   <magnitude><val>6524.73</val></magnitude>
-   <node name="(128x27x27x64)(int32 4x1)(128x27x27x192)->(5x5x64x192)">
-    <magnitude><val>6524.73</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6524.73</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="5.5 TFLOPS">
-   <magnitude><val>6914.68</val></magnitude>
-   <node name="(128x13x13x384)(int32 4x1)(128x13x13x256)->(3x3x384x256)">
-    <magnitude><val>6914.68</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6914.68</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="1.4 TFLOPS">
-   <magnitude><val>13635.39</val></magnitude>
-   <node name="(128x224x224x3)(int32 4x1)(128x56x56x64)->(11x11x3x64)">
-    <magnitude><val>13635.39</val></magnitude>
-    <node name=" ">
-     <magnitude><val>13635.39</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="4.3 TFLOPS">
-   <magnitude><val>6637.92</val></magnitude>
-   <node name="(128x13x13x192)(int32 4x1)(128x13x13x384)->(3x3x192x384)">
-    <magnitude><val>6637.92</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6637.92</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name="5.2 TFLOPS">
-   <magnitude><val>4865.67</val></magnitude>
-   <node name="(128x13x13x256)(int32 4x1)(128x13x13x256)->(3x3x256x256)">
-    <magnitude><val>4865.67</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4865.67</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="ReluGrad">
-  <magnitude><val>5001.86</val></magnitude>
-  <node name=" ">
-   <magnitude><val>5001.86</val></magnitude>
-   <node name="(128x64x56x56)(128x64x56x56)->(128x64x56x56)">
-    <magnitude><val>2033.71</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2033.71</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x384x13x13)(128x384x13x13)->(128x384x13x13)">
-    <magnitude><val>675.49</val></magnitude>
-    <node name=" ">
-     <magnitude><val>675.49</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x256x13x13)(128x256x13x13)->(128x256x13x13)">
-    <magnitude><val>877.69</val></magnitude>
-    <node name=" ">
-     <magnitude><val>877.69</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x192x27x27)(128x192x27x27)->(128x192x27x27)">
-    <magnitude><val>1414.97</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1414.97</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="MaxPoolGrad">
-  <magnitude><val>5191.68</val></magnitude>
-  <node name="0.0 TFLOPS">
-   <magnitude><val>5191.68</val></magnitude>
-   <node name="(128x64x56x56)(128x64x27x27)(128x64x27x27)->(128x64x56x56)">
-    <magnitude><val>3079.54</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3079.54</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x192x27x27)(128x192x13x13)(128x192x13x13)->(128x192x27x27)">
-    <magnitude><val>1309.81</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1309.81</val></magnitude>
-    </node>
-   </node>
-   <node name="(128x256x13x13)(128x256x6x6)(128x256x6x6)->(128x256x13x13)">
-    <magnitude><val>802.33</val></magnitude>
-    <node name=" ">
-     <magnitude><val>802.33</val></magnitude>
-    </node>
-   </node>
-  </node>
  </node>
 </node>
   </krona>

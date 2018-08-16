@@ -1,15 +1,15 @@
-2018-08-13 18:30:47.120207: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-08-13 18:30:47.120703: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
+2018-08-16 15:32:06.537576: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:897] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-08-16 15:32:06.537985: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1404] Found device 0 with properties: 
 name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
 pciBusID: 0000:01:00.0
-totalMemory: 5.94GiB freeMemory: 5.40GiB
-2018-08-13 18:30:47.120715: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
-2018-08-13 18:30:47.357875: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-08-13 18:30:47.357908: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
-2018-08-13 18:30:47.357914: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
-2018-08-13 18:30:47.358082: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5170 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
-2018-08-13 18:30:47.358252: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
-2018-08-13 18:30:47.566869: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
+totalMemory: 5.94GiB freeMemory: 5.67GiB
+2018-08-16 15:32:06.538014: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1483] Adding visible gpu devices: 0
+2018-08-16 15:32:06.728640: I tensorflow/core/common_runtime/gpu/gpu_device.cc:964] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-08-16 15:32:06.728685: I tensorflow/core/common_runtime/gpu/gpu_device.cc:970]      0 
+2018-08-16 15:32:06.728691: I tensorflow/core/common_runtime/gpu/gpu_device.cc:983] 0:   N 
+2018-08-16 15:32:06.728885: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5443 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-08-16 15:32:06.729103: E tensorflow/core/common_runtime/gpu/gpu_device.cc:228] Illegal GPUOptions.experimental.num_dev_to_dev_copy_streams=0 set to 1 instead.
+2018-08-16 15:32:06.855518: I tensorflow/stream_executor/dso_loader.cc:151] successfully opened CUDA library libcupti.so.9.2 locally
 /usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
 conv1   [128, 56, 56, 64]
@@ -20,44 +20,53 @@ conv3   [128, 13, 13, 384]
 conv4   [128, 13, 13, 256]
 conv5   [128, 13, 13, 256]
 pool5   [128, 6, 6, 256]
-total ops:  130
-num nodes with flops available:  45
-total GFlops:  505.844535551
-2018-08-13 18:30:51.913937: step 0, duration = 0.228
-2018-08-13 18:30:54.215712: step 10, duration = 0.230
-2018-08-13 18:30:56.550416: step 20, duration = 0.234
-2018-08-13 18:30:58.937549: step 30, duration = 0.230
-2018-08-13 18:31:01.280280: step 40, duration = 0.230
-2018-08-13 18:31:03.730373: step 50, duration = 0.256
-2018-08-13 18:31:06.073990: step 60, duration = 0.231
-2018-08-13 18:31:08.440127: step 70, duration = 0.231
-2018-08-13 18:31:10.776594: step 80, duration = 0.244
-2018-08-13 18:31:13.163836: step 90, duration = 0.249
+Total ops:  130
+Percentage of nodes with flops stats available: 34.6%. Sanity check - sum of number of operations (per single occurence) in these ops: 505.845 GFLOP
+2018-08-16 15:32:11.066112: step 0, duration = 0.229
+2018-08-16 15:32:13.373918: step 10, duration = 0.232
+2018-08-16 15:32:15.681510: step 20, duration = 0.234
+2018-08-16 15:32:17.990442: step 30, duration = 0.231
+2018-08-16 15:32:20.297188: step 40, duration = 0.230
+2018-08-16 15:32:22.674762: step 50, duration = 0.255
+2018-08-16 15:32:24.984413: step 60, duration = 0.231
+2018-08-16 15:32:27.290426: step 70, duration = 0.231
+2018-08-16 15:32:29.597915: step 80, duration = 0.231
+2018-08-16 15:32:31.957722: step 90, duration = 0.230
 Session is closed
 
 Sanity check before aggregation:
- total wall time for 100 steps: 		 23.059 sec. (0.230585 sec./batch) 
- op time extracted from RunMetadata: 	 22.799 sec. (0.227994 sec./batch) 
+ total wall time for 100 steps: 		 22.654 sec. (0.226538 sec./batch) 
+ op time extracted from RunMetadata: 	 22.441 sec. (0.224406 sec./batch) 
  number of ops: 117
 
 Sanity check after aggregation:
- total wall time for 100 steps: 		 23.059 sec. (0.230585 sec./batch) 
- op time extracted from RunMetadata: 	 22.799 sec. (0.227994 sec./batch) 
+ total wall time for 100 steps: 		 22.654 sec. (0.226538 sec./batch) 
+ op time extracted from RunMetadata: 	 22.441 sec. (0.224406 sec./batch) 
  number of unique ops: 90
 
 
 *** Top-K ops vs total time ***
 
-Top-1	(1.1% of all ops):	31.4 ms(13.8% of all time)
-Top-2	(2.2% of all ops):	55.9 ms(24.5% of all time)
-Top-3	(3.3% of all ops):	80.0 ms(35.1% of all time)
-Top-4	(4.4% of all ops):	101.3 ms(44.5% of all time)
-Top-7	(7.8% of all ops):	130.5 ms(57.3% of all time)
-Top-12	(13.3% of all ops):	161.3 ms(70.7% of all time)
-Top-20	(22.2% of all ops):	196.1 ms(86.0% of all time)
-Top-33	(36.7% of all ops):	217.7 ms(95.5% of all time)
-Top-55	(61.1% of all ops):	227.8 ms(99.9% of all time)
-Top-90	(100.0% of all ops):	228.0 ms(100.0% of all time)
+Top-1	(1.1% of all ops):	30.8 ms(13.7% of all time)
+Top-2	(2.2% of all ops):	54.7 ms(24.4% of all time)
+Top-3	(3.3% of all ops):	78.4 ms(34.9% of all time)
+Top-4	(4.4% of all ops):	99.4 ms(44.3% of all time)
+Top-7	(7.8% of all ops):	128.3 ms(57.2% of all time)
+Top-12	(13.3% of all ops):	158.7 ms(70.7% of all time)
+Top-20	(22.2% of all ops):	193.1 ms(86.0% of all time)
+Top-33	(36.7% of all ops):	214.4 ms(95.5% of all time)
+Top-55	(61.1% of all ops):	224.3 ms(100.0% of all time)
+Top-90	(100.0% of all ops):	224.4 ms(100.0% of all time)
 
 *** See data.tsv, pie_chart.html for details ***
 
+
+
+***Comparison completed***
+See data_compared.tsv to select candidates for optimization in system1.
+- See column D 'Time ratio Sys1/Sys2 (one call)'. This is how many times an op is faster in system2 compared to system1.
+- Ops are sorted by total time in the 1st (slower) system.
+- To cover, for example, 80% of time spent in system1, see values in column M ('System1 cumulative % of total time')
+Good candidates for further optimizations will be ops from the first row to the row with value of about 0.8 (80%) in column M
+- Unmatched ops saved to data_unmatched_ops.tsv. Take a look there to see if some time consuming ops are actually unique to system1 and system2.
+- Baselines for system1 are in column B ('Time of 1 call, microseconds'). By default, these values are averaged over 100 runs (aka steps, batches) and 10 warm-up steps.

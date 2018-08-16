@@ -6634,1128 +6634,1158 @@ function zoomOut()
     <dataset>data_for_pie_chart</dataset>
    </datasets>
 <node name="all">
- <magnitude><val>12116.07</val></magnitude>
- <node name="Identity">
-  <magnitude><val>8.42</val></magnitude>
-  <node name=" ">
-   <magnitude><val>8.42</val></magnitude>
-   <node name="(1x1)->(1x1)">
-    <magnitude><val>8.42</val></magnitude>
-    <node name=" ">
-     <magnitude><val>8.42</val></magnitude>
+ <magnitude><val>9500.20000000001</val></magnitude>
+ <node name="CPU-0">
+  <magnitude><val>3565.12</val></magnitude>
+  <node name="Iterator">
+   <magnitude><val>9.18</val></magnitude>
+   <node name="|">
+    <magnitude><val>9.18</val></magnitude>
+    <node name="(no input)->(tf_resource 1x1)">
+     <magnitude><val>9.18</val></magnitude>
+     <node name=" ">
+      <magnitude><val>9.18</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="Pack">
-  <magnitude><val>24.47</val></magnitude>
-  <node name=" ">
-   <magnitude><val>24.47</val></magnitude>
-   <node name="(int32 1x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 4x1)">
-    <magnitude><val>15.03</val></magnitude>
-    <node name=" ">
-     <magnitude><val>15.03</val></magnitude>
-    </node>
-   </node>
-   <node name="(int32 1x1)(int32 1x1)->(int32 2x1)">
-    <magnitude><val>9.44</val></magnitude>
-    <node name=" ">
-     <magnitude><val>9.44</val></magnitude>
+  <node name="ScalarSummary">
+   <magnitude><val>0.16</val></magnitude>
+   <node name="|">
+    <magnitude><val>0.16</val></magnitude>
+    <node name="(string 1x1)(1x1)->(string 1x1)">
+     <magnitude><val>0.16</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.16</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="Reshape">
-  <magnitude><val>45.54</val></magnitude>
-  <node name=" ">
-   <magnitude><val>45.54</val></magnitude>
-   <node name="(1x1)(int32 1x1)->(1x1)">
-    <magnitude><val>5.77</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5.77</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x64x7x7)(int32 2x1)->(100x3136)">
-    <magnitude><val>5.92</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5.92</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1)(int32 1x1)->(100x1)">
-    <magnitude><val>0.05</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.05</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1024)(int32 2x1)->(100x1024)">
-    <magnitude><val>6.1</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6.1</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x784)(int32 100x1)(int32 4x1)->(100x1x28x28)">
-    <magnitude><val>14.52</val></magnitude>
-    <node name=" ">
-     <magnitude><val>14.52</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1)(1|2|3x1)->(100x1)">
-    <magnitude><val>5.17</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5.17</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x3136)(int32 4x1)->(100x64x7x7)">
-    <magnitude><val>8.01</val></magnitude>
-    <node name=" ">
-     <magnitude><val>8.01</val></magnitude>
+  <node name="IteratorGetNext">
+   <magnitude><val>3547.45</val></magnitude>
+   <node name="|">
+    <magnitude><val>3547.45</val></magnitude>
+    <node name="(tf_resource 1x1)->(100x784)(int32 100x1)">
+     <magnitude><val>3547.45</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3547.45</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="RandomUniform">
-  <magnitude><val>8.18</val></magnitude>
-  <node name=" ">
-   <magnitude><val>8.18</val></magnitude>
-   <node name="(int32 2x1)->(100x1024)">
-    <magnitude><val>8.18</val></magnitude>
-    <node name=" ">
-     <magnitude><val>8.18</val></magnitude>
+  <node name="Shape">
+   <magnitude><val>5.26</val></magnitude>
+   <node name="|">
+    <magnitude><val>5.26</val></magnitude>
+    <node name="(100x784)(int32 100x1)->(int32 2x1)">
+     <magnitude><val>5.26</val></magnitude>
+     <node name=" ">
+      <magnitude><val>5.26</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="Tile">
-  <magnitude><val>2.47</val></magnitude>
-  <node name=" ">
-   <magnitude><val>2.47</val></magnitude>
-   <node name="(1x1)(int32 1x1)->(100x1)">
-    <magnitude><val>2.47</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.47</val></magnitude>
+  <node name="MergeSummary">
+   <magnitude><val>0.09</val></magnitude>
+   <node name="|">
+    <magnitude><val>0.09</val></magnitude>
+    <node name="(string 1x1)(string 1x1)->(string 1x1)">
+     <magnitude><val>0.09</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.09</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="Merge">
-  <magnitude><val>8.75</val></magnitude>
-  <node name=" ">
-   <magnitude><val>8.75</val></magnitude>
-   <node name="(int64 1x1)(int64 1x1)->(int64 1x1)(int32 1x1)">
-    <magnitude><val>8.75</val></magnitude>
-    <node name=" ">
-     <magnitude><val>8.75</val></magnitude>
+  <node name="Const">
+   <magnitude><val>0.08</val></magnitude>
+   <node name="|">
+    <magnitude><val>0.08</val></magnitude>
+    <node name="(no input)->(string 1x1)">
+     <magnitude><val>0.08</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.08</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="RealDiv">
-  <magnitude><val>3.98</val></magnitude>
-  <node name="0.0 TFLOPS">
-   <magnitude><val>3.98</val></magnitude>
-   <node name="(1x1)(1x1)->(1x1)">
-    <magnitude><val>3.98</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3.98</val></magnitude>
+  <node name="_Retval">
+   <magnitude><val>1.88</val></magnitude>
+   <node name="|">
+    <magnitude><val>1.88</val></magnitude>
+    <node name="(int64 1x1)->(no output info)">
+     <magnitude><val>0.82</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.82</val></magnitude>
+     </node>
     </node>
-   </node>
-  </node>
- </node>
- <node name="Conv2DBackpropInput">
-  <magnitude><val>739.89</val></magnitude>
-  <node name=" ">
-   <magnitude><val>739.89</val></magnitude>
-   <node name="(int32 4x1)(int32 4x1)(5x5x32x64)(100x64x14x14)->(100x32x14x14)">
-    <magnitude><val>739.89</val></magnitude>
-    <node name=" ">
-     <magnitude><val>739.89</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="MEMCPYHtoD">
-  <magnitude><val>25.89</val></magnitude>
-  <node name=" ">
-   <magnitude><val>25.89</val></magnitude>
-   <node name="(Transfer)->(100 bytes)">
-    <magnitude><val>0.01</val></magnitude>
-    <node name=" ">
+    <node name="(string 1x1)->(no output info)">
      <magnitude><val>0.01</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.01</val></magnitude>
+     </node>
+    </node>
+    <node name="(1x1)->(no output info)">
+     <magnitude><val>1.05</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.05</val></magnitude>
+     </node>
     </node>
    </node>
-   <node name="(Transfer)->(400 bytes)">
-    <magnitude><val>1</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(4 bytes)">
-    <magnitude><val>0.01</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.01</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(313600 bytes)">
-    <magnitude><val>24.87</val></magnitude>
-    <node name=" ">
-     <magnitude><val>24.87</val></magnitude>
+  </node>
+  <node name="NoOp">
+   <magnitude><val>1.02</val></magnitude>
+   <node name="|">
+    <magnitude><val>1.02</val></magnitude>
+    <node name="(no input)->(no output info)">
+     <magnitude><val>1.02</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.02</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
  </node>
- <node name="ExpandDims">
-  <magnitude><val>6.12</val></magnitude>
-  <node name=" ">
-   <magnitude><val>6.12</val></magnitude>
-   <node name="(100x1)(int32 1x1)->(100x1)">
-    <magnitude><val>6.12</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6.12</val></magnitude>
+ <node name="GPU-0">
+  <magnitude><val>5935.08000000001</val></magnitude>
+  <node name="Conv2DBackpropInput">
+   <magnitude><val>754.4</val></magnitude>
+   <node name="|">
+    <magnitude><val>754.4</val></magnitude>
+    <node name="(int32 4x1)(int32 4x1)(5x5x32x64)(100x64x14x14)->(100x32x14x14)">
+     <magnitude><val>754.4</val></magnitude>
+     <node name=" ">
+      <magnitude><val>754.4</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="_Retval">
-  <magnitude><val>9.88</val></magnitude>
-  <node name=" ">
-   <magnitude><val>9.88</val></magnitude>
-   <node name="(1x1)->(no output info)">
-    <magnitude><val>6.29</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6.29</val></magnitude>
+  <node name="BiasAddGrad">
+   <magnitude><val>130.29</val></magnitude>
+   <node name="|">
+    <magnitude><val>130.29</val></magnitude>
+    <node name="(100x64x14x14)->(64x1)">
+     <magnitude><val>43.54</val></magnitude>
+     <node name=" ">
+      <magnitude><val>43.54</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(string 1x1)->(no output info)">
-    <magnitude><val>0.03</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.03</val></magnitude>
+    <node name="(100x10)->(10x1)">
+     <magnitude><val>7.46</val></magnitude>
+     <node name=" ">
+      <magnitude><val>7.46</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(int64 1x1)->(no output info)">
-    <magnitude><val>3.56</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3.56</val></magnitude>
+    <node name="(100x1024)->(1024x1)">
+     <magnitude><val>4.54</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4.54</val></magnitude>
+     </node>
     </node>
-   </node>
-  </node>
- </node>
- <node name="Size">
-  <magnitude><val>0.17</val></magnitude>
-  <node name=" ">
-   <magnitude><val>0.17</val></magnitude>
-   <node name="(100x1)->(int32 1x1)">
-    <magnitude><val>0.17</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.17</val></magnitude>
+    <node name="(100x32x28x28)->(32x1)">
+     <magnitude><val>74.75</val></magnitude>
+     <node name=" ">
+      <magnitude><val>74.75</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="SparseSoftmaxCrossEntropyWithLogits">
-  <magnitude><val>24.09</val></magnitude>
-  <node name=" ">
-   <magnitude><val>24.09</val></magnitude>
-   <node name="(100x10)(100x784)(int32 100x1)->(100x1)(100x10)">
-    <magnitude><val>24.09</val></magnitude>
-    <node name=" ">
-     <magnitude><val>24.09</val></magnitude>
+  <node name="Switch">
+   <magnitude><val>1.34</val></magnitude>
+   <node name="|">
+    <magnitude><val>1.34</val></magnitude>
+    <node name="(int64 1x1)(boolean 1x1)->(int64 1x1)">
+     <magnitude><val>1.34</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.34</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="Conv2D">
-  <magnitude><val>699.48</val></magnitude>
-  <node name=" ">
-   <magnitude><val>699.48</val></magnitude>
-   <node name="(100x1x28x28)(5x5x1x32)->(100x32x28x28)">
-    <magnitude><val>114.56</val></magnitude>
-    <node name=" ">
-     <magnitude><val>114.56</val></magnitude>
+  <node name="Relu">
+   <magnitude><val>202.88</val></magnitude>
+   <node name="|">
+    <magnitude><val>202.88</val></magnitude>
+    <node name="(100x32x28x28)->(100x32x28x28)">
+     <magnitude><val>132.82</val></magnitude>
+     <node name=" ">
+      <magnitude><val>132.82</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(100x32x14x14)(5x5x32x64)->(100x64x14x14)">
-    <magnitude><val>584.92</val></magnitude>
-    <node name=" ">
-     <magnitude><val>584.92</val></magnitude>
+    <node name="(100x64x14x14)->(100x64x14x14)">
+     <magnitude><val>67.03</val></magnitude>
+     <node name=" ">
+      <magnitude><val>67.03</val></magnitude>
+     </node>
     </node>
-   </node>
-  </node>
- </node>
- <node name="IsVariableInitialized">
-  <magnitude><val>10.59</val></magnitude>
-  <node name=" ">
-   <magnitude><val>10.59</val></magnitude>
-   <node name="(int64 1x1)->(boolean 1x1)">
-    <magnitude><val>10.59</val></magnitude>
-    <node name=" ">
-     <magnitude><val>10.59</val></magnitude>
+    <node name="(100x1024)->(100x1024)">
+     <magnitude><val>3.03</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3.03</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="Floor">
-  <magnitude><val>2.77</val></magnitude>
-  <node name=" ">
-   <magnitude><val>2.77</val></magnitude>
-   <node name="(100x1024)->(100x1024)">
-    <magnitude><val>2.77</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.77</val></magnitude>
+  <node name="ShapeN">
+   <magnitude><val>4.58</val></magnitude>
+   <node name="|">
+    <magnitude><val>4.58</val></magnitude>
+    <node name="(100x32x14x14)(5x5x32x64)->(int32 4x1)(int32 4x1)">
+     <magnitude><val>4.58</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4.58</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="Relu">
-  <magnitude><val>202.56</val></magnitude>
-  <node name=" ">
-   <magnitude><val>202.56</val></magnitude>
-   <node name="(100x32x28x28)->(100x32x28x28)">
-    <magnitude><val>132.75</val></magnitude>
-    <node name=" ">
-     <magnitude><val>132.75</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1024)->(100x1024)">
-    <magnitude><val>2.81</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2.81</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x64x14x14)->(100x64x14x14)">
-    <magnitude><val>67</val></magnitude>
-    <node name=" ">
-     <magnitude><val>67</val></magnitude>
+  <node name="Merge">
+   <magnitude><val>2.41</val></magnitude>
+   <node name="|">
+    <magnitude><val>2.41</val></magnitude>
+    <node name="(int64 1x1)(int64 1x1)->(int64 1x1)(int32 1x1)">
+     <magnitude><val>2.41</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.41</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="BiasAdd">
-  <magnitude><val>243.1</val></magnitude>
-  <node name=" ">
-   <magnitude><val>243.1</val></magnitude>
-   <node name="(100x10)(10x1)->(100x10)">
-    <magnitude><val>1.99</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1.99</val></magnitude>
+  <node name="ResourceApplyAdam">
+   <magnitude><val>901.12</val></magnitude>
+   <node name="|">
+    <magnitude><val>901.12</val></magnitude>
+    <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1024x10)->(no output info)">
+     <magnitude><val>10.02</val></magnitude>
+     <node name=" ">
+      <magnitude><val>10.02</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(100x1024)(1024x1)->(100x1024)">
-    <magnitude><val>4.21</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.21</val></magnitude>
+    <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(32x1)->(no output info)">
+     <magnitude><val>8.54</val></magnitude>
+     <node name=" ">
+      <magnitude><val>8.54</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(100x32x28x28)(32x1)->(100x32x28x28)">
-    <magnitude><val>157.08</val></magnitude>
-    <node name=" ">
-     <magnitude><val>157.08</val></magnitude>
+    <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1024x1)->(no output info)">
+     <magnitude><val>8.62</val></magnitude>
+     <node name=" ">
+      <magnitude><val>8.62</val></magnitude>
+     </node>
     </node>
-   </node>
-   <node name="(100x64x14x14)(64x1)->(100x64x14x14)">
-    <magnitude><val>79.82</val></magnitude>
-    <node name=" ">
-     <magnitude><val>79.82</val></magnitude>
+    <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(64x1)->(no output info)">
+     <magnitude><val>8.62</val></magnitude>
+     <node name=" ">
+      <magnitude><val>8.62</val></magnitude>
+     </node>
+    </node>
+    <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(5x5x32x64)->(no output info)">
+     <magnitude><val>17.3</val></magnitude>
+     <node name=" ">
+      <magnitude><val>17.3</val></magnitude>
+     </node>
+    </node>
+    <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(5x5x1x32)->(no output info)">
+     <magnitude><val>8.76</val></magnitude>
+     <node name=" ">
+      <magnitude><val>8.76</val></magnitude>
+     </node>
+    </node>
+    <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(3136x1024)->(no output info)">
+     <magnitude><val>829.36</val></magnitude>
+     <node name=" ">
+      <magnitude><val>829.36</val></magnitude>
+     </node>
+    </node>
+    <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(10x1)->(no output info)">
+     <magnitude><val>9.9</val></magnitude>
+     <node name=" ">
+      <magnitude><val>9.9</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
- </node>
- <node name="ArgMax">
-  <magnitude><val>0.04</val></magnitude>
-  <node name=" ">
-   <magnitude><val>0.04</val></magnitude>
-   <node name="(100x10)(int32 1x1)->(int64 100x1)">
-    <magnitude><val>0.04</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.04</val></magnitude>
+  <node name="ReadVariableOp">
+   <magnitude><val>15.58</val></magnitude>
+   <node name="|">
+    <magnitude><val>15.58</val></magnitude>
+    <node name="(tf_resource 1x1)->(1024x1)">
+     <magnitude><val>1.41</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.41</val></magnitude>
+     </node>
     </node>
-   </node>
-  </node>
- </node>
- <node name="Select">
-  <magnitude><val>5.25</val></magnitude>
-  <node name=" ">
-   <magnitude><val>5.25</val></magnitude>
-   <node name="(boolean 1x1)(1|2|3x1)(1x1)->(1x1)">
-    <magnitude><val>1.66</val></magnitude>
-    <node name=" ">
+    <node name="(tf_resource 1x1)->(5x5x1x32)">
+     <magnitude><val>4.12</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4.12</val></magnitude>
+     </node>
+    </node>
+    <node name="(tf_resource 1x1)->(64x1)">
+     <magnitude><val>1.7</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.7</val></magnitude>
+     </node>
+    </node>
+    <node name="(tf_resource 1x1)->(10x1)">
+     <magnitude><val>1.53</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.53</val></magnitude>
+     </node>
+    </node>
+    <node name="(tf_resource 1x1)->(32x1)">
+     <magnitude><val>1.6</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.6</val></magnitude>
+     </node>
+    </node>
+    <node name="(tf_resource 1x1)->(1024x10)">
      <magnitude><val>1.66</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.66</val></magnitude>
+     </node>
+    </node>
+    <node name="(tf_resource 1x1)->(5x5x32x64)">
+     <magnitude><val>1.96</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.96</val></magnitude>
+     </node>
+    </node>
+    <node name="(tf_resource 1x1)->(3136x1024)">
+     <magnitude><val>1.6</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.6</val></magnitude>
+     </node>
     </node>
    </node>
-   <node name="(boolean 1x1)(1x1)(1x1)->(1x1)">
-    <magnitude><val>1.92</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1.92</val></magnitude>
+  </node>
+  <node name="ArgMax">
+   <magnitude><val>0.05</val></magnitude>
+   <node name="|">
+    <magnitude><val>0.05</val></magnitude>
+    <node name="(100x10)(int32 1x1)->(int64 100x1)">
+     <magnitude><val>0.05</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.05</val></magnitude>
+     </node>
     </node>
    </node>
-   <node name="(boolean 1x1)(1x1)(1|2|3x1)->(1x1)">
-    <magnitude><val>1.67</val></magnitude>
-    <node name=" ">
+  </node>
+  <node name="Shape">
+   <magnitude><val>9.7</val></magnitude>
+   <node name="|">
+    <magnitude><val>9.7</val></magnitude>
+    <node name="(100x1)(100x10)->(int32 1x1)">
+     <magnitude><val>2.75</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.75</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1024)->(int32 2x1)">
+     <magnitude><val>2.46</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.46</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x64x7x7)->(int32 4x1)">
+     <magnitude><val>2.82</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.82</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1)->(int32 1x1)">
      <magnitude><val>1.67</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.67</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Fill">
+   <magnitude><val>1.83</val></magnitude>
+   <node name="|">
+    <magnitude><val>1.83</val></magnitude>
+    <node name="(1|2|3x1)(1x1)->(100x1)">
+     <magnitude><val>0.02</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.02</val></magnitude>
+     </node>
+    </node>
+    <node name="(int32 1x1)(1x1)->(100x1)">
+     <magnitude><val>1.81</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.81</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="StridedSlice">
+   <magnitude><val>16.94</val></magnitude>
+   <node name="|">
+    <magnitude><val>16.94</val></magnitude>
+    <node name="(int32 4x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 1x1)">
+     <magnitude><val>4.64</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4.64</val></magnitude>
+     </node>
+    </node>
+    <node name="(int32 2x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 1x1)">
+     <magnitude><val>12.3</val></magnitude>
+     <node name=" ">
+      <magnitude><val>12.3</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="MEMCPYHtoD">
+   <magnitude><val>26.44</val></magnitude>
+   <node name="|">
+    <magnitude><val>26.44</val></magnitude>
+    <node name="(Transfer)->(400 bytes)">
+     <magnitude><val>1</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1</val></magnitude>
+     </node>
+    </node>
+    <node name="(Transfer)->(4 bytes)">
+     <magnitude><val>0.01</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.01</val></magnitude>
+     </node>
+    </node>
+    <node name="(Transfer)->(313600 bytes)">
+     <magnitude><val>25.42</val></magnitude>
+     <node name=" ">
+      <magnitude><val>25.42</val></magnitude>
+     </node>
+    </node>
+    <node name="(Transfer)->(100 bytes)">
+     <magnitude><val>0.01</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.01</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Reshape">
+   <magnitude><val>9.49</val></magnitude>
+   <node name="|">
+    <magnitude><val>9.49</val></magnitude>
+    <node name="(100x64x7x7)(int32 2x1)->(100x3136)">
+     <magnitude><val>1.56</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.56</val></magnitude>
+     </node>
+    </node>
+    <node name="(1x1)(int32 1x1)->(1x1)">
+     <magnitude><val>1.23</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.23</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1024)(int32 2x1)->(100x1024)">
+     <magnitude><val>1.01</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.01</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x784)(int32 100x1)(int32 4x1)->(100x1x28x28)">
+     <magnitude><val>3</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x3136)(int32 4x1)->(100x64x7x7)">
+     <magnitude><val>1.6</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.6</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1)(int32 1x1)->(100x1)">
+     <magnitude><val>0.01</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.01</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1)(1|2|3x1)->(100x1)">
+     <magnitude><val>1.08</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.08</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="RealDiv">
+   <magnitude><val>4.01</val></magnitude>
+   <node name="0.0 TFLOPS">
+    <magnitude><val>4.01</val></magnitude>
+    <node name="(1x1)(1x1)->(1x1)">
+     <magnitude><val>4.01</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4.01</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Conv2DBackpropFilter">
+   <magnitude><val>1013.85</val></magnitude>
+   <node name="|">
+    <magnitude><val>1013.85</val></magnitude>
+    <node name="(100x32x14x14)(int32 4x1)(100x64x14x14)->(5x5x32x64)">
+     <magnitude><val>755</val></magnitude>
+     <node name=" ">
+      <magnitude><val>755</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1x28x28)(int32 4x1)(100x32x28x28)->(5x5x1x32)">
+     <magnitude><val>258.85</val></magnitude>
+     <node name=" ">
+      <magnitude><val>258.85</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="BroadcastGradientArgs">
+   <magnitude><val>7.33</val></magnitude>
+   <node name="|">
+    <magnitude><val>7.33</val></magnitude>
+    <node name="(int32 2x1)(int32 1x1)->(int32 1x1)(int32 2x1)">
+     <magnitude><val>4.06</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4.06</val></magnitude>
+     </node>
+    </node>
+    <node name="(1|2|3x1)(int32 1x1)->(int32 1x1)(int32 1x1)">
+     <magnitude><val>3.24</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3.24</val></magnitude>
+     </node>
+    </node>
+    <node name="(int32 1x1)(int32 1x1)->(int32 1x1)(int32 1x1)">
+     <magnitude><val>0.03</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.03</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Select">
+   <magnitude><val>5.32</val></magnitude>
+   <node name="|">
+    <magnitude><val>5.32</val></magnitude>
+    <node name="(boolean 1x1)(1|2|3x1)(1x1)->(1x1)">
+     <magnitude><val>1.68</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.68</val></magnitude>
+     </node>
+    </node>
+    <node name="(boolean 1x1)(1x1)(1|2|3x1)->(1x1)">
+     <magnitude><val>1.65</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.65</val></magnitude>
+     </node>
+    </node>
+    <node name="(boolean 1x1)(1x1)(1x1)->(1x1)">
+     <magnitude><val>1.99</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.99</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="VariableV2">
+   <magnitude><val>9.75</val></magnitude>
+   <node name="|">
+    <magnitude><val>9.75</val></magnitude>
+    <node name="(no input)->(1x1)">
+     <magnitude><val>7.75</val></magnitude>
+     <node name=" ">
+      <magnitude><val>7.75</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(int64 1x1)">
+     <magnitude><val>2</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Snapshot">
+   <magnitude><val>72.86</val></magnitude>
+   <node name="|">
+    <magnitude><val>5.96</val></magnitude>
+    <node name="(100x1)->(100x1)">
+     <magnitude><val>2.61</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.61</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1)(100x10)->(100x1)">
+     <magnitude><val>0.94</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.94</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1024)->(100x1024)">
+     <magnitude><val>2.41</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.41</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="0.0 TFLOPS">
+    <magnitude><val>66.9</val></magnitude>
+    <node name="(int64 1x1)(int32 1x1)->(int64 1x1)">
+     <magnitude><val>66.9</val></magnitude>
+     <node name=" ">
+      <magnitude><val>66.9</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="ExpandDims">
+   <magnitude><val>2.11</val></magnitude>
+   <node name="|">
+    <magnitude><val>2.11</val></magnitude>
+    <node name="(100x1)(int32 1x1)->(100x1)">
+     <magnitude><val>2.11</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.11</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Size">
+   <magnitude><val>0.02</val></magnitude>
+   <node name="|">
+    <magnitude><val>0.02</val></magnitude>
+    <node name="(100x1)->(int32 1x1)">
+     <magnitude><val>0.02</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.02</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="IsVariableInitialized">
+   <magnitude><val>5.16</val></magnitude>
+   <node name="|">
+    <magnitude><val>5.16</val></magnitude>
+    <node name="(int64 1x1)->(boolean 1x1)">
+     <magnitude><val>5.16</val></magnitude>
+     <node name=" ">
+      <magnitude><val>5.16</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="RandomUniform">
+   <magnitude><val>8.14</val></magnitude>
+   <node name="|">
+    <magnitude><val>8.14</val></magnitude>
+    <node name="(int32 2x1)->(100x1024)">
+     <magnitude><val>8.14</val></magnitude>
+     <node name=" ">
+      <magnitude><val>8.14</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Greater">
+   <magnitude><val>1.82</val></magnitude>
+   <node name="0.0 TFLOPS">
+    <magnitude><val>1.82</val></magnitude>
+    <node name="(1x1)(1|2|3x1)->(boolean 1x1)">
+     <magnitude><val>1.8</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.8</val></magnitude>
+     </node>
+    </node>
+    <node name="(1x1)(1x1)->(boolean 1x1)">
+     <magnitude><val>0.02</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.02</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="MEMCPYDtoD">
+   <magnitude><val>3</val></magnitude>
+   <node name="|">
+    <magnitude><val>3</val></magnitude>
+    <node name="(Transfer)->(8 bytes)">
+     <magnitude><val>1</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1</val></magnitude>
+     </node>
+    </node>
+    <node name="(Transfer)->(4 bytes)">
+     <magnitude><val>2</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Floor">
+   <magnitude><val>2.78</val></magnitude>
+   <node name="|">
+    <magnitude><val>2.78</val></magnitude>
+    <node name="(100x1024)->(100x1024)">
+     <magnitude><val>2.78</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.78</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Add">
+   <magnitude><val>3.38</val></magnitude>
+   <node name="|">
+    <magnitude><val>3.38</val></magnitude>
+    <node name="(1x1)(100x1024)->(100x1024)">
+     <magnitude><val>3.38</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3.38</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="MaxPool">
+   <magnitude><val>174.73</val></magnitude>
+   <node name="|">
+    <magnitude><val>174.73</val></magnitude>
+    <node name="(100x64x14x14)->(100x64x7x7)">
+     <magnitude><val>69.26</val></magnitude>
+     <node name=" ">
+      <magnitude><val>69.26</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x32x28x28)->(100x32x14x14)">
+     <magnitude><val>105.47</val></magnitude>
+     <node name=" ">
+      <magnitude><val>105.47</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Cast">
+   <magnitude><val>0.05</val></magnitude>
+   <node name="|">
+    <magnitude><val>0.05</val></magnitude>
+    <node name="(int64 100x1)->(int32 100x1)">
+     <magnitude><val>0.02</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.02</val></magnitude>
+     </node>
+    </node>
+    <node name="(boolean 100x1)->(100x1)">
+     <magnitude><val>0.02</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.02</val></magnitude>
+     </node>
+    </node>
+    <node name="(int32 1x1)->(1x1)">
+     <magnitude><val>0.01</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.01</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="MEMCPYDtoH">
+   <magnitude><val>2.06</val></magnitude>
+   <node name="|">
+    <magnitude><val>2.06</val></magnitude>
+    <node name="(Transfer)->(4 bytes)">
+     <magnitude><val>1.04</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.04</val></magnitude>
+     </node>
+    </node>
+    <node name="(Transfer)->(400 bytes)">
+     <magnitude><val>0.01</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.01</val></magnitude>
+     </node>
+    </node>
+    <node name="(Transfer)->(8 bytes)">
+     <magnitude><val>1.01</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.01</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="NoOp">
+   <magnitude><val>4.61</val></magnitude>
+   <node name="|">
+    <magnitude><val>4.61</val></magnitude>
+    <node name="(no input)->(no output info)">
+     <magnitude><val>4.61</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4.61</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="RefSwitch">
+   <magnitude><val>0.93</val></magnitude>
+   <node name="|">
+    <magnitude><val>0.93</val></magnitude>
+    <node name="(int64 1x1)(boolean 1x1)->(int64 1x1)">
+     <magnitude><val>0.93</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.93</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="SparseSoftmaxCrossEntropyWithLogits">
+   <magnitude><val>24.13</val></magnitude>
+   <node name="|">
+    <magnitude><val>24.13</val></magnitude>
+    <node name="(100x10)(100x784)(int32 100x1)->(100x1)(100x10)">
+     <magnitude><val>24.13</val></magnitude>
+     <node name=" ">
+      <magnitude><val>24.13</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="BiasAdd">
+   <magnitude><val>245.39</val></magnitude>
+   <node name="|">
+    <magnitude><val>245.39</val></magnitude>
+    <node name="(100x32x28x28)(32x1)->(100x32x28x28)">
+     <magnitude><val>158.7</val></magnitude>
+     <node name=" ">
+      <magnitude><val>158.7</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x10)(10x1)->(100x10)">
+     <magnitude><val>1.89</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.89</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1024)(1024x1)->(100x1024)">
+     <magnitude><val>4.37</val></magnitude>
+     <node name=" ">
+      <magnitude><val>4.37</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x64x14x14)(64x1)->(100x64x14x14)">
+     <magnitude><val>80.43</val></magnitude>
+     <node name=" ">
+      <magnitude><val>80.43</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Const">
+   <magnitude><val>27.42</val></magnitude>
+   <node name="|">
+    <magnitude><val>27.42</val></magnitude>
+    <node name="(no input)->(int64 1x1)">
+     <magnitude><val>3.76</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3.76</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(1x1)">
+     <magnitude><val>13.16</val></magnitude>
+     <node name=" ">
+      <magnitude><val>13.16</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(int32 1x1)">
+     <magnitude><val>7.9</val></magnitude>
+     <node name=" ">
+      <magnitude><val>7.9</val></magnitude>
+     </node>
+    </node>
+    <node name="(no input)->(int32 4x1)">
+     <magnitude><val>2.6</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.6</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="AssignAdd">
+   <magnitude><val>1.82</val></magnitude>
+   <node name="0.0 TFLOPS">
+    <magnitude><val>1.82</val></magnitude>
+    <node name="(1x1)(1x1)->(1x1)">
+     <magnitude><val>0.02</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.02</val></magnitude>
+     </node>
+    </node>
+    <node name="(int64 1x1)(int64 1x1)->(int64 1x1)">
+     <magnitude><val>1.8</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.8</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Sum">
+   <magnitude><val>7.46</val></magnitude>
+   <node name="|">
+    <magnitude><val>7.46</val></magnitude>
+    <node name="(100x1024)(int32 1x1)(int32 2x1)->(100x1024)">
+     <magnitude><val>1.86</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.86</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1)(int32 1x1)(int32 1x1)->(100x1)">
+     <magnitude><val>1.59</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.59</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1)(int32 1x1)->(1x1)">
+     <magnitude><val>0.02</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.02</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1)(1)->(1x1)">
+     <magnitude><val>3.99</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3.99</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="ReluGrad">
+   <magnitude><val>405.37</val></magnitude>
+   <node name="|">
+    <magnitude><val>405.37</val></magnitude>
+    <node name="(100x1024)(100x1024)->(100x1024)">
+     <magnitude><val>5.28</val></magnitude>
+     <node name=" ">
+      <magnitude><val>5.28</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x64x14x14)(100x64x14x14)->(100x64x14x14)">
+     <magnitude><val>144.4</val></magnitude>
+     <node name=" ">
+      <magnitude><val>144.4</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x32x28x28)(100x32x28x28)->(100x32x28x28)">
+     <magnitude><val>255.69</val></magnitude>
+     <node name=" ">
+      <magnitude><val>255.69</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Conv2D">
+   <magnitude><val>719.77</val></magnitude>
+   <node name="|">
+    <magnitude><val>719.77</val></magnitude>
+    <node name="(100x32x14x14)(5x5x32x64)->(100x64x14x14)">
+     <magnitude><val>599.16</val></magnitude>
+     <node name=" ">
+      <magnitude><val>599.16</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1x28x28)(5x5x1x32)->(100x32x28x28)">
+     <magnitude><val>120.61</val></magnitude>
+     <node name=" ">
+      <magnitude><val>120.61</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Tile">
+   <magnitude><val>2.38</val></magnitude>
+   <node name="|">
+    <magnitude><val>2.38</val></magnitude>
+    <node name="(1x1)(int32 1x1)->(100x1)">
+     <magnitude><val>2.38</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.38</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="VarHandleOp">
+   <magnitude><val>24.67</val></magnitude>
+   <node name="|">
+    <magnitude><val>24.67</val></magnitude>
+    <node name="(no input)->(tf_resource 1x1)">
+     <magnitude><val>24.67</val></magnitude>
+     <node name=" ">
+      <magnitude><val>24.67</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Assign">
+   <magnitude><val>29.1</val></magnitude>
+   <node name="|">
+    <magnitude><val>29.1</val></magnitude>
+    <node name="(1x1)(1x1)->(1x1)">
+     <magnitude><val>29.1</val></magnitude>
+     <node name=" ">
+      <magnitude><val>29.1</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Pack">
+   <magnitude><val>10.49</val></magnitude>
+   <node name="|">
+    <magnitude><val>10.49</val></magnitude>
+    <node name="(int32 1x1)(int32 1x1)->(int32 2x1)">
+     <magnitude><val>3.47</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3.47</val></magnitude>
+     </node>
+    </node>
+    <node name="(int32 1x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 4x1)">
+     <magnitude><val>7.02</val></magnitude>
+     <node name=" ">
+      <magnitude><val>7.02</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Equal">
+   <magnitude><val>1.74</val></magnitude>
+   <node name="0.0 TFLOPS">
+    <magnitude><val>1.67</val></magnitude>
+    <node name="(1x1)(1|2|3x1)->(boolean 1x1)">
+     <magnitude><val>1.67</val></magnitude>
+     <node name=" ">
+      <magnitude><val>1.67</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="|">
+    <magnitude><val>0.07</val></magnitude>
+    <node name="(int32 100x1)(100x784)(int32 100x1)->(boolean 100x1)">
+     <magnitude><val>0.07</val></magnitude>
+     <node name=" ">
+      <magnitude><val>0.07</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="MaxPoolGrad">
+   <magnitude><val>288.55</val></magnitude>
+   <node name="|">
+    <magnitude><val>288.55</val></magnitude>
+    <node name="(100x32x28x28)(100x32x14x14)(100x32x14x14)->(100x32x28x28)">
+     <magnitude><val>165.93</val></magnitude>
+     <node name=" ">
+      <magnitude><val>165.93</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x64x14x14)(100x64x7x7)(100x64x7x7)->(100x64x14x14)">
+     <magnitude><val>122.62</val></magnitude>
+     <node name=" ">
+      <magnitude><val>122.62</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="MatMul">
+   <magnitude><val>724.65</val></magnitude>
+   <node name="|">
+    <magnitude><val>724.65</val></magnitude>
+    <node name="(100x3136)(3136x1024)->(100x1024)">
+     <magnitude><val>241.99</val></magnitude>
+     <node name=" ">
+      <magnitude><val>241.99</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1024)(100x10)->(1024x10)">
+     <magnitude><val>11.12</val></magnitude>
+     <node name=" ">
+      <magnitude><val>11.12</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1024)(1024x10)->(100x10)">
+     <magnitude><val>16.26</val></magnitude>
+     <node name=" ">
+      <magnitude><val>16.26</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x10)(1024x10)->(100x1024)">
+     <magnitude><val>14.38</val></magnitude>
+     <node name=" ">
+      <magnitude><val>14.38</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1024)(3136x1024)->(100x3136)">
+     <magnitude><val>248.29</val></magnitude>
+     <node name=" ">
+      <magnitude><val>248.29</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x3136)(100x1024)->(3136x1024)">
+     <magnitude><val>192.61</val></magnitude>
+     <node name=" ">
+      <magnitude><val>192.61</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Identity">
+   <magnitude><val>2.05</val></magnitude>
+   <node name="|">
+    <magnitude><val>2.05</val></magnitude>
+    <node name="(1x1)->(1x1)">
+     <magnitude><val>2.05</val></magnitude>
+     <node name=" ">
+      <magnitude><val>2.05</val></magnitude>
+     </node>
+    </node>
+   </node>
+  </node>
+  <node name="Mul">
+   <magnitude><val>21.13</val></magnitude>
+   <node name="|">
+    <magnitude><val>17.55</val></magnitude>
+    <node name="(100x1024)(1x1)->(100x1024)">
+     <magnitude><val>6.66</val></magnitude>
+     <node name=" ">
+      <magnitude><val>6.66</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1024)(100x1024)->(100x1024)">
+     <magnitude><val>7.54</val></magnitude>
+     <node name=" ">
+      <magnitude><val>7.54</val></magnitude>
+     </node>
+    </node>
+    <node name="(100x1)(100x10)->(100x10)">
+     <magnitude><val>3.35</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3.35</val></magnitude>
+     </node>
+    </node>
+   </node>
+   <node name="0.0 TFLOPS">
+    <magnitude><val>3.58</val></magnitude>
+    <node name="(1x1)(1x1)->(1x1)">
+     <magnitude><val>3.58</val></magnitude>
+     <node name=" ">
+      <magnitude><val>3.58</val></magnitude>
+     </node>
     </node>
    </node>
   </node>
  </node>
  <node name="Time">
   <magnitude><val>0</val></magnitude>
- </node>
- <node name="BroadcastGradientArgs">
-  <magnitude><val>21.88</val></magnitude>
-  <node name=" ">
-   <magnitude><val>21.88</val></magnitude>
-   <node name="(int32 2x1)(int32 1x1)->(int32 1x1)(int32 2x1)">
-    <magnitude><val>11.42</val></magnitude>
-    <node name=" ">
-     <magnitude><val>11.42</val></magnitude>
-    </node>
-   </node>
-   <node name="(1|2|3x1)(int32 1x1)->(int32 1x1)(int32 1x1)">
-    <magnitude><val>10.31</val></magnitude>
-    <node name=" ">
-     <magnitude><val>10.31</val></magnitude>
-    </node>
-   </node>
-   <node name="(int32 1x1)(int32 1x1)->(int32 1x1)(int32 1x1)">
-    <magnitude><val>0.15</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.15</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="ReadVariableOp">
-  <magnitude><val>44.38</val></magnitude>
-  <node name=" ">
-   <magnitude><val>44.38</val></magnitude>
-   <node name="(tf_resource 1x1)->(1024x1)">
-    <magnitude><val>4.74</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.74</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)->(1024x10)">
-    <magnitude><val>4.85</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.85</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)->(5x5x1x32)">
-    <magnitude><val>9.32</val></magnitude>
-    <node name=" ">
-     <magnitude><val>9.32</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)->(5x5x32x64)">
-    <magnitude><val>5.2</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5.2</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)->(10x1)">
-    <magnitude><val>4.75</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.75</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)->(3136x1024)">
-    <magnitude><val>5.02</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5.02</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)->(64x1)">
-    <magnitude><val>4.84</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.84</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)->(32x1)">
-    <magnitude><val>5.66</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5.66</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="MaxPoolGrad">
-  <magnitude><val>287.16</val></magnitude>
-  <node name=" ">
-   <magnitude><val>287.16</val></magnitude>
-   <node name="(100x64x14x14)(100x64x7x7)(100x64x7x7)->(100x64x14x14)">
-    <magnitude><val>120.81</val></magnitude>
-    <node name=" ">
-     <magnitude><val>120.81</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x32x28x28)(100x32x14x14)(100x32x14x14)->(100x32x28x28)">
-    <magnitude><val>166.35</val></magnitude>
-    <node name=" ">
-     <magnitude><val>166.35</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="RefSwitch">
-  <magnitude><val>6.25</val></magnitude>
-  <node name=" ">
-   <magnitude><val>6.25</val></magnitude>
-   <node name="(int64 1x1)(boolean 1x1)->(int64 1x1)">
-    <magnitude><val>6.25</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6.25</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Shape">
-  <magnitude><val>47.1</val></magnitude>
-  <node name=" ">
-   <magnitude><val>47.1</val></magnitude>
-   <node name="(100x1)(100x10)->(int32 1x1)">
-    <magnitude><val>8.06</val></magnitude>
-    <node name=" ">
-     <magnitude><val>8.06</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1024)->(int32 2x1)">
-    <magnitude><val>7.82</val></magnitude>
-    <node name=" ">
-     <magnitude><val>7.82</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1)->(int32 1x1)">
-    <magnitude><val>5.85</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5.85</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x64x7x7)->(int32 4x1)">
-    <magnitude><val>8.3</val></magnitude>
-    <node name=" ">
-     <magnitude><val>8.3</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x784)(int32 100x1)->(int32 2x1)">
-    <magnitude><val>17.07</val></magnitude>
-    <node name=" ">
-     <magnitude><val>17.07</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Fill">
-  <magnitude><val>1.83</val></magnitude>
-  <node name=" ">
-   <magnitude><val>1.83</val></magnitude>
-   <node name="(int32 1x1)(1x1)->(100x1)">
-    <magnitude><val>1.82</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1.82</val></magnitude>
-    </node>
-   </node>
-   <node name="(1|2|3x1)(1x1)->(100x1)">
-    <magnitude><val>0.01</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.01</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="AssignAdd">
-  <magnitude><val>1.88</val></magnitude>
-  <node name="0.0 TFLOPS">
-   <magnitude><val>1.88</val></magnitude>
-   <node name="(1x1)(1x1)->(1x1)">
-    <magnitude><val>0.04</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.04</val></magnitude>
-    </node>
-   </node>
-   <node name="(int64 1x1)(int64 1x1)->(int64 1x1)">
-    <magnitude><val>1.84</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1.84</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Conv2DBackpropFilter">
-  <magnitude><val>993.36</val></magnitude>
-  <node name=" ">
-   <magnitude><val>993.36</val></magnitude>
-   <node name="(100x1x28x28)(int32 4x1)(100x32x28x28)->(5x5x1x32)">
-    <magnitude><val>255.47</val></magnitude>
-    <node name=" ">
-     <magnitude><val>255.47</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x32x14x14)(int32 4x1)(100x64x14x14)->(5x5x32x64)">
-    <magnitude><val>737.89</val></magnitude>
-    <node name=" ">
-     <magnitude><val>737.89</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="MEMCPYDtoH">
-  <magnitude><val>2.06</val></magnitude>
-  <node name=" ">
-   <magnitude><val>2.06</val></magnitude>
-   <node name="(Transfer)->(8 bytes)">
-    <magnitude><val>1.01</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1.01</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(4 bytes)">
-    <magnitude><val>1.04</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1.04</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(400 bytes)">
-    <magnitude><val>0.01</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.01</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="ScalarSummary">
-  <magnitude><val>0.48</val></magnitude>
-  <node name=" ">
-   <magnitude><val>0.48</val></magnitude>
-   <node name="(string 1x1)(1x1)->(string 1x1)">
-    <magnitude><val>0.48</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.48</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Const">
-  <magnitude><val>95.35</val></magnitude>
-  <node name=" ">
-   <magnitude><val>95.35</val></magnitude>
-   <node name="(no input)->(int64 1x1)">
-    <magnitude><val>11.37</val></magnitude>
-    <node name=" ">
-     <magnitude><val>11.37</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(int32 1x1)">
-    <magnitude><val>31</val></magnitude>
-    <node name=" ">
-     <magnitude><val>31</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(1x1)">
-    <magnitude><val>41.28</val></magnitude>
-    <node name=" ">
-     <magnitude><val>41.28</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(string 1x1)">
-    <magnitude><val>0.15</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.15</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(int32 4x1)">
-    <magnitude><val>11.55</val></magnitude>
-    <node name=" ">
-     <magnitude><val>11.55</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Greater">
-  <magnitude><val>1.77</val></magnitude>
-  <node name="0.0 TFLOPS">
-   <magnitude><val>1.77</val></magnitude>
-   <node name="(1x1)(1|2|3x1)->(boolean 1x1)">
-    <magnitude><val>1.75</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1.75</val></magnitude>
-    </node>
-   </node>
-   <node name="(1x1)(1x1)->(boolean 1x1)">
-    <magnitude><val>0.02</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.02</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Equal">
-  <magnitude><val>1.87</val></magnitude>
-  <node name="0.0 TFLOPS">
-   <magnitude><val>1.62</val></magnitude>
-   <node name="(1x1)(1|2|3x1)->(boolean 1x1)">
-    <magnitude><val>1.62</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1.62</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name=" ">
-   <magnitude><val>0.25</val></magnitude>
-   <node name="(int32 100x1)(100x784)(int32 100x1)->(boolean 100x1)">
-    <magnitude><val>0.25</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.25</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Mul">
-  <magnitude><val>31.72</val></magnitude>
-  <node name="0.0 TFLOPS">
-   <magnitude><val>3.43</val></magnitude>
-   <node name="(1x1)(1x1)->(1x1)">
-    <magnitude><val>3.43</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3.43</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name=" ">
-   <magnitude><val>28.29</val></magnitude>
-   <node name="(100x1024)(100x1024)->(100x1024)">
-    <magnitude><val>7.11</val></magnitude>
-    <node name=" ">
-     <magnitude><val>7.11</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1024)(1x1)->(100x1024)">
-    <magnitude><val>6.63</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6.63</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1)(100x10)->(100x10)">
-    <magnitude><val>14.55</val></magnitude>
-    <node name=" ">
-     <magnitude><val>14.55</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Sum">
-  <magnitude><val>15.78</val></magnitude>
-  <node name=" ">
-   <magnitude><val>15.78</val></magnitude>
-   <node name="(100x1)(int32 1x1)->(1x1)">
-    <magnitude><val>0.03</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.03</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1)(int32 1x1)(int32 1x1)->(100x1)">
-    <magnitude><val>5.04</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5.04</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1)(1)->(1x1)">
-    <magnitude><val>4.13</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.13</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1024)(int32 1x1)(int32 2x1)->(100x1024)">
-    <magnitude><val>6.58</val></magnitude>
-    <node name=" ">
-     <magnitude><val>6.58</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="VariableV2">
-  <magnitude><val>21.07</val></magnitude>
-  <node name=" ">
-   <magnitude><val>21.07</val></magnitude>
-   <node name="(no input)->(int64 1x1)">
-    <magnitude><val>5</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5</val></magnitude>
-    </node>
-   </node>
-   <node name="(no input)->(1x1)">
-    <magnitude><val>16.07</val></magnitude>
-    <node name=" ">
-     <magnitude><val>16.07</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="MatMul">
-  <magnitude><val>713.24</val></magnitude>
-  <node name=" ">
-   <magnitude><val>713.24</val></magnitude>
-   <node name="(100x10)(1024x10)->(100x1024)">
-    <magnitude><val>14.28</val></magnitude>
-    <node name=" ">
-     <magnitude><val>14.28</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x3136)(100x1024)->(3136x1024)">
-    <magnitude><val>189.4</val></magnitude>
-    <node name=" ">
-     <magnitude><val>189.4</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x3136)(3136x1024)->(100x1024)">
-    <magnitude><val>240.46</val></magnitude>
-    <node name=" ">
-     <magnitude><val>240.46</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1024)(1024x10)->(100x10)">
-    <magnitude><val>16.12</val></magnitude>
-    <node name=" ">
-     <magnitude><val>16.12</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1024)(100x10)->(1024x10)">
-    <magnitude><val>10.83</val></magnitude>
-    <node name=" ">
-     <magnitude><val>10.83</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1024)(3136x1024)->(100x3136)">
-    <magnitude><val>242.15</val></magnitude>
-    <node name=" ">
-     <magnitude><val>242.15</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="IteratorGetNext">
-  <magnitude><val>5647.48</val></magnitude>
-  <node name=" ">
-   <magnitude><val>5647.48</val></magnitude>
-   <node name="(tf_resource 1x1)->(100x784)(int32 100x1)">
-    <magnitude><val>5647.48</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5647.48</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Switch">
-  <magnitude><val>4.45</val></magnitude>
-  <node name=" ">
-   <magnitude><val>4.45</val></magnitude>
-   <node name="(int64 1x1)(boolean 1x1)->(int64 1x1)">
-    <magnitude><val>4.45</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.45</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Snapshot">
-  <magnitude><val>123.89</val></magnitude>
-  <node name="0.0 TFLOPS">
-   <magnitude><val>100.35</val></magnitude>
-   <node name="(int64 1x1)(int32 1x1)->(int64 1x1)">
-    <magnitude><val>100.35</val></magnitude>
-    <node name=" ">
-     <magnitude><val>100.35</val></magnitude>
-    </node>
-   </node>
-  </node>
-  <node name=" ">
-   <magnitude><val>23.54</val></magnitude>
-   <node name="(100x1024)->(100x1024)">
-    <magnitude><val>9.03</val></magnitude>
-    <node name=" ">
-     <magnitude><val>9.03</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1)(100x10)->(100x1)">
-    <magnitude><val>4.2</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.2</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1)->(100x1)">
-    <magnitude><val>10.31</val></magnitude>
-    <node name=" ">
-     <magnitude><val>10.31</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Iterator">
-  <magnitude><val>22.2</val></magnitude>
-  <node name=" ">
-   <magnitude><val>22.2</val></magnitude>
-   <node name="(no input)->(tf_resource 1x1)">
-    <magnitude><val>22.2</val></magnitude>
-    <node name=" ">
-     <magnitude><val>22.2</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Assign">
-  <magnitude><val>59.63</val></magnitude>
-  <node name=" ">
-   <magnitude><val>59.63</val></magnitude>
-   <node name="(1x1)(1x1)->(1x1)">
-    <magnitude><val>59.63</val></magnitude>
-    <node name=" ">
-     <magnitude><val>59.63</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="VarHandleOp">
-  <magnitude><val>90.7</val></magnitude>
-  <node name=" ">
-   <magnitude><val>90.7</val></magnitude>
-   <node name="(no input)->(tf_resource 1x1)">
-    <magnitude><val>90.7</val></magnitude>
-    <node name=" ">
-     <magnitude><val>90.7</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="ReluGrad">
-  <magnitude><val>436.53</val></magnitude>
-  <node name=" ">
-   <magnitude><val>436.53</val></magnitude>
-   <node name="(100x32x28x28)(100x32x28x28)->(100x32x28x28)">
-    <magnitude><val>275.29</val></magnitude>
-    <node name=" ">
-     <magnitude><val>275.29</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1024)(100x1024)->(100x1024)">
-    <magnitude><val>5.04</val></magnitude>
-    <node name=" ">
-     <magnitude><val>5.04</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x64x14x14)(100x64x14x14)->(100x64x14x14)">
-    <magnitude><val>156.2</val></magnitude>
-    <node name=" ">
-     <magnitude><val>156.2</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="StridedSlice">
-  <magnitude><val>42.43</val></magnitude>
-  <node name=" ">
-   <magnitude><val>42.43</val></magnitude>
-   <node name="(int32 2x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 1x1)">
-    <magnitude><val>31.8</val></magnitude>
-    <node name=" ">
-     <magnitude><val>31.8</val></magnitude>
-    </node>
-   </node>
-   <node name="(int32 4x1)(int32 1x1)(int32 1x1)(int32 1x1)->(int32 1x1)">
-    <magnitude><val>10.63</val></magnitude>
-    <node name=" ">
-     <magnitude><val>10.63</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="MergeSummary">
-  <magnitude><val>0.19</val></magnitude>
-  <node name=" ">
-   <magnitude><val>0.19</val></magnitude>
-   <node name="(string 1x1)(string 1x1)->(string 1x1)">
-    <magnitude><val>0.19</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.19</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="NoOp">
-  <magnitude><val>104.81</val></magnitude>
-  <node name=" ">
-   <magnitude><val>104.81</val></magnitude>
-   <node name="(no input)->(no output info)">
-    <magnitude><val>104.81</val></magnitude>
-    <node name=" ">
-     <magnitude><val>104.81</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="ResourceApplyAdam">
-  <magnitude><val>896.66</val></magnitude>
-  <node name=" ">
-   <magnitude><val>896.66</val></magnitude>
-   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(64x1)->(no output info)">
-    <magnitude><val>8.26</val></magnitude>
-    <node name=" ">
-     <magnitude><val>8.26</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(5x5x1x32)->(no output info)">
-    <magnitude><val>8.53</val></magnitude>
-    <node name=" ">
-     <magnitude><val>8.53</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(3136x1024)->(no output info)">
-    <magnitude><val>827.32</val></magnitude>
-    <node name=" ">
-     <magnitude><val>827.32</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1024x10)->(no output info)">
-    <magnitude><val>9.5</val></magnitude>
-    <node name=" ">
-     <magnitude><val>9.5</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1024x1)->(no output info)">
-    <magnitude><val>8.17</val></magnitude>
-    <node name=" ">
-     <magnitude><val>8.17</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(32x1)->(no output info)">
-    <magnitude><val>8.23</val></magnitude>
-    <node name=" ">
-     <magnitude><val>8.23</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(5x5x32x64)->(no output info)">
-    <magnitude><val>17.11</val></magnitude>
-    <node name=" ">
-     <magnitude><val>17.11</val></magnitude>
-    </node>
-   </node>
-   <node name="(tf_resource 1x1)(tf_resource 1x1)(tf_resource 1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(1x1)(10x1)->(no output info)">
-    <magnitude><val>9.54</val></magnitude>
-    <node name=" ">
-     <magnitude><val>9.54</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="MEMCPYDtoD">
-  <magnitude><val>3</val></magnitude>
-  <node name=" ">
-   <magnitude><val>3</val></magnitude>
-   <node name="(Transfer)->(4 bytes)">
-    <magnitude><val>2</val></magnitude>
-    <node name=" ">
-     <magnitude><val>2</val></magnitude>
-    </node>
-   </node>
-   <node name="(Transfer)->(8 bytes)">
-    <magnitude><val>1</val></magnitude>
-    <node name=" ">
-     <magnitude><val>1</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="BiasAddGrad">
-  <magnitude><val>129.52</val></magnitude>
-  <node name=" ">
-   <magnitude><val>129.52</val></magnitude>
-   <node name="(100x32x28x28)->(32x1)">
-    <magnitude><val>74.18</val></magnitude>
-    <node name=" ">
-     <magnitude><val>74.18</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x10)->(10x1)">
-    <magnitude><val>7.32</val></magnitude>
-    <node name=" ">
-     <magnitude><val>7.32</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x64x14x14)->(64x1)">
-    <magnitude><val>43.26</val></magnitude>
-    <node name=" ">
-     <magnitude><val>43.26</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x1024)->(1024x1)">
-    <magnitude><val>4.76</val></magnitude>
-    <node name=" ">
-     <magnitude><val>4.76</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="ShapeN">
-  <magnitude><val>13.31</val></magnitude>
-  <node name=" ">
-   <magnitude><val>13.31</val></magnitude>
-   <node name="(100x32x14x14)(5x5x32x64)->(int32 4x1)(int32 4x1)">
-    <magnitude><val>13.31</val></magnitude>
-    <node name=" ">
-     <magnitude><val>13.31</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Cast">
-  <magnitude><val>0.05</val></magnitude>
-  <node name=" ">
-   <magnitude><val>0.05</val></magnitude>
-   <node name="(int32 1x1)->(1x1)">
-    <magnitude><val>0.02</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.02</val></magnitude>
-    </node>
-   </node>
-   <node name="(boolean 100x1)->(100x1)">
-    <magnitude><val>0.02</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.02</val></magnitude>
-    </node>
-   </node>
-   <node name="(int64 100x1)->(int32 100x1)">
-    <magnitude><val>0.01</val></magnitude>
-    <node name=" ">
-     <magnitude><val>0.01</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="MaxPool">
-  <magnitude><val>179.13</val></magnitude>
-  <node name=" ">
-   <magnitude><val>179.13</val></magnitude>
-   <node name="(100x32x28x28)->(100x32x14x14)">
-    <magnitude><val>104.25</val></magnitude>
-    <node name=" ">
-     <magnitude><val>104.25</val></magnitude>
-    </node>
-   </node>
-   <node name="(100x64x14x14)->(100x64x7x7)">
-    <magnitude><val>74.88</val></magnitude>
-    <node name=" ">
-     <magnitude><val>74.88</val></magnitude>
-    </node>
-   </node>
-  </node>
- </node>
- <node name="Add">
-  <magnitude><val>3.27</val></magnitude>
-  <node name=" ">
-   <magnitude><val>3.27</val></magnitude>
-   <node name="(1x1)(100x1024)->(100x1024)">
-    <magnitude><val>3.27</val></magnitude>
-    <node name=" ">
-     <magnitude><val>3.27</val></magnitude>
-    </node>
-   </node>
-  </node>
  </node>
 </node>
   </krona>
