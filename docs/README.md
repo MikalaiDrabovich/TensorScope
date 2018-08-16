@@ -27,21 +27,24 @@ official/resnet/resnet_run_loop.py, and for NMT it will be in nmt/nmt/model.py
         sys.path.append('full path to TensorScope/tensorscope/ from clone git repo')
       
    - if you use estimator API:
+   
         from tensorscope import TensorScopeRunHook
       
    - if you use session API:
+   
         from tensorscope import TensorScope    
 
   b) add before the loop from step 2:
    
    - if you use estimator API:
-      session_hook = TensorScopeRunHook(num_steps_to_warmup=10,
+   
+        session_hook = TensorScopeRunHook(num_steps_to_warmup=10,
                                         num_steps_to_measure=100,
                                         model_name='model_name')   
    - if you use session API:
-      # ts may need to be defined as global object
-      # (see this case in nmt/nmt/model.py)
-      ts = TensorScope(num_steps_to_warmup=10,
+     (ts may also need to be defined as global object, see this case in nmt/nmt/model.py)
+      
+        ts = TensorScope(num_steps_to_warmup=10,
                        num_steps_to_measure=100,
                        model_name='model_name',
                        session=session)
@@ -51,15 +54,15 @@ official/resnet/resnet_run_loop.py, and for NMT it will be in nmt/nmt/model.py
    - if you use session API, add 'options' and 'run_metadata' to session.run() and
      also call tensorscope.characterize_model(my_session) after it, for example:
      
-      _ = session.run(target,
+        _ = session.run(target,
                       options=ts.options,
                       run_metadata=ts.metadata())  
-      ts.characterize_model(graph=session.graph) 
+        ts.characterize_model(graph=session.graph) 
               
    - if you use estimator API, you only need to add/append 
      session_hook to estimator.train(), for example:
         
-      my_estimator.train(input_fn=train_input_fn, hooks=[session_hook])
+        my_estimator.train(input_fn=train_input_fn, hooks=[session_hook])
 
 
 4) Now run training/inference as usual.
@@ -69,7 +72,7 @@ num_steps_to_warmup+num_steps_to_measure steps (10+100 by default)
 5) See generated pie_chart.html and data.tsv for detailed results.
 
 Also, take a look at printed out log-scale distribution of top-k ops vs 
-cumulative time (under '*** Top-K ops vs total time ***' and duplicated 
+cumulative time (under 'Top-K ops vs total time ' and duplicated 
 in /results/model_name/model_name_log.txt). If you see that, for example, 
 top-10 ops (out of total 1000 ops) take 90% of time, it is quite likely that 
 focusing optimization/tuning efforts on that 1% of ops could be more 
