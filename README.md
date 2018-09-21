@@ -17,3 +17,8 @@ Find bottlenecks in any complex model within minutes, with exact parameters, eve
 
 ## Contact
 nick.drabovich@amd.com
+
+
+Update 09/2018
+The project is in the process of moving to currently private https://github.com/ROCmSoftwarePlatform/TensorScope
+Coming soon - bug fixes and changes are to be published here as well
